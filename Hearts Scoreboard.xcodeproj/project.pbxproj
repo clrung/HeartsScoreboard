@@ -414,6 +414,7 @@
 				F1FB70381AA01614007073AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1FB70391AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts ScoreboardTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +423,7 @@
 				F1FB703B1AA01614007073AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
