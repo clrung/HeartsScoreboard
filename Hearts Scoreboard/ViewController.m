@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Player.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *scoresCollectionView;
@@ -19,6 +20,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _numRounds = 1;
+    
+    // temporary testing
+    Player *player = [[Player alloc] initWithName:@"Christopher"];
+    
+    NSMutableArray *scores = [[NSMutableArray alloc] init];
+    for(int i = 0; i < 5; i++) {
+        [scores addObject:[NSNumber numberWithInt:i]];
+    }
+    [player setScores:scores];
+    
+    NSLog(@"The sum is %ld", (long)[player sumScores]);
+    // end of temporary testing
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,6 +42,9 @@
 
 #pragma mark Collection View
 
+//
+// The scores collection view will only have one row/column.
+//
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -45,7 +62,6 @@
 
 - (IBAction)touchAddCell:(UIButton *)sender {
     _numRounds++;
-    NSLog(@"numRounds = %ld", (long)_numRounds);
     [_scoresCollectionView reloadData];
 }
 

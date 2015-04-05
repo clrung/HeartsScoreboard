@@ -20,5 +20,6 @@
 
 - (void)setScores:(NSMutableArray*)scores;
 - (NSMutableArray*)scores;
+- (NSInteger)sumScores;
 
 @end

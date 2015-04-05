@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property NSInteger numRounds;
+@property NSUInteger numRounds;
 
 @end
 

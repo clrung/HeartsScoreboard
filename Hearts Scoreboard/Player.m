@@ -12,12 +12,11 @@
 @synthesize name = _name;
 @synthesize scores = _scores;
 
-- (instancetype)initWithName:(NSString*)name {
+- (id)initWithName:(NSString*)name {
     self = [super init];
-    if (self != nil) {
-        _name = name;
+    if (self) {
+        _name = [[NSString alloc] initWithString:name];
         _scores = [[NSMutableArray alloc] init];
-        [_scores addObject:0];
     }
     return self;
 }
@@ -38,22 +37,15 @@
     return _scores;
 }
 
-- (NSUInteger)sumScores {
-    NSInteger sum = 0;
-    NSInteger sum2 = 0;
-    
-    for (NSInteger i = 0; i < [_scores count]; i++) {
-        sum += (NSInteger)[_scores objectAtIndex:i];
-    }
-    
-    for (NSObject *i in _scores) {
-        sum2 += (NSInteger)i;
-    }
-    
-    NSLog(@"sum = %ld", (long)sum);
-    NSLog(@"sum2 = %ld", (long)sum2);
-    
-    return sum;
+- (NSInteger)sumScores {
+//    This works, but valueForKeyPath is more efficient
+//    NSInteger sum = 0;
+//    
+//    for (NSNumber *i in _scores) {
+//        sum += [i integerValue];
+//    }
+
+    return [[_scores valueForKeyPath:@"@sum.self"] integerValue];
 }
 
 @end

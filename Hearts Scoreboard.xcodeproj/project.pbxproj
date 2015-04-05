@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
 		F1FB70191AA01614007073AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70181AA01614007073AC /* main.m */; };
 		F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701B1AA01614007073AC /* AppDelegate.m */; };
 		F1FB701F1AA01614007073AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ViewController.m */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F130D3821ACDE20000C67443 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		F130D3831ACDE20000C67443 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; usesTabs = 0; };
 		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 				F1FB701D1AA01614007073AC /* ViewController.h */,
 				F1FB701E1AA01614007073AC /* ViewController.m */,
 				F1FB70201AA01614007073AC /* Main.storyboard */,
+				F130D3821ACDE20000C67443 /* Player.h */,
+				F130D3831ACDE20000C67443 /* Player.m */,
 				F1FB70231AA01614007073AC /* Images.xcassets */,
 				F1FB70251AA01614007073AC /* LaunchScreen.xib */,
 				F1FB70161AA01614007073AC /* Supporting Files */,
@@ -219,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F130D3841ACDE20000C67443 /* Player.m in Sources */,
 				F1FB701F1AA01614007073AC /* ViewController.m in Sources */,
 				F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */,
 				F1FB70191AA01614007073AC /* main.m in Sources */,
