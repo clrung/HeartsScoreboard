@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void) resetPlayer {
+    _name = @"";
+    _scores = [[NSMutableArray alloc] init];
+}
+
 - (void)setName:(NSString*)name {
     _name = name;
 }
