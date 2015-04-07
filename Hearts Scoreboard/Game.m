@@ -15,6 +15,7 @@
 - (id)initWithNames:(NSArray*) names {
     self = [super init];
     if (self) {
+        _numRounds = 0;
         NSArray *players = [[NSArray alloc] init];
         
         for (NSString *name in names) {

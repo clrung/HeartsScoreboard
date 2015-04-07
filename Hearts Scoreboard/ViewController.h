@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property NSUInteger numRounds;
+@property (strong, nonatomic) Game *game;
 
 @end
-

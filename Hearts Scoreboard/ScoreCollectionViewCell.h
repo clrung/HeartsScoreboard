@@ -10,5 +10,4 @@
 
 @interface ScoreCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UILabel *scoreLabel;
-
 @end
