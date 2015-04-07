@@ -53,6 +53,7 @@
 }
 
 #pragma mark Update Labels
+
 - (void)updatePlayerNameLabels:(NSArray*)names {
     for(UILabel *label in _playerNames) {
         switch(label.tag) {
@@ -107,6 +108,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScoreCollectionViewCell *scoreCell = (ScoreCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"scoreCell" forIndexPath:indexPath];
     
+    
     // TODO move cell appearance code to ScoreCollectionViewCell
     // round the cell's corners
     scoreCell.layer.cornerRadius = 15;
@@ -120,6 +122,20 @@
     [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%ld", (long)[indexPath item]]];
     
     return scoreCell;
+}
+
+//
+// Mirrors scrolling of the scores collection view
+//
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self synchronizeCollectionViewContentOffsets:scrollView];
+}
+
+- (void)synchronizeCollectionViewContentOffsets:scrollView {
+    CGPoint offset = [scrollView contentOffset];
+    for(UICollectionView *view in _scoresCollectionViews) {
+        view.contentOffset = CGPointMake(0, offset.y);
+    }
 }
 
 #pragma mark Button Actions
