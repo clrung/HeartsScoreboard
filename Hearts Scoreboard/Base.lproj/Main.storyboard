@@ -331,10 +331,6 @@
                         <outletCollection property="playerNames" destination="5R4-6Z-dsP" id="RYq-MI-Ocg"/>
                         <outletCollection property="playerNames" destination="GCU-52-44O" id="TAK-Of-bib"/>
                         <outletCollection property="playerNames" destination="AGt-l4-G87" id="a7N-CD-fr0"/>
-                        <outletCollection property="playerScores" destination="E8s-vr-PB4" id="dku-79-qoj"/>
-                        <outletCollection property="playerScores" destination="S94-jL-Qv0" id="d5Y-DT-fLS"/>
-                        <outletCollection property="playerScores" destination="E0r-gi-Ifl" id="IX8-Tm-yzU"/>
-                        <outletCollection property="playerScores" destination="o6B-hj-IAy" id="Ktc-WT-45b"/>
                         <outletCollection property="scoresCollectionViews" destination="8wx-rm-J10" id="mDL-9i-oe9"/>
                         <outletCollection property="scoresCollectionViews" destination="ACA-XG-2Ko" id="Y4n-4l-6pR"/>
                         <outletCollection property="scoresCollectionViews" destination="zm0-zy-qjP" id="jIB-g5-sNx"/>
