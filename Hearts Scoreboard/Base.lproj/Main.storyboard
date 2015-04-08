@@ -4,13 +4,108 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
+        <scene sceneID="teO-DD-N2t">
+            <objects>
+                <viewController id="ssm-fR-bM8" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vNX-xt-8M6"/>
+                        <viewControllerLayoutGuide type="bottom" id="cvM-if-NZb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TRP-Rs-Zbb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 1 Name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SVt-CF-itf">
+                                <rect key="frame" x="215" y="182" width="170" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="dzD-s4-dNx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5D-zD-wUB">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Settings" id="Qe9-90-Vo5">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="WfA-pC-AHL">
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="flipHorizontal" id="mWs-P0-Mg0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 2 Name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RNX-QB-MSf">
+                                <rect key="frame" x="215" y="227" width="170" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 3 Name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YTk-0F-jfw">
+                                <rect key="frame" x="215" y="272" width="170" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 4 Name" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NNc-Sg-y8h">
+                                <rect key="frame" x="215" y="317" width="170" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qhQ-Do-R7i">
+                                <rect key="frame" x="210" y="420" width="180" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Uif-BI-qfs"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Add 26"/>
+                                    <segment title="Subtract 26"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot the moon behavior" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2v-Hj-MxD">
+                                <rect key="frame" x="182" y="391" width="236" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="cfl-T8-tXO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RNX-QB-MSf" firstAttribute="trailing" secondItem="YTk-0F-jfw" secondAttribute="trailing" id="16f-PD-aCj"/>
+                            <constraint firstItem="YTk-0F-jfw" firstAttribute="leading" secondItem="NNc-Sg-y8h" secondAttribute="leading" id="3eV-b1-AaP"/>
+                            <constraint firstItem="qhQ-Do-R7i" firstAttribute="top" secondItem="p2v-Hj-MxD" secondAttribute="bottom" constant="8" symbolic="YES" id="CFj-4J-paD"/>
+                            <constraint firstItem="p2v-Hj-MxD" firstAttribute="top" secondItem="NNc-Sg-y8h" secondAttribute="bottom" constant="44" id="CMZ-0P-Afc"/>
+                            <constraint firstItem="cvM-if-NZb" firstAttribute="top" secondItem="qhQ-Do-R7i" secondAttribute="bottom" constant="152" id="EIP-gM-fdi"/>
+                            <constraint firstItem="SVt-CF-itf" firstAttribute="centerX" secondItem="Y5D-zD-wUB" secondAttribute="centerX" id="LBK-mT-Us3"/>
+                            <constraint firstItem="SVt-CF-itf" firstAttribute="leading" secondItem="RNX-QB-MSf" secondAttribute="leading" id="M5k-hZ-joE"/>
+                            <constraint firstItem="Y5D-zD-wUB" firstAttribute="top" secondItem="vNX-xt-8M6" secondAttribute="bottom" id="MtR-BV-lrv"/>
+                            <constraint firstAttribute="trailing" secondItem="Y5D-zD-wUB" secondAttribute="trailing" id="UAw-Lb-SqG"/>
+                            <constraint firstItem="qhQ-Do-R7i" firstAttribute="centerX" secondItem="p2v-Hj-MxD" secondAttribute="centerX" id="XYP-ZZ-MhC"/>
+                            <constraint firstItem="YTk-0F-jfw" firstAttribute="leading" secondItem="RNX-QB-MSf" secondAttribute="leading" id="YYG-xc-dAO"/>
+                            <constraint firstItem="YTk-0F-jfw" firstAttribute="top" secondItem="RNX-QB-MSf" secondAttribute="bottom" constant="15" id="dLY-Mw-2TM"/>
+                            <constraint firstItem="RNX-QB-MSf" firstAttribute="top" secondItem="SVt-CF-itf" secondAttribute="bottom" constant="15" id="dPM-Va-bty"/>
+                            <constraint firstItem="YTk-0F-jfw" firstAttribute="trailing" secondItem="NNc-Sg-y8h" secondAttribute="trailing" id="euw-z8-OZQ"/>
+                            <constraint firstItem="p2v-Hj-MxD" firstAttribute="centerX" secondItem="NNc-Sg-y8h" secondAttribute="centerX" id="pMy-By-AdO"/>
+                            <constraint firstItem="NNc-Sg-y8h" firstAttribute="top" secondItem="YTk-0F-jfw" secondAttribute="bottom" constant="15" id="uqS-Ic-REO"/>
+                            <constraint firstItem="SVt-CF-itf" firstAttribute="trailing" secondItem="RNX-QB-MSf" secondAttribute="trailing" id="v2q-Ej-die"/>
+                            <constraint firstItem="Y5D-zD-wUB" firstAttribute="leading" secondItem="TRP-Rs-Zbb" secondAttribute="leading" id="zcK-sJ-beX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILW-ck-XWS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="836" y="403"/>
+        </scene>
+        <!--Scoreboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ScoreboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,15 +123,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJc-oD-Q2k">
-                                <rect key="frame" x="502" y="558" width="82" height="30"/>
-                                <state key="normal" title="Next Round">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="touchNextRoundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yEd-f2-8HT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hearts Scoreboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oez-pd-Pcd">
                                 <rect key="frame" x="195" y="32" width="211" height="21"/>
                                 <constraints>
@@ -60,7 +146,7 @@
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="YVe-DB-fg2" customClass="ScoreCollectionViewCell">
@@ -118,7 +204,7 @@
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="AV9-J0-iiz" customClass="ScoreCollectionViewCell">
@@ -173,7 +259,7 @@
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="zkV-Ry-03X" customClass="ScoreCollectionViewCell">
@@ -240,7 +326,7 @@
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="OHe-sY-rQE" customClass="ScoreCollectionViewCell">
@@ -276,6 +362,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Hbr-Rz-hg0"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nof-mf-Hk4">
+                                <rect key="frame" x="563" y="32" width="21" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Nof-mf-Hk4" secondAttribute="height" multiplier="1:1" id="ZKW-lk-bSq"/>
+                                </constraints>
+                                <state key="normal" title="Settings Button" image="settings-icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ssm-fR-bM8" kind="presentation" modalTransitionStyle="flipHorizontal" id="AxM-1n-0Pc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJc-oD-Q2k">
+                                <rect key="frame" x="502" y="558" width="82" height="30"/>
+                                <state key="normal" title="Next Round">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchNextRoundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yEd-f2-8HT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.00021983978804144123" green="0.71840598366477271" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -296,6 +403,7 @@
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="baseline" secondItem="5R4-6Z-dsP" secondAttribute="firstBaseline" id="R5i-JX-Km3"/>
                             <constraint firstItem="cJc-oD-Q2k" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RCc-vb-eWv"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cJc-oD-Q2k" secondAttribute="bottom" constant="12" id="Rka-Ka-0og"/>
+                            <constraint firstItem="oez-pd-Pcd" firstAttribute="bottom" secondItem="Nof-mf-Hk4" secondAttribute="bottom" id="SOl-0J-DFz"/>
                             <constraint firstItem="Hd7-Pd-nrN" firstAttribute="leading" secondItem="o6B-hj-IAy" secondAttribute="leading" id="Ubz-dg-mNE"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="leading" secondItem="o6B-hj-IAy" secondAttribute="trailing" constant="29" id="Uci-vk-L5Q"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="centerX" secondItem="GCU-52-44O" secondAttribute="centerX" id="Uqe-uq-SdM"/>
@@ -305,6 +413,7 @@
                             <constraint firstItem="ACA-XG-2Ko" firstAttribute="top" secondItem="8wx-rm-J10" secondAttribute="top" id="ZCY-19-6Cf"/>
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="centerX" secondItem="AGt-l4-G87" secondAttribute="centerX" id="aBL-ha-Lac"/>
                             <constraint firstItem="GCU-52-44O" firstAttribute="leading" secondItem="5R4-6Z-dsP" secondAttribute="trailing" constant="99" id="cMy-dA-MKW"/>
+                            <constraint firstItem="oez-pd-Pcd" firstAttribute="top" secondItem="Nof-mf-Hk4" secondAttribute="top" id="ec0-2b-pEi"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="eow-74-Kne"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="leading" secondItem="GCU-52-44O" secondAttribute="trailing" constant="8" symbolic="YES" id="gKV-om-3vH"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h5K-cj-Q8g"/>
@@ -315,6 +424,7 @@
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="top" secondItem="zm0-zy-qjP" secondAttribute="top" id="k7D-G3-iiG"/>
                             <constraint firstItem="GCU-52-44O" firstAttribute="leading" secondItem="LVz-pA-X8w" secondAttribute="trailing" constant="8" symbolic="YES" id="pN0-aj-Kv1"/>
                             <constraint firstItem="Hd7-Pd-nrN" firstAttribute="bottom" secondItem="cJc-oD-Q2k" secondAttribute="bottom" id="pSb-AU-dHc"/>
+                            <constraint firstItem="Nof-mf-Hk4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="piF-DD-Iov"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="baseline" secondItem="E8s-vr-PB4" secondAttribute="baseline" id="pvo-Us-cjL"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s1v-yh-Pac"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="leading" secondItem="S94-jL-Qv0" secondAttribute="trailing" constant="40" id="sPw-C9-BUY"/>
@@ -344,7 +454,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="293" y="461"/>
+            <point key="canvasLocation" x="93" y="403"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings-icon" width="512" height="512"/>
+    </resources>
 </document>

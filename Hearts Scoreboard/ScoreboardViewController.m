@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Christopher Rung. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ScoreboardViewController.h"
 #import "ScoreCollectionViewCell.h"
 #import "Player.h"
 
-@interface ViewController ()
+@interface ScoreboardViewController ()
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ViewController
+@implementation ScoreboardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -146,10 +146,9 @@
         [scores addObject:[NSNumber numberWithInt:(i * 2 * + 1)]];
         [[[_game players] objectAtIndex:i] setScores:scores];
     }
-
-    
-    
     // END TESTING
+    
+    
     
     [self updatePassDirectionLabel];
     [self updatePlayerSumScoreLabels];

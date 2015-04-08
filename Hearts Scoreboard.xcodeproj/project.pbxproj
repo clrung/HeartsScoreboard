@@ -10,9 +10,10 @@
 		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
 		F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D38A1AD3128D00C67443 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3891AD3128D00C67443 /* Game.m */; };
+		F14298201AD59A9F00E1B745 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F142981F1AD59A9F00E1B745 /* SettingsViewController.m */; };
 		F1FB70191AA01614007073AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70181AA01614007073AC /* main.m */; };
 		F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701B1AA01614007073AC /* AppDelegate.m */; };
-		F1FB701F1AA01614007073AC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ViewController.m */; };
+		F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
 		F1FB70221AA01614007073AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70201AA01614007073AC /* Main.storyboard */; };
 		F1FB70241AA01614007073AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70231AA01614007073AC /* Images.xcassets */; };
 		F1FB70271AA01614007073AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70251AA01614007073AC /* LaunchScreen.xib */; };
@@ -36,13 +37,15 @@
 		F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCollectionViewCell.m; sourceTree = "<group>"; };
 		F130D3881AD3128D00C67443 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F130D3891AD3128D00C67443 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		F142981E1AD59A9F00E1B745 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		F142981F1AD59A9F00E1B745 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F1FB701A1AA01614007073AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1FB701B1AA01614007073AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1FB701D1AA01614007073AC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F1FB701E1AA01614007073AC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F1FB701D1AA01614007073AC /* ScoreboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreboardViewController.h; sourceTree = "<group>"; };
+		F1FB701E1AA01614007073AC /* ScoreboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreboardViewController.m; sourceTree = "<group>"; };
 		F1FB70211AA01614007073AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1FB70231AA01614007073AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1FB70261AA01614007073AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -92,11 +95,13 @@
 			children = (
 				F1FB701A1AA01614007073AC /* AppDelegate.h */,
 				F1FB701B1AA01614007073AC /* AppDelegate.m */,
-				F1FB701D1AA01614007073AC /* ViewController.h */,
-				F1FB701E1AA01614007073AC /* ViewController.m */,
+				F1FB701D1AA01614007073AC /* ScoreboardViewController.h */,
+				F1FB701E1AA01614007073AC /* ScoreboardViewController.m */,
 				F130D3881AD3128D00C67443 /* Game.h */,
 				F130D3891AD3128D00C67443 /* Game.m */,
 				F1FB70201AA01614007073AC /* Main.storyboard */,
+				F142981E1AD59A9F00E1B745 /* SettingsViewController.h */,
+				F142981F1AD59A9F00E1B745 /* SettingsViewController.m */,
 				F130D3851AD3066000C67443 /* ScoreCollectionViewCell.h */,
 				F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */,
 				F130D3821ACDE20000C67443 /* Player.h */,
@@ -236,10 +241,11 @@
 			files = (
 				F130D3841ACDE20000C67443 /* Player.m in Sources */,
 				F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */,
-				F1FB701F1AA01614007073AC /* ViewController.m in Sources */,
+				F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */,
 				F130D38A1AD3128D00C67443 /* Game.m in Sources */,
 				F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */,
 				F1FB70191AA01614007073AC /* main.m in Sources */,
+				F14298201AD59A9F00E1B745 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

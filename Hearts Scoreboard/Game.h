@@ -14,13 +14,15 @@
 @property (nonatomic) NSUInteger numRounds;
 @property (strong, nonatomic) NSArray *players;
 
-- (id)initWithNames:(NSArray*) names;
+- (id)initWithNames:(NSArray *)names;
 
 - (NSUInteger)numRounds;
 - (void)setNumRounds:(NSUInteger)numRounds;
 
-- (NSArray*)players;
+- (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;
+- (NSArray *)playerNames;
+- (void)setPlayerNames:(NSArray *)playerNames;
 
 - (void)resetGame;
 
