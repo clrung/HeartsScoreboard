@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hold on Tight!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd7-Pd-nrN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pass to the left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd7-Pd-nrN">
                                 <rect key="frame" x="16" y="558" width="115" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="pPu-r3-xhf"/>
@@ -34,7 +34,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="touchAddCell:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ugh-r5-juN"/>
+                                    <action selector="touchNextRoundButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yEd-f2-8HT"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hearts Scoreboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oez-pd-Pcd">
@@ -327,18 +327,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="playerNames" destination="LVz-pA-X8w" id="2nY-5g-kjD"/>
-                        <outletCollection property="playerNames" destination="5R4-6Z-dsP" id="RYq-MI-Ocg"/>
-                        <outletCollection property="playerNames" destination="GCU-52-44O" id="TAK-Of-bib"/>
-                        <outletCollection property="playerNames" destination="AGt-l4-G87" id="a7N-CD-fr0"/>
+                        <outlet property="passDirectionLabel" destination="Hd7-Pd-nrN" id="H3w-Vk-FLB"/>
                         <outletCollection property="scoresCollectionViews" destination="8wx-rm-J10" id="mDL-9i-oe9"/>
                         <outletCollection property="scoresCollectionViews" destination="ACA-XG-2Ko" id="Y4n-4l-6pR"/>
                         <outletCollection property="scoresCollectionViews" destination="zm0-zy-qjP" id="jIB-g5-sNx"/>
                         <outletCollection property="scoresCollectionViews" destination="l0V-Zz-8Hp" id="ewJ-0G-lcl"/>
-                        <outletCollection property="playerSumScores" destination="o6B-hj-IAy" id="qSn-X8-Hko"/>
-                        <outletCollection property="playerSumScores" destination="E0r-gi-Ifl" id="nbi-gX-ctF"/>
-                        <outletCollection property="playerSumScores" destination="S94-jL-Qv0" id="bKR-du-eeX"/>
-                        <outletCollection property="playerSumScores" destination="E8s-vr-PB4" id="g5q-0E-naZ"/>
+                        <outletCollection property="playerSumScoreLabels" destination="o6B-hj-IAy" id="YwM-Nu-yiz"/>
+                        <outletCollection property="playerSumScoreLabels" destination="E0r-gi-Ifl" id="q1c-Sa-tZZ"/>
+                        <outletCollection property="playerSumScoreLabels" destination="S94-jL-Qv0" id="Blb-2M-KnC"/>
+                        <outletCollection property="playerSumScoreLabels" destination="E8s-vr-PB4" id="QCF-99-p7K"/>
+                        <outletCollection property="playerNameLabels" destination="5R4-6Z-dsP" id="wnd-Mu-5J4"/>
+                        <outletCollection property="playerNameLabels" destination="AGt-l4-G87" id="C0P-wh-P3p"/>
+                        <outletCollection property="playerNameLabels" destination="LVz-pA-X8w" id="2WP-3X-NKm"/>
+                        <outletCollection property="playerNameLabels" destination="GCU-52-44O" id="1kp-Yq-tnn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

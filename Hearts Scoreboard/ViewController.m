@@ -11,9 +11,10 @@
 #import "Player.h"
 
 @interface ViewController ()
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNames;
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScores;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
+@property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
 
 @end
 
@@ -28,17 +29,17 @@
     NSArray *names = [[NSArray alloc] initWithObjects:@"Christopher", @"Mary", @"Mom", @"Dad", nil];
     [self updatePlayerNameLabels:names];
     _game = [[Game alloc] initWithNames:names];
-    
-    NSMutableArray *scores = [[NSMutableArray alloc] init];
-    for(int i = 0; i < 5; i++) {
-        [scores addObject:[NSNumber numberWithInt:i]];
-    }
-    
-    for(Player *p in [_game players]) {
-        [p setScores:scores];
-    }
     // end of temporary testing
     
+    
+    // TODO blur edges of the top and bottom of the scoresCollectionViews.
+//    for(UICollectionView *view in _scoresCollectionViews) {
+//        CAGradientLayer *gradient = [CAGradientLayer layer];
+//        gradient.frame = view.bounds;
+//        gradient.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor blackColor].CGColor];
+//        gradient.locations = @[@0.0, @(.1)];
+//        view.layer.mask = gradient;
+//    }
     
     // TODO uncomment this once I figure out custom ScoreCollectionViewCell
 //    for(UICollectionView *view in _scoresCollectionViews) {
@@ -55,40 +56,31 @@
 #pragma mark Update Labels
 
 - (void)updatePlayerNameLabels:(NSArray*)names {
-    for(UILabel *label in _playerNames) {
-        switch(label.tag) {
-        case 0:
-            [label setText:[names objectAtIndex:0]];
-            break;
-        case 1:
-            [label setText:[names objectAtIndex:1]];
-            break;
-        case 2:
-            [label setText:[names objectAtIndex:2]];
-            break;
-        case 3:
-            [label setText:[names objectAtIndex:3]];
-            break;
-        }
+    for(UILabel *label in _playerNameLabels) {
+        [label setText:[names objectAtIndex:label.tag]];
     }
 }
 
 - (void)updatePlayerSumScoreLabels {
-    for(UILabel *label in _playerSumScores) {
-        switch(label.tag) {
-            case 0:
-                [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:0] sumScores]]];
-                break;
-            case 1:
-                [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:1] sumScores]]];
-                break;
-            case 2:
-                [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:2] sumScores]]];
-                break;
-            case 3:
-                [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:3] sumScores]]];
-                break;
-        }
+    for(UILabel *label in _playerSumScoreLabels) {
+        [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:label.tag] sumScores]]];
+    }
+}
+
+- (void)updatePassDirectionLabel {
+    switch([_game numRounds] % 4) {
+        case 0:
+            [_passDirectionLabel setText:@"Pass to the left"];
+            break;
+        case 1:
+            [_passDirectionLabel setText:@"Pass to the right"];
+            break;
+        case 2:
+            [_passDirectionLabel setText:@"Pass across"];
+            break;
+        case 3:
+            [_passDirectionLabel setText:@"Hold on tight!"];
+            break;
     }
 }
 
@@ -108,6 +100,11 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScoreCollectionViewCell *scoreCell = (ScoreCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"scoreCell" forIndexPath:indexPath];
     
+    void (^setScoreLabel)(NSUInteger playerIndex) = ^(NSUInteger playerIndex) {
+        [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[_game players] objectAtIndex:playerIndex] scores] objectAtIndex:[indexPath item]]]];
+    };
+    
+    setScoreLabel(collectionView.tag);
     
     // TODO move cell appearance code to ScoreCollectionViewCell
     // round the cell's corners
@@ -117,20 +114,18 @@
     scoreCell.layer.shadowRadius = 5;
     scoreCell.layer.shadowOpacity = .2;
     scoreCell.layer.masksToBounds = NO;
-    
 
-    [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%ld", (long)[indexPath item]]];
     
     return scoreCell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self synchronizeCollectionViewContentOffsets:scrollView];
 }
 
 //
 // Mirrors scrolling of the scores collection view
 //
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self synchronizeCollectionViewContentOffsets:scrollView];
-}
-
 - (void)synchronizeCollectionViewContentOffsets:scrollView {
     CGPoint offset = [scrollView contentOffset];
     for(UICollectionView *view in _scoresCollectionViews) {
@@ -140,8 +135,25 @@
 
 #pragma mark Button Actions
 
-- (IBAction)touchAddCell:(UIButton *)sender {
+- (IBAction)touchNextRoundButton:(UIButton *)sender {
     [_game setNumRounds:[_game numRounds] + 1];
+
+    
+    
+    // TESTING
+    for(int i = 0; i< 4; i++) {
+        NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
+        [scores addObject:[NSNumber numberWithInt:(i * 2 * + 1)]];
+        [[[_game players] objectAtIndex:i] setScores:scores];
+    }
+
+    
+    
+    // END TESTING
+    
+    [self updatePassDirectionLabel];
+    [self updatePlayerSumScoreLabels];
+    
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
