@@ -16,12 +16,13 @@
     self = [super init];
     if (self) {
         _numRounds = 0;
-        NSArray *players = [[NSArray alloc] init];
         
+        _players = [[NSArray alloc] init];
         for (NSString *name in names) {
             Player *player = [[Player alloc] initWithName:name];
-            [players arrayByAddingObject:player];
+            _players = [_players arrayByAddingObject:player];
         }
+        
     }
     return self;
 }
