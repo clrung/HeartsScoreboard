@@ -12,6 +12,15 @@
 @synthesize name = _name;
 @synthesize scores = _scores;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        _name = [[NSString alloc] init];
+        _scores = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
 - (id)initWithName:(NSString*)name {
     self = [super init];
     if (self) {
@@ -21,25 +30,25 @@
     return self;
 }
 
-- (void) resetPlayer {
+- (void)resetPlayer {
     _name = @"";
     _scores = [[NSMutableArray alloc] init];
-}
-
-- (void)setName:(NSString*)name {
-    _name = name;
 }
 
 - (NSString*)name {
     return _name;
 }
 
-- (void)setScores:(NSMutableArray*)scores {
-    _scores = scores;
+- (void)setName:(NSString*)name {
+    _name = name;
 }
 
 - (NSMutableArray*)scores {
     return _scores;
+}
+
+- (void)setScores:(NSMutableArray*)scores {
+    _scores = scores;
 }
 
 - (NSInteger)sumScores {

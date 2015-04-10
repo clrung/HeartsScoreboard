@@ -12,6 +12,11 @@
 @synthesize numRounds = _numRounds;
 @synthesize players = _players;
 
+- (id)init {
+    NSArray *names = [[NSArray alloc] initWithObjects:@"Player 1", @"Player 2", @"Player 3", @"Player 4", nil];
+    return [self initWithNames:names];
+}
+
 - (id)initWithNames:(NSArray *)names {
     self = [super init];
     if (self) {
@@ -19,8 +24,7 @@
         
         _players = [[NSArray alloc] init];
         for (NSString *name in names) {
-            Player *player = [[Player alloc] initWithName:name];
-            _players = [_players arrayByAddingObject:player];
+            _players = [_players arrayByAddingObject:[[Player alloc] initWithName:name]];
         }
         
     }

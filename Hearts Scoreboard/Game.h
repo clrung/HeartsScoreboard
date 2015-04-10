@@ -14,6 +14,7 @@
 @property (nonatomic) NSUInteger numRounds;
 @property (strong, nonatomic) NSArray *players;
 
+- (id)init;
 - (id)initWithNames:(NSArray *)names;
 
 - (NSUInteger)numRounds;
