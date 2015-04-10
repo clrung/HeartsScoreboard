@@ -180,7 +180,7 @@
     if ([sourceViewController isKindOfClass:[SettingsViewController class]]) {
         NSArray* names = [[NSArray alloc] init];
         
-        for(UITextField *field in [[sourceViewController nameTextFields] reverseObjectEnumerator]) {
+        for(UITextField *field in [sourceViewController nameTextFields]) {
             names = [names arrayByAddingObject:[field text]];
         }
         
