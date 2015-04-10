@@ -58,7 +58,7 @@
 }
 
 - (void)setPlayerNames:(NSArray *)playerNames {
-    for(NSUInteger i = 0; i < 4; i++) {
+    for(NSUInteger i = 0; i < [playerNames count]; i++) {
         [_players[i] setName:playerNames[i]];
     }
 }

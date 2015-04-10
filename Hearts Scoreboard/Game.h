@@ -22,6 +22,7 @@
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;
+
 - (NSArray *)playerNames;
 - (void)setPlayerNames:(NSArray *)playerNames;
 

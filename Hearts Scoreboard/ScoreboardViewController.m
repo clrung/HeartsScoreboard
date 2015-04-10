@@ -7,10 +7,12 @@
 //
 
 #import "ScoreboardViewController.h"
+#import "SettingsViewController.h"
 #import "ScoreCollectionViewCell.h"
 #import "Player.h"
 
 @interface ScoreboardViewController ()
+
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
@@ -22,14 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    
-    
-    // temporary testing
-    NSArray *names = [[NSArray alloc] initWithObjects:@"Christopher", @"Mary", @"Mom", @"Dad", nil];
-    [self updatePlayerNameLabels:names];
-    _game = [[Game alloc] initWithNames:names];
-    // end of temporary testing
+    _game = [[Game alloc] init];
     
     
     // TODO blur edges of the top and bottom of the scoresCollectionViews.
@@ -48,6 +43,11 @@
 
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [self updatePlayerNameLabels:[_game playerNames]];
+//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,9 +55,9 @@
 
 #pragma mark Update Labels
 
-- (void)updatePlayerNameLabels:(NSArray*)names {
+- (void)updatePlayerNameLabels {
     for(UILabel *label in _playerNameLabels) {
-        [label setText:[names objectAtIndex:label.tag]];
+        [label setText:[[_game playerNames] objectAtIndex:label.tag]];
     }
 }
 
@@ -155,6 +155,37 @@
     
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
+    }
+}
+
+#pragma mark - Navigation
+
+//
+// Provides the settings view with the players' names.
+//
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"showSettingsSegue"]){
+        SettingsViewController *controller = (SettingsViewController *)segue.destinationViewController;
+
+        [controller setPlayerNames:[_game playerNames]];
+    }
+}
+
+//
+// Populates the Scoreboard's names with the names provided in the Settings view.
+//
+- (IBAction)unwindToScoreBoard:(UIStoryboardSegue *)unwindSegue {
+    SettingsViewController* sourceViewController = unwindSegue.sourceViewController;
+    
+    if ([sourceViewController isKindOfClass:[SettingsViewController class]]) {
+        NSArray* names = [[NSArray alloc] init];
+        
+        for(UITextField *field in [[sourceViewController nameTextFields] reverseObjectEnumerator]) {
+            names = [names arrayByAddingObject:[field text]];
+        }
+        
+        [_game setPlayerNames: names];
+        [self updatePlayerNameLabels];
     }
 }
 

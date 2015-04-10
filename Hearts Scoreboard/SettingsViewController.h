@@ -10,4 +10,11 @@
 
 @interface SettingsViewController : UIViewController
 
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *nameTextFields;
+
+@property (strong, nonatomic) NSArray* playerNames;
+
+- (void)setPlayerNames:(NSArray *)playerNames;
+- (NSArray *)playerNames;
+
 @end
