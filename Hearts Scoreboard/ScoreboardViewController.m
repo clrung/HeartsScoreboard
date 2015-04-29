@@ -32,6 +32,8 @@
     [super viewDidLoad];
     _game = [[Game alloc] init];
     
+    [self.view bringSubviewToFront:_nextRoundView];
+    
     
     // TODO blur edges of the top and bottom of the scoresCollectionViews.
 //    for(UICollectionView *view in _scoresCollectionViews) {
