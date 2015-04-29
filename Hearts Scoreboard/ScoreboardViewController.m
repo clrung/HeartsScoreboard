@@ -18,6 +18,12 @@
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
 @property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *nextRoundView;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *nextRoundPlayerScoreFields;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
+
+
 @end
 
 @implementation ScoreboardViewController
@@ -138,10 +144,11 @@
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
     [_game setNumRounds:[_game numRounds] + 1];
 
+    [self setView:_nextRoundView hidden:NO];
     
     
     // TESTING
-    for(int i = 0; i< 4; i++) {
+    for(int i = 0; i < 4; i++) {
         NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
         [scores addObject:[NSNumber numberWithInt:(i * 2 * + 1)]];
         [[[_game players] objectAtIndex:i] setScores:scores];
@@ -156,6 +163,17 @@
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
+}
+
+- (void)setView:(UIView*)view hidden:(BOOL)hidden {
+    [UIView transitionWithView:view duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^(void){
+        [view setHidden:hidden];
+    } completion:nil];
+}
+
+#pragma mark - Next Round View
+- (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
+    [self setView:_nextRoundView hidden:YES];
 }
 
 #pragma mark - Navigation

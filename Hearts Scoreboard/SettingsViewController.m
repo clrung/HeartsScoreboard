@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     // nameTextFields is in the reverse order; reverse the array to put it in order
-    _nameTextFields = [[_nameTextFields reverseObjectEnumerator] allObjects];
+   // _nameTextFields = [[_nameTextFields reverseObjectEnumerator] allObjects];
     
     [self setupInputAccessoryViews];
     
@@ -70,6 +70,7 @@
 //
 - (void)goToNextField {
     [[_nameTextFields objectAtIndex:(_activeTextField.tag + 1)] becomeFirstResponder];
+    NSLog(@"tag: %ld", (long)_activeTextField.tag);
 }
 
 //
