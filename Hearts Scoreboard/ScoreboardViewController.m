@@ -48,9 +48,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark Update Labels
+#pragma mark Update Text
 
-- (void)updatePlayerNameLabels {
+- (void)updatePlayerNames {
     for(UILabel *label in _playerNameLabels) {
         [label setText:[[_game playerNames] objectAtIndex:label.tag]];
     }
@@ -82,6 +82,16 @@
         case 3:
             [_passDirectionLabel setText:@"Hold on tight!"];
             break;
+    }
+}
+
+- (void)updateDealer {
+    for (UILabel *label in _playerNameLabels) {
+        if ([_game numRounds] % 4 == label.tag) {
+            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
+        } else {
+            label.font = [UIFont fontWithName:@"HelveticaNeue" size: 17];
+        }
     }
 }
 
@@ -184,7 +194,7 @@
     }
     
     [_game setPlayerNames: names];
-    [self updatePlayerNameLabels];
+    [self updatePlayerNames];
 }
 
 #pragma mark - Next Round View
@@ -202,6 +212,7 @@
         
         [self updatePassDirectionLabel];
         [self updatePlayerSumScoreLabels];
+        [self updateDealer];
         
         for(UICollectionView *view in _scoresCollectionViews) {
             [view reloadData];
