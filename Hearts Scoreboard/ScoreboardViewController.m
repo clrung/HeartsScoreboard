@@ -7,21 +7,30 @@
 //
 
 #import "ScoreboardViewController.h"
-#import "SettingsViewController.h"
 #import "ScoreCollectionViewCell.h"
 #import "Player.h"
 
 @interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *playerNameFields;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
+
 @property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
+
+@property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
+
+@property (strong, nonatomic) UITextField *activeTextField;
+@property (strong, nonatomic) NSArray *inputAccessoryViews;
 
 @end
 
@@ -30,6 +39,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _game = [[Game alloc] init];
+    
+    [self setupInputAccessoryViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +56,9 @@
     }
     for(UILabel *label in _nextRoundPlayerNameLabels) {
         [label setText:[[_game playerNames] objectAtIndex:label.tag]];
+    }
+    for(UITextField *field in _playerNameFields) {
+        [field setText:[[_game playerNames] objectAtIndex:field.tag]];
     }
 }
 
@@ -120,7 +134,7 @@
     }
 }
 
-#pragma mark Main Button Actions
+#pragma mark - Main Button Actions
 
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
     [_game setNumRounds:[_game numRounds] + 1];
@@ -130,10 +144,13 @@
     [self setView:_nextRoundView hidden:NO];
 }
 
-#pragma mark - Next Round View Actions
+#pragma mark - Next Round View
+#pragma mark Actions
 
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
-    if ([self getNextRoundViewSum] == 26) {
+    // the sum must be 26 to be valid, unless a player shoots the moon.
+    // and the subtract 26 option is selected.
+    if ([self getNextRoundViewSum] == 26 || [self getNextRoundViewSum] == 78 || [self getNextRoundViewSum] == -26) {
         for(int i = 0; i < 4; i++) {
             NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
             [scores addObject:[NSNumber numberWithInt:[[[_nextRoundScoreLabels objectAtIndex:i] text] intValue]]];
@@ -184,8 +201,6 @@
             if (currentScore + 13 < 27)
                 [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 13]];
             break;
-        default:
-            break;
     }
     
     
@@ -193,16 +208,33 @@
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        [button setEnabled:NO];
+    }
     
+    if([_moonBehaviorSegmentedControl selectedSegmentIndex] == 0) { // add 26
+        for (UILabel *label in _nextRoundScoreLabels) {
+            [label setText:@"26"];
+        }
+        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"0"];
+    } else { // subtract 26
+        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"-26"];
+    }
+    
+    [_nextRoundSubmitButton setEnabled:YES];
 }
 
-#pragma mark - Next Round View Misc
+#pragma mark Misc
 
 - (void)resetNextRoundView {
     [_nextRoundSubmitButton setEnabled:NO];
     
     for (UILabel *label in _nextRoundScoreLabels) {
         [label setText:@"0"];
+    }
+    
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        [button setEnabled:YES];
     }
 }
 
@@ -216,38 +248,8 @@
     }];
 }
 
-#pragma mark - Navigation
+#pragma mark Helper Methods
 
-//
-// Provides the settings view with the players' names.
-//
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if([segue.identifier isEqualToString:@"showSettingsSegue"]){
-        SettingsViewController *controller = (SettingsViewController *)segue.destinationViewController;
-        
-        [controller setPlayerNames:[_game playerNames]];
-    }
-}
-
-//
-// Populates the Scoreboard's names with the names provided in the Settings view.
-//
-- (IBAction)unwindToScoreBoard:(UIStoryboardSegue *)unwindSegue {
-    SettingsViewController* sourceViewController = unwindSegue.sourceViewController;
-    
-    if ([sourceViewController isKindOfClass:[SettingsViewController class]]) {
-        NSArray* names = [[NSArray alloc] init];
-        
-        for(UITextField *field in [sourceViewController nameTextFields]) {
-            names = [names arrayByAddingObject:[field text]];
-        }
-        
-        [_game setPlayerNames: names];
-        [self updatePlayerNameLabels];
-    }
-}
-
-#pragma mark - Helper Methods
 - (int)getNextRoundViewSum {
     int sum = 0;
     
@@ -256,6 +258,116 @@
     }
     
     return sum;
+}
+
+#pragma mark - Settings
+
+- (IBAction)touchSettings:(UIButton *)sender {
+
+    BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
+    
+    [UIView animateWithDuration:0.5 animations:^() {
+        settingsVisible ? [_shootTheMoonLabel setAlpha:0.0] : [_shootTheMoonLabel setAlpha:1.0];
+        settingsVisible ? [_moonBehaviorSegmentedControl setAlpha:0.0] : [_moonBehaviorSegmentedControl setAlpha:1.0];
+        
+        settingsVisible ? [_passDirectionLabel setAlpha:1.0] : [_passDirectionLabel setAlpha:0.0];
+        [_nextRoundButton setEnabled:settingsVisible];
+        
+        for (UITextField *field in _playerNameFields) {
+            settingsVisible ? [field setAlpha:0.0] : [field setAlpha:1.0];
+        }
+        for (UILabel *label in _playerNameLabels) {
+            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
+        }
+        for (UILabel *label in _playerSumScoreLabels) {
+            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
+        }
+        for (UICollectionView *view in _scoresCollectionViews) {
+            settingsVisible ? [view setAlpha:1.0] : [view setAlpha:0.0];
+        }
+    }];
+    
+    NSArray* names = [[NSArray alloc] init];
+    
+    for(UITextField *field in _playerNameFields) {
+        NSString *newName = [[NSString alloc] init];
+        
+        if (([[field text] isEqualToString:@""])) {
+            newName = [NSString stringWithFormat:@"Player %ld", (long)field.tag + 1];
+        } else {
+            newName = [field text];
+        }
+        
+        names = [names arrayByAddingObject:newName];
+    }
+    
+    [_game setPlayerNames: names];
+    [self updatePlayerNameLabels];
+}
+
+#pragma mark - Input Accessory View
+
+- (void)setupInputAccessoryViews {
+    _inputAccessoryViews = [[NSArray alloc] initWithObjects:[[UIToolbar alloc] init], [[UIToolbar alloc] init], [[UIToolbar alloc] init], [[UIToolbar alloc] init], nil];
+    
+    for(UIToolbar *accessoryView in _inputAccessoryViews) {
+        UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:101 target:nil action:@selector(goToPrevField)]; // 101 is the < character
+        UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:102 target:nil action:@selector(goToNextField)]; // 102 is the > character
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:nil action:@selector(dismissKeyboard)];
+        UIBarButtonItem *flexSpace  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        UIBarButtonItem *fake       = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        
+        [accessoryView sizeToFit];
+        [accessoryView setItems:[NSArray arrayWithObjects: prevButton, fake, nextButton, fake, flexSpace, fake, doneButton, nil] animated:YES];
+    }
+    
+    // disable the previous button in the first accessory view
+    ((UIBarButtonItem*)[((UIToolbar*)[_inputAccessoryViews objectAtIndex:0]).items objectAtIndex:0]).enabled = NO;
+    // disable the next button in the last accessory view
+    ((UIBarButtonItem*)[((UIToolbar*)[_inputAccessoryViews objectAtIndex:3]).items objectAtIndex:2]).enabled = NO;
+    
+    // add the input accessory view to each text field's keyboard.
+    for(UITextField *field in _playerNameFields) {
+        [field addTarget:self action:@selector(fieldSelected:) forControlEvents:UIControlEventEditingDidBegin];
+        [field setInputAccessoryView:[_inputAccessoryViews objectAtIndex:field.tag]];
+    }
+}
+
+- (void)fieldSelected:(UITextField*)selectedField {
+    _activeTextField = selectedField;
+}
+
+//
+// Focus on the previous UITextField
+//
+- (void)goToPrevField {
+    [[_playerNameFields objectAtIndex:(_activeTextField.tag - 1)] becomeFirstResponder];
+}
+
+//
+// Focus on the next UITextField
+//
+- (void)goToNextField {
+    [[_playerNameFields objectAtIndex:(_activeTextField.tag + 1)] becomeFirstResponder];
+}
+
+//
+// Dismiss the keyboard when done is tapped.
+//
+- (void)dismissKeyboard {
+    [[_playerNameFields objectAtIndex:_activeTextField.tag] resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    // if currently focused on first three textboxes, go to the next text box
+    if (textField.tag < 3) {
+        [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
+        // if currently focused on last textbox, dismiss the keyboard.
+    } else if (textField.tag == 3) {
+        [[_playerNameFields objectAtIndex:3] resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 @end
