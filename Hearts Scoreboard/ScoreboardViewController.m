@@ -20,9 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *nextRoundPlayerScoreFields;
-@property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
-
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
 
 @end
 
@@ -31,30 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _game = [[Game alloc] init];
-    
-    [self.view bringSubviewToFront:_nextRoundView];
-    
-    
-    // TODO blur edges of the top and bottom of the scoresCollectionViews.
-//    for(UICollectionView *view in _scoresCollectionViews) {
-//        CAGradientLayer *gradient = [CAGradientLayer layer];
-//        gradient.frame = view.bounds;
-//        gradient.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor blackColor].CGColor];
-//        gradient.locations = @[@0.0, @(.1)];
-//        view.layer.mask = gradient;
-//    }
-    
-    // TODO uncomment this once I figure out custom ScoreCollectionViewCell
-//    for(UICollectionView *view in _scoresCollectionViews) {
-//        [view registerClass:[ScoreCollectionViewCell class] forCellWithReuseIdentifier:@"scoreCell"];
-//    }
-
 }
-
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    [self updatePlayerNameLabels:[_game playerNames]];
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -65,6 +40,9 @@
 
 - (void)updatePlayerNameLabels {
     for(UILabel *label in _playerNameLabels) {
+        [label setText:[[_game playerNames] objectAtIndex:label.tag]];
+    }
+    for(UILabel *label in _nextRoundPlayerNameLabels) {
         [label setText:[[_game playerNames] objectAtIndex:label.tag]];
     }
 }
@@ -122,7 +100,7 @@
     scoreCell.layer.shadowRadius = 5;
     scoreCell.layer.shadowOpacity = .2;
     scoreCell.layer.masksToBounds = NO;
-
+    
     
     return scoreCell;
 }
@@ -141,11 +119,11 @@
     }
 }
 
-#pragma mark Button Actions
+#pragma mark Main Button Actions
 
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
     [_game setNumRounds:[_game numRounds] + 1];
-
+    
     [self setView:_nextRoundView hidden:NO];
     
     
@@ -167,15 +145,54 @@
     }
 }
 
-- (void)setView:(UIView*)view hidden:(BOOL)hidden {
-    [UIView transitionWithView:view duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^(void){
-        [view setHidden:hidden];
-    } completion:nil];
-}
-
 #pragma mark - Next Round View
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
     [self setView:_nextRoundView hidden:YES];
+}
+
+- (IBAction)touchNextRoundResetButton:(UIButton *)sender {
+    for (UILabel *label in _nextRoundScoreLabels) {
+        [label setText:@"0"];
+    }
+}
+
+- (IBAction)touchAddScore:(UIButton *)sender {
+    UIButton *button = (UIButton *)sender;
+    
+    NSArray *choices = @[@"+1", @"+5", @"Q"];
+    NSUInteger item = [choices indexOfObject:button.currentTitle];
+    
+    UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:button.tag];
+    
+    int currentScore = [[currentScoreLabel text] intValue];
+    
+    switch (item) {
+        case 0:     // +1
+            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 1]];
+            break;
+        case 1:     // +5
+            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 5]];
+            break;
+        case 2:     // Q
+            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 13]];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)touchShootMoon:(UIButton *)sender {
+    
+}
+
+- (void)setView:(UIView*)view hidden:(BOOL)hidden {
+    [UIView animateWithDuration:0.5 animations:^() {
+        if (hidden) {
+            [view setAlpha:0.0];
+        } else {
+            [view setAlpha:1.0];
+        }
+    }];
 }
 
 #pragma mark - Navigation
@@ -186,7 +203,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"showSettingsSegue"]){
         SettingsViewController *controller = (SettingsViewController *)segue.destinationViewController;
-
+        
         [controller setPlayerNames:[_game playerNames]];
     }
 }
