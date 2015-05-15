@@ -520,7 +520,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
                                             <rect key="frame" x="277" y="471" width="46" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Yyj-Cn-tDE"/>
@@ -866,6 +866,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextRoundSubmitButton" destination="FLf-mc-Xeg" id="SCb-Xg-6LI"/>
                         <outlet property="nextRoundView" destination="JyC-Ds-4dR" id="jIf-Eb-4CZ"/>
                         <outlet property="passDirectionLabel" destination="Hd7-Pd-nrN" id="H3w-Vk-FLB"/>
                         <outletCollection property="scoresCollectionViews" destination="8wx-rm-J10" id="mDL-9i-oe9"/>

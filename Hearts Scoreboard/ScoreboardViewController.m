@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 
 @end
 
@@ -124,36 +125,40 @@
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
     [_game setNumRounds:[_game numRounds] + 1];
     
+    [self resetNextRoundView];
+    
     [self setView:_nextRoundView hidden:NO];
-    
-    
-    // TESTING
-    for(int i = 0; i < 4; i++) {
-        NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
-        [scores addObject:[NSNumber numberWithInt:(i * 2 * + 1)]];
-        [[[_game players] objectAtIndex:i] setScores:scores];
-    }
-    // END TESTING
-    
-    
-    
-    [self updatePassDirectionLabel];
-    [self updatePlayerSumScoreLabels];
-    
-    for(UICollectionView *view in _scoresCollectionViews) {
-        [view reloadData];
-    }
 }
 
-#pragma mark - Next Round View
+#pragma mark - Next Round View Actions
+
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
-    [self setView:_nextRoundView hidden:YES];
+    if ([self getNextRoundViewSum] == 26) {
+        for(int i = 0; i < 4; i++) {
+            NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
+            [scores addObject:[NSNumber numberWithInt:[[[_nextRoundScoreLabels objectAtIndex:i] text] intValue]]];
+            [[[_game players] objectAtIndex:i] setScores:scores];
+        }
+        
+        [self updatePassDirectionLabel];
+        [self updatePlayerSumScoreLabels];
+        
+        for(UICollectionView *view in _scoresCollectionViews) {
+            [view reloadData];
+        }
+        
+        [self setView:_nextRoundView hidden:YES];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Invalid Scores"
+                                    message:@"The sum of the scores must be equal to 26."
+                                   delegate:self
+                          cancelButtonTitle:@"Okay"
+                          otherButtonTitles:nil, nil] show];
+    }
 }
 
 - (IBAction)touchNextRoundResetButton:(UIButton *)sender {
-    for (UILabel *label in _nextRoundScoreLabels) {
-        [label setText:@"0"];
-    }
+    [self resetNextRoundView];
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
@@ -168,21 +173,37 @@
     
     switch (item) {
         case 0:     // +1
-            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 1]];
+            if (currentScore + 1 < 27)
+                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 1]];
             break;
         case 1:     // +5
-            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 5]];
+            if (currentScore + 5 < 27)
+                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 5]];
             break;
         case 2:     // Q
-            [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 13]];
+            if (currentScore + 13 < 27)
+                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 13]];
             break;
         default:
             break;
     }
+    
+    
+    [_nextRoundSubmitButton setEnabled:YES];
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
     
+}
+
+#pragma mark - Next Round View Misc
+
+- (void)resetNextRoundView {
+    [_nextRoundSubmitButton setEnabled:NO];
+    
+    for (UILabel *label in _nextRoundScoreLabels) {
+        [label setText:@"0"];
+    }
 }
 
 - (void)setView:(UIView*)view hidden:(BOOL)hidden {
@@ -224,6 +245,17 @@
         [_game setPlayerNames: names];
         [self updatePlayerNameLabels];
     }
+}
+
+#pragma mark - Helper Methods
+- (int)getNextRoundViewSum {
+    int sum = 0;
+    
+    for (UILabel *label in _nextRoundScoreLabels) {
+        sum += [[label text] intValue];
+    }
+    
+    return sum;
 }
 
 @end
