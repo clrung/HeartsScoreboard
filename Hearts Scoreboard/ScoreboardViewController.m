@@ -273,6 +273,9 @@
         }
         [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"0"];
     } else { // subtract 26
+        for (UILabel *label in _nextRoundScoreLabels) {
+            [label setText:@"0"];
+        }
         [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"-26"];
     }
     
