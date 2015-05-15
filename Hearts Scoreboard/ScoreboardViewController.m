@@ -263,10 +263,6 @@
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
-    for (UIButton *button in _nextRoundAddScoreButtons) {
-        [button setEnabled:NO];
-    }
-    
     if([_moonBehaviorSegmentedControl selectedSegmentIndex] == 0) { // add 26
         for (UILabel *label in _nextRoundScoreLabels) {
             [label setText:@"26"];
@@ -277,6 +273,10 @@
             [label setText:@"0"];
         }
         [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"-26"];
+    }
+    
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        [button setEnabled:NO];
     }
     
     [_nextRoundSubmitButton setEnabled:YES];
@@ -325,6 +325,11 @@
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
     } else if ([self getNextRoundViewSum] + value == 26) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
+        
+        for (UIButton *button in _nextRoundAddScoreButtons) {
+            [button setEnabled:NO];
+        }
+        
         [_nextRoundSubmitButton setEnabled:YES];
     } else if ([self getNextRoundViewSum] + value > 26) {
         [[[UIAlertView alloc] initWithTitle:@"Invalid"
