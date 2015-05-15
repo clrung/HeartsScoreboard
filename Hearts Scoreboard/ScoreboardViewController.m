@@ -144,6 +144,49 @@
     [self setView:_nextRoundView hidden:NO];
 }
 
+- (IBAction)touchSettings:(UIButton *)sender {
+    
+    BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
+    
+    [UIView animateWithDuration:0.5 animations:^() {
+        settingsVisible ? [_shootTheMoonLabel setAlpha:0.0] : [_shootTheMoonLabel setAlpha:1.0];
+        settingsVisible ? [_moonBehaviorSegmentedControl setAlpha:0.0] : [_moonBehaviorSegmentedControl setAlpha:1.0];
+        
+        settingsVisible ? [_passDirectionLabel setAlpha:1.0] : [_passDirectionLabel setAlpha:0.0];
+        settingsVisible ? [_nextRoundButton setAlpha:1.0] : [_nextRoundButton setAlpha:0.0];
+        
+        for (UITextField *field in _playerNameFields) {
+            settingsVisible ? [field setAlpha:0.0] : [field setAlpha:1.0];
+        }
+        for (UILabel *label in _playerNameLabels) {
+            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
+        }
+        for (UILabel *label in _playerSumScoreLabels) {
+            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
+        }
+        for (UICollectionView *view in _scoresCollectionViews) {
+            settingsVisible ? [view setAlpha:1.0] : [view setAlpha:0.0];
+        }
+    }];
+    
+    NSArray* names = [[NSArray alloc] init];
+    
+    for(UITextField *field in _playerNameFields) {
+        NSString *newName = [[NSString alloc] init];
+        
+        if (([[field text] isEqualToString:@""])) {
+            newName = [NSString stringWithFormat:@"Player %ld", (long)field.tag + 1];
+        } else {
+            newName = [field text];
+        }
+        
+        names = [names arrayByAddingObject:newName];
+    }
+    
+    [_game setPlayerNames: names];
+    [self updatePlayerNameLabels];
+}
+
 #pragma mark - Next Round View
 #pragma mark Actions
 
@@ -171,6 +214,7 @@
                                    delegate:self
                           cancelButtonTitle:@"Okay"
                           otherButtonTitles:nil, nil] show];
+        [self resetNextRoundView];
     }
 }
 
@@ -186,25 +230,25 @@
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:button.tag];
     
-    int currentScore = [[currentScoreLabel text] intValue];
-    
     switch (item) {
         case 0:     // +1
-            if (currentScore + 1 < 27)
-                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 1]];
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
             break;
         case 1:     // +5
-            if (currentScore + 5 < 27)
-                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 5]];
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:5];
             break;
         case 2:     // Q
-            if (currentScore + 13 < 27)
-                [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + 13]];
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
+            
+            // disable the Q buttons; there is only one Queen of Spades
+            for (UIButton *button in _nextRoundAddScoreButtons) {
+                if ([button.currentTitle isEqualToString:@"Q"]) {
+                    [button setEnabled:NO];
+                }
+            }
+            
             break;
     }
-    
-    
-    [_nextRoundSubmitButton setEnabled:YES];
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
@@ -260,49 +304,21 @@
     return sum;
 }
 
-#pragma mark - Settings
+- (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
+    int currentScore = [[currentScoreLabel text] intValue];
 
-- (IBAction)touchSettings:(UIButton *)sender {
-
-    BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
-    
-    [UIView animateWithDuration:0.5 animations:^() {
-        settingsVisible ? [_shootTheMoonLabel setAlpha:0.0] : [_shootTheMoonLabel setAlpha:1.0];
-        settingsVisible ? [_moonBehaviorSegmentedControl setAlpha:0.0] : [_moonBehaviorSegmentedControl setAlpha:1.0];
-        
-        settingsVisible ? [_passDirectionLabel setAlpha:1.0] : [_passDirectionLabel setAlpha:0.0];
-        [_nextRoundButton setEnabled:settingsVisible];
-        
-        for (UITextField *field in _playerNameFields) {
-            settingsVisible ? [field setAlpha:0.0] : [field setAlpha:1.0];
-        }
-        for (UILabel *label in _playerNameLabels) {
-            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
-        }
-        for (UILabel *label in _playerSumScoreLabels) {
-            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
-        }
-        for (UICollectionView *view in _scoresCollectionViews) {
-            settingsVisible ? [view setAlpha:1.0] : [view setAlpha:0.0];
-        }
-    }];
-    
-    NSArray* names = [[NSArray alloc] init];
-    
-    for(UITextField *field in _playerNameFields) {
-        NSString *newName = [[NSString alloc] init];
-        
-        if (([[field text] isEqualToString:@""])) {
-            newName = [NSString stringWithFormat:@"Player %ld", (long)field.tag + 1];
-        } else {
-            newName = [field text];
-        }
-        
-        names = [names arrayByAddingObject:newName];
+    if ([self getNextRoundViewSum] + value < 26) {
+        [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
+    } else if ([self getNextRoundViewSum] + value == 26) {
+        [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
+        [_nextRoundSubmitButton setEnabled:YES];
+    } else if ([self getNextRoundViewSum] + value > 26) {
+        [[[UIAlertView alloc] initWithTitle:@"Invalid"
+                                    message:@"The sum of the scores may not exceed 26."
+                                   delegate:self
+                          cancelButtonTitle:@"Okay"
+                          otherButtonTitles:nil, nil] show];
     }
-    
-    [_game setPlayerNames: names];
-    [self updatePlayerNameLabels];
 }
 
 #pragma mark - Input Accessory View
