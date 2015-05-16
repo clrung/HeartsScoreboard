@@ -23,6 +23,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
 
+@property (strong, nonatomic) IBOutlet UILabel *dealerLabel;
+@property NSUInteger dealerConstant;
+
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
@@ -41,6 +44,10 @@
     _game = [[Game alloc] init];
     
     [self setupInputAccessoryViews];
+    
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
+    [_dealerLabel addGestureRecognizer:panGestureRecognizer];
+    [_dealerLabel setUserInteractionEnabled:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,7 +94,7 @@
 
 - (void)updateDealer {
     for (UILabel *label in _playerNameLabels) {
-        if ([_game numRounds] % 4 == label.tag) {
+        if (_dealerConstant % 4 == label.tag) {
             label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
         } else {
             label.font = [UIFont fontWithName:@"HelveticaNeue" size: 17];
@@ -155,7 +162,6 @@
 }
 
 - (IBAction)touchSettings:(UIButton *)sender {
-    
     BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
     [UIView animateWithDuration:0.5 animations:^() {
@@ -177,6 +183,8 @@
         for (UICollectionView *view in _scoresCollectionViews) {
             settingsVisible ? [view setAlpha:1.0] : [view setAlpha:0.0];
         }
+        
+        settingsVisible ? [_dealerLabel setAlpha:0.0] : [_dealerLabel setAlpha:1.0];
     }];
     
     NSArray* names = [[NSArray alloc] init];
@@ -195,6 +203,10 @@
     
     [_game setPlayerNames: names];
     [self updatePlayerNames];
+    
+    [self updateDealer];
+    
+    [self dismissKeyboard];
 }
 
 #pragma mark - Next Round View
@@ -219,12 +231,15 @@
         }
         
         [self setView:_nextRoundView hidden:YES];
+        
+        _dealerConstant++;
+        [self updateDealer];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Invalid Scores"
                                     message:@"The sum of the scores must be equal to 26."
                                    delegate:self
                           cancelButtonTitle:@"Okay"
-                          otherButtonTitles:nil, nil] show];
+                          otherButtonTitles:nil] show];
         [self resetNextRoundView];
     }
 }
@@ -320,7 +335,7 @@
 
 - (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
     int currentScore = [[currentScoreLabel text] intValue];
-
+    
     if ([self getNextRoundViewSum] + value < 26) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
     } else if ([self getNextRoundViewSum] + value == 26) {
@@ -336,7 +351,7 @@
                                     message:@"The sum of the scores may not exceed 26."
                                    delegate:self
                           cancelButtonTitle:@"Okay"
-                          otherButtonTitles:nil, nil] show];
+                          otherButtonTitles:nil] show];
     }
 }
 
@@ -387,7 +402,7 @@
 }
 
 //
-// Dismiss the keyboard when done is tapped.
+// Hides the keyboard
 //
 - (void)dismissKeyboard {
     [[_playerNameFields objectAtIndex:_activeTextField.tag] resignFirstResponder];
@@ -403,6 +418,43 @@
     }
     
     return YES;
+}
+
+- (void)moveViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
+    CGPoint touchLocation = [panGestureRecognizer locationInView:self.view];
+    
+    CGRect frame = _dealerLabel.frame;
+    
+    // touch up, effectively
+    // snaps dealer label to the closest player
+    if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
+        CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
+        
+        CGFloat firstLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
+        CGFloat secondLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
+        CGFloat thirdLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
+        CGFloat fourthLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
+        
+        if (touchLocation.y < (firstLocation + secondLocation) / 2) {
+            frame.origin.y = firstLocation - frame.size.height / 2;
+            _dealerConstant = 0;
+        } else if (touchLocation.y > (firstLocation + secondLocation) / 2 && touchLocation.y < (secondLocation + thirdLocation) / 2) {
+            frame.origin.y = secondLocation - frame.size.height / 2;
+            _dealerConstant = 1;
+        } else if (touchLocation.y > (secondLocation + thirdLocation) / 2 && touchLocation.y < (thirdLocation + fourthLocation) / 2) {
+            frame.origin.y = thirdLocation - frame.size.height / 2;
+            _dealerConstant = 2;
+        } else if (touchLocation.y > (thirdLocation + fourthLocation) / 2) {
+            frame.origin.y = fourthLocation - frame.size.height / 2;
+            _dealerConstant = 3;
+        }
+        
+        // allow the dealer button to move freely in the y-plane while it is being dragged.
+    } else {
+        frame.origin.y = touchLocation.y - frame.size.height / 2;
+    }
+    
+    _dealerLabel.frame = frame;
 }
 
 @end
