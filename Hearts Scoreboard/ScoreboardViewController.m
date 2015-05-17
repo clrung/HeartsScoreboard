@@ -13,27 +13,25 @@
 @interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *playerNameFields;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
-
 @property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
 
+@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *playerNameFields;
+@property (strong, nonatomic) NSArray *playerNameFieldYLocations;
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
-
 @property (strong, nonatomic) IBOutlet UILabel *dealerLabel;
 @property NSUInteger dealerConstant;
+@property (strong, nonatomic) UITextField *activeTextField;
+@property (strong, nonatomic) NSArray *inputAccessoryViews;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
-
-@property (strong, nonatomic) UITextField *activeTextField;
-@property (strong, nonatomic) NSArray *inputAccessoryViews;
 
 @end
 
@@ -43,13 +41,16 @@
     [super viewDidLoad];
     _game = [[Game alloc] init];
     
-    [self setupInputAccessoryViews];
-    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
     [_dealerLabel setUserInteractionEnabled:YES];
     
     _dealerConstant = 0;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self initPlayerNameFieldYLocations];
+    [self setupInputAccessoryViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -439,12 +440,12 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // if currently focused on first three textboxes, go to the next text box
+    // if currently focused on first three text fields, go to the next text field
     if (textField.tag < 3) {
         [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
-        // if currently focused on last textbox, dismiss the keyboard.
+        // if currently focused on last text field, dismiss the keyboard.
     } else if (textField.tag == 3) {
-        [[_playerNameFields objectAtIndex:3] resignFirstResponder];
+        [[_playerNameFields objectAtIndex:textField.tag] resignFirstResponder];
     }
     
     return YES;
@@ -454,28 +455,21 @@
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.view];
     
     CGRect frame = _dealerLabel.frame;
-    
-    // touch up, effectively
-    // snaps dealer label to the closest player
+
+    // effectively detects a touch up
+    // snaps dealer label to the closest player field
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-        CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
-        
-        CGFloat firstLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
-        CGFloat secondLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
-        CGFloat thirdLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
-        CGFloat fourthLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
-        
-        if (touchLocation.y < (firstLocation + secondLocation) / 2) {
-            frame.origin.y = firstLocation - frame.size.height / 2;
+        if (touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2) {
+            frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:0] floatValue] - frame.size.height / 2;
             _dealerConstant = 0;
-        } else if (touchLocation.y > (firstLocation + secondLocation) / 2 && touchLocation.y < (secondLocation + thirdLocation) / 2) {
-            frame.origin.y = secondLocation - frame.size.height / 2;
+        } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2) {
+            frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:1] floatValue] - frame.size.height / 2;
             _dealerConstant = 1;
-        } else if (touchLocation.y > (secondLocation + thirdLocation) / 2 && touchLocation.y < (thirdLocation + fourthLocation) / 2) {
-            frame.origin.y = thirdLocation - frame.size.height / 2;
+        } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
+            frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:2] floatValue] - frame.size.height / 2;
             _dealerConstant = 2;
-        } else if (touchLocation.y > (thirdLocation + fourthLocation) / 2) {
-            frame.origin.y = fourthLocation - frame.size.height / 2;
+        } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
+            frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:3] floatValue] - frame.size.height / 2;
             _dealerConstant = 3;
         }
         
@@ -485,6 +479,17 @@
     }
     
     _dealerLabel.frame = frame;
+}
+
+- (void)initPlayerNameFieldYLocations {
+    CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
+
+    CGFloat firstYLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
+    CGFloat secondYLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
+    CGFloat thirdYLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
+    CGFloat fourthYLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
+    
+    _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
 }
 
 @end
