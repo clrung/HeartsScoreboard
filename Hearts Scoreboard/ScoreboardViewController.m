@@ -167,28 +167,7 @@
 - (IBAction)touchSettings:(UIButton *)sender {
     CGRect frame = _dealerLabel.frame;
     
-    CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
-    CGFloat firstLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
-    CGFloat secondLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
-    CGFloat thirdLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
-    CGFloat fourthLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
-    
-    switch (_dealerConstant) {
-        case 0:
-            frame.origin.y = firstLocation - frame.size.height / 2;
-            break;
-        case 1:
-            frame.origin.y = secondLocation - frame.size.height / 2;
-            break;
-        case 2:
-            frame.origin.y = thirdLocation - frame.size.height / 2;
-            break;
-        case 3:
-            frame.origin.y = fourthLocation - frame.size.height / 2;
-            break;
-        default:
-            break;
-    }
+    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:_dealerConstant % 4] floatValue] - frame.size.height / 2;
     
     _dealerLabel.frame= frame;
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
