@@ -95,7 +95,7 @@
     }
 }
 
-- (void)updateDealer {
+- (void)updateDealerLabel {
     for (UILabel *label in _playerNameLabels) {
         if (_dealerConstant % 4 == label.tag) {
             label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
@@ -171,7 +171,7 @@
     
     _dealerLabel.frame= frame;
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
-
+    
     BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
     [UIView animateWithDuration:0.5 animations:^() {
@@ -214,7 +214,7 @@
     [_game setPlayerNames: names];
     [self updatePlayerNames];
     
-    [self updateDealer];
+    [self updateDealerLabel];
     
     [self dismissKeyboard];
 }
@@ -234,7 +234,6 @@
         
         [self updatePassDirectionLabel];
         [self updatePlayerSumScoreLabels];
-        [self updateDealer];
         
         for(UICollectionView *view in _scoresCollectionViews) {
             [view reloadData];
@@ -243,7 +242,7 @@
         [self setView:_nextRoundView hidden:YES];
         
         _dealerConstant++;
-        [self updateDealer];
+        [self updateDealerLabel];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Invalid Scores"
                                     message:@"The sum of the scores must be equal to 26."
@@ -434,7 +433,7 @@
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.view];
     
     CGRect frame = _dealerLabel.frame;
-
+    
     // effectively detects a touch up
     // snaps dealer label to the closest player field
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
@@ -462,13 +461,56 @@
 
 - (void)initPlayerNameFieldYLocations {
     CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
-
+    
     CGFloat firstYLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
     CGFloat secondYLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
     CGFloat thirdYLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
     CGFloat fourthYLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
     
     _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
+}
+
+#pragma mark - Undo Last Round
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if ([_game numRounds] > 0) {
+        if (UIEventSubtypeMotionShake) {
+            [[[UIAlertView alloc] initWithTitle:@"Undo last round?"
+                                        message:@"Are you sure you would like to undo the last round?"
+                                       delegate:self
+                              cancelButtonTitle:@"No"
+                              otherButtonTitles:@"Yes", nil] show];
+        }
+    }
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([[alertView title] isEqualToString:@"Undo last round?"]) {
+        if (buttonIndex == [alertView firstOtherButtonIndex]) {
+            for(int i = 0; i < 4; i++) {
+                NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
+                [scores removeLastObject];
+                [[[_game players] objectAtIndex:i] setScores:scores];
+            }
+            
+            [self updatePassDirectionLabel];
+            [self updatePlayerSumScoreLabels];
+            
+            [_game setNumRounds:[_game numRounds] - 1];
+            
+            for(UICollectionView *view in _scoresCollectionViews) {
+                [view reloadData];
+            }
+            
+            _dealerConstant--;
+            [self updateDealerLabel];
+        }
+    }
 }
 
 @end

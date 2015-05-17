@@ -50,7 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8wx-rm-J10">
-                                <rect key="frame" x="74" y="93" width="65" height="418"/>
+                                <rect key="frame" x="74" y="93" width="65" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="8vR-hm-3T1"/>
@@ -96,7 +96,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6B-hj-IAy">
-                                <rect key="frame" x="76" y="522" width="62" height="20"/>
+                                <rect key="frame" x="76" y="530" width="62" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="erU-qm-Vaw"/>
                                 </constraints>
@@ -122,7 +122,7 @@
                                     <constraint firstAttribute="height" constant="30" id="g4j-SH-FwE"/>
                                     <constraint firstAttribute="width" constant="82" id="vLm-On-lQK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Next Round">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -137,7 +137,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-XG-2Ko">
-                                <rect key="frame" x="203" y="93" width="65" height="418"/>
+                                <rect key="frame" x="203" y="93" width="65" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="weO-Hg-Ya9">
                                     <size key="itemSize" width="50" height="30"/>
@@ -179,7 +179,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0r-gi-Ifl">
-                                <rect key="frame" x="204" y="522" width="62" height="20"/>
+                                <rect key="frame" x="204" y="530" width="62" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -191,7 +191,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-zy-qjP">
-                                <rect key="frame" x="333" y="93" width="65" height="418"/>
+                                <rect key="frame" x="333" y="93" width="65" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dUQ-dV-HOa">
                                     <size key="itemSize" width="50" height="30"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S94-jL-Qv0">
-                                <rect key="frame" x="334" y="522" width="62" height="20"/>
+                                <rect key="frame" x="334" y="530" width="62" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -246,13 +246,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-vr-PB4">
-                                <rect key="frame" x="459" y="522" width="62" height="20"/>
+                                <rect key="frame" x="459" y="530" width="62" height="20"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-Zz-8Hp">
-                                <rect key="frame" x="458" y="93" width="65" height="418"/>
+                                <rect key="frame" x="458" y="93" width="65" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDE-d7-aTn">
                                     <size key="itemSize" width="50" height="30"/>
@@ -761,7 +761,7 @@
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="width" secondItem="GCU-52-44O" secondAttribute="width" id="q8b-T3-PBb"/>
                             <constraint firstItem="ErM-7M-8qC" firstAttribute="width" secondItem="oPg-gp-h40" secondAttribute="width" id="qAe-fx-zN9"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="height" secondItem="GCU-52-44O" secondAttribute="height" id="rUD-nv-KsY"/>
-                            <constraint firstItem="Hd7-Pd-nrN" firstAttribute="top" secondItem="o6B-hj-IAy" secondAttribute="bottom" constant="20" id="s4e-HW-Vrs"/>
+                            <constraint firstItem="Hd7-Pd-nrN" firstAttribute="top" secondItem="o6B-hj-IAy" secondAttribute="bottom" constant="12" id="s4e-HW-Vrs"/>
                             <constraint firstItem="oPg-gp-h40" firstAttribute="height" secondItem="3EQ-wO-ywD" secondAttribute="height" id="sJ0-KM-5dv"/>
                             <constraint firstItem="Wmz-PS-i8z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="sXp-vt-TXW"/>
                             <constraint firstItem="zm0-zy-qjP" firstAttribute="centerY" secondItem="8wx-rm-J10" secondAttribute="centerY" id="un8-ZL-A9L"/>
