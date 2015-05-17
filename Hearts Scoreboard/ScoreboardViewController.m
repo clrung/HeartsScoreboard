@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
 @property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
+@property (strong, nonatomic) IBOutlet UIButton *nnewGameButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
 
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *playerNameFields;
@@ -164,7 +165,17 @@
     [self setView:_nextRoundView hidden:NO];
 }
 
-- (IBAction)touchSettings:(UIButton *)sender {
+- (IBAction)touchNewGameButton:(UIButton *)sender {
+    if (UIEventSubtypeMotionShake) {
+        [[[UIAlertView alloc] initWithTitle:@"Reset Game?"
+                                    message:@"Are you sure you would like to start a new game?"
+                                   delegate:self
+                          cancelButtonTitle:@"No"
+                          otherButtonTitles:@"Yes", nil] show];
+    }
+}
+
+- (IBAction)touchSettingsButton:(UIButton *)sender {
     CGRect frame = _dealerLabel.frame;
     
     frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:_dealerConstant % 4] floatValue] - frame.size.height / 2;
@@ -180,6 +191,7 @@
         
         settingsVisible ? [_passDirectionLabel setAlpha:1.0] : [_passDirectionLabel setAlpha:0.0];
         settingsVisible ? [_nextRoundButton setAlpha:1.0] : [_nextRoundButton setAlpha:0.0];
+        settingsVisible ? [_nnewGameButton setAlpha:1.0] : [_nnewGameButton setAlpha:0.0];
         
         for (UITextField *field in _playerNameFields) {
             settingsVisible ? [field setAlpha:0.0] : [field setAlpha:1.0];
@@ -510,6 +522,20 @@
             _dealerConstant--;
             [self updateDealerLabel];
         }
+    } else if ([[alertView title] isEqualToString:@"Reset Game?"]) {
+        _game = [[Game alloc] init];
+    
+        [self updatePlayerNames];
+        [self updatePassDirectionLabel];
+        
+        for(UICollectionView *view in _scoresCollectionViews) {
+            [view reloadData];
+        }
+        
+        [self updatePlayerSumScoreLabels];
+        
+        _dealerConstant = 0;
+        [self updateDealerLabel];
     }
 }
 
