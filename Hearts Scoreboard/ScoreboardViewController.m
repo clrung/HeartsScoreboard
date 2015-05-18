@@ -38,6 +38,9 @@
 
 @implementation ScoreboardViewController
 
+static int const dealerFadeStart = 20;
+static int const dealerFadeDistance = 25;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     _game = [[Game alloc] init];
@@ -463,9 +466,22 @@
             _dealerConstant = 3;
         }
         
+        [_dealerLabel setAlpha: 1.0];
+        
         // allow the dealer button to move freely in the y-plane while it is being dragged.
     } else {
         frame.origin.y = touchLocation.y - frame.size.height / 2;
+        
+        // fades dealer label out as it is dragged away from the first player text field.
+        // the dealer label will begin to fade out when it reaches dealerFadeStart pixels above the first player text field's location,
+        // and will completely fade out when it reaches dealerFadeStart + dealerFadeDistance pixels above the first player text field's location.
+        if (touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] - dealerFadeStart)) {
+            [_dealerLabel setAlpha: MAX(1 - ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] - touchLocation.y - dealerFadeStart) / dealerFadeDistance, 0)];
+        }
+        // fades dealer label out as it is dragged away from the last player's text field.
+        if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:3] floatValue] + 20)) {
+            [_dealerLabel setAlpha: MAX(1 + ([[_playerNameFieldYLocations objectAtIndex:3] floatValue] - touchLocation.y + dealerFadeStart) / dealerFadeDistance, 0)];
+        }
     }
     
     _dealerLabel.frame = frame;
