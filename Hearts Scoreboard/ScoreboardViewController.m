@@ -125,21 +125,11 @@ static int const dealerFadeDistance = 25;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScoreCollectionViewCell *scoreCell = (ScoreCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"scoreCell" forIndexPath:indexPath];
     
-    void (^setScoreLabel)(NSUInteger playerIndex) = ^(NSUInteger playerIndex) {
-        [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[_game players] objectAtIndex:playerIndex] scores] objectAtIndex:[indexPath item]]]];
+    void (^setScoreLabel)(NSUInteger playerTag) = ^(NSUInteger playerTag) {
+        [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[_game players] objectAtIndex:playerTag] scores] objectAtIndex:[indexPath item]]]];
     };
     
     setScoreLabel(collectionView.tag);
-    
-    // TODO move cell appearance code to ScoreCollectionViewCell
-    // round the cell's corners
-    scoreCell.layer.cornerRadius = 15;
-    // add drop shadow
-    scoreCell.layer.shadowOffset = CGSizeMake(3, 3);
-    scoreCell.layer.shadowRadius = 5;
-    scoreCell.layer.shadowOpacity = .2;
-    scoreCell.layer.masksToBounds = NO;
-    
     
     return scoreCell;
 }
