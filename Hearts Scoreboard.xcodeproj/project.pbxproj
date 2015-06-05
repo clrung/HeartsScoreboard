@@ -10,8 +10,6 @@
 		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
 		F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D38A1AD3128D00C67443 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3891AD3128D00C67443 /* Game.m */; };
-		F16DB2BE1B0ECC7300DE3B05 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16DB2BD1B0ECC7300DE3B05 /* CoreData.framework */; };
-		F16DB2C21B0ECD4F00DE3B05 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F16DB2C01B0ECD4F00DE3B05 /* Model.xcdatamodeld */; };
 		F1FB70191AA01614007073AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70181AA01614007073AC /* main.m */; };
 		F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701B1AA01614007073AC /* AppDelegate.m */; };
 		F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
@@ -38,8 +36,6 @@
 		F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreCollectionViewCell.m; sourceTree = "<group>"; };
 		F130D3881AD3128D00C67443 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		F130D3891AD3128D00C67443 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		F16DB2BD1B0ECC7300DE3B05 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F16DB2C11B0ECD4F00DE3B05 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16DB2BE1B0ECC7300DE3B05 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,18 +69,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F16DB2BF1B0ECCCB00DE3B05 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F16DB2C01B0ECD4F00DE3B05 /* Model.xcdatamodeld */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		F1FB700A1AA01613007073AC = {
 			isa = PBXGroup;
 			children = (
-				F16DB2BD1B0ECC7300DE3B05 /* CoreData.framework */,
 				F1FB70151AA01614007073AC /* Hearts Scoreboard */,
 				F1FB702F1AA01614007073AC /* Hearts ScoreboardTests */,
 				F1FB70141AA01614007073AC /* Products */,
@@ -104,7 +90,6 @@
 		F1FB70151AA01614007073AC /* Hearts Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
-				F16DB2BF1B0ECCCB00DE3B05 /* Resources */,
 				F1FB701A1AA01614007073AC /* AppDelegate.h */,
 				F1FB701B1AA01614007073AC /* AppDelegate.m */,
 				F1FB70201AA01614007073AC /* Main.storyboard */,
@@ -252,7 +237,6 @@
 				F130D3841ACDE20000C67443 /* Player.m in Sources */,
 				F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */,
 				F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */,
-				F16DB2C21B0ECD4F00DE3B05 /* Model.xcdatamodeld in Sources */,
 				F130D38A1AD3128D00C67443 /* Game.m in Sources */,
 				F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */,
 				F1FB70191AA01614007073AC /* main.m in Sources */,
@@ -460,19 +444,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F16DB2C01B0ECD4F00DE3B05 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F16DB2C11B0ECD4F00DE3B05 /* Model.xcdatamodel */,
-			);
-			currentVersion = F16DB2C11B0ECD4F00DE3B05 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F1FB700B1AA01613007073AC /* Project object */;
 }
