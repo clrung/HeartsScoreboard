@@ -8,6 +8,9 @@
 
 #import "Game.h"
 
+static NSString* const playersKey = @"highScore";
+static NSString* const numRoundsKey = @"numRounds";
+
 @implementation Game
 @synthesize numRounds = _numRounds;
 @synthesize players = _players;
@@ -63,12 +66,66 @@
     }
 }
 
-- (void)resetGame {
+- (void)reset {
     _numRounds = 0;
     
     for(Player *p in _players) {
         [p resetPlayer];
     }
+}
+
++ (instancetype)sharedGameData {
+    static id sharedInstance = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [self loadInstance];
+    });
+    
+    return sharedInstance;
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if([super init]) {
+        _players = [decoder decodeObjectForKey:playersKey];
+        _numRounds = [decoder decodeIntegerForKey:numRoundsKey];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_players forKey:playersKey];
+    [encoder encodeInt:(int)_numRounds forKey:numRoundsKey];
+    NSLog(@"Saving numrounds = %lu", (unsigned long)_numRounds);
+}
+
++ (NSString*)filePath {
+    static NSString* filePath = nil;
+    if (!filePath) {
+        filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
+    }
+    return filePath;
+}
+
+//
+// Check if there's a saved game data file already.  If so, return it.  If not,
+// allocate a new Game object.
+//
++ (instancetype)loadInstance {
+    NSData* decodedData = [NSData dataWithContentsOfFile: [Game filePath]];
+    if (decodedData) {
+        Game* game = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
+        return game;
+    }
+    
+    NSLog(@"Didn't find game data");
+    return [[Game alloc] init];
+}
+
+- (void)save {
+    NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
+    [encodedData writeToFile:[Game filePath] atomically:YES];
+    NSLog(@"Saved!");
 }
 
 @end

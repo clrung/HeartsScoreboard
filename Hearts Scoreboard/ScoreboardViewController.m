@@ -43,7 +43,6 @@ static int const dealerFadeDistance = 25;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _game = [[Game alloc] init];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
@@ -55,6 +54,11 @@ static int const dealerFadeDistance = 25;
 - (void)viewDidAppear:(BOOL)animated {
     [self initPlayerNameFieldYLocations];
     [self setupInputAccessoryViews];
+    [self updatePlayerNames];
+    [self updatePlayerSumScoreLabels];
+    for(UICollectionView *view in _scoresCollectionViews) {
+        [view reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,24 +70,24 @@ static int const dealerFadeDistance = 25;
 
 - (void)updatePlayerNames {
     for(UILabel *label in _playerNameLabels) {
-        [label setText:[[_game playerNames] objectAtIndex:label.tag]];
+        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:label.tag]];
     }
     for(UILabel *label in _nextRoundPlayerNameLabels) {
-        [label setText:[[_game playerNames] objectAtIndex:label.tag]];
+        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:label.tag]];
     }
     for(UITextField *field in _playerNameFields) {
-        [field setText:[[_game playerNames] objectAtIndex:field.tag]];
+        [field setText:[[[Game sharedGameData] playerNames] objectAtIndex:field.tag]];
     }
 }
 
 - (void)updatePlayerSumScoreLabels {
     for(UILabel *label in _playerSumScoreLabels) {
-        [label setText:[NSString stringWithFormat:@"%ld", [[[_game players] objectAtIndex:label.tag] sumScores]]];
+        [label setText:[NSString stringWithFormat:@"%ld", [[[[Game sharedGameData] players] objectAtIndex:label.tag] sumScores]]];
     }
 }
 
 - (void)updatePassDirectionLabel {
-    switch([_game numRounds] % 4) {
+    switch([[Game sharedGameData] numRounds] % 4) {
         case 0:
             [_passDirectionLabel setText:@"Pass to the left"];
             break;
@@ -119,14 +123,14 @@ static int const dealerFadeDistance = 25;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [_game numRounds];
+    return [[Game sharedGameData] numRounds];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScoreCollectionViewCell *scoreCell = (ScoreCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"scoreCell" forIndexPath:indexPath];
     
     void (^setScoreLabel)(NSUInteger playerTag) = ^(NSUInteger playerTag) {
-        [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[_game players] objectAtIndex:playerTag] scores] objectAtIndex:[indexPath item]]]];
+        [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[[Game sharedGameData] players] objectAtIndex:playerTag] scores] objectAtIndex:[indexPath item]]]];
     };
     
     setScoreLabel(collectionView.tag);
@@ -151,7 +155,7 @@ static int const dealerFadeDistance = 25;
 #pragma mark - Main Button Actions
 
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
-    [_game setNumRounds:[_game numRounds] + 1];
+    [[Game sharedGameData] setNumRounds:[[Game sharedGameData] numRounds] + 1];
     
     [self resetNextRoundView];
     
@@ -216,7 +220,7 @@ static int const dealerFadeDistance = 25;
         names = [names arrayByAddingObject:newName];
     }
     
-    [_game setPlayerNames: names];
+    [[Game sharedGameData] setPlayerNames: names];
     [self updatePlayerNames];
     
     [self updateDealerLabel];
@@ -232,9 +236,9 @@ static int const dealerFadeDistance = 25;
     // and the subtract 26 option is selected.
     if ([self getNextRoundViewSum] == 26 || [self getNextRoundViewSum] == 78 || [self getNextRoundViewSum] == -26) {
         for(int i = 0; i < 4; i++) {
-            NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
+            NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
             [scores addObject:[NSNumber numberWithInt:[[[_nextRoundScoreLabels objectAtIndex:i] text] intValue]]];
-            [[[_game players] objectAtIndex:i] setScores:scores];
+            [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
         }
         
         [self updatePassDirectionLabel];
@@ -248,6 +252,7 @@ static int const dealerFadeDistance = 25;
         
         _dealerConstant++;
         [self updateDealerLabel];
+        [[Game sharedGameData] save];
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Invalid Scores"
                                     message:@"The sum of the scores must be equal to 26."
@@ -495,7 +500,7 @@ static int const dealerFadeDistance = 25;
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if ([_game numRounds] > 0) {
+    if ([[Game sharedGameData] numRounds] > 0) {
         if (UIEventSubtypeMotionShake) {
             [[[UIAlertView alloc] initWithTitle:@"Undo last round?"
                                         message:@"Are you sure you would like to undo the last round?"
@@ -511,15 +516,15 @@ static int const dealerFadeDistance = 25;
     if ([[alertView title] isEqualToString:@"Undo last round?"]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             for(int i = 0; i < 4; i++) {
-                NSMutableArray *scores = [[[_game players] objectAtIndex:i] scores];
+                NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
                 [scores removeLastObject];
-                [[[_game players] objectAtIndex:i] setScores:scores];
+                [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
             }
             
             [self updatePassDirectionLabel];
             [self updatePlayerSumScoreLabels];
             
-            [_game setNumRounds:[_game numRounds] - 1];
+            [[Game sharedGameData] setNumRounds:[[Game sharedGameData] numRounds] - 1];
             
             for(UICollectionView *view in _scoresCollectionViews) {
                 [view reloadData];
@@ -529,7 +534,7 @@ static int const dealerFadeDistance = 25;
             [self updateDealerLabel];
         }
     } else if ([[alertView title] isEqualToString:@"Reset Game?"]) {
-        _game = [[Game alloc] init];
+        [[Game sharedGameData] reset];
     
         [self updatePlayerNames];
         [self updatePassDirectionLabel];

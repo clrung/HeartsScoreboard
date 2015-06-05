@@ -8,6 +8,9 @@
 
 #import "Player.h"
 
+static NSString* const nameKey = @"name";
+static NSString* const scoresKey = @"scores";
+
 @implementation Player
 @synthesize name = _name;
 @synthesize scores = _scores;
@@ -60,6 +63,19 @@
 //    }
 
     return [[_scores valueForKeyPath:@"@sum.self"] integerValue];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if([super init]) {
+        _name = [decoder decodeObjectForKey:nameKey];
+        _scores = [decoder decodeObjectForKey:scoresKey];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_name forKey:nameKey];
+    [encoder encodeObject:_scores forKey:scoresKey];
 }
 
 @end

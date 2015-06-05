@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 
-@interface Game : NSObject
+@interface Game : NSObject <NSCoding>
 
 @property (nonatomic) NSUInteger numRounds;
 @property (strong, nonatomic) NSArray *players;
@@ -26,6 +26,12 @@
 - (NSArray *)playerNames;
 - (void)setPlayerNames:(NSArray *)playerNames;
 
-- (void)resetGame;
++ (instancetype)sharedGameData;
+- (void)reset;
+
+- (id)initWithCoder:(NSCoder *)decoder;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+
+-(void)save;
 
 @end

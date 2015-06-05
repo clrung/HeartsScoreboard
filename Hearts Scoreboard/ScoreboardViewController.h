@@ -11,6 +11,4 @@
 
 @interface ScoreboardViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (strong, nonatomic) Game *game;
-
 @end
