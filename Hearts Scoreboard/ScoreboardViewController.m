@@ -40,6 +40,8 @@
 static int const dealerFadeStart = 20;
 static int const dealerFadeDistance = 25;
 
+static UIAlertView const *invalidScoreAlert;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -65,6 +67,12 @@ static int const dealerFadeDistance = 25;
     [super viewDidAppear:animated];
 
     [self initPlayerNameFieldYLocations];
+    
+    invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scores"
+                                                    message:@"The sum of the scores must be equal to 26."
+                                                   delegate:self
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -237,7 +245,8 @@ static int const dealerFadeDistance = 25;
 #pragma mark Actions
 
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
-    // the sum must be 26 to be valid, unless a player shoots the moon.
+
+    // the sum must be 26 and a player must have a queen to be valid, unless a player shoots the moon.
     int nextRoundViewSum = [self getNextRoundViewSum];
     if (nextRoundViewSum == 26 || nextRoundViewSum == 78 || nextRoundViewSum == -26) {
         for(int i = 0; i < 4; i++) {
@@ -259,11 +268,7 @@ static int const dealerFadeDistance = 25;
         [self updateDealerLabel];
         [[Game sharedGameData] save];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Invalid Scores"
-                                    message:@"The sum of the scores must be equal to 26."
-                                   delegate:self
-                          cancelButtonTitle:@"Okay"
-                          otherButtonTitles:nil] show];
+        [invalidScoreAlert show];
         [self resetNextRoundView];
     }
 }
@@ -360,22 +365,37 @@ static int const dealerFadeDistance = 25;
 - (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
     int currentScore = [[currentScoreLabel text] intValue];
     
-    if ([self getNextRoundViewSum] + value < 26) {
-        [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
-    } else if ([self getNextRoundViewSum] + value == 26) {
-        [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
-        
-        for (UIButton *button in _nextRoundAddScoreButtons) {
-            [button setEnabled:NO];
+    BOOL isAQueenDisabled = false;
+    
+    for (UIButton* button in _nextRoundAddScoreButtons) {
+        if ([[button currentTitle] isEqualToString:@"Q"]) {
+            if (![button isEnabled]) {
+                isAQueenDisabled = true;
+            }
         }
-        
-        [_nextRoundSubmitButton setEnabled:YES];
-    } else if ([self getNextRoundViewSum] + value > 26) {
-        [[[UIAlertView alloc] initWithTitle:@"Invalid"
-                                    message:@"The sum of the scores may not exceed 26."
-                                   delegate:self
-                          cancelButtonTitle:@"Okay"
-                          otherButtonTitles:nil] show];
+    }
+    
+    if ([self getNextRoundViewSum] < 27) {
+        [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
+    }
+    if ([self getNextRoundViewSum] == 26) {
+        if(isAQueenDisabled) {
+            for (UIButton *button in _nextRoundAddScoreButtons) {
+                [button setEnabled:NO];
+            }
+            
+            [_nextRoundSubmitButton setEnabled:YES];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Invalid"
+                                        message:@"A Queen must be played."
+                                       delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil] show];
+            [self resetNextRoundView];
+        }
+    } else if ([self getNextRoundViewSum] > 27) {
+        [invalidScoreAlert show];
+        [self resetNextRoundView];
     }
 }
 
