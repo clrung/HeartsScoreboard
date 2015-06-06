@@ -16,7 +16,7 @@
 - (id)init;
 - (id)initWithName:(NSString*)name;
 
-- (void)resetPlayer;
+- (void)resetPlayerWithName:(NSString*)name;
 
 - (NSString*)name;
 - (void)setName:(NSString*)name;

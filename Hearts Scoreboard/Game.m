@@ -32,7 +32,6 @@ static NSString* const playersKey       = @"players";
         for (NSString *name in names) {
             _players = [_players arrayByAddingObject:[[Player alloc] initWithName:name]];
         }
-        
     }
     return self;
 }
@@ -81,8 +80,9 @@ static NSString* const playersKey       = @"players";
     _numRounds      = 0;
     _dealerOffset   = 0;
     
-    for(Player *p in _players) {
-        [p resetPlayer];
+    NSArray *names = [[NSArray alloc] initWithObjects:@"Player 1", @"Player 2", @"Player 3", @"Player 4", nil];
+    for(NSUInteger i = 0; i < [_players count]; i++) {
+        [_players[i] resetPlayerWithName:names[i]];
     }
 }
 

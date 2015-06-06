@@ -33,8 +33,8 @@ static NSString* const scoresKey = @"scores";
     return self;
 }
 
-- (void)resetPlayer {
-    _name = @"";
+- (void)resetPlayerWithName:(NSString*)name {
+    _name = name;
     _scores = [[NSMutableArray alloc] init];
 }
 
@@ -55,13 +55,6 @@ static NSString* const scoresKey = @"scores";
 }
 
 - (NSInteger)sumScores {
-//    This works, but valueForKeyPath is more efficient
-//    NSInteger sum = 0;
-//    
-//    for (NSNumber *i in _scores) {
-//        sum += [i integerValue];
-//    }
-
     return [[_scores valueForKeyPath:@"@sum.self"] integerValue];
 }
 
