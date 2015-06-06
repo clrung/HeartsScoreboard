@@ -8,11 +8,13 @@
 
 #import "Game.h"
 
-static NSString* const playersKey = @"highScore";
-static NSString* const numRoundsKey = @"numRounds";
+static NSString* const numRoundsKey     = @"numRounds";
+static NSString* const dealerOffsetKey  = @"dealerOffset";
+static NSString* const playersKey       = @"players";
 
 @implementation Game
 @synthesize numRounds = _numRounds;
+@synthesize dealerOffset = _dealerOffset;
 @synthesize players = _players;
 
 - (id)init {
@@ -24,6 +26,7 @@ static NSString* const numRoundsKey = @"numRounds";
     self = [super init];
     if (self) {
         _numRounds = 0;
+        _dealerOffset = 0;
         
         _players = [[NSArray alloc] init];
         for (NSString *name in names) {
@@ -34,12 +37,20 @@ static NSString* const numRoundsKey = @"numRounds";
     return self;
 }
 
-- (NSUInteger)numRounds {
+- (NSInteger)numRounds {
     return _numRounds;
 }
 
-- (void)setNumRounds:(NSUInteger)numRounds {
+- (void)setNumRounds:(NSInteger)numRounds {
     _numRounds = numRounds;
+}
+
+- (NSInteger)dealerOffset {
+    return _dealerOffset;
+}
+
+- (void)setDealerOffset:(NSInteger)dealerOffset {
+    _dealerOffset = dealerOffset;
 }
 
 - (NSArray *)players {
@@ -67,7 +78,8 @@ static NSString* const numRoundsKey = @"numRounds";
 }
 
 - (void)reset {
-    _numRounds = 0;
+    _numRounds      = 0;
+    _dealerOffset   = 0;
     
     for(Player *p in _players) {
         [p resetPlayer];
@@ -87,16 +99,17 @@ static NSString* const numRoundsKey = @"numRounds";
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if([super init]) {
-        _players = [decoder decodeObjectForKey:playersKey];
-        _numRounds = [decoder decodeIntegerForKey:numRoundsKey];
+        _numRounds      = [decoder decodeIntegerForKey:numRoundsKey];
+        _dealerOffset   = [decoder decodeIntegerForKey:dealerOffsetKey];
+        _players        = [decoder decodeObjectForKey:playersKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:_players forKey:playersKey];
-    [encoder encodeInt:(int)_numRounds forKey:numRoundsKey];
-    NSLog(@"Saving numrounds = %lu", (unsigned long)_numRounds);
+    [encoder encodeInt:(int)_numRounds      forKey:numRoundsKey];
+    [encoder encodeInt:(int)_dealerOffset   forKey:dealerOffsetKey];
+    [encoder encodeObject:_players          forKey:playersKey];
 }
 
 + (NSString*)filePath {
@@ -117,15 +130,13 @@ static NSString* const numRoundsKey = @"numRounds";
         Game* game = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
         return game;
     }
-    
-    NSLog(@"Didn't find game data");
+
     return [[Game alloc] init];
 }
 
 - (void)save {
     NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
     [encodedData writeToFile:[Game filePath] atomically:YES];
-    NSLog(@"Saved!");
 }
 
 @end

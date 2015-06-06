@@ -24,7 +24,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
 @property (strong, nonatomic) IBOutlet UILabel *dealerLabel;
-@property NSUInteger dealerConstant;
 @property (strong, nonatomic) UITextField *activeTextField;
 @property (strong, nonatomic) NSArray *inputAccessoryViews;
 
@@ -47,18 +46,25 @@ static int const dealerFadeDistance = 25;
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
     [_dealerLabel setUserInteractionEnabled:YES];
-    
-    _dealerConstant = 0;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [self initPlayerNameFieldYLocations];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     [self setupInputAccessoryViews];
+    
     [self updatePlayerNames];
     [self updatePlayerSumScoreLabels];
+    [self updateDealerLabel];
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    [self initPlayerNameFieldYLocations];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,7 +111,7 @@ static int const dealerFadeDistance = 25;
 
 - (void)updateDealerLabel {
     for (UILabel *label in _playerNameLabels) {
-        if (_dealerConstant % 4 == label.tag) {
+        if ([[Game sharedGameData] dealerOffset] % 4 == label.tag) {
             label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
         } else {
             label.font = [UIFont fontWithName:@"HelveticaNeue" size: 17];
@@ -175,7 +181,7 @@ static int const dealerFadeDistance = 25;
 - (IBAction)touchSettingsButton:(UIButton *)sender {
     CGRect frame = _dealerLabel.frame;
     
-    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:_dealerConstant % 4] floatValue] - frame.size.height / 2;
+    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:[[Game sharedGameData] dealerOffset] % 4] floatValue] - frame.size.height / 2;
     
     _dealerLabel.frame= frame;
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
@@ -221,10 +227,9 @@ static int const dealerFadeDistance = 25;
     }
     
     [[Game sharedGameData] setPlayerNames: names];
+    
     [self updatePlayerNames];
-    
     [self updateDealerLabel];
-    
     [self dismissKeyboard];
 }
 
@@ -233,8 +238,8 @@ static int const dealerFadeDistance = 25;
 
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
     // the sum must be 26 to be valid, unless a player shoots the moon.
-    // and the subtract 26 option is selected.
-    if ([self getNextRoundViewSum] == 26 || [self getNextRoundViewSum] == 78 || [self getNextRoundViewSum] == -26) {
+    int nextRoundViewSum = [self getNextRoundViewSum];
+    if (nextRoundViewSum == 26 || nextRoundViewSum == 78 || nextRoundViewSum == -26) {
         for(int i = 0; i < 4; i++) {
             NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
             [scores addObject:[NSNumber numberWithInt:[[[_nextRoundScoreLabels objectAtIndex:i] text] intValue]]];
@@ -250,7 +255,7 @@ static int const dealerFadeDistance = 25;
         
         [self setView:_nextRoundView hidden:YES];
         
-        _dealerConstant++;
+        [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] + 1];
         [self updateDealerLabel];
         [[Game sharedGameData] save];
     } else {
@@ -449,19 +454,21 @@ static int const dealerFadeDistance = 25;
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:0] floatValue] - frame.size.height / 2;
-            _dealerConstant = 0;
+            [[Game sharedGameData] setDealerOffset:0];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:1] floatValue] - frame.size.height / 2;
-            _dealerConstant = 1;
+            [[Game sharedGameData] setDealerOffset:1];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:2] floatValue] - frame.size.height / 2;
-            _dealerConstant = 2;
+            [[Game sharedGameData] setDealerOffset:2];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:3] floatValue] - frame.size.height / 2;
-            _dealerConstant = 3;
+            [[Game sharedGameData] setDealerOffset:3];
         }
         
         [_dealerLabel setAlpha: 1.0];
+        
+        [[Game sharedGameData] save];
         
         // allow the dealer button to move freely in the y-plane while it is being dragged.
     } else {
@@ -530,7 +537,7 @@ static int const dealerFadeDistance = 25;
                 [view reloadData];
             }
             
-            _dealerConstant--;
+            [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] - 1];
             [self updateDealerLabel];
         }
     } else if ([[alertView title] isEqualToString:@"Reset Game?"]) {
@@ -545,7 +552,7 @@ static int const dealerFadeDistance = 25;
         
         [self updatePlayerSumScoreLabels];
         
-        _dealerConstant = 0;
+        [[Game sharedGameData] setDealerOffset:0];
         [self updateDealerLabel];
     }
 }
