@@ -10,11 +10,13 @@
 
 static NSString* const numRoundsKey     = @"numRounds";
 static NSString* const dealerOffsetKey  = @"dealerOffset";
+static NSString* const endingScoreKey   = @"endingScore";
 static NSString* const playersKey       = @"players";
 
 @implementation Game
 @synthesize numRounds = _numRounds;
 @synthesize dealerOffset = _dealerOffset;
+@synthesize endingScore = _endingScore;
 @synthesize players = _players;
 
 - (id)init {
@@ -50,6 +52,14 @@ static NSString* const playersKey       = @"players";
 
 - (void)setDealerOffset:(NSInteger)dealerOffset {
     _dealerOffset = dealerOffset;
+}
+
+- (NSInteger)endingScore {
+    return _endingScore;
+}
+
+- (void)setEndingScore:(NSInteger)endingScore {
+    _endingScore = endingScore;
 }
 
 - (NSArray *)players {
@@ -101,6 +111,7 @@ static NSString* const playersKey       = @"players";
     if([super init]) {
         _numRounds      = [decoder decodeIntegerForKey:numRoundsKey];
         _dealerOffset   = [decoder decodeIntegerForKey:dealerOffsetKey];
+        _endingScore    = [decoder decodeIntegerForKey:endingScoreKey];
         _players        = [decoder decodeObjectForKey:playersKey];
     }
     return self;
@@ -109,6 +120,7 @@ static NSString* const playersKey       = @"players";
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeInt:(int)_numRounds      forKey:numRoundsKey];
     [encoder encodeInt:(int)_dealerOffset   forKey:dealerOffsetKey];
+    [encoder encodeInt:(int)_endingScore    forKey:endingScoreKey];
     [encoder encodeObject:_players          forKey:playersKey];
 }
 

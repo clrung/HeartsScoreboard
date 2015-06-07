@@ -10,11 +10,14 @@
 #import "ScoreCollectionViewCell.h"
 #import "Player.h"
 
+#define kOFFSET_FOR_KEYBOARD 80.0
+
 @interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumScoreLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
+@property (strong, nonatomic) IBOutlet UIButton *settingsButton;
 @property (strong, nonatomic) IBOutlet UILabel *passDirectionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nnewGameButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
@@ -33,12 +36,17 @@
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
 
+@property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
+@property (strong, nonatomic) IBOutlet UITextField *endingScoreTextField;
+
 @end
 
 @implementation ScoreboardViewController
 
-static int const dealerFadeStart = 20;
+static int const dealerFadeStart    = 20;
 static int const dealerFadeDistance = 25;
+static NSString* const undoTitleText      = @"Undo last round?";
+static NSString* const resetGameTitleText = @"Reset Game?";
 
 static UIAlertView const *invalidScoreAlert;
 
@@ -52,12 +60,14 @@ static UIAlertView const *invalidScoreAlert;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
+    
     [self setupInputAccessoryViews];
     
     [self updatePlayerNames];
     [self updatePlayerSumScoreLabels];
     [self updateDealerLabel];
+    [_endingScoreTextField setText:[NSString stringWithFormat:@"%ld", (long)[[Game sharedGameData] endingScore]]];
+    [_endingScoreTextField addTarget:self action:@selector(fieldSelected:) forControlEvents:UIControlEventEditingDidBegin];
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
@@ -65,14 +75,14 @@ static UIAlertView const *invalidScoreAlert;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
+    
     [self initPlayerNameFieldYLocations];
     
     invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scores"
-                                                    message:@"The sum of the scores must be equal to 26."
-                                                   delegate:self
-                                          cancelButtonTitle:@"Okay"
-                                          otherButtonTitles:nil];
+                                                   message:@"The sum of the scores must be equal to 26."
+                                                  delegate:self
+                                         cancelButtonTitle:@"Okay"
+                                         otherButtonTitles:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -178,7 +188,7 @@ static UIAlertView const *invalidScoreAlert;
 
 - (IBAction)touchNewGameButton:(UIButton *)sender {
     if (UIEventSubtypeMotionShake) {
-        [[[UIAlertView alloc] initWithTitle:@"Reset Game?"
+        [[[UIAlertView alloc] initWithTitle:resetGameTitleText
                                     message:@"Are you sure you would like to start a new game?"
                                    delegate:self
                           cancelButtonTitle:@"No"
@@ -194,31 +204,30 @@ static UIAlertView const *invalidScoreAlert;
     _dealerLabel.frame= frame;
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
     
-    BOOL settingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
+    BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
-    [UIView animateWithDuration:0.5 animations:^() {
-        settingsVisible ? [_shootTheMoonLabel setAlpha:0.0] : [_shootTheMoonLabel setAlpha:1.0];
-        settingsVisible ? [_moonBehaviorSegmentedControl setAlpha:0.0] : [_moonBehaviorSegmentedControl setAlpha:1.0];
-        
-        settingsVisible ? [_passDirectionLabel setAlpha:1.0] : [_passDirectionLabel setAlpha:0.0];
-        settingsVisible ? [_nextRoundButton setAlpha:1.0] : [_nextRoundButton setAlpha:0.0];
-        settingsVisible ? [_nnewGameButton setAlpha:1.0] : [_nnewGameButton setAlpha:0.0];
-        
-        for (UITextField *field in _playerNameFields) {
-            settingsVisible ? [field setAlpha:0.0] : [field setAlpha:1.0];
-        }
-        for (UILabel *label in _playerNameLabels) {
-            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
-        }
-        for (UILabel *label in _playerSumScoreLabels) {
-            settingsVisible ? [label setAlpha:1.0] : [label setAlpha:0.0];
-        }
-        for (UICollectionView *view in _scoresCollectionViews) {
-            settingsVisible ? [view setAlpha:1.0] : [view setAlpha:0.0];
-        }
-        
-        settingsVisible ? [_dealerLabel setAlpha:0.0] : [_dealerLabel setAlpha:1.0];
-    }];
+    [self setView:_shootTheMoonLabel hidden:isSettingsVisible];
+    [self setView:_moonBehaviorSegmentedControl hidden:isSettingsVisible];
+    
+    [self setView:_passDirectionLabel hidden:!isSettingsVisible];
+    [self setView:_nextRoundButton hidden:!isSettingsVisible];
+    [self setView:_nnewGameButton hidden:!isSettingsVisible];
+    
+    for (UITextField *field in _playerNameFields) {
+        [self setView:field hidden:isSettingsVisible];
+    }
+    [self setView:_endingScoreTextField hidden:isSettingsVisible];
+    for (UILabel *label in _playerNameLabels) {
+        [self setView:label hidden:!isSettingsVisible];
+    }
+    for (UILabel *label in _playerSumScoreLabels) {
+        [self setView:label hidden:!isSettingsVisible];
+    }
+    for (UICollectionView *view in _scoresCollectionViews) {
+        [self setView:view hidden:!isSettingsVisible];
+    }
+    [self setView:_dealerLabel hidden:isSettingsVisible];
+    
     
     NSArray* names = [[NSArray alloc] init];
     
@@ -239,13 +248,15 @@ static UIAlertView const *invalidScoreAlert;
     [self updatePlayerNames];
     [self updateDealerLabel];
     [self dismissKeyboard];
+    
+    [[Game sharedGameData] setEndingScore:[[_endingScoreTextField text] intValue]];
+    [[Game sharedGameData] save];
 }
 
 #pragma mark - Next Round View
 #pragma mark Actions
 
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
-
     // the sum must be 26 and a player must have a queen to be valid, unless a player shoots the moon.
     int nextRoundViewSum = [self getNextRoundViewSum];
     if (nextRoundViewSum == 26 || nextRoundViewSum == 78 || nextRoundViewSum == -26) {
@@ -270,6 +281,21 @@ static UIAlertView const *invalidScoreAlert;
     } else {
         [invalidScoreAlert show];
         [self resetNextRoundView];
+    }
+    
+    for (Player *p in [[Game sharedGameData] players]) {
+        if ([p sumScores] >= [[_endingScoreTextField text] intValue]) {
+            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
+            
+            [self setView:_passDirectionLabel hidden:YES];
+            
+            for (UICollectionView *view in _scoresCollectionViews) {
+                [self setView:view hidden:NO];
+            }
+            
+            [_nextRoundButton setEnabled:NO];
+            [_settingsButton setEnabled:NO];
+        }
     }
 }
 
@@ -399,6 +425,18 @@ static UIAlertView const *invalidScoreAlert;
     }
 }
 
+- (NSString *)getLowestScorerName {
+    Player *lowestScorer = [[[Game sharedGameData] players] objectAtIndex:0];
+    
+    for(Player *p in [[Game sharedGameData] players]) {
+        if ([p sumScores] < [lowestScorer sumScores]) {
+            lowestScorer = p;
+        }
+    }
+    
+    return [lowestScorer name];
+}
+
 #pragma mark - Input Accessory View
 
 - (void)setupInputAccessoryViews {
@@ -449,16 +487,16 @@ static UIAlertView const *invalidScoreAlert;
 // Hides the keyboard
 //
 - (void)dismissKeyboard {
-    [[_playerNameFields objectAtIndex:_activeTextField.tag] resignFirstResponder];
+    [_activeTextField resignFirstResponder];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // if currently focused on first three text fields, go to the next text field
     if (textField.tag < 3) {
         [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
-        // if currently focused on last text field, dismiss the keyboard.
+        // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
     } else if (textField.tag == 3) {
-        [[_playerNameFields objectAtIndex:textField.tag] resignFirstResponder];
+        [self dismissKeyboard];
     }
     
     return YES;
@@ -520,6 +558,33 @@ static UIAlertView const *invalidScoreAlert;
     _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
 }
 
+//
+// Moves the view up/down whenever the keyboard is shown/dismissed
+//
+- (void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
+    
+    CGRect rect = self.view.frame;
+    if (movedUp)
+    {
+        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
+        // 2. increase the size of the view so that the area behind the keyboard is covered up.
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else
+    {
+        // revert back to the normal state.
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.view.frame = rect;
+    
+    [UIView commitAnimations];
+}
+
 #pragma mark - Undo Last Round
 
 - (BOOL)canBecomeFirstResponder {
@@ -529,18 +594,17 @@ static UIAlertView const *invalidScoreAlert;
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if ([[Game sharedGameData] numRounds] > 0) {
         if (UIEventSubtypeMotionShake) {
-            [[[UIAlertView alloc] initWithTitle:@"Undo last round?"
+            [[[UIAlertView alloc] initWithTitle:undoTitleText
                                         message:@"Are you sure you would like to undo the last round?"
                                        delegate:self
                               cancelButtonTitle:@"No"
                               otherButtonTitles:@"Yes", nil] show];
         }
     }
-
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[alertView title] isEqualToString:@"Undo last round?"]) {
+    if ([[alertView title] isEqualToString:undoTitleText]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             for(int i = 0; i < 4; i++) {
                 NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
@@ -560,20 +624,29 @@ static UIAlertView const *invalidScoreAlert;
             [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] - 1];
             [self updateDealerLabel];
         }
-    } else if ([[alertView title] isEqualToString:@"Reset Game?"]) {
-        [[Game sharedGameData] reset];
-    
-        [self updatePlayerNames];
-        [self updatePassDirectionLabel];
-        
-        for(UICollectionView *view in _scoresCollectionViews) {
-            [view reloadData];
+    } else if ([[alertView title] isEqualToString:resetGameTitleText]) {
+        if (buttonIndex == [alertView firstOtherButtonIndex]) {
+            [[Game sharedGameData] reset];
+            
+            [self updatePlayerNames];
+            [self updatePassDirectionLabel];
+            
+            for(UICollectionView *view in _scoresCollectionViews) {
+                [view reloadData];
+            }
+            
+            [self updatePlayerSumScoreLabels];
+            
+            [_nextRoundButton setEnabled:YES];
+            [_settingsButton setEnabled:YES];
+            
+            [self setView:_gameOverLabel hidden:YES];
+            [self setView:_passDirectionLabel hidden:NO];
+            
+            [[Game sharedGameData] setDealerOffset:0];
+            [self updateDealerLabel];
+            [[Game sharedGameData] save];
         }
-        
-        [self updatePlayerSumScoreLabels];
-        
-        [[Game sharedGameData] setDealerOffset:0];
-        [self updateDealerLabel];
     }
 }
 

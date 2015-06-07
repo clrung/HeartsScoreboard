@@ -13,6 +13,7 @@
 
 @property (nonatomic) NSInteger numRounds;
 @property (nonatomic) NSInteger dealerOffset;
+@property (nonatomic) NSInteger endingScore;
 @property (strong, nonatomic) NSArray *players;
 
 - (id)init;
@@ -23,6 +24,9 @@
 
 - (NSInteger)dealerOffset;
 - (void)setDealerOffset:(NSInteger)dealerOffset;
+
+- (NSInteger)endingScore;
+- (void)setEndingScore:(NSInteger)endingScore;
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;
