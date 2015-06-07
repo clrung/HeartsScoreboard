@@ -71,6 +71,7 @@ static UIAlertView const *invalidScoreAlert;
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
+    [self checkGameOver];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -283,20 +284,7 @@ static UIAlertView const *invalidScoreAlert;
         [self resetNextRoundView];
     }
     
-    for (Player *p in [[Game sharedGameData] players]) {
-        if ([p sumScores] >= [[_endingScoreTextField text] intValue]) {
-            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
-            
-            [self setView:_passDirectionLabel hidden:YES];
-            
-            for (UICollectionView *view in _scoresCollectionViews) {
-                [self setView:view hidden:NO];
-            }
-            
-            [_nextRoundButton setEnabled:NO];
-            [_settingsButton setEnabled:NO];
-        }
-    }
+    [self checkGameOver];
 }
 
 - (IBAction)touchNextRoundResetButton:(UIButton *)sender {
@@ -422,6 +410,24 @@ static UIAlertView const *invalidScoreAlert;
     } else if ([self getNextRoundViewSum] > 27) {
         [invalidScoreAlert show];
         [self resetNextRoundView];
+    }
+}
+
+- (void)checkGameOver {
+    for (Player *p in [[Game sharedGameData] players]) {
+        if ([p sumScores] >= [[_endingScoreTextField text] intValue]) {
+            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
+            
+            [self setView:_passDirectionLabel hidden:YES];
+            [self setView:_gameOverLabel hidden:NO];
+            
+            for (UICollectionView *view in _scoresCollectionViews) {
+                [self setView:view hidden:YES];
+            }
+            
+            [_nextRoundButton setEnabled:NO];
+            [_settingsButton setEnabled:NO];
+        }
     }
 }
 
@@ -623,6 +629,7 @@ static UIAlertView const *invalidScoreAlert;
             
             [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] - 1];
             [self updateDealerLabel];
+            [[Game sharedGameData] save];
         }
     } else if ([[alertView title] isEqualToString:resetGameTitleText]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
@@ -632,6 +639,7 @@ static UIAlertView const *invalidScoreAlert;
             [self updatePassDirectionLabel];
             
             for(UICollectionView *view in _scoresCollectionViews) {
+                [self setView:view hidden:NO];
                 [view reloadData];
             }
             
