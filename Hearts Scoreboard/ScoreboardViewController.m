@@ -9,6 +9,7 @@
 #import "ScoreboardViewController.h"
 #import "ScoreCollectionViewCell.h"
 #import "Player.h"
+#import "UIPlayerTextField.h"
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
@@ -22,12 +23,11 @@
 @property (strong, nonatomic) IBOutlet UIButton *nnewGameButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
 
-@property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *playerNameFields;
+@property (strong, nonatomic) IBOutletCollection(UIPlayerTextField) NSArray *playerNameFields;
 @property (strong, nonatomic) NSArray *playerNameFieldYLocations;
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
 @property (strong, nonatomic) IBOutlet UILabel *dealerLabel;
-@property (strong, nonatomic) UITextField *activeTextField;
 @property (strong, nonatomic) NSArray *inputAccessoryViews;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
@@ -61,13 +61,20 @@ static UIAlertView const *invalidScoreAlert;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self setupInputAccessoryViews];
-    
     [self updatePlayerNames];
     [self updatePlayerSumScoreLabels];
     [self updateDealerLabel];
     [_endingScoreTextField setText:[NSString stringWithFormat:@"%ld", (long)[[Game sharedGameData] endingScore]]];
-    [_endingScoreTextField addTarget:self action:@selector(fieldSelected:) forControlEvents:UIControlEventEditingDidBegin];
+
+    for (UIPlayerTextField *textField in _playerNameFields) {
+        if ([textField tag] < 3) {
+            [textField setNextTextField:[_playerNameFields objectAtIndex:[textField tag] + 1]];
+        }
+        if ([textField tag] > 0) {
+            [textField setPreviousTextField:[_playerNameFields objectAtIndex:[textField tag] - 1]];
+        }
+    }
+
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
@@ -248,7 +255,7 @@ static UIAlertView const *invalidScoreAlert;
     
     [self updatePlayerNames];
     [self updateDealerLabel];
-    [self dismissKeyboard];
+    [self.view endEditing:YES];
     
     [[Game sharedGameData] setEndingScore:[[_endingScoreTextField text] intValue]];
     [[Game sharedGameData] save];
@@ -443,70 +450,19 @@ static UIAlertView const *invalidScoreAlert;
     return [lowestScorer name];
 }
 
-#pragma mark - Input Accessory View
-
-- (void)setupInputAccessoryViews {
-    _inputAccessoryViews = [[NSArray alloc] initWithObjects:[[UIToolbar alloc] init], [[UIToolbar alloc] init], [[UIToolbar alloc] init], [[UIToolbar alloc] init], nil];
-    
-    for(UIToolbar *accessoryView in _inputAccessoryViews) {
-        UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:101 target:nil action:@selector(goToPrevField)]; // 101 is the < character
-        UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:102 target:nil action:@selector(goToNextField)]; // 102 is the > character
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:nil action:@selector(dismissKeyboard)];
-        UIBarButtonItem *flexSpace  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-        UIBarButtonItem *fake       = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        
-        [accessoryView sizeToFit];
-        [accessoryView setItems:[NSArray arrayWithObjects: prevButton, fake, nextButton, fake, flexSpace, fake, doneButton, nil] animated:YES];
-    }
-    
-    // disable the previous button in the first accessory view
-    ((UIBarButtonItem*)[((UIToolbar*)[_inputAccessoryViews objectAtIndex:0]).items objectAtIndex:0]).enabled = NO;
-    // disable the next button in the last accessory view
-    ((UIBarButtonItem*)[((UIToolbar*)[_inputAccessoryViews objectAtIndex:3]).items objectAtIndex:2]).enabled = NO;
-    
-    // add the input accessory view to each text field's keyboard.
-    for(UITextField *field in _playerNameFields) {
-        [field addTarget:self action:@selector(fieldSelected:) forControlEvents:UIControlEventEditingDidBegin];
-        [field setInputAccessoryView:[_inputAccessoryViews objectAtIndex:field.tag]];
-    }
-}
-
-- (void)fieldSelected:(UITextField*)selectedField {
-    _activeTextField = selectedField;
-}
-
-//
-// Focus on the previous UITextField
-//
-- (void)goToPrevField {
-    [[_playerNameFields objectAtIndex:(_activeTextField.tag - 1)] becomeFirstResponder];
-}
-
-//
-// Focus on the next UITextField
-//
-- (void)goToNextField {
-    [[_playerNameFields objectAtIndex:(_activeTextField.tag + 1)] becomeFirstResponder];
-}
-
-//
-// Hides the keyboard
-//
-- (void)dismissKeyboard {
-    [_activeTextField resignFirstResponder];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // if currently focused on first three text fields, go to the next text field
     if (textField.tag < 3) {
         [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
         // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
     } else if (textField.tag == 3) {
-        [self dismissKeyboard];
+        [textField resignFirstResponder];
     }
     
     return YES;
 }
+
+#pragma mark - Move Dealer Label
 
 - (void)moveViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.view];
@@ -564,6 +520,12 @@ static UIAlertView const *invalidScoreAlert;
     _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+#pragma mark
+
 //
 // Moves the view up/down whenever the keyboard is shown/dismissed
 //
@@ -592,10 +554,6 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 #pragma mark - Undo Last Round
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if ([[Game sharedGameData] numRounds] > 0) {
