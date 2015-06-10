@@ -344,7 +344,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot the moon behavior" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-1G-A7H">
-                                <rect key="frame" x="182" y="474" width="236" height="21"/>
+                                <rect key="frame" x="182" y="493" width="236" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="MlE-TL-lhP"/>
                                     <constraint firstAttribute="height" constant="21" id="c8f-5M-xn3"/>
@@ -354,7 +354,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LkE-j6-g0o">
-                                <rect key="frame" x="210" y="500" width="180" height="29"/>
+                                <rect key="frame" x="210" y="519" width="180" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="L07-dt-Loc"/>
                                     <constraint firstAttribute="height" constant="28" id="gTC-au-zCM"/>
@@ -382,7 +382,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Score: 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbi-yq-MBm">
-                                <rect key="frame" x="215" y="404" width="170" height="25"/>
+                                <rect key="frame" x="215" y="423" width="170" height="25"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="2uO-qu-4Jv"/>
@@ -393,7 +393,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="50" maxValue="150" translatesAutoresizingMaskIntoConstraints="NO" id="J6K-l3-OeS">
-                                <rect key="frame" x="118" y="434" width="364" height="31"/>
+                                <rect key="frame" x="118" y="453" width="364" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Bb1-km-IVU"/>
                                 </constraints>
@@ -798,8 +798,7 @@
                             <constraint firstItem="8wx-rm-J10" firstAttribute="centerY" secondItem="ACA-XG-2Ko" secondAttribute="centerY" id="aEw-BH-eE8"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="aIe-R0-GII"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="akT-BP-rMj"/>
-                            <constraint firstItem="Xc9-1G-A7H" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="6:7" constant="-40" id="aqO-IX-QMX"/>
-                            <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="6:7" id="bOR-Uh-qi7"/>
+                            <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="8:9" id="bOR-Uh-qi7"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="centerX" secondItem="oez-pd-Pcd" secondAttribute="centerX" id="cnx-nQ-u5P"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="eQ1-bz-6Wr"/>
                             <constraint firstItem="ErM-7M-8qC" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="2:9" constant="15" id="fjF-1M-93U"/>
@@ -831,7 +830,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="aqO-IX-QMX"/>
+                                <exclude reference="Ub7-7g-5dh"/>
                             </mask>
                         </variation>
                     </view>

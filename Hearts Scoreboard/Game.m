@@ -27,8 +27,9 @@ static NSString* const playersKey       = @"players";
 - (id)initWithNames:(NSArray *)names {
     self = [super init];
     if (self) {
-        _numRounds = 0;
-        _dealerOffset = 0;
+        _numRounds      = 0;
+        _dealerOffset   = 0;
+        _endingScore    = 100;
         
         _players = [[NSArray alloc] init];
         for (NSString *name in names) {
@@ -89,6 +90,7 @@ static NSString* const playersKey       = @"players";
 - (void)reset {
     _numRounds      = 0;
     _dealerOffset   = 0;
+    _endingScore    = 100;
     
     NSArray *names = [[NSArray alloc] initWithObjects:@"Player 1", @"Player 2", @"Player 3", @"Player 4", nil];
     for(NSUInteger i = 0; i < [_players count]; i++) {
@@ -142,7 +144,7 @@ static NSString* const playersKey       = @"players";
         Game* game = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
         return game;
     }
-
+    
     return [[Game alloc] init];
 }
 

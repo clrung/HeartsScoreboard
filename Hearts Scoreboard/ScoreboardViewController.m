@@ -76,6 +76,8 @@ static UIAlertView const *invalidScoreAlert;
         [view reloadData];
     }
     [self checkGameOver];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -93,9 +95,25 @@ static UIAlertView const *invalidScoreAlert;
                                          otherButtonTitles:nil];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)orientationChanged {
+    [self updatePlayerNameFieldYLocations];
+    CGRect frame = _dealerLabel.frame;
+    
+    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:[[Game sharedGameData] dealerOffset] % 4] intValue] - frame.size.height / 2;
+    frame.origin.x = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.x + ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.width + 15;
+    
+    _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
+    _dealerLabel.frame= frame;
 }
 
 #pragma mark Update Text
@@ -205,27 +223,30 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)touchSettingsButton:(UIButton *)sender {
-    CGRect frame = _dealerLabel.frame;
-    
-    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:[[Game sharedGameData] dealerOffset] % 4] floatValue] - frame.size.height / 2;
-    
-    _dealerLabel.frame= frame;
-    _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
+    [self orientationChanged];
     
     BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
+    // Settings
+    
+    for (UITextField *field in _playerNameFields) {
+        [self setView:field hidden:isSettingsVisible];
+    }
+    
     [self setView:_shootTheMoonLabel hidden:isSettingsVisible];
     [self setView:_moonBehaviorSegmentedControl hidden:isSettingsVisible];
+    
+    [self setView:_endingScoreLabel hidden:isSettingsVisible];
+    [self setView:_endingScoreSlider hidden:isSettingsVisible];
+    
+    [self setView:_dealerLabel hidden:isSettingsVisible];
+    
+    // Main screen
     
     [self setView:_passDirectionLabel hidden:!isSettingsVisible];
     [self setView:_nextRoundButton hidden:!isSettingsVisible];
     [self setView:_nnewGameButton hidden:!isSettingsVisible];
     
-    for (UITextField *field in _playerNameFields) {
-        [self setView:field hidden:isSettingsVisible];
-    }
-    [self setView:_endingScoreLabel hidden:isSettingsVisible];
-    [self setView:_endingScoreSlider hidden:isSettingsVisible];
     for (UILabel *label in _playerNameLabels) {
         [self setView:label hidden:!isSettingsVisible];
     }
@@ -235,7 +256,6 @@ static UIAlertView const *invalidScoreAlert;
     for (UICollectionView *view in _scoresCollectionViews) {
         [self setView:view hidden:!isSettingsVisible];
     }
-    [self setView:_dealerLabel hidden:isSettingsVisible];
     
     NSArray* names = [[NSArray alloc] init];
     
