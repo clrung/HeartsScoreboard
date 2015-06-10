@@ -11,8 +11,6 @@
 #import "Player.h"
 #import "UIPlayerTextField.h"
 
-#define kOFFSET_FOR_KEYBOARD 80.0
-
 @interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
@@ -28,7 +26,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonBehaviorSegmentedControl;
 @property (strong, nonatomic) IBOutlet UILabel *dealerLabel;
-@property (strong, nonatomic) NSArray *inputAccessoryViews;
+@property (strong, nonatomic) IBOutlet UILabel *endingScoreLabel;
+@property (strong, nonatomic) IBOutlet UISlider *endingScoreSlider;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
@@ -37,7 +36,6 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
-@property (strong, nonatomic) IBOutlet UITextField *endingScoreTextField;
 
 @end
 
@@ -64,8 +62,7 @@ static UIAlertView const *invalidScoreAlert;
     [self updatePlayerNames];
     [self updatePlayerSumScoreLabels];
     [self updateDealerLabel];
-    [_endingScoreTextField setText:[NSString stringWithFormat:@"%ld", (long)[[Game sharedGameData] endingScore]]];
-
+    
     for (UIPlayerTextField *textField in _playerNameFields) {
         if ([textField tag] < 3) {
             [textField setNextTextField:[_playerNameFields objectAtIndex:[textField tag] + 1]];
@@ -74,7 +71,7 @@ static UIAlertView const *invalidScoreAlert;
             [textField setPreviousTextField:[_playerNameFields objectAtIndex:[textField tag] - 1]];
         }
     }
-
+    
     for(UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
@@ -84,7 +81,10 @@ static UIAlertView const *invalidScoreAlert;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [self initPlayerNameFieldYLocations];
+    [_endingScoreSlider setValue:[[Game sharedGameData] endingScore]];
+    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[[Game sharedGameData] endingScore]];
+    
+    [self updatePlayerNameFieldYLocations];
     
     invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scores"
                                                    message:@"The sum of the scores must be equal to 26."
@@ -114,7 +114,7 @@ static UIAlertView const *invalidScoreAlert;
 
 - (void)updatePlayerSumScoreLabels {
     for(UILabel *label in _playerSumScoreLabels) {
-        [label setText:[NSString stringWithFormat:@"%ld", [[[[Game sharedGameData] players] objectAtIndex:label.tag] sumScores]]];
+        [label setText:[NSString stringWithFormat:@"%ld", (long)[[[[Game sharedGameData] players] objectAtIndex:label.tag] sumScores]]];
     }
 }
 
@@ -224,7 +224,8 @@ static UIAlertView const *invalidScoreAlert;
     for (UITextField *field in _playerNameFields) {
         [self setView:field hidden:isSettingsVisible];
     }
-    [self setView:_endingScoreTextField hidden:isSettingsVisible];
+    [self setView:_endingScoreLabel hidden:isSettingsVisible];
+    [self setView:_endingScoreSlider hidden:isSettingsVisible];
     for (UILabel *label in _playerNameLabels) {
         [self setView:label hidden:!isSettingsVisible];
     }
@@ -235,7 +236,6 @@ static UIAlertView const *invalidScoreAlert;
         [self setView:view hidden:!isSettingsVisible];
     }
     [self setView:_dealerLabel hidden:isSettingsVisible];
-    
     
     NSArray* names = [[NSArray alloc] init];
     
@@ -257,7 +257,7 @@ static UIAlertView const *invalidScoreAlert;
     [self updateDealerLabel];
     [self.view endEditing:YES];
     
-    [[Game sharedGameData] setEndingScore:[[_endingScoreTextField text] intValue]];
+    [[Game sharedGameData] setEndingScore:[_endingScoreSlider value]];
     [[Game sharedGameData] save];
 }
 
@@ -361,16 +361,6 @@ static UIAlertView const *invalidScoreAlert;
     }
 }
 
-- (void)setView:(UIView*)view hidden:(BOOL)hidden {
-    [UIView animateWithDuration:0.5 animations:^() {
-        if (hidden) {
-            [view setAlpha:0.0];
-        } else {
-            [view setAlpha:1.0];
-        }
-    }];
-}
-
 #pragma mark Helper Methods
 
 - (int)getNextRoundViewSum {
@@ -420,49 +410,7 @@ static UIAlertView const *invalidScoreAlert;
     }
 }
 
-- (void)checkGameOver {
-    for (Player *p in [[Game sharedGameData] players]) {
-        if ([p sumScores] >= [[_endingScoreTextField text] intValue]) {
-            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
-            
-            [self setView:_passDirectionLabel hidden:YES];
-            [self setView:_gameOverLabel hidden:NO];
-            
-            for (UICollectionView *view in _scoresCollectionViews) {
-                [self setView:view hidden:YES];
-            }
-            
-            [_nextRoundButton setEnabled:NO];
-            [_settingsButton setEnabled:NO];
-        }
-    }
-}
-
-- (NSString *)getLowestScorerName {
-    Player *lowestScorer = [[[Game sharedGameData] players] objectAtIndex:0];
-    
-    for(Player *p in [[Game sharedGameData] players]) {
-        if ([p sumScores] < [lowestScorer sumScores]) {
-            lowestScorer = p;
-        }
-    }
-    
-    return [lowestScorer name];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    // if currently focused on first three text fields, go to the next text field
-    if (textField.tag < 3) {
-        [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
-        // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
-    } else if (textField.tag == 3) {
-        [textField resignFirstResponder];
-    }
-    
-    return YES;
-}
-
-#pragma mark - Move Dealer Label
+#pragma mark - Dealer Label Movement
 
 - (void)moveViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
     CGPoint touchLocation = [panGestureRecognizer locationInView:self.view];
@@ -509,50 +457,6 @@ static UIAlertView const *invalidScoreAlert;
     _dealerLabel.frame = frame;
 }
 
-- (void)initPlayerNameFieldYLocations {
-    CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
-    
-    CGFloat firstYLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
-    CGFloat secondYLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
-    CGFloat thirdYLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
-    CGFloat fourthYLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
-    
-    _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-#pragma mark
-
-//
-// Moves the view up/down whenever the keyboard is shown/dismissed
-//
-- (void)setViewMovedUp:(BOOL)movedUp
-{
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3]; // if you want to slide up the view
-    
-    CGRect rect = self.view.frame;
-    if (movedUp)
-    {
-        // 1. move the view's origin up so that the text field that will be hidden come above the keyboard
-        // 2. increase the size of the view so that the area behind the keyboard is covered up.
-        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
-        rect.size.height += kOFFSET_FOR_KEYBOARD;
-    }
-    else
-    {
-        // revert back to the normal state.
-        rect.origin.y += kOFFSET_FOR_KEYBOARD;
-        rect.size.height -= kOFFSET_FOR_KEYBOARD;
-    }
-    self.view.frame = rect;
-    
-    [UIView commitAnimations];
-}
-
 #pragma mark - Undo Last Round
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
@@ -566,6 +470,8 @@ static UIAlertView const *invalidScoreAlert;
         }
     }
 }
+
+#pragma mark
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if ([[alertView title] isEqualToString:undoTitleText]) {
@@ -592,6 +498,7 @@ static UIAlertView const *invalidScoreAlert;
     } else if ([[alertView title] isEqualToString:resetGameTitleText]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             [[Game sharedGameData] reset];
+            [[Game sharedGameData] save];
             
             [self updatePlayerNames];
             [self updatePassDirectionLabel];
@@ -602,18 +509,78 @@ static UIAlertView const *invalidScoreAlert;
             }
             
             [self updatePlayerSumScoreLabels];
+            [self updateDealerLabel];
             
             [_nextRoundButton setEnabled:YES];
             [_settingsButton setEnabled:YES];
             
             [self setView:_gameOverLabel hidden:YES];
             [self setView:_passDirectionLabel hidden:NO];
-            
-            [[Game sharedGameData] setDealerOffset:0];
-            [self updateDealerLabel];
-            [[Game sharedGameData] save];
         }
     }
+}
+
+- (void)checkGameOver {
+    for (Player *p in [[Game sharedGameData] players]) {
+        if ([p sumScores] >= [_endingScoreSlider value]) {
+            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
+            
+            [self setView:_passDirectionLabel hidden:YES];
+            [self setView:_gameOverLabel hidden:NO];
+            
+            for (UICollectionView *view in _scoresCollectionViews) {
+                [self setView:view hidden:YES];
+            }
+            
+            [_nextRoundButton setEnabled:NO];
+            [_settingsButton setEnabled:NO];
+        }
+    }
+}
+
+- (NSString *)getLowestScorerName {
+    Player *lowestScorer = [[[Game sharedGameData] players] objectAtIndex:0];
+    
+    for(Player *p in [[Game sharedGameData] players]) {
+        if ([p sumScores] < [lowestScorer sumScores]) {
+            lowestScorer = p;
+        }
+    }
+    
+    return [lowestScorer name];
+}
+
+- (void)setView:(UIView*)view hidden:(BOOL)hidden {
+    [UIView animateWithDuration:0.5 animations:^() {
+        hidden ? [view setAlpha:0.0] : [view setAlpha:1.0];
+    }];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    // if currently focused on first three text fields, go to the next text field
+    if (textField.tag < 3) {
+        [[_playerNameFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
+        // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
+    } else if (textField.tag == 3) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+- (void)updatePlayerNameFieldYLocations {
+    CGFloat textFieldHeight = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.height;
+    
+    CGFloat firstYLocation = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
+    CGFloat secondYLocation = ((UITextField*)([_playerNameFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
+    CGFloat thirdYLocation = ((UITextField*)([_playerNameFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
+    CGFloat fourthYLocation = ((UITextField*)([_playerNameFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
+    
+    _playerNameFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation], [NSNumber numberWithFloat:secondYLocation], [NSNumber numberWithFloat:thirdYLocation], [NSNumber numberWithFloat:fourthYLocation], nil];
+}
+
+- (IBAction)endScoreSliderDidChange:(UISlider *)sender {
+    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)sender.value];
 }
 
 @end
