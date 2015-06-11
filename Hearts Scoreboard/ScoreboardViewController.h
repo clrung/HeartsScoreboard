@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
 
 @interface ScoreboardViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 

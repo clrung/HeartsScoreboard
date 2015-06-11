@@ -11,6 +11,7 @@
 		F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D38A1AD3128D00C67443 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3891AD3128D00C67443 /* Game.m */; };
 		F14C5DC41B24E82C009CBDD9 /* UIPlayerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C5DC31B24E82C009CBDD9 /* UIPlayerTextField.m */; };
+		F14C5DCE1B28F1B3009CBDD9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C5DCD1B28F1B3009CBDD9 /* Settings.m */; };
 		F1FB70191AA01614007073AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70181AA01614007073AC /* main.m */; };
 		F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701B1AA01614007073AC /* AppDelegate.m */; };
 		F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
@@ -39,6 +40,8 @@
 		F130D3891AD3128D00C67443 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		F14C5DC31B24E82C009CBDD9 /* UIPlayerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlayerTextField.m; sourceTree = "<group>"; };
 		F14C5DC51B24E849009CBDD9 /* UIPlayerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlayerTextField.h; sourceTree = "<group>"; };
+		F14C5DCC1B28F1B3009CBDD9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		F14C5DCD1B28F1B3009CBDD9 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */,
 				F14C5DC51B24E849009CBDD9 /* UIPlayerTextField.h */,
 				F14C5DC31B24E82C009CBDD9 /* UIPlayerTextField.m */,
+				F14C5DCC1B28F1B3009CBDD9 /* Settings.h */,
+				F14C5DCD1B28F1B3009CBDD9 /* Settings.m */,
 				F1FB70231AA01614007073AC /* Images.xcassets */,
 				F1FB70251AA01614007073AC /* LaunchScreen.xib */,
 				F1FB70161AA01614007073AC /* Supporting Files */,
@@ -188,6 +193,7 @@
 				TargetAttributes = {
 					F1FB70121AA01614007073AC = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = FV269MJL6A;
 					};
 					F1FB702B1AA01614007073AC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -245,6 +251,7 @@
 				F14C5DC41B24E82C009CBDD9 /* UIPlayerTextField.m in Sources */,
 				F130D38A1AD3128D00C67443 /* Game.m in Sources */,
 				F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */,
+				F14C5DCE1B28F1B3009CBDD9 /* Settings.m in Sources */,
 				F1FB70191AA01614007073AC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,9 +376,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -379,9 +389,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

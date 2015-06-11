@@ -8,8 +8,10 @@
 
 #import "ScoreboardViewController.h"
 #import "ScoreCollectionViewCell.h"
+#import "Game.h"
 #import "Player.h"
 #import "UIPlayerTextField.h"
+#import "Settings.h"
 
 @interface ScoreboardViewController ()
 
@@ -83,8 +85,8 @@ static UIAlertView const *invalidScoreAlert;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [_endingScoreSlider setValue:[[Game sharedGameData] endingScore]];
-    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[[Game sharedGameData] endingScore]];
+    [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
+    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[[Settings sharedSettingsData] endingScore]];
     
     [self updatePlayerNameFieldYLocations];
     
@@ -109,7 +111,7 @@ static UIAlertView const *invalidScoreAlert;
     [self updatePlayerNameFieldYLocations];
     CGRect frame = _dealerLabel.frame;
     
-    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:[[Game sharedGameData] dealerOffset] % 4] intValue] - frame.size.height / 2;
+    frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:[[Settings sharedSettingsData] dealerOffset] % 4] intValue] - frame.size.height / 2;
     frame.origin.x = ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.origin.x + ((UITextField*)([_playerNameFields objectAtIndex:0])).frame.size.width + 15;
     
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
@@ -155,7 +157,7 @@ static UIAlertView const *invalidScoreAlert;
 
 - (void)updateDealerLabel {
     for (UILabel *label in _playerNameLabels) {
-        if ([[Game sharedGameData] dealerOffset] % 4 == label.tag) {
+        if ([[Settings sharedSettingsData] dealerOffset] % 4 == label.tag) {
             label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
         } else {
             label.font = [UIFont fontWithName:@"HelveticaNeue" size: 17];
@@ -272,13 +274,14 @@ static UIAlertView const *invalidScoreAlert;
     }
     
     [[Game sharedGameData] setPlayerNames: names];
+    [[Game sharedGameData] save];
     
     [self updatePlayerNames];
     [self updateDealerLabel];
     [self.view endEditing:YES];
     
-    [[Game sharedGameData] setEndingScore:[_endingScoreSlider value]];
-    [[Game sharedGameData] save];
+    [[Settings sharedSettingsData] setEndingScore:[_endingScoreSlider value]];
+    [[Settings sharedSettingsData] save];
 }
 
 #pragma mark - Next Round View
@@ -303,7 +306,7 @@ static UIAlertView const *invalidScoreAlert;
         
         [self setView:_nextRoundView hidden:YES];
         
-        [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] + 1];
+        [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] + 1];
         [self updateDealerLabel];
         [[Game sharedGameData] save];
     } else {
@@ -442,16 +445,16 @@ static UIAlertView const *invalidScoreAlert;
     if (panGestureRecognizer.state == UIGestureRecognizerStateEnded) {
         if (touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:0] floatValue] - frame.size.height / 2;
-            [[Game sharedGameData] setDealerOffset:0];
+            [[Settings sharedSettingsData] setDealerOffset:0];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:0] floatValue] + [[_playerNameFieldYLocations objectAtIndex:1] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:1] floatValue] - frame.size.height / 2;
-            [[Game sharedGameData] setDealerOffset:1];
+            [[Settings sharedSettingsData] setDealerOffset:1];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:1] floatValue] + [[_playerNameFieldYLocations objectAtIndex:2] floatValue]) / 2 && touchLocation.y < ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:2] floatValue] - frame.size.height / 2;
-            [[Game sharedGameData] setDealerOffset:2];
+            [[Settings sharedSettingsData] setDealerOffset:2];
         } else if (touchLocation.y > ([[_playerNameFieldYLocations objectAtIndex:2] floatValue] + [[_playerNameFieldYLocations objectAtIndex:3] floatValue]) / 2) {
             frame.origin.y = [[_playerNameFieldYLocations objectAtIndex:3] floatValue] - frame.size.height / 2;
-            [[Game sharedGameData] setDealerOffset:3];
+            [[Settings sharedSettingsData] setDealerOffset:3];
         }
         
         [_dealerLabel setAlpha: 1.0];
@@ -506,19 +509,26 @@ static UIAlertView const *invalidScoreAlert;
             [self updatePlayerSumScoreLabels];
             
             [[Game sharedGameData] setNumRounds:[[Game sharedGameData] numRounds] - 1];
+            [[Game sharedGameData] save];
             
             for(UICollectionView *view in _scoresCollectionViews) {
                 [view reloadData];
             }
             
-            [[Game sharedGameData] setDealerOffset:[[Game sharedGameData] dealerOffset] - 1];
+            [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] - 1];
+            [[Settings sharedSettingsData] save];
             [self updateDealerLabel];
-            [[Game sharedGameData] save];
         }
     } else if ([[alertView title] isEqualToString:resetGameTitleText]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             [[Game sharedGameData] reset];
             [[Game sharedGameData] save];
+            
+            [[Settings sharedSettingsData] reset];
+            [[Settings sharedSettingsData] save];
+            
+            [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
+            _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[[Settings sharedSettingsData] endingScore]];
             
             [self updatePlayerNames];
             [self updatePassDirectionLabel];

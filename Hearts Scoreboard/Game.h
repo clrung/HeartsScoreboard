@@ -12,21 +12,10 @@
 @interface Game : NSObject <NSCoding>
 
 @property (nonatomic) NSInteger numRounds;
-@property (nonatomic) NSInteger dealerOffset;
-@property (nonatomic) NSInteger endingScore;
 @property (strong, nonatomic) NSArray *players;
-
-- (id)init;
-- (id)initWithNames:(NSArray *)names;
 
 - (NSInteger)numRounds;
 - (void)setNumRounds:(NSInteger)numRounds;
-
-- (NSInteger)dealerOffset;
-- (void)setDealerOffset:(NSInteger)dealerOffset;
-
-- (NSInteger)endingScore;
-- (void)setEndingScore:(NSInteger)endingScore;
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;
@@ -40,6 +29,6 @@
 - (id)initWithCoder:(NSCoder *)decoder;
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
--(void)save;
+- (void)save;
 
 @end
