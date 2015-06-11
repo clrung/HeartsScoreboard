@@ -316,6 +316,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
+                                    <action selector="playerNameFieldsEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="1Hx-AZ-uhm"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="uvU-yY-5TP"/>
                                 </connections>
                             </textField>
@@ -324,6 +325,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
+                                    <action selector="playerNameFieldsEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="l1s-O6-XWc"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="8SY-s6-eHx"/>
                                 </connections>
                             </textField>
@@ -332,6 +334,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
+                                    <action selector="playerNameFieldsEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="L3C-JA-HtV"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PAS-HT-eTj"/>
                                 </connections>
                             </textField>
@@ -340,6 +343,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
+                                    <action selector="playerNameFieldsEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="ZlQ-e1-ZpU"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jml-Ri-WHY"/>
                                 </connections>
                             </textField>
@@ -363,9 +367,12 @@
                                     <segment title="Add 26"/>
                                     <segment title="Subtract 26"/>
                                 </segments>
+                                <connections>
+                                    <action selector="shootTheMoonBehaviorValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8ia-G1-6dQ"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="-22" y="66" width="50" height="40"/>
+                                <rect key="frame" x="-69" y="-15" width="50" height="40"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ulp-qq-rfu"/>
@@ -376,8 +383,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-Kw-Xbx">
-                                <rect key="frame" x="75" y="283" width="450" height="34"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="28"/>
+                                <rect key="frame" x="45" y="286" width="510" height="29"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -398,7 +405,9 @@
                                     <constraint firstAttribute="height" constant="30" id="Bb1-km-IVU"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="endScoreSliderDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="xq5-PB-h2j"/>
+                                    <action selector="endScoreSliderDidTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bge-2E-N1p"/>
+                                    <action selector="endScoreSliderDidTouchUpOutside:" destination="BYZ-38-t0r" eventType="touchUpOutside" id="kfy-3d-epJ"/>
+                                    <action selector="endScoreSliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="PDd-FN-e1N"/>
                                 </connections>
                             </slider>
                             <visualEffectView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
@@ -749,7 +758,7 @@
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="centerX" secondItem="l0V-Zz-8Hp" secondAttribute="centerX" id="3bS-o3-zsp"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerY" secondItem="Nof-mf-Hk4" secondAttribute="centerY" id="4E9-K4-ynr"/>
                             <constraint firstAttribute="centerX" secondItem="Xc9-1G-A7H" secondAttribute="centerX" id="4PE-4u-Kgy"/>
-                            <constraint firstItem="ajM-Kw-Xbx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="5ZM-0H-fG5"/>
+                            <constraint firstItem="ajM-Kw-Xbx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="5ZM-0H-fG5"/>
                             <constraint firstAttribute="centerY" secondItem="ajM-Kw-Xbx" secondAttribute="centerY" id="6Pn-98-mDZ"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6nl-b1-P3h"/>
                             <constraint firstItem="Nof-mf-Hk4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="83k-BX-vUF"/>
