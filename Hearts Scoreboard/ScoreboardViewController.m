@@ -210,8 +210,6 @@ static UIAlertView const *invalidScoreAlert;
 #pragma mark - Main Button Actions
 
 - (IBAction)touchNextRoundButton:(UIButton *)sender {
-    [[Game sharedGameData] setNumRounds:[[Game sharedGameData] numRounds] + 1];
-    
     [self resetNextRoundView];
     
     [self setView:_nextRoundView hidden:NO];
@@ -488,9 +486,6 @@ static UIAlertView const *invalidScoreAlert;
                 [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
             }
             
-            [[Game sharedGameData] setNumRounds:[[Game sharedGameData] numRounds] - 1];
-            [[Game sharedGameData] save];
-            
             [self updatePassDirectionLabel];
             [self updatePlayerSumScoreLabels];
             
@@ -538,7 +533,7 @@ static UIAlertView const *invalidScoreAlert;
 - (void)checkGameOver {
     for (Player *p in [[Game sharedGameData] players]) {
         if ([p sumScores] >= [_endingScoreSlider value]) {
-            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won the game!", [self getLowestScorerName]]];
+            [_gameOverLabel setText:[NSString stringWithFormat:@"%@ won!", [self getLowestScorerName]]];
             
             [self setView:_passDirectionLabel hidden:YES];
             [self setView:_gameOverLabel hidden:NO];

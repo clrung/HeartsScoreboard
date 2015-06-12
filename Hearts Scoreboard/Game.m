@@ -8,19 +8,13 @@
 
 #import "Game.h"
 
-static NSString* const numRoundsKey = @"numRounds";
-static NSString* const playersKey   = @"players";
+static NSString* const playersKey = @"players";
 
 @implementation Game
-@synthesize numRounds = _numRounds;
 @synthesize players = _players;
 
-- (NSInteger)numRounds {
-    return _numRounds;
-}
-
-- (void)setNumRounds:(NSInteger)numRounds {
-    _numRounds = numRounds;
+- (NSUInteger)numRounds {
+    return [[[_players objectAtIndex:0] scores] count];
 }
 
 - (NSArray *)players {
@@ -48,8 +42,6 @@ static NSString* const playersKey   = @"players";
 }
 
 - (void)reset {
-    _numRounds = 0;
-    
     NSArray *names = [[NSArray alloc] initWithObjects:@"Player 1", @"Player 2", @"Player 3", @"Player 4", nil];
     
     _players = [[NSArray alloc] init];
@@ -71,15 +63,13 @@ static NSString* const playersKey   = @"players";
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if([super init]) {
-        _numRounds      = [decoder decodeIntegerForKey:numRoundsKey];
-        _players        = [decoder decodeObjectForKey:playersKey];
+        _players = [decoder decodeObjectForKey:playersKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeInt:(int)_numRounds      forKey:numRoundsKey];
-    [encoder encodeObject:_players          forKey:playersKey];
+    [encoder encodeObject:_players forKey:playersKey];
 }
 
 + (NSString*)filePath {

@@ -11,11 +11,9 @@
 
 @interface Game : NSObject <NSCoding>
 
-@property (nonatomic) NSInteger numRounds;
 @property (strong, nonatomic) NSArray *players;
 
-- (NSInteger)numRounds;
-- (void)setNumRounds:(NSInteger)numRounds;
+- (NSUInteger)numRounds;
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;
