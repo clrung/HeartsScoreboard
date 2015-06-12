@@ -42,11 +42,9 @@ static NSString* const playersKey = @"players";
 }
 
 - (void)reset {
-    NSArray *names = [[NSArray alloc] initWithObjects:@"Player 1", @"Player 2", @"Player 3", @"Player 4", nil];
-    
-    _players = [[NSArray alloc] init];
-    for (NSString *name in names) {
-        _players = [_players arrayByAddingObject:[[Player alloc] initWithName:name]];
+    for (Player *p in _players) {
+        NSString *name = [p name];
+        [p resetPlayerWithName:name];
     }
 }
 

@@ -13,8 +13,8 @@ static NSString* const endingScoreKey       = @"endingScore";
 static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 @implementation Settings
-@synthesize dealerOffset    = _dealerOffset;
-@synthesize endingScore     = _endingScore;
+@synthesize dealerOffset      = _dealerOffset;
+@synthesize endingScore       = _endingScore;
 @synthesize moonBehaviorIsAdd = _moonBehaviorIsAdd;
 
 - (NSInteger)dealerOffset {
@@ -53,8 +53,8 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 }
 
 - (void)reset {
-    _dealerOffset = 0;
-    _endingScore = 100;
+    _dealerOffset      = 0;
+    _endingScore       = 100;
     _moonBehaviorIsAdd = YES;
 }
 

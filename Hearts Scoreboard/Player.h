@@ -13,7 +13,6 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSMutableArray *scores;
 
-- (id)init;
 - (id)initWithName:(NSString*)name;
 
 - (void)resetPlayerWithName:(NSString*)name;

@@ -15,15 +15,6 @@ static NSString* const scoresKey = @"scores";
 @synthesize name = _name;
 @synthesize scores = _scores;
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        _name = [[NSString alloc] init];
-        _scores = [[NSMutableArray alloc] init];
-    }
-    return self;
-}
-
 - (id)initWithName:(NSString*)name {
     self = [super init];
     if (self) {

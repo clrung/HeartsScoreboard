@@ -502,15 +502,9 @@ static UIAlertView const *invalidScoreAlert;
             [[Game sharedGameData] reset];
             [[Game sharedGameData] save];
             
-            [[Settings sharedSettingsData] reset];
+            [[Settings sharedSettingsData] setDealerOffset:0];
             [[Settings sharedSettingsData] save];
             
-            [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
-            _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[[Settings sharedSettingsData] endingScore]];
-            
-            [_moonBehaviorSegmentedControl setSelectedSegmentIndex:![[Settings sharedSettingsData] moonBehaviorIsAdd]];
-            
-            [self updatePlayerNames];
             [self updatePassDirectionLabel];
             
             for(UICollectionView *view in _scoresCollectionViews) {
