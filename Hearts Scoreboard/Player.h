@@ -23,7 +23,7 @@
 - (NSMutableArray*)scores;
 - (void)setScores:(NSMutableArray*)scores;
 
-- (NSInteger)sumScores;
+- (int)sumScores;
 
 - (id)initWithCoder:(NSCoder *)decoder;
 - (void)encodeWithCoder:(NSCoder *)encoder;

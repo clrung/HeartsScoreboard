@@ -10,15 +10,15 @@
 
 @interface Settings : NSObject <NSCoding>
 
-@property (nonatomic) NSInteger dealerOffset;
-@property (nonatomic) NSInteger endingScore;
+@property (nonatomic) int dealerOffset;
+@property (nonatomic) int endingScore;
 @property (nonatomic) BOOL moonBehaviorIsAdd;
 
-- (NSInteger)dealerOffset;
-- (void)setDealerOffset:(NSInteger)dealerOffset;
+- (int)dealerOffset;
+- (void)setDealerOffset:(int)dealerOffset;
 
-- (NSInteger)endingScore;
-- (void)setEndingScore:(NSInteger)endingScore;
+- (int)endingScore;
+- (void)setEndingScore:(int)endingScore;
 
 - (BOOL)moonBehaviorIsAdd;
 - (void)setMoonBehaviorIsAdd:(BOOL)moonBehaviorIsAdd;

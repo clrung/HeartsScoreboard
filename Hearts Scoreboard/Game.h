@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) NSArray *players;
 
-- (NSUInteger)numRounds;
+- (int)numRounds;
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;

@@ -17,19 +17,19 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 @synthesize endingScore       = _endingScore;
 @synthesize moonBehaviorIsAdd = _moonBehaviorIsAdd;
 
-- (NSInteger)dealerOffset {
+- (int)dealerOffset {
     return _dealerOffset;
 }
 
-- (void)setDealerOffset:(NSInteger)dealerOffset {
+- (void)setDealerOffset:(int)dealerOffset {
     _dealerOffset = dealerOffset;
 }
 
-- (NSInteger)endingScore {
+- (int)endingScore {
     return _endingScore;
 }
 
-- (void)setEndingScore:(NSInteger)endingScore {
+- (void)setEndingScore:(int)endingScore {
     _endingScore = endingScore;
 }
 
@@ -60,8 +60,8 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if([super init]) {
-        _dealerOffset       = [decoder decodeIntegerForKey:dealerOffsetKey];
-        _endingScore        = [decoder decodeIntegerForKey:endingScoreKey];
+        _dealerOffset       = [decoder decodeIntForKey:dealerOffsetKey];
+        _endingScore        = [decoder decodeIntForKey:endingScoreKey];
         _moonBehaviorIsAdd  = [decoder decodeBoolForKey:moonBehaviorIsAddKey];
     }
     return self;

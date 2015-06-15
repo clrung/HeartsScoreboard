@@ -348,7 +348,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jml-Ri-WHY"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot the moon behavior" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-1G-A7H">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot the moon preference" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xc9-1G-A7H">
                                 <rect key="frame" x="182" y="493" width="236" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="MlE-TL-lhP"/>
@@ -843,7 +843,7 @@
                         <outlet property="endingScoreLabel" destination="Dbi-yq-MBm" id="fSP-wL-AXc"/>
                         <outlet property="endingScoreSlider" destination="J6K-l3-OeS" id="AYw-H4-46h"/>
                         <outlet property="gameOverLabel" destination="ajM-Kw-Xbx" id="7Sd-XZ-aDL"/>
-                        <outlet property="moonBehaviorSegmentedControl" destination="LkE-j6-g0o" id="kzl-rU-oBZ"/>
+                        <outlet property="moonPreferenceSegmentedControl" destination="LkE-j6-g0o" id="EWZ-MM-Njj"/>
                         <outlet property="nextRoundButton" destination="cJc-oD-Q2k" id="rc9-pw-xHt"/>
                         <outlet property="nextRoundSubmitButton" destination="FLf-mc-Xeg" id="SCb-Xg-6LI"/>
                         <outlet property="nextRoundView" destination="JyC-Ds-4dR" id="jIf-Eb-4CZ"/>
@@ -855,10 +855,6 @@
                         <outletCollection property="scoresCollectionViews" destination="ACA-XG-2Ko" id="Y4n-4l-6pR"/>
                         <outletCollection property="scoresCollectionViews" destination="zm0-zy-qjP" id="jIB-g5-sNx"/>
                         <outletCollection property="scoresCollectionViews" destination="l0V-Zz-8Hp" id="ewJ-0G-lcl"/>
-                        <outletCollection property="playerSumScoreLabels" destination="o6B-hj-IAy" id="YwM-Nu-yiz"/>
-                        <outletCollection property="playerSumScoreLabels" destination="E0r-gi-Ifl" id="q1c-Sa-tZZ"/>
-                        <outletCollection property="playerSumScoreLabels" destination="S94-jL-Qv0" id="Blb-2M-KnC"/>
-                        <outletCollection property="playerSumScoreLabels" destination="E8s-vr-PB4" id="QCF-99-p7K"/>
                         <outletCollection property="playerNameLabels" destination="5R4-6Z-dsP" id="wnd-Mu-5J4"/>
                         <outletCollection property="playerNameLabels" destination="AGt-l4-G87" id="C0P-wh-P3p"/>
                         <outletCollection property="playerNameLabels" destination="LVz-pA-X8w" id="2WP-3X-NKm"/>
@@ -887,10 +883,14 @@
                         <outletCollection property="nextRoundAddScoreButtons" destination="fMX-Vu-8fR" id="EeJ-WD-nyH"/>
                         <outletCollection property="nextRoundAddScoreButtons" destination="x86-mj-rpN" id="491-C9-0Bd"/>
                         <outletCollection property="nextRoundAddScoreButtons" destination="U7A-4l-GX2" id="1Cd-g5-9LU"/>
-                        <outletCollection property="playerNameFields" destination="oPg-gp-h40" id="6Yp-3m-rbd"/>
-                        <outletCollection property="playerNameFields" destination="ErM-7M-8qC" id="MLr-zq-8ml"/>
-                        <outletCollection property="playerNameFields" destination="3EQ-wO-ywD" id="14I-4r-prQ"/>
-                        <outletCollection property="playerNameFields" destination="gTZ-PY-7an" id="KZY-N3-pxi"/>
+                        <outletCollection property="playerSumLabels" destination="E0r-gi-Ifl" id="bI9-tp-Iff"/>
+                        <outletCollection property="playerSumLabels" destination="S94-jL-Qv0" id="E7c-xX-v4n"/>
+                        <outletCollection property="playerSumLabels" destination="E8s-vr-PB4" id="ulX-7h-o1R"/>
+                        <outletCollection property="playerSumLabels" destination="o6B-hj-IAy" id="h1E-xB-8Ec"/>
+                        <outletCollection property="playerTextFields" destination="oPg-gp-h40" id="u3h-iV-Th1"/>
+                        <outletCollection property="playerTextFields" destination="3EQ-wO-ywD" id="f7K-JM-PMQ"/>
+                        <outletCollection property="playerTextFields" destination="gTZ-PY-7an" id="bFm-Nk-6Th"/>
+                        <outletCollection property="playerTextFields" destination="ErM-7M-8qC" id="4Kd-FW-fDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

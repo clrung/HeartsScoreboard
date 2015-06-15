@@ -8,24 +8,24 @@
 
 #import "Player.h"
 
-static NSString* const nameKey = @"name";
+static NSString* const nameKey   = @"name";
 static NSString* const scoresKey = @"scores";
 
 @implementation Player
-@synthesize name = _name;
+@synthesize name   = _name;
 @synthesize scores = _scores;
 
 - (id)initWithName:(NSString*)name {
     self = [super init];
     if (self) {
-        _name = [[NSString alloc] initWithString:name];
+        _name   = [[NSString alloc] initWithString:name];
         _scores = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)resetPlayerWithName:(NSString*)name {
-    _name = name;
+    _name   = name;
     _scores = [[NSMutableArray alloc] init];
 }
 
@@ -45,20 +45,20 @@ static NSString* const scoresKey = @"scores";
     _scores = scores;
 }
 
-- (NSInteger)sumScores {
-    return [[_scores valueForKeyPath:@"@sum.self"] integerValue];
+- (int)sumScores {
+    return (int)[[_scores valueForKeyPath:@"@sum.self"] integerValue];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if([super init]) {
-        _name = [decoder decodeObjectForKey:nameKey];
+        _name   = [decoder decodeObjectForKey:nameKey];
         _scores = [decoder decodeObjectForKey:scoresKey];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
-    [encoder encodeObject:_name forKey:nameKey];
+    [encoder encodeObject:_name   forKey:nameKey];
     [encoder encodeObject:_scores forKey:scoresKey];
 }
 

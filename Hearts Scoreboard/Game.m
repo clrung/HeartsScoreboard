@@ -13,8 +13,8 @@ static NSString* const playersKey = @"players";
 @implementation Game
 @synthesize players = _players;
 
-- (NSUInteger)numRounds {
-    return [[[_players objectAtIndex:0] scores] count];
+- (int)numRounds {
+    return (int)[[[_players objectAtIndex:0] scores] count];
 }
 
 - (NSArray *)players {
@@ -36,7 +36,7 @@ static NSString* const playersKey = @"players";
 }
 
 - (void)setPlayerNames:(NSArray *)playerNames {
-    for(NSUInteger i = 0; i < [playerNames count]; i++) {
+    for(int i = 0; i < [playerNames count]; i++) {
         [_players[i] setName:playerNames[i]];
     }
 }
