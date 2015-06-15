@@ -57,6 +57,8 @@ static UIAlertView const *invalidScoreAlert;
                                                                                            action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
     [_dealerLabel setUserInteractionEnabled:YES];
+    
+    [self sortCollectionsByTag];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -583,6 +585,24 @@ static UIAlertView const *invalidScoreAlert;
 - (void)setView:(UIView*)view hidden:(BOOL)hidden {
     [UIView animateWithDuration:0.5 animations:^() {
         hidden ? [view setAlpha:0.0] : [view setAlpha:1.0];
+    }];
+}
+
+//
+// Ensure the UICollections are sorted in tag order.
+//
+- (void)sortCollectionsByTag {
+    _playerTextFields = [_playerTextFields sortedArrayUsingComparator:^NSComparisonResult(id objA, id objB){
+        return(
+               ([objA tag] < [objB tag]) ? NSOrderedAscending  :
+               ([objA tag] > [objB tag]) ? NSOrderedDescending :
+               NSOrderedSame);
+    }];
+    _nextRoundScoreLabels = [_nextRoundScoreLabels sortedArrayUsingComparator:^NSComparisonResult(id objA, id objB){
+        return(
+               ([objA tag] < [objB tag]) ? NSOrderedAscending  :
+               ([objA tag] > [objB tag]) ? NSOrderedDescending :
+               NSOrderedSame);
     }];
 }
 
