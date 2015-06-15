@@ -17,6 +17,14 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 @synthesize endingScore       = _endingScore;
 @synthesize moonBehaviorIsAdd = _moonBehaviorIsAdd;
 
+- (id)init {
+    self = [super init];
+    _dealerOffset      = 0;
+    _endingScore       = 100;
+    _moonBehaviorIsAdd = YES;
+    return self;
+}
+
 - (int)dealerOffset {
     return _dealerOffset;
 }
@@ -50,12 +58,6 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
     });
     
     return sharedInstance;
-}
-
-- (void)reset {
-    _dealerOffset      = 0;
-    _endingScore       = 100;
-    _moonBehaviorIsAdd = YES;
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {

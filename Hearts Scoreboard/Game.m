@@ -13,6 +13,20 @@ static NSString* const playersKey = @"players";
 @implementation Game
 @synthesize players = _players;
 
+- (id)init {
+    self = [super init];
+    // if the players array already exists, keep the players' names.
+    if (_players) {
+        for (Player *p in _players) {
+            NSString *name = [p name];
+            [p resetPlayerWithName:name];
+        }
+    } else {
+        _players = [[NSArray alloc] initWithObjects:[[Player alloc] initWithName:@"Player 1"], [[Player alloc] initWithName:@"Player 2"], [[Player alloc] initWithName:@"Player 3"], [[Player alloc] initWithName:@"Player 4"], nil];
+    }
+    return self;
+}
+
 - (int)numRounds {
     return (int)[[[_players objectAtIndex:0] scores] count];
 }
@@ -91,7 +105,6 @@ static NSString* const playersKey = @"players";
     }
     
     game = [[Game alloc] init];
-    [game reset];
     
     return game;
 }

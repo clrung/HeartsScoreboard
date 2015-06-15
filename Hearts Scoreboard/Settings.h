@@ -24,7 +24,6 @@
 - (void)setMoonBehaviorIsAdd:(BOOL)moonBehaviorIsAdd;
 
 + (instancetype)sharedSettingsData;
-- (void)reset;
 
 - (id)initWithCoder:(NSCoder *)decoder;
 - (void)encodeWithCoder:(NSCoder *)encoder;
