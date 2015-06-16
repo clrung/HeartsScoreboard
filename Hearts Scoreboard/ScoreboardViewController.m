@@ -45,6 +45,7 @@
 
 static int const dealerFadeStart          = 20;
 static int const dealerFadeDistance       = 25;
+static int const endScoreSliderStep       = 5;
 static NSString* const undoTitleText      = @"Undo last round?";
 static NSString* const resetGameTitleText = @"Reset Game?";
 
@@ -403,17 +404,19 @@ static UIAlertView const *invalidScoreAlert;
 #pragma mark - Settings
 #pragma mark End Score Slider
 
-- (IBAction)endScoreSliderDidTouchUpInside:(UISlider *)sender {
-    [[Settings sharedSettingsData] setEndingScore:sender.value];
+- (IBAction)endScoreSliderDidTouchUpInside:(UISlider *)slider {
+    [[Settings sharedSettingsData] setEndingScore:[slider value]];
     [[Settings sharedSettingsData] save];
 }
 
-- (IBAction)endScoreSliderDidTouchUpOutside:(UISlider *)sender {
-    [self endScoreSliderDidTouchUpInside:sender];
+- (IBAction)endScoreSliderDidTouchUpOutside:(UISlider *)slider {
+    [self endScoreSliderDidTouchUpInside:slider];
 }
 
-- (IBAction)endScoreSliderValueDidChange:(UISlider *)sender {
-    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)sender.value];
+- (IBAction)endScoreSliderValueDidChange:(UISlider *)slider {
+    [slider setValue:roundf([slider value] / endScoreSliderStep) * endScoreSliderStep];
+    
+    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[slider value]];
 }
 
 #pragma mark Dealer Label
