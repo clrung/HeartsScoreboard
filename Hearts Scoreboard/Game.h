@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "Player.h"
 
+static NSString* const GameDataUpdatedFromiCloud = @"GameDataUpdatedFromiCloud";
+
 @interface Game : NSObject <NSCoding>
 
 @property (strong, nonatomic) NSArray *players;
 
-- (int)numRounds;
+- (NSUInteger)numRounds;
 
 - (NSArray *)players;
 - (void)setPlayers:(NSArray *)players;

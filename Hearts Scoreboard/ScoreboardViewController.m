@@ -60,14 +60,19 @@ static UIAlertView const *invalidScoreAlert;
     [_dealerLabel setUserInteractionEnabled:YES];
     
     [self sortCollectionsByTag];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didUpdateGameData:)
+                                                 name:GameDataUpdatedFromiCloud
+                                               object:nil];
+}
+
+-(void)didUpdateGameData:(NSNotification*)n {
+    [self updateUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self updatePlayerNames];
-    [self updatePlayerSumLabels];
-    [self updateCurrentDealer];
     
     for (UIPlayerTextField *textField in _playerTextFields) {
         if ([textField tag] < 3) {
@@ -78,27 +83,17 @@ static UIAlertView const *invalidScoreAlert;
         }
     }
     
-    for(UICollectionView *view in _scoresCollectionViews) {
-        [view reloadData];
-    }
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDealerLabelLocation)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
-    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", [[Settings sharedSettingsData] endingScore]];
-    
-    [_moonPreferenceSegmentedControl setSelectedSegmentIndex:![[Settings sharedSettingsData] moonBehaviorIsAdd]];
-    
-    [self updatePlayerNameFieldYLocations];
-    
-    [self checkGameOver];
+    [self updateUI];
     
     invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scores"
                                                    message:@"The sum of the scores must be equal to 26."
@@ -109,9 +104,13 @@ static UIAlertView const *invalidScoreAlert;
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter]removeObserver:self
-                                                   name:UIDeviceOrientationDidChangeNotification
-                                                 object:nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIDeviceOrientationDidChangeNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:GameDataUpdatedFromiCloud
+                                                  object:nil];
 }
 
 #pragma mark - Scoreboard
@@ -167,7 +166,7 @@ static UIAlertView const *invalidScoreAlert;
     }
     
     [self updateCurrentDealer];
-    [self.view endEditing:YES];
+    [[self view] endEditing:YES];
 }
 
 #pragma mark Scores Collection
@@ -190,7 +189,7 @@ static UIAlertView const *invalidScoreAlert;
         [[scoreCell scoreLabel] setText:[NSString stringWithFormat:@"%@", [[[[[Game sharedGameData] players] objectAtIndex:playerTag] scores] objectAtIndex:[indexPath item]]]];
     };
     
-    setScoreLabel(collectionView.tag);
+    setScoreLabel([collectionView tag]);
     
     return scoreCell;
 }
@@ -205,23 +204,37 @@ static UIAlertView const *invalidScoreAlert;
     }
 }
 
+- (void)updateUI {
+    [self updatePlayerNames];
+    [self updatePlayerSumLabels];
+    [self updatePassDirectionLabel];
+    [self updateCurrentDealer];
+    [self updateSettings];
+    [self updatePlayerNameFieldYLocations];
+    [self checkGameOver];
+    
+    for(UICollectionView *view in _scoresCollectionViews) {
+        [view reloadData];
+    }
+}
+
 #pragma mark Update Text
 
 - (void)updatePlayerNames {
     for(UILabel *label in _playerNameLabels) {
-        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:label.tag]];
+        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:[label tag]]];
     }
     for(UILabel *label in _nextRoundPlayerNameLabels) {
-        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:label.tag]];
+        [label setText:[[[Game sharedGameData] playerNames] objectAtIndex:[label tag]]];
     }
     for(UITextField *field in _playerTextFields) {
-        [field setText:[[[Game sharedGameData] playerNames] objectAtIndex:field.tag]];
+        [field setText:[[[Game sharedGameData] playerNames] objectAtIndex:[field tag]]];
     }
 }
 
 - (void)updatePlayerSumLabels {
     for(UILabel *label in _playerSumLabels) {
-        [label setText:[NSString stringWithFormat:@"%ld", (long)[[[[Game sharedGameData] players] objectAtIndex:label.tag] sumScores]]];
+        [label setText:[NSString stringWithFormat:@"%ld", (long)[[[[Game sharedGameData] players] objectAtIndex:[label tag]] sumScores]]];
     }
 }
 
@@ -247,10 +260,10 @@ static UIAlertView const *invalidScoreAlert;
 //
 - (void)updateCurrentDealer {
     for (UILabel *label in _playerNameLabels) {
-        if ([[Settings sharedSettingsData] dealerOffset] % 4 == label.tag) {
-            label.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size: 17];
+        if ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) {
+            [label setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size: 17]];
         } else {
-            label.font = [UIFont fontWithName:@"HelveticaNeue" size: 17];
+            [label setFont:[UIFont fontWithName:@"HelveticaNeue" size: 17]];
         }
     }
 }
@@ -295,9 +308,9 @@ static UIAlertView const *invalidScoreAlert;
 
 - (IBAction)touchAddScore:(UIButton *)sender {
     NSArray *choices = @[@"+1", @"+5", @"Q"];
-    NSUInteger item = [choices indexOfObject:sender.currentTitle];
+    NSUInteger item = [choices indexOfObject:[sender currentTitle]];
     
-    UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:sender.tag];
+    UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
     
     switch (item) {
         case 0:     // +1
@@ -325,12 +338,12 @@ static UIAlertView const *invalidScoreAlert;
         for (UILabel *label in _nextRoundScoreLabels) {
             [label setText:@"26"];
         }
-        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"0"];
+        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:[sender tag]] setText:@"0"];
     } else { // subtract 26
         for (UILabel *label in _nextRoundScoreLabels) {
             [label setText:@"0"];
         }
-        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag] setText:@"-26"];
+        [(UILabel *)[_nextRoundScoreLabels objectAtIndex:[sender tag]] setText:@"-26"];
     }
     
     for (UIButton *button in _nextRoundAddScoreButtons) {
@@ -416,14 +429,14 @@ static UIAlertView const *invalidScoreAlert;
 - (IBAction)endScoreSliderValueDidChange:(UISlider *)slider {
     [slider setValue:roundf([slider value] / endScoreSliderStep) * endScoreSliderStep];
     
-    _endingScoreLabel.text = [NSString stringWithFormat:@"Ending Score: %d", (int)[slider value]];
+    [_endingScoreLabel setText:[NSString stringWithFormat:@"Ending Score: %d", (int)[slider value]]];
 }
 
 #pragma mark Dealer Label
 
 - (void)updateDealerLabelLocation {
     [self updatePlayerNameFieldYLocations];
-    CGRect frame = _dealerLabel.frame;
+    CGRect frame = [_dealerLabel frame];
     
     frame.origin.y = [[_playerTextFieldYLocations objectAtIndex:[[Settings sharedSettingsData] dealerOffset] % 4] intValue] - frame.size.height / 2;
     frame.origin.x = ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.origin.x + ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.size.width + 15;
@@ -494,10 +507,10 @@ static UIAlertView const *invalidScoreAlert;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // if currently focused on first three text fields, go to the next text field
-    if (textField.tag < 3) {
-        [[_playerTextFields objectAtIndex:(textField.tag + 1)] becomeFirstResponder];
+    if ([textField tag] < 3) {
+        [[_playerTextFields objectAtIndex:([textField tag] + 1)] becomeFirstResponder];
         // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
-    } else if (textField.tag == 3) {
+    } else if ([textField tag] == 3) {
         [textField resignFirstResponder];
     }
     
@@ -522,6 +535,13 @@ static UIAlertView const *invalidScoreAlert;
 - (IBAction)shootTheMoonBehaviorValueChanged:(UISegmentedControl *)sender {
     [sender selectedSegmentIndex] == 0 ? [[Settings sharedSettingsData] setMoonBehaviorIsAdd:YES] : [[Settings sharedSettingsData] setMoonBehaviorIsAdd:NO];
     [[Settings sharedSettingsData] save];
+}
+
+- (void)updateSettings {
+    [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
+    [_endingScoreLabel setText:[NSString stringWithFormat:@"Ending Score: %d", [[Settings sharedSettingsData] endingScore]]];
+    
+    [_moonPreferenceSegmentedControl setSelectedSegmentIndex:![[Settings sharedSettingsData] moonBehaviorIsAdd]];
 }
 
 #pragma mark

@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		582AB73F1B4CB673005D0702 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
+		582AB7401B4CB679005D0702 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
-		F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D38A1AD3128D00C67443 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3891AD3128D00C67443 /* Game.m */; };
 		F14C5DC41B24E82C009CBDD9 /* UIPlayerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C5DC31B24E82C009CBDD9 /* UIPlayerTextField.m */; };
 		F14C5DCE1B28F1B3009CBDD9 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F14C5DCD1B28F1B3009CBDD9 /* Settings.m */; };
 		F1FB70191AA01614007073AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70181AA01614007073AC /* main.m */; };
 		F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701B1AA01614007073AC /* AppDelegate.m */; };
-		F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
 		F1FB70221AA01614007073AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70201AA01614007073AC /* Main.storyboard */; };
 		F1FB70241AA01614007073AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70231AA01614007073AC /* Images.xcassets */; };
 		F1FB70271AA01614007073AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70251AA01614007073AC /* LaunchScreen.xib */; };
@@ -42,6 +42,7 @@
 		F14C5DC51B24E849009CBDD9 /* UIPlayerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlayerTextField.h; sourceTree = "<group>"; };
 		F14C5DCC1B28F1B3009CBDD9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		F14C5DCD1B28F1B3009CBDD9 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		F15DEC401B30A12D003568E0 /* Hearts Scoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hearts Scoreboard.entitlements"; sourceTree = "<group>"; };
 		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +97,7 @@
 		F1FB70151AA01614007073AC /* Hearts Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
+				F15DEC401B30A12D003568E0 /* Hearts Scoreboard.entitlements */,
 				F1FB701A1AA01614007073AC /* AppDelegate.h */,
 				F1FB701B1AA01614007073AC /* AppDelegate.m */,
 				F1FB70201AA01614007073AC /* Main.storyboard */,
@@ -193,7 +195,12 @@
 				TargetAttributes = {
 					F1FB70121AA01614007073AC = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = FV269MJL6A;
+						DevelopmentTeam = L4UJ7QLZLQ;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					F1FB702B1AA01614007073AC = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -245,9 +252,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582AB7401B4CB679005D0702 /* ScoreCollectionViewCell.m in Sources */,
+				582AB73F1B4CB673005D0702 /* ScoreboardViewController.m in Sources */,
 				F130D3841ACDE20000C67443 /* Player.m in Sources */,
-				F130D3871AD3066000C67443 /* ScoreCollectionViewCell.m in Sources */,
-				F1FB701F1AA01614007073AC /* ScoreboardViewController.m in Sources */,
 				F14C5DC41B24E82C009CBDD9 /* UIPlayerTextField.m in Sources */,
 				F130D38A1AD3128D00C67443 /* Game.m in Sources */,
 				F1FB701C1AA01614007073AC /* AppDelegate.m in Sources */,
@@ -376,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard/Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
@@ -389,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard/Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
