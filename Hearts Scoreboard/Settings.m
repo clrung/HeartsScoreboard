@@ -19,9 +19,18 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (id)init {
     self = [super init];
-    _dealerOffset      = 0;
-    _endingScore       = 100;
-    _moonBehaviorIsAdd = YES;
+    if (self) {
+        _dealerOffset      = 0;
+        _endingScore       = 100;
+        _moonBehaviorIsAdd = YES;
+        
+        if ([NSUbiquitousKeyValueStore defaultStore]) {
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(updateFromiCloud:)
+                                                         name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+                                                       object:nil];
+        }
+    }
     return self;
 }
 
@@ -31,6 +40,13 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (void)setDealerOffset:(int)dealerOffset {
     _dealerOffset = dealerOffset;
+    
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
+        NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
+        
+        [iCloudStore setObject:[NSNumber numberWithInt:_dealerOffset] forKey:dealerOffsetKey];
+        [iCloudStore synchronize];
+    }
 }
 
 - (int)endingScore {
@@ -39,6 +55,13 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (void)setEndingScore:(int)endingScore {
     _endingScore = endingScore;
+    
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
+        NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
+        
+        [iCloudStore setObject:[NSNumber numberWithInt:_endingScore] forKey:endingScoreKey];
+        [iCloudStore synchronize];
+    }
 }
 
 - (BOOL)moonBehaviorIsAdd {
@@ -47,6 +70,13 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (void)setMoonBehaviorIsAdd:(BOOL)moonBehaviorIsAdd {
     _moonBehaviorIsAdd = moonBehaviorIsAdd;
+    
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
+        NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
+        
+        [iCloudStore setBool:_moonBehaviorIsAdd forKey:moonBehaviorIsAddKey];
+        [iCloudStore synchronize];
+    }
 }
 
 + (instancetype)sharedSettingsData {
@@ -61,7 +91,7 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if([super init]) {
+    if ([super init]) {
         _dealerOffset       = [decoder decodeIntForKey:dealerOffsetKey];
         _endingScore        = [decoder decodeIntForKey:endingScoreKey];
         _moonBehaviorIsAdd  = [decoder decodeBoolForKey:moonBehaviorIsAddKey];
@@ -88,7 +118,7 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 // allocate a new Game object.
 //
 + (instancetype)loadInstance {
-    NSData* decodedData = [NSData dataWithContentsOfFile: [Settings filePath]];
+    NSData* decodedData = [NSData dataWithContentsOfFile:[Settings filePath]];
     if (decodedData) {
         Settings* settings = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
         return settings;
@@ -98,8 +128,30 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 }
 
 - (void)save {
-    NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
+    NSData* encodedData = [NSKeyedArchiver archivedDataWithRootObject:self];
     [encodedData writeToFile:[Settings filePath] atomically:YES];
+}
+
+- (void)updateFromiCloud:(NSNotification*) notificationObject {
+    NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
+    
+    if ([iCloudStore objectForKey:dealerOffsetKey]) {
+        NSNumber *cloudDealerOffset = [iCloudStore objectForKey:dealerOffsetKey];
+        _dealerOffset = [cloudDealerOffset intValue];
+    }
+    
+    if ([iCloudStore objectForKey:endingScoreKey]) {
+        NSNumber *cloudEndingScore = [iCloudStore objectForKey:endingScoreKey];
+        _endingScore = [cloudEndingScore intValue];
+    }
+    
+    if ([iCloudStore objectForKey:moonBehaviorIsAddKey]) {
+        _moonBehaviorIsAdd = [iCloudStore boolForKey:moonBehaviorIsAddKey];
+    }
+    
+    [self save];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SettingsDataUpdatedFromiCloud object:nil];
 }
 
 @end

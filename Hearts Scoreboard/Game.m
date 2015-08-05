@@ -8,28 +8,30 @@
 
 #import "Game.h"
 
-static NSString* const playersKey = @"playersKey";
+static NSString* const playersKey = @"players";
 
 @implementation Game
 @synthesize players = _players;
 
 - (id)init {
     self = [super init];
-    // if the players array already exists, keep the players' names.
-    if (_players) {
-        for (Player *p in _players) {
-            NSString *name = [p name];
-            [p resetPlayerWithName:name];
+    if (self) {
+        // if the players array already exists, keep the players' names.
+        if (_players) {
+            for (Player *p in _players) {
+                NSString *name = [p name];
+                [p resetPlayerWithName:name];
+            }
+        } else {
+            _players = [[NSArray alloc] initWithObjects:[[Player alloc] initWithName:@"Player 1"], [[Player alloc] initWithName:@"Player 2"], [[Player alloc] initWithName:@"Player 3"], [[Player alloc] initWithName:@"Player 4"], nil];
         }
-    } else {
-        _players = [[NSArray alloc] initWithObjects:[[Player alloc] initWithName:@"Player 1"], [[Player alloc] initWithName:@"Player 2"], [[Player alloc] initWithName:@"Player 3"], [[Player alloc] initWithName:@"Player 4"], nil];
-    }
-    
-    if([NSUbiquitousKeyValueStore defaultStore]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateFromiCloud:)
-                                                     name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
-                                                   object:nil];
+        
+        if ([NSUbiquitousKeyValueStore defaultStore]) {
+            [[NSNotificationCenter defaultCenter] addObserver:self
+                                                     selector:@selector(updateFromiCloud:)
+                                                         name:NSUbiquitousKeyValueStoreDidChangeExternallyNotification
+                                                       object:nil];
+        }
     }
     
     return self;
@@ -52,7 +54,7 @@ static NSString* const playersKey = @"playersKey";
 - (NSArray *)playerNames {
     NSArray *playerNames = [[NSArray alloc] init];
     
-    for(Player *player in _players) {
+    for (Player *player in _players) {
         playerNames = [playerNames arrayByAddingObject:[player name]];
     }
     
@@ -60,7 +62,7 @@ static NSString* const playersKey = @"playersKey";
 }
 
 - (void)setPlayerNames:(NSArray *)playerNames {
-    for(int i = 0; i < [playerNames count]; i++) {
+    for (int i = 0; i < [playerNames count]; i++) {
         [_players[i] setName:playerNames[i]];
     }
 }
@@ -77,7 +79,7 @@ static NSString* const playersKey = @"playersKey";
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if([super init]) {
+    if ([super init]) {
         _players = [decoder decodeObjectForKey:playersKey];
     }
     return self;
@@ -105,7 +107,7 @@ static NSString* const playersKey = @"playersKey";
  * @return The Game singleton
  */
 + (instancetype)loadInstance {
-    NSData *decodedData = [NSData dataWithContentsOfFile: [Game filePath]];
+    NSData *decodedData = [NSData dataWithContentsOfFile:[Game filePath]];
     Game *game;
     if (decodedData) {
         game = [NSKeyedUnarchiver unarchiveObjectWithData:decodedData];
@@ -123,22 +125,21 @@ static NSString* const playersKey = @"playersKey";
     if (!filePath) {
         filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"gamedata"];
     }
-    
     return filePath;
 }
 
 - (void)save {
-    NSData *encodedData = [NSKeyedArchiver archivedDataWithRootObject: self];
+    NSData *encodedData = [NSKeyedArchiver archivedDataWithRootObject:self];
     [encodedData writeToFile:[Game filePath] atomically:YES];
     
-    if([NSUbiquitousKeyValueStore defaultStore]) {
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
         [self updateiCloud];
     }
 }
 
 #pragma mark - iCloud
 - (void)updateiCloud {
-    if([NSUbiquitousKeyValueStore defaultStore]) {
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
         NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
         
         NSData *playersData = [NSKeyedArchiver archivedDataWithRootObject:_players];
@@ -151,7 +152,7 @@ static NSString* const playersKey = @"playersKey";
 - (void)updateFromiCloud:(NSNotification*) notificationObject {
     NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
     
-    if ([iCloudStore objectForKey: playersKey]) {
+    if ([iCloudStore objectForKey:playersKey]) {
         NSData *cloudPlayersData = [iCloudStore objectForKey:playersKey];
         NSArray *cloudPlayers = [NSKeyedUnarchiver unarchiveObjectWithData:cloudPlayersData];
         

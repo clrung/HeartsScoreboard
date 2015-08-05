@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString* const SettingsDataUpdatedFromiCloud = @"SettingsDataUpdatedFromiCloud";
+
 @interface Settings : NSObject <NSCoding>
 
 @property (nonatomic) int dealerOffset;
