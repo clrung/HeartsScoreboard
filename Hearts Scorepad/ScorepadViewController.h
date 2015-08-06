@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreboardViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ScorepadViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

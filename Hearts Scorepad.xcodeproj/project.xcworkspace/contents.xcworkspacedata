@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Hearts Scoreboard.xcodeproj">
+      location = "self:/Users/christopher.rung/Desktop/HeartsScorepad/Hearts Scorepad.xcodeproj">
    </FileRef>
 </Workspace>
