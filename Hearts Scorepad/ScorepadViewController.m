@@ -320,7 +320,7 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
-    NSArray *choices = @[@"+1", @"+5", @"Q"];
+    NSArray *choices = @[@"+1", @"+5", @"Q♠︎"];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
@@ -332,12 +332,12 @@ static UIAlertView const *invalidScoreAlert;
         case 1:     // +5
             [self addToCurrentScoreLabel:currentScoreLabel withValue:5];
             break;
-        case 2:     // Q
+        case 2:     // Q♠︎
             [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
             
             // disable the Q buttons; there is only one Queen of Spades
             for (UIButton *button in _nextRoundAddScoreButtons) {
-                if ([[button currentTitle] isEqualToString:@"Q"]) {
+                if ([[button currentTitle] isEqualToString:@"Q♠︎"]) {
                     [button setEnabled:NO];
                 }
             }
