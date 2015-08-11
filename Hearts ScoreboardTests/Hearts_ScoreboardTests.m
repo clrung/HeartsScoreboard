@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface Hearts_ScorepadTests : XCTestCase
+@interface Hearts_ScoreboardTests : XCTestCase
 
 @end
 
-@implementation Hearts_ScorepadTests
+@implementation Hearts_ScoreboardTests
 
 - (void)setUp {
     [super setUp];

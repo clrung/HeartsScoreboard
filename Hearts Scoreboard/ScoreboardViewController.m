@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Christopher Rung. All rights reserved.
 //
 
-#import "ScorepadViewController.h"
+#import "ScoreboardViewController.h"
 #import "Game.h"
 #import "Player.h"
 #import "Settings.h"
 #import "UIPlayerTextField.h"
 #import "ScoreCollectionViewCell.h"
 
-@interface ScorepadViewController ()
+@interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumLabels;
@@ -41,7 +41,7 @@
 
 @end
 
-@implementation ScorepadViewController
+@implementation ScoreboardViewController
 
 static int const dealerFadeStart          = 20;
 static int const dealerFadeDistance       = 25;

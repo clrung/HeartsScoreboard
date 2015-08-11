@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		582AB73F1B4CB673005D0702 /* ScorepadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScorepadViewController.m */; };
+		582AB73F1B4CB673005D0702 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
 		582AB7401B4CB679005D0702 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
 		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
 		F130D38A1AD3128D00C67443 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3891AD3128D00C67443 /* Game.m */; };
@@ -18,7 +18,7 @@
 		F1FB70221AA01614007073AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70201AA01614007073AC /* Main.storyboard */; };
 		F1FB70241AA01614007073AC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70231AA01614007073AC /* Images.xcassets */; };
 		F1FB70271AA01614007073AC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1FB70251AA01614007073AC /* LaunchScreen.xib */; };
-		F1FB70331AA01614007073AC /* Hearts_ScorepadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70321AA01614007073AC /* Hearts_ScorepadTests.m */; };
+		F1FB70331AA01614007073AC /* Hearts_ScoreboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB70321AA01614007073AC /* Hearts_ScoreboardTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,12 +27,12 @@
 			containerPortal = F1FB700B1AA01613007073AC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F1FB70121AA01614007073AC;
-			remoteInfo = "Hearts Scorepad";
+			remoteInfo = "Hearts Scoreboard";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		58B4B97D1B7BA9C600D3AAE7 /* Hearts Scorepad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hearts Scorepad.entitlements"; sourceTree = SOURCE_ROOT; };
+		58BD1C421B7AB0C4007FF461 /* Hearts Scoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hearts Scoreboard.entitlements"; sourceTree = SOURCE_ROOT; };
 		F130D3821ACDE20000C67443 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		F130D3831ACDE20000C67443 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; usesTabs = 0; };
 		F130D3851AD3066000C67443 /* ScoreCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreCollectionViewCell.h; sourceTree = "<group>"; };
@@ -43,19 +43,19 @@
 		F14C5DC51B24E849009CBDD9 /* UIPlayerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlayerTextField.h; sourceTree = "<group>"; };
 		F14C5DCC1B28F1B3009CBDD9 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		F14C5DCD1B28F1B3009CBDD9 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
-		F1FB70131AA01614007073AC /* Hearts Scorepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scorepad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FB70131AA01614007073AC /* Hearts Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hearts Scoreboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70171AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1FB70181AA01614007073AC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F1FB701A1AA01614007073AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F1FB701B1AA01614007073AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F1FB701D1AA01614007073AC /* ScorepadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScorepadViewController.h; sourceTree = "<group>"; };
-		F1FB701E1AA01614007073AC /* ScorepadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScorepadViewController.m; sourceTree = "<group>"; };
+		F1FB701D1AA01614007073AC /* ScoreboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreboardViewController.h; sourceTree = "<group>"; };
+		F1FB701E1AA01614007073AC /* ScoreboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreboardViewController.m; sourceTree = "<group>"; };
 		F1FB70211AA01614007073AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F1FB70231AA01614007073AC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F1FB70261AA01614007073AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		F1FB702C1AA01614007073AC /* Hearts ScorepadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hearts ScorepadTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1FB702C1AA01614007073AC /* Hearts ScoreboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hearts ScoreboardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1FB70311AA01614007073AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1FB70321AA01614007073AC /* Hearts_ScorepadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hearts_ScorepadTests.m; sourceTree = "<group>"; };
+		F1FB70321AA01614007073AC /* Hearts_ScoreboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Hearts_ScoreboardTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +79,8 @@
 		F1FB700A1AA01613007073AC = {
 			isa = PBXGroup;
 			children = (
-				F1FB70151AA01614007073AC /* Hearts Scorepad */,
-				F1FB702F1AA01614007073AC /* Hearts ScorepadTests */,
+				F1FB70151AA01614007073AC /* Hearts Scoreboard */,
+				F1FB702F1AA01614007073AC /* Hearts ScoreboardTests */,
 				F1FB70141AA01614007073AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,21 +88,21 @@
 		F1FB70141AA01614007073AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F1FB70131AA01614007073AC /* Hearts Scorepad.app */,
-				F1FB702C1AA01614007073AC /* Hearts ScorepadTests.xctest */,
+				F1FB70131AA01614007073AC /* Hearts Scoreboard.app */,
+				F1FB702C1AA01614007073AC /* Hearts ScoreboardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F1FB70151AA01614007073AC /* Hearts Scorepad */ = {
+		F1FB70151AA01614007073AC /* Hearts Scoreboard */ = {
 			isa = PBXGroup;
 			children = (
-				58B4B97D1B7BA9C600D3AAE7 /* Hearts Scorepad.entitlements */,
+				58BD1C421B7AB0C4007FF461 /* Hearts Scoreboard.entitlements */,
 				F1FB701A1AA01614007073AC /* AppDelegate.h */,
 				F1FB701B1AA01614007073AC /* AppDelegate.m */,
 				F1FB70201AA01614007073AC /* Main.storyboard */,
-				F1FB701D1AA01614007073AC /* ScorepadViewController.h */,
-				F1FB701E1AA01614007073AC /* ScorepadViewController.m */,
+				F1FB701D1AA01614007073AC /* ScoreboardViewController.h */,
+				F1FB701E1AA01614007073AC /* ScoreboardViewController.m */,
 				F130D3881AD3128D00C67443 /* Game.h */,
 				F130D3891AD3128D00C67443 /* Game.m */,
 				F130D3821ACDE20000C67443 /* Player.h */,
@@ -117,7 +117,8 @@
 				F1FB70251AA01614007073AC /* LaunchScreen.xib */,
 				F1FB70161AA01614007073AC /* Supporting Files */,
 			);
-			path = "Hearts Scorepad";
+			name = "Hearts Scoreboard";
+			path = "Hearts Scoreboard";
 			sourceTree = "<group>";
 		};
 		F1FB70161AA01614007073AC /* Supporting Files */ = {
@@ -129,13 +130,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F1FB702F1AA01614007073AC /* Hearts ScorepadTests */ = {
+		F1FB702F1AA01614007073AC /* Hearts ScoreboardTests */ = {
 			isa = PBXGroup;
 			children = (
-				F1FB70321AA01614007073AC /* Hearts_ScorepadTests.m */,
+				F1FB70321AA01614007073AC /* Hearts_ScoreboardTests.m */,
 				F1FB70301AA01614007073AC /* Supporting Files */,
 			);
-			path = "Hearts ScorepadTests";
+			name = "Hearts ScoreboardTests";
+			path = "Hearts ScoreboardTests";
 			sourceTree = "<group>";
 		};
 		F1FB70301AA01614007073AC /* Supporting Files */ = {
@@ -149,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F1FB70121AA01614007073AC /* Hearts Scorepad */ = {
+		F1FB70121AA01614007073AC /* Hearts Scoreboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1FB70361AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts Scorepad" */;
+			buildConfigurationList = F1FB70361AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts Scoreboard" */;
 			buildPhases = (
 				F1FB700F1AA01614007073AC /* Sources */,
 				F1FB70101AA01614007073AC /* Frameworks */,
@@ -161,14 +163,14 @@
 			);
 			dependencies = (
 			);
-			name = "Hearts Scorepad";
-			productName = "Hearts Scorepad";
-			productReference = F1FB70131AA01614007073AC /* Hearts Scorepad.app */;
+			name = "Hearts Scoreboard";
+			productName = "Hearts Scoreboard";
+			productReference = F1FB70131AA01614007073AC /* Hearts Scoreboard.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F1FB702B1AA01614007073AC /* Hearts ScorepadTests */ = {
+		F1FB702B1AA01614007073AC /* Hearts ScoreboardTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F1FB70391AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts ScorepadTests" */;
+			buildConfigurationList = F1FB70391AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts ScoreboardTests" */;
 			buildPhases = (
 				F1FB70281AA01614007073AC /* Sources */,
 				F1FB70291AA01614007073AC /* Frameworks */,
@@ -179,9 +181,9 @@
 			dependencies = (
 				F1FB702E1AA01614007073AC /* PBXTargetDependency */,
 			);
-			name = "Hearts ScorepadTests";
-			productName = "Hearts ScorepadTests";
-			productReference = F1FB702C1AA01614007073AC /* Hearts ScorepadTests.xctest */;
+			name = "Hearts ScoreboardTests";
+			productName = "Hearts ScoreboardTests";
+			productReference = F1FB702C1AA01614007073AC /* Hearts ScoreboardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +210,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F1FB700E1AA01613007073AC /* Build configuration list for PBXProject "Hearts Scorepad" */;
+			buildConfigurationList = F1FB700E1AA01613007073AC /* Build configuration list for PBXProject "Hearts Scoreboard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -221,8 +223,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F1FB70121AA01614007073AC /* Hearts Scorepad */,
-				F1FB702B1AA01614007073AC /* Hearts ScorepadTests */,
+				F1FB70121AA01614007073AC /* Hearts Scoreboard */,
+				F1FB702B1AA01614007073AC /* Hearts ScoreboardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,7 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				582AB7401B4CB679005D0702 /* ScoreCollectionViewCell.m in Sources */,
-				582AB73F1B4CB673005D0702 /* ScorepadViewController.m in Sources */,
+				582AB73F1B4CB673005D0702 /* ScoreboardViewController.m in Sources */,
 				F130D3841ACDE20000C67443 /* Player.m in Sources */,
 				F14C5DC41B24E82C009CBDD9 /* UIPlayerTextField.m in Sources */,
 				F130D38A1AD3128D00C67443 /* Game.m in Sources */,
@@ -267,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1FB70331AA01614007073AC /* Hearts_ScorepadTests.m in Sources */,
+				F1FB70331AA01614007073AC /* Hearts_ScoreboardTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +278,7 @@
 /* Begin PBXTargetDependency section */
 		F1FB702E1AA01614007073AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F1FB70121AA01614007073AC /* Hearts Scorepad */;
+			target = F1FB70121AA01614007073AC /* Hearts Scoreboard */;
 			targetProxy = F1FB702D1AA01614007073AC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -383,13 +385,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Hearts Scorepad.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Hearts Scorepad/Info.plist";
+				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Hearts Scorepad";
+				PRODUCT_NAME = "Hearts Scoreboard";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -398,13 +400,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Hearts Scorepad.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = "Hearts Scorepad/Info.plist";
+				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "Hearts Scorepad";
+				PRODUCT_NAME = "Hearts Scoreboard";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -421,10 +423,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Hearts ScorepadTests/Info.plist";
+				INFOPLIST_FILE = "Hearts ScoreboardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Hearts ScorepadTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hearts Scorepad.app/Hearts Scorepad";
+				PRODUCT_NAME = "Hearts ScoreboardTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hearts Scoreboard.app/Hearts Scoreboard";
 			};
 			name = Debug;
 		};
@@ -436,17 +438,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Hearts ScorepadTests/Info.plist";
+				INFOPLIST_FILE = "Hearts ScoreboardTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "Hearts ScorepadTests";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hearts Scorepad.app/Hearts Scorepad";
+				PRODUCT_NAME = "Hearts ScoreboardTests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hearts Scoreboard.app/Hearts Scoreboard";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F1FB700E1AA01613007073AC /* Build configuration list for PBXProject "Hearts Scorepad" */ = {
+		F1FB700E1AA01613007073AC /* Build configuration list for PBXProject "Hearts Scoreboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1FB70341AA01614007073AC /* Debug */,
@@ -455,7 +457,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1FB70361AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts Scorepad" */ = {
+		F1FB70361AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts Scoreboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1FB70371AA01614007073AC /* Debug */,
@@ -464,7 +466,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F1FB70391AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts ScorepadTests" */ = {
+		F1FB70391AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts ScoreboardTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F1FB703A1AA01614007073AC /* Debug */,
