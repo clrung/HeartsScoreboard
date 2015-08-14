@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UILabel  *dealerLabel;
 @property (strong, nonatomic) IBOutlet UILabel  *endingScoreLabel;
 @property (strong, nonatomic) IBOutlet UISlider *endingScoreSlider;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
@@ -43,11 +44,11 @@
 
 @implementation ScoreboardViewController
 
-static int const dealerFadeStart          = 20;
-static int const dealerFadeDistance       = 25;
-static int const endScoreSliderStep       = 5;
-static NSString* const undoTitleText      = @"Undo last round?";
-static NSString* const resetGameTitleText = @"Reset Game?";
+static int const DEALER_FADE_START           = 20;
+static int const DEALER_FADE_DISTANCE        = 25;
+static int const END_SCORE_SLIDER_STEP       = 5;
+static NSString* const UNDO_TITLE_TEXT       = @"Undo last round?";
+static NSString* const RESET_GAME_TITLE_TEXT = @"Reset Game?";
 
 static UIAlertView const *invalidScoreAlert;
 
@@ -136,7 +137,7 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)touchNewGameButton:(UIButton *)sender {
-    [[[UIAlertView alloc] initWithTitle:resetGameTitleText
+    [[[UIAlertView alloc] initWithTitle:RESET_GAME_TITLE_TEXT
                                 message:@"Are you sure you would like to start a new game?"
                                delegate:self
                       cancelButtonTitle:@"No"
@@ -161,6 +162,8 @@ static UIAlertView const *invalidScoreAlert;
     [self setView:_endingScoreSlider hidden:isSettingsVisible];
     
     [self setView:_dealerLabel       hidden:isSettingsVisible];
+    
+    [self setView:_infoButton        hidden:isSettingsVisible];
     
     // Main screen
     
@@ -440,7 +443,7 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)endScoreSliderValueDidChange:(UISlider *)slider {
-    [slider setValue:roundf([slider value] / endScoreSliderStep) * endScoreSliderStep];
+    [slider setValue:roundf([slider value] / END_SCORE_SLIDER_STEP) * END_SCORE_SLIDER_STEP];
     
     [_endingScoreLabel setText:[NSString stringWithFormat:@"Ending Score: %d", (int)[slider value]]];
 }
@@ -489,14 +492,14 @@ static UIAlertView const *invalidScoreAlert;
         frame.origin.y = touchLocation.y - frame.size.height / 2;
         
         // fades dealer label out as it is dragged away from the first player text field
-        // The dealer label will begin to fade out when it reaches dealerFadeStart pixels above the first player text field's location,
-        // and will completely fade out when it reaches dealerFadeStart + dealerFadeDistance pixels above the first player text field's location.
-        if (touchLocation.y < ([[_playerTextFieldYLocations objectAtIndex:0] floatValue] - dealerFadeStart)) {
-            [_dealerLabel setAlpha:MAX(1 - ([[_playerTextFieldYLocations objectAtIndex:0] floatValue] - touchLocation.y - dealerFadeStart) / dealerFadeDistance, 0)];
+        // The dealer label will begin to fade out when it reaches DEALER_FADE_START pixels above the first player text field's location,
+        // and will completely fade out when it reaches DEALER_FADE_START + DEALER_FADE_DISTANCE pixels above the first player text field's location.
+        if (touchLocation.y < ([[_playerTextFieldYLocations objectAtIndex:0] floatValue] - DEALER_FADE_START)) {
+            [_dealerLabel setAlpha:MAX(1 - ([[_playerTextFieldYLocations objectAtIndex:0] floatValue] - touchLocation.y - DEALER_FADE_START) / DEALER_FADE_DISTANCE, 0)];
         }
         // fades dealer label out as it is dragged away from the last player's text field
         if (touchLocation.y > ([[_playerTextFieldYLocations objectAtIndex:3] floatValue] + 20)) {
-            [_dealerLabel setAlpha:MAX(1 + ([[_playerTextFieldYLocations objectAtIndex:3] floatValue] - touchLocation.y + dealerFadeStart) / dealerFadeDistance, 0)];
+            [_dealerLabel setAlpha:MAX(1 + ([[_playerTextFieldYLocations objectAtIndex:3] floatValue] - touchLocation.y + DEALER_FADE_START) / DEALER_FADE_DISTANCE, 0)];
         }
     }
     
@@ -504,6 +507,10 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 #pragma mark Other
+
+- (IBAction)touchInfoButton:(UIButton *)sender {
+    
+}
 
 - (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)sender {
     NSArray* names = [[NSArray alloc] init];
@@ -564,7 +571,7 @@ static UIAlertView const *invalidScoreAlert;
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if ([[Game sharedGameData] numRounds] > 0) {
         if ([event subtype] == UIEventSubtypeMotionShake) {
-            [[[UIAlertView alloc] initWithTitle:undoTitleText
+            [[[UIAlertView alloc] initWithTitle:UNDO_TITLE_TEXT
                                         message:@"Are you sure you would like to undo the last round?"
                                        delegate:self
                               cancelButtonTitle:@"No"
@@ -574,7 +581,7 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[alertView title] isEqualToString:undoTitleText]) {
+    if ([[alertView title] isEqualToString:UNDO_TITLE_TEXT]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             for (int i = 0; i < 4; i++) {
                 NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
@@ -593,7 +600,7 @@ static UIAlertView const *invalidScoreAlert;
             [[Settings sharedSettingsData] save];
             [self updateCurrentDealer];
         }
-    } else if ([[alertView title] isEqualToString:resetGameTitleText]) {
+    } else if ([[alertView title] isEqualToString:RESET_GAME_TITLE_TEXT]) {
         if (buttonIndex == [alertView firstOtherButtonIndex]) {
             [[Game sharedGameData] reset];
             [[Game sharedGameData] save];

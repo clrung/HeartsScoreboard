@@ -411,8 +411,8 @@
                                     <action selector="endScoreSliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="PDd-FN-e1N"/>
                                 </connections>
                             </slider>
-                            <visualEffectView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <visualEffectView alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
+                                <rect key="frame" x="-563" y="447" width="600" height="600"/>
                                 <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FdN-Fq-KyJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -424,13 +424,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mt-mH-hd4">
-                                            <rect key="frame" x="295.5" y="75" width="9.5" height="20.5"/>
+                                            <rect key="frame" x="295" y="75" width="9.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il6-pA-aun">
-                                            <rect key="frame" x="406.5" y="42" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="42" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="94k-nz-pIw"/>
                                                 <constraint firstAttribute="width" constant="44" id="m5d-cK-TH9"/>
@@ -444,7 +444,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhj-xL-kK5">
-                                            <rect key="frame" x="451.5" y="42" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="42" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+5">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -454,7 +454,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7A-4l-GX2">
-                                            <rect key="frame" x="406.5" y="85" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="85" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="Q♠︎">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,7 +464,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yid-jr-P8Z">
-                                            <rect key="frame" x="451.5" y="85" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="85" width="44" height="44"/>
                                             <state key="normal" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLr-0n-oYS"/>
@@ -477,13 +477,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-2D-aCO">
-                                            <rect key="frame" x="295.5" y="182" width="9.5" height="20.5"/>
+                                            <rect key="frame" x="295" y="182" width="9.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x86-mj-rpN">
-                                            <rect key="frame" x="406.5" y="149" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="149" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+1">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -493,7 +493,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o89-25-fP5">
-                                            <rect key="frame" x="451.5" y="149" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="149" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+5">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -503,7 +503,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMX-Vu-8fR">
-                                            <rect key="frame" x="406.5" y="192" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="192" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="Q♠︎">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -513,7 +513,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d6-WV-mEz">
-                                            <rect key="frame" x="451.5" y="192" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="192" width="44" height="44"/>
                                             <state key="normal" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9zc-Uy-gEg"/>
@@ -526,13 +526,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-xg-SHT">
-                                            <rect key="frame" x="295.5" y="290" width="9.5" height="20.5"/>
+                                            <rect key="frame" x="295" y="290" width="9.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6S-S1-2FJ">
-                                            <rect key="frame" x="406.5" y="256" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="256" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+1">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -542,7 +542,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMh-7r-lpZ">
-                                            <rect key="frame" x="451.5" y="256" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="256" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+5">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -552,7 +552,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHu-b1-S8w">
-                                            <rect key="frame" x="406.5" y="299" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="299" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="Q♠︎">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -562,7 +562,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDQ-kG-iMZ">
-                                            <rect key="frame" x="451.5" y="299" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="299" width="44" height="44"/>
                                             <state key="normal" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uv5-QK-kAV"/>
@@ -575,13 +575,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-se-EuI">
-                                            <rect key="frame" x="295.5" y="397" width="9.5" height="20.5"/>
+                                            <rect key="frame" x="295" y="397" width="9.5" height="20.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuB-hJ-VLC">
-                                            <rect key="frame" x="406.5" y="363" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="363" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+1">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -591,7 +591,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5T-Od-aTa">
-                                            <rect key="frame" x="451.5" y="363" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="363" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="+5">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -601,7 +601,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK4-1u-UwO">
-                                            <rect key="frame" x="406.5" y="406" width="44" height="44"/>
+                                            <rect key="frame" x="406" y="406" width="44" height="44"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                             <state key="normal" title="Q♠︎">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -611,14 +611,14 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXR-FH-ozS">
-                                            <rect key="frame" x="451.5" y="406" width="44" height="44"/>
+                                            <rect key="frame" x="451" y="406" width="44" height="44"/>
                                             <state key="normal" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMo-LW-m8e"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
-                                            <rect key="frame" x="276.5" y="489" width="46" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
+                                            <rect key="frame" x="276" y="489" width="46" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Yyj-Cn-tDE"/>
                                             </constraints>
@@ -630,8 +630,8 @@
                                                 <action selector="touchNextRoundSubmitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmf-oE-mxU"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sld-e1-j5Z">
-                                            <rect key="frame" x="280.5" y="534" width="38" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sld-e1-j5Z">
+                                            <rect key="frame" x="280" y="534" width="38" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="gez-UA-rvF"/>
                                             </constraints>
@@ -737,6 +737,15 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sy-s5-Qo1">
+                                <rect key="frame" x="18" y="28" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchInfoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BR9-w3-oJd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.58586862544748253" green="1" blue="0.5072760914098019" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -788,12 +797,14 @@
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerX" secondItem="8wx-rm-J10" secondAttribute="centerX" id="Wtn-3r-ASc"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" multiplier="1:5" constant="-10" id="XId-tc-c01"/>
                             <constraint firstAttribute="centerX" secondItem="Hd7-Pd-nrN" secondAttribute="centerX" id="Xgb-jc-URI"/>
+                            <constraint firstItem="oez-pd-Pcd" firstAttribute="centerY" secondItem="4sy-s5-Qo1" secondAttribute="centerY" id="YI6-R6-lFU"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="height" secondItem="oPg-gp-h40" secondAttribute="height" id="YWw-Cv-bB7"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="top" secondItem="o6B-hj-IAy" secondAttribute="bottom" constant="6" id="ZGE-M0-zG9"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="a5D-sV-aF3"/>
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="centerX" secondItem="ACA-XG-2Ko" secondAttribute="centerX" id="aD8-8H-NRk"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="centerY" secondItem="ACA-XG-2Ko" secondAttribute="centerY" id="aEw-BH-eE8"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="aIe-R0-GII"/>
+                            <constraint firstItem="4sy-s5-Qo1" firstAttribute="leadingMargin" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="aMw-Pm-tII"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="akT-BP-rMj"/>
                             <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="8:9" id="bOR-Uh-qi7"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="centerX" secondItem="oez-pd-Pcd" secondAttribute="centerX" id="cnx-nQ-u5P"/>
@@ -831,6 +842,7 @@
                         <outlet property="endingScoreLabel" destination="Dbi-yq-MBm" id="fSP-wL-AXc"/>
                         <outlet property="endingScoreSlider" destination="J6K-l3-OeS" id="AYw-H4-46h"/>
                         <outlet property="gameOverLabel" destination="ajM-Kw-Xbx" id="7Sd-XZ-aDL"/>
+                        <outlet property="infoButton" destination="4sy-s5-Qo1" id="hcq-Av-8U6"/>
                         <outlet property="moonPreferenceSegmentedControl" destination="LkE-j6-g0o" id="EWZ-MM-Njj"/>
                         <outlet property="nextRoundButton" destination="cJc-oD-Q2k" id="rc9-pw-xHt"/>
                         <outlet property="nextRoundSubmitButton" destination="FLf-mc-Xeg" id="SCb-Xg-6LI"/>

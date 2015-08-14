@@ -117,7 +117,6 @@
 				F1FB70251AA01614007073AC /* LaunchScreen.xib */,
 				F1FB70161AA01614007073AC /* Supporting Files */,
 			);
-			name = "Hearts Scoreboard";
 			path = "Hearts Scoreboard";
 			sourceTree = "<group>";
 		};
@@ -136,7 +135,6 @@
 				F1FB70321AA01614007073AC /* Hearts_ScoreboardTests.m */,
 				F1FB70301AA01614007073AC /* Supporting Files */,
 			);
-			name = "Hearts ScoreboardTests";
 			path = "Hearts ScoreboardTests";
 			sourceTree = "<group>";
 		};
@@ -386,7 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -401,7 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
