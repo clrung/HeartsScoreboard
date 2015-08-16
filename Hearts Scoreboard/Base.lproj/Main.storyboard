@@ -373,7 +373,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="43" y="47" width="50" height="40"/>
+                                <rect key="frame" x="-88" y="55" width="50" height="40"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ulp-qq-rfu"/>
@@ -411,8 +411,116 @@
                                     <action selector="endScoreSliderValueDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="PDd-FN-e1N"/>
                                 </connections>
                             </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-P7-aCJ">
+                                <rect key="frame" x="60" y="200" width="480" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="254" id="TsY-Cc-EMK"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Developed by Christopher Rung
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Thin"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="12">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Dedicated to my father, who loves the game of Hearts, and has taught me to always shoot the moon.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <font key="NSOriginalFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="16">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">I would love to hear your feedback
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <font key="NSOriginalFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="12">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="christopherrung.com">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <font key="NSOriginalFont" size="18" name="HelveticaNeue-UltraLight"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="36"/>
+                                                    <textTab alignment="left" location="72"/>
+                                                    <textTab alignment="left" location="108"/>
+                                                    <textTab alignment="left" location="144"/>
+                                                    <textTab alignment="left" location="180"/>
+                                                    <textTab alignment="left" location="216"/>
+                                                    <textTab alignment="left" location="252"/>
+                                                    <textTab alignment="left" location="288"/>
+                                                    <textTab alignment="left" location="324"/>
+                                                    <textTab alignment="left" location="360"/>
+                                                    <textTab alignment="left" location="396"/>
+                                                    <textTab alignment="left" location="432"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TsY-Cc-EMK"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                             <visualEffectView alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
-                                <rect key="frame" x="-563" y="447" width="600" height="600"/>
+                                <rect key="frame" x="-560" y="423" width="600" height="600"/>
                                 <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FdN-Fq-KyJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,8 +725,8 @@
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMo-LW-m8e"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
-                                            <rect key="frame" x="276" y="489" width="46" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLf-mc-Xeg">
+                                            <rect key="frame" x="277" y="489" width="46" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Yyj-Cn-tDE"/>
                                             </constraints>
@@ -630,8 +738,8 @@
                                                 <action selector="touchNextRoundSubmitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmf-oE-mxU"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sld-e1-j5Z">
-                                            <rect key="frame" x="280" y="534" width="38" height="44"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sld-e1-j5Z">
+                                            <rect key="frame" x="281" y="534" width="38" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="gez-UA-rvF"/>
                                             </constraints>
@@ -764,6 +872,7 @@
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="8oE-aj-KDY"/>
                             <constraint firstItem="o6B-hj-IAy" firstAttribute="top" secondItem="8wx-rm-J10" secondAttribute="bottom" constant="11" id="9ex-r8-Ckr"/>
                             <constraint firstItem="Xc9-1G-A7H" firstAttribute="top" secondItem="J6K-l3-OeS" secondAttribute="bottom" constant="10" id="AcJ-EV-0KM"/>
+                            <constraint firstAttribute="height" secondItem="aPS-P7-aCJ" secondAttribute="height" multiplier="3" id="BZc-QL-Vkw"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="CRN-5w-lmg"/>
                             <constraint firstItem="oPg-gp-h40" firstAttribute="width" secondItem="3EQ-wO-ywD" secondAttribute="width" id="CYc-d9-yDq"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="width" secondItem="5R4-6Z-dsP" secondAttribute="width" id="Cpa-FY-gUm"/>
@@ -780,6 +889,7 @@
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Jn0-nk-iFR"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="JrG-bw-DiP"/>
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="centerY" secondItem="5R4-6Z-dsP" secondAttribute="centerY" id="Kf6-DP-IOb"/>
+                            <constraint firstItem="aPS-P7-aCJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="KfF-hd-TLM"/>
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="width" secondItem="5R4-6Z-dsP" secondAttribute="width" id="Krp-Fn-Zi1"/>
                             <constraint firstAttribute="centerX" secondItem="3EQ-wO-ywD" secondAttribute="centerX" id="MxN-SS-WfB"/>
                             <constraint firstAttribute="centerX" secondItem="LkE-j6-g0o" secondAttribute="centerX" id="NB6-eO-0pB"/>
@@ -791,6 +901,7 @@
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Spy-S1-CCf"/>
                             <constraint firstAttribute="centerX" secondItem="ErM-7M-8qC" secondAttribute="centerX" id="T73-iM-zxH"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="TfA-Xt-jzt"/>
+                            <constraint firstAttribute="centerY" secondItem="aPS-P7-aCJ" secondAttribute="centerY" id="UFi-HT-ITl"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerY" secondItem="GCU-52-44O" secondAttribute="centerY" id="UaY-5d-eAt"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="height" secondItem="zm0-zy-qjP" secondAttribute="height" id="Ujw-Am-ube"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="4:9" constant="15" id="VEC-1W-WlW"/>
@@ -799,6 +910,7 @@
                             <constraint firstAttribute="centerX" secondItem="Hd7-Pd-nrN" secondAttribute="centerX" id="Xgb-jc-URI"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerY" secondItem="4sy-s5-Qo1" secondAttribute="centerY" id="YI6-R6-lFU"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="height" secondItem="oPg-gp-h40" secondAttribute="height" id="YWw-Cv-bB7"/>
+                            <constraint firstAttribute="centerX" secondItem="aPS-P7-aCJ" secondAttribute="centerX" id="YgX-d7-V6m"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="top" secondItem="o6B-hj-IAy" secondAttribute="bottom" constant="6" id="ZGE-M0-zG9"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="4" id="a5D-sV-aF3"/>
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="centerX" secondItem="ACA-XG-2Ko" secondAttribute="centerX" id="aD8-8H-NRk"/>
@@ -843,6 +955,7 @@
                         <outlet property="endingScoreSlider" destination="J6K-l3-OeS" id="AYw-H4-46h"/>
                         <outlet property="gameOverLabel" destination="ajM-Kw-Xbx" id="7Sd-XZ-aDL"/>
                         <outlet property="infoButton" destination="4sy-s5-Qo1" id="hcq-Av-8U6"/>
+                        <outlet property="infoTextView" destination="aPS-P7-aCJ" id="rIP-w4-QwC"/>
                         <outlet property="moonPreferenceSegmentedControl" destination="LkE-j6-g0o" id="EWZ-MM-Njj"/>
                         <outlet property="nextRoundButton" destination="cJc-oD-Q2k" id="rc9-pw-xHt"/>
                         <outlet property="nextRoundSubmitButton" destination="FLf-mc-Xeg" id="SCb-Xg-6LI"/>

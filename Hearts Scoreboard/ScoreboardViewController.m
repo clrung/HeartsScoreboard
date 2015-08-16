@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel  *endingScoreLabel;
 @property (strong, nonatomic) IBOutlet UISlider *endingScoreSlider;
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
+@property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
@@ -47,8 +48,8 @@
 static int const DEALER_FADE_START           = 20;
 static int const DEALER_FADE_DISTANCE        = 25;
 static int const END_SCORE_SLIDER_STEP       = 5;
-static NSString* const UNDO_TITLE_TEXT       = @"Undo last round?";
-static NSString* const RESET_GAME_TITLE_TEXT = @"Reset Game?";
+static NSString* const UNDO_TITLE_TEXT       = @"Undo last round";
+static NSString* const RESET_GAME_TITLE_TEXT = @"Reset Game";
 
 static UIAlertView const *invalidScoreAlert;
 
@@ -106,7 +107,7 @@ static UIAlertView const *invalidScoreAlert;
     
     [self updateUI];
     
-    invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid Scores"
+    invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid"
                                                    message:@"The sum of the scores must be equal to 26."
                                                   delegate:self
                                          cancelButtonTitle:@"Okay"
@@ -149,37 +150,10 @@ static UIAlertView const *invalidScoreAlert;
     
     BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
-    // Settings
-    
-    for (UITextField *field in _playerTextFields) {
-        [self setView:field hidden:isSettingsVisible];
-    }
-    
-    [self setView:_shootTheMoonLabel              hidden:isSettingsVisible];
-    [self setView:_moonPreferenceSegmentedControl hidden:isSettingsVisible];
-    
-    [self setView:_endingScoreLabel  hidden:isSettingsVisible];
-    [self setView:_endingScoreSlider hidden:isSettingsVisible];
-    
-    [self setView:_dealerLabel       hidden:isSettingsVisible];
-    
+    [self setSettingsVisible:isSettingsVisible];
     [self setView:_infoButton        hidden:isSettingsVisible];
     
-    // Main screen
-    
-    [self setView:_passDirectionLabel hidden:!isSettingsVisible];
-    [self setView:_nextRoundButton    hidden:!isSettingsVisible];
-    [self setView:_nnewGameButton     hidden:!isSettingsVisible];
-    
-    for (UILabel *label in _playerNameLabels) {
-        [self setView:label hidden:!isSettingsVisible];
-    }
-    for (UILabel *label in _playerSumLabels) {
-        [self setView:label hidden:!isSettingsVisible];
-    }
-    for (UICollectionView *view in _scoresCollectionViews) {
-        [self setView:view hidden:!isSettingsVisible];
-    }
+    [self setMainScreenVisible:!isSettingsVisible];
     
     [self updateCurrentDealer];
     [[self view] endEditing:YES];
@@ -509,7 +483,12 @@ static UIAlertView const *invalidScoreAlert;
 #pragma mark Other
 
 - (IBAction)touchInfoButton:(UIButton *)sender {
+    BOOL isInfoVisible = [_infoTextView alpha] == 1.0;
     
+    [self setSettingsVisible:!isInfoVisible];
+    [self setView:_settingsButton hidden:!isInfoVisible];
+    
+    [self setView:_infoTextView hidden:isInfoVisible];
 }
 
 - (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)sender {
@@ -564,6 +543,36 @@ static UIAlertView const *invalidScoreAlert;
     [_endingScoreLabel  setText:[NSString stringWithFormat:@"Ending Score: %d", [[Settings sharedSettingsData] endingScore]]];
     
     [[Settings sharedSettingsData] moonBehaviorIsAdd] ? [_moonPreferenceSegmentedControl setSelectedSegmentIndex:0] : [_moonPreferenceSegmentedControl setSelectedSegmentIndex:1];
+}
+
+- (void)setSettingsVisible:(BOOL)isVisible {
+    for (UITextField *field in _playerTextFields) {
+        [self setView:field hidden:isVisible];
+    }
+    
+    [self setView:_shootTheMoonLabel              hidden:isVisible];
+    [self setView:_moonPreferenceSegmentedControl hidden:isVisible];
+    
+    [self setView:_endingScoreLabel  hidden:isVisible];
+    [self setView:_endingScoreSlider hidden:isVisible];
+    
+    [self setView:_dealerLabel       hidden:isVisible];
+}
+
+- (void)setMainScreenVisible:(BOOL)isVisible {
+    [self setView:_passDirectionLabel hidden:isVisible];
+    [self setView:_nextRoundButton    hidden:isVisible];
+    [self setView:_nnewGameButton     hidden:isVisible];
+    
+    for (UILabel *label in _playerNameLabels) {
+        [self setView:label hidden:isVisible];
+    }
+    for (UILabel *label in _playerSumLabels) {
+        [self setView:label hidden:isVisible];
+    }
+    for (UICollectionView *view in _scoresCollectionViews) {
+        [self setView:view hidden:isVisible];
+    }
 }
 
 #pragma mark
