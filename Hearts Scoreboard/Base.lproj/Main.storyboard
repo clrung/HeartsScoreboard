@@ -373,7 +373,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="-88" y="55" width="50" height="40"/>
+                                <rect key="frame" x="-14" y="27" width="50" height="40"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ulp-qq-rfu"/>
@@ -519,8 +519,8 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <visualEffectView alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
-                                <rect key="frame" x="-560" y="423" width="600" height="600"/>
+                            <visualEffectView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FdN-Fq-KyJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

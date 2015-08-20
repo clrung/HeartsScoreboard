@@ -373,7 +373,7 @@ static UIAlertView const *invalidScoreAlert;
     BOOL isAQueenDisabled = false;
     
     for (UIButton* button in _nextRoundAddScoreButtons) {
-        if ([[button currentTitle] isEqualToString:@"Q"]) {
+        if ([[button currentTitle] isEqualToString:@"Q♠︎"]) {
             if (![button isEnabled]) {
                 isAQueenDisabled = true;
             }
