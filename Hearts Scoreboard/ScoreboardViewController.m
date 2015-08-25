@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UISlider *endingScoreSlider;
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
+@property (strong, nonatomic) IBOutlet UIButton *rateOnAppStoreButton;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
@@ -489,6 +490,11 @@ static UIAlertView const *invalidScoreAlert;
     [self setView:_settingsButton hidden:!isInfoVisible];
     
     [self setView:_infoTextView hidden:isInfoVisible];
+    [self setView:_rateOnAppStoreButton hidden:isInfoVisible];
+}
+
+- (IBAction)touchRateOnStoreButton:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1033609492&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
 }
 
 - (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)sender {
