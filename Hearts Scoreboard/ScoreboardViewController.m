@@ -37,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
 
@@ -297,6 +298,10 @@ static UIAlertView const *invalidScoreAlert;
     [self resetNextRoundView];
 }
 
+- (IBAction)touchNextRoundBackButton:(UIButton *)sender {
+    [self setView:_nextRoundView hidden:YES];
+}
+
 - (IBAction)touchAddScore:(UIButton *)sender {
     NSArray *choices = @[@"+1", @"+5", @"Q♠︎"];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
@@ -322,9 +327,12 @@ static UIAlertView const *invalidScoreAlert;
             
             break;
     }
+    
+    [_nextRoundResetButton setEnabled:YES];
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
+    
     if ([_moonPreferenceSegmentedControl selectedSegmentIndex] == 0) { // add 26
         for (UILabel *label in _nextRoundScoreLabels) {
             [label setText:@"26"];
@@ -342,12 +350,14 @@ static UIAlertView const *invalidScoreAlert;
     }
     
     [_nextRoundSubmitButton setEnabled:YES];
+    [_nextRoundResetButton setEnabled:YES];
 }
 
 #pragma mark Helper Methods
 
 - (void)resetNextRoundView {
     [_nextRoundSubmitButton setEnabled:NO];
+    [_nextRoundResetButton setEnabled:NO];
     
     for (UILabel *label in _nextRoundScoreLabels) {
         [label setText:@"0"];
