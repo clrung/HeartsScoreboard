@@ -251,11 +251,19 @@ static UIAlertView const *invalidScoreAlert;
 // Indicate the current dealer by changing the label's font to bold.
 //
 - (void)updateCurrentDealer {
+    int size = 0;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        size = 24;
+    } else {
+        size = 17;
+    }
+    
     for (UILabel *label in _playerNameLabels) {
         if ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) {
-            [label setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size: 17]];
+            [label setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size: size]];
         } else {
-            [label setFont:[UIFont fontWithName:@"HelveticaNeue" size: 17]];
+            [label setFont:[UIFont fontWithName:@"HelveticaNeue" size: size]];
         }
     }
 }
