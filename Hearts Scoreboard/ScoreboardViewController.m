@@ -208,6 +208,14 @@ static UIAlertView const *invalidScoreAlert;
     for (UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
+    
+    if ([[Game sharedGameData] numRounds] == 0) {
+        [_nextRoundButton setTitle:@"Start Game" forState:UIControlStateNormal];
+        [_nnewGameButton setEnabled:NO];
+    } else {
+        [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
+        [_nnewGameButton setEnabled:YES];
+    }
 }
 
 #pragma mark Update Text
@@ -274,12 +282,14 @@ static UIAlertView const *invalidScoreAlert;
 - (IBAction)touchNextRoundSubmitButton:(UIButton *)sender {
     // The sum must be 26 and a player must have a queen to be valid, unless a player shoots the moon.
     int nextRoundViewSum = [self getNextRoundViewSum];
+    
     if (nextRoundViewSum == 26 || nextRoundViewSum == 78 || nextRoundViewSum == -26) {
         for (int i = 0; i < 4; i++) {
             NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
             [scores addObject:[NSNumber numberWithInt:[[[_nextRoundScoreLabels objectAtIndex:i] text] intValue]]];
             [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
         }
+        
         [[Game sharedGameData] save];
         
         [self updatePassDirectionLabel];
@@ -294,6 +304,8 @@ static UIAlertView const *invalidScoreAlert;
         [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] + 1];
         [[Settings sharedSettingsData] save];
         [self updateCurrentDealer];
+        [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
+        [_nnewGameButton setEnabled:YES];
     } else {
         [invalidScoreAlert show];
         [self resetNextRoundView];
@@ -652,6 +664,8 @@ static UIAlertView const *invalidScoreAlert;
             [self updateCurrentDealer];
             
             [_nextRoundButton setEnabled:YES];
+            [_nextRoundButton setTitle:@"Start Game" forState:UIControlStateNormal];
+            [_nnewGameButton  setEnabled:NO];
             [_settingsButton  setEnabled:YES];
             
             [self setView:_gameOverLabel      hidden:YES];
