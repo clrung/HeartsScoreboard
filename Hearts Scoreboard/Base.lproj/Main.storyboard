@@ -118,24 +118,18 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
                                 </variation>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8wx-rm-J10">
-                                <rect key="frame" x="73.5" y="93" width="65" height="426"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8wx-rm-J10">
+                                <rect key="frame" x="46" y="93" width="120" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="8vR-hm-3T1"/>
-                                    <constraint firstAttribute="width" constant="65" id="SLi-XQ-HcP">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="100"/>
-                                    </constraint>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wMn-2y-XfJ">
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="YVe-DB-fg2" customClass="ScoreCollectionViewCell">
-                                        <rect key="frame" x="7.5" y="0.0" width="50" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -146,6 +140,9 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -162,34 +159,23 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="SLi-XQ-HcP"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="8vR-hm-3T1"/>
-                                        <include reference="SLi-XQ-HcP"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="6wI-cV-tdV"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ryg-Eh-Tl0"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-XG-2Ko">
-                                <rect key="frame" x="203" y="93" width="65" height="426"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="left" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-XG-2Ko">
+                                <rect key="frame" x="175.5" y="93" width="120" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="weO-Hg-Ya9">
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="AV9-J0-iiz" customClass="ScoreCollectionViewCell">
-                                        <rect key="frame" x="7.5" y="0.0" width="50" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -200,6 +186,9 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -220,18 +209,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="rC7-Fc-YKo"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-zy-qjP">
-                                <rect key="frame" x="333" y="93" width="65" height="426"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-zy-qjP">
+                                <rect key="frame" x="305.5" y="93" width="120" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dUQ-dV-HOa">
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="zkV-Ry-03X" customClass="ScoreCollectionViewCell">
-                                        <rect key="frame" x="7.5" y="0.0" width="50" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -242,6 +231,9 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -263,18 +255,18 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Ltk-nW-fYC"/>
                                 </connections>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-Zz-8Hp">
-                                <rect key="frame" x="458" y="93" width="65" height="426"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-Zz-8Hp">
+                                <rect key="frame" x="430.5" y="93" width="120" height="426"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDE-d7-aTn">
                                     <size key="itemSize" width="50" height="30"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="scoreCell" id="OHe-sY-rQE" customClass="ScoreCollectionViewCell">
-                                        <rect key="frame" x="7.5" y="0.0" width="50" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -285,6 +277,9 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -551,7 +546,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="72" y="-100" width="50" height="40"/>
+                                <rect key="frame" x="-38" y="-65" width="50" height="40"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ulp-qq-rfu"/>
@@ -593,8 +588,57 @@
                                     <action selector="touchInfoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BR9-w3-oJd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-m7-ClN">
+                                <rect key="frame" x="232" y="467" width="135" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="ESD-l0-KBd">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="135" id="qNv-1i-cYu">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="Rate on App Store">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
+                                    <mask key="constraints">
+                                        <include reference="ESD-l0-KBd"/>
+                                        <include reference="qNv-1i-cYu"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="touchRateOnStoreButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGg-gT-NOQ"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-P7-aCJ">
+                                <rect key="frame" x="60" y="85.5" width="480" height="429"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="254" id="TsY-Cc-EMK"/>
+                                </constraints>
+                                <string key="text">Developed by Christopher Rung
+
+Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon.
+
+I would love to hear your feedback
+christopherrung.com</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="TsY-Cc-EMK"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                    <rect key="frame" x="-85" y="350" width="640" height="571"/>
+                                </variation>
+                            </textView>
                             <visualEffectView alpha="0.0" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JyC-Ds-4dR">
-                                <rect key="frame" x="-556" y="51" width="600" height="600"/>
+                                <rect key="frame" x="-570" y="-12" width="600" height="600"/>
                                 <view key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FdN-Fq-KyJ">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1323,55 +1367,6 @@
                                     <rect key="frame" x="-766" y="20" width="800" height="800"/>
                                 </variation>
                             </visualEffectView>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-m7-ClN">
-                                <rect key="frame" x="232" y="447" width="135" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="ESD-l0-KBd">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
-                                    </constraint>
-                                    <constraint firstAttribute="width" constant="135" id="qNv-1i-cYu">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="200"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Rate on App Store">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
-                                    <mask key="constraints">
-                                        <include reference="ESD-l0-KBd"/>
-                                        <include reference="qNv-1i-cYu"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="touchRateOnStoreButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGg-gT-NOQ"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-P7-aCJ">
-                                <rect key="frame" x="60" y="150" width="480" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="254" id="TsY-Cc-EMK"/>
-                                </constraints>
-                                <string key="text">Developed by Christopher Rung
-
-Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon.
-
-I would love to hear your feedback
-christopherrung.com</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="TsY-Cc-EMK"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
-                                    <rect key="frame" x="-85" y="350" width="640" height="571"/>
-                                </variation>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.3165685928141832" green="0.94004614159797983" blue="0.37850607033498013" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1392,7 +1387,6 @@ christopherrung.com</string>
                                 <variation key="heightClass=regular-widthClass=regular" constant="15"/>
                             </constraint>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="8oE-aj-KDY"/>
-                            <constraint firstItem="o6B-hj-IAy" firstAttribute="top" secondItem="8wx-rm-J10" secondAttribute="bottom" constant="11" id="9ex-r8-Ckr"/>
                             <constraint firstItem="Xc9-1G-A7H" firstAttribute="top" secondItem="J6K-l3-OeS" secondAttribute="bottom" constant="10" id="AcJ-EV-0KM"/>
                             <constraint firstAttribute="height" secondItem="aPS-P7-aCJ" secondAttribute="height" multiplier="1.4" id="BZc-QL-Vkw"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="CRN-5w-lmg"/>
@@ -1463,6 +1457,7 @@ christopherrung.com</string>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerX" secondItem="ACA-XG-2Ko" secondAttribute="centerX" id="mos-ff-dEw"/>
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="centerY" secondItem="8wx-rm-J10" secondAttribute="centerY" id="nPL-O9-NCs"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="centerY" secondItem="Hd7-Pd-nrN" secondAttribute="centerY" id="p0p-hI-Frg"/>
+                            <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="pQI-JO-uf2"/>
                             <constraint firstItem="Nof-mf-Hk4" firstAttribute="height" secondItem="oez-pd-Pcd" secondAttribute="height" constant="20" id="q43-lh-Slw"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="height" secondItem="5R4-6Z-dsP" secondAttribute="height" id="q6J-XF-HVr"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="width" secondItem="GCU-52-44O" secondAttribute="width" id="q8b-T3-PBb"/>
@@ -1478,7 +1473,6 @@ christopherrung.com</string>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="b6X-PW-b0K"/>
-                                <exclude reference="8OK-Em-9xy"/>
                                 <exclude reference="lKL-Ws-dkF"/>
                             </mask>
                         </variation>
@@ -1487,10 +1481,10 @@ christopherrung.com</string>
                                 <include reference="aPS-P7-aCJ"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="pQI-JO-uf2"/>
                                 <include reference="b6X-PW-b0K"/>
                                 <include reference="0UW-86-0wQ"/>
                                 <include reference="8OK-Em-9xy"/>
-                                <exclude reference="9ex-r8-Ckr"/>
                                 <exclude reference="ZGE-M0-zG9"/>
                                 <include reference="lKL-Ws-dkF"/>
                             </mask>

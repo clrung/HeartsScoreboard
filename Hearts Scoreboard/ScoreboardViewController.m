@@ -102,6 +102,7 @@ static UIAlertView const *invalidScoreAlert;
                                              selector:@selector(updateDealerLabelLocation)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -174,7 +175,14 @@ static UIAlertView const *invalidScoreAlert;
     return [[Game sharedGameData] numRounds];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionView.frame.size.width * .7, collectionView.frame.size.width * .48);
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ScoreCollectionViewCell *scoreCell = (ScoreCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:@"scoreCell" forIndexPath:indexPath];
     
     void (^setScoreLabel)(NSUInteger playerTag) = ^(NSUInteger playerTag) {
@@ -352,7 +360,6 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
-    
     if ([_moonPreferenceSegmentedControl selectedSegmentIndex] == 0) { // add 26
         for (UILabel *label in _nextRoundScoreLabels) {
             [label setText:@"26"];
