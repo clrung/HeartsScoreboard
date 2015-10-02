@@ -272,14 +272,14 @@ static UIAlertView const *invalidScoreAlert;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         size = 24;
     } else {
-        size = 17;
+        size = 15;
     }
     
     for (UILabel *label in _playerNameLabels) {
         if ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) {
-            [label setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size: size]];
+            [label setFont:[UIFont boldSystemFontOfSize:size]];
         } else {
-            [label setFont:[UIFont fontWithName:@"HelveticaNeue" size: size]];
+            [label setFont:[UIFont systemFontOfSize:size]];
         }
     }
 }
