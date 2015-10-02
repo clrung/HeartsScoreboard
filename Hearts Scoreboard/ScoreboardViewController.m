@@ -162,7 +162,7 @@ static UIAlertView const *invalidScoreAlert;
     [[self view] endEditing:YES];
 }
 
-#pragma mark Scores Collection
+#pragma mark Scores Collection View
 
 //
 // The scores collection view will only have one column.
@@ -471,6 +471,10 @@ static UIAlertView const *invalidScoreAlert;
     
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
     _dealerLabel.frame= frame;
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [self updateDealerLabelLocation];
 }
 
 - (void)moveViewWithGestureRecognizer:(UIPanGestureRecognizer *)panGestureRecognizer {
