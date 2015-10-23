@@ -130,8 +130,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="jM8-As-iiO">
-                                        <variation key="heightClass=compact" constant="90"/>
-                                        <variation key="widthClass=compact" constant="70"/>
+                                        <variation key="heightClass=compact-widthClass=compact" constant="70"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="70"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                                         <variation key="heightClass=regular-widthClass=regular" constant="130"/>
                                     </constraint>
                                 </constraints>
