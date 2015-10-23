@@ -178,12 +178,7 @@ static UIAlertView const *invalidScoreAlert;
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    // this is the width of the device in portrait orientation; when the device is in landscape mode, width will still be less than height.
-    int screenWidth = [[UIScreen mainScreen] bounds].size.width;
-    
-    // the collection view is 1/5 the screen's width, so we'll make this slightly less.
-    return CGSizeMake(screenWidth * .18, screenWidth * .12);
+    return CGSizeMake(collectionView.frame.size.width * .7, collectionView.frame.size.width * .48);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -316,7 +311,9 @@ static UIAlertView const *invalidScoreAlert;
         
         [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] + 1];
         [[Settings sharedSettingsData] save];
+        
         [self updateCurrentDealer];
+        
         [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
         [_nnewGameButton setEnabled:YES];
     } else {
