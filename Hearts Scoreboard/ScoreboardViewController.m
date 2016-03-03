@@ -382,6 +382,15 @@ static UIAlertView const *invalidScoreAlert;
     [_nextRoundResetButton setEnabled:YES];
 }
 
+- (IBAction)touchNextRoundScoreLabel:(UITapGestureRecognizer *)sender {
+    NSLog(@"tapped score %ld", sender.view.tag);
+    UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.view.tag];
+    int score = [[scoreLabel text] intValue];
+    if (score > 0) {
+        [scoreLabel setText:[NSString stringWithFormat:@"%d", score - 1]];
+    }
+}
+
 #pragma mark Helper Methods
 
 - (void)resetNextRoundView {
@@ -436,7 +445,6 @@ static UIAlertView const *invalidScoreAlert;
                                        delegate:self
                               cancelButtonTitle:@"Okay"
                               otherButtonTitles:nil] show];
-            [self resetNextRoundView];
         }
     } else if ([self getNextRoundViewSum] > 27) {
         [invalidScoreAlert show];
