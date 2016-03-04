@@ -43,6 +43,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
 
+@property (strong, nonatomic) UIAlertController *invalidScoreAlert;
+
 @end
 
 @implementation ScoreboardViewController
@@ -50,14 +52,10 @@
 static int const DEALER_FADE_START           = 20;
 static int const DEALER_FADE_DISTANCE        = 25;
 static int const END_SCORE_SLIDER_STEP       = 5;
-static NSString* const UNDO_TITLE_TEXT       = @"Undo last round";
-static NSString* const RESET_GAME_TITLE_TEXT = @"Reset Game";
-
-static UIAlertView const *invalidScoreAlert;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                                            action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
@@ -110,11 +108,18 @@ static UIAlertView const *invalidScoreAlert;
     
     [self updateUI];
     
-    invalidScoreAlert = [[UIAlertView alloc] initWithTitle:@"Invalid"
-                                                   message:@"The sum of the scores must be equal to 26."
-                                                  delegate:self
-                                         cancelButtonTitle:@"Okay"
-                                         otherButtonTitles:nil];
+    _invalidScoreAlert = [UIAlertController alertControllerWithTitle:@"Invalid"
+                                                                               message:@"The sum of the scores must be equal to 26."
+                                                                        preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okay = [UIAlertAction actionWithTitle:@"Okay"
+                                                   style:UIAlertActionStyleDefault
+                                                 handler:^(UIAlertAction * action)
+                           {
+                               [_invalidScoreAlert dismissViewControllerAnimated:YES completion:nil];
+                           }];
+    
+    [_invalidScoreAlert addAction:okay];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -141,11 +146,51 @@ static UIAlertView const *invalidScoreAlert;
 }
 
 - (IBAction)touchNewGameButton:(UIButton *)sender {
-    [[[UIAlertView alloc] initWithTitle:RESET_GAME_TITLE_TEXT
-                                message:@"Are you sure you would like to start a new game?"
-                               delegate:self
-                      cancelButtonTitle:@"No"
-                      otherButtonTitles:@"Yes", nil] show];
+    UIAlertController* resetGameAlert = [UIAlertController alertControllerWithTitle:@"Reset Game"
+                                                                            message:@"Are you sure you would like to start a new game?"
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* no = [UIAlertAction actionWithTitle:@"No"
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action)
+                         {
+                             [resetGameAlert dismissViewControllerAnimated:YES completion:nil];
+                         }];
+    
+    UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction * action)
+                          {
+                              [[Game sharedGameData] reset];
+                              [[Game sharedGameData] save];
+                              
+                              [[Settings sharedSettingsData] setDealerOffset:0];
+                              [[Settings sharedSettingsData] save];
+                              
+                              [self updatePassDirectionLabel];
+                              
+                              for (UICollectionView *view in _scoresCollectionViews) {
+                                  [self setView:view hidden:NO];
+                                  [view reloadData];
+                              }
+                              
+                              [self updatePlayerSumLabels];
+                              [self updateCurrentDealer];
+                              
+                              [_nextRoundButton setEnabled:YES];
+                              [_nextRoundButton setTitle:@"Start Game" forState:UIControlStateNormal];
+                              [_nnewGameButton  setEnabled:NO];
+                              [_settingsButton  setEnabled:YES];
+                              
+                              [self setView:_gameOverLabel      hidden:YES];
+                              [self setView:_passDirectionLabel hidden:NO];
+                              
+                              [resetGameAlert dismissViewControllerAnimated:YES completion:nil];
+                          }];
+    
+    [resetGameAlert addAction:no];
+    [resetGameAlert addAction:yes];
+    [self presentViewController:resetGameAlert animated:YES completion:nil];
+    
 }
 
 - (IBAction)touchSettingsButton:(UIButton *)sender {
@@ -317,7 +362,7 @@ static UIAlertView const *invalidScoreAlert;
         [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
         [_nnewGameButton setEnabled:YES];
     } else {
-        [invalidScoreAlert show];
+        [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
         [self resetNextRoundView];
     }
     
@@ -440,14 +485,23 @@ static UIAlertView const *invalidScoreAlert;
             
             [_nextRoundSubmitButton setEnabled:YES];
         } else {
-            [[[UIAlertView alloc] initWithTitle:@"Invalid"
-                                        message:@"A Queen must be played."
-                                       delegate:self
-                              cancelButtonTitle:@"Okay"
-                              otherButtonTitles:nil] show];
+            
+            UIAlertController* invalidQueenAlert = [UIAlertController alertControllerWithTitle:@"Invalid"
+                                                                                       message:@"A Queen must be played."
+                                                                                preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* okay = [UIAlertAction actionWithTitle:@"Okay"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action)
+                                   {
+                                       [invalidQueenAlert dismissViewControllerAnimated:YES completion:nil];
+                                   }];
+            
+            [invalidQueenAlert addAction:okay];
+            [self presentViewController:invalidQueenAlert animated:YES completion:nil];
+            
         }
     } else if ([self getNextRoundViewSum] > 27) {
-        [invalidScoreAlert show];
+        [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
         [self resetNextRoundView];
     }
 }
@@ -637,60 +691,44 @@ static UIAlertView const *invalidScoreAlert;
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
     if ([[Game sharedGameData] numRounds] > 0) {
         if ([event subtype] == UIEventSubtypeMotionShake) {
-            [[[UIAlertView alloc] initWithTitle:UNDO_TITLE_TEXT
-                                        message:@"Are you sure you would like to undo the last round?"
-                                       delegate:self
-                              cancelButtonTitle:@"No"
-                              otherButtonTitles:@"Yes", nil] show];
-        }
-    }
-}
+            UIAlertController* undoRoundAlert = [UIAlertController alertControllerWithTitle:@"Undo last round"
+                                                                                    message:@"Are you sure you would like to undo the last round?"
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* no = [UIAlertAction actionWithTitle:@"No"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * action)
+                                 {
+                                     [undoRoundAlert dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+            
+            UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes"
+                                                          style:UIAlertActionStyleDefault
+                                                        handler:^(UIAlertAction * action)
+                                  {
+                                      for (int i = 0; i < 4; i++) {
+                                          NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
+                                          [scores removeLastObject];
+                                          [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
+                                      }
+                                      
+                                      [self updatePassDirectionLabel];
+                                      [self updatePlayerSumLabels];
+                                      
+                                      for (UICollectionView *view in _scoresCollectionViews) {
+                                          [view reloadData];
+                                      }
+                                      
+                                      [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] - 1];
+                                      [[Settings sharedSettingsData] save];
+                                      [self updateCurrentDealer];
+                                      
+                                      [undoRoundAlert dismissViewControllerAnimated:YES completion:nil];
+                                  }];
+            
+            [undoRoundAlert addAction:no];
+            [undoRoundAlert addAction:yes];
+            [self presentViewController:undoRoundAlert animated:YES completion:nil];
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([[alertView title] isEqualToString:UNDO_TITLE_TEXT]) {
-        if (buttonIndex == [alertView firstOtherButtonIndex]) {
-            for (int i = 0; i < 4; i++) {
-                NSMutableArray *scores = [[[[Game sharedGameData] players] objectAtIndex:i] scores];
-                [scores removeLastObject];
-                [[[[Game sharedGameData] players] objectAtIndex:i] setScores:scores];
-            }
-            
-            [self updatePassDirectionLabel];
-            [self updatePlayerSumLabels];
-            
-            for (UICollectionView *view in _scoresCollectionViews) {
-                [view reloadData];
-            }
-            
-            [[Settings sharedSettingsData] setDealerOffset:[[Settings sharedSettingsData] dealerOffset] - 1];
-            [[Settings sharedSettingsData] save];
-            [self updateCurrentDealer];
-        }
-    } else if ([[alertView title] isEqualToString:RESET_GAME_TITLE_TEXT]) {
-        if (buttonIndex == [alertView firstOtherButtonIndex]) {
-            [[Game sharedGameData] reset];
-            [[Game sharedGameData] save];
-            
-            [[Settings sharedSettingsData] setDealerOffset:0];
-            [[Settings sharedSettingsData] save];
-            
-            [self updatePassDirectionLabel];
-            
-            for (UICollectionView *view in _scoresCollectionViews) {
-                [self setView:view hidden:NO];
-                [view reloadData];
-            }
-            
-            [self updatePlayerSumLabels];
-            [self updateCurrentDealer];
-            
-            [_nextRoundButton setEnabled:YES];
-            [_nextRoundButton setTitle:@"Start Game" forState:UIControlStateNormal];
-            [_nnewGameButton  setEnabled:NO];
-            [_settingsButton  setEnabled:YES];
-            
-            [self setView:_gameOverLabel      hidden:YES];
-            [self setView:_passDirectionLabel hidden:NO];
         }
     }
 }
