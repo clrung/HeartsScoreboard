@@ -40,6 +40,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
+@property NSInteger queenSelectedIndex; // -1 when no Queen is selected
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
 
@@ -392,6 +393,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
             break;
         case 2:     // Q♠︎
             [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
+            _queenSelectedIndex = [sender tag];
+            NSLog(@"queenSelectedIndex = %ld", (long)_queenSelectedIndex);
             
             // disable the Q buttons; there is only one Queen of Spades
             for (UIButton *button in _nextRoundAddScoreButtons) {
@@ -428,11 +431,22 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (IBAction)touchNextRoundScoreLabel:(UITapGestureRecognizer *)sender {
-    NSLog(@"tapped score %ld", sender.view.tag);
     UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.view.tag];
     int score = [[scoreLabel text] intValue];
-    if (score > 0) {
+    
+    BOOL includesQueen = [[sender view] tag] == _queenSelectedIndex;
+    
+    if ((score > 0 && !includesQueen) || (score > 13 && includesQueen)) {
         [scoreLabel setText:[NSString stringWithFormat:@"%d", score - 1]];
+    }
+    
+    [_nextRoundSubmitButton setEnabled:NO];
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        if (_queenSelectedIndex != -1 && [[button currentTitle] isEqualToString:@"Q♠︎"]) {
+            [button setEnabled:NO];
+        } else {
+            [button setEnabled:YES];
+        }
     }
 }
 
@@ -441,6 +455,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 - (void)resetNextRoundView {
     [_nextRoundSubmitButton setEnabled:NO];
     [_nextRoundResetButton setEnabled:NO];
+    _queenSelectedIndex = -1;
     
     for (UILabel *label in _nextRoundScoreLabels) {
         [label setText:@"0"];
