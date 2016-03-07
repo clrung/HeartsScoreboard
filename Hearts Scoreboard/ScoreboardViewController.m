@@ -364,7 +364,6 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [_nnewGameButton setEnabled:YES];
     } else {
         [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
-        [self resetNextRoundView];
     }
     
     [self checkGameOver];
@@ -394,7 +393,6 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         case 2:     // Q♠︎
             [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
             _queenSelectedIndex = [sender tag];
-            NSLog(@"queenSelectedIndex = %ld", (long)_queenSelectedIndex);
             
             // disable the Q buttons; there is only one Queen of Spades
             for (UIButton *button in _nextRoundAddScoreButtons) {
@@ -479,45 +477,17 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 - (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
     int currentScore = [[currentScoreLabel text] intValue];
     
-    BOOL isAQueenDisabled = false;
-    
-    for (UIButton* button in _nextRoundAddScoreButtons) {
-        if ([[button currentTitle] isEqualToString:@"Q♠︎"]) {
-            if (![button isEnabled]) {
-                isAQueenDisabled = true;
-            }
-        }
-    }
-    
     if ([self getNextRoundViewSum] < 27) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
     }
     if ([self getNextRoundViewSum] == 26) {
-        if (isAQueenDisabled) {
             for (UIButton *button in _nextRoundAddScoreButtons) {
                 [button setEnabled:NO];
             }
             
             [_nextRoundSubmitButton setEnabled:YES];
-        } else {
-            
-            UIAlertController* invalidQueenAlert = [UIAlertController alertControllerWithTitle:@"Invalid"
-                                                                                       message:@"A Queen must be played."
-                                                                                preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* okay = [UIAlertAction actionWithTitle:@"Okay"
-                                                           style:UIAlertActionStyleDefault
-                                                         handler:^(UIAlertAction * action)
-                                   {
-                                       [invalidQueenAlert dismissViewControllerAnimated:YES completion:nil];
-                                   }];
-            
-            [invalidQueenAlert addAction:okay];
-            [self presentViewController:invalidQueenAlert animated:YES completion:nil];
-            
-        }
     } else if ([self getNextRoundViewSum] > 27) {
         [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
-        [self resetNextRoundView];
     }
 }
 
