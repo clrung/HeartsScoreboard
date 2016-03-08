@@ -1528,6 +1528,10 @@ christopherrung.com</string>
                         <outletCollection property="playerTextFields" destination="3EQ-wO-ywD" id="f7K-JM-PMQ"/>
                         <outletCollection property="playerTextFields" destination="gTZ-PY-7an" id="bFm-Nk-6Th"/>
                         <outletCollection property="playerTextFields" destination="ErM-7M-8qC" id="4Kd-FW-fDI"/>
+                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="KqE-RI-0z9" id="Vz2-JF-FSv"/>
+                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZlP-e1-f4G" id="vio-nM-b2K"/>
+                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZNH-dD-vhL" id="F1o-Cp-sUQ"/>
+                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="mfT-TZ-Bx0" id="Kqc-55-gRV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

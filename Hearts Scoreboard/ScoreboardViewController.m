@@ -37,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
+@property (strong, nonatomic) IBOutletCollection(UITapGestureRecognizer) NSArray *nextRoundScoreGestureRecognizers;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
@@ -424,6 +425,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [button setEnabled:NO];
     }
     
+    for (UIGestureRecognizer *recognizer in _nextRoundScoreGestureRecognizers) {
+        [recognizer setEnabled:NO];
+    }
+    
     [_nextRoundSubmitButton setEnabled:YES];
     [_nextRoundResetButton setEnabled:YES];
 }
@@ -446,6 +451,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     for (UIButton *button in _nextRoundAddScoreButtons) {
         [button setEnabled:YES];
+    }
+    
+    for (UIGestureRecognizer *recognizer in _nextRoundScoreGestureRecognizers) {
+        [recognizer setEnabled:YES];
     }
 }
 
