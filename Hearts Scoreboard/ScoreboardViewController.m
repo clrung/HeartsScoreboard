@@ -464,7 +464,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     BOOL scoreIncludesQueen = [currentScoreLabel tag] == _queenSelectedIndex;
     
-    if ((value > 0 && [self getNextRoundViewSum] < 27) || (value < 0 && ((currentScore > 0 && !scoreIncludesQueen) || (currentScore > 13 && scoreIncludesQueen)))) {
+    if ((value > 0 && [self getNextRoundViewSum] + value < 27) || (value < 0 && ((currentScore > 0 && !scoreIncludesQueen) || (currentScore > 13 && scoreIncludesQueen)))) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
     }
     
