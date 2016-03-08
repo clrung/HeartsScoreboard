@@ -430,22 +430,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 
 - (IBAction)touchNextRoundScoreLabel:(UITapGestureRecognizer *)sender {
     UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.view.tag];
-    int score = [[scoreLabel text] intValue];
-    
-    BOOL includesQueen = [[sender view] tag] == _queenSelectedIndex;
-    
-    if ((score > 0 && !includesQueen) || (score > 13 && includesQueen)) {
-        [scoreLabel setText:[NSString stringWithFormat:@"%d", score - 1]];
-    }
-    
-    [_nextRoundSubmitButton setEnabled:NO];
-    for (UIButton *button in _nextRoundAddScoreButtons) {
-        if (_queenSelectedIndex != -1 && [[button currentTitle] isEqualToString:@"Q♠︎"]) {
-            [button setEnabled:NO];
-        } else {
-            [button setEnabled:YES];
-        }
-    }
+    [self addToCurrentScoreLabel:scoreLabel withValue:-1];
 }
 
 #pragma mark Helper Methods
@@ -477,18 +462,43 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 - (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
     int currentScore = [[currentScoreLabel text] intValue];
     
-    if ([self getNextRoundViewSum] < 27) {
+    BOOL scoreIncludesQueen = [currentScoreLabel tag] == _queenSelectedIndex;
+    
+    if ((value > 0 && [self getNextRoundViewSum] < 27) || (value < 0 && ((currentScore > 0 && !scoreIncludesQueen) || (currentScore > 13 && scoreIncludesQueen)))) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
     }
+    
     if ([self getNextRoundViewSum] == 26) {
+        for (UIButton *button in _nextRoundAddScoreButtons) {
+            [button setEnabled:NO];
+        }
+        
+        [_nextRoundSubmitButton setEnabled:YES];
+    } else {
+        if ([self getNextRoundViewSum] > 26) {
+            if (value > 0) {
+                [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
+            }
+            
             for (UIButton *button in _nextRoundAddScoreButtons) {
                 [button setEnabled:NO];
             }
-            
-            [_nextRoundSubmitButton setEnabled:YES];
-    } else if ([self getNextRoundViewSum] > 27) {
-        [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
+        } else {
+            if (value < 0) {
+                for (UIButton *button in _nextRoundAddScoreButtons) {
+                    if (_queenSelectedIndex != -1 && [[button currentTitle] isEqualToString:@"Q♠︎"]) {
+                        [button setEnabled:NO];
+                    } else {
+                        [button setEnabled:YES];
+                    }
+                }
+            }
+        }
+        
+        [_nextRoundSubmitButton setEnabled:NO];
+        
     }
+    
 }
 
 #pragma mark - Settings
