@@ -707,9 +707,6 @@ christopherrung.com</string>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                             </variation>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="KqE-RI-0z9" appends="YES" id="MSM-wh-5pv"/>
-                                            </connections>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-8S-Al5">
                                             <rect key="frame" x="295" y="63" width="44" height="44"/>
@@ -825,9 +822,6 @@ christopherrung.com</string>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                             </variation>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="ZlP-e1-f4G" appends="YES" id="Yua-bm-Mmb"/>
-                                            </connections>
                                         </label>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp7-AJ-zmh">
                                             <rect key="frame" x="295" y="170" width="44" height="44"/>
@@ -927,9 +921,6 @@ christopherrung.com</string>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                             </variation>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="ZNH-dD-vhL" appends="YES" id="hWC-HR-f5d"/>
-                                            </connections>
                                         </label>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FY-ue-HR7">
                                             <rect key="frame" x="295" y="278" width="44" height="44"/>
@@ -1029,9 +1020,6 @@ christopherrung.com</string>
                                             <variation key="heightClass=regular-widthClass=regular">
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                             </variation>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="mfT-TZ-Bx0" appends="YES" id="jsr-2Q-lMM"/>
-                                            </connections>
                                         </label>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UuB-hJ-VLC">
                                             <rect key="frame" x="401" y="363" width="44" height="44"/>
@@ -1680,10 +1668,6 @@ christopherrung.com</string>
                         <outletCollection property="playerTextFields" destination="3EQ-wO-ywD" id="f7K-JM-PMQ"/>
                         <outletCollection property="playerTextFields" destination="gTZ-PY-7an" id="bFm-Nk-6Th"/>
                         <outletCollection property="playerTextFields" destination="ErM-7M-8qC" id="4Kd-FW-fDI"/>
-                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="KqE-RI-0z9" id="Vz2-JF-FSv"/>
-                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZlP-e1-f4G" id="vio-nM-b2K"/>
-                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZNH-dD-vhL" id="F1o-Cp-sUQ"/>
-                        <outletCollection property="nextRoundScoreGestureRecognizers" destination="mfT-TZ-Bx0" id="Kqc-55-gRV"/>
                         <outletCollection property="nextRoundDecrementButtons" destination="Jb4-no-r1N" id="nbH-j6-PeZ"/>
                         <outletCollection property="nextRoundDecrementButtons" destination="shI-FF-gws" id="SvE-ro-MAm"/>
                         <outletCollection property="nextRoundDecrementButtons" destination="hpE-oS-Pcc" id="oK1-hI-twl"/>
@@ -1695,26 +1679,6 @@ christopherrung.com</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="KqE-RI-0z9">
-                    <connections>
-                        <action selector="touchNextRoundScoreLabel:" destination="BYZ-38-t0r" id="Mdq-JC-L9f"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="ZlP-e1-f4G">
-                    <connections>
-                        <action selector="touchNextRoundScoreLabel:" destination="BYZ-38-t0r" id="1bN-DG-MX7"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="ZNH-dD-vhL">
-                    <connections>
-                        <action selector="touchNextRoundScoreLabel:" destination="BYZ-38-t0r" id="KG3-os-Sd7"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="mfT-TZ-Bx0">
-                    <connections>
-                        <action selector="touchNextRoundScoreLabel:" destination="BYZ-38-t0r" id="9Up-hP-dfa"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="93" y="402.75"/>
         </scene>

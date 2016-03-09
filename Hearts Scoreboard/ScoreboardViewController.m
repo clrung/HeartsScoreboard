@@ -37,7 +37,6 @@
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
-@property (strong, nonatomic) IBOutletCollection(UITapGestureRecognizer) NSArray *nextRoundScoreGestureRecognizers;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
@@ -439,17 +438,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [button setEnabled:NO];
     }
     
-    for (UIGestureRecognizer *recognizer in _nextRoundScoreGestureRecognizers) {
-        [recognizer setEnabled:NO];
-    }
-    
     [_nextRoundSubmitButton setEnabled:YES];
     [_nextRoundResetButton setEnabled:YES];
-}
-
-- (IBAction)touchNextRoundScoreLabel:(UITapGestureRecognizer *)sender {
-    UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.view.tag];
-    [self addToCurrentScoreLabel:scoreLabel withValue:-1];
 }
 
 #pragma mark Helper Methods
@@ -469,10 +459,6 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     for (UIButton *button in _nextRoundDecrementButtons) {
         [button setEnabled:NO];
-    }
-    
-    for (UIGestureRecognizer *recognizer in _nextRoundScoreGestureRecognizers) {
-        [recognizer setEnabled:YES];
     }
 }
 
