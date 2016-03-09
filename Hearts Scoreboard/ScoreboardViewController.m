@@ -380,7 +380,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
-    NSArray *choices = @[@"+1", @"+5", @"Q♠︎", @"-", @"+"];
+    NSArray *choices = @[@"+1", @"+5", @"Q♠︎", @"     -", @"+     "];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
@@ -410,10 +410,16 @@ static int const END_SCORE_SLIDER_STEP       = 5;
             if ([[currentScoreLabel text] isEqualToString:@"0"]) {
                 [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:NO];
             }
-            [[_nextRoundIncrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            for (UIButton *button in _nextRoundIncrementButtons) {
+                [button setEnabled:YES];
+            }
             break;
         case 4:     // +
             [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
+            
+            if ([[currentScoreLabel text] isEqualToString:@"26"]) {
+                [[_nextRoundIncrementButtons objectAtIndex:sender.tag] setEnabled:NO];
+            }
             [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
             break;
     }
@@ -459,6 +465,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     for (UIButton *button in _nextRoundDecrementButtons) {
         [button setEnabled:NO];
+    }
+    
+    for (UIButton *button in _nextRoundIncrementButtons) {
+        [button setEnabled:YES];
     }
 }
 
