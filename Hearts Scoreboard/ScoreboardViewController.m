@@ -443,6 +443,12 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     for (UIButton *button in _nextRoundAddScoreButtons) {
         [button setEnabled:NO];
     }
+    for (UIButton *button in _nextRoundDecrementButtons) {
+        [button setEnabled:NO];
+    }
+    for (UIButton *button in _nextRoundIncrementButtons) {
+        [button setEnabled:NO];
+    }
     
     [_nextRoundSubmitButton setEnabled:YES];
     [_nextRoundResetButton setEnabled:YES];
