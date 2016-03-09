@@ -678,7 +678,7 @@ christopherrung.com</string>
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-no-r1N">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-no-r1N">
                                             <rect key="frame" x="261" y="63" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="Xl4-Xv-S7z"/>
@@ -692,8 +692,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pZP-jb-ePL"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Er4-jc-mOS"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLY-He-Jb4"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mt-mH-hd4">
@@ -726,8 +725,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qpf-H6-ZfL"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rYd-TJ-1IO"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7A2-09-1Fl"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il6-pA-aun">
@@ -801,7 +799,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shI-FF-gws">
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shI-FF-gws">
                                             <rect key="frame" x="261" y="170" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="u2c-UF-LFL"/>
@@ -815,8 +813,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmZ-n9-3Qi"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="51H-5V-2aM"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQw-4O-9vp"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-2D-aCO">
@@ -846,8 +843,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d34-RA-8Zc"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5a-9P-R6H"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i8h-Y9-wkf"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x86-mj-rpN">
@@ -905,7 +901,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-oS-Pcc">
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-oS-Pcc">
                                             <rect key="frame" x="261" y="278" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="DMP-Gy-nkS"/>
@@ -919,8 +915,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcI-0i-9EM"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aa3-tb-TpN"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ek-es-wg1"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-xg-SHT">
@@ -950,8 +945,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLB-6I-I1z"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RWz-vL-Jlm"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8op-F6-qqr"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6S-S1-2FJ">
@@ -1009,7 +1003,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-oe-M6e">
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-oe-M6e">
                                             <rect key="frame" x="261" y="385" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="Q1k-rt-GUr"/>
@@ -1023,8 +1017,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s01-TZ-5Cc"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="krp-VM-kuQ"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Et2-6M-zkV"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-se-EuI">
@@ -1067,8 +1060,7 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                             <connections>
-                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fqp-sS-8kZ"/>
-                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aS-kF-7fR"/>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VsA-8q-tTA"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5T-Od-aTa">
@@ -1692,14 +1684,14 @@ christopherrung.com</string>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZlP-e1-f4G" id="vio-nM-b2K"/>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZNH-dD-vhL" id="F1o-Cp-sUQ"/>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="mfT-TZ-Bx0" id="Kqc-55-gRV"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="Jb4-no-r1N" id="uPk-gy-sMu"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="shI-FF-gws" id="tGH-AD-W79"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="hpE-oS-Pcc" id="Dpg-7g-DQO"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="qVk-oe-M6e" id="Cry-lM-Eme"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="ix8-JS-9iX" id="NH7-PA-tj8"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="2FY-ue-HR7" id="9j3-AO-1rg"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="Sp7-AJ-zmh" id="sO8-EY-814"/>
-                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="ka8-8S-Al5" id="0e0-qG-qNH"/>
+                        <outletCollection property="nextRoundDecrementButtons" destination="Jb4-no-r1N" id="nbH-j6-PeZ"/>
+                        <outletCollection property="nextRoundDecrementButtons" destination="shI-FF-gws" id="SvE-ro-MAm"/>
+                        <outletCollection property="nextRoundDecrementButtons" destination="hpE-oS-Pcc" id="oK1-hI-twl"/>
+                        <outletCollection property="nextRoundDecrementButtons" destination="qVk-oe-M6e" id="jLH-Gv-Dcs"/>
+                        <outletCollection property="nextRoundIncrementButtons" destination="ka8-8S-Al5" id="dON-cb-v8Q"/>
+                        <outletCollection property="nextRoundIncrementButtons" destination="Sp7-AJ-zmh" id="udO-cA-evc"/>
+                        <outletCollection property="nextRoundIncrementButtons" destination="2FY-ue-HR7" id="W2q-17-RKk"/>
+                        <outletCollection property="nextRoundIncrementButtons" destination="ix8-JS-9iX" id="e7a-we-Oyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

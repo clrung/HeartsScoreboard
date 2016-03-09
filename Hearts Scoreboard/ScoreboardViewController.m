@@ -41,7 +41,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundDecrementIncrementButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundDecrementButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundIncrementButtons;
 @property NSInteger queenSelectedIndex; // -1 when no Queen is selected
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
@@ -58,7 +59,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                                            action:@selector(moveViewWithGestureRecognizer:)];
     [_dealerLabel addGestureRecognizer:panGestureRecognizer];
@@ -112,8 +113,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     [self updateUI];
     
     _invalidScoreAlert = [UIAlertController alertControllerWithTitle:@"Invalid"
-                                                                               message:@"The sum of the scores must be equal to 26."
-                                                                        preferredStyle:UIAlertControllerStyleAlert];
+                                                             message:@"The sum of the scores must be equal to 26."
+                                                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* okay = [UIAlertAction actionWithTitle:@"Okay"
                                                    style:UIAlertActionStyleDefault
                                                  handler:^(UIAlertAction * action)
@@ -380,7 +381,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
-    NSArray *choices = @[@"+1", @"+5", @"Q♠︎"];
+    NSArray *choices = @[@"+1", @"+5", @"Q♠︎", @"-", @"+"];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
@@ -404,18 +405,21 @@ static int const END_SCORE_SLIDER_STEP       = 5;
             }
             
             break;
+        case 3:     // -
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:-1];
+            
+            if ([[currentScoreLabel text] isEqualToString:@"0"]) {
+                [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:NO];
+            }
+            [[_nextRoundIncrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            break;
+        case 4:     // +
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
+            [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            break;
     }
     
     [_nextRoundResetButton setEnabled:YES];
-}
-
-- (IBAction)touchDecrementIncrementButton:(UIButton *)sender {
-    UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag];
-    if ([[sender currentTitle] isEqualToString:@"-"]) {
-        [self addToCurrentScoreLabel:scoreLabel withValue:-1];
-    } else {
-        [self addToCurrentScoreLabel:scoreLabel withValue:1];
-    }
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {
@@ -463,6 +467,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [button setEnabled:YES];
     }
     
+    for (UIButton *button in _nextRoundDecrementButtons) {
+        [button setEnabled:NO];
+    }
+    
     for (UIGestureRecognizer *recognizer in _nextRoundScoreGestureRecognizers) {
         [recognizer setEnabled:YES];
     }
@@ -489,6 +497,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     if ([self getNextRoundViewSum] == 26) {
         for (UIButton *button in _nextRoundAddScoreButtons) {
+            [button setEnabled:NO];
+        }
+        for (UIButton *button in _nextRoundIncrementButtons) {
             [button setEnabled:NO];
         }
         
@@ -742,7 +753,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
             [undoRoundAlert addAction:no];
             [undoRoundAlert addAction:yes];
             [self presentViewController:undoRoundAlert animated:YES completion:nil];
-
+            
         }
     }
 }
@@ -764,6 +775,18 @@ static int const END_SCORE_SLIDER_STEP       = 5;
                NSOrderedSame);
     }];
     _nextRoundScoreLabels = [_nextRoundScoreLabels sortedArrayUsingComparator:^NSComparisonResult(id objA, id objB){
+        return(
+               ([objA tag] < [objB tag]) ? NSOrderedAscending  :
+               ([objA tag] > [objB tag]) ? NSOrderedDescending :
+               NSOrderedSame);
+    }];
+    _nextRoundDecrementButtons = [_nextRoundDecrementButtons sortedArrayUsingComparator:^NSComparisonResult(id objA, id objB){
+        return(
+               ([objA tag] < [objB tag]) ? NSOrderedAscending  :
+               ([objA tag] > [objB tag]) ? NSOrderedDescending :
+               NSOrderedSame);
+    }];
+    _nextRoundIncrementButtons = [_nextRoundIncrementButtons sortedArrayUsingComparator:^NSComparisonResult(id objA, id objB){
         return(
                ([objA tag] < [objB tag]) ? NSOrderedAscending  :
                ([objA tag] > [objB tag]) ? NSOrderedDescending :
