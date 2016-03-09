@@ -41,6 +41,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundDecrementIncrementButtons;
 @property NSInteger queenSelectedIndex; // -1 when no Queen is selected
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
@@ -406,6 +407,15 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     }
     
     [_nextRoundResetButton setEnabled:YES];
+}
+
+- (IBAction)touchDecrementIncrementButton:(UIButton *)sender {
+    UILabel *scoreLabel = (UILabel *)[_nextRoundScoreLabels objectAtIndex:sender.tag];
+    if ([[sender currentTitle] isEqualToString:@"-"]) {
+        [self addToCurrentScoreLabel:scoreLabel withValue:-1];
+    } else {
+        [self addToCurrentScoreLabel:scoreLabel withValue:1];
+    }
 }
 
 - (IBAction)touchShootMoon:(UIButton *)sender {

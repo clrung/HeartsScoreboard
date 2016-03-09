@@ -554,7 +554,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="0.0" y="-67" width="150" height="60"/>
+                                <rect key="frame" x="86" y="-92" width="150" height="60"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ulp-qq-rfu"/>
@@ -678,6 +678,24 @@ christopherrung.com</string>
                                                 </mask>
                                             </variation>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-no-r1N">
+                                            <rect key="frame" x="261" y="63" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="Xl4-Xv-S7z"/>
+                                                <constraint firstAttribute="height" constant="44" id="x5p-h4-h0f"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pZP-jb-ePL"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Er4-jc-mOS"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mt-mH-hd4">
                                             <rect key="frame" x="285" y="75" width="30" height="20.5"/>
                                             <gestureRecognizers/>
@@ -694,6 +712,24 @@ christopherrung.com</string>
                                                 <outletCollection property="gestureRecognizers" destination="KqE-RI-0z9" appends="YES" id="MSM-wh-5pv"/>
                                             </connections>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-8S-Al5">
+                                            <rect key="frame" x="295" y="63" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="OYZ-AA-SZe"/>
+                                                <constraint firstAttribute="height" constant="44" id="mYC-DT-vv5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qpf-H6-ZfL"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rYd-TJ-1IO"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="il6-pA-aun">
                                             <rect key="frame" x="401" y="42" width="44" height="44"/>
                                             <constraints>
@@ -765,6 +801,24 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shI-FF-gws">
+                                            <rect key="frame" x="261" y="170" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="u2c-UF-LFL"/>
+                                                <constraint firstAttribute="width" constant="44" id="u4v-g1-AVe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmZ-n9-3Qi"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="51H-5V-2aM"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-2D-aCO">
                                             <rect key="frame" x="285" y="182" width="30" height="20.5"/>
                                             <gestureRecognizers/>
@@ -778,6 +832,24 @@ christopherrung.com</string>
                                                 <outletCollection property="gestureRecognizers" destination="ZlP-e1-f4G" appends="YES" id="Yua-bm-Mmb"/>
                                             </connections>
                                         </label>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sp7-AJ-zmh">
+                                            <rect key="frame" x="295" y="170" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="CAA-JP-6Ba"/>
+                                                <constraint firstAttribute="width" constant="44" id="oVc-Mf-9Ug"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d34-RA-8Zc"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b5a-9P-R6H"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x86-mj-rpN">
                                             <rect key="frame" x="401" y="149" width="44" height="44"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -833,6 +905,24 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-oS-Pcc">
+                                            <rect key="frame" x="261" y="278" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="DMP-Gy-nkS"/>
+                                                <constraint firstAttribute="height" constant="44" id="iF5-CT-hcJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vcI-0i-9EM"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aa3-tb-TpN"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-xg-SHT">
                                             <rect key="frame" x="285" y="290" width="30" height="20.5"/>
                                             <gestureRecognizers/>
@@ -846,6 +936,24 @@ christopherrung.com</string>
                                                 <outletCollection property="gestureRecognizers" destination="ZNH-dD-vhL" appends="YES" id="hWC-HR-f5d"/>
                                             </connections>
                                         </label>
+                                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FY-ue-HR7">
+                                            <rect key="frame" x="295" y="278" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="0nU-bT-0F9"/>
+                                                <constraint firstAttribute="height" constant="44" id="Aeg-k5-4hv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLB-6I-I1z"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RWz-vL-Jlm"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6S-S1-2FJ">
                                             <rect key="frame" x="401" y="256" width="44" height="44"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
@@ -901,6 +1009,24 @@ christopherrung.com</string>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                             </variation>
                                         </label>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVk-oe-M6e">
+                                            <rect key="frame" x="261" y="385" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Q1k-rt-GUr"/>
+                                                <constraint firstAttribute="width" constant="44" id="k9W-Oh-ivu"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="-">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s01-TZ-5Cc"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="krp-VM-kuQ"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-se-EuI">
                                             <rect key="frame" x="285" y="397" width="30" height="20.5"/>
                                             <gestureRecognizers/>
@@ -925,6 +1051,24 @@ christopherrung.com</string>
                                             </variation>
                                             <connections>
                                                 <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VKV-zp-qzt"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ix8-JS-9iX">
+                                            <rect key="frame" x="295" y="385" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="cM8-X6-dZr"/>
+                                                <constraint firstAttribute="width" constant="44" id="nCb-zP-0Sn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                            <state key="normal" title="+">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fqp-sS-8kZ"/>
+                                                <action selector="touchDecrementIncrementButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3aS-kF-7fR"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5T-Od-aTa">
@@ -1063,8 +1207,12 @@ christopherrung.com</string>
                                         <constraint firstItem="FLf-mc-Xeg" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="17:20" id="72D-78-q2Q">
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
+                                        <constraint firstItem="2FY-ue-HR7" firstAttribute="centerX" secondItem="ka8-8S-Al5" secondAttribute="centerX" id="7b9-Rk-DLO"/>
+                                        <constraint firstItem="2FY-ue-HR7" firstAttribute="centerY" secondItem="hpE-oS-Pcc" secondAttribute="centerY" id="8L3-hM-gsY"/>
                                         <constraint firstItem="yid-jr-P8Z" firstAttribute="width" secondItem="BDQ-kG-iMZ" secondAttribute="width" id="8SX-xz-fJQ"/>
                                         <constraint firstItem="3d6-WV-mEz" firstAttribute="height" secondItem="yid-jr-P8Z" secondAttribute="height" id="8xQ-H4-QJj"/>
+                                        <constraint firstItem="Sp7-AJ-zmh" firstAttribute="centerY" secondItem="shI-FF-gws" secondAttribute="centerY" id="96b-MS-GtE"/>
+                                        <constraint firstItem="shI-FF-gws" firstAttribute="centerX" secondItem="Jb4-no-r1N" secondAttribute="centerX" id="9YB-ff-Wna"/>
                                         <constraint firstItem="VHu-b1-S8w" firstAttribute="height" secondItem="b6S-S1-2FJ" secondAttribute="height" id="9eQ-FP-lL8"/>
                                         <constraint firstItem="x86-mj-rpN" firstAttribute="centerY" secondItem="o89-25-fP5" secondAttribute="centerY" id="9hB-PL-TCP"/>
                                         <constraint firstItem="b6S-S1-2FJ" firstAttribute="width" secondItem="il6-pA-aun" secondAttribute="width" id="ARg-lk-WRq"/>
@@ -1081,6 +1229,7 @@ christopherrung.com</string>
                                         <constraint firstItem="yid-jr-P8Z" firstAttribute="height" secondItem="il6-pA-aun" secondAttribute="height" id="G2u-ej-2yB">
                                             <variation key="heightClass=regular-widthClass=regular" constant="-20"/>
                                         </constraint>
+                                        <constraint firstItem="hpE-oS-Pcc" firstAttribute="centerY" secondItem="U3n-xg-SHT" secondAttribute="centerY" constant="-1" id="Gv9-Em-DYP"/>
                                         <constraint firstAttribute="centerX" secondItem="Fpm-Vn-g94" secondAttribute="centerX" id="GzM-q2-KYy"/>
                                         <constraint firstItem="b6S-S1-2FJ" firstAttribute="height" secondItem="il6-pA-aun" secondAttribute="height" id="H5t-JH-WV3"/>
                                         <constraint firstItem="aB1-se-EuI" firstAttribute="centerY" secondItem="UuB-hJ-VLC" secondAttribute="centerY" constant="14.25" id="HSl-Fb-pKs">
@@ -1090,9 +1239,11 @@ christopherrung.com</string>
                                         <constraint firstItem="Ami-2D-aCO" firstAttribute="centerY" secondItem="fMX-Vu-8fR" secondAttribute="centerY" constant="-13.75" id="Hi2-TV-bDW">
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
+                                        <constraint firstItem="Jb4-no-r1N" firstAttribute="centerY" secondItem="9Mt-mH-hd4" secondAttribute="centerY" constant="-1" id="ISp-vG-hFZ"/>
                                         <constraint firstItem="sld-e1-j5Z" firstAttribute="centerX" secondItem="FdN-Fq-KyJ" secondAttribute="trailing" multiplier="1:4" id="IkZ-OL-Pgr">
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
+                                        <constraint firstItem="ix8-JS-9iX" firstAttribute="centerX" secondItem="ka8-8S-Al5" secondAttribute="centerX" id="Iru-ky-inB"/>
                                         <constraint firstItem="aB1-se-EuI" firstAttribute="centerY" secondItem="OAJ-8I-wHK" secondAttribute="centerY" id="KBz-e6-ghs"/>
                                         <constraint firstItem="aB1-se-EuI" firstAttribute="centerY" secondItem="P5T-Od-aTa" secondAttribute="centerY" constant="14.25" id="KL8-6l-YkD">
                                             <variation key="heightClass=compact" constant="0.0"/>
@@ -1114,9 +1265,11 @@ christopherrung.com</string>
                                         <constraint firstItem="VHu-b1-S8w" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="15:28" id="QlB-Na-wb6"/>
                                         <constraint firstItem="fMX-Vu-8fR" firstAttribute="centerX" secondItem="x86-mj-rpN" secondAttribute="centerX" id="R5K-n2-fJs"/>
                                         <constraint firstItem="vhj-xL-kK5" firstAttribute="leading" secondItem="il6-pA-aun" secondAttribute="trailing" constant="1" id="RBg-73-RwP"/>
+                                        <constraint firstItem="Sp7-AJ-zmh" firstAttribute="centerX" secondItem="ka8-8S-Al5" secondAttribute="centerX" id="SPC-lA-3j2"/>
                                         <constraint firstItem="9Mt-mH-hd4" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="4:28" id="SVU-Eo-2vj"/>
                                         <constraint firstAttribute="centerX" secondItem="FLf-mc-Xeg" secondAttribute="centerX" id="SiW-fO-MuT"/>
                                         <constraint firstItem="b6S-S1-2FJ" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="13:28" id="Syg-Qi-0CP"/>
+                                        <constraint firstItem="shI-FF-gws" firstAttribute="centerY" secondItem="Ami-2D-aCO" secondAttribute="centerY" constant="-1" id="T3R-ah-iHd"/>
                                         <constraint firstItem="Ami-2D-aCO" firstAttribute="width" secondItem="9Mt-mH-hd4" secondAttribute="width" id="TXP-2z-BcW"/>
                                         <constraint firstItem="il6-pA-aun" firstAttribute="centerY" secondItem="yid-jr-P8Z" secondAttribute="centerY" id="TrA-gh-VVU"/>
                                         <constraint firstItem="x86-mj-rpN" firstAttribute="height" secondItem="o89-25-fP5" secondAttribute="height" id="Tue-Na-0vN"/>
@@ -1138,12 +1291,16 @@ christopherrung.com</string>
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
                                         <constraint firstItem="ZXR-FH-ozS" firstAttribute="height" secondItem="yid-jr-P8Z" secondAttribute="height" id="Wco-eu-pV3"/>
+                                        <constraint firstItem="qVk-oe-M6e" firstAttribute="centerY" secondItem="aB1-se-EuI" secondAttribute="centerY" constant="-1" id="X0U-8B-f7D"/>
                                         <constraint firstItem="o89-25-fP5" firstAttribute="centerX" secondItem="vhj-xL-kK5" secondAttribute="centerX" id="XX3-Zj-9JS"/>
                                         <constraint firstItem="Dfk-Kf-B0D" firstAttribute="height" secondItem="OAJ-8I-wHK" secondAttribute="height" id="XYM-dW-EMG"/>
                                         <constraint firstItem="Dfk-Kf-B0D" firstAttribute="width" secondItem="cug-jB-Mck" secondAttribute="width" id="Xlo-s5-eDd"/>
+                                        <constraint firstItem="ka8-8S-Al5" firstAttribute="centerY" secondItem="Jb4-no-r1N" secondAttribute="centerY" id="XyC-nx-lBK"/>
                                         <constraint firstItem="U7A-4l-GX2" firstAttribute="centerX" secondItem="FdN-Fq-KyJ" secondAttribute="trailingMargin" multiplier="24:28" id="YAZ-YH-lJI"/>
+                                        <constraint firstItem="9Mt-mH-hd4" firstAttribute="leading" secondItem="Jb4-no-r1N" secondAttribute="trailing" constant="-20" id="YaL-Mt-d4A"/>
                                         <constraint firstItem="GK4-1u-UwO" firstAttribute="centerX" secondItem="UuB-hJ-VLC" secondAttribute="centerX" id="ZCC-GV-3ip"/>
                                         <constraint firstItem="il6-pA-aun" firstAttribute="centerY" secondItem="U7A-4l-GX2" secondAttribute="centerY" id="ZuJ-Lv-ZuJ"/>
+                                        <constraint firstItem="ix8-JS-9iX" firstAttribute="centerY" secondItem="qVk-oe-M6e" secondAttribute="centerY" id="aTN-6O-56B"/>
                                         <constraint firstItem="Dfk-Kf-B0D" firstAttribute="height" secondItem="cug-jB-Mck" secondAttribute="height" id="ao5-0j-SiY"/>
                                         <constraint firstItem="Dfk-Kf-B0D" firstAttribute="centerX" secondItem="cug-jB-Mck" secondAttribute="centerX" id="aoG-md-obk"/>
                                         <constraint firstItem="U3n-xg-SHT" firstAttribute="width" secondItem="9Mt-mH-hd4" secondAttribute="width" id="b6s-LI-90g"/>
@@ -1163,6 +1320,7 @@ christopherrung.com</string>
                                         <constraint firstItem="il6-pA-aun" firstAttribute="centerY" secondItem="vhj-xL-kK5" secondAttribute="centerY" id="giq-Cr-mjF"/>
                                         <constraint firstAttribute="centerX" secondItem="aB1-se-EuI" secondAttribute="centerX" id="glS-gq-v3G"/>
                                         <constraint firstItem="il6-pA-aun" firstAttribute="centerX" secondItem="UuB-hJ-VLC" secondAttribute="centerX" id="h86-f1-qsk"/>
+                                        <constraint firstItem="hpE-oS-Pcc" firstAttribute="centerX" secondItem="Jb4-no-r1N" secondAttribute="centerX" id="h9f-66-SMA"/>
                                         <constraint firstItem="ZXR-FH-ozS" firstAttribute="centerY" secondItem="GK4-1u-UwO" secondAttribute="centerY" id="hd3-NT-quM"/>
                                         <constraint firstItem="ZXR-FH-ozS" firstAttribute="centerX" secondItem="P5T-Od-aTa" secondAttribute="centerX" id="hdX-62-4jc"/>
                                         <constraint firstItem="U3n-xg-SHT" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="14:28" id="hwf-46-zSs"/>
@@ -1196,6 +1354,7 @@ christopherrung.com</string>
                                         <constraint firstItem="fMX-Vu-8fR" firstAttribute="centerY" secondItem="3d6-WV-mEz" secondAttribute="centerY" id="qvY-R5-lV5"/>
                                         <constraint firstItem="il6-pA-aun" firstAttribute="centerX" secondItem="UuB-hJ-VLC" secondAttribute="centerX" id="rQH-Ty-Tle"/>
                                         <constraint firstItem="aB1-se-EuI" firstAttribute="width" secondItem="9Mt-mH-hd4" secondAttribute="width" id="sw5-bU-Ehc"/>
+                                        <constraint firstItem="ka8-8S-Al5" firstAttribute="leading" secondItem="9Mt-mH-hd4" secondAttribute="trailing" constant="-20" id="tyP-Ta-z4g"/>
                                         <constraint firstItem="U3n-xg-SHT" firstAttribute="centerY" secondItem="BDQ-kG-iMZ" secondAttribute="centerY" constant="-13.75" id="uAF-ds-Z2I">
                                             <variation key="heightClass=compact" constant="0.0"/>
                                         </constraint>
@@ -1205,6 +1364,7 @@ christopherrung.com</string>
                                         <constraint firstItem="b6S-S1-2FJ" firstAttribute="height" secondItem="vMh-7r-lpZ" secondAttribute="height" id="w2o-Hb-dt7"/>
                                         <constraint firstItem="fMX-Vu-8fR" firstAttribute="centerY" secondItem="FdN-Fq-KyJ" secondAttribute="bottom" multiplier="10:28" id="xFc-FX-FSy"/>
                                         <constraint firstItem="GK4-1u-UwO" firstAttribute="centerX" secondItem="U7A-4l-GX2" secondAttribute="centerX" id="xIK-A0-KFK"/>
+                                        <constraint firstItem="qVk-oe-M6e" firstAttribute="centerX" secondItem="Jb4-no-r1N" secondAttribute="centerX" id="yQO-bj-EkV"/>
                                         <constraint firstItem="o89-25-fP5" firstAttribute="centerY" secondItem="Ami-2D-aCO" secondAttribute="centerY" id="yVj-9K-BWb"/>
                                         <constraint firstItem="Fpm-Vn-g94" firstAttribute="centerX" secondItem="FdN-Fq-KyJ" secondAttribute="trailing" multiplier="3:4" id="ysQ-ZR-hAQ">
                                             <variation key="heightClass=compact" constant="0.0"/>
@@ -1532,6 +1692,14 @@ christopherrung.com</string>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZlP-e1-f4G" id="vio-nM-b2K"/>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="ZNH-dD-vhL" id="F1o-Cp-sUQ"/>
                         <outletCollection property="nextRoundScoreGestureRecognizers" destination="mfT-TZ-Bx0" id="Kqc-55-gRV"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="Jb4-no-r1N" id="uPk-gy-sMu"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="shI-FF-gws" id="tGH-AD-W79"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="hpE-oS-Pcc" id="Dpg-7g-DQO"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="qVk-oe-M6e" id="Cry-lM-Eme"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="ix8-JS-9iX" id="NH7-PA-tj8"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="2FY-ue-HR7" id="9j3-AO-1rg"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="Sp7-AJ-zmh" id="sO8-EY-814"/>
+                        <outletCollection property="nextRoundDecrementIncrementButtons" destination="ka8-8S-Al5" id="0e0-qG-qNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
