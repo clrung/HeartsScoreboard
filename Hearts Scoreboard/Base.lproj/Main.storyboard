@@ -119,7 +119,7 @@
                                 </variation>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8wx-rm-J10">
-                                <rect key="frame" x="61" y="93" width="90" height="426"/>
+                                <rect key="frame" x="61" y="93" width="90" height="425.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="jM8-As-iiO">
@@ -173,7 +173,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="left" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-XG-2Ko">
-                                <rect key="frame" x="190" y="93" width="90" height="426"/>
+                                <rect key="frame" x="190" y="93" width="90" height="425.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="weO-Hg-Ya9">
                                     <size key="itemSize" width="50" height="30"/>
@@ -218,7 +218,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="left" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-zy-qjP">
-                                <rect key="frame" x="320" y="93" width="90" height="426"/>
+                                <rect key="frame" x="320" y="93" width="90" height="425.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dUQ-dV-HOa">
                                     <size key="itemSize" width="50" height="30"/>
@@ -264,7 +264,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="3" contentMode="left" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="l0V-Zz-8Hp">
-                                <rect key="frame" x="445" y="93" width="90" height="426"/>
+                                <rect key="frame" x="445" y="93" width="90" height="425.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jDE-d7-aTn">
                                     <size key="itemSize" width="50" height="30"/>
@@ -310,7 +310,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6B-hj-IAy">
-                                <rect key="frame" x="75" y="529" width="62" height="21"/>
+                                <rect key="frame" x="75" y="529.5" width="62" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="62" id="erU-qm-Vaw"/>
                                 </constraints>
@@ -322,7 +322,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0r-gi-Ifl">
-                                <rect key="frame" x="204" y="529" width="62" height="21"/>
+                                <rect key="frame" x="204" y="529.5" width="62" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -331,7 +331,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S94-jL-Qv0">
-                                <rect key="frame" x="334" y="529" width="62" height="21"/>
+                                <rect key="frame" x="334" y="529.5" width="62" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -340,7 +340,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-vr-PB4">
-                                <rect key="frame" x="459" y="529" width="62" height="21"/>
+                                <rect key="frame" x="459" y="529.5" width="62" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -554,7 +554,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="-65" y="-74" width="150" height="60"/>
+                                <rect key="frame" x="81" y="51" width="150" height="60"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ulp-qq-rfu"/>
@@ -652,9 +652,9 @@ christopherrung.com</string>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfk-Kf-B0D">
-                                            <rect key="frame" x="88" y="75" width="65" height="22"/>
+                                            <rect key="frame" x="70.5" y="74" width="100" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="T4k-UZ-ueK">
+                                                <constraint firstAttribute="width" constant="100" id="T4k-UZ-ueK">
                                                     <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                                                 </constraint>
                                                 <constraint firstAttribute="height" constant="22" id="gnj-XU-3ha">
@@ -673,7 +673,7 @@ christopherrung.com</string>
                                             </variation>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jb4-no-r1N">
-                                            <rect key="frame" x="249" y="63" width="44" height="44"/>
+                                            <rect key="frame" x="249" y="62" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="Xl4-Xv-S7z"/>
                                                 <constraint firstAttribute="height" constant="44" id="x5p-h4-h0f"/>
@@ -690,7 +690,7 @@ christopherrung.com</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mt-mH-hd4">
-                                            <rect key="frame" x="285" y="76" width="30" height="21"/>
+                                            <rect key="frame" x="285" y="75.5" width="30" height="20.5"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="jlu-73-RYZ"/>
@@ -703,7 +703,7 @@ christopherrung.com</string>
                                             </variation>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-8S-Al5">
-                                            <rect key="frame" x="307" y="63" width="44" height="44"/>
+                                            <rect key="frame" x="307" y="62" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="OYZ-AA-SZe"/>
                                                 <constraint firstAttribute="height" constant="44" id="mYC-DT-vv5"/>
@@ -751,8 +751,27 @@ christopherrung.com</string>
                                                 <action selector="touchAddScore:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5f0-AD-wyO"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yid-jr-P8Z" userLabel="Moon">
+                                            <rect key="frame" x="495" y="95" width="26" height="26"/>
+                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="yid-jr-P8Z" secondAttribute="height" multiplier="1:1" id="FYt-WE-xMc"/>
+                                                <constraint firstAttribute="height" constant="26" id="r6T-4h-3y0">
+                                                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                                </constraint>
+                                            </constraints>
+                                            <state key="normal" title="Moon" image="moon"/>
+                                            <variation key="heightClass=regular-widthClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="FYt-WE-xMc"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLr-0n-oYS"/>
+                                            </connections>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0z-zI-DSs">
-                                            <rect key="frame" x="88" y="182" width="65" height="22"/>
+                                            <rect key="frame" x="70.5" y="182" width="100" height="22"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -778,7 +797,7 @@ christopherrung.com</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ami-2D-aCO">
-                                            <rect key="frame" x="285" y="183" width="30" height="21"/>
+                                            <rect key="frame" x="285" y="183.5" width="30" height="20.5"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -838,7 +857,7 @@ christopherrung.com</string>
                                         </button>
                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3d6-WV-mEz" userLabel="Moon">
                                             <rect key="frame" x="495" y="201" width="26" height="26"/>
-                                            <state key="normal" image="moon"/>
+                                            <state key="normal" title="Moon" image="moon"/>
                                             <variation key="heightClass=compact" misplaced="YES">
                                                 <rect key="frame" x="494.5" y="115.5" width="26" height="26"/>
                                             </variation>
@@ -847,7 +866,7 @@ christopherrung.com</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cug-jB-Mck">
-                                            <rect key="frame" x="88" y="289" width="65" height="22"/>
+                                            <rect key="frame" x="70.5" y="289" width="100" height="22"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -879,7 +898,7 @@ christopherrung.com</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3n-xg-SHT">
-                                            <rect key="frame" x="285" y="290" width="30" height="21"/>
+                                            <rect key="frame" x="285" y="290.5" width="30" height="20.5"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -945,13 +964,13 @@ christopherrung.com</string>
                                         </button>
                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDQ-kG-iMZ" userLabel="Moon">
                                             <rect key="frame" x="495" y="308" width="26" height="26"/>
-                                            <state key="normal" image="moon"/>
+                                            <state key="normal" title="Moon" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uv5-QK-kAV"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAJ-8I-wHK">
-                                            <rect key="frame" x="88" y="396" width="65" height="22"/>
+                                            <rect key="frame" x="70.5" y="396" width="100" height="22"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -983,7 +1002,7 @@ christopherrung.com</string>
                                             </connections>
                                         </button>
                                         <label opaque="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB1-se-EuI">
-                                            <rect key="frame" x="285" y="397" width="30" height="21"/>
+                                            <rect key="frame" x="285" y="397.5" width="30" height="20.5"/>
                                             <gestureRecognizers/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1043,7 +1062,7 @@ christopherrung.com</string>
                                         </button>
                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXR-FH-ozS" userLabel="Moon">
                                             <rect key="frame" x="495" y="415" width="26" height="26"/>
-                                            <state key="normal" image="moon"/>
+                                            <state key="normal" title="Moon" image="moon"/>
                                             <connections>
                                                 <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hMo-LW-m8e"/>
                                             </connections>
@@ -1127,25 +1146,6 @@ christopherrung.com</string>
                                             </variation>
                                             <connections>
                                                 <action selector="touchNextRoundSubmitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xmf-oE-mxU"/>
-                                            </connections>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yid-jr-P8Z" userLabel="Moon">
-                                            <rect key="frame" x="495" y="95" width="26" height="26"/>
-                                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="yid-jr-P8Z" secondAttribute="height" multiplier="1:1" id="FYt-WE-xMc"/>
-                                                <constraint firstAttribute="height" constant="26" id="r6T-4h-3y0">
-                                                    <variation key="heightClass=regular-widthClass=regular" constant="40"/>
-                                                </constraint>
-                                            </constraints>
-                                            <state key="normal" image="moon"/>
-                                            <variation key="heightClass=regular-widthClass=regular">
-                                                <mask key="constraints">
-                                                    <include reference="FYt-WE-xMc"/>
-                                                </mask>
-                                            </variation>
-                                            <connections>
-                                                <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLr-0n-oYS"/>
                                             </connections>
                                         </button>
                                     </subviews>

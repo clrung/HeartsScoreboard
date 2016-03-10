@@ -380,46 +380,51 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
-    NSArray *choices = @[@"+1", @"+5", @"Q♠︎", @"     -", @"+     "];
+    NSArray *choices = @[@"+5", @"Q♠︎", @"     -", @"+     "];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
     
     switch (item) {
-        case 0:     // +1
-            [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
-            break;
-        case 1:     // +5
+        case 0:     // +5
             [self addToCurrentScoreLabel:currentScoreLabel withValue:5];
+            
+            [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
             break;
-        case 2:     // Q♠︎
+        case 1:     // Q♠︎
+        {
+            int scoreBefore = [[currentScoreLabel text] intValue];
             [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
-            _queenSelectedIndex = [sender tag];
+            int scoreAfter = [[currentScoreLabel text] intValue];
+            BOOL queenWasAdded = scoreAfter == scoreBefore + 13;
             
             // disable the Q buttons; there is only one Queen of Spades
-            for (UIButton *button in _nextRoundAddScoreButtons) {
-                if ([[button currentTitle] isEqualToString:@"Q♠︎"]) {
-                    [button setEnabled:NO];
+            // only disable if the Queen was added to the score
+            if (queenWasAdded) {
+                _queenSelectedIndex = [sender tag];
+                
+                for (UIButton *button in _nextRoundAddScoreButtons) {
+                    if ([[button currentTitle] isEqualToString:@"Q♠︎"]) {
+                        [button setEnabled:NO];
+                    }
                 }
             }
             
             break;
-        case 3:     // -
+        }
+        case 2:     // -
             [self addToCurrentScoreLabel:currentScoreLabel withValue:-1];
             
-            if ([[currentScoreLabel text] isEqualToString:@"0"]) {
+            if ([[currentScoreLabel text] isEqualToString:@"0"] || ([[currentScoreLabel text] isEqualToString:@"13"] && _queenSelectedIndex == [sender tag])) {
                 [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:NO];
             }
             for (UIButton *button in _nextRoundIncrementButtons) {
                 [button setEnabled:YES];
             }
             break;
-        case 4:     // +
+        case 3:     // +
             [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
             
-            if ([[currentScoreLabel text] isEqualToString:@"26"]) {
-                [[_nextRoundIncrementButtons objectAtIndex:sender.tag] setEnabled:NO];
-            }
             [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
             break;
     }
@@ -491,7 +496,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 - (void)addToCurrentScoreLabel:(UILabel *)currentScoreLabel withValue:(int)value {
     int currentScore = [[currentScoreLabel text] intValue];
     
-    BOOL scoreIncludesQueen = [currentScoreLabel tag] == _queenSelectedIndex;
+    BOOL scoreIncludesQueen = ([currentScoreLabel tag] == _queenSelectedIndex) && (currentScore > 12);
     
     if ((value > 0 && [self getNextRoundViewSum] + value < 27) || (value < 0 && ((currentScore > 0 && !scoreIncludesQueen) || (currentScore > 13 && scoreIncludesQueen)))) {
         [currentScoreLabel setText:[NSString stringWithFormat:@"%d", currentScore + value]];
@@ -499,7 +504,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     if ([self getNextRoundViewSum] == 26) {
         for (UIButton *button in _nextRoundAddScoreButtons) {
-            [button setEnabled:NO];
+            if (![[button currentTitle] isEqualToString:@"Moon"]) {
+                [button setEnabled:NO];
+            }
         }
         for (UIButton *button in _nextRoundIncrementButtons) {
             [button setEnabled:NO];
@@ -516,12 +523,18 @@ static int const END_SCORE_SLIDER_STEP       = 5;
                 [button setEnabled:NO];
             }
         } else {
-            if (value < 0) {
-                for (UIButton *button in _nextRoundAddScoreButtons) {
-                    if (_queenSelectedIndex != -1 && [[button currentTitle] isEqualToString:@"Q♠︎"]) {
-                        [button setEnabled:NO];
-                    } else {
+            for (UIButton *button in _nextRoundAddScoreButtons) {
+                if (value < 0) {
+                    if ([[button currentTitle] isEqualToString:@"Q♠︎"] && _queenSelectedIndex == -1 && [self getNextRoundViewSum] < 14) {
                         [button setEnabled:YES];
+                    } else if ([[button currentTitle] isEqualToString:@"+5"] && [self getNextRoundViewSum] < 22) {
+                        [button setEnabled:YES];
+                    }
+                } else {
+                    if ([[button currentTitle] isEqualToString:@"Q♠︎"] && _queenSelectedIndex == -1 && [self getNextRoundViewSum] > 13) {
+                        [button setEnabled:NO];
+                    } else if ([[button currentTitle] isEqualToString:@"+5"] && [self getNextRoundViewSum] > 21) {
+                        [button setEnabled:NO];
                     }
                 }
             }
