@@ -15,6 +15,11 @@
 
 @interface ScoreboardViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *mainView;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *secondaryViews;
+@property (strong, nonatomic) IBOutlet UILabel *heartsScoreBoardTitleLabel;
+@property (strong, nonatomic) NSMutableArray *colorArray;
+
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *playerSumLabels;
 @property (strong, nonatomic) IBOutletCollection(UICollectionView) NSArray *scoresCollectionViews;
@@ -77,6 +82,12 @@ static int const END_SCORE_SLIDER_STEP       = 5;
                                              selector:@selector(didUpdateSettingsData:)
                                                  name:SettingsDataUpdatedFromiCloud
                                                object:nil];
+    
+    if (!_colorArray) {
+        _colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeComplementary
+                                                                                       usingColor:[UIColor flatGreenColor]
+                                                                                   withFlatScheme:YES]];
+    }
 }
 
 - (void)didUpdateGameData:(NSNotification*)n {
@@ -208,6 +219,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     [self updateCurrentDealer];
     [[self view] endEditing:YES];
+    
+    [UIView animateWithDuration:0.5 animations:^() {
+        isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]];
+    }];
 }
 
 #pragma mark Scores Collection View
@@ -239,6 +254,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     setScoreLabel([collectionView tag]);
     
+    [scoreCell setBackgroundColor:[_colorArray objectAtIndex:0]];
+    
     return scoreCell;
 }
 
@@ -260,6 +277,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     [self updateSettings];
     [self updatePlayerNameFieldYLocations];
     [self checkGameOver];
+    [self updateColors];
     
     for (UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
@@ -272,6 +290,28 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
         [_nnewGameButton setEnabled:YES];
     }
+    
+}
+
+- (void)updateColors {
+    [_mainView setBackgroundColor:[_colorArray objectAtIndex:2]];
+    for (UIView *view in _secondaryViews) {
+        [view setBackgroundColor:[_colorArray objectAtIndex:0]];
+    }
+    
+    // Text
+    [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]];
+    for (UILabel *label in _playerNameLabels) {
+        [label setTextColor:[_colorArray objectAtIndex:1]];
+    }
+    for (UILabel *label in _playerSumLabels) {
+        [label setTextColor:[_colorArray objectAtIndex:1]];
+    }
+    [_passDirectionLabel setTextColor:[_colorArray objectAtIndex:1]];
+    
+    [_endingScoreLabel setTextColor:[_colorArray objectAtIndex:0]];
+    [_shootTheMoonLabel setTextColor:[_colorArray objectAtIndex:0]];
+    [_dealerLabel setTextColor:[_colorArray objectAtIndex:0]];
 }
 
 #pragma mark Update Text
@@ -727,6 +767,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [self setView:label hidden:isVisible];
     }
     for (UICollectionView *view in _scoresCollectionViews) {
+        [self setView:view hidden:isVisible];
+    }
+    for (UIView *view in _secondaryViews) {
         [self setView:view hidden:isVisible];
     }
 }

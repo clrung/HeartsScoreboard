@@ -1,0 +1,6 @@
+framework module Pods_Hearts_ScoreboardTests {
+  umbrella header "Pods-Hearts ScoreboardTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
