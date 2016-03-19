@@ -636,10 +636,15 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     [self setView:_infoTextView hidden:isInfoVisible];
     [self setView:_rateOnAppStoreButton hidden:isInfoVisible];
+    
+    [self.view bringSubviewToFront:_rateOnAppStoreButton];
 }
 
 - (IBAction)touchRateOnStoreButton:(UIButton *)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1033609492&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
+    NSString * appId = @"1033609492";
+    NSString * theUrl = [NSString  stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appId];
+    if ([[UIDevice currentDevice].systemVersion integerValue] > 6) theUrl = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:theUrl]];
 }
 
 - (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)sender {
