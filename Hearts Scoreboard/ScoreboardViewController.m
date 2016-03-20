@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonPreferenceSegmentedControl;
 @property (strong, nonatomic) IBOutlet UILabel  *dealerLabel;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *colorPreferenceSegmentedControl;
 @property (strong, nonatomic) IBOutlet UILabel  *endingScoreLabel;
 @property (strong, nonatomic) IBOutlet UISlider *endingScoreSlider;
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
@@ -300,7 +301,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     }
     
     // Text
-    [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]];
+    BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
+    isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]];
+    
     for (UILabel *label in _playerNameLabels) {
         [label setTextColor:[_colorArray objectAtIndex:1]];
     }
@@ -312,6 +315,10 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     [_endingScoreLabel setTextColor:[_colorArray objectAtIndex:0]];
     [_shootTheMoonLabel setTextColor:[_colorArray objectAtIndex:0]];
     [_dealerLabel setTextColor:[_colorArray objectAtIndex:0]];
+    
+    for (UICollectionView *view in _scoresCollectionViews) {
+        [view reloadData];
+    }
 }
 
 #pragma mark Update Text
@@ -726,6 +733,27 @@ static int const END_SCORE_SLIDER_STEP       = 5;
                                   [NSNumber numberWithFloat:fourthYLocation], nil];
 }
 
+- (IBAction)colorValueChanged:(UISegmentedControl *)sender {
+    UIColor *newColor = nil;
+    switch ([sender selectedSegmentIndex]) {
+        case 0: // white
+            newColor = [UIColor flatWhiteColor];
+            break;
+        case 1: // green
+            newColor = [UIColor flatGreenColor];
+            break;
+        case 2: // red
+            newColor = [UIColor flatRedColor];
+            break;
+        default:
+            break;
+    }
+    _colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeComplementary
+                                                                                   usingColor:newColor
+                                                                               withFlatScheme:YES]];
+    [self updateColors];
+}
+
 - (IBAction)shootTheMoonBehaviorValueChanged:(UISegmentedControl *)sender {
     ([sender selectedSegmentIndex] == 0) ? [[Settings sharedSettingsData] setMoonBehaviorIsAdd:YES] : [[Settings sharedSettingsData] setMoonBehaviorIsAdd:NO];
     
@@ -746,8 +774,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         [self setView:field hidden:isVisible];
     }
     
-    [self setView:_shootTheMoonLabel              hidden:isVisible];
-    [self setView:_moonPreferenceSegmentedControl hidden:isVisible];
+    [self setView:_shootTheMoonLabel               hidden:isVisible];
+    [self setView:_moonPreferenceSegmentedControl  hidden:isVisible];
+    [self setView:_colorPreferenceSegmentedControl hidden:isVisible];
     
     [self setView:_endingScoreLabel  hidden:isVisible];
     [self setView:_endingScoreSlider hidden:isVisible];

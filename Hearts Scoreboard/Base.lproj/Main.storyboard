@@ -473,6 +473,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Jml-Ri-WHY"/>
                                 </connections>
                             </textField>
+                            <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="8bE-ca-gkw">
+                                <rect key="frame" x="180" y="319.5" width="240" height="29"/>
+                                <segments>
+                                    <segment title="White"/>
+                                    <segment title="Green"/>
+                                    <segment title="Red"/>
+                                </segments>
+                                <connections>
+                                    <action selector="colorValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="MUX-Jc-Hth"/>
+                                </connections>
+                            </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ending Score: 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbi-yq-MBm">
                                 <rect key="frame" x="215" y="423" width="170" height="25"/>
                                 <gestureRecognizers/>
@@ -562,7 +573,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="-74" y="-18" width="150" height="60"/>
+                                <rect key="frame" x="5" y="78" width="150" height="60"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ulp-qq-rfu"/>
@@ -1428,6 +1439,7 @@ christopherrung.com</string>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="ACA-XG-2Ko" secondAttribute="width" id="NQC-pa-oCq"/>
                             <constraint firstItem="zm0-zy-qjP" firstAttribute="centerX" secondItem="GCU-52-44O" secondAttribute="centerX" id="NUV-xC-Eby"/>
                             <constraint firstItem="LkE-j6-g0o" firstAttribute="top" secondItem="Xc9-1G-A7H" secondAttribute="bottom" constant="5" id="NhU-8f-ygm"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="Ohc-Rg-guJ"/>
                             <constraint firstAttribute="centerX" secondItem="oPg-gp-h40" secondAttribute="centerX" id="OsG-TH-IWY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xkp-Ze-r1Y" secondAttribute="bottom" constant="14" id="Sjb-iQ-sb0"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Spy-S1-CCf"/>
@@ -1456,10 +1468,12 @@ christopherrung.com</string>
                             <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="8:9" id="bOR-Uh-qi7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oFS-uZ-UGl" secondAttribute="bottom" id="bru-X9-n2K"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="centerX" secondItem="oez-pd-Pcd" secondAttribute="centerX" id="cnx-nQ-u5P"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dQd-7s-VH0"/>
                             <constraint firstItem="JyC-Ds-4dR" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="eQ1-bz-6Wr"/>
                             <constraint firstItem="ErM-7M-8qC" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="2:9" constant="15" id="fjF-1M-93U"/>
                             <constraint firstItem="cJc-oD-Q2k" firstAttribute="centerY" secondItem="Hd7-Pd-nrN" secondAttribute="centerY" id="g6A-0l-UFS"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="width" secondItem="oPg-gp-h40" secondAttribute="width" id="gOk-Nq-Tez"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="5:9" id="ghq-nT-HbH"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hsr-E4-ou4"/>
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="4:5" constant="10" id="i4U-Nl-eMy"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="i7J-e8-Jdj"/>
@@ -1511,6 +1525,7 @@ christopherrung.com</string>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="colorPreferenceSegmentedControl" destination="8bE-ca-gkw" id="ikG-E7-Ur0"/>
                         <outlet property="dealerLabel" destination="Wmz-PS-i8z" id="fj5-QK-JIf"/>
                         <outlet property="endingScoreLabel" destination="Dbi-yq-MBm" id="fSP-wL-AXc"/>
                         <outlet property="endingScoreSlider" destination="J6K-l3-OeS" id="AYw-H4-46h"/>
