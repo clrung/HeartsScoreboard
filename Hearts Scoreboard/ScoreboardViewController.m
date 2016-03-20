@@ -89,6 +89,9 @@ static int const END_SCORE_SLIDER_STEP       = 5;
                                                                                        usingColor:[UIColor flatGreenColor]
                                                                                    withFlatScheme:YES]];
     }
+    
+    UIImage *image = [[UIImage imageNamed:@"settings-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [_settingsButton setImage:image forState:UIControlStateNormal];
 }
 
 - (void)didUpdateGameData:(NSNotification*)n {
@@ -223,6 +226,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     [UIView animateWithDuration:0.5 animations:^() {
         isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]];
+        isSettingsVisible ? [_settingsButton setTintColor:[_colorArray objectAtIndex:1]] : [_settingsButton setTintColor:[_colorArray objectAtIndex:0]];
     }];
 }
 
@@ -303,6 +307,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     // Text
     BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]];
+    
+    isSettingsVisible ? [_settingsButton setTintColor:[_colorArray objectAtIndex:0]] : [_settingsButton setTintColor:[_colorArray objectAtIndex:1]];
     
     for (UILabel *label in _playerNameLabels) {
         [label setTextColor:[_colorArray objectAtIndex:1]];
