@@ -669,6 +669,8 @@ static int const TEXT                        = 4;
     
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
     _dealerLabel.frame= frame;
+    
+    [self updateCurrentDealer];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
