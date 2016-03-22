@@ -43,8 +43,9 @@
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundScoreLabels;
-@property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundSubmitButton;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundResetButton;
+@property (strong, nonatomic) IBOutlet UIButton *nextRoundBackButton;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundDecrementButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundIncrementButtons;
@@ -61,6 +62,13 @@
 static int const DEALER_FADE_START           = 20;
 static int const DEALER_FADE_DISTANCE        = 25;
 static int const END_SCORE_SLIDER_STEP       = 5;
+
+// Colors
+static int const TOP_BOTTOM_BOARDER          = 0;
+static int const SCORE_CELL_BACKGROUNDS      = 1;
+static int const MAIN_BACKGROUND             = 2;
+static int const BUTTONS                     = 3;
+static int const TEXT                        = 4;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,6 +96,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
         _colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeComplementary
                                                                                        usingColor:[UIColor flatGreenColor]
                                                                                    withFlatScheme:YES]];
+        [_colorArray replaceObjectAtIndex:TEXT withObject:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
+        [_colorArray replaceObjectAtIndex:BUTTONS withObject:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]]; // blue
     }
     
     UIImage *image = [[UIImage imageNamed:@"settings-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -224,10 +234,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     [self updateCurrentDealer];
     [[self view] endEditing:YES];
     
-    [UIView animateWithDuration:0.5 animations:^() {
-        isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]];
-        isSettingsVisible ? [_settingsButton setTintColor:[_colorArray objectAtIndex:1]] : [_settingsButton setTintColor:[_colorArray objectAtIndex:0]];
-    }];
+    [self updateColors];
 }
 
 #pragma mark Scores Collection View
@@ -259,7 +266,7 @@ static int const END_SCORE_SLIDER_STEP       = 5;
     
     setScoreLabel([collectionView tag]);
     
-    [scoreCell setBackgroundColor:[_colorArray objectAtIndex:0]];
+    [scoreCell setBackgroundColor:[_colorArray objectAtIndex:SCORE_CELL_BACKGROUNDS]];
     
     return scoreCell;
 }
@@ -299,28 +306,62 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (void)updateColors {
-    [_mainView setBackgroundColor:[_colorArray objectAtIndex:2]];
+    BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
+    
+    [_mainView setBackgroundColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];
     for (UIView *view in _secondaryViews) {
-        [view setBackgroundColor:[_colorArray objectAtIndex:0]];
+        [view setBackgroundColor:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
     }
+    
+    [_nnewGameButton setTintColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];
+    [_nextRoundButton setTintColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];
+    
+    // Buttons
+    isSettingsVisible ? [_settingsButton setTintColor:[_colorArray objectAtIndex:BUTTONS]] : [_settingsButton setTintColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];;
+    
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        [button setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    }
+    
+    // next round view
+    for (UIButton *button in _nextRoundDecrementButtons) {
+        [button setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    }
+    for (UIButton *button in _nextRoundIncrementButtons) {
+        [button setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    }
+    for (UIButton *button in _nextRoundAddScoreButtons) {
+        [button setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    }
+    [_nextRoundSubmitButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_nextRoundResetButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_nextRoundBackButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    
+    // settings
+    [_colorPreferenceSegmentedControl setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_moonPreferenceSegmentedControl setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_endingScoreSlider setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_infoButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    
+    [_rateOnAppStoreButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
     
     // Text
-    BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
-    isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:0]] : [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:1]];
-    
-    isSettingsVisible ? [_settingsButton setTintColor:[_colorArray objectAtIndex:0]] : [_settingsButton setTintColor:[_colorArray objectAtIndex:1]];
-    
-    for (UILabel *label in _playerNameLabels) {
-        [label setTextColor:[_colorArray objectAtIndex:1]];
+    isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]] : [_heartsScoreBoardTitleLabel setTextColor:[UIColor whiteColor]];
+    for (UITextField *field in _playerTextFields) {
+        [field setBackgroundColor:[_colorArray objectAtIndex:SCORE_CELL_BACKGROUNDS]];
     }
-    for (UILabel *label in _playerSumLabels) {
-        [label setTextColor:[_colorArray objectAtIndex:1]];
-    }
-    [_passDirectionLabel setTextColor:[_colorArray objectAtIndex:1]];
+    [_dealerLabel setTextColor:[_colorArray objectAtIndex:TEXT]];
+    [_endingScoreLabel setTextColor:[_colorArray objectAtIndex:TEXT]];
+    [_shootTheMoonLabel setTextColor:[_colorArray objectAtIndex:TEXT]];
     
-    [_endingScoreLabel setTextColor:[_colorArray objectAtIndex:0]];
-    [_shootTheMoonLabel setTextColor:[_colorArray objectAtIndex:0]];
-    [_dealerLabel setTextColor:[_colorArray objectAtIndex:0]];
+    for (UILabel *label in _nextRoundPlayerNameLabels) {
+        [label setTextColor:[_colorArray objectAtIndex:TEXT]];
+    }
+    for (UILabel *label in _nextRoundScoreLabels) {
+        [label setTextColor:[_colorArray objectAtIndex:TEXT]];
+    }
+    
+    [_infoTextView setTextColor:[_colorArray objectAtIndex:TEXT]];
     
     for (UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
@@ -694,8 +735,8 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 }
 
 - (IBAction)touchRateOnStoreButton:(UIButton *)sender {
-    NSString * appId = @"1033609492";
-    NSString * theUrl = [NSString  stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appId];
+    NSString *appId = @"1033609492";
+    NSString *theUrl = [NSString  stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appId];
     if ([[UIDevice currentDevice].systemVersion integerValue] > 6) theUrl = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:theUrl]];
 }
@@ -742,21 +783,42 @@ static int const END_SCORE_SLIDER_STEP       = 5;
 - (IBAction)colorValueChanged:(UISegmentedControl *)sender {
     UIColor *newColor = nil;
     switch ([sender selectedSegmentIndex]) {
-        case 0: // white
+        case 0: // light
             newColor = [UIColor flatWhiteColor];
             break;
         case 1: // green
             newColor = [UIColor flatGreenColor];
             break;
-        case 2: // red
-            newColor = [UIColor flatRedColor];
+        case 2: // dark
+            newColor = [UIColor flatBlackColor];
             break;
         default:
             break;
     }
+    
     _colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeComplementary
                                                                                    usingColor:newColor
                                                                                withFlatScheme:YES]];
+    
+    switch ([sender selectedSegmentIndex]) {
+        case 0: // light
+            [_colorArray replaceObjectAtIndex:TEXT withObject:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
+            [_colorArray replaceObjectAtIndex:BUTTONS withObject:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]]; // blue
+            break;
+        case 1: // green
+            [_colorArray replaceObjectAtIndex:TEXT withObject:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
+            [_colorArray replaceObjectAtIndex:BUTTONS withObject:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]]; // blue
+            break;
+        case 2: // dark
+            [_colorArray replaceObjectAtIndex:TEXT withObject:[UIColor flatWhiteColor]];
+            [_colorArray replaceObjectAtIndex:BUTTONS withObject:[UIColor colorWithRed:216.0/255.0 green:23.0/255.0 blue:23.0/255.0 alpha:1.0]]; // red
+            [_colorArray replaceObjectAtIndex:MAIN_BACKGROUND withObject:[[_colorArray objectAtIndex:MAIN_BACKGROUND] lightenByPercentage:.20]];
+            [_colorArray replaceObjectAtIndex:TOP_BOTTOM_BOARDER withObject:[[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER] lightenByPercentage:.05]];
+            break;
+        default:
+            break;
+    }
+    
     [self updateColors];
 }
 
