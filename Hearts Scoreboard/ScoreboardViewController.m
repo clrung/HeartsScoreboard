@@ -309,6 +309,7 @@ static int const TEXT                        = 4;
     BOOL isSettingsVisible = ([_shootTheMoonLabel alpha] == 1.0);
     
     [_mainView setBackgroundColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];
+    [_nextRoundView setBackgroundColor:[_colorArray objectAtIndex:MAIN_BACKGROUND]];
     for (UIView *view in _secondaryViews) {
         [view setBackgroundColor:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
     }
