@@ -817,8 +817,10 @@ static int const TEXT                        = 4;
             [_colorArray replaceObjectAtIndex:BUTTONS withObject:[UIColor colorWithRed:216.0/255.0 green:23.0/255.0 blue:23.0/255.0 alpha:1.0]]; // red
             [_colorArray replaceObjectAtIndex:MAIN_BACKGROUND withObject:[[_colorArray objectAtIndex:MAIN_BACKGROUND] lightenByPercentage:.20]];
             [_colorArray replaceObjectAtIndex:TOP_BOTTOM_BOARDER withObject:[[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER] lightenByPercentage:.05]];
-            break;
-        default:
+            
+            UIColor *temp = [_colorArray objectAtIndex:MAIN_BACKGROUND];
+            [_colorArray replaceObjectAtIndex:MAIN_BACKGROUND withObject:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
+            [_colorArray replaceObjectAtIndex:TOP_BOTTOM_BOARDER withObject:temp];
             break;
     }
     
