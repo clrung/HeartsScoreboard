@@ -396,8 +396,6 @@
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player 1" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oPg-gp-h40" customClass="UIPlayerTextField">
                                 <rect key="frame" x="248" y="67" width="104" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="104" id="QiJ-Os-hct"/>
-                                    <constraint firstAttribute="height" constant="30" id="RPd-zs-DTV"/>
                                     <constraint firstAttribute="height" constant="30" id="VA0-LP-QZx">
                                         <variation key="heightClass=regular-widthClass=regular" constant="40"/>
                                     </constraint>
@@ -408,17 +406,9 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="VA0-LP-QZx"/>
-                                        <exclude reference="thT-xu-bts"/>
-                                    </mask>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                     <mask key="constraints">
-                                        <exclude reference="QiJ-Os-hct"/>
-                                        <exclude reference="RPd-zs-DTV"/>
                                         <include reference="VA0-LP-QZx"/>
                                         <include reference="thT-xu-bts"/>
                                     </mask>
@@ -468,7 +458,7 @@
                                 </connections>
                             </textField>
                             <segmentedControl opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="8bE-ca-gkw">
-                                <rect key="frame" x="180" y="319.5" width="240" height="29"/>
+                                <rect key="frame" x="180" y="336" width="240" height="29"/>
                                 <segments>
                                     <segment title="Light"/>
                                     <segment title="Green"/>
@@ -577,7 +567,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="-48" y="84" width="150" height="60"/>
+                                    <rect key="frame" x="-96" y="20" width="150" height="60"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -735,9 +725,6 @@ christopherrung.com</string>
                                         <state key="normal" title="+5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="408" y="40" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -751,9 +738,6 @@ christopherrung.com</string>
                                         <state key="normal" title="Q♠︎">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="450" y="40" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -839,9 +823,6 @@ christopherrung.com</string>
                                         <state key="normal" title="+5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="408" y="112" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -855,9 +836,6 @@ christopherrung.com</string>
                                         <state key="normal" title="Q♠︎">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="450" y="112" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -868,9 +846,6 @@ christopherrung.com</string>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="saD-FK-Qp1" userLabel="Moon">
                                         <rect key="frame" x="495" y="201" width="26" height="26"/>
                                         <state key="normal" title="Moon" image="moon"/>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="494.5" y="115.5" width="26" height="26"/>
-                                        </variation>
                                         <connections>
                                             <action selector="touchShootMoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CD2-uI-BOo"/>
                                         </connections>
@@ -880,9 +855,6 @@ christopherrung.com</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="88" y="190" width="65" height="22"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -897,9 +869,6 @@ christopherrung.com</string>
                                         <state key="normal" title="     -">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="249" y="178" width="44" height="44"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -913,9 +882,6 @@ christopherrung.com</string>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="285" y="191" width="30" height="20"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         </variation>
@@ -930,9 +896,6 @@ christopherrung.com</string>
                                         <state key="normal" title="+     ">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="307" y="178" width="44" height="44"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -946,9 +909,6 @@ christopherrung.com</string>
                                         <state key="normal" title="+5">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="408" y="184" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -962,9 +922,6 @@ christopherrung.com</string>
                                         <state key="normal" title="Q♠︎">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="450" y="184" width="30" height="33"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -984,9 +941,6 @@ christopherrung.com</string>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="88" y="261" width="65" height="22"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -1001,9 +955,6 @@ christopherrung.com</string>
                                         <state key="normal" title="     -">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="249" y="249" width="44" height="44"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -1017,9 +968,6 @@ christopherrung.com</string>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="285" y="262" width="30" height="21"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                         </variation>
@@ -1034,9 +982,6 @@ christopherrung.com</string>
                                         <state key="normal" title="+     ">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <variation key="heightClass=compact" misplaced="YES">
-                                            <rect key="frame" x="307" y="249" width="44" height="44"/>
-                                        </variation>
                                         <variation key="heightClass=regular-widthClass=regular">
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                         </variation>
@@ -1385,21 +1330,23 @@ christopherrung.com</string>
                             <constraint firstItem="J6K-l3-OeS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="0IT-Mc-HqZ"/>
                             <constraint firstItem="Hf1-m7-ClN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0UW-86-0wQ"/>
                             <constraint firstItem="J6K-l3-OeS" firstAttribute="top" secondItem="Dbi-yq-MBm" secondAttribute="bottom" constant="5" id="1IF-fx-wEI"/>
-                            <constraint firstAttribute="centerX" secondItem="gTZ-PY-7an" secondAttribute="centerX" id="317-xH-UfE"/>
+                            <constraint firstItem="ErM-7M-8qC" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="2:5" id="1VV-4v-ZXQ"/>
+                            <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="7:9" id="2U3-6o-RZ8"/>
+                            <constraint firstItem="LkE-j6-g0o" firstAttribute="centerX" secondItem="8bE-ca-gkw" secondAttribute="centerX" id="3I8-Zp-oSD"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="centerX" secondItem="l0V-Zz-8Hp" secondAttribute="centerX" id="3bS-o3-zsp"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerY" secondItem="Nof-mf-Hk4" secondAttribute="centerY" id="4E9-K4-ynr"/>
-                            <constraint firstAttribute="centerX" secondItem="Xc9-1G-A7H" secondAttribute="centerX" id="4PE-4u-Kgy"/>
                             <constraint firstItem="oFS-uZ-UGl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5Ky-PG-ocB"/>
                             <constraint firstItem="ajM-Kw-Xbx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="5ZM-0H-fG5"/>
+                            <constraint firstItem="J6K-l3-OeS" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="5qt-FZ-qHk"/>
                             <constraint firstAttribute="centerY" secondItem="ajM-Kw-Xbx" secondAttribute="centerY" id="6Pn-98-mDZ"/>
                             <constraint firstItem="oFS-uZ-UGl" firstAttribute="top" secondItem="o6B-hj-IAy" secondAttribute="top" constant="-10" id="7Cd-Ry-1FJ"/>
                             <constraint firstItem="Nof-mf-Hk4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="10" id="83k-BX-vUF"/>
-                            <constraint firstAttribute="centerX" secondItem="Dbi-yq-MBm" secondAttribute="centerX" id="86q-aT-GXr"/>
                             <constraint firstItem="o6B-hj-IAy" firstAttribute="top" secondItem="8wx-rm-J10" secondAttribute="bottom" constant="11" id="8OK-Em-9xy">
                                 <variation key="heightClass=regular-widthClass=regular" constant="15"/>
                             </constraint>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="8oE-aj-KDY"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="bottom" secondItem="wne-ez-vbc" secondAttribute="bottom" constant="-4" id="9kz-J2-3C4"/>
+                            <constraint firstItem="3EQ-wO-ywD" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="3:5" id="ANd-u7-E92"/>
                             <constraint firstItem="Xc9-1G-A7H" firstAttribute="top" secondItem="J6K-l3-OeS" secondAttribute="bottom" constant="10" id="AcJ-EV-0KM"/>
                             <constraint firstAttribute="height" secondItem="aPS-P7-aCJ" secondAttribute="height" multiplier="1.4" id="BZc-QL-Vkw"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="CRN-5w-lmg"/>
@@ -1413,7 +1360,7 @@ christopherrung.com</string>
                             <constraint firstItem="o6B-hj-IAy" firstAttribute="centerX" secondItem="8wx-rm-J10" secondAttribute="centerX" id="GXs-yh-sLk"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H4C-Yr-ZLx"/>
                             <constraint firstItem="ErM-7M-8qC" firstAttribute="height" secondItem="oPg-gp-h40" secondAttribute="height" id="Hgr-TG-vYZ"/>
-                            <constraint firstAttribute="centerX" secondItem="J6K-l3-OeS" secondAttribute="centerX" id="I2h-HG-8Th"/>
+                            <constraint firstItem="3EQ-wO-ywD" firstAttribute="centerX" secondItem="oPg-gp-h40" secondAttribute="centerX" id="I4N-2r-CJb"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="height" secondItem="ACA-XG-2Ko" secondAttribute="height" id="JgU-mm-uYx"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="l0V-Zz-8Hp" secondAttribute="width" id="Jjd-1X-wSQ"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Jn0-nk-iFR"/>
@@ -1422,23 +1369,26 @@ christopherrung.com</string>
                             <constraint firstItem="aPS-P7-aCJ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="KfF-hd-TLM"/>
                             <constraint firstItem="LVz-pA-X8w" firstAttribute="width" secondItem="5R4-6Z-dsP" secondAttribute="width" id="Krp-Fn-Zi1"/>
                             <constraint firstItem="wne-ez-vbc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="KyB-KM-CYh"/>
-                            <constraint firstAttribute="centerX" secondItem="3EQ-wO-ywD" secondAttribute="centerX" id="MxN-SS-WfB"/>
-                            <constraint firstAttribute="centerX" secondItem="LkE-j6-g0o" secondAttribute="centerX" id="NB6-eO-0pB"/>
+                            <constraint firstItem="gTZ-PY-7an" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="4:5" id="MyD-W8-Oy6"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="ACA-XG-2Ko" secondAttribute="width" id="NQC-pa-oCq"/>
                             <constraint firstItem="zm0-zy-qjP" firstAttribute="centerX" secondItem="GCU-52-44O" secondAttribute="centerX" id="NUV-xC-Eby"/>
                             <constraint firstItem="LkE-j6-g0o" firstAttribute="top" secondItem="Xc9-1G-A7H" secondAttribute="bottom" constant="5" id="NhU-8f-ygm"/>
+                            <constraint firstItem="ErM-7M-8qC" firstAttribute="centerX" secondItem="oPg-gp-h40" secondAttribute="centerX" id="OLc-lv-eAe"/>
                             <constraint firstItem="8bE-ca-gkw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="Ohc-Rg-guJ"/>
                             <constraint firstAttribute="centerX" secondItem="oPg-gp-h40" secondAttribute="centerX" id="OsG-TH-IWY"/>
+                            <constraint firstItem="oPg-gp-h40" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="3:8" id="PQA-ZO-vZV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xkp-Ze-r1Y" secondAttribute="bottom" constant="14" id="Sjb-iQ-sb0"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Spy-S1-CCf"/>
-                            <constraint firstAttribute="centerX" secondItem="ErM-7M-8qC" secondAttribute="centerX" id="T73-iM-zxH"/>
+                            <constraint firstItem="Dbi-yq-MBm" firstAttribute="centerX" secondItem="8bE-ca-gkw" secondAttribute="centerX" id="TBH-Dj-RrK"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="TfA-Xt-jzt"/>
                             <constraint firstAttribute="centerY" secondItem="aPS-P7-aCJ" secondAttribute="centerY" id="UFi-HT-ITl"/>
+                            <constraint firstItem="oPg-gp-h40" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="1:5" id="UNb-vM-ZZl"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerY" secondItem="GCU-52-44O" secondAttribute="centerY" id="UaY-5d-eAt"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="height" secondItem="zm0-zy-qjP" secondAttribute="height" id="Ujw-Am-ube"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="4:9" constant="15" id="VEC-1W-WlW"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerX" secondItem="8wx-rm-J10" secondAttribute="centerX" id="Wtn-3r-ASc"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" multiplier="1:5" constant="-10" id="XId-tc-c01"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.4" id="XRq-a4-1Kk"/>
                             <constraint firstAttribute="centerX" secondItem="Hd7-Pd-nrN" secondAttribute="centerX" id="Xgb-jc-URI"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerY" secondItem="4sy-s5-Qo1" secondAttribute="centerY" id="YI6-R6-lFU"/>
                             <constraint firstItem="Hf1-m7-ClN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" multiplier="5:6" id="YQe-nh-Nar"/>
@@ -1451,16 +1401,18 @@ christopherrung.com</string>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="centerY" secondItem="ACA-XG-2Ko" secondAttribute="centerY" id="aEw-BH-eE8"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="aIe-R0-GII"/>
                             <constraint firstItem="4sy-s5-Qo1" firstAttribute="leadingMargin" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="aMw-Pm-tII"/>
+                            <constraint firstItem="gTZ-PY-7an" firstAttribute="centerX" secondItem="oPg-gp-h40" secondAttribute="centerX" id="adJ-Uz-igq"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="akT-BP-rMj"/>
                             <constraint firstItem="J6K-l3-OeS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b6X-PW-b0K"/>
                             <constraint firstItem="LkE-j6-g0o" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="8:9" id="bOR-Uh-qi7"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oFS-uZ-UGl" secondAttribute="bottom" id="bru-X9-n2K"/>
                             <constraint firstItem="8bE-ca-gkw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dQd-7s-VH0"/>
                             <constraint firstItem="VGT-3s-lNk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e2W-SZ-2Si"/>
+                            <constraint firstItem="Xc9-1G-A7H" firstAttribute="centerX" secondItem="8bE-ca-gkw" secondAttribute="centerX" id="e7Q-5R-0SY"/>
                             <constraint firstItem="ErM-7M-8qC" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="2:9" constant="15" id="fjF-1M-93U"/>
                             <constraint firstItem="cJc-oD-Q2k" firstAttribute="centerY" secondItem="Hd7-Pd-nrN" secondAttribute="centerY" id="g6A-0l-UFS"/>
                             <constraint firstItem="gTZ-PY-7an" firstAttribute="width" secondItem="oPg-gp-h40" secondAttribute="width" id="gOk-Nq-Tez"/>
-                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="5:9" id="ghq-nT-HbH"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="21:36" id="ghq-nT-HbH"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="hsr-E4-ou4"/>
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="4:5" constant="10" id="i4U-Nl-eMy"/>
                             <constraint firstItem="E8s-vr-PB4" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="i7J-e8-Jdj"/>
@@ -1476,8 +1428,10 @@ christopherrung.com</string>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerX" secondItem="ACA-XG-2Ko" secondAttribute="centerX" id="mos-ff-dEw"/>
                             <constraint firstItem="VGT-3s-lNk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n0W-TB-eIq"/>
                             <constraint firstItem="l0V-Zz-8Hp" firstAttribute="centerY" secondItem="8wx-rm-J10" secondAttribute="centerY" id="nPL-O9-NCs"/>
+                            <constraint firstItem="J6K-l3-OeS" firstAttribute="centerX" secondItem="8bE-ca-gkw" secondAttribute="centerX" id="ndv-gC-4Cd"/>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="centerY" secondItem="Hd7-Pd-nrN" secondAttribute="centerY" id="p0p-hI-Frg"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="pQI-JO-uf2"/>
+                            <constraint firstItem="8bE-ca-gkw" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="10:36" id="pea-Ci-Ori"/>
                             <constraint firstItem="Nof-mf-Hk4" firstAttribute="height" secondItem="oez-pd-Pcd" secondAttribute="height" constant="20" id="q43-lh-Slw"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="height" secondItem="5R4-6Z-dsP" secondAttribute="height" id="q6J-XF-HVr"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="width" secondItem="GCU-52-44O" secondAttribute="width" id="q8b-T3-PBb"/>
@@ -1495,9 +1449,40 @@ christopherrung.com</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="PQA-ZO-vZV"/>
+                                <exclude reference="UNb-vM-ZZl"/>
                                 <exclude reference="pQI-JO-uf2"/>
-                                <exclude reference="b6X-PW-b0K"/>
+                                <exclude reference="1VV-4v-ZXQ"/>
+                                <exclude reference="ANd-u7-E92"/>
+                                <exclude reference="XRq-a4-1Kk"/>
+                                <exclude reference="pea-Ci-Ori"/>
                                 <exclude reference="lKL-Ws-dkF"/>
+                                <exclude reference="5qt-FZ-qHk"/>
+                                <exclude reference="b6X-PW-b0K"/>
+                                <exclude reference="MyD-W8-Oy6"/>
+                                <exclude reference="2U3-6o-RZ8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="GAE-PZ-I9W"/>
+                                <exclude reference="OsG-TH-IWY"/>
+                                <include reference="PQA-ZO-vZV"/>
+                                <include reference="UNb-vM-ZZl"/>
+                                <include reference="1VV-4v-ZXQ"/>
+                                <exclude reference="fjF-1M-93U"/>
+                                <include reference="ANd-u7-E92"/>
+                                <exclude reference="DHj-U1-bYX"/>
+                                <exclude reference="VEC-1W-WlW"/>
+                                <include reference="XRq-a4-1Kk"/>
+                                <exclude reference="dQd-7s-VH0"/>
+                                <exclude reference="ghq-nT-HbH"/>
+                                <include reference="pea-Ci-Ori"/>
+                                <exclude reference="0IT-Mc-HqZ"/>
+                                <include reference="5qt-FZ-qHk"/>
+                                <include reference="MyD-W8-Oy6"/>
+                                <include reference="2U3-6o-RZ8"/>
+                                <exclude reference="bOR-Uh-qi7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=regular">
@@ -1506,11 +1491,11 @@ christopherrung.com</string>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="pQI-JO-uf2"/>
-                                <include reference="b6X-PW-b0K"/>
-                                <include reference="0UW-86-0wQ"/>
                                 <include reference="8OK-Em-9xy"/>
                                 <exclude reference="ZGE-M0-zG9"/>
                                 <include reference="lKL-Ws-dkF"/>
+                                <include reference="b6X-PW-b0K"/>
+                                <include reference="0UW-86-0wQ"/>
                             </mask>
                         </variation>
                     </view>
