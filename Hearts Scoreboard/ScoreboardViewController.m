@@ -49,6 +49,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundAddScoreButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundDecrementButtons;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundIncrementButtons;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *nextRoundRemainingPointsButtons;
+@property NSInteger remainingPoints;
 @property NSInteger queenSelectedIndex; // -1 when no Queen is selected
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
@@ -475,8 +477,12 @@ static int const TEXT                        = 4;
 }
 
 - (IBAction)touchAddScore:(UIButton *)sender {
-    NSArray *choices = @[@"+5", @"Q♠︎", @"     -", @"+     "];
+    NSArray *choices = @[@"+5", @"+", @"Q♠︎", @"     -", @"+     "];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
+
+    if ([_nextRoundRemainingPointsButtons indexOfObject:sender] != NSNotFound) {
+        item = 1;
+    }
     
     UILabel *currentScoreLabel = [_nextRoundScoreLabels objectAtIndex:[sender tag]];
     
@@ -485,8 +491,17 @@ static int const TEXT                        = 4;
             [self addToCurrentScoreLabel:currentScoreLabel withValue:5];
             
             [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            
             break;
-        case 1:     // Q♠︎
+        case 1:     // add remaining points
+        {
+            [self addToCurrentScoreLabel:currentScoreLabel withValue:(int)_remainingPoints];
+            
+            [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            
+            break;
+        }
+        case 2:     // Q♠︎
         {
             int scoreBefore = [[currentScoreLabel text] intValue];
             [self addToCurrentScoreLabel:currentScoreLabel withValue:13];
@@ -507,7 +522,7 @@ static int const TEXT                        = 4;
             
             break;
         }
-        case 2:     // -
+        case 3:     // -
             [self addToCurrentScoreLabel:currentScoreLabel withValue:-1];
             
             if ([[currentScoreLabel text] isEqualToString:@"0"] || ([[currentScoreLabel text] isEqualToString:@"13"] && _queenSelectedIndex == [sender tag])) {
@@ -517,10 +532,11 @@ static int const TEXT                        = 4;
                 [button setEnabled:YES];
             }
             break;
-        case 3:     // +
+        case 4:     // +
             [self addToCurrentScoreLabel:currentScoreLabel withValue:1];
             
             [[_nextRoundDecrementButtons objectAtIndex:sender.tag] setEnabled:YES];
+            
             break;
     }
     
@@ -559,6 +575,7 @@ static int const TEXT                        = 4;
 - (void)resetNextRoundView {
     [_nextRoundSubmitButton setEnabled:NO];
     [_nextRoundResetButton setEnabled:NO];
+    _remainingPoints = 26;
     _queenSelectedIndex = -1;
     
     for (UILabel *label in _nextRoundScoreLabels) {
@@ -567,6 +584,10 @@ static int const TEXT                        = 4;
     
     for (UIButton *button in _nextRoundAddScoreButtons) {
         [button setEnabled:YES];
+    }
+    
+    for (UIButton *button in _nextRoundRemainingPointsButtons) {
+        [button setTitle:[[NSString alloc] initWithFormat:@"+%d", (int)_remainingPoints] forState:UIControlStateNormal];
     }
     
     for (UIButton *button in _nextRoundDecrementButtons) {
@@ -637,6 +658,17 @@ static int const TEXT                        = 4;
         
         [_nextRoundSubmitButton setEnabled:NO];
         
+    }
+    
+    _remainingPoints -= value;
+    
+    for (UIButton *button in _nextRoundRemainingPointsButtons) {
+        if (_remainingPoints != 0) {
+            [button setTitle:[[NSString alloc] initWithFormat:@"+%d", (int)_remainingPoints] forState:UIControlStateNormal];
+            [button setEnabled:YES];
+        } else {
+            [button setTitle:@"0" forState:UIControlStateNormal];
+        }
     }
     
 }
