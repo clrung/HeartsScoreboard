@@ -13,11 +13,15 @@ static NSString* const SettingsDataUpdatedFromiCloud = @"SettingsDataUpdatedFrom
 @interface Settings : NSObject <NSCoding>
 
 @property (nonatomic) int dealerOffset;
+@property (nonatomic) int theme;
 @property (nonatomic) int endingScore;
 @property (nonatomic) BOOL moonBehaviorIsAdd;
 
 - (int)dealerOffset;
 - (void)setDealerOffset:(int)dealerOffset;
+
+- (int)theme;
+- (void)settheme:(int)theme;
 
 - (int)endingScore;
 - (void)setEndingScore:(int)endingScore;

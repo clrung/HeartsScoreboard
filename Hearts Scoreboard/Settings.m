@@ -9,11 +9,13 @@
 #import "Settings.h"
 
 static NSString* const dealerOffsetKey      = @"dealerOffset";
+static NSString* const themeKey             = @"theme";
 static NSString* const endingScoreKey       = @"endingScore";
 static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 @implementation Settings
 @synthesize dealerOffset      = _dealerOffset;
+@synthesize theme             = _theme;
 @synthesize endingScore       = _endingScore;
 @synthesize moonBehaviorIsAdd = _moonBehaviorIsAdd;
 
@@ -21,6 +23,7 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
     self = [super init];
     if (self) {
         _dealerOffset      = 0;
+        _theme             = 1;     // green
         _endingScore       = 100;
         _moonBehaviorIsAdd = YES;
         
@@ -45,6 +48,21 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
         NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
         
         [iCloudStore setObject:[NSNumber numberWithInt:_dealerOffset] forKey:dealerOffsetKey];
+        [iCloudStore synchronize];
+    }
+}
+
+- (int)theme {
+    return _theme;
+}
+
+- (void)setTheme:(int)theme {
+    _theme = theme;
+    
+    if ([NSUbiquitousKeyValueStore defaultStore]) {
+        NSUbiquitousKeyValueStore *iCloudStore = [NSUbiquitousKeyValueStore defaultStore];
+        
+        [iCloudStore setObject:[NSNumber numberWithInt:_theme] forKey:themeKey];
         [iCloudStore synchronize];
     }
 }
@@ -93,6 +111,7 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 - (id)initWithCoder:(NSCoder *)decoder {
     if ([super init]) {
         _dealerOffset       = [decoder decodeIntForKey:dealerOffsetKey];
+        _theme              = [decoder decodeIntForKey:themeKey];
         _endingScore        = [decoder decodeIntForKey:endingScoreKey];
         _moonBehaviorIsAdd  = [decoder decodeBoolForKey:moonBehaviorIsAddKey];
     }
@@ -101,6 +120,7 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeInt:(int)_dealerOffset   forKey:dealerOffsetKey];
+    [encoder encodeInt:(int)_theme          forKey:themeKey];
     [encoder encodeInt:(int)_endingScore    forKey:endingScoreKey];
     [encoder encodeBool:_moonBehaviorIsAdd  forKey:moonBehaviorIsAddKey];
 }
@@ -138,6 +158,11 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
     if ([iCloudStore objectForKey:dealerOffsetKey]) {
         NSNumber *cloudDealerOffset = [iCloudStore objectForKey:dealerOffsetKey];
         _dealerOffset = [cloudDealerOffset intValue];
+    }
+    
+    if ([iCloudStore objectForKey:themeKey]) {
+        NSNumber *cloudTheme = [iCloudStore objectForKey:themeKey];
+        _theme = [cloudTheme intValue];
     }
     
     if ([iCloudStore objectForKey:endingScoreKey]) {

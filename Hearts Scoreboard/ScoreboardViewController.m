@@ -868,8 +868,10 @@ static int const TEXT                        = 4;
 - (void)updateSettings {
     [self updateDealerLabelLocation];
     
-    [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
+    [_colorPreferenceSegmentedControl setSelectedSegmentIndex:[[Settings sharedSettingsData] theme]];
+    
     [_endingScoreLabel  setText:[NSString stringWithFormat:@"Ending Score: %d", [[Settings sharedSettingsData] endingScore]]];
+    [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];
     
     [[Settings sharedSettingsData] moonBehaviorIsAdd] ? [_moonPreferenceSegmentedControl setSelectedSegmentIndex:0] : [_moonPreferenceSegmentedControl setSelectedSegmentIndex:1];
 }
