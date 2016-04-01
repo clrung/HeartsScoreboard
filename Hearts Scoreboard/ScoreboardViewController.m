@@ -55,8 +55,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *gameOverLabel;
 
-@property (strong, nonatomic) UIAlertController *invalidScoreAlert;
-
 @end
 
 @implementation ScoreboardViewController
@@ -137,19 +135,6 @@ static int const TEXT                        = 4;
     [super viewDidAppear:animated];
     
     [self updateUI];
-    
-    _invalidScoreAlert = [UIAlertController alertControllerWithTitle:@"Invalid"
-                                                             message:@"The sum of the scores must be equal to 26."
-                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* okay = [UIAlertAction actionWithTitle:@"Okay"
-                                                   style:UIAlertActionStyleDefault
-                                                 handler:^(UIAlertAction * action)
-                           {
-                               [_invalidScoreAlert dismissViewControllerAnimated:YES completion:nil];
-                           }];
-    
-    [_invalidScoreAlert addAction:okay];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -461,8 +446,6 @@ static int const TEXT                        = 4;
         
         [_nextRoundButton setTitle:@"Next Round" forState:UIControlStateNormal];
         [_nnewGameButton setEnabled:YES];
-    } else {
-        [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
     }
     
     [self checkGameOver];
@@ -631,10 +614,6 @@ static int const TEXT                        = 4;
         [_nextRoundSubmitButton setEnabled:YES];
     } else {
         if ([self getNextRoundViewSum] > 26) {
-            if (value > 0) {
-                [self presentViewController:_invalidScoreAlert animated:YES completion:nil];
-            }
-            
             for (UIButton *button in _nextRoundAddScoreButtons) {
                 [button setEnabled:NO];
             }

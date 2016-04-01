@@ -21,7 +21,7 @@ static NSString* const SettingsDataUpdatedFromiCloud = @"SettingsDataUpdatedFrom
 - (void)setDealerOffset:(int)dealerOffset;
 
 - (int)theme;
-- (void)settheme:(int)theme;
+- (void)setTheme:(int)theme;
 
 - (int)endingScore;
 - (void)setEndingScore:(int)endingScore;
