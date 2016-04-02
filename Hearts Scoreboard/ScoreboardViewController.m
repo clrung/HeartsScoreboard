@@ -28,7 +28,9 @@
 @property (strong, nonatomic) IBOutlet UILabel  *passDirectionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *nextRoundButton;
 
+@property (strong, nonatomic) IBOutlet UIScrollView *playerScrollView;
 @property (strong, nonatomic) IBOutletCollection(UIPlayerTextField) NSArray *playerTextFields;
+@property (strong, nonatomic) IBOutlet UIPlayerTextField *playerActiveTextField;
 @property (strong, nonatomic) NSArray *playerTextFieldYLocations;
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonPreferenceSegmentedControl;
@@ -82,16 +84,6 @@ static int const TEXT                        = 4;
     
     [[NSUbiquitousKeyValueStore defaultStore] synchronize];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didUpdateGameData:)
-                                                 name:GameDataUpdatedFromiCloud
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(didUpdateSettingsData:)
-                                                 name:SettingsDataUpdatedFromiCloud
-                                               object:nil];
-    
     if (!_colorArray) {
         _colorArray = [[NSMutableArray alloc] initWithArray:[NSArray arrayOfColorsWithColorScheme:ColorSchemeComplementary
                                                                                        usingColor:[UIColor flatGreenColor]
@@ -125,6 +117,22 @@ static int const TEXT                        = 4;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didUpdateGameData:)
+                                                 name:GameDataUpdatedFromiCloud
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didUpdateSettingsData:)
+                                                 name:SettingsDataUpdatedFromiCloud
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDealerLabelLocation)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
@@ -141,13 +149,19 @@ static int const TEXT                        = 4;
     [super viewDidDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIDeviceOrientationDidChangeNotification
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:GameDataUpdatedFromiCloud
                                                   object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:SettingsDataUpdatedFromiCloud
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardDidShowNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIDeviceOrientationDidChangeNotification
                                                   object:nil];
 }
 
@@ -261,8 +275,8 @@ static int const TEXT                        = 4;
 //
 // Mirror scrolling of the scores collection view
 //
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGPoint offset = [scrollView contentOffset];
+- (void)scrollViewDidScroll:(UIScrollView *)playerScrollView {
+    CGPoint offset = [playerScrollView contentOffset];
     for (UICollectionView *view in _scoresCollectionViews) {
         view.contentOffset = CGPointMake(0, offset.y);
     }
@@ -755,7 +769,11 @@ static int const TEXT                        = 4;
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:theUrl]];
 }
 
-- (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)sender {
+- (IBAction)playerNameFieldsEditingDidBegin:(UIPlayerTextField *)textField {
+    _playerActiveTextField = textField;
+}
+
+- (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)textField {
     NSArray* names = [[NSArray alloc] init];
     
     for (UITextField *field in _playerTextFields) {
@@ -764,6 +782,8 @@ static int const TEXT                        = 4;
     
     [[Game sharedGameData] setPlayerNames:names];
     [[Game sharedGameData] save];
+    
+    _playerActiveTextField = nil;
     
     [self updatePlayerNames];
 }
@@ -1000,6 +1020,32 @@ static int const TEXT                        = 4;
     }
     
     return [lowestScorer name];
+}
+
+// Called when the UIKeyboardDidShowNotification is sent.
+// Source: https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7
+- (void)keyboardWasShown:(NSNotification*)aNotification {
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGFloat scrollViewToBottomDistance = CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(_playerScrollView.frame);
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height - scrollViewToBottomDistance + 15, 0.0);
+    _playerScrollView.contentInset = contentInsets;
+    _playerScrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    CGRect aRect = self.view.frame;
+    if (!CGRectContainsPoint(aRect, _playerActiveTextField.frame.origin) ) {
+        [self.playerScrollView scrollRectToVisible:_playerActiveTextField.frame animated:YES];
+    }
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+// Source: https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html#//apple_ref/doc/uid/TP40009542-CH5-SW7
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    _playerScrollView.contentInset = contentInsets;
+    _playerScrollView.scrollIndicatorInsets = contentInsets;
 }
 
 @end
