@@ -30,7 +30,7 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *playerScrollView;
 @property (strong, nonatomic) IBOutletCollection(UIPlayerTextField) NSArray *playerTextFields;
-@property (strong, nonatomic) IBOutlet UIPlayerTextField *playerActiveTextField;
+@property UIPlayerTextField *activePlayerTextField;
 @property (strong, nonatomic) NSArray *playerTextFieldYLocations;
 @property (strong, nonatomic) IBOutlet UILabel *shootTheMoonLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *moonPreferenceSegmentedControl;
@@ -420,11 +420,7 @@ static int const TEXT                        = 4;
     }
     
     for (UILabel *label in _playerNameLabels) {
-        if ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) {
-            [label setFont:[UIFont boldSystemFontOfSize:size]];
-        } else {
-            [label setFont:[UIFont systemFontOfSize:size]];
-        }
+        ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) ? [label setFont:[UIFont boldSystemFontOfSize:size]] : [label setFont:[UIFont systemFontOfSize:size]];
     }
 }
 
@@ -476,7 +472,7 @@ static int const TEXT                        = 4;
 - (IBAction)touchAddScore:(UIButton *)sender {
     NSArray *choices = @[@"+5", @"+", @"Q♠︎", @"     -", @"+     "];
     NSUInteger item = [choices indexOfObject:[sender currentTitle]];
-
+    
     if ([_nextRoundRemainingPointsButtons indexOfObject:sender] != NSNotFound) {
         item = 1;
     }
@@ -691,7 +687,7 @@ static int const TEXT                        = 4;
     CGRect frame = [_dealerLabel frame];
     
     frame.origin.y = [[_playerTextFieldYLocations objectAtIndex:[[Settings sharedSettingsData] dealerOffset] % 4] intValue] - frame.size.height / 2;
-    frame.origin.x = ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.origin.x + ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.size.width + 15;
+    frame.origin.x = CGRectGetMaxX(_playerScrollView.frame) + 15;
     
     _dealerLabel.translatesAutoresizingMaskIntoConstraints = YES;
     _dealerLabel.frame= frame;
@@ -770,7 +766,7 @@ static int const TEXT                        = 4;
 }
 
 - (IBAction)playerNameFieldsEditingDidBegin:(UIPlayerTextField *)textField {
-    _playerActiveTextField = textField;
+    _activePlayerTextField = textField;
 }
 
 - (IBAction)playerNameFieldsEditingDidEnd:(UIPlayerTextField *)textField {
@@ -783,7 +779,7 @@ static int const TEXT                        = 4;
     [[Game sharedGameData] setPlayerNames:names];
     [[Game sharedGameData] save];
     
-    _playerActiveTextField = nil;
+    _activePlayerTextField = nil;
     
     [self updatePlayerNames];
 }
@@ -792,7 +788,7 @@ static int const TEXT                        = 4;
     // if currently focused on first three text fields, go to the next text field
     if ([textField tag] < 3) {
         [[_playerTextFields objectAtIndex:([textField tag] + 1)] becomeFirstResponder];
-        // if currently focused on either Player 4 or ending score's text field, dismiss the keyboard.
+        // if currently focused on the last text field, dismiss the keyboard.
     } else if ([textField tag] == 3) {
         [textField resignFirstResponder];
     }
@@ -801,12 +797,12 @@ static int const TEXT                        = 4;
 }
 
 - (void)updatePlayerNameFieldYLocations {
-    CGFloat textFieldHeight = ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.size.height;
+    CGFloat top = _playerScrollView.frame.origin.y;
     
-    CGFloat firstYLocation  = ((UITextField*)([_playerTextFields objectAtIndex:0])).frame.origin.y + textFieldHeight / 2;
-    CGFloat secondYLocation = ((UITextField*)([_playerTextFields objectAtIndex:1])).frame.origin.y + textFieldHeight / 2;
-    CGFloat thirdYLocation  = ((UITextField*)([_playerTextFields objectAtIndex:2])).frame.origin.y + textFieldHeight / 2;
-    CGFloat fourthYLocation = ((UITextField*)([_playerTextFields objectAtIndex:3])).frame.origin.y + textFieldHeight / 2;
+    CGFloat firstYLocation  = top + _playerScrollView.frame.size.height * .2;
+    CGFloat secondYLocation = top + _playerScrollView.frame.size.height * .4;
+    CGFloat thirdYLocation  = top + _playerScrollView.frame.size.height * .6;
+    CGFloat fourthYLocation = top + _playerScrollView.frame.size.height * .8;
     
     _playerTextFieldYLocations = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:firstYLocation],
                                   [NSNumber numberWithFloat:secondYLocation],
@@ -819,12 +815,15 @@ static int const TEXT                        = 4;
     switch ([sender selectedSegmentIndex]) {
         case 0: // light
             newColor = [UIColor flatWhiteColor];
+            [[Settings sharedSettingsData] setTheme:0];
             break;
         case 1: // green
             newColor = [UIColor flatGreenColor];
+            [[Settings sharedSettingsData] setTheme:1];
             break;
         case 2: // dark
             newColor = [UIColor flatBlackColor];
+            [[Settings sharedSettingsData] setTheme:2];
             break;
         default:
             break;
@@ -1035,8 +1034,8 @@ static int const TEXT                        = 4;
     
     // If active text field is hidden by keyboard, scroll it so it's visible
     CGRect aRect = self.view.frame;
-    if (!CGRectContainsPoint(aRect, _playerActiveTextField.frame.origin) ) {
-        [self.playerScrollView scrollRectToVisible:_playerActiveTextField.frame animated:YES];
+    if (!CGRectContainsPoint(aRect, _activePlayerTextField.frame.origin) ) {
+        [self.playerScrollView scrollRectToVisible:_activePlayerTextField.frame animated:YES];
     }
 }
 
