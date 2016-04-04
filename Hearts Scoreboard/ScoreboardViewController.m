@@ -855,6 +855,8 @@ static int const TEXT                        = 4;
     }
     
     [self updateColors];
+    
+    [[Settings sharedSettingsData] save];
 }
 
 - (IBAction)shootTheMoonBehaviorValueChanged:(UISegmentedControl *)sender {
@@ -867,6 +869,7 @@ static int const TEXT                        = 4;
     [self updateDealerLabelLocation];
     
     [_colorPreferenceSegmentedControl setSelectedSegmentIndex:[[Settings sharedSettingsData] theme]];
+    [self colorValueChanged:_colorPreferenceSegmentedControl];
     
     [_endingScoreLabel  setText:[NSString stringWithFormat:@"Ending Score: %d", [[Settings sharedSettingsData] endingScore]]];
     [_endingScoreSlider setValue:[[Settings sharedSettingsData] endingScore]];

@@ -529,12 +529,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Hearts Scoreboard";
@@ -550,12 +546,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Hearts Scoreboard.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = "Hearts Scoreboard/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Hearts Scoreboard";
