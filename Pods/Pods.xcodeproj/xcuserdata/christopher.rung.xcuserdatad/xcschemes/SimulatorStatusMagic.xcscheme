@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0B2139C5712DE586D961720D'
-               BlueprintName = 'Pods-Hearts ScoreboardTests'
+               BlueprintIdentifier = '575E263080E4DF53E737278C'
+               BlueprintName = 'SimulatorStatusMagic'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_Hearts_ScoreboardTests.framework'>
+               BuildableName = 'SimulatorStatusMagic.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

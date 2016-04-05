@@ -3,11 +3,6 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 
-target 'Hearts Scoreboard' do
+link_with 'Hearts Scoreboard', 'Hearts ScoreboardTests', 'Hearts ScoreboardUITests'
 pod 'ChameleonFramework'
-end
-
-target 'Hearts ScoreboardTests' do
-pod 'ChameleonFramework'
-end
-
+pod 'SimulatorStatusMagic'

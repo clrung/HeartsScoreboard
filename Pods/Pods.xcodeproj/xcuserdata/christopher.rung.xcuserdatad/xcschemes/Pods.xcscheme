@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '27B6434F293C9927C7670FD3'
-               BlueprintName = 'Pods-Hearts Scoreboard'
+               BlueprintIdentifier = 'FE40518727BBF3528B23D589'
+               BlueprintName = 'Pods'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_Hearts_Scoreboard.framework'>
+               BuildableName = 'Pods.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

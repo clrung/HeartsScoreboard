@@ -9,12 +9,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Hearts Scoreboard.xcscheme</key>
+		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Hearts ScoreboardTests.xcscheme</key>
+		<key>SimulatorStatusMagic.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>306098839328C25F41C4FA8681398F4F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3AC45540A1CA12E817558D0FA34A6A1D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD0080C82AFAD7D02B2803F3F5F0D348</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD7F1533E20D3BFA085FEF56A177C0D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
