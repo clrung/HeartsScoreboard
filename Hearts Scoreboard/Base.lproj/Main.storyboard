@@ -364,10 +364,10 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pass to the left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hd7-Pd-nrN">
-                                <rect key="frame" x="210" y="553" width="180" height="35"/>
+                                <rect key="frame" x="200" y="553" width="200" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6Rf-oz-gXU"/>
-                                    <constraint firstAttribute="width" constant="180" id="Mtq-OF-rhg"/>
+                                    <constraint firstAttribute="width" constant="200" id="Mtq-OF-rhg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
