@@ -109,7 +109,8 @@ static NSString* const moonBehaviorIsAddKey = @"moonBehaviorIsAdd";
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if ([super init]) {
+    self = [super init];
+    if (self) {
         _dealerOffset       = [decoder decodeIntForKey:dealerOffsetKey];
         _theme              = [decoder decodeIntForKey:themeKey];
         _endingScore        = [decoder decodeIntForKey:endingScoreKey];

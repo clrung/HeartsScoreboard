@@ -5,4 +5,4 @@ use_frameworks!
 
 link_with 'Hearts Scoreboard', 'Hearts ScoreboardTests', 'Hearts ScoreboardUITests'
 pod 'ChameleonFramework'
-pod 'SimulatorStatusMagic'
+pod 'SimulatorStatusMagic', :configurations => ['Debug']

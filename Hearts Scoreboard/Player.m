@@ -50,7 +50,8 @@ static NSString* const scoresKey = @"scores";
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if ([super init]) {
+    self = [super init];
+    if (self) {
         _name   = [decoder decodeObjectForKey:nameKey];
         _scores = [decoder decodeObjectForKey:scoresKey];
     }

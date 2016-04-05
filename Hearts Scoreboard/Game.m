@@ -79,7 +79,8 @@ static NSString* const playersKey = @"players";
 #pragma mark - NSCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if ([super init]) {
+    self = [super init];
+    if (self) {
         _players = [decoder decodeObjectForKey:playersKey];
     }
     return self;

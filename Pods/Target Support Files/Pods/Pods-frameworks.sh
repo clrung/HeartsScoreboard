@@ -89,5 +89,4 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/ChameleonFramework.framework"
-  install_framework "Pods/SimulatorStatusMagic.framework"
 fi
