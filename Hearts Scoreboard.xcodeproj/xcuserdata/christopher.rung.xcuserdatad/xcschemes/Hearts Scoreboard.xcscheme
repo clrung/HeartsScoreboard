@@ -52,6 +52,16 @@
                ReferencedContainer = "container:Hearts Scoreboard.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5866E1671CB343900074B41E"
+               BuildableName = "Hearts ScoreboardUITests.xctest"
+               BlueprintName = "Hearts ScoreboardUITests"
+               ReferencedContainer = "container:Hearts Scoreboard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

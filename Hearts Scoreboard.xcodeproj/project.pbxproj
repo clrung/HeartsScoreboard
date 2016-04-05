@@ -10,6 +10,8 @@
 		355323F8DB281F4137D20327 /* Pods_Hearts_Scoreboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 938CBB9985B9BA4A034406B4 /* Pods_Hearts_Scoreboard.framework */; };
 		582AB73F1B4CB673005D0702 /* ScoreboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1FB701E1AA01614007073AC /* ScoreboardViewController.m */; };
 		582AB7401B4CB679005D0702 /* ScoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3861AD3066000C67443 /* ScoreCollectionViewCell.m */; };
+		5866E16B1CB343900074B41E /* Hearts_ScoreboardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5866E16A1CB343900074B41E /* Hearts_ScoreboardUITests.swift */; };
+		5866E1731CB343B70074B41E /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5866E1721CB343B70074B41E /* SnapshotHelper.swift */; };
 		58E68BEF1C9F0B6E00EF6A39 /* ChameleonFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E68BEE1C9F0B6E00EF6A39 /* ChameleonFramework.framework */; };
 		74B418A146A19DCB954316AD /* Pods_Hearts_ScoreboardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561BAA7155F7647886C71F63 /* Pods_Hearts_ScoreboardTests.framework */; };
 		F130D3841ACDE20000C67443 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = F130D3831ACDE20000C67443 /* Player.m */; };
@@ -25,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5866E16D1CB343900074B41E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1FB700B1AA01613007073AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1FB70121AA01614007073AC;
+			remoteInfo = "Hearts Scoreboard";
+		};
 		F1FB702D1AA01614007073AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F1FB700B1AA01613007073AC /* Project object */;
@@ -39,6 +48,10 @@
 		1EEC0B2F915DC2EED6E61A78 /* Pods-Hearts Scoreboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearts Scoreboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearts Scoreboard/Pods-Hearts Scoreboard.release.xcconfig"; sourceTree = "<group>"; };
 		2DE7B7F7C1DD028A095200C8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561BAA7155F7647886C71F63 /* Pods_Hearts_ScoreboardTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearts_ScoreboardTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5866E1681CB343900074B41E /* Hearts ScoreboardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hearts ScoreboardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5866E16A1CB343900074B41E /* Hearts_ScoreboardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hearts_ScoreboardUITests.swift; sourceTree = "<group>"; };
+		5866E16C1CB343900074B41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5866E1721CB343B70074B41E /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = "Hearts ScoreboardUITests/SnapshotHelper.swift"; sourceTree = SOURCE_ROOT; };
 		58BD1C421B7AB0C4007FF461 /* Hearts Scoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Hearts Scoreboard.entitlements"; sourceTree = SOURCE_ROOT; };
 		58E68BEE1C9F0B6E00EF6A39 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "Pods/../build/Debug-iphoneos/ChameleonFramework.framework"; sourceTree = "<group>"; };
 		690F4D9C879F73FF91864719 /* Pods-Hearts ScoreboardTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearts ScoreboardTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearts ScoreboardTests/Pods-Hearts ScoreboardTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +85,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5866E1651CB343900074B41E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1FB70101AA01614007073AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,6 +125,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5866E1691CB343900074B41E /* Hearts ScoreboardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5866E1721CB343B70074B41E /* SnapshotHelper.swift */,
+				5866E16A1CB343900074B41E /* Hearts_ScoreboardUITests.swift */,
+				5866E16C1CB343900074B41E /* Info.plist */,
+			);
+			path = "Hearts ScoreboardUITests";
+			sourceTree = "<group>";
+		};
 		6D410F7C43648312C1CB20BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +151,7 @@
 			children = (
 				F1FB70151AA01614007073AC /* Hearts Scoreboard */,
 				F1FB702F1AA01614007073AC /* Hearts ScoreboardTests */,
+				5866E1691CB343900074B41E /* Hearts ScoreboardUITests */,
 				F1FB70141AA01614007073AC /* Products */,
 				0AF7EDCA60281BC8E80AE109 /* Pods */,
 				6D410F7C43648312C1CB20BF /* Frameworks */,
@@ -132,6 +163,7 @@
 			children = (
 				F1FB70131AA01614007073AC /* Hearts Scoreboard.app */,
 				F1FB702C1AA01614007073AC /* Hearts ScoreboardTests.xctest */,
+				5866E1681CB343900074B41E /* Hearts ScoreboardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,6 +223,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5866E1671CB343900074B41E /* Hearts ScoreboardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5866E1711CB343900074B41E /* Build configuration list for PBXNativeTarget "Hearts ScoreboardUITests" */;
+			buildPhases = (
+				5866E1641CB343900074B41E /* Sources */,
+				5866E1651CB343900074B41E /* Frameworks */,
+				5866E1661CB343900074B41E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5866E16E1CB343900074B41E /* PBXTargetDependency */,
+			);
+			name = "Hearts ScoreboardUITests";
+			productName = "Hearts ScoreboardUITests";
+			productReference = 5866E1681CB343900074B41E /* Hearts ScoreboardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F1FB70121AA01614007073AC /* Hearts Scoreboard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1FB70361AA01614007073AC /* Build configuration list for PBXNativeTarget "Hearts Scoreboard" */;
@@ -238,9 +288,14 @@
 		F1FB700B1AA01613007073AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Christopher Rung";
 				TargetAttributes = {
+					5866E1671CB343900074B41E = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = F1FB70121AA01614007073AC;
+					};
 					F1FB70121AA01614007073AC = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 2848SVWH7M;
@@ -271,11 +326,19 @@
 			targets = (
 				F1FB70121AA01614007073AC /* Hearts Scoreboard */,
 				F1FB702B1AA01614007073AC /* Hearts ScoreboardTests */,
+				5866E1671CB343900074B41E /* Hearts ScoreboardUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5866E1661CB343900074B41E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1FB70111AA01614007073AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +452,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5866E1641CB343900074B41E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5866E16B1CB343900074B41E /* Hearts_ScoreboardUITests.swift in Sources */,
+				5866E1731CB343B70074B41E /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1FB700F1AA01614007073AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +487,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5866E16E1CB343900074B41E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1FB70121AA01614007073AC /* Hearts Scoreboard */;
+			targetProxy = 5866E16D1CB343900074B41E /* PBXContainerItemProxy */;
+		};
 		F1FB702E1AA01614007073AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F1FB70121AA01614007073AC /* Hearts Scoreboard */;
@@ -442,6 +519,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5866E16F1CB343900074B41E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Hearts ScoreboardUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-ScoreboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_TARGET_NAME = "Hearts Scoreboard";
+			};
+			name = Debug;
+		};
+		5866E1701CB343900074B41E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Hearts ScoreboardUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-ScoreboardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Hearts Scoreboard";
+			};
+			name = Release;
+		};
 		F1FB70341AA01614007073AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -596,6 +705,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5866E1711CB343900074B41E /* Build configuration list for PBXNativeTarget "Hearts ScoreboardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5866E16F1CB343900074B41E /* Debug */,
+				5866E1701CB343900074B41E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1FB700E1AA01613007073AC /* Build configuration list for PBXProject "Hearts Scoreboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

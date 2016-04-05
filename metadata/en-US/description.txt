@@ -1,0 +1,16 @@
+Ditch the pen and paper and keep track of your Hearts scores with this app!
+
+Features:
+・View each round’s scores
+・Pass direction indicator
+・iCloud syncs game state and preferences – start a game on your iPhone and resume on your iPad!
+・Current dealer is marked by bold type, and is adjustable in settings by dragging the Dealer button
+・Undo the previous round with a shake
+・Adjustable shoot the moon rules - subtract 26 points from the winner’s score or add 26 points to the other players’ scores.
+・Clean, simple design that looks great in all orientations on all of your iOS devices
+・NEW: Three themes to chose from: classic green, light, and dark
+・NEW: Button adds the remaining points to a player's score
+
+This app is and will always be free, open source, and will never have ads.
+
+I hope you enjoy it!
