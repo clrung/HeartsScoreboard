@@ -594,7 +594,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Dealer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmz-PS-i8z">
-                                <rect key="frame" x="362" y="68" width="150" height="60"/>
+                                <rect key="frame" x="-53" y="-53" width="150" height="60"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Ulp-qq-rfu"/>
@@ -604,7 +604,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="11" y="88" width="150" height="60"/>
+                                    <rect key="frame" x="54" y="-4" width="150" height="60"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -637,6 +637,31 @@
                                     <action selector="touchInfoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BR9-w3-oJd"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRa-5w-abU">
+                                <rect key="frame" x="220" y="275" width="160" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="USt-bD-Sxu">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="45"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="160" id="tJn-2O-N1l">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="250"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <state key="normal" title="christopherrung.com">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
+                                    <mask key="constraints">
+                                        <include reference="USt-bD-Sxu"/>
+                                        <include reference="tJn-2O-N1l"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="touchWebsiteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mCY-gL-hfR"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hf1-m7-ClN">
                                 <rect key="frame" x="220" y="467" width="160" height="33"/>
                                 <constraints>
@@ -662,25 +687,15 @@
                                     <action selector="touchRateOnStoreButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bGg-gT-NOQ"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-P7-aCJ">
-                                <rect key="frame" x="60" y="85" width="480" height="429"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="254" id="TsY-Cc-EMK"/>
-                                </constraints>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPS-P7-aCJ">
+                                <rect key="frame" x="60" y="125" width="480" height="150"/>
                                 <string key="text">Developed by Christopher Rung
 
 Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon.
 
-I would love to hear your feedback
-christopherrung.com</string>
+I would love to hear your feedback</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="TsY-Cc-EMK"/>
-                                    </mask>
-                                </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
                                 </variation>
@@ -1500,7 +1515,7 @@ christopherrung.com</string>
                             <constraint firstItem="Djj-9h-FS3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1:3" id="8tq-TF-mTl"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="bottom" secondItem="wne-ez-vbc" secondAttribute="bottom" constant="-4" id="9kz-J2-3C4"/>
                             <constraint firstItem="Xc9-1G-A7H" firstAttribute="top" secondItem="J6K-l3-OeS" secondAttribute="bottom" constant="10" id="AcJ-EV-0KM"/>
-                            <constraint firstAttribute="height" secondItem="aPS-P7-aCJ" secondAttribute="height" multiplier="1.4" id="BZc-QL-Vkw"/>
+                            <constraint firstItem="aPS-P7-aCJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="BZc-QL-Vkw"/>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="centerY" secondItem="o6B-hj-IAy" secondAttribute="centerY" id="CRN-5w-lmg"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="width" secondItem="5R4-6Z-dsP" secondAttribute="width" id="Cpa-FY-gUm"/>
                             <constraint firstItem="cJc-oD-Q2k" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="DGA-TU-yNg"/>
@@ -1508,6 +1523,7 @@ christopherrung.com</string>
                             <constraint firstItem="wne-ez-vbc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="FPu-9m-Equ"/>
                             <constraint firstItem="o6B-hj-IAy" firstAttribute="centerX" secondItem="8wx-rm-J10" secondAttribute="centerX" id="GXs-yh-sLk"/>
                             <constraint firstItem="oez-pd-Pcd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="H4C-Yr-ZLx"/>
+                            <constraint firstItem="lRa-5w-abU" firstAttribute="top" secondItem="aPS-P7-aCJ" secondAttribute="bottom" id="IdT-Xt-opH"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="height" secondItem="ACA-XG-2Ko" secondAttribute="height" id="JgU-mm-uYx"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="l0V-Zz-8Hp" secondAttribute="width" id="Jjd-1X-wSQ"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Jn0-nk-iFR"/>
@@ -1525,7 +1541,7 @@ christopherrung.com</string>
                             <constraint firstItem="E0r-gi-Ifl" firstAttribute="height" secondItem="o6B-hj-IAy" secondAttribute="height" id="Spy-S1-CCf"/>
                             <constraint firstItem="Dbi-yq-MBm" firstAttribute="centerX" secondItem="8bE-ca-gkw" secondAttribute="centerX" id="TBH-Dj-RrK"/>
                             <constraint firstItem="S94-jL-Qv0" firstAttribute="width" secondItem="o6B-hj-IAy" secondAttribute="width" id="TfA-Xt-jzt"/>
-                            <constraint firstAttribute="centerY" secondItem="aPS-P7-aCJ" secondAttribute="centerY" id="UFi-HT-ITl"/>
+                            <constraint firstAttribute="centerY" secondItem="aPS-P7-aCJ" secondAttribute="centerY" multiplier="1.5" id="UFi-HT-ITl"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerY" secondItem="GCU-52-44O" secondAttribute="centerY" id="UaY-5d-eAt"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="height" secondItem="zm0-zy-qjP" secondAttribute="height" id="Ujw-Am-ube"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="centerX" secondItem="8wx-rm-J10" secondAttribute="centerX" id="Wtn-3r-ASc"/>
@@ -1571,6 +1587,7 @@ christopherrung.com</string>
                             <constraint firstItem="Xkp-Ze-r1Y" firstAttribute="centerY" secondItem="Hd7-Pd-nrN" secondAttribute="centerY" id="p0p-hI-Frg"/>
                             <constraint firstItem="8wx-rm-J10" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="pQI-JO-uf2"/>
                             <constraint firstItem="8bE-ca-gkw" firstAttribute="centerY" secondItem="wfy-db-euE" secondAttribute="top" multiplier="10:36" id="pea-Ci-Ori"/>
+                            <constraint firstItem="aPS-P7-aCJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.35" id="pzw-bl-gUa"/>
                             <constraint firstItem="Nof-mf-Hk4" firstAttribute="height" secondItem="oez-pd-Pcd" secondAttribute="height" constant="20" id="q43-lh-Slw"/>
                             <constraint firstItem="AGt-l4-G87" firstAttribute="height" secondItem="5R4-6Z-dsP" secondAttribute="height" id="q6J-XF-HVr"/>
                             <constraint firstItem="5R4-6Z-dsP" firstAttribute="width" secondItem="GCU-52-44O" secondAttribute="width" id="q8b-T3-PBb"/>
@@ -1582,6 +1599,7 @@ christopherrung.com</string>
                             <constraint firstItem="oFS-uZ-UGl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sID-v1-Jq6"/>
                             <constraint firstItem="VGT-3s-lNk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="sLI-jl-e3A"/>
                             <constraint firstItem="VGT-3s-lNk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="uCk-9U-QiU"/>
+                            <constraint firstItem="lRa-5w-abU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uYM-5x-tle"/>
                             <constraint firstItem="zm0-zy-qjP" firstAttribute="centerY" secondItem="8wx-rm-J10" secondAttribute="centerY" id="un8-ZL-A9L"/>
                             <constraint firstItem="ACA-XG-2Ko" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="2:5" constant="-5" id="wPD-az-sjc"/>
                             <constraint firstItem="zm0-zy-qjP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="trailing" multiplier="3:5" constant="5" id="zYQ-NG-WH4"/>
@@ -1590,6 +1608,7 @@ christopherrung.com</string>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="pQI-JO-uf2"/>
+                                <exclude reference="pzw-bl-gUa"/>
                                 <exclude reference="8tq-TF-mTl"/>
                                 <exclude reference="XRq-a4-1Kk"/>
                                 <exclude reference="pea-Ci-Ori"/>
@@ -1602,6 +1621,8 @@ christopherrung.com</string>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <exclude reference="BZc-QL-Vkw"/>
+                                <include reference="pzw-bl-gUa"/>
                                 <exclude reference="1Cz-03-iYb"/>
                                 <include reference="8tq-TF-mTl"/>
                                 <exclude reference="bH0-vL-1PS"/>
@@ -1652,6 +1673,7 @@ christopherrung.com</string>
                         <outlet property="rateOnAppStoreButton" destination="Hf1-m7-ClN" id="xnj-Je-dMn"/>
                         <outlet property="settingsButton" destination="Nof-mf-Hk4" id="foT-nM-Rbw"/>
                         <outlet property="shootTheMoonLabel" destination="Xc9-1G-A7H" id="YWu-OO-LiB"/>
+                        <outlet property="websiteButton" destination="lRa-5w-abU" id="0tq-wJ-tSi"/>
                         <outletCollection property="scoresCollectionViews" destination="8wx-rm-J10" id="mDL-9i-oe9"/>
                         <outletCollection property="scoresCollectionViews" destination="ACA-XG-2Ko" id="Y4n-4l-6pR"/>
                         <outletCollection property="scoresCollectionViews" destination="zm0-zy-qjP" id="jIB-g5-sNx"/>

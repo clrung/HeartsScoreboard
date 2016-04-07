@@ -41,6 +41,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 @property (strong, nonatomic) IBOutlet UITextView *infoTextView;
 @property (strong, nonatomic) IBOutlet UIButton *rateOnAppStoreButton;
+@property (strong, nonatomic) IBOutlet UIButton *websiteButton;
 
 @property (strong, nonatomic) IBOutlet UIView *nextRoundView;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *nextRoundPlayerNameLabels;
@@ -346,6 +347,7 @@ static int const TEXT                        = 4;
     [_infoButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
     
     [_rateOnAppStoreButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
+    [_websiteButton setTintColor:[_colorArray objectAtIndex:BUTTONS]];
     
     // Text
     isSettingsVisible ? [_heartsScoreBoardTitleLabel setTextColor:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]] : [_heartsScoreBoardTitleLabel setTextColor:[UIColor whiteColor]];
@@ -754,8 +756,7 @@ static int const TEXT                        = 4;
     
     [self setView:_infoTextView hidden:isInfoVisible];
     [self setView:_rateOnAppStoreButton hidden:isInfoVisible];
-    
-    [self.view bringSubviewToFront:_rateOnAppStoreButton];
+    [self setView:_websiteButton hidden:isInfoVisible];
 }
 
 - (IBAction)touchRateOnStoreButton:(UIButton *)sender {
@@ -763,6 +764,10 @@ static int const TEXT                        = 4;
     NSString *theUrl = [NSString  stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software",appId];
     if ([[UIDevice currentDevice].systemVersion integerValue] > 6) theUrl = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@",appId];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:theUrl]];
+}
+
+- (IBAction)touchWebsiteButton:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://christopherrung.com"]];
 }
 
 - (IBAction)playerNameFieldsEditingDidBegin:(UIPlayerTextField *)textField {

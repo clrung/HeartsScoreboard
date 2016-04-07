@@ -75,9 +75,6 @@ class Hearts_ScoreboardUITests: XCTestCase {
         element.childrenMatchingType(.Button).matchingIdentifier("Q♠︎").elementBoundByIndex(2).tap()
         
         snapshot("3Scores")
-        XCUIDevice.sharedDevice().orientation = .LandscapeRight
-        snapshot("4ScoresLandscape")
-        XCUIDevice.sharedDevice().orientation = .Portrait
         
         element.childrenMatchingType(.Button).matchingIdentifier("+6").elementBoundByIndex(3).tap()
         submitButton.tap()
@@ -106,12 +103,12 @@ class Hearts_ScoreboardUITests: XCTestCase {
         app.buttons["Settings Button"].tap()
         app.buttons["Light"].tap()
         app.buttons["Settings Button"].tap()
-        snapshot("5Light");
+        snapshot("4Light");
         
         app.buttons["Settings Button"].tap()
         app.buttons["Dark"].tap()
         app.buttons["Settings Button"].tap()
-        snapshot("6Dark");
+        snapshot("5Dark");
         
     }
     
