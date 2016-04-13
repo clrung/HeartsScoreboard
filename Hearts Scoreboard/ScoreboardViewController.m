@@ -12,11 +12,14 @@
 #import "Settings.h"
 #import "UIPlayerTextField.h"
 #import "ScoreCollectionViewCell.h"
+#import "SAConfettiView-Swift.h"
+#import <SimulatorStatusMagic/SDStatusBarManager.h>
 
 @interface ScoreboardViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *secondaryViews;
+@property SAConfettiView *confettiView;
 @property (strong, nonatomic) IBOutlet UILabel *heartsScoreBoardTitleLabel;
 @property (strong, nonatomic) NSMutableArray *colorArray;
 
@@ -95,6 +98,8 @@ static int const TEXT                        = 4;
     
     UIImage *image = [[UIImage imageNamed:@"settings-icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [_settingsButton setImage:image forState:UIControlStateNormal];
+    
+    [self initConfettiView];
 }
 
 - (void)didUpdateGameData:(NSNotification*)n {
@@ -215,6 +220,12 @@ static int const TEXT                        = 4;
                               [self setView:_passDirectionLabel hidden:NO];
                               
                               [resetGameAlert dismissViewControllerAnimated:YES completion:nil];
+
+                              // TODO this doesn't actually stop the confetti; it multiplies on subsequent wins
+                              [_confettiView stopConfetti];
+                              
+                              [_confettiView setAlpha:0];
+                              [_mainView bringSubviewToFront:_nextRoundView];
                           }];
     
     [resetGameAlert addAction:no];
@@ -698,6 +709,11 @@ static int const TEXT                        = 4;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    [_confettiView setFrame:(self.view.bounds)];
+    if ([_confettiView isActive]) {
+        [_confettiView stopConfetti];
+        [_confettiView startConfetti];
+    }
     [self updateDealerLabelLocation];
 }
 
@@ -916,6 +932,12 @@ static int const TEXT                        = 4;
     }
 }
 
+- (void)initConfettiView {
+    _confettiView = [[SAConfettiView alloc] initWithFrame:(self.view.bounds)];
+    [[self view] addSubview:_confettiView];
+    [_confettiView setAlpha:0];
+}
+
 #pragma mark
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
@@ -1013,6 +1035,10 @@ static int const TEXT                        = 4;
             
             [_nextRoundButton setEnabled:NO];
             [_settingsButton  setEnabled:NO];
+            
+            [_confettiView setAlpha:1];
+            [_confettiView startConfetti];
+            [_mainView bringSubviewToFront:_nnewGameButton];
         }
     }
 }

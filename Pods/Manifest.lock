@@ -2,14 +2,17 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
+  - SAConfettiView (0.1.8)
   - SimulatorStatusMagic (1.8)
 
 DEPENDENCIES:
   - ChameleonFramework
+  - SAConfettiView
   - SimulatorStatusMagic
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
   SimulatorStatusMagic: 4dbf0faa0208e9ac0d56cea06eaa5f7a5f3d02fb
 
 COCOAPODS: 0.39.0

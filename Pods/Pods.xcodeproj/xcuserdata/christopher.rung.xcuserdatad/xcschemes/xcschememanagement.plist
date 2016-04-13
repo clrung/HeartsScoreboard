@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SAConfettiView-SAConfettiView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SAConfettiView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SimulatorStatusMagic.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>16A9A33E12E3987D04929B758DEC5403</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9B57F4EE4746045CEAE2D933A3C8EC9E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD0080C82AFAD7D02B2803F3F5F0D348</key>
+		<key>CF948BAAE64F4264FD9A52421AFB3C90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD7F1533E20D3BFA085FEF56A177C0D6</key>
+		<key>F1A022425393713EB2DEE7F3F364F3E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD2735FDDE41656888A7D2059ADB8F54</key>
 		<dict>
 			<key>primary</key>
 			<true/>

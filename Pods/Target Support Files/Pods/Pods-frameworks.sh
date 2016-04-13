@@ -85,8 +85,10 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/ChameleonFramework.framework"
+  install_framework "Pods/SAConfettiView.framework"
   install_framework "Pods/SimulatorStatusMagic.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/ChameleonFramework.framework"
+  install_framework "Pods/SAConfettiView.framework"
 fi
