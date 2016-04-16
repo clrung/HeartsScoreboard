@@ -13,7 +13,6 @@
 #import "UIPlayerTextField.h"
 #import "ScoreCollectionViewCell.h"
 #import "SAConfettiView-Swift.h"
-#import <SimulatorStatusMagic/SDStatusBarManager.h>
 
 @interface ScoreboardViewController ()
 
@@ -221,11 +220,7 @@ static int const TEXT                        = 4;
                               
                               [resetGameAlert dismissViewControllerAnimated:YES completion:nil];
 
-                              // TODO this doesn't actually stop the confetti; it multiplies on subsequent wins
                               [_confettiView stopConfetti];
-                              
-                              [_confettiView setAlpha:0];
-                              [_mainView bringSubviewToFront:_nextRoundView];
                           }];
     
     [resetGameAlert addAction:no];
@@ -935,7 +930,7 @@ static int const TEXT                        = 4;
 - (void)initConfettiView {
     _confettiView = [[SAConfettiView alloc] initWithFrame:(self.view.bounds)];
     [[self view] addSubview:_confettiView];
-    [_confettiView setAlpha:0];
+    [_mainView sendSubviewToBack:_confettiView];
 }
 
 #pragma mark
@@ -1036,9 +1031,9 @@ static int const TEXT                        = 4;
             [_nextRoundButton setEnabled:NO];
             [_settingsButton  setEnabled:NO];
             
-            [_confettiView setAlpha:1];
-            [_confettiView startConfetti];
-            [_mainView bringSubviewToFront:_nnewGameButton];
+            if (![_confettiView isActive]) {
+                [_confettiView startConfetti];
+            }
         }
     }
 }
