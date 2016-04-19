@@ -1059,7 +1059,7 @@ static int const TEXT                        = 4;
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     CGFloat scrollViewToBottomDistance = CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(_playerScrollView.frame);
     
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height - scrollViewToBottomDistance + 15, 0.0);
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height - scrollViewToBottomDistance + 40, 0.0);
     _playerScrollView.contentInset = contentInsets;
     _playerScrollView.scrollIndicatorInsets = contentInsets;
     
