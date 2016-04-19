@@ -612,17 +612,17 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-Kw-Xbx">
-                                <rect key="frame" x="45" y="286" width="510" height="29"/>
+                                <rect key="frame" x="45" y="282.5" width="510" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28.5" id="itb-QE-JpY">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="40"/>
+                                    <constraint firstAttribute="height" constant="36" id="itb-QE-JpY">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=regular">
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="36"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="56"/>
                                     <mask key="constraints">
                                         <include reference="itb-QE-JpY"/>
                                     </mask>
