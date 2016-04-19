@@ -1,4 +1,3 @@
-・Themes! Chose from a redesigned green theme, light, or dark
-・New button adds the remaining points to a player's score.
-・Bugfix: The first player became the dealer when the device was rotated
-・Bugfix: The Rate on App Store button wasn't working
+・Enhanced game over screen
+・Current dealer stands out even more
+・More consistent button colors
