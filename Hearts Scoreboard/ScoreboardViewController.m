@@ -373,6 +373,8 @@ static int const TEXT                        = 4;
     
     [_infoTextView setTextColor:[_colorArray objectAtIndex:TEXT]];
     
+    [_gameOverLabel setTextColor:[_colorArray objectAtIndex:TOP_BOTTOM_BOARDER]];
+    
     for (UICollectionView *view in _scoresCollectionViews) {
         [view reloadData];
     }
@@ -428,7 +430,7 @@ static int const TEXT                        = 4;
     }
     
     for (UILabel *label in _playerNameLabels) {
-        ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) ? [label setFont:[UIFont boldSystemFontOfSize:size]] : [label setFont:[UIFont systemFontOfSize:size]];
+        ([[Settings sharedSettingsData] dealerOffset] % 4 == [label tag]) ? [label setFont:[UIFont systemFontOfSize:size weight:0.8]] : [label setFont:[UIFont systemFontOfSize:size]];
     }
 }
 
