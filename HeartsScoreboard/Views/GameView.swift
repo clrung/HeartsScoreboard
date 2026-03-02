@@ -4,6 +4,7 @@ struct GameView: View {
     @State private var model = GameViewModel()
     @State private var showingRoundInput = false
     @State private var showingSettings = false
+    @State private var showUndoAlert = false
 
     var body: some View {
         ZStack {
@@ -16,6 +17,21 @@ struct GameView: View {
                 bottomBar
             }
             .padding(.horizontal)
+        }
+        .background(
+            ShakeDetectorView {
+                if !model.game.hands.isEmpty { showUndoAlert = true }
+            }
+                .frame(width: 1, height: 1)
+                .allowsHitTesting(false)
+        )
+        .alert("Undo last round", isPresented: $showUndoAlert) {
+            Button("No", role: .cancel) {}
+            Button("Yes") {
+                model.removeLastHand()
+            }
+        } message: {
+            Text("Are you sure you would like to undo the last round?")
         }
         .sheet(isPresented: $showingRoundInput) {
             RoundInputView(model: model)

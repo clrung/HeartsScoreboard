@@ -70,6 +70,11 @@ final class GameViewModel {
         game.hands.remove(atOffsets: offsets)
     }
 
+    func removeLastHand() {
+        guard !game.hands.isEmpty else { return }
+        game.hands.removeLast()
+    }
+
     func movePlayers(from source: IndexSet, to destination: Int) {
         game.players.move(fromOffsets: source, toOffset: destination)
     }
