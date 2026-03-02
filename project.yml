@@ -1,0 +1,41 @@
+include:
+  - project.local.yml
+
+name: HeartsScoreboard
+options:
+  bundleIdPrefix: com.christopherrung
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  HeartsScoreboard:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.christopherrung.HeartsScoreboard
+        INFOPLIST_FILE: HeartsScoreboard/Info.plist
+    sources:
+      - path: HeartsScoreboard
+        excludes:
+          - "Assets.xcassets/**"
+    resources:
+      - path: HeartsScoreboard/Assets.xcassets
+    info:
+      path: HeartsScoreboard/Info.plist
+      properties:
+        UILaunchScreen: {}
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: true
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneConfigurationName: Default Configuration
+                UISceneDelegateClassName: ""
