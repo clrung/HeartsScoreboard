@@ -68,6 +68,10 @@ final class GameViewModel {
         game.hands.remove(atOffsets: offsets)
     }
 
+    func movePlayers(from source: IndexSet, to destination: Int) {
+        game.players.move(fromOffsets: source, toOffset: destination)
+    }
+
     // MARK: - Helpers
 
     var statusText: String {

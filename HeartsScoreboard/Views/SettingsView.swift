@@ -10,31 +10,9 @@ struct SettingsView: View {
             Form {
                 Section("Players") {
                     ForEach(model.game.players.indices, id: \.self) { index in
-                        TextField("Player \(index + 1)", text: $model.game.players[index].name)
+                        TextField("Player", text: $model.game.players[index].name)
                     }
-                }
-
-                Section("Theme") {
-                    Picker("Theme", selection: $model.settings.theme) {
-                        Text("Light").tag(BoardTheme.light)
-                        Text("Green").tag(BoardTheme.green)
-                        Text("Dark").tag(BoardTheme.dark)
-                    }
-                    .pickerStyle(.segmented)
-                }
-
-                Section("Ending Score") {
-                    VStack(alignment: .leading) {
-                        Text("Ending Score: \(model.settings.endingScore)")
-                        Slider(
-                            value: Binding(
-                                get: { Double(model.settings.endingScore) },
-                                set: { model.settings.endingScore = Int($0) }
-                            ),
-                            in: 50...200,
-                            step: 5
-                        )
-                    }
+                    .onMove(perform: movePlayers)
                 }
 
                 Section("Shoot the moon preference") {
@@ -45,14 +23,44 @@ struct SettingsView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
+                Section("Ending Score") {
+                    VStack(alignment: .leading) {
+                        Text("Ending Score: \(model.settings.endingScore)")
+                        Slider(
+                            value: Binding(
+                                get: { Double(model.settings.endingScore) },
+                                set: { model.settings.endingScore = Int($0) }
+                            ),
+                            in: 50...150,
+                            step: 5
+                        )
+                    }
+                }
+                
+                Section("Theme") {
+                    Picker("Theme", selection: $model.settings.theme) {
+                        Text("Light").tag(BoardTheme.light)
+                        Text("Green").tag(BoardTheme.green)
+                        Text("Dark").tag(BoardTheme.dark)
+                    }
+                    .pickerStyle(.segmented)
+                }
             }
             .navigationTitle("Hearts Scoreboard")
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                 }
             }
         }
+    }
+
+    private func movePlayers(from source: IndexSet, to destination: Int) {
+        model.game.players.move(fromOffsets: source, toOffset: destination)
     }
 }
 

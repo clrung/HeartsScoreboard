@@ -64,6 +64,9 @@ struct GameView: View {
                             VStack(spacing: 8) {
                                 Text(player.name)
                                     .font(.headline)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                    .frame(maxWidth: .infinity)
 
                                 ForEach(model.game.hands) { hand in
                                     let score = hand.pointsByPlayerID[player.id] ?? 0
