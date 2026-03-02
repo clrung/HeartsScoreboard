@@ -42,13 +42,13 @@ struct RoundInputView: View {
                                 .minimumScaleFactor(0.9)
                                 .frame(width: 44)
 
-                                Button(shootMoonButtonTitle) {
+                                Button {
                                     applyShootMoonValue(for: player.id)
+                                } label: {
+                                    Image(systemName: "moon.fill")
                                 }
                                 .buttonStyle(.borderedProminent)
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.9)
-                                .frame(width: 60)
+                                .frame(width: 44, height: 36)
                             }
                         }
                     }
@@ -96,13 +96,17 @@ struct RoundInputView: View {
         points[playerID] = newValue
     }
 
-    private func applyShootMoonValue(for playerID: UUID) {
-        let value = model.settings.shootMoonPreference == .subtract26 ? -26 : 26
-        setPoints(for: playerID, to: value)
-    }
-
-    private var shootMoonButtonTitle: String {
-        model.settings.shootMoonPreference == .subtract26 ? "-26" : "+26"
+    /// Shoot the moon: Add 26 = shooter gets 0, everyone else gets 26. Subtract 26 = tapped player gets -26, others unchanged.
+    private func applyShootMoonValue(for shooterID: UUID) {
+        switch model.settings.shootMoonPreference {
+        case .add26:
+            for p in model.game.players {
+                points[p.id] = p.id == shooterID ? 0 : 26
+            }
+        case .subtract26:
+            let current = points[shooterID] ?? 0
+            points[shooterID] = max(-26, current - 26)
+        }
     }
 
     private var minimumRoundScore: Int {
