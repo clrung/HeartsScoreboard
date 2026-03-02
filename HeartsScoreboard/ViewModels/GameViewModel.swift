@@ -75,8 +75,14 @@ final class GameViewModel {
     // MARK: - Helpers
 
     var statusText: String {
-        // Simple placeholder for now
-        "Hold on tight!"
+        switch game.hands.count % 3 {
+        case 0:
+            return "Pass to the Left"
+        case 1:
+            return "Pass to the Right"
+        default:
+            return "Hold on Tight!"
+        }
     }
 }
 

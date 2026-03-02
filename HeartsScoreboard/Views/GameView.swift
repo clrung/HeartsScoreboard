@@ -13,7 +13,6 @@ struct GameView: View {
             VStack(spacing: 0) {
                 header
                 scoreboard
-                Spacer()
                 bottomBar
             }
             .padding(.horizontal)
@@ -59,36 +58,46 @@ struct GameView: View {
             .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
             .overlay(alignment: .top) {
                 VStack(spacing: 12) {
-                    HStack(alignment: .top, spacing: 0) {
+                    HStack(spacing: 0) {
                         ForEach(model.game.players) { player in
-                            VStack(spacing: 8) {
-                                Text(player.name)
-                                    .font(.headline)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                                    .frame(maxWidth: .infinity)
-
-                                ForEach(model.game.hands) { hand in
-                                    let score = hand.pointsByPlayerID[player.id] ?? 0
-                                    Text("\(score)")
-                                        .font(.body.weight(.medium))
-                                        .frame(width: 56, height: 28)
-                                        .background(
-                                            Capsule()
-                                                .fill(Color(.systemGreen).opacity(0.15))
-                                        )
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
+                            Text(player.name)
+                                .font(.headline)
+                                .lineLimit(1)
+                                .truncationMode(.tail)
+                                .frame(maxWidth: .infinity)
                         }
                     }
                     .frame(maxWidth: .infinity)
+
+                    ScrollView {
+                        HStack(alignment: .top, spacing: 0) {
+                            ForEach(model.game.players) { player in
+                                VStack(spacing: 8) {
+                                    ForEach(model.game.hands) { hand in
+                                        let score = hand.pointsByPlayerID[player.id] ?? 0
+                                        Text("\(score)")
+                                            .font(.body.weight(.medium))
+                                            .frame(width: 56, height: 28)
+                                            .background(
+                                                Capsule()
+                                                    .fill(Color(.systemGreen).opacity(0.15))
+                                            )
+                                    }
+                                }
+                                .frame(maxWidth: .infinity, alignment: .top)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.bottom, 8)
+                    }
+                    .frame(maxHeight: .infinity)
+                    .scrollIndicators(.visible)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding(.vertical, 16)
                 .padding(.horizontal, 4)
             }
-            .frame(alignment: .top)
+            .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top, 8)
     }
 
