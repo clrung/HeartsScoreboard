@@ -3,9 +3,12 @@ import Observation
 
 struct RoundInputView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Bindable var model: GameViewModel
 
     @State private var points: [UUID: Int] = [:]
+
+    private var showNavigationTitle: Bool { verticalSizeClass != .compact }
 
     var body: some View {
         NavigationStack {
@@ -76,7 +79,8 @@ struct RoundInputView: View {
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .navigationTitle("Hearts Scoreboard")
+            .navigationTitle(showNavigationTitle ? "Enter round scores" : "")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
             if points.isEmpty {
