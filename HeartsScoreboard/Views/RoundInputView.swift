@@ -38,32 +38,35 @@ struct RoundInputView: View {
                                     adjustPoints(for: player.id, delta: 5)
                                 }
                                 .buttonStyle(.borderedProminent)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.9)
                                 .frame(width: 44)
 
                                 Button("+26") {
                                     setPoints(for: player.id, to: 26)
                                 }
                                 .buttonStyle(.borderedProminent)
-                                .frame(width: 52)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.9)
+                                .frame(width: 56)
                             }
                         }
                     }
                 }
 
-                HStack {
+                HStack(spacing: 16) {
+                    Button("Back") {
+                        dismiss()
+                    }
+
+                    Spacer()
+
                     Button("Submit") {
                         submit()
                     }
                     .buttonStyle(.borderedProminent)
-
-                    Button("Reset") {
-                        reset()
-                    }
-
-                    Button("Back") {
-                        dismiss()
-                    }
                 }
+                .padding(.horizontal)
                 .padding(.vertical)
             }
             .navigationTitle("Hearts Scoreboard")
