@@ -25,11 +25,7 @@ struct GameView: View {
         }
     }
 
-    /// Dealer for the next round: advances after each submitted round (hands.count % players.count).
-    private var dealerIndex: Int {
-        let n = model.game.players.count
-        return n > 0 ? model.game.hands.count % n : 0
-    }
+    private var dealerIndex: Int { model.currentDealerIndex }
 
     private var dealerBadge: some View {
         ZStack {

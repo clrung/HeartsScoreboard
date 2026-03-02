@@ -15,6 +15,20 @@ struct SettingsView: View {
                     .onMove(perform: movePlayers)
                 }
 
+                Section("Dealer") {
+                    Picker("Dealer", selection: dealerBinding) {
+                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                            Text(player.name).tag(index)
+                        }
+                    }
+                    .pickerStyle(.menu)
+                    .onChange(of: model.game.players.count) { _, newCount in
+                        if model.firstDealerIndex >= newCount {
+                            model.firstDealerIndex = max(0, newCount - 1)
+                        }
+                    }
+                }
+
                 Section("Shoot the moon preference") {
                     Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
                         ForEach(ShootMoonPreference.allCases) { pref in
@@ -57,6 +71,18 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+
+    /// Binding so the Picker shows/sets the current dealer (for next round), not just “first” dealer.
+    private var dealerBinding: Binding<Int> {
+        let n = model.game.players.count
+        return Binding(
+            get: { model.currentDealerIndex },
+            set: { newIndex in
+                guard n > 0 else { return }
+                model.firstDealerIndex = (newIndex - model.game.hands.count % n + n) % n
+            }
+        )
     }
 
     private func movePlayers(from source: IndexSet, to destination: Int) {

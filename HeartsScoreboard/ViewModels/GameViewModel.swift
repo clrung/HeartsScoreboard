@@ -33,6 +33,8 @@ struct GameSettings {
 final class GameViewModel {
     var game: HeartsGame
     var settings: GameSettings
+    /// Index of the player who deals first (round 1). Dealer rotates each round. Stored on VM so UI updates when changed in Settings.
+    var firstDealerIndex: Int = 0
 
     init(
         game: HeartsGame = HeartsGame(players: [
@@ -70,6 +72,13 @@ final class GameViewModel {
 
     func movePlayers(from source: IndexSet, to destination: Int) {
         game.players.move(fromOffsets: source, toOffset: destination)
+    }
+
+    /// Dealer for the next round (index into players). Advances after each submitted round.
+    var currentDealerIndex: Int {
+        let n = game.players.count
+        guard n > 0 else { return 0 }
+        return (firstDealerIndex + game.hands.count) % n
     }
 
     // MARK: - Helpers
