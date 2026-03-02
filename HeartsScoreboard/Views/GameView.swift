@@ -57,7 +57,7 @@ struct GameView: View {
         RoundedRectangle(cornerRadius: 16, style: .continuous)
             .fill(Color(.systemBackground))
             .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
-            .overlay {
+            .overlay(alignment: .top) {
                 VStack(spacing: 12) {
                     HStack(alignment: .top, spacing: 0) {
                         ForEach(model.game.players) { player in
@@ -81,6 +81,7 @@ struct GameView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding(.vertical, 16)
                 .padding(.horizontal, 4)
             }
