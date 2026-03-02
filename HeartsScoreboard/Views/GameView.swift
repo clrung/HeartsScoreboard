@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GameView: View {
+    @Environment(\.colorScheme) private var colorScheme
     @State private var model = GameViewModel()
     @State private var showingRoundInput = false
     @State private var showingSettings = false
@@ -54,10 +55,13 @@ struct GameView: View {
     }
 
     private var backgroundColor: Color {
-        switch model.settings.theme {
-        case .light: return Color(.systemGreen).opacity(0.3)
-        case .green: return Color.green
-        case .dark: return Color(.darkGray).opacity(0.8)
+        switch colorScheme {
+        case .light:
+            return Color.green
+        case .dark:
+            return Color(red: 0.08, green: 0.18, blue: 0.12)
+        @unknown default:
+            return Color.green
         }
     }
 

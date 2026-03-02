@@ -1,14 +1,6 @@
 import Foundation
 import Observation
 
-enum BoardTheme: String, CaseIterable, Identifiable {
-    case light
-    case green
-    case dark
-
-    var id: String { rawValue }
-}
-
 enum ShootMoonPreference: String, CaseIterable, Identifiable {
     case add26
     case subtract26
@@ -25,7 +17,6 @@ enum ShootMoonPreference: String, CaseIterable, Identifiable {
 
 struct GameSettings {
     var endingScore: Int = 100
-    var theme: BoardTheme = .green
     var shootMoonPreference: ShootMoonPreference = .add26
 }
 

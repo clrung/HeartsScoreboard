@@ -51,15 +51,6 @@ struct SettingsView: View {
                         )
                     }
                 }
-                
-                Section("Theme") {
-                    Picker("Theme", selection: $model.settings.theme) {
-                        Text("Light").tag(BoardTheme.light)
-                        Text("Green").tag(BoardTheme.green)
-                        Text("Dark").tag(BoardTheme.dark)
-                    }
-                    .pickerStyle(.segmented)
-                }
             }
             .navigationTitle("Hearts Scoreboard")
             .toolbar {
