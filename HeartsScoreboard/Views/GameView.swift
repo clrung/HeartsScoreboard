@@ -25,6 +25,22 @@ struct GameView: View {
         }
     }
 
+    /// Dealer for the next round: advances after each submitted round (hands.count % players.count).
+    private var dealerIndex: Int {
+        let n = model.game.players.count
+        return n > 0 ? model.game.hands.count % n : 0
+    }
+
+    private var dealerBadge: some View {
+        ZStack {
+            Circle()
+                .strokeBorder(Color.primary, lineWidth: 1.5)
+            Text("D")
+                .font(.caption.weight(.bold))
+        }
+        .frame(width: 22, height: 22)
+    }
+
     private var backgroundColor: Color {
         switch model.settings.theme {
         case .light: return Color(.systemGreen).opacity(0.3)
@@ -59,12 +75,18 @@ struct GameView: View {
             .overlay(alignment: .top) {
                 VStack(spacing: 12) {
                     HStack(spacing: 0) {
-                        ForEach(model.game.players) { player in
-                            Text(player.name)
-                                .font(.headline)
-                                .lineLimit(1)
-                                .truncationMode(.tail)
-                                .frame(maxWidth: .infinity)
+                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                            VStack(spacing: 4) {
+                                if index == dealerIndex {
+                                    dealerBadge
+                                }
+                                Text(player.name)
+                                    .font(.headline)
+                                    .lineLimit(1)
+                                    .truncationMode(.tail)
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .frame(maxWidth: .infinity)
                         }
                     }
                     .frame(maxWidth: .infinity)
