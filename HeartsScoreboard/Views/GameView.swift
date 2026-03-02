@@ -84,10 +84,19 @@ struct GameView: View {
         .padding(.vertical, 12)
     }
 
+    private var scoreboardCardBackground: Color {
+        switch colorScheme {
+        case .dark:
+            return Color(red: 0.14, green: 0.22, blue: 0.18)
+        default:
+            return Color(.systemBackground)
+        }
+    }
+
     private var scoreboard: some View {
         RoundedRectangle(cornerRadius: 16, style: .continuous)
-            .fill(Color(.systemBackground))
-            .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+            .fill(scoreboardCardBackground)
+            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.3 : 0.05), radius: 8, x: 0, y: 4)
             .overlay(alignment: .top) {
                 VStack(spacing: 12) {
                     HStack(spacing: 0) {
