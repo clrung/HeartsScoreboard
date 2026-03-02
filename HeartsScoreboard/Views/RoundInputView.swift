@@ -61,6 +61,12 @@ struct RoundInputView: View {
 
                     Spacer()
 
+                    Button("Reset") {
+                        reset()
+                    }
+
+                    Spacer()
+
                     Button("Submit") {
                         submit()
                     }
