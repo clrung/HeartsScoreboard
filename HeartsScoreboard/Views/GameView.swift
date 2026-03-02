@@ -6,6 +6,7 @@ struct GameView: View {
     @State private var showingRoundInput = false
     @State private var showingSettings = false
     @State private var showUndoAlert = false
+    @State private var showNewGameAlert = false
 
     var body: some View {
         ZStack {
@@ -33,6 +34,14 @@ struct GameView: View {
             }
         } message: {
             Text("Are you sure you would like to undo the last round?")
+        }
+        .alert("New Game", isPresented: $showNewGameAlert) {
+            Button("No", role: .cancel) {}
+            Button("Yes") {
+                model.newGame()
+            }
+        } message: {
+            Text("Are you sure? This will clear all round scores.")
         }
         .sheet(isPresented: $showingRoundInput) {
             RoundInputView(model: model)
@@ -160,7 +169,7 @@ struct GameView: View {
 
             HStack {
                 Button("New Game") {
-                    model.newGame()
+                    showNewGameAlert = true
                 }
                 .buttonStyle(.bordered)
                 .tint(.blue)
