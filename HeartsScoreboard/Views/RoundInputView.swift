@@ -42,13 +42,13 @@ struct RoundInputView: View {
                                 .minimumScaleFactor(0.9)
                                 .frame(width: 44)
 
-                                Button("+26") {
-                                    setPoints(for: player.id, to: 26)
+                                Button(shootMoonButtonTitle) {
+                                    applyShootMoonValue(for: player.id)
                                 }
                                 .buttonStyle(.borderedProminent)
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.9)
-                                .frame(width: 56)
+                                .frame(width: 60)
                             }
                         }
                     }
@@ -80,13 +80,26 @@ struct RoundInputView: View {
 
     private func adjustPoints(for playerID: UUID, delta: Int) {
         let current = points[playerID] ?? 0
-        let newValue = max(0, min(26, current + delta))
+        let newValue = max(minimumRoundScore, min(26, current + delta))
         points[playerID] = newValue
     }
 
     private func setPoints(for playerID: UUID, to value: Int) {
-        let newValue = max(0, min(26, value))
+        let newValue = max(minimumRoundScore, min(26, value))
         points[playerID] = newValue
+    }
+
+    private func applyShootMoonValue(for playerID: UUID) {
+        let value = model.settings.shootMoonPreference == .subtract26 ? -26 : 26
+        setPoints(for: playerID, to: value)
+    }
+
+    private var shootMoonButtonTitle: String {
+        model.settings.shootMoonPreference == .subtract26 ? "-26" : "+26"
+    }
+
+    private var minimumRoundScore: Int {
+        model.settings.shootMoonPreference == .subtract26 ? -26 : 0
     }
 
     private func reset() {
