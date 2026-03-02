@@ -74,7 +74,22 @@ final class GameViewModel {
 
     // MARK: - Helpers
 
+    /// True when any player's total reaches or exceeds the ending score (game over).
+    var isGameOver: Bool {
+        game.players.contains { game.totalPoints(for: $0.id) >= settings.endingScore }
+    }
+
     var statusText: String {
+        if isGameOver {
+            let totals = game.totals()
+            guard let minTotal = totals.map(\.total).min() else { return "Game over" }
+            let winners = totals.filter { $0.total == minTotal }.map(\.player.name)
+            if winners.count == 1, let name = winners.first {
+                return "\(name) won!"
+            } else {
+                return "Game Over: Tie"
+            }
+        }
         switch game.hands.count % 3 {
         case 0:
             return "Pass to the Left"

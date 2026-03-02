@@ -71,6 +71,7 @@ struct RoundInputView: View {
                         submit()
                     }
                     .buttonStyle(.borderedProminent)
+                    .disabled(!isRoundValid)
                 }
                 .padding(.horizontal)
                 .padding(.vertical)
@@ -106,6 +107,15 @@ struct RoundInputView: View {
 
     private var minimumRoundScore: Int {
         model.settings.shootMoonPreference == .subtract26 ? -26 : 0
+    }
+
+    /// Valid Hearts round: total is 26, -26, or (players - 1) * 26 (shoot the moon).
+    private var isRoundValid: Bool {
+        let n = model.game.players.count
+        guard n > 0 else { return false }
+        let sum = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        let shootMoonTotal = (n - 1) * 26
+        return sum == 26 || sum == -26 || sum == shootMoonTotal
     }
 
     private func reset() {

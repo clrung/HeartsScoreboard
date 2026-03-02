@@ -130,6 +130,7 @@ struct GameView: View {
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
                 .frame(maxWidth: .infinity, alignment: .trailing)
+                .disabled(model.isGameOver)
             }
             .font(.callout)
         }
