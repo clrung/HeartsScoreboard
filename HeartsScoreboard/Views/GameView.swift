@@ -113,7 +113,16 @@ struct GameView: View {
                     showingSettings = true
                 } label: {
                     Image(systemName: "gearshape.fill")
-                        .font(.title2)
+                        .font(.title2.weight(.semibold))
+                        .padding(8)
+                        .background {
+                            Capsule(style: .continuous)
+                                .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
+                        }
+                        .overlay {
+                            Capsule(style: .continuous)
+                                .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
+                        }
                         .foregroundStyle(.primary)
                 }
             }
