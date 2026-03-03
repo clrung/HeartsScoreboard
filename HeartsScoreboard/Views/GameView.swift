@@ -239,9 +239,10 @@ struct GameView: View {
                         }
                         .frame(height: 30)
                         Text(player.name)
-                            .font(.headline.weight(.semibold))
+                            .font(.headline.weight(.bold))
                             .lineLimit(1)
                             .truncationMode(.tail)
+                            .padding(.horizontal, 8)
                             .frame(maxWidth: .infinity)
                     }
                     .frame(maxWidth: .infinity)
@@ -253,7 +254,7 @@ struct GameView: View {
                 ForEach(model.game.players) { player in
                     let isLeader = leadingPlayerIDs.contains(player.id)
                     Text("\(model.game.totalPoints(for: player.id))")
-                        .font(.title3.weight(.semibold))
+                        .font(.body.weight(.semibold))
                         .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
                         .padding(.vertical, 4)
                         .frame(maxWidth: .infinity)
@@ -286,14 +287,15 @@ struct GameView: View {
                             let score = hand.pointsByPlayerID[player.id] ?? 0
                             let isEvenRow = index.isMultiple(of: 2)
                             Text("\(score)")
-                                .font(.callout.weight(.medium))
+                                .font(.footnote.weight(.medium))
+                                .foregroundStyle(Color.primary)
                                 .frame(width: 56, height: 26)
                                 .background(
                                     RoundedRectangle(cornerRadius: 8, style: .continuous)
                                         .fill(
                                             (isEvenRow
-                                             ? Color.white.opacity(colorScheme == .dark ? 0.04 : 0.12)
-                                             : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
+                                             ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
+                                             : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
                                             )
                                         )
                                 )
