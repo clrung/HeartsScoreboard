@@ -159,29 +159,39 @@ struct GameView: View {
                     }
                     .frame(maxWidth: .infinity)
 
-                    ScrollView {
-                        HStack(alignment: .top, spacing: 0) {
-                            ForEach(model.game.players) { player in
-                                VStack(spacing: 8) {
-                                    ForEach(model.game.hands) { hand in
-                                        let score = hand.pointsByPlayerID[player.id] ?? 0
-                                        Text("\(score)")
-                                            .font(.body.weight(.medium))
-                                            .frame(width: 56, height: 28)
-                                            .background(
-                                                Capsule()
-                                                    .fill(Color(.systemGreen).opacity(0.15))
-                                            )
+                    ScrollViewReader { proxy in
+                        ScrollView {
+                            HStack(alignment: .top, spacing: 0) {
+                                ForEach(model.game.players) { player in
+                                    VStack(spacing: 8) {
+                                        ForEach(model.game.hands) { hand in
+                                            let score = hand.pointsByPlayerID[player.id] ?? 0
+                                            Text("\(score)")
+                                                .font(.body.weight(.medium))
+                                                .frame(width: 56, height: 28)
+                                                .background(
+                                                    Capsule()
+                                                        .fill(Color(.systemGreen).opacity(0.15))
+                                                )
+                                                .id(hand.id)
+                                        }
                                     }
+                                    .frame(maxWidth: .infinity, alignment: .top)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .top)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.bottom, 8)
+                        }
+                        .frame(maxHeight: .infinity)
+                        .scrollIndicators(.visible)
+                        .onChange(of: model.game.hands.count) {
+                            withAnimation {
+                                if let lastHand = model.game.hands.last {
+                                    proxy.scrollTo(lastHand.id, anchor: .bottom)
+                                }
                             }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.bottom, 8)
                     }
-                    .frame(maxHeight: .infinity)
-                    .scrollIndicators(.visible)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .padding(.vertical, 16)
