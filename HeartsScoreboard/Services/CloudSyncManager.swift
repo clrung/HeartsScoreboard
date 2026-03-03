@@ -5,6 +5,34 @@ struct SyncableState: Codable {
     var game: HeartsGame
     var settings: GameSettings
     var firstDealerIndex: Int
+    var history: [CompletedGame]
+
+    init(
+        game: HeartsGame,
+        settings: GameSettings,
+        firstDealerIndex: Int,
+        history: [CompletedGame] = []
+    ) {
+        self.game = game
+        self.settings = settings
+        self.firstDealerIndex = firstDealerIndex
+        self.history = history
+    }
+
+    private enum CodingKeys: String, CodingKey {
+        case game
+        case settings
+        case firstDealerIndex
+        case history
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        game = try container.decode(HeartsGame.self, forKey: .game)
+        settings = try container.decode(GameSettings.self, forKey: .settings)
+        firstDealerIndex = try container.decode(Int.self, forKey: .firstDealerIndex)
+        history = try container.decodeIfPresent([CompletedGame].self, forKey: .history) ?? []
+    }
 }
 
 /// Syncs game state to iCloud so it’s available on all devices signed into the same iCloud account.

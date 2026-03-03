@@ -26,6 +26,8 @@ final class GameViewModel {
     var settings: GameSettings
     /// Index of the player who deals first (round 1). Dealer rotates each round. Stored on VM so UI updates when changed in Settings.
     var firstDealerIndex: Int = 0
+    /// Completed games history (most recent first).
+    var history: [CompletedGame] = []
 
     init(
         game: HeartsGame = HeartsGame(players: [
@@ -35,17 +37,24 @@ final class GameViewModel {
             .init(id: UUID(), name: "Queen")
         ]),
         settings: GameSettings = GameSettings(),
-        firstDealerIndex: Int = 0
+        firstDealerIndex: Int = 0,
+        history: [CompletedGame] = []
     ) {
         self.game = game
         self.settings = settings
         self.firstDealerIndex = firstDealerIndex
+        self.history = history
     }
 
     /// Create from iCloud-synced state.
     convenience init(initialState: SyncableState?) {
         if let state = initialState {
-            self.init(game: state.game, settings: state.settings, firstDealerIndex: state.firstDealerIndex)
+            self.init(
+                game: state.game,
+                settings: state.settings,
+                firstDealerIndex: state.firstDealerIndex,
+                history: state.history
+            )
         } else {
             self.init()
         }
@@ -56,16 +65,25 @@ final class GameViewModel {
         game = state.game
         settings = state.settings
         self.firstDealerIndex = state.firstDealerIndex
+        self.history = state.history
     }
 
     func persistToCloud() {
-        CloudSyncManager.shared.save(SyncableState(game: game, settings: settings, firstDealerIndex: firstDealerIndex))
+        CloudSyncManager.shared.save(
+            SyncableState(
+                game: game,
+                settings: settings,
+                firstDealerIndex: firstDealerIndex,
+                history: history
+            )
+        )
     }
 
     // MARK: - Game flow
 
     func newGame() {
-        game.hands = []
+        // Start a fresh game with the same players.
+        game = HeartsGame(players: game.players)
         persistToCloud()
     }
 
@@ -78,7 +96,11 @@ final class GameViewModel {
                 createdAt: Date()
             )
         )
-        persistToCloud()
+        if isGameOver {
+            archiveCompletedGameIfNeeded()
+        } else {
+            persistToCloud()
+        }
     }
 
     func deleteHands(at offsets: IndexSet) {
@@ -148,14 +170,7 @@ final class GameViewModel {
 
     var statusText: String {
         if isGameOver {
-            let totals = game.totals()
-            guard let minTotal = totals.map(\.total).min() else { return "Game over" }
-            let winners = totals.filter { $0.total == minTotal }.map(\.player.name)
-            if winners.count == 1, let name = winners.first {
-                return "\(name) won!"
-            } else {
-                return "Game Over: Tie"
-            }
+            return winnerDescription(for: game) ?? "Game over"
         }
         switch game.hands.count % 3 {
         case 0:
@@ -164,6 +179,38 @@ final class GameViewModel {
             return "Pass to the Right"
         default:
             return "Hold on Tight!"
+        }
+    }
+
+    // MARK: - History helpers
+
+    private func archiveCompletedGameIfNeeded() {
+        guard isGameOver else { return }
+
+        // Avoid duplicating this game in history.
+        if history.contains(where: { $0.game.id == game.id }) {
+            return
+        }
+
+        let completed = CompletedGame(game: game, settings: settings)
+        history.insert(completed, at: 0)
+        persistToCloud()
+    }
+
+    func winnerDescription(for completed: CompletedGame) -> String {
+        winnerDescription(for: completed.game) ?? "No winner"
+    }
+
+    private func winnerDescription(for game: HeartsGame) -> String? {
+        let totals = game.totals()
+        guard let minTotal = totals.map(\.total).min() else { return nil }
+        let winners = totals.filter { $0.total == minTotal }.map(\.player.name)
+        if winners.isEmpty {
+            return nil
+        } else if winners.count == 1, let name = winners.first {
+            return "\(name) won!"
+        } else {
+            return "Game Over: " + winners.joined(separator: ", ")
         }
     }
 }

@@ -5,6 +5,7 @@ struct GameView: View {
     @State private var model = GameViewModel(initialState: CloudSyncManager.shared.load())
     @State private var showingRoundInput = false
     @State private var showingSettings = false
+    @State private var showingHistory = false
     @State private var showUndoAlert = false
     @State private var showNewGameAlert = false
 
@@ -48,6 +49,9 @@ struct GameView: View {
         }
         .sheet(isPresented: $showingSettings) {
             SettingsView(model: model)
+        }
+        .sheet(isPresented: $showingHistory) {
+            HistoryView(model: model)
         }
         .onAppear {
             CloudSyncManager.shared.onSyncFromCloud = { [model] state in
@@ -138,6 +142,22 @@ struct GameView: View {
         VStack(spacing: 4) {
             ZStack {
                 HStack {
+                    Button {
+                        showingHistory = true
+                    } label: {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .font(.title2.weight(.semibold))
+                            .padding(8)
+                            .background {
+                                Capsule(style: .continuous)
+                                    .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
+                            }
+                            .overlay {
+                                Capsule(style: .continuous)
+                                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
+                            }
+                    }
+
                     Spacer()
                     Button {
                         showingSettings = true
