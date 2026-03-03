@@ -62,10 +62,6 @@ struct AboutView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(colorScheme == .dark ? .dark : .light, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Image(systemName: "info.circle.fill")
-                        .foregroundStyle(.primary)
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                 }
