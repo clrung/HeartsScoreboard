@@ -2,65 +2,54 @@ import SwiftUI
 
 struct AboutView: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.openURL) private var openURL
 
     private static let appStoreURL = URL(string: "https://apps.apple.com/app/idXXXXXXXXX")!
-
-    private var backgroundColor: Color {
-        switch colorScheme {
-        case .dark:
-            return Color(red: 0.08, green: 0.18, blue: 0.12)
-        default:
-            return Color.green
-        }
-    }
+    private static let websiteURL = URL(string: "https://christopherrung.com")!
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                backgroundColor
-                    .ignoresSafeArea()
-
-                VStack(spacing: 0) {
-                    VStack(spacing: 28) {
+            Form {
+                Section {
+                    VStack(alignment: .leading, spacing: 12) {
                         Text("Developed by Christopher Rung")
-                            .font(.body.weight(.medium))
-                            .foregroundStyle(.primary)
-                            .multilineTextAlignment(.center)
-
+                            .font(.body)
                         Text("Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon.")
-                            .font(.body.weight(.medium))
-                            .foregroundStyle(.primary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-
+                            .font(.body)
                         Text("I would love to hear your feedback!")
-                            .font(.body.weight(.medium))
-                            .foregroundStyle(.primary)
-                            .multilineTextAlignment(.center)
-
-                        Link("christopherrung.com", destination: URL(string: "https://christopherrung.com")!)
-                            .font(.body.weight(.medium))
+                            .font(.body)
                     }
-                    .padding(.top, 32)
-                    .padding(.horizontal, 24)
-
-                    Spacer(minLength: 24)
-
-                    Button("Rate on App Store") {
-                        openURL(AboutView.appStoreURL)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.blue)
-                    .padding(.horizontal, 32)
-                    .padding(.bottom, 40)
+                    .padding(.vertical, 8)
                 }
-                .frame(maxWidth: .infinity)
+
+                Section {
+                    Link(destination: AboutView.websiteURL) {
+                        HStack {
+                            Text("christopherrung.com")
+                            Spacer()
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.tertiary)
+                        }
+                    }
+                }
+
+                Section {
+                    Button {
+                        openURL(AboutView.appStoreURL)
+                    } label: {
+                        HStack {
+                            Text("Rate on App Store")
+                            Spacer()
+                            Image(systemName: "heart.fill")
+                                .font(.body)
+                                .foregroundStyle(.red)
+                        }
+                    }
+                }
             }
-            .navigationTitle("Hearts Scoreboard")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarColorScheme(colorScheme == .dark ? .dark : .light, for: .navigationBar)
+            .navigationTitle("About")
+            .navigationBarTitleDisplayMode(.large)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }

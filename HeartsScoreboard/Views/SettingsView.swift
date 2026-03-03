@@ -52,10 +52,8 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .environment(\.editMode, .constant(.active))
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    EditButton()
-                }
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         showingAbout = true

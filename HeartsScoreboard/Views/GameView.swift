@@ -212,6 +212,8 @@ struct GameView: View {
                 Text(model.statusText)
                     .font(.body.weight(.semibold))
                     .foregroundStyle(.primary)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
                     .frame(maxWidth: .infinity)
 
                 Button("Next Round") {
