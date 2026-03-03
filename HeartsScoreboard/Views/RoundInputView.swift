@@ -7,6 +7,7 @@ struct RoundInputView: View {
     @Bindable var model: GameViewModel
 
     @State private var points: [UUID: Int] = [:]
+    @State private var queenOwnerID: UUID? = nil
 
     private var showNavigationTitle: Bool { verticalSizeClass != .compact }
 
@@ -67,7 +68,7 @@ struct RoundInputView: View {
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
                                         .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid)
+                                        .disabled(isRoundValid || queenOwnerID != nil)
                                     }
 
                                     VStack(spacing: 4) {
@@ -170,6 +171,9 @@ struct RoundInputView: View {
 
     private func addQueenOfSpades(for playerID: UUID) {
         adjustPoints(for: playerID, delta: 13)
+        if queenOwnerID == nil {
+            queenOwnerID = playerID
+        }
     }
 
     private func remainingPoints(for playerID: UUID) -> Int {
@@ -217,6 +221,7 @@ struct RoundInputView: View {
             dict[p.id] = 0
         }
         points = dict
+        queenOwnerID = nil
     }
 
     private func submit() {
