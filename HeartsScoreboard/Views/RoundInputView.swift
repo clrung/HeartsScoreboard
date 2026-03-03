@@ -88,6 +88,21 @@ struct RoundInputView: View {
                             }
                         }
                         .pickerStyle(.segmented)
+
+                        VStack(alignment: .leading, spacing: 4) {
+                            if model.settings.shootMoonPreference == .add26 {
+                                Text("Adds 26 points to every other player's score.")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            if model.settings.shootMoonPreference == .subtract26 {
+                                Text("Subtracts 26 points from the selected player's score.")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding(.top, 4)
                     }
                 }
 
