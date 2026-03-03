@@ -16,26 +16,31 @@ struct RoundInputView: View {
                 Form {
                     Section {
                         ForEach(model.game.players) { player in
-                            HStack(alignment: .top, spacing: 12) {
+                            HStack(alignment: .center, spacing: 12) {
                                 Text(player.name)
+                                    .font(.headline.weight(.semibold))
                                     .frame(width: 110, alignment: .leading)
+                                    .frame(maxHeight: .infinity, alignment: .center)
 
                                 HStack(spacing: 4) {
                                     Button("-") {
                                         adjustPoints(for: player.id, delta: -1)
                                     }
                                     .buttonStyle(.borderless)
+                                    .font(.headline)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .frame(width: 32)
-                                        .font(.headline)
+                                        .font(.title3.weight(.semibold))
 
                                     Button("+") {
                                         adjustPoints(for: player.id, delta: 1)
                                     }
                                     .buttonStyle(.borderless)
+                                    .font(.headline)
                                 }
-                                .frame(maxWidth: .infinity, alignment: .center)
+                                .frame(maxWidth: .infinity)
+                                .frame(maxHeight: .infinity, alignment: .center)
 
                                 HStack(spacing: 12) {
                                     VStack(spacing: 4) {
