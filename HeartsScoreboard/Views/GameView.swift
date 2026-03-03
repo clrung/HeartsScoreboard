@@ -141,10 +141,13 @@ struct GameView: View {
                 VStack(spacing: 12) {
                     HStack(spacing: 0) {
                         ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                            VStack(spacing: 4) {
-                                if index == dealerIndex {
-                                    dealerBadge
+                            VStack(spacing: 6) {
+                                ZStack {
+                                    if index == dealerIndex {
+                                        dealerBadge
+                                    }
                                 }
+                                .frame(height: 30)
                                 Text(player.name)
                                     .font(.headline)
                                     .lineLimit(1)
