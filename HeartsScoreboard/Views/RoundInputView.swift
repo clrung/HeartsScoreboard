@@ -22,7 +22,7 @@ struct RoundInputView: View {
                                     .frame(width: 110, alignment: .leading)
                                     .frame(maxHeight: .infinity, alignment: .center)
 
-                                HStack(spacing: 4) {
+                                HStack(spacing: 8) {
                                     Button("-") {
                                         adjustPoints(for: player.id, delta: -1)
                                     }
@@ -31,8 +31,11 @@ struct RoundInputView: View {
                                     .disabled(isRoundValid)
 
                                     Text("\(points[player.id] ?? 0)")
-                                        .frame(width: 32)
                                         .font(.title3.weight(.semibold))
+                                        .monospacedDigit()
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.6)
+                                        .frame(width: 44)
 
                                     Button("+") {
                                         adjustPoints(for: player.id, delta: 1)
@@ -51,7 +54,8 @@ struct RoundInputView: View {
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .lineLimit(1)
-                                        .minimumScaleFactor(0.9)
+                                        .minimumScaleFactor(0.6)
+                                        .allowsTightening(true)
                                         .frame(width: 52)
                                         .disabled(isRoundValid)
 
@@ -59,6 +63,9 @@ struct RoundInputView: View {
                                             addQueenOfSpades(for: player.id)
                                         }
                                         .buttonStyle(.borderedProminent)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.6)
+                                        .allowsTightening(true)
                                         .frame(width: 52, height: 32)
                                         .disabled(isRoundValid)
                                     }
@@ -69,6 +76,9 @@ struct RoundInputView: View {
                                             addRemainingPoints(for: player.id)
                                         }
                                         .buttonStyle(.borderedProminent)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.6)
+                                        .allowsTightening(true)
                                         .frame(width: 52, height: 32)
                                         .disabled(remaining == 0 || isRoundValid)
 
