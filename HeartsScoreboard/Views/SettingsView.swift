@@ -10,11 +10,18 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section("Players") {
-                    ForEach($model.game.players) { $player in
-                        TextField("Player", text: $player.name)
+                    if model.game.players.count > 3 {
+                        ForEach($model.game.players) { $player in
+                            TextField("Player", text: $player.name)
+                        }
+                        .onMove(perform: model.movePlayers)
+                        .onDelete(perform: model.deletePlayers)
+                    } else {
+                        ForEach($model.game.players) { $player in
+                            TextField("Player", text: $player.name)
+                        }
+                        .onMove(perform: model.movePlayers)
                     }
-                    .onMove(perform: model.movePlayers)
-                    .onDelete(perform: model.deletePlayers)
 
                     if model.game.players.count < 6 {
                         Button {
