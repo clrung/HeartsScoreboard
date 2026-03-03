@@ -23,6 +23,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.christopherrung.HeartsScoreboard
         INFOPLIST_FILE: HeartsScoreboard/Info.plist
+        CODE_SIGN_ENTITLEMENTS: HeartsScoreboard/HeartsScoreboard.entitlements
     sources:
       - path: HeartsScoreboard
         excludes:

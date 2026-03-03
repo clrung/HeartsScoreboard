@@ -1,7 +1,7 @@
 import Foundation
 import Observation
 
-enum ShootMoonPreference: String, CaseIterable, Identifiable {
+enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
     case add26
     case subtract26
 
@@ -15,7 +15,7 @@ enum ShootMoonPreference: String, CaseIterable, Identifiable {
     }
 }
 
-struct GameSettings {
+struct GameSettings: Codable {
     var endingScore: Int = 100
     var shootMoonPreference: ShootMoonPreference = .add26
 }
@@ -34,16 +34,39 @@ final class GameViewModel {
             .init(id: UUID(), name: "Christopher"),
             .init(id: UUID(), name: "Mom")
         ]),
-        settings: GameSettings = GameSettings()
+        settings: GameSettings = GameSettings(),
+        firstDealerIndex: Int = 0
     ) {
         self.game = game
         self.settings = settings
+        self.firstDealerIndex = firstDealerIndex
+    }
+
+    /// Create from iCloud-synced state.
+    convenience init(initialState: SyncableState?) {
+        if let state = initialState {
+            self.init(game: state.game, settings: state.settings, firstDealerIndex: state.firstDealerIndex)
+        } else {
+            self.init()
+        }
+    }
+
+    /// Apply state received from iCloud (e.g. after sync from another device).
+    func applySyncedState(_ state: SyncableState) {
+        game = state.game
+        settings = state.settings
+        self.firstDealerIndex = state.firstDealerIndex
+    }
+
+    func persistToCloud() {
+        CloudSyncManager.shared.save(SyncableState(game: game, settings: settings, firstDealerIndex: firstDealerIndex))
     }
 
     // MARK: - Game flow
 
     func newGame() {
         game.hands = []
+        persistToCloud()
     }
 
     func addHand(pointsByPlayerID: [UUID: Int]) {
@@ -55,19 +78,23 @@ final class GameViewModel {
                 createdAt: Date()
             )
         )
+        persistToCloud()
     }
 
     func deleteHands(at offsets: IndexSet) {
         game.hands.remove(atOffsets: offsets)
+        persistToCloud()
     }
 
     func removeLastHand() {
         guard !game.hands.isEmpty else { return }
         game.hands.removeLast()
+        persistToCloud()
     }
 
     func movePlayers(from source: IndexSet, to destination: Int) {
         game.players.move(fromOffsets: source, toOffset: destination)
+        persistToCloud()
     }
 
     /// Dealer for the next round (index into players). Advances after each submitted round.

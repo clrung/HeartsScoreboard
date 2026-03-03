@@ -1,7 +1,7 @@
 import Foundation
 
-struct HeartsGame: Equatable {
-    struct Player: Identifiable, Equatable {
+struct HeartsGame: Equatable, Codable {
+    struct Player: Identifiable, Equatable, Codable {
         let id: UUID
         var name: String
     }
@@ -10,7 +10,7 @@ struct HeartsGame: Equatable {
     /// - Each heart: 1 point
     /// - Queen of spades: 13 points
     /// Total possible: 26 points
-    struct Hand: Identifiable, Equatable {
+    struct Hand: Identifiable, Equatable, Codable {
         let id: UUID
         var pointsByPlayerID: [UUID: Int]
         var notes: String

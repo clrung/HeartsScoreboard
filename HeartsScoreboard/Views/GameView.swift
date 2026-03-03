@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.colorScheme) private var colorScheme
-    @State private var model = GameViewModel()
+    @State private var model = GameViewModel(initialState: CloudSyncManager.shared.load())
     @State private var showingRoundInput = false
     @State private var showingSettings = false
     @State private var showUndoAlert = false
@@ -48,6 +48,14 @@ struct GameView: View {
         }
         .sheet(isPresented: $showingSettings) {
             SettingsView(model: model)
+        }
+        .onAppear {
+            CloudSyncManager.shared.onSyncFromCloud = { [model] state in
+                model.applySyncedState(state)
+            }
+        }
+        .onChange(of: showingSettings) { _, isShowing in
+            if !isShowing { model.persistToCloud() }
         }
     }
 
