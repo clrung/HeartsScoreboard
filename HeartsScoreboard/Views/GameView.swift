@@ -199,6 +199,27 @@ struct GameView: View {
         return Set(leaders)
     }
 
+    private func isMoonHand(_ hand: HeartsGame.Hand, for playerID: UUID) -> Bool {
+        let n = model.game.players.count
+        guard n > 0 else { return false }
+
+        let scores = model.game.players.map { hand.pointsByPlayerID[$0.id] ?? 0 }
+        let sum = scores.reduce(0, +)
+        let playerScore = hand.pointsByPlayerID[playerID] ?? 0
+
+        // Subtract 26 preference: one player at -26, total -26
+        if sum == -26, playerScore == -26 {
+            return true
+        }
+
+        // Add 26 preference: shooter gets 0, all others 26 -> total (n - 1) * 26
+        if sum == (n - 1) * 26, playerScore == 0 {
+            return true
+        }
+
+        return false
+    }
+
     private var scoreboardCardBackground: Color {
         switch colorScheme {
         case .dark:
@@ -229,53 +250,68 @@ struct GameView: View {
 
     private var scoreboardContent: some View {
         VStack(spacing: 12) {
-            HStack(spacing: 0) {
-                ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                    VStack(spacing: 6) {
-                        ZStack {
-                            if index == dealerIndex {
-                                dealerBadge
+            VStack(spacing: 8) {
+                HStack(spacing: 0) {
+                    ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                        VStack(spacing: 6) {
+                            ZStack {
+                                if index == dealerIndex {
+                                    dealerBadge
+                                }
                             }
-                        }
-                        .frame(height: 30)
-                        Text(player.name)
-                            .font(.headline.weight(.bold))
-                            .lineLimit(1)
-                            .truncationMode(.tail)
-                            .padding(.horizontal, 8)
-                            .frame(maxWidth: .infinity)
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-            }
-            .frame(maxWidth: .infinity)
-
-            HStack {
-                ForEach(model.game.players) { player in
-                    let isLeader = leadingPlayerIDs.contains(player.id)
-                    Text("\(model.game.totalPoints(for: player.id))")
-                        .font(.body.weight(.semibold))
-                        .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
-                        .padding(.vertical, 4)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            Capsule(style: .continuous)
-                                .fill(
-                                    isLeader
-                                    ? Color.yellow.opacity(colorScheme == .dark ? 0.35 : 0.45)
-                                    : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.18)
+                            .frame(height: 25)
+                            Text(player.name)
+                                .font(.headline.weight(.semibold))
+                                .lineLimit(1)
+                                .truncationMode(.tail)
+                                .padding(.vertical, 4)
+                                .padding(.horizontal, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                        .fill(
+                                            Color.white.opacity(colorScheme == .dark ? 0.10 : 0.26)
+                                        )
                                 )
-                        )
+                                .frame(maxWidth: .infinity)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+
+                HStack {
+                    ForEach(model.game.players) { player in
+                        let isLeader = leadingPlayerIDs.contains(player.id)
+                        Text("\(model.game.totalPoints(for: player.id))")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
+                            .padding(.vertical, 4)
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                Capsule(style: .continuous)
+                                    .fill(
+                                        isLeader
+                                        ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
+                                        : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
+                                    )
+                            )
+                    }
                 }
             }
+            .padding(.horizontal, 6)
+            .padding(.vertical, 6)
+            .background(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(Color.black.opacity(colorScheme == .dark ? 0.14 : 0.06))
+            )
 
             ScrollViewReader { proxy in
                 scoresScroll(proxy: proxy)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .padding(.vertical, 16)
-        .padding(.horizontal, 4)
+        .padding(.vertical, 6)
+        .padding(.horizontal, 6)
     }
 
     private func scoresScroll(proxy: ScrollViewProxy) -> some View {
@@ -286,20 +322,27 @@ struct GameView: View {
                         ForEach(Array(model.game.hands.enumerated()), id: \.element.id) { index, hand in
                             let score = hand.pointsByPlayerID[player.id] ?? 0
                             let isEvenRow = index.isMultiple(of: 2)
-                            Text("\(score)")
-                                .font(.footnote.weight(.medium))
-                                .foregroundStyle(Color.primary)
-                                .frame(width: 56, height: 26)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                        .fill(
-                                            (isEvenRow
-                                             ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
-                                             : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
-                                            )
+                            let isMoon = isMoonHand(hand, for: player.id)
+                            Group {
+                                if isMoon {
+                                    Image(systemName: "moon.fill")
+                                } else {
+                                    Text("\(score)")
+                                }
+                            }
+                            .font(.footnote.weight(.medium))
+                            .foregroundStyle(Color.primary)
+                            .frame(width: 56, height: 26)
+                            .background(
+                                RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                    .fill(
+                                        (isEvenRow
+                                         ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
+                                         : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
                                         )
-                                )
-                                .id(hand.id)
+                                    )
+                            )
+                            .id(hand.id)
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .top)
