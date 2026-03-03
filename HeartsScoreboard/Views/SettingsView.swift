@@ -63,7 +63,7 @@ struct SettingsView: View {
                 }
 
                 Section("Appearance") {
-                    Picker("Appearance", selection: $model.settings.appearance) {
+                    Picker("Appearance", selection: appearanceBinding) {
                         ForEach(AppearancePreference.allCases) { pref in
                             Text(pref.label).tag(pref)
                         }
@@ -100,6 +100,15 @@ struct SettingsView: View {
             set: { newIndex in
                 guard n > 0 else { return }
                 model.firstDealerIndex = (newIndex - model.game.hands.count % n + n) % n
+            }
+        )
+    }
+
+    private var appearanceBinding: Binding<AppearancePreference> {
+        Binding(
+            get: { model.settings.appearance },
+            set: { newValue in
+                model.setAppearance(newValue)
             }
         )
     }

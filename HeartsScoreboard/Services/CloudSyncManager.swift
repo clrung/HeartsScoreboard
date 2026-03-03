@@ -1,6 +1,9 @@
 import Foundation
 
 /// State that is synced via iCloud key-value storage.
+///
+/// Note: Appearance preference is intentionally NOT synced. Only game-related
+/// settings (ending score, shoot-moon behavior) are shared across devices.
 struct SyncableState: Codable {
     var game: HeartsGame
     var settings: GameSettings
@@ -19,6 +22,11 @@ struct SyncableState: Codable {
         self.history = history
     }
 
+    private struct SyncedSettings: Codable {
+        var endingScore: Int
+        var shootMoonPreference: ShootMoonPreference
+    }
+
     private enum CodingKeys: String, CodingKey {
         case game
         case settings
@@ -29,9 +37,36 @@ struct SyncableState: Codable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         game = try container.decode(HeartsGame.self, forKey: .game)
-        settings = try container.decode(GameSettings.self, forKey: .settings)
         firstDealerIndex = try container.decode(Int.self, forKey: .firstDealerIndex)
         history = try container.decodeIfPresent([CompletedGame].self, forKey: .history) ?? []
+
+        // Support both new compact settings payload and legacy full GameSettings.
+        if let synced = try? container.decode(SyncedSettings.self, forKey: .settings) {
+            settings = GameSettings(
+                endingScore: synced.endingScore,
+                shootMoonPreference: synced.shootMoonPreference,
+                appearance: .system
+            )
+        } else {
+            let legacy = try container.decode(GameSettings.self, forKey: .settings)
+            settings = GameSettings(
+                endingScore: legacy.endingScore,
+                shootMoonPreference: legacy.shootMoonPreference,
+                appearance: .system
+            )
+        }
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(game, forKey: .game)
+        let synced = SyncedSettings(
+            endingScore: settings.endingScore,
+            shootMoonPreference: settings.shootMoonPreference
+        )
+        try container.encode(synced, forKey: .settings)
+        try container.encode(firstDealerIndex, forKey: .firstDealerIndex)
+        try container.encode(history, forKey: .history)
     }
 }
 

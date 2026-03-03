@@ -62,6 +62,8 @@ struct GameSettings: Codable {
 
 @Observable
 final class GameViewModel {
+    private let appearanceDefaultsKey = "HeartsScoreboardAppearancePreference"
+
     var game: HeartsGame
     var settings: GameSettings
     /// Index of the player who deals first (round 1). Dealer rotates each round. Stored on VM so UI updates when changed in Settings.
@@ -84,6 +86,8 @@ final class GameViewModel {
         self.settings = settings
         self.firstDealerIndex = firstDealerIndex
         self.history = history
+
+        applyLocalAppearancePreference()
     }
 
     /// Create from iCloud-synced state.
@@ -106,6 +110,7 @@ final class GameViewModel {
         settings = state.settings
         self.firstDealerIndex = state.firstDealerIndex
         self.history = state.history
+        applyLocalAppearancePreference()
     }
 
     func persistToCloud() {
@@ -242,6 +247,11 @@ final class GameViewModel {
         persistToCloud()
     }
 
+    func setAppearance(_ appearance: AppearancePreference) {
+        settings.appearance = appearance
+        UserDefaults.standard.set(appearance.rawValue, forKey: appearanceDefaultsKey)
+    }
+
     func winnerDescription(for completed: CompletedGame) -> String {
         winnerDescription(for: completed.game) ?? "No winner"
     }
@@ -256,6 +266,15 @@ final class GameViewModel {
             return "\(name) won!"
         } else {
             return "Game Over: " + winners.joined(separator: ", ")
+        }
+    }
+
+    // MARK: - Private
+
+    private func applyLocalAppearancePreference() {
+        if let raw = UserDefaults.standard.string(forKey: appearanceDefaultsKey),
+           let pref = AppearancePreference(rawValue: raw) {
+            settings.appearance = pref
         }
     }
 }
