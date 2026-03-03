@@ -106,31 +106,61 @@ struct GameView: View {
     }
 
     private var header: some View {
-        ZStack {
-            HStack {
-                Spacer()
-                Button {
-                    showingSettings = true
-                } label: {
-                    Image(systemName: "gearshape.fill")
-                        .font(.title2.weight(.semibold))
-                        .padding(8)
-                        .background {
-                            Capsule(style: .continuous)
-                                .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
-                        }
-                        .overlay {
-                            Capsule(style: .continuous)
-                                .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
-                        }
-                        .foregroundStyle(.primary)
+        VStack(spacing: 4) {
+            ZStack {
+                HStack {
+                    Spacer()
+                    Button {
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape.fill")
+                            .font(.title2.weight(.semibold))
+                            .padding(8)
+                            .background {
+                                Capsule(style: .continuous)
+                                    .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
+                            }
+                            .overlay {
+                                Capsule(style: .continuous)
+                                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
+                            }
+                            .foregroundStyle(.primary)
+                    }
                 }
+
+                Text("Hearts Scoreboard")
+                    .font(.title2.weight(.semibold))
             }
 
-            Text("Hearts Scoreboard")
-                .font(.title2.weight(.semibold))
+            HStack {
+                Text(headerSubtitle)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary)
+
+                Spacer()
+
+                Text("Game to: \(model.settings.endingScore)")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.primary)
+            }
+            .padding(.horizontal, 70)
         }
         .padding(.vertical, 12)
+    }
+
+    private var headerSubtitle: String {
+        if model.isGameOver {
+            return model.statusText
+        }
+
+        switch model.game.hands.count % 3 {
+        case 0:
+            return "Passing: Left \u{2190}"
+        case 1:
+            return "Passing: Right \u{2192}"
+        default:
+            return "Passing: Hold \u{270B}"
+        }
     }
 
     private var scoreboardCardBackground: Color {
@@ -167,6 +197,14 @@ struct GameView: View {
                         }
                     }
                     .frame(maxWidth: .infinity)
+
+                    HStack {
+                        ForEach(model.game.players) { player in
+                            Text("\(model.game.totalPoints(for: player.id))")
+                                .font(.body.weight(.semibold))
+                                .frame(maxWidth: .infinity)
+                        }
+                    }
 
                     ScrollViewReader { proxy in
                         ScrollView {
@@ -211,40 +249,25 @@ struct GameView: View {
     }
 
     private var bottomBar: some View {
-        VStack(spacing: 8) {
-            HStack {
-                ForEach(model.game.players) { player in
-                    Text("\(model.game.totalPoints(for: player.id))")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity)
-                }
+        HStack {
+            Button("New Game") {
+                showNewGameAlert = true
             }
+            .buttonStyle(.bordered)
+            .tint(.blue)
+            .frame(maxWidth: .infinity, alignment: .leading)
 
-            HStack {
-                Button("New Game") {
-                    showNewGameAlert = true
-                }
-                .buttonStyle(.bordered)
-                .tint(.blue)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
 
-                Text(model.statusText)
-                    .font(.body.weight(.semibold))
-                    .foregroundStyle(.primary)
-                    .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .frame(maxWidth: .infinity)
-
-                Button("Next Round") {
-                    showingRoundInput = true
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .disabled(model.isGameOver)
+            Button("Next Round") {
+                showingRoundInput = true
             }
-            .font(.callout)
+            .buttonStyle(.borderedProminent)
+            .tint(.blue)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .disabled(model.isGameOver)
         }
+        .font(.callout)
         .padding(.vertical, 12)
     }
 }
