@@ -21,6 +21,7 @@ struct GameView: View {
             }
             .padding(.horizontal)
         }
+        .preferredColorScheme(effectiveColorScheme)
         .background(
             ShakeDetectorView {
                 if !model.game.hands.isEmpty { showUndoAlert = true }
@@ -110,7 +111,8 @@ struct GameView: View {
     }
 
     private var backgroundGradient: LinearGradient {
-        switch colorScheme {
+        let scheme = effectiveColorScheme ?? colorScheme
+        switch scheme {
         case .light:
             return LinearGradient(
                 colors: [
@@ -135,6 +137,17 @@ struct GameView: View {
                 startPoint: .top,
                 endPoint: .bottom
             )
+        }
+    }
+
+    private var effectiveColorScheme: ColorScheme? {
+        switch model.settings.appearance {
+        case .system:
+            return nil
+        case .light:
+            return .light
+        case .dark:
+            return .dark
         }
     }
 

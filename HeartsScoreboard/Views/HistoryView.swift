@@ -39,6 +39,17 @@ struct HistoryView: View {
                                 .padding(.vertical, 4)
                             }
                         }
+                        .onDelete { offsets in
+                            // Map visible rows back to the model's history indices.
+                            let toDelete = offsets.map { sortedHistory[$0].id }
+                            let modelOffsets = IndexSet(
+                                model.history.enumerated()
+                                    .compactMap { index, item in
+                                        toDelete.contains(item.id) ? index : nil
+                                    }
+                            )
+                            model.deleteHistory(at: modelOffsets)
+                        }
                     } header: {
                         HStack {
                             Text("Time")

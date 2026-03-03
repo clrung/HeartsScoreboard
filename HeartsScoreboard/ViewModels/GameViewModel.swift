@@ -15,9 +15,49 @@ enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
     }
 }
 
+enum AppearancePreference: String, CaseIterable, Identifiable, Codable {
+    case system
+    case light
+    case dark
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .system: return "System"
+        case .light: return "Light"
+        case .dark: return "Dark"
+        }
+    }
+}
+
 struct GameSettings: Codable {
     var endingScore: Int = 100
     var shootMoonPreference: ShootMoonPreference = .add26
+    var appearance: AppearancePreference = .system
+
+    private enum CodingKeys: String, CodingKey {
+        case endingScore
+        case shootMoonPreference
+        case appearance
+    }
+
+    init(
+        endingScore: Int = 100,
+        shootMoonPreference: ShootMoonPreference = .add26,
+        appearance: AppearancePreference = .system
+    ) {
+        self.endingScore = endingScore
+        self.shootMoonPreference = shootMoonPreference
+        self.appearance = appearance
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        endingScore = try container.decodeIfPresent(Int.self, forKey: .endingScore) ?? 100
+        shootMoonPreference = try container.decodeIfPresent(ShootMoonPreference.self, forKey: .shootMoonPreference) ?? .add26
+        appearance = try container.decodeIfPresent(AppearancePreference.self, forKey: .appearance) ?? .system
+    }
 }
 
 @Observable
@@ -194,6 +234,11 @@ final class GameViewModel {
 
         let completed = CompletedGame(game: game, settings: settings)
         history.insert(completed, at: 0)
+        persistToCloud()
+    }
+
+    func deleteHistory(at offsets: IndexSet) {
+        history.remove(atOffsets: offsets)
         persistToCloud()
     }
 

@@ -61,6 +61,15 @@ struct SettingsView: View {
                         )
                     }
                 }
+
+                Section("Appearance") {
+                    Picker("Appearance", selection: $model.settings.appearance) {
+                        ForEach(AppearancePreference.allCases) { pref in
+                            Text(pref.label).tag(pref)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
             }
             .navigationTitle("Settings")
             .environment(\.editMode, .constant(.active))
@@ -80,6 +89,7 @@ struct SettingsView: View {
                 AboutView()
             }
         }
+        .preferredColorScheme(effectiveColorScheme)
     }
 
     /// Binding so the Picker shows/sets the current dealer (for next round), not just “first” dealer.
@@ -92,6 +102,17 @@ struct SettingsView: View {
                 model.firstDealerIndex = (newIndex - model.game.hands.count % n + n) % n
             }
         )
+    }
+
+    private var effectiveColorScheme: ColorScheme? {
+        switch model.settings.appearance {
+        case .system:
+            return nil
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
     }
 
 }
