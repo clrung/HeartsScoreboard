@@ -28,6 +28,7 @@ struct RoundInputView: View {
                                     }
                                     .buttonStyle(.borderless)
                                     .font(.headline)
+                                    .disabled(isRoundValid)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .frame(width: 32)
@@ -38,6 +39,7 @@ struct RoundInputView: View {
                                     }
                                     .buttonStyle(.borderless)
                                     .font(.headline)
+                                    .disabled(isRoundValid)
                                 }
                                 .frame(maxWidth: .infinity)
                                 .frame(maxHeight: .infinity, alignment: .center)
@@ -51,12 +53,14 @@ struct RoundInputView: View {
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.9)
                                         .frame(width: 52)
+                                        .disabled(isRoundValid)
 
                                         Button("Q♠") {
                                             addQueenOfSpades(for: player.id)
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .frame(width: 52, height: 32)
+                                        .disabled(isRoundValid)
                                     }
 
                                     VStack(spacing: 4) {
@@ -66,7 +70,7 @@ struct RoundInputView: View {
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .frame(width: 52, height: 32)
-                                        .disabled(remaining == 0)
+                                        .disabled(remaining == 0 || isRoundValid)
 
                                         Button {
                                             applyShootMoonValue(for: player.id)
@@ -75,6 +79,7 @@ struct RoundInputView: View {
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .frame(width: 52, height: 32)
+                                        .disabled(isRoundValid)
                                     }
                                 }
                             }
@@ -91,7 +96,7 @@ struct RoundInputView: View {
 
                         VStack(alignment: .leading, spacing: 4) {
                             if model.settings.shootMoonPreference == .add26 {
-                                Text("Adds 26 points to every other player's score.")
+                                Text("Adds 26 points to every other players' score.")
                                     .font(.footnote)
                                     .foregroundStyle(.secondary)
                             }
@@ -139,12 +144,12 @@ struct RoundInputView: View {
 
     private func adjustPoints(for playerID: UUID, delta: Int) {
         let current = points[playerID] ?? 0
-        let newValue = max(minimumRoundScore, min(26, current + delta))
+        let newValue = max(0, min(26, current + delta))
         points[playerID] = newValue
     }
 
     private func setPoints(for playerID: UUID, to value: Int) {
-        let newValue = max(minimumRoundScore, min(26, value))
+        let newValue = max(0, min(26, value))
         points[playerID] = newValue
     }
 
@@ -175,10 +180,6 @@ struct RoundInputView: View {
             let current = points[shooterID] ?? 0
             points[shooterID] = max(-26, current - 26)
         }
-    }
-
-    private var minimumRoundScore: Int {
-        model.settings.shootMoonPreference == .subtract26 ? -26 : 0
     }
 
     /// Valid Hearts round: total is 26 (split among ≥2 players), -26, or (players - 1) * 26 (shoot the moon). One player having 26 and the rest 0 is invalid.
