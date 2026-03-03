@@ -29,10 +29,10 @@ final class GameViewModel {
 
     init(
         game: HeartsGame = HeartsGame(players: [
-            .init(id: UUID(), name: "Dad"),
-            .init(id: UUID(), name: "Allie"),
-            .init(id: UUID(), name: "Christopher"),
-            .init(id: UUID(), name: "Mom")
+            .init(id: UUID(), name: "Ace"),
+            .init(id: UUID(), name: "Deuce"),
+            .init(id: UUID(), name: "Trey"),
+            .init(id: UUID(), name: "Queen")
         ]),
         settings: GameSettings = GameSettings(),
         firstDealerIndex: Int = 0
@@ -93,7 +93,42 @@ final class GameViewModel {
     }
 
     func movePlayers(from source: IndexSet, to destination: Int) {
+        let currentDealerID: UUID? = {
+            guard game.players.indices.contains(firstDealerIndex) else { return nil }
+            return game.players[firstDealerIndex].id
+        }()
+
         game.players.move(fromOffsets: source, toOffset: destination)
+
+        if let dealerID = currentDealerID,
+           let newIndex = game.players.firstIndex(where: { $0.id == dealerID }) {
+            firstDealerIndex = newIndex
+        }
+
+        persistToCloud()
+    }
+
+    func addPlayer() {
+        guard game.players.count < 6 else { return }
+        let defaultName = "Player \(game.players.count + 1)"
+        game.players.append(.init(id: UUID(), name: defaultName))
+        persistToCloud()
+    }
+
+    func deletePlayers(at offsets: IndexSet) {
+        guard !offsets.isEmpty else { return }
+        let currentCount = game.players.count
+        let maxRemovable = max(0, currentCount - 3)
+        guard maxRemovable > 0 else { return }
+
+        let sorted = offsets.sorted()
+        let indicesToRemove = Array(sorted.prefix(maxRemovable))
+        game.players.remove(atOffsets: IndexSet(indicesToRemove))
+
+        if firstDealerIndex >= game.players.count {
+            firstDealerIndex = max(0, game.players.count - 1)
+        }
+
         persistToCloud()
     }
 

@@ -10,10 +10,25 @@ struct SettingsView: View {
         NavigationStack {
             Form {
                 Section("Players") {
-                    ForEach(model.game.players.indices, id: \.self) { index in
-                        TextField("Player", text: $model.game.players[index].name)
+                    ForEach($model.game.players) { $player in
+                        TextField("Player", text: $player.name)
                     }
-                    .onMove(perform: movePlayers)
+                    .onMove(perform: model.movePlayers)
+                    .onDelete(perform: model.deletePlayers)
+
+                    if model.game.players.count < 6 {
+                        Button {
+                            model.addPlayer()
+                        } label: {
+                            Label("Add Player", systemImage: "plus.circle.fill")
+                        }
+                    }
+
+                    if model.game.players.count <= 3 {
+                        Text("Hearts supports 3–6 players.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
                 }
 
                 Picker("Dealer", selection: dealerBinding) {
@@ -83,9 +98,6 @@ struct SettingsView: View {
         )
     }
 
-    private func movePlayers(from source: IndexSet, to destination: Int) {
-        model.game.players.move(fromOffsets: source, toOffset: destination)
-    }
 }
 
 #Preview {

@@ -4,7 +4,7 @@ struct AboutView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
 
-    private static let appStoreURL = URL(string: "https://apps.apple.com/app/idXXXXXXXXX")!
+    private static let appStoreURL = URL(string: "https://apps.apple.com/app/id1033609492")!
     private static let websiteURL = URL(string: "https://christopherrung.com")!
 
     var body: some View {
