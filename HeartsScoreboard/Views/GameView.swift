@@ -98,7 +98,7 @@ struct GameView: View {
         case .dark:
             return Color(red: 0.14, green: 0.22, blue: 0.18)
         default:
-            return Color(.systemBackground)
+            return Color(red: 0.8, green: 1, blue: 0.7)
         }
     }
 

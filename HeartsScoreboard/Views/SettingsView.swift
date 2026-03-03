@@ -4,6 +4,7 @@ import Observation
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var model: GameViewModel
+    @State private var showingAbout = false
 
     var body: some View {
         NavigationStack {
@@ -57,9 +58,19 @@ struct SettingsView: View {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingAbout = true
+                    } label: {
+                        Image(systemName: "info.circle.fill")
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                 }
+            }
+            .sheet(isPresented: $showingAbout) {
+                AboutView()
             }
         }
     }
