@@ -159,18 +159,19 @@ struct GameView: View {
 
                 Text("Hearts Scoreboard")
                     .font(.title2.weight(.semibold))
+                    .foregroundStyle(Color.white)
             }
 
             HStack {
                 Text(headerSubtitle)
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.white)
 
                 Spacer()
 
                 Text("Game to: \(model.settings.endingScore)")
                     .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(.primary)
+                    .foregroundStyle(Color.white)
             }
             .padding(.horizontal, 70)
         }
@@ -282,19 +283,20 @@ struct GameView: View {
                 HStack {
                     ForEach(model.game.players) { player in
                         let isLeader = leadingPlayerIDs.contains(player.id)
-                        Text("\(model.game.totalPoints(for: player.id))")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
-                            .padding(.vertical, 4)
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                Capsule(style: .continuous)
-                                    .fill(
-                                        isLeader
-                                        ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
-                                        : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
-                                    )
-                            )
+                        ZStack {
+                            Capsule(style: .continuous)
+                                .fill(
+                                    isLeader
+                                    ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
+                                    : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
+                                )
+                                .frame(width: 36, height: 26)
+
+                            Text("\(model.game.totalPoints(for: player.id))")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
+                        }
+                        .frame(maxWidth: .infinity)
                     }
                 }
             }
