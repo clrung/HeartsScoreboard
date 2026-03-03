@@ -10,7 +10,7 @@ struct GameView: View {
 
     var body: some View {
         ZStack {
-            backgroundColor
+            backgroundGradient
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
@@ -105,6 +105,35 @@ struct GameView: View {
         }
     }
 
+    private var backgroundGradient: LinearGradient {
+        switch colorScheme {
+        case .light:
+            return LinearGradient(
+                colors: [
+                    Color(red: 0.0, green: 0.55, blue: 0.25),
+                    Color(red: 0.5, green: 0.95, blue: 0.55)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        case .dark:
+            return LinearGradient(
+                colors: [
+                    Color(red: 0.03, green: 0.16, blue: 0.10),
+                    Color(red: 0.02, green: 0.28, blue: 0.18)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        @unknown default:
+            return LinearGradient(
+                colors: [Color.green, Color.green.opacity(0.7)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
+    }
+
     private var header: some View {
         VStack(spacing: 4) {
             ZStack {
@@ -163,95 +192,138 @@ struct GameView: View {
         }
     }
 
+    private var leadingPlayerIDs: Set<UUID> {
+        let totals = model.game.totals()
+        guard let minTotal = totals.map(\.total).min() else { return [] }
+        let leaders = totals.filter { $0.total == minTotal }.map { $0.player.id }
+        return Set(leaders)
+    }
+
     private var scoreboardCardBackground: Color {
         switch colorScheme {
         case .dark:
-            return Color(red: 0.14, green: 0.22, blue: 0.18)
+            return Color(red: 0.10, green: 0.18, blue: 0.14)
         default:
-            return Color(red: 0.8, green: 1, blue: 0.7)
+            return Color(red: 0.86, green: 1.0, blue: 0.91)
         }
     }
 
     private var scoreboard: some View {
-        RoundedRectangle(cornerRadius: 16, style: .continuous)
-            .fill(scoreboardCardBackground)
-            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.3 : 0.05), radius: 8, x: 0, y: 4)
+        RoundedRectangle(cornerRadius: 24, style: .continuous)
+            .fill(.ultraThinMaterial)
+            .background(
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .fill(scoreboardCardBackground.opacity(colorScheme == .dark ? 0.9 : 0.85))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: 1)
+            )
+            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
             .overlay(alignment: .top) {
-                VStack(spacing: 12) {
-                    HStack(spacing: 0) {
-                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                            VStack(spacing: 6) {
-                                ZStack {
-                                    if index == dealerIndex {
-                                        dealerBadge
-                                    }
-                                }
-                                .frame(height: 30)
-                                Text(player.name)
-                                    .font(.headline)
-                                    .lineLimit(1)
-                                    .truncationMode(.tail)
-                                    .frame(maxWidth: .infinity)
-                            }
-                            .frame(maxWidth: .infinity)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-
-                    HStack {
-                        ForEach(model.game.players) { player in
-                            Text("\(model.game.totalPoints(for: player.id))")
-                                .font(.body.weight(.semibold))
-                                .frame(maxWidth: .infinity)
-                        }
-                    }
-
-                    ScrollViewReader { proxy in
-                        ScrollView {
-                            HStack(alignment: .top, spacing: 0) {
-                                ForEach(model.game.players) { player in
-                                    VStack(spacing: 8) {
-                                        ForEach(model.game.hands) { hand in
-                                            let score = hand.pointsByPlayerID[player.id] ?? 0
-                                            Text("\(score)")
-                                                .font(.body.weight(.medium))
-                                                .frame(width: 56, height: 28)
-                                                .background(
-                                                    Capsule()
-                                                        .fill(Color(.systemGreen).opacity(0.15))
-                                                )
-                                                .id(hand.id)
-                                        }
-                                    }
-                                    .frame(maxWidth: .infinity, alignment: .top)
-                                }
-                            }
-                            .frame(maxWidth: .infinity)
-                            .padding(.bottom, 8)
-                        }
-                        .frame(maxHeight: .infinity)
-                        .scrollIndicators(.visible)
-                        .onChange(of: model.game.hands.count) {
-                            withAnimation {
-                                if let lastHand = model.game.hands.last {
-                                    proxy.scrollTo(lastHand.id, anchor: .bottom)
-                                }
-                            }
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                .padding(.vertical, 16)
-                .padding(.horizontal, 4)
+                scoreboardContent
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top, 8)
     }
 
+    private var scoreboardContent: some View {
+        VStack(spacing: 12) {
+            HStack(spacing: 0) {
+                ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                    VStack(spacing: 6) {
+                        ZStack {
+                            if index == dealerIndex {
+                                dealerBadge
+                            }
+                        }
+                        .frame(height: 30)
+                        Text(player.name)
+                            .font(.headline.weight(.semibold))
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                            .frame(maxWidth: .infinity)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+            .frame(maxWidth: .infinity)
+
+            HStack {
+                ForEach(model.game.players) { player in
+                    let isLeader = leadingPlayerIDs.contains(player.id)
+                    Text("\(model.game.totalPoints(for: player.id))")
+                        .font(.title3.weight(.semibold))
+                        .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
+                        .padding(.vertical, 4)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(
+                                    isLeader
+                                    ? Color.yellow.opacity(colorScheme == .dark ? 0.35 : 0.45)
+                                    : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.18)
+                                )
+                        )
+                }
+            }
+
+            ScrollViewReader { proxy in
+                scoresScroll(proxy: proxy)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.vertical, 16)
+        .padding(.horizontal, 4)
+    }
+
+    private func scoresScroll(proxy: ScrollViewProxy) -> some View {
+        ScrollView {
+            HStack(alignment: .top, spacing: 0) {
+                ForEach(model.game.players) { player in
+                    VStack(spacing: 8) {
+                        ForEach(Array(model.game.hands.enumerated()), id: \.element.id) { index, hand in
+                            let score = hand.pointsByPlayerID[player.id] ?? 0
+                            let isEvenRow = index.isMultiple(of: 2)
+                            Text("\(score)")
+                                .font(.callout.weight(.medium))
+                                .frame(width: 56, height: 26)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                                        .fill(
+                                            (isEvenRow
+                                             ? Color.white.opacity(colorScheme == .dark ? 0.04 : 0.12)
+                                             : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
+                                            )
+                                        )
+                                )
+                                .id(hand.id)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .top)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.bottom, 8)
+            .animation(.spring(response: 0.35, dampingFraction: 0.85), value: model.game.hands.count)
+        }
+        .frame(maxHeight: .infinity)
+        .scrollIndicators(.visible)
+        .onChange(of: model.game.hands.count) {
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
+                if let lastHand = model.game.hands.last {
+                    proxy.scrollTo(lastHand.id, anchor: .bottom)
+                }
+            }
+        }
+    }
+
     private var bottomBar: some View {
         HStack {
-            Button("New Game") {
+            Button {
                 showNewGameAlert = true
+            } label: {
+                Label("New Game", systemImage: "arrow.counterclockwise")
             }
             .buttonStyle(.bordered)
             .tint(.blue)
@@ -259,8 +331,10 @@ struct GameView: View {
 
             Spacer()
 
-            Button("Next Round") {
+            Button {
                 showingRoundInput = true
+            } label: {
+                Label("Next Round", systemImage: "arrow.right.circle.fill")
             }
             .buttonStyle(.borderedProminent)
             .tint(.blue)
