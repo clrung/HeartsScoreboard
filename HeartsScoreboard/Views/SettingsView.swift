@@ -42,15 +42,6 @@ struct SettingsView: View {
                         model.firstDealerIndex = max(0, newCount - 1)
                     }
                 }
-
-                Section("Shoot the Moon Preference") {
-                    Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
-                        ForEach(ShootMoonPreference.allCases) { pref in
-                            Text(pref.label).tag(pref)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
                 
                 Section("Ending Score") {
                     VStack(alignment: .leading) {

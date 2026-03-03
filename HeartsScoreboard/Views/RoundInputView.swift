@@ -14,46 +14,57 @@ struct RoundInputView: View {
         NavigationStack {
             VStack {
                 Form {
-                    ForEach(model.game.players) { player in
-                        HStack {
-                            Text(player.name)
-                                .frame(width: 110, alignment: .leading)
-                            Spacer()
+                    Section {
+                        ForEach(model.game.players) { player in
+                            HStack {
+                                Text(player.name)
+                                    .frame(width: 110, alignment: .leading)
+                                Spacer()
 
-                            HStack(spacing: 8) {
-                                Button("-") {
-                                    adjustPoints(for: player.id, delta: -1)
+                                HStack(spacing: 8) {
+                                    Button("-") {
+                                        adjustPoints(for: player.id, delta: -1)
+                                    }
+                                    .buttonStyle(.borderless)
+                                    .frame(width: 24)
+
+                                    Text("\(points[player.id] ?? 0)")
+                                        .frame(width: 32)
+                                        .font(.headline)
+
+                                    Button("+") {
+                                        adjustPoints(for: player.id, delta: 1)
+                                    }
+                                    .buttonStyle(.borderless)
+                                    .frame(width: 24)
+
+                                    Button("+5") {
+                                        adjustPoints(for: player.id, delta: 5)
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.9)
+                                    .frame(width: 44)
+
+                                    Button {
+                                        applyShootMoonValue(for: player.id)
+                                    } label: {
+                                        Image(systemName: "moon.fill")
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .frame(width: 44, height: 36)
                                 }
-                                .buttonStyle(.borderless)
-                                .frame(width: 24)
-
-                                Text("\(points[player.id] ?? 0)")
-                                    .frame(width: 32)
-                                    .font(.headline)
-
-                                Button("+") {
-                                    adjustPoints(for: player.id, delta: 1)
-                                }
-                                .buttonStyle(.borderless)
-                                .frame(width: 24)
-
-                                Button("+5") {
-                                    adjustPoints(for: player.id, delta: 5)
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .lineLimit(1)
-                                .minimumScaleFactor(0.9)
-                                .frame(width: 44)
-
-                                Button {
-                                    applyShootMoonValue(for: player.id)
-                                } label: {
-                                    Image(systemName: "moon.fill")
-                                }
-                                .buttonStyle(.borderedProminent)
-                                .frame(width: 44, height: 36)
                             }
                         }
+                    }
+
+                    Section("Shoot the Moon Preference") {
+                        Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
+                            ForEach(ShootMoonPreference.allCases) { pref in
+                                Text(pref.label).tag(pref)
+                            }
+                        }
+                        .pickerStyle(.segmented)
                     }
                 }
 
@@ -61,20 +72,19 @@ struct RoundInputView: View {
                     Button("Back") {
                         dismiss()
                     }
-
-                    Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                     Button("Reset") {
                         reset()
                     }
-
-                    Spacer()
+                    .frame(maxWidth: .infinity)
 
                     Button("Submit") {
                         submit()
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(!isRoundValid)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 .padding(.horizontal)
                 .padding(.vertical)
