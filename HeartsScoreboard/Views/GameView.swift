@@ -339,8 +339,8 @@ struct GameView: View {
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(
                                         (isEvenRow
-                                         ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
-                                         : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
+                                         ? Color.white.opacity(colorScheme == .dark ? 0.15 : 0.35)
+                                         : Color.white.opacity(colorScheme == .dark ? 0.3 : 0.7)
                                         )
                                     )
                             )
