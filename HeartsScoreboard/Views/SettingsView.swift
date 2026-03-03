@@ -16,21 +16,19 @@ struct SettingsView: View {
                     .onMove(perform: movePlayers)
                 }
 
-                Section("Dealer") {
-                    Picker("Dealer", selection: dealerBinding) {
-                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                            Text(player.name).tag(index)
-                        }
+                Picker("Dealer", selection: dealerBinding) {
+                    ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                        Text(player.name).tag(index)
                     }
-                    .pickerStyle(.menu)
-                    .onChange(of: model.game.players.count) { _, newCount in
-                        if model.firstDealerIndex >= newCount {
-                            model.firstDealerIndex = max(0, newCount - 1)
-                        }
+                }
+                .pickerStyle(.menu)
+                .onChange(of: model.game.players.count) { _, newCount in
+                    if model.firstDealerIndex >= newCount {
+                        model.firstDealerIndex = max(0, newCount - 1)
                     }
                 }
 
-                Section("Shoot the moon preference") {
+                Section("Shoot the Moon Preference") {
                     Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
                         ForEach(ShootMoonPreference.allCases) { pref in
                             Text(pref.label).tag(pref)
@@ -53,7 +51,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .navigationTitle("Hearts Scoreboard")
+            .navigationTitle("Settings")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     EditButton()

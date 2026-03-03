@@ -35,7 +35,7 @@ struct AboutView: View {
                             .multilineTextAlignment(.center)
                             .padding(.horizontal)
 
-                        Text("I would love to hear your feedback")
+                        Text("I would love to hear your feedback!")
                             .font(.body.weight(.medium))
                             .foregroundStyle(.primary)
                             .multilineTextAlignment(.center)
