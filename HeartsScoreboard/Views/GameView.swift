@@ -62,13 +62,36 @@ struct GameView: View {
     private var dealerIndex: Int { model.currentDealerIndex }
 
     private var dealerBadge: some View {
-        ZStack {
-            Circle()
-                .strokeBorder(Color.primary, lineWidth: 1.5)
-            Text("D")
-                .font(.caption.weight(.bold))
+        Text("D")
+            .font(.system(size: 11, weight: .bold, design: .rounded))
+            .foregroundStyle(.white)
+            .frame(width: 26, height: 26)
+            .background {
+                Circle()
+                    .fill(dealerBadgeGradient)
+            }
+            .overlay {
+                Circle()
+                    .strokeBorder(Color.white.opacity(colorScheme == .dark ? 0.35 : 0.5), lineWidth: 1)
+            }
+            .shadow(color: .black.opacity(colorScheme == .dark ? 0.4 : 0.15), radius: 2, x: 0, y: 1)
+    }
+
+    private var dealerBadgeGradient: LinearGradient {
+        switch colorScheme {
+        case .dark:
+            return LinearGradient(
+                colors: [Color(red: 0.2, green: 0.45, blue: 0.28), Color(red: 0.12, green: 0.32, blue: 0.2)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        default:
+            return LinearGradient(
+                colors: [Color(red: 0.15, green: 0.55, blue: 0.25), Color(red: 0.08, green: 0.42, blue: 0.18)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         }
-        .frame(width: 22, height: 22)
     }
 
     private var backgroundColor: Color {
