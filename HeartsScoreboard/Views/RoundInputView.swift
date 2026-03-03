@@ -125,17 +125,22 @@ struct RoundInputView: View {
                     Button("Back") {
                         dismiss()
                     }
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                     Button("Reset") {
                         reset()
                     }
+                    .buttonStyle(.bordered)
+                    .tint(.blue)
                     .frame(maxWidth: .infinity)
 
                     Button("Submit") {
                         submit()
                     }
                     .buttonStyle(.borderedProminent)
+                    .tint(.blue)
                     .disabled(!isRoundValid)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                 }

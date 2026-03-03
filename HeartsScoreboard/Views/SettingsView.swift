@@ -24,11 +24,9 @@ struct SettingsView: View {
                         }
                     }
 
-                    if model.game.players.count <= 3 {
-                        Text("Hearts supports 3–6 players.")
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                    }
+                    Text("Hearts supports 3–6 players.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
 
                 Picker("Dealer", selection: dealerBinding) {
