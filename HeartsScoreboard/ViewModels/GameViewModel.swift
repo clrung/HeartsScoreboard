@@ -265,7 +265,7 @@ final class GameViewModel {
         } else if winners.count == 1, let name = winners.first {
             return "\(name) won!"
         } else {
-            return "Game Over: " + winners.joined(separator: ", ")
+            return "\(winners.joined(separator: ", ")) won!"
         }
     }
 

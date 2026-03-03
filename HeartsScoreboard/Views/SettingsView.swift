@@ -89,7 +89,6 @@ struct SettingsView: View {
                 AboutView()
             }
         }
-        .preferredColorScheme(effectiveColorScheme)
     }
 
     /// Binding so the Picker shows/sets the current dealer (for next round), not just “first” dealer.
@@ -111,17 +110,6 @@ struct SettingsView: View {
                 model.setAppearance(newValue)
             }
         )
-    }
-
-    private var effectiveColorScheme: ColorScheme? {
-        switch model.settings.appearance {
-        case .system:
-            return nil
-        case .light:
-            return .light
-        case .dark:
-            return .dark
-        }
     }
 
 }
