@@ -16,17 +16,15 @@ struct RoundInputView: View {
                 Form {
                     Section {
                         ForEach(model.game.players) { player in
-                            HStack {
+                            HStack(alignment: .top, spacing: 12) {
                                 Text(player.name)
                                     .frame(width: 110, alignment: .leading)
-                                Spacer()
 
-                                HStack(spacing: 8) {
+                                HStack(spacing: 4) {
                                     Button("-") {
                                         adjustPoints(for: player.id, delta: -1)
                                     }
                                     .buttonStyle(.borderless)
-                                    .frame(width: 24)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .frame(width: 32)
@@ -36,23 +34,43 @@ struct RoundInputView: View {
                                         adjustPoints(for: player.id, delta: 1)
                                     }
                                     .buttonStyle(.borderless)
-                                    .frame(width: 24)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .center)
 
-                                    Button("+5") {
-                                        adjustPoints(for: player.id, delta: 5)
-                                    }
-                                    .buttonStyle(.borderedProminent)
-                                    .lineLimit(1)
-                                    .minimumScaleFactor(0.9)
-                                    .frame(width: 44)
+                                HStack(spacing: 12) {
+                                    VStack(spacing: 4) {
+                                        Button("+5") {
+                                            adjustPoints(for: player.id, delta: 5)
+                                        }
+                                        .buttonStyle(.borderedProminent)
+                                        .lineLimit(1)
+                                        .minimumScaleFactor(0.9)
+                                        .frame(width: 52)
 
-                                    Button {
-                                        applyShootMoonValue(for: player.id)
-                                    } label: {
-                                        Image(systemName: "moon.fill")
+                                        Button("Q♠") {
+                                            addQueenOfSpades(for: player.id)
+                                        }
+                                        .buttonStyle(.borderedProminent)
+                                        .frame(width: 52, height: 32)
                                     }
-                                    .buttonStyle(.borderedProminent)
-                                    .frame(width: 44, height: 36)
+
+                                    VStack(spacing: 4) {
+                                        let remaining = remainingPoints(for: player.id)
+                                        Button("+\(remaining)") {
+                                            addRemainingPoints(for: player.id)
+                                        }
+                                        .buttonStyle(.borderedProminent)
+                                        .frame(width: 52, height: 32)
+                                        .disabled(remaining == 0)
+
+                                        Button {
+                                            applyShootMoonValue(for: player.id)
+                                        } label: {
+                                            Image(systemName: "moon.fill")
+                                        }
+                                        .buttonStyle(.borderedProminent)
+                                        .frame(width: 52, height: 32)
+                                    }
                                 }
                             }
                         }
@@ -108,6 +126,22 @@ struct RoundInputView: View {
     private func setPoints(for playerID: UUID, to value: Int) {
         let newValue = max(minimumRoundScore, min(26, value))
         points[playerID] = newValue
+    }
+
+    private func addQueenOfSpades(for playerID: UUID) {
+        adjustPoints(for: playerID, delta: 13)
+    }
+
+    private func remainingPoints(for playerID: UUID) -> Int {
+        let total = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        let remaining = 26 - total
+        return max(0, remaining)
+    }
+
+    private func addRemainingPoints(for playerID: UUID) {
+        let delta = remainingPoints(for: playerID)
+        guard delta > 0 else { return }
+        adjustPoints(for: playerID, delta: delta)
     }
 
     /// Shoot the moon: Add 26 = shooter gets 0, everyone else gets 26. Subtract 26 = tapped player gets -26, others unchanged.
