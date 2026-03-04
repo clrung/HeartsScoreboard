@@ -6,6 +6,8 @@ struct AboutView: View {
     private static let appStoreURL = URL(string: "https://apps.apple.com/app/id1033609492")!
     private static let feedbackURL = URL(string: "mailto:clrung@gmail.com")!
     private static let sourceURL = URL(string: "https://github.com/clrung/HeartsScoreboard/")!
+    /// PayPal donation link; amount=5 USD, recipient clrung@gmail.com
+    private static let donateURL = URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=clrung%40gmail.com&item_name=Hearts%20Scoreboard%20Donation&amount=5&currency_code=USD")!
 
     private var appVersion: String {
         let short = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
@@ -58,6 +60,18 @@ struct AboutView: View {
                         Spacer()
                         Text(appVersion)
                             .foregroundStyle(.secondary)
+                    }
+                }
+
+                Section {
+                    Link(destination: AboutView.donateURL) {
+                        HStack {
+                            Text("Donate a coffee for Christopher")
+                            Spacer()
+                            Image(systemName: "cup.and.saucer.fill")
+                                .font(.body)
+                                .foregroundStyle(.brown)
+                        }
                     }
                 }
                 
