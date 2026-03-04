@@ -1,3 +1,0 @@
-・Enhanced game over screen
-・Current dealer stands out even more
-・More consistent button colors
