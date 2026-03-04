@@ -5,7 +5,7 @@ struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var model: GameViewModel
     @AppStorage("HeartsScoreboardHistoryDeleteHintShown") private var hasSeenDeleteHint = false
-    @State private var editMode: EditMode = .inactive
+    @State private var showDeletePeek = false
 
     private var sortedHistory: [CompletedGame] {
         model.history.sorted { $0.finishedAt > $1.finishedAt }
@@ -19,38 +19,51 @@ struct HistoryView: View {
                         .foregroundStyle(.secondary)
                 } else {
                     Section {
-                        ForEach(sortedHistory) { game in
+                        ForEach(Array(sortedHistory.enumerated()), id: \.element.id) { index, game in
                             NavigationLink {
                                 HistoryDetailView(completedGame: game)
                             } label: {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(game.finishedAt, format: .dateTime.month().day().year())
-                                            .font(.subheadline)
-                                        Text(game.finishedAt, format: .dateTime.hour().minute())
-                                            .font(.footnote)
-                                            .foregroundStyle(.secondary)
+                                let isPeekRow = index == 0 && showDeletePeek
+
+                                ZStack(alignment: .trailing) {
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            Text(game.finishedAt, format: .dateTime.month().day().year())
+                                                .font(.subheadline)
+                                            Text(game.finishedAt, format: .dateTime.hour().minute())
+                                                .font(.footnote)
+                                                .foregroundStyle(.secondary)
+                                        }
+
+                                        Spacer()
+
+                                        Text(game.winnerDescription)
+                                            .font(.subheadline.weight(.semibold))
+                                            .multilineTextAlignment(.trailing)
                                     }
+                                    .padding(.vertical, 4)
+                                    .offset(x: isPeekRow ? -72 : 0)
 
-                                    Spacer()
-
-                                    Text(game.winnerDescription)
-                                        .font(.subheadline.weight(.semibold))
-                                        .multilineTextAlignment(.trailing)
+                                    if index == 0 {
+                                        Image(systemName: "trash.fill")
+                                            .font(.title3)
+                                            .foregroundStyle(.white)
+                                            .padding(.vertical, 8)
+                                            .padding(.horizontal, 12)
+                                            .background(Color.red)
+                                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                            .opacity(isPeekRow ? 1 : 0)
+                                    }
                                 }
-                                .padding(.vertical, 4)
+                                .animation(.easeInOut(duration: 0.35), value: showDeletePeek)
                             }
-                        }
-                        .onDelete { offsets in
-                            // Map visible rows back to the model's history indices.
-                            let toDelete = offsets.map { sortedHistory[$0].id }
-                            let modelOffsets = IndexSet(
-                                model.history.enumerated()
-                                    .compactMap { index, item in
-                                        toDelete.contains(item.id) ? index : nil
-                                    }
-                            )
-                            model.deleteHistory(at: modelOffsets)
+                            .swipeActions(edge: .trailing) {
+                                Button(role: .destructive) {
+                                    delete(game: game)
+                                } label: {
+                                    Label("Delete", systemImage: "trash")
+                                }
+                            }
                         }
                     } header: {
                         HStack {
@@ -63,7 +76,6 @@ struct HistoryView: View {
                     }
                 }
             }
-            .environment(\.editMode, $editMode)
             .navigationTitle("Game History")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -73,13 +85,22 @@ struct HistoryView: View {
             .onAppear {
                 if !hasSeenDeleteHint, !sortedHistory.isEmpty {
                     hasSeenDeleteHint = true
-                    editMode = .active
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                        editMode = .inactive
+                    showDeletePeek = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        withAnimation {
+                            showDeletePeek = false
+                        }
                     }
                 }
             }
         }
+    }
+}
+
+private extension HistoryView {
+    func delete(game: CompletedGame) {
+        guard let idx = model.history.firstIndex(where: { $0.id == game.id }) else { return }
+        model.deleteHistory(at: IndexSet(integer: idx))
     }
 }
 
