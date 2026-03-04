@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var model = GameViewModel(initialState: CloudSyncManager.shared.load())
     @State private var showingRoundInput = false
     @State private var showingSettings = false
@@ -67,18 +68,34 @@ struct GameView: View {
 
     private var dealerBadge: some View {
         Text("D")
-            .font(.system(size: 11, weight: .bold, design: .rounded))
+            .font(.caption.weight(.bold))
             .foregroundStyle(.white)
-            .frame(width: 26, height: 26)
+            .padding(.horizontal, 6 * dealerBadgeScale)
+            .padding(.vertical, 4 * dealerBadgeScale)
             .background {
-                Circle()
+                Capsule()
                     .fill(dealerBadgeGradient)
             }
             .overlay {
-                Circle()
+                Capsule()
                     .strokeBorder(Color.white.opacity(colorScheme == .dark ? 0.35 : 0.5), lineWidth: 1)
             }
             .shadow(color: .black.opacity(colorScheme == .dark ? 0.4 : 0.15), radius: 2, x: 0, y: 1)
+    }
+
+    private var dealerBadgeScale: CGFloat {
+        switch dynamicTypeSize {
+        case .xSmall, .small, .medium:
+            return 1.3
+        case .large, .xLarge:
+            return 1.5
+        case .xxLarge:
+            return 1.7
+        case .xxxLarge, .accessibility1:
+            return 1.9
+        default:
+            return 2.1
+        }
     }
 
     private var dealerBadgeGradient: LinearGradient {
