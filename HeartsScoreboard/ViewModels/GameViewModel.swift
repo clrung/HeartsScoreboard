@@ -9,8 +9,8 @@ enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
 
     var label: String {
         switch self {
-        case .add26: return "Add 26"
-        case .subtract26: return "Subtract 26"
+        case .add26: return String(localized: "Add 26")
+        case .subtract26: return String(localized: "Subtract 26")
         }
     }
 }
@@ -24,9 +24,9 @@ enum AppearancePreference: String, CaseIterable, Identifiable, Codable {
 
     var label: String {
         switch self {
-        case .system: return "System"
-        case .light: return "Light"
-        case .dark: return "Dark"
+        case .system: return String(localized: "System")
+        case .light: return String(localized: "Light")
+        case .dark: return String(localized: "Dark")
         }
     }
 }
@@ -227,15 +227,15 @@ final class GameViewModel {
 
     var statusText: String {
         if isGameOver {
-            return winnerDescription(for: game) ?? "Game over"
+            return winnerDescription(for: game) ?? String(localized: "Game over")
         }
         switch game.hands.count % 3 {
         case 0:
-            return "Pass to the Left"
+            return String(localized: "Pass to the Left")
         case 1:
-            return "Pass to the Right"
+            return String(localized: "Pass to the Right")
         default:
-            return "Hold on Tight!"
+            return String(localized: "Hold on Tight!")
         }
     }
 
@@ -265,7 +265,7 @@ final class GameViewModel {
     }
 
     func winnerDescription(for completed: CompletedGame) -> String {
-        winnerDescription(for: completed.game) ?? "No winner"
+        winnerDescription(for: completed.game) ?? String(localized: "No winner")
     }
 
     private func winnerDescription(for game: HeartsGame) -> String? {
@@ -275,9 +275,9 @@ final class GameViewModel {
         if winners.isEmpty {
             return nil
         } else if winners.count == 1, let name = winners.first {
-            return "\(name) won!"
+            return String(format: String(localized: "%@ won!"), name)
         } else {
-            return "\(winners.joined(separator: ", ")) won!"
+            return String(format: String(localized: "%@ won!"), winners.joined(separator: ", "))
         }
     }
 

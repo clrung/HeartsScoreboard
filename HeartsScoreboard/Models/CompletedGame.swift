@@ -15,10 +15,10 @@ struct CompletedGame: Identifiable, Codable {
 
     var winnerDescription: String {
         let totals = game.totals()
-        guard let minTotal = totals.map(\.total).min() else { return "No winner" }
+        guard let minTotal = totals.map(\.total).min() else { return String(localized: "No winner") }
         let winners = totals.filter { $0.total == minTotal }.map(\.player.name)
         if winners.isEmpty {
-            return "No winner"
+            return String(localized: "No winner")
         } else if winners.count == 1, let name = winners.first {
             return name
         } else {

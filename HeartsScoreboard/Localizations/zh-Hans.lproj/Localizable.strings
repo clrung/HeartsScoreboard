@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "否";
+"Yes" = "是";
+
+/* Alerts */
+"Undo last round" = "撤销上一轮";
+"Are you sure you would like to undo the last round?" = "确定要撤销上一轮吗？";
+"New Game" = "新游戏";
+"Are you sure? This will clear all round scores." = "确定吗？将清除所有轮次分数。";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "红心大战计分";
+"Game to: %d" = "目标分数：%d";
+"Pass: Left ←" = "传牌：左 ←";
+"Pass: Right →" = "传牌：右 →";
+"Pass: Hold ✋" = "传牌：留 ✋";
+"Next Round" = "下一轮";
+
+/* Game status (ViewModel) */
+"Game over" = "游戏结束";
+"Pass to the Left" = "向左传牌";
+"Pass to the Right" = "向右传牌";
+"Hold on Tight!" = "留牌！";
+"No winner" = "无赢家";
+"%@ won!" = "%@ 赢了！";
+
+/* Settings */
+"Players" = "玩家";
+"Player" = "玩家";
+"Add Player" = "添加玩家";
+"Hearts supports 3–6 players." = "红心大战支持 3–6 名玩家。";
+"Dealer" = "发牌者";
+"Ending Score" = "结束分数";
+"Ending Score: %d" = "结束分数：%d";
+"Appearance" = "外观";
+"Settings" = "设置";
+"Done" = "完成";
+
+/* Appearance options */
+"System" = "系统";
+"Light" = "浅色";
+"Dark" = "深色";
+
+/* Shoot the moon */
+"Add 26" = "加 26";
+"Subtract 26" = "减 26";
+
+/* History */
+"No completed games yet." = "暂无已完成的游戏。";
+"Delete" = "删除";
+"Time" = "时间";
+"Winner" = "赢家";
+"Game History" = "游戏历史";
+"Game Summary" = "游戏摘要";
+
+/* Round input */
+"Shoot the Moon Preference" = "“全收”规则";
+"Shoot the moon" = "全收";
+"Adds 26 points to every other players' score." = "给其他每位玩家加 26 分。";
+"Subtracts 26 points from the selected player's score." = "从所选玩家分数中减 26 分。";
+"Back" = "返回";
+"Reset" = "重置";
+"Submit" = "提交";
+"Round %d" = "第 %d 轮";
+
+/* About */
+"Developed by Christopher Rung" = "由 Christopher Rung 开发";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "献给我的父亲，他喜爱红心大战，并教会我总要争取全收。";
+"I would love to hear your feedback!" = "欢迎反馈！";
+"Send Feedback" = "发送反馈";
+"Rate on App Store" = "在 App Store 上评分";
+"Donate a coffee to Christopher" = "请克里斯托弗喝杯咖啡";
+"App Version" = "应用版本";
+"View Source" = "查看源代码";
+"About" = "关于";

@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "Nee";
+"Yes" = "Ja";
+
+/* Alerts */
+"Undo last round" = "Laatste ronde ongedaan maken";
+"Are you sure you would like to undo the last round?" = "Weet je zeker dat je de laatste ronde ongedaan wilt maken?";
+"New Game" = "Nieuw spel";
+"Are you sure? This will clear all round scores." = "Weet je het zeker? Alle ronde-scores worden gewist.";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "Harten Scorebord";
+"Game to: %d" = "Spel tot: %d";
+"Pass: Left ←" = "Doorgeven: Links ←";
+"Pass: Right →" = "Doorgeven: Rechts →";
+"Pass: Hold ✋" = "Doorgeven: Houden ✋";
+"Next Round" = "Volgende ronde";
+
+/* Game status (ViewModel) */
+"Game over" = "Spel afgelopen";
+"Pass to the Left" = "Doorgeven naar links";
+"Pass to the Right" = "Doorgeven naar rechts";
+"Hold on Tight!" = "Houden!";
+"No winner" = "Geen winnaar";
+"%@ won!" = "%@ heeft gewonnen!";
+
+/* Settings */
+"Players" = "Spelers";
+"Player" = "Speler";
+"Add Player" = "Speler toevoegen";
+"Hearts supports 3–6 players." = "Harten is voor 3–6 spelers.";
+"Dealer" = "Deler";
+"Ending Score" = "Eindscore";
+"Ending Score: %d" = "Eindscore: %d";
+"Appearance" = "Weergave";
+"Settings" = "Instellingen";
+"Done" = "Gereed";
+
+/* Appearance options */
+"System" = "Systeem";
+"Light" = "Licht";
+"Dark" = "Donker";
+
+/* Shoot the moon */
+"Add 26" = "26 toevoegen";
+"Subtract 26" = "26 aftrekken";
+
+/* History */
+"No completed games yet." = "Nog geen voltooide spellen.";
+"Delete" = "Verwijderen";
+"Time" = "Tijd";
+"Winner" = "Winnaar";
+"Game History" = "Spelgeschiedenis";
+"Game Summary" = "Speloverzicht";
+
+/* Round input */
+"Shoot the Moon Preference" = "Voorkeur \"pak de maan\"";
+"Shoot the moon" = "Pak de maan";
+"Adds 26 points to every other players' score." = "Telt 26 punten op bij de score van elke andere speler.";
+"Subtracts 26 points from the selected player's score." = "Trekt 26 punten af van de score van de gekozen speler.";
+"Back" = "Terug";
+"Reset" = "Resetten";
+"Submit" = "Verzenden";
+"Round %d" = "Ronde %d";
+
+/* About */
+"Developed by Christopher Rung" = "Ontwikkeld door Christopher Rung";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Opgedragen aan mijn vader, die van Harten houdt en me leerde altijd de maan te pakken.";
+"I would love to hear your feedback!" = "Ik hoor graag je mening!";
+"Send Feedback" = "Feedback sturen";
+"Rate on App Store" = "Beoordeel in de App Store";
+"Donate a coffee to Christopher" = "Trakt Christopher op een koffie";
+"App Version" = "App-versie";
+"View Source" = "Bron bekijken";
+"About" = "Over";

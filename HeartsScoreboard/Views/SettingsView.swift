@@ -51,7 +51,7 @@ struct SettingsView: View {
                 
                 Section("Ending Score") {
                     VStack(alignment: .leading) {
-                        Text("Ending Score: \(model.settings.endingScore)")
+                        Text(String(format: String(localized: "Ending Score: %d"), model.settings.endingScore))
                         Slider(
                             value: Binding(
                                 get: { Double(model.settings.endingScore) },

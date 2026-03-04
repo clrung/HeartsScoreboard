@@ -198,7 +198,7 @@ struct GameView: View {
 
                 Spacer()
 
-                Text("Game to: \(model.settings.endingScore)")
+                Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(Color.white)
             }

@@ -17,9 +17,10 @@
 		B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */; };
 		CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A380EF88AB8E66E04E54FCCE /* HistoryView.swift */; };
 		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
-		E1C0F00D2A3B4C5D6E7F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F0D5CF2F5797D30065B759 /* Assets.xcassets */; };
 		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
+		F16687302F58E2E30081C2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F166872A2F58E2E30081C2DC /* Assets.xcassets */; };
+		F16687322F58E2E30081C2DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F16687282F58DF390081C2DC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +39,17 @@
 		CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorView.swift; sourceTree = "<group>"; };
 		CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGame.swift; sourceTree = "<group>"; };
 		DFFC23505122D4B973E56CD3 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		F1F0D5CF2F5797D30065B759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F166871E2F58DF390081C2DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F166871F2F58DF390081C2DC /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687202F58DF390081C2DC /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687212F58DF390081C2DC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687222F58DF390081C2DC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687232F58DF390081C2DC /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687242F58DF390081C2DC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687252F58DF390081C2DC /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687262F58DF390081C2DC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F16687272F58DF390081C2DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F166872A2F58E2E30081C2DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -71,11 +82,12 @@
 			children = (
 				780D8C51719403168F366D8D /* HeartsScoreboard.entitlements */,
 				75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */,
+				F166872A2F58E2E30081C2DC /* Assets.xcassets */,
 				405B18756E3B5B49CBB650FE /* Info.plist */,
-				F1F0D5CF2F5797D30065B759 /* Assets.xcassets */,
 				4EC293E8E52BBDD41DEB4BBD /* Models */,
 				1E13F3AB8226E72331196D44 /* Services */,
 				3DD92A49A2A3326223AF05B8 /* ViewModels */,
+				F16687292F58DF390081C2DC /* Localizations */,
 				A4E3F86D21A49DF70AE115EB /* Views */,
 			);
 			path = HeartsScoreboard;
@@ -112,6 +124,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F16687292F58DF390081C2DC /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				F16687282F58DF390081C2DC /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,7 +140,7 @@
 			buildConfigurationList = 9B3430CBE5C014785B343261 /* Build configuration list for PBXNativeTarget "HeartsScoreboard" */;
 			buildPhases = (
 				5C8637A974A9C79A997C9371 /* Sources */,
-				E1C0F00D2A3B4C5D6E7F0002 /* Resources */,
+				F16687312F58E2E30081C2DC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +174,15 @@
 			knownRegions = (
 				Base,
 				en,
+				de,
+				"zh-Hans",
+				ja,
+				es,
+				it,
+				ko,
+				fr,
+				nl,
+				pt,
 			);
 			mainGroup = 1DC9BFAF62FFA111089A3177;
 			minimizedProjectReferenceProxies = 1;
@@ -164,17 +193,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		E1C0F00D2A3B4C5D6E7F0002 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1C0F00D2A3B4C5D6E7F0001 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C8637A974A9C79A997C9371 /* Sources */ = {
@@ -198,19 +216,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXResourcesBuildPhase section */
+		F16687312F58E2E30081C2DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16687302F58E2E30081C2DC /* Assets.xcassets in Resources */,
+				F16687322F58E2E30081C2DC /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F16687282F58DF390081C2DC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F166871E2F58DF390081C2DC /* en */,
+				F166871F2F58DF390081C2DC /* de */,
+				F16687202F58DF390081C2DC /* es */,
+				F16687212F58DF390081C2DC /* fr */,
+				F16687222F58DF390081C2DC /* it */,
+				F16687232F58DF390081C2DC /* ja */,
+				F16687242F58DF390081C2DC /* ko */,
+				F16687252F58DF390081C2DC /* nl */,
+				F16687262F58DF390081C2DC /* pt */,
+				F16687272F58DF390081C2DC /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		4D389D55D7B2055F2040EDE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -258,6 +308,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_LANGUAGE = en;
 				DEVELOPMENT_TEAM = 2848SVWH7M;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -278,6 +329,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
+				knownRegions = "en Base es fr it de pt ja ko zh-Hans nl";
 			};
 			name = Release;
 		};
@@ -317,6 +369,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_LANGUAGE = en;
 				DEVELOPMENT_TEAM = 2848SVWH7M;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -344,6 +397,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				knownRegions = "en Base es fr it de pt ja ko zh-Hans nl";
 			};
 			name = Debug;
 		};
@@ -351,14 +405,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

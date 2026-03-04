@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "Non";
+"Yes" = "Oui";
+
+/* Alerts */
+"Undo last round" = "Annuler la dernière donne";
+"Are you sure you would like to undo the last round?" = "Voulez-vous vraiment annuler la dernière donne ?";
+"New Game" = "Nouvelle partie";
+"Are you sure? This will clear all round scores." = "Confirmer ? Tous les scores des donnes seront effacés.";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "Compteur de Cœurs";
+"Game to: %d" = "Partie à %d";
+"Pass: Left ←" = "Passer : Gauche ←";
+"Pass: Right →" = "Passer : Droite →";
+"Pass: Hold ✋" = "Passer : Garder ✋";
+"Next Round" = "Donne suivante";
+
+/* Game status (ViewModel) */
+"Game over" = "Fin de partie";
+"Pass to the Left" = "Passer à gauche";
+"Pass to the Right" = "Passer à droite";
+"Hold on Tight!" = "On garde !";
+"No winner" = "Pas de gagnant";
+"%@ won!" = "%@ a gagné !";
+
+/* Settings */
+"Players" = "Joueurs";
+"Player" = "Joueur";
+"Add Player" = "Ajouter un joueur";
+"Hearts supports 3–6 players." = "Le Cœur se joue à 3–6 joueurs.";
+"Dealer" = "Donneur";
+"Ending Score" = "Score de fin";
+"Ending Score: %d" = "Score de fin : %d";
+"Appearance" = "Apparence";
+"Settings" = "Réglages";
+"Done" = "Terminé";
+
+/* Appearance options */
+"System" = "Système";
+"Light" = "Clair";
+"Dark" = "Sombre";
+
+/* Shoot the moon */
+"Add 26" = "Ajouter 26";
+"Subtract 26" = "Soustraire 26";
+
+/* History */
+"No completed games yet." = "Aucune partie terminée pour l'instant.";
+"Delete" = "Supprimer";
+"Time" = "Heure";
+"Winner" = "Gagnant";
+"Game History" = "Historique des parties";
+"Game Summary" = "Résumé de la partie";
+
+/* Round input */
+"Shoot the Moon Preference" = "Préférence « prendre la lune »";
+"Shoot the moon" = "Prendre la lune";
+"Adds 26 points to every other players' score." = "Ajoute 26 points au score de chaque autre joueur.";
+"Subtracts 26 points from the selected player's score." = "Retranche 26 points au score du joueur choisi.";
+"Back" = "Retour";
+"Reset" = "Réinitialiser";
+"Submit" = "Valider";
+"Round %d" = "Donne %d";
+
+/* About */
+"Developed by Christopher Rung" = "Développé par Christopher Rung";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dédié à mon père, qui adore le Cœur et m'a appris à toujours viser la lune.";
+"I would love to hear your feedback!" = "Vos avis m'intéressent !";
+"Send Feedback" = "Envoyer un avis";
+"Rate on App Store" = "Noter sur l'App Store";
+"Donate a coffee to Christopher" = "Offrir un café à Christopher";
+"App Version" = "Version de l'app";
+"View Source" = "Voir le code source";
+"About" = "À propos";

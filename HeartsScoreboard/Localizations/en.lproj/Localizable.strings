@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "No";
+"Yes" = "Yes";
+
+/* Alerts */
+"Undo last round" = "Undo last round";
+"Are you sure you would like to undo the last round?" = "Are you sure you would like to undo the last round?";
+"New Game" = "New Game";
+"Are you sure? This will clear all round scores." = "Are you sure? This will clear all round scores.";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "Hearts Scoreboard";
+"Game to: %d" = "Game to: %d";
+"Pass: Left ←" = "Pass: Left ←";
+"Pass: Right →" = "Pass: Right →";
+"Pass: Hold ✋" = "Pass: Hold ✋";
+"Next Round" = "Next Round";
+
+/* Game status (ViewModel) */
+"Game over" = "Game over";
+"Pass to the Left" = "Pass to the Left";
+"Pass to the Right" = "Pass to the Right";
+"Hold on Tight!" = "Hold on Tight!";
+"No winner" = "No winner";
+"%@ won!" = "%@ won!";
+
+/* Settings */
+"Players" = "Players";
+"Player" = "Player";
+"Add Player" = "Add Player";
+"Hearts supports 3–6 players." = "Hearts supports 3–6 players.";
+"Dealer" = "Dealer";
+"Ending Score" = "Ending Score";
+"Ending Score: %d" = "Ending Score: %d";
+"Appearance" = "Appearance";
+"Settings" = "Settings";
+"Done" = "Done";
+
+/* Appearance options */
+"System" = "System";
+"Light" = "Light";
+"Dark" = "Dark";
+
+/* Shoot the moon */
+"Add 26" = "Add 26";
+"Subtract 26" = "Subtract 26";
+
+/* History */
+"No completed games yet." = "No completed games yet.";
+"Delete" = "Delete";
+"Time" = "Time";
+"Winner" = "Winner";
+"Game History" = "Game History";
+"Game Summary" = "Game Summary";
+
+/* Round input */
+"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the moon" = "Shoot the moon";
+"Adds 26 points to every other players' score." = "Adds 26 points to every other players' score.";
+"Subtracts 26 points from the selected player's score." = "Subtracts 26 points from the selected player's score.";
+"Back" = "Back";
+"Reset" = "Reset";
+"Submit" = "Submit";
+"Round %d" = "Round %d";
+
+/* About */
+"Developed by Christopher Rung" = "Developed by Christopher Rung";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon.";
+"I would love to hear your feedback!" = "I would love to hear your feedback!";
+"Send Feedback" = "Send Feedback";
+"Rate on App Store" = "Rate on App Store";
+"Donate a coffee to Christopher" = "Donate a coffee to Christopher";
+"App Version" = "App Version";
+"View Source" = "View Source";
+"About" = "About";

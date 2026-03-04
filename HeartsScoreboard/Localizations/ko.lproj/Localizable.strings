@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "아니오";
+"Yes" = "예";
+
+/* Alerts */
+"Undo last round" = "마지막 라운드 취소";
+"Are you sure you would like to undo the last round?" = "마지막 라운드를 취소하시겠습니까?";
+"New Game" = "새 게임";
+"Are you sure? This will clear all round scores." = "계속하시겠습니까? 모든 라운드 점수가 삭제됩니다.";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "하트 점수판";
+"Game to: %d" = "목표 점수: %d";
+"Pass: Left ←" = "건네기: 왼쪽 ←";
+"Pass: Right →" = "건네기: 오른쪽 →";
+"Pass: Hold ✋" = "건네기: 홀드 ✋";
+"Next Round" = "다음 라운드";
+
+/* Game status (ViewModel) */
+"Game over" = "게임 종료";
+"Pass to the Left" = "왼쪽으로 건네기";
+"Pass to the Right" = "오른쪽으로 건네기";
+"Hold on Tight!" = "홀드!";
+"No winner" = "승자 없음";
+"%@ won!" = "%@ 승리!";
+
+/* Settings */
+"Players" = "플레이어";
+"Player" = "플레이어";
+"Add Player" = "플레이어 추가";
+"Hearts supports 3–6 players." = "하트는 3~6명이 플레이합니다.";
+"Dealer" = "딜러";
+"Ending Score" = "종료 점수";
+"Ending Score: %d" = "종료 점수: %d";
+"Appearance" = "모양";
+"Settings" = "설정";
+"Done" = "완료";
+
+/* Appearance options */
+"System" = "시스템";
+"Light" = "라이트";
+"Dark" = "다크";
+
+/* Shoot the moon */
+"Add 26" = "26 더하기";
+"Subtract 26" = "26 빼기";
+
+/* History */
+"No completed games yet." = "완료된 게임이 없습니다.";
+"Delete" = "삭제";
+"Time" = "시간";
+"Winner" = "승자";
+"Game History" = "게임 기록";
+"Game Summary" = "게임 요약";
+
+/* Round input */
+"Shoot the Moon Preference" = "달 잡기 설정";
+"Shoot the moon" = "달 잡기";
+"Adds 26 points to every other players' score." = "다른 모든 플레이어 점수에 26점을 더합니다.";
+"Subtracts 26 points from the selected player's score." = "선택한 플레이어 점수에서 26점을 뺍니다.";
+"Back" = "뒤로";
+"Reset" = "초기화";
+"Submit" = "제출";
+"Round %d" = "라운드 %d";
+
+/* About */
+"Developed by Christopher Rung" = "Christopher Rung 제작";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "하트를 사랑하고 항상 달을 노리라고 가르쳐 준 아버지에게 바칩니다.";
+"I would love to hear your feedback!" = "의견을 보내 주세요!";
+"Send Feedback" = "피드백 보내기";
+"Rate on App Store" = "App Store에서 평가";
+"Donate a coffee to Christopher" = "크리스토퍼에게 커피 사주기";
+"App Version" = "앱 버전";
+"View Source" = "소스 보기";
+"About" = "정보";

@@ -66,7 +66,7 @@ struct AboutView: View {
                 Section {
                     Link(destination: AboutView.donateURL) {
                         HStack {
-                            Text("Donate a coffee for Christopher")
+                            Text(String(localized: "Donate a coffee to Christopher"))
                             Spacer()
                             Image(systemName: "cup.and.saucer.fill")
                                 .font(.body)

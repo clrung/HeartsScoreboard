@@ -1,0 +1,76 @@
+/* Alert buttons */
+"No" = "いいえ";
+"Yes" = "はい";
+
+/* Alerts */
+"Undo last round" = "前のラウンドを取り消す";
+"Are you sure you would like to undo the last round?" = "前のラウンドを取り消してもよろしいですか？";
+"New Game" = "新しいゲーム";
+"Are you sure? This will clear all round scores." = "よろしいですか？ラウンドの得点がすべて消去されます。";
+
+/* Game view */
+"D" = "D";
+"Hearts Scoreboard" = "ハートのスコアボード";
+"Game to: %d" = "目標得点: %d";
+"Pass: Left ←" = "渡す: 左 ←";
+"Pass: Right →" = "渡す: 右 →";
+"Pass: Hold ✋" = "渡す: キープ ✋";
+"Next Round" = "次のラウンド";
+
+/* Game status (ViewModel) */
+"Game over" = "ゲーム終了";
+"Pass to the Left" = "左に渡す";
+"Pass to the Right" = "右に渡す";
+"Hold on Tight!" = "キープ！";
+"No winner" = "勝者なし";
+"%@ won!" = "%@の勝ち！";
+
+/* Settings */
+"Players" = "プレイヤー";
+"Player" = "プレイヤー";
+"Add Player" = "プレイヤーを追加";
+"Hearts supports 3–6 players." = "ハートは3〜6人用です。";
+"Dealer" = "親";
+"Ending Score" = "終了得点";
+"Ending Score: %d" = "終了得点: %d";
+"Appearance" = "外観";
+"Settings" = "設定";
+"Done" = "完了";
+
+/* Appearance options */
+"System" = "システム";
+"Light" = "ライト";
+"Dark" = "ダーク";
+
+/* Shoot the moon */
+"Add 26" = "26を加算";
+"Subtract 26" = "26を減算";
+
+/* History */
+"No completed games yet." = "まだ完了したゲームはありません。";
+"Delete" = "削除";
+"Time" = "時刻";
+"Winner" = "勝者";
+"Game History" = "ゲーム履歴";
+"Game Summary" = "ゲーム概要";
+
+/* Round input */
+"Shoot the Moon Preference" = "「月を取る」の設定";
+"Shoot the moon" = "月を取る";
+"Adds 26 points to every other players' score." = "他の全プレイヤーの得点に26点を加算します。";
+"Subtracts 26 points from the selected player's score." = "選択したプレイヤーの得点から26点を減算します。";
+"Back" = "戻る";
+"Reset" = "リセット";
+"Submit" = "送信";
+"Round %d" = "ラウンド %d";
+
+/* About */
+"Developed by Christopher Rung" = "Christopher Rung 作";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ハートを愛し、いつも月を狙うよう教えてくれた父に捧げる。";
+"I would love to hear your feedback!" = "ご意見・ご感想をお聞かせください！";
+"Send Feedback" = "フィードバックを送信";
+"Rate on App Store" = "App Storeで評価";
+"Donate a coffee to Christopher" = "クリストファーにコーヒーをおごる";
+"App Version" = "アプリのバージョン";
+"View Source" = "ソースを表示";
+"About" = "このアプリについて";
