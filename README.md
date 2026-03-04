@@ -1,4 +1,4 @@
-# HeartsScoreboard
+# Hearts Scoreboard
 
 <p align="center">
   <img src="HeartsScoreboard/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="HeartsScoreboard Icon" width="50%" />
@@ -26,10 +26,20 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
 
 ## Generate and open the project
 
-From this folder:
+From this directory:
 
 ```bash
 xcodegen generate
 open HeartsScoreboard.xcodeproj
 ```
+
+## Legacy Screenshots
+
+These screenshots show what HeartsScoreboard looked like prior to the 2026 refresh.
+
+<p align="center">
+  <img src="screenshots/Legacy%20-%20Scoreboard.png" alt="Legacy – Scoreboard" width="30%" />
+  <img src="screenshots/Legacy%20-%20Score%20Input.png" alt="Legacy – Score Input" width="30%" />
+  <img src="screenshots/Legacy%20-%20Settings.png" alt="Legacy – Settings" width="30%" />
+</p>
 
