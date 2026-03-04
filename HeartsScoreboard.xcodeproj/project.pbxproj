@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 63;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25F27EF4EFD43ADF30594E1A /* ShakeDetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */; };
+		304E87B9930AE3A3C5215662 /* HeartsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90EF88BA06125A18CDC58F /* HeartsGame.swift */; };
+		3BF9FE0A15C52505C9DC2958 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFC23505122D4B973E56CD3 /* GameViewModel.swift */; };
+		3E67486EB0D4F0D5D8CF516D /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA6A5243D25F7B6BD6BF99 /* CloudSyncManager.swift */; };
+		4E173AC0590C2FEB266A2CF1 /* HeartsScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */; };
+		6DBDC082946113E5579CC968 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD19947D819B9036C020016 /* AboutView.swift */; };
+		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
+		B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */; };
+		CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A380EF88AB8E66E04E54FCCE /* HistoryView.swift */; };
+		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
+		E1C0F00D2A3B4C5D6E7F0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F0D5CF2F5797D30065B759 /* Assets.xcassets */; };
+		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
+		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		038D972ED22A697EDA8313A6 /* RoundInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInputView.swift; sourceTree = "<group>"; };
+		0A90EF88BA06125A18CDC58F /* HeartsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsGame.swift; sourceTree = "<group>"; };
+		208E13E882D6991262710311 /* HeartsScoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartsScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		405B18756E3B5B49CBB650FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5AD19947D819B9036C020016 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsScoreboardApp.swift; sourceTree = "<group>"; };
+		780D8C51719403168F366D8D /* HeartsScoreboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HeartsScoreboard.entitlements; sourceTree = "<group>"; };
+		93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A380EF88AB8E66E04E54FCCE /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailView.swift; sourceTree = "<group>"; };
+		A9CA6A5243D25F7B6BD6BF99 /* CloudSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudSyncManager.swift; sourceTree = "<group>"; };
+		C4DBE481A691D544BA60BA3B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorView.swift; sourceTree = "<group>"; };
+		CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGame.swift; sourceTree = "<group>"; };
+		DFFC23505122D4B973E56CD3 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		F1F0D5CF2F5797D30065B759 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1DC9BFAF62FFA111089A3177 = {
+			isa = PBXGroup;
+			children = (
+				2A290100C70B5C54CFC4B0ED /* HeartsScoreboard */,
+				21D1795C95F9F633813DAA86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1E13F3AB8226E72331196D44 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A9CA6A5243D25F7B6BD6BF99 /* CloudSyncManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		21D1795C95F9F633813DAA86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				208E13E882D6991262710311 /* HeartsScoreboard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A290100C70B5C54CFC4B0ED /* HeartsScoreboard */ = {
+			isa = PBXGroup;
+			children = (
+				780D8C51719403168F366D8D /* HeartsScoreboard.entitlements */,
+				75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */,
+				405B18756E3B5B49CBB650FE /* Info.plist */,
+				F1F0D5CF2F5797D30065B759 /* Assets.xcassets */,
+				4EC293E8E52BBDD41DEB4BBD /* Models */,
+				1E13F3AB8226E72331196D44 /* Services */,
+				3DD92A49A2A3326223AF05B8 /* ViewModels */,
+				A4E3F86D21A49DF70AE115EB /* Views */,
+			);
+			path = HeartsScoreboard;
+			sourceTree = "<group>";
+		};
+		3DD92A49A2A3326223AF05B8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DFFC23505122D4B973E56CD3 /* GameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4EC293E8E52BBDD41DEB4BBD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */,
+				0A90EF88BA06125A18CDC58F /* HeartsGame.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A4E3F86D21A49DF70AE115EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5AD19947D819B9036C020016 /* AboutView.swift */,
+				93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */,
+				A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */,
+				A380EF88AB8E66E04E54FCCE /* HistoryView.swift */,
+				038D972ED22A697EDA8313A6 /* RoundInputView.swift */,
+				C4DBE481A691D544BA60BA3B /* SettingsView.swift */,
+				CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65B83C91C3825F24ED278E21 /* HeartsScoreboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B3430CBE5C014785B343261 /* Build configuration list for PBXNativeTarget "HeartsScoreboard" */;
+			buildPhases = (
+				5C8637A974A9C79A997C9371 /* Sources */,
+				E1C0F00D2A3B4C5D6E7F0002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeartsScoreboard;
+			packageProductDependencies = (
+			);
+			productName = HeartsScoreboard;
+			productReference = 208E13E882D6991262710311 /* HeartsScoreboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		03C09241F100D211BEF8C8F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					65B83C91C3825F24ED278E21 = {
+						DevelopmentTeam = 2848SVWH7M;
+					};
+				};
+			};
+			buildConfigurationList = 2C25E73CF3E831C8C5CA4000 /* Build configuration list for PBXProject "HeartsScoreboard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 1DC9BFAF62FFA111089A3177;
+			minimizedProjectReferenceProxies = 1;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65B83C91C3825F24ED278E21 /* HeartsScoreboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1C0F00D2A3B4C5D6E7F0002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1C0F00D2A3B4C5D6E7F0001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C8637A974A9C79A997C9371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DBDC082946113E5579CC968 /* AboutView.swift in Sources */,
+				3E67486EB0D4F0D5D8CF516D /* CloudSyncManager.swift in Sources */,
+				B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */,
+				AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */,
+				3BF9FE0A15C52505C9DC2958 /* GameViewModel.swift in Sources */,
+				304E87B9930AE3A3C5215662 /* HeartsGame.swift in Sources */,
+				4E173AC0590C2FEB266A2CF1 /* HeartsScoreboardApp.swift in Sources */,
+				EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */,
+				CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */,
+				CF935772FE398475553CC67D /* RoundInputView.swift in Sources */,
+				FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */,
+				25F27EF4EFD43ADF30594E1A /* ShakeDetectorView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4D389D55D7B2055F2040EDE2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2;
+				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D0EE11CCFE1046C8203ED1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2848SVWH7M;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A67D09FE54B8A07CA9EE53DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2848SVWH7M;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F0C985E41243E7962A47F1C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 2;
+				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 3.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C25E73CF3E831C8C5CA4000 /* Build configuration list for PBXProject "HeartsScoreboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A67D09FE54B8A07CA9EE53DD /* Debug */,
+				6D0EE11CCFE1046C8203ED1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9B3430CBE5C014785B343261 /* Build configuration list for PBXNativeTarget "HeartsScoreboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D389D55D7B2055F2040EDE2 /* Debug */,
+				F0C985E41243E7962A47F1C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 03C09241F100D211BEF8C8F7 /* Project object */;
+}
