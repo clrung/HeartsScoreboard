@@ -5,7 +5,7 @@ struct AboutView: View {
     @Environment(\.openURL) private var openURL
 
     private static let appStoreURL = URL(string: "https://apps.apple.com/app/id1033609492")!
-    private static let websiteURL = URL(string: "https://christopherrung.com")!
+    private static let feedbackURL = URL(string: "mailto:clrung@gmail.com")!
 
     private var appVersion: String {
         let short = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
@@ -28,13 +28,13 @@ struct AboutView: View {
                 }
 
                 Section {
-                    Link(destination: AboutView.websiteURL) {
+                    Link(destination: AboutView.feedbackURL) {
                         HStack {
-                            Text("christopherrung.com")
+                            Text("Send Feedback")
                             Spacer()
-                            Image(systemName: "arrow.up.right")
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(.tertiary)
+                            Image(systemName: "envelope.fill")
+                                .font(.body)
+                                .foregroundStyle(.blue)
                         }
                     }
                 }
