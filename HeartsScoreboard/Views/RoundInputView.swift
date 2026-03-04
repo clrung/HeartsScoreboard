@@ -152,7 +152,7 @@ struct RoundInputView: View {
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .navigationTitle(showNavigationTitle ? "Score Round" : "")
+            .navigationTitle(showNavigationTitle ? "Round \(model.game.hands.count + 1)" : "")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
