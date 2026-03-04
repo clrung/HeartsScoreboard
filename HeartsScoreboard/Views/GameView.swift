@@ -115,17 +115,6 @@ struct GameView: View {
         }
     }
 
-    private var backgroundColor: Color {
-        switch colorScheme {
-        case .light:
-            return Color.green
-        case .dark:
-            return Color(red: 0.08, green: 0.18, blue: 0.12)
-        @unknown default:
-            return Color.green
-        }
-    }
-
     private var backgroundGradient: LinearGradient {
         switch colorScheme {
         case .light:
@@ -240,27 +229,6 @@ struct GameView: View {
         return Set(leaders)
     }
 
-    private func isMoonHand(_ hand: HeartsGame.Hand, for playerID: UUID) -> Bool {
-        let n = model.game.players.count
-        guard n > 0 else { return false }
-
-        let scores = model.game.players.map { hand.pointsByPlayerID[$0.id] ?? 0 }
-        let sum = scores.reduce(0, +)
-        let playerScore = hand.pointsByPlayerID[playerID] ?? 0
-
-        // Subtract 26 preference: one player at -26, total -26
-        if sum == -26, playerScore == -26 {
-            return true
-        }
-
-        // Add 26 preference: shooter gets 0, all others 26 -> total (n - 1) * 26
-        if sum == (n - 1) * 26, playerScore == 0 {
-            return true
-        }
-
-        return false
-    }
-
     private var scoreboardCardBackground: Color {
         switch colorScheme {
         case .dark:
@@ -364,7 +332,7 @@ struct GameView: View {
                         ForEach(Array(model.game.hands.enumerated()), id: \.element.id) { index, hand in
                             let score = hand.pointsByPlayerID[player.id] ?? 0
                             let isEvenRow = index.isMultiple(of: 2)
-                            let isMoon = isMoonHand(hand, for: player.id)
+                            let isMoon = model.game.isMoonHand(hand, for: player.id)
                             Group {
                                 if isMoon {
                                     Image(systemName: "moon.fill")

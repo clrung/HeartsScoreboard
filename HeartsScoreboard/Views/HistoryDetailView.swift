@@ -23,7 +23,6 @@ struct HistoryDetailView: View {
         }
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar)
         .background(backgroundGradient.ignoresSafeArea())
     }
 
@@ -129,7 +128,7 @@ struct HistoryDetailView: View {
                         ForEach(Array(completedGame.game.hands.enumerated()), id: \.element.id) { index, hand in
                             let score = hand.pointsByPlayerID[player.id] ?? 0
                             let isEvenRow = index.isMultiple(of: 2)
-                            let isMoon = isMoonHand(hand, for: player.id, in: completedGame.game)
+                            let isMoon = completedGame.game.isMoonHand(hand, for: player.id)
 
                             Group {
                                 if isMoon {
@@ -159,23 +158,3 @@ struct HistoryDetailView: View {
         }
     }
 }
-
-private func isMoonHand(_ hand: HeartsGame.Hand, for playerID: UUID, in game: HeartsGame) -> Bool {
-    let n = game.players.count
-    guard n > 0 else { return false }
-
-    let scores = game.players.map { hand.pointsByPlayerID[$0.id] ?? 0 }
-    let sum = scores.reduce(0, +)
-    let playerScore = hand.pointsByPlayerID[playerID] ?? 0
-
-    if sum == -26, playerScore == -26 {
-        return true
-    }
-
-    if sum == (n - 1) * 26, playerScore == 0 {
-        return true
-    }
-
-    return false
-}
-
