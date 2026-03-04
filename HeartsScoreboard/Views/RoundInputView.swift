@@ -54,16 +54,18 @@ struct RoundInputView: View {
                                             adjustPoints(for: player.id, delta: 5)
                                         }
                                         .buttonStyle(.borderedProminent)
+                                        .font(.subheadline.weight(.semibold))
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
-                                        .frame(width: 52)
+                                        .frame(width: 52, height: 32)
                                         .disabled(isRoundValid)
 
                                         Button("Q♠") {
                                             addQueenOfSpades(for: player.id)
                                         }
                                         .buttonStyle(.borderedProminent)
+                                        .font(.subheadline.weight(.semibold))
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
@@ -77,6 +79,7 @@ struct RoundInputView: View {
                                             addRemainingPoints(for: player.id)
                                         }
                                         .buttonStyle(.borderedProminent)
+                                        .font(.subheadline.weight(.semibold))
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
@@ -87,6 +90,7 @@ struct RoundInputView: View {
                                             applyShootMoonValue(for: player.id)
                                         } label: {
                                             Image(systemName: "moon.fill")
+                                                .font(.subheadline.weight(.semibold))
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .frame(width: 52, height: 32)
@@ -148,7 +152,7 @@ struct RoundInputView: View {
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .navigationTitle(showNavigationTitle ? "Enter round scores" : "")
+            .navigationTitle(showNavigationTitle ? "Score Round" : "")
             .navigationBarTitleDisplayMode(.inline)
         }
         .onAppear {
