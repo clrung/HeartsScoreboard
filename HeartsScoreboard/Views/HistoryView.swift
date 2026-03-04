@@ -4,6 +4,8 @@ import Observation
 struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var model: GameViewModel
+    @AppStorage("HeartsScoreboardHistoryDeleteHintShown") private var hasSeenDeleteHint = false
+    @State private var editMode: EditMode = .inactive
 
     private var sortedHistory: [CompletedGame] {
         model.history.sorted { $0.finishedAt > $1.finishedAt }
@@ -61,10 +63,20 @@ struct HistoryView: View {
                     }
                 }
             }
+            .environment(\.editMode, $editMode)
             .navigationTitle("Game History")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
+                }
+            }
+            .onAppear {
+                if !hasSeenDeleteHint, !sortedHistory.isEmpty {
+                    hasSeenDeleteHint = true
+                    editMode = .active
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        editMode = .inactive
+                    }
                 }
             }
         }
