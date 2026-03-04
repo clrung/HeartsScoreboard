@@ -4,8 +4,6 @@ import Observation
 struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var model: GameViewModel
-    @AppStorage("HeartsScoreboardHistoryDeleteHintShown") private var hasSeenDeleteHint = false
-    @State private var showDeletePeek = false
 
     private var sortedHistory: [CompletedGame] {
         model.history.sorted { $0.finishedAt > $1.finishedAt }
@@ -19,46 +17,26 @@ struct HistoryView: View {
                         .foregroundStyle(.secondary)
                 } else {
                     Section {
-                        ForEach(Array(sortedHistory.enumerated()), id: \.element.id) { index, game in
+                        ForEach(sortedHistory) { game in
                             NavigationLink {
                                 HistoryDetailView(completedGame: game)
                             } label: {
-                                let isPeekRow = index == 0 && showDeletePeek
-
-                                ZStack(alignment: .trailing) {
-                                    HStack {
-                                        VStack(alignment: .leading) {
-                                            Text(game.finishedAt, format: .dateTime.month().day().year())
-                                                .font(.subheadline)
-                                            Text(game.finishedAt, format: .dateTime.hour().minute())
-                                                .font(.footnote)
-                                                .foregroundStyle(.secondary)
-                                        }
-
-                                        Spacer()
-
-                                        Text(game.winnerDescription)
-                                            .font(.subheadline.weight(.semibold))
-                                            .multilineTextAlignment(.trailing)
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(game.finishedAt, format: .dateTime.month().day().year())
+                                            .font(.subheadline)
+                                        Text(game.finishedAt, format: .dateTime.hour().minute())
+                                            .font(.footnote)
+                                            .foregroundStyle(.secondary)
                                     }
-                                    .padding(.vertical, 4)
-                                    .offset(x: isPeekRow ? -88 : 0)
 
-                                    if index == 0 {
-                                        HStack {
-                                            Label("Delete", systemImage: "trash")
-                                                .font(.body.weight(.semibold))
-                                                .foregroundStyle(.white)
-                                                .padding(.horizontal, 18)
-                                                .padding(.vertical, 6)
-                                                .background(Color.red)
-                                                .clipShape(Capsule(style: .continuous))
-                                        }
-                                        .padding(.trailing, 6)
-                                        .opacity(isPeekRow ? 1 : 0)
-                                    }
+                                    Spacer()
+
+                                    Text(game.winnerDescription)
+                                        .font(.subheadline.weight(.semibold))
+                                        .multilineTextAlignment(.trailing)
                                 }
-                                .animation(.easeInOut(duration: 0.35), value: showDeletePeek)
+                                .padding(.vertical, 4)
                             }
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
@@ -83,17 +61,6 @@ struct HistoryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
-                }
-            }
-            .onAppear {
-                if hasSeenDeleteHint, !sortedHistory.isEmpty {
-                    hasSeenDeleteHint = true
-                    showDeletePeek = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        withAnimation {
-                            showDeletePeek = false
-                        }
-                    }
                 }
             }
         }
