@@ -11,17 +11,21 @@ struct HistoryDetailView: View {
     }
 
     var body: some View {
-        ScrollView {
+        ZStack {
+            backgroundGradient.ignoresSafeArea()
+
             VStack(spacing: 16) {
                 Text(completedGame.finishedAt, format: .dateTime.month().day().year().hour().minute())
                     .font(.headline)
-                    .foregroundStyle(Color.white)
+                    .foregroundStyle(.primary)
 
                 scoreboard
+
+                Spacer(minLength: 0)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.vertical, 16)
         }
-        .background(backgroundGradient)
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -56,105 +60,167 @@ struct HistoryDetailView: View {
     }
 
     private var scoreboard: some View {
-        ZStack(alignment: .top) {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .background(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(
-                            Color(red: 0.86, green: 1.0, blue: 0.91)
-                                .opacity(colorScheme == .dark ? 0.9 : 0.85)
-                        )
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .stroke(Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: 1)
-                )
-                .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
-
-            VStack(spacing: 12) {
-                headerRows
-                scoreRows
+        RoundedRectangle(cornerRadius: 24, style: .continuous)
+            .fill(.ultraThinMaterial)
+            .background(
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .fill(
+                        Color(red: 0.86, green: 1.0, blue: 0.91)
+                            .opacity(colorScheme == .dark ? 0.9 : 0.85)
+                    )
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: 1)
+            )
+            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
+            .overlay(alignment: .top) {
+                scoreboardContent
             }
-            .padding(16)
-        }
+            .frame(maxHeight: .infinity, alignment: .top)
     }
 
     private var headerRows: some View {
         VStack(spacing: 8) {
-            HStack(spacing: 0) {
-                ForEach(completedGame.game.players) { player in
-                    Text(player.name)
-                        .font(.headline.weight(.semibold))
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal, 8)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(Color.white.opacity(colorScheme == .dark ? 0.10 : 0.26))
-                        )
-                        .frame(maxWidth: .infinity)
-                }
-            }
+            headerNameRow
+            headerTotalsRow
+        }
+        .padding(.horizontal, 6)
+        .padding(.vertical, 6)
+        .background(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Color.black.opacity(colorScheme == .dark ? 0.14 : 0.06))
+        )
+    }
 
-            HStack {
-                ForEach(completedGame.game.players) { player in
-                    let isLeader = leadingPlayerIDs.contains(player.id)
-                    ZStack {
-                        Capsule(style: .continuous)
-                            .fill(
-                                isLeader
-                                ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
-                                : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
-                            )
-                            .frame(width: 68, height: 26)
-
-                        Text("\(completedGame.game.totalPoints(for: player.id))")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
-                    }
+    private var headerNameRow: some View {
+        HStack(spacing: 0) {
+            ForEach(completedGame.game.players) { player in
+                Text(player.name)
+                    .font(.headline.weight(.semibold))
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .padding(.vertical, 4)
+                    .padding(.horizontal, 8)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color.white.opacity(colorScheme == .dark ? 0.10 : 0.26))
+                    )
                     .frame(maxWidth: .infinity)
-                }
             }
         }
     }
 
-    private var scoreRows: some View {
+    private var headerTotalsRow: some View {
+        HStack {
+            ForEach(completedGame.game.players) { player in
+                PlayerTotalBadge(
+                    total: completedGame.game.totalPoints(for: player.id),
+                    isLeader: leadingPlayerIDs.contains(player.id),
+                    colorScheme: colorScheme
+                )
+                .frame(maxWidth: .infinity)
+            }
+        }
+    }
+
+    private var scoreboardContent: some View {
+        VStack(spacing: 12) {
+            headerRows
+            scoresScroll
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.vertical, 6)
+        .padding(.horizontal, 6)
+    }
+
+    private var scoresScroll: some View {
         ScrollView {
             HStack(alignment: .top, spacing: 0) {
                 ForEach(completedGame.game.players) { player in
-                    VStack(spacing: 8) {
-                        ForEach(Array(completedGame.game.hands.enumerated()), id: \.element.id) { index, hand in
-                            let score = hand.pointsByPlayerID[player.id] ?? 0
-                            let isEvenRow = index.isMultiple(of: 2)
-                            let isMoon = completedGame.game.isMoonHand(hand, for: player.id)
-
-                            Group {
-                                if isMoon {
-                                    Image(systemName: "moon.fill")
-                                } else {
-                                    Text("\(score)")
-                                }
-                            }
-                            .font(.footnote.weight(.medium))
-                            .foregroundStyle(Color.primary)
-                            .frame(width: 56, height: 26)
-                            .background(
-                                RoundedRectangle(cornerRadius: 8, style: .continuous)
-                                    .fill(
-                                        (isEvenRow
-                                         ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
-                                         : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
-                                        )
-                                    )
-                            )
-                        }
-                    }
+                    ScoreColumnView(
+                        game: completedGame.game,
+                        playerID: player.id,
+                        colorScheme: colorScheme
+                    )
                     .frame(maxWidth: .infinity, alignment: .top)
                 }
             }
             .frame(maxWidth: .infinity)
+            .padding(.bottom, 8)
         }
+        .frame(maxHeight: .infinity)
+        .scrollIndicators(.visible)
+    }
+}
+
+// MARK: - Helper views (break up type-checker complexity)
+
+private struct PlayerTotalBadge: View {
+    let total: Int
+    let isLeader: Bool
+    let colorScheme: ColorScheme
+
+    var body: some View {
+        ZStack {
+            Capsule(style: .continuous)
+                .fill(
+                    isLeader
+                    ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
+                    : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
+                )
+                .frame(width: 36, height: 26)
+
+            Text("\(total)")
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
+        }
+    }
+}
+
+private struct ScoreColumnView: View {
+    let game: HeartsGame
+    let playerID: UUID
+    let colorScheme: ColorScheme
+
+    var body: some View {
+        VStack(spacing: 8) {
+            ForEach(Array(game.hands.enumerated()), id: \.element.id) { index, hand in
+                ScoreCellView(
+                    score: hand.pointsByPlayerID[playerID] ?? 0,
+                    isMoon: game.isMoonHand(hand, for: playerID),
+                    isEvenRow: index.isMultiple(of: 2),
+                    colorScheme: colorScheme
+                )
+            }
+        }
+    }
+}
+
+private struct ScoreCellView: View {
+    let score: Int
+    let isMoon: Bool
+    let isEvenRow: Bool
+    let colorScheme: ColorScheme
+
+    var body: some View {
+        Group {
+            if isMoon {
+                Image(systemName: "moon.fill")
+            } else {
+                Text("\(score)")
+            }
+        }
+        .font(.footnote.weight(.medium))
+        .foregroundStyle(Color.primary)
+        .frame(width: 56, height: 26)
+        .background(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(
+                    isEvenRow
+                    ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
+                    : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
+                )
+        )
     }
 }

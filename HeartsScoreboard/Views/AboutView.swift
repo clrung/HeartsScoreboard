@@ -64,7 +64,7 @@ struct AboutView: View {
                 Section {
                     Link(destination: AboutView.sourceURL) {
                         HStack {
-                            Text("View Source Code")
+                            Text("View Source")
                             Spacer()
                             Image(systemName: "chevron.left.slash.chevron.right")
                                 .font(.body)
