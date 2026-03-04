@@ -7,6 +7,11 @@ struct AboutView: View {
     private static let appStoreURL = URL(string: "https://apps.apple.com/app/id1033609492")!
     private static let websiteURL = URL(string: "https://christopherrung.com")!
 
+    private var appVersion: String {
+        let short = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
+        return "\(short)"
+    }
+
     var body: some View {
         NavigationStack {
             Form {
@@ -45,6 +50,15 @@ struct AboutView: View {
                                 .font(.body)
                                 .foregroundStyle(.red)
                         }
+                    }
+                }
+
+                Section {
+                    HStack {
+                        Text("App Version")
+                        Spacer()
+                        Text(appVersion)
+                            .foregroundStyle(.secondary)
                     }
                 }
             }

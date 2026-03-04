@@ -203,6 +203,9 @@ struct GameView: View {
                 Text(headerSubtitle)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(Color.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                    .allowsTightening(true)
 
                 Spacer()
 
