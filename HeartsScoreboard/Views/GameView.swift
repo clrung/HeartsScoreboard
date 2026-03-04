@@ -214,11 +214,11 @@ struct GameView: View {
 
         switch model.game.hands.count % 3 {
         case 0:
-            return "Passing: Left \u{2190}"
+            return "Pass: Left \u{2190}"
         case 1:
-            return "Passing: Right \u{2192}"
+            return "Pass: Right \u{2192}"
         default:
-            return "Passing: Hold \u{270B}"
+            return "Pass: Hold \u{270B}"
         }
     }
 
@@ -383,6 +383,7 @@ struct GameView: View {
             .buttonStyle(.bordered)
             .tint(.blue)
             .frame(maxWidth: .infinity, alignment: .leading)
+            .disabled(model.game.hands.isEmpty)
 
             Spacer()
 

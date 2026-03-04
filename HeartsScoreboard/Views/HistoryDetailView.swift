@@ -21,9 +21,9 @@ struct HistoryDetailView: View {
             }
             .padding()
         }
+        .background(backgroundGradient)
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
-        .background(backgroundGradient.ignoresSafeArea())
     }
 
     private var backgroundGradient: LinearGradient {
