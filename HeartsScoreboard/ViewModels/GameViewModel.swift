@@ -188,11 +188,23 @@ final class GameViewModel {
         let maxRemovable = max(0, currentCount - 3)
         guard maxRemovable > 0 else { return }
 
+        // Remember who the current dealer is so we can keep the same person as dealer
+        // after players are removed (if they still exist).
+        let currentDealerID: UUID? = {
+            guard game.players.indices.contains(firstDealerIndex) else { return nil }
+            return game.players[firstDealerIndex].id
+        }()
+
         let sorted = offsets.sorted()
         let indicesToRemove = Array(sorted.prefix(maxRemovable))
         game.players.remove(atOffsets: IndexSet(indicesToRemove))
 
-        if firstDealerIndex >= game.players.count {
+        if let dealerID = currentDealerID,
+           let newIndex = game.players.firstIndex(where: { $0.id == dealerID }) {
+            // Keep the same player as dealer.
+            firstDealerIndex = newIndex
+        } else if firstDealerIndex >= game.players.count {
+            // If the dealer was removed, fall back to the last valid player index.
             firstDealerIndex = max(0, game.players.count - 1)
         }
 
