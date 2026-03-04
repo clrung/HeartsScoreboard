@@ -3,6 +3,7 @@ import Observation
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @Bindable var model: GameViewModel
     @State private var showingAbout = false
 

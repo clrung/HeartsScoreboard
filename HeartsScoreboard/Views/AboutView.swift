@@ -2,10 +2,10 @@ import SwiftUI
 
 struct AboutView: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.openURL) private var openURL
 
     private static let appStoreURL = URL(string: "https://apps.apple.com/app/id1033609492")!
     private static let feedbackURL = URL(string: "mailto:clrung@gmail.com")!
+    private static let sourceURL = URL(string: "https://github.com/clrung/HeartsScoreboard/")!
 
     private var appVersion: String {
         let short = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
@@ -40,9 +40,7 @@ struct AboutView: View {
                 }
 
                 Section {
-                    Button {
-                        openURL(AboutView.appStoreURL)
-                    } label: {
+                    Link(destination: AboutView.appStoreURL) {
                         HStack {
                             Text("Rate on App Store")
                             Spacer()
@@ -52,13 +50,25 @@ struct AboutView: View {
                         }
                     }
                 }
-
+                
                 Section {
                     HStack {
                         Text("App Version")
                         Spacer()
                         Text(appVersion)
                             .foregroundStyle(.secondary)
+                    }
+                }
+                
+                Section {
+                    Link(destination: AboutView.sourceURL) {
+                        HStack {
+                            Text("View Source Code")
+                            Spacer()
+                            Image(systemName: "chevron.left.slash.chevron.right")
+                                .font(.body)
+                                .foregroundStyle(.blue)
+                        }
                     }
                 }
             }
