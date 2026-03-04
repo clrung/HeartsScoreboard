@@ -42,17 +42,20 @@ struct HistoryView: View {
                                             .multilineTextAlignment(.trailing)
                                     }
                                     .padding(.vertical, 4)
-                                    .offset(x: isPeekRow ? -72 : 0)
+                                    .offset(x: isPeekRow ? -88 : 0)
 
                                     if index == 0 {
-                                        Image(systemName: "trash.fill")
-                                            .font(.title3)
-                                            .foregroundStyle(.white)
-                                            .padding(.vertical, 8)
-                                            .padding(.horizontal, 12)
-                                            .background(Color.red)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                                            .opacity(isPeekRow ? 1 : 0)
+                                        HStack {
+                                            Label("Delete", systemImage: "trash")
+                                                .font(.body.weight(.semibold))
+                                                .foregroundStyle(.white)
+                                                .padding(.horizontal, 18)
+                                                .padding(.vertical, 6)
+                                                .background(Color.red)
+                                                .clipShape(Capsule(style: .continuous))
+                                        }
+                                        .padding(.trailing, 6)
+                                        .opacity(isPeekRow ? 1 : 0)
                                     }
                                 }
                                 .animation(.easeInOut(duration: 0.35), value: showDeletePeek)
@@ -83,7 +86,7 @@ struct HistoryView: View {
                 }
             }
             .onAppear {
-                if !hasSeenDeleteHint, !sortedHistory.isEmpty {
+                if hasSeenDeleteHint, !sortedHistory.isEmpty {
                     hasSeenDeleteHint = true
                     showDeletePeek = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

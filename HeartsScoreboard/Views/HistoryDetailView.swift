@@ -15,6 +15,7 @@ struct HistoryDetailView: View {
             VStack(spacing: 16) {
                 Text(completedGame.finishedAt, format: .dateTime.month().day().year().hour().minute())
                     .font(.headline)
+                    .foregroundStyle(Color.white)
 
                 scoreboard
             }
@@ -22,6 +23,7 @@ struct HistoryDetailView: View {
         }
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
         .background(backgroundGradient.ignoresSafeArea())
     }
 
