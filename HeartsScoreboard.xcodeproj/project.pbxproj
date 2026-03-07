@@ -22,6 +22,7 @@
 		F16687302F58E2E30081C2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F166872A2F58E2E30081C2DC /* Assets.xcassets */; };
 		F16687322F58E2E30081C2DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F16687282F58DF390081C2DC /* Localizable.strings */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
+		E8D7C6B5A43210FEDCBA9877 /* PlayerScoreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		F16687262F58DF390081C2DC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F16687272F58DF390081C2DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F166872A2F58E2E30081C2DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -128,6 +130,7 @@
 				93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */,
 				A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */,
 				A380EF88AB8E66E04E54FCCE /* HistoryView.swift */,
+				E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */,
 				038D972ED22A697EDA8313A6 /* RoundInputView.swift */,
 				C4DBE481A691D544BA60BA3B /* SettingsView.swift */,
 				CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */,
@@ -233,6 +236,7 @@
 				4E173AC0590C2FEB266A2CF1 /* HeartsScoreboardApp.swift in Sources */,
 				EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */,
 				CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */,
+				E8D7C6B5A43210FEDCBA9877 /* PlayerScoreViews.swift in Sources */,
 				CF935772FE398475553CC67D /* RoundInputView.swift in Sources */,
 				FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */,
 				25F27EF4EFD43ADF30594E1A /* ShakeDetectorView.swift in Sources */,

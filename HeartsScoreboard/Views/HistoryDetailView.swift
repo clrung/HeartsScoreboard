@@ -156,28 +156,6 @@ struct HistoryDetailView: View {
 
 // MARK: - Helper views (break up type-checker complexity)
 
-private struct PlayerTotalBadge: View {
-    let total: Int
-    let isLeader: Bool
-    let colorScheme: ColorScheme
-
-    var body: some View {
-        ZStack {
-            Capsule(style: .continuous)
-                .fill(
-                    isLeader
-                    ? Color.green.opacity(colorScheme == .dark ? 0.35 : 0.45)
-                    : Color.white.opacity(colorScheme == .dark ? 0.08 : 0.20)
-                )
-                .frame(width: 36, height: 26)
-
-            Text("\(total)")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(isLeader ? Color.primary : Color.primary.opacity(0.9))
-        }
-    }
-}
-
 private struct ScoreColumnView: View {
     let game: HeartsGame
     let playerID: UUID

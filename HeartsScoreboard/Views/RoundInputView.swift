@@ -3,6 +3,7 @@ import Observation
 
 struct RoundInputView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Bindable var model: GameViewModel
 
@@ -11,6 +12,12 @@ struct RoundInputView: View {
 
     private var showNavigationTitle: Bool { verticalSizeClass != .compact }
 
+    private var leadingPlayerIDs: Set<UUID> {
+        let totals = model.game.totals()
+        guard let minTotal = totals.map(\.total).min() else { return [] }
+        return Set(totals.filter { $0.total == minTotal }.map { $0.player.id })
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -18,12 +25,16 @@ struct RoundInputView: View {
                     Section {
                         ForEach(model.game.players) { player in
                             HStack(alignment: .center, spacing: 12) {
-                                Text(player.name)
-                                    .font(.headline.weight(.semibold))
-                                    .frame(width: 110, alignment: .leading)
-                                    .frame(maxHeight: .infinity, alignment: .center)
+                                PlayerNameWithTotalView(
+                                    name: player.name,
+                                    total: model.game.totalPoints(for: player.id),
+                                    isLeader: leadingPlayerIDs.contains(player.id),
+                                    colorScheme: colorScheme
+                                )
+                                .frame(width: 130, alignment: .leading)
+                                .frame(maxHeight: .infinity, alignment: .center)
 
-                                HStack(spacing: 8) {
+                                HStack(spacing: 0) {
                                     Button("-") {
                                         adjustPoints(for: player.id, delta: -1)
                                     }
@@ -48,7 +59,7 @@ struct RoundInputView: View {
                                 .frame(maxWidth: .infinity)
                                 .frame(maxHeight: .infinity, alignment: .center)
 
-                                HStack(spacing: 12) {
+                                HStack(spacing: 4) {
                                     VStack(spacing: 4) {
                                         Button("+5") {
                                             adjustPoints(for: player.id, delta: 5)
