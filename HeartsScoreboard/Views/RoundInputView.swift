@@ -51,7 +51,7 @@ struct RoundInputView: View {
                                         .monospacedDigit()
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
-                                        .frame(width: 44)
+                                        .frame(minWidth: 52, alignment: .center)
 
                                     Button("+") {
                                         adjustPoints(for: player.id, delta: 1)
@@ -90,8 +90,15 @@ struct RoundInputView: View {
 
                                     VStack(spacing: 4) {
                                         let remaining = remainingPoints(for: player.id)
-                                        Button("+\(remaining)") {
-                                            addRemainingPoints(for: player.id)
+                                        let isSubtract26Button = model.settings.shootMoonPreference == .subtract26 && remaining == 26
+                                        Button {
+                                            if isSubtract26Button {
+                                                applyShootMoonValue(for: player.id)
+                                            } else {
+                                                addRemainingPoints(for: player.id)
+                                            }
+                                        } label: {
+                                            Text(isShootTheMoonRound ? "+0" : (isSubtract26Button ? "-26" : "+\(remaining)"))
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .font(.subheadline.weight(.semibold))
@@ -99,7 +106,7 @@ struct RoundInputView: View {
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
                                         .frame(width: 52, height: 32)
-                                        .disabled(remaining == 0 || isRoundValid)
+                                        .disabled(isSubtract26Button ? isRoundValid : (remaining == 0 || isRoundValid))
 
                                         Button {
                                             applyShootMoonValue(for: player.id)
