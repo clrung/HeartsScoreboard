@@ -18,6 +18,10 @@ struct RoundInputView: View {
         return Set(totals.filter { $0.total == minTotal }.map { $0.player.id })
     }
 
+    private var isAllScoresZero: Bool {
+        model.game.players.allSatisfy { (points[$0.id] ?? 0) == 0 }
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -140,10 +144,25 @@ struct RoundInputView: View {
                 Button("Submit") {
                     submit()
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.blue)
-                .disabled(!isRoundValid)
+                .font(.headline.weight(.semibold))
+                .foregroundStyle(Color.white)
                 .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+                .background {
+                    Capsule(style: .continuous)
+                        .fill(.ultraThinMaterial)
+                        .overlay {
+                            Capsule(style: .continuous)
+                                .fill(Color.blue.opacity(1.0))
+                        }
+                        .overlay {
+                            Capsule(style: .continuous)
+                                .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
+                        }
+                        .shadow(color: .black.opacity(colorScheme == .dark ? 0.5 : 0.1), radius: 8, y: 4)
+                }
+                .opacity(isRoundValid ? 1 : 0.5)
+                .disabled(!isRoundValid)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
@@ -163,6 +182,7 @@ struct RoundInputView: View {
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
                     }
+                    .disabled(isAllScoresZero)
                 }
             }
         }
