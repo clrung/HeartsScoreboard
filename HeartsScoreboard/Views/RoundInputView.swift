@@ -137,22 +137,13 @@ struct RoundInputView: View {
                     }
                 }
 
-                HStack(spacing: 16) {
-                    Button("Reset") {
-                        reset()
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Button("Submit") {
-                        submit()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.blue)
-                    .disabled(!isRoundValid)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                Button("Submit") {
+                    submit()
                 }
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
+                .disabled(!isRoundValid)
+                .frame(maxWidth: .infinity)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
@@ -164,6 +155,13 @@ struct RoundInputView: View {
                         dismiss()
                     } label: {
                         Label("Back", systemImage: "chevron.left")
+                    }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        reset()
+                    } label: {
+                        Label("Reset", systemImage: "arrow.counterclockwise")
                     }
                 }
             }
