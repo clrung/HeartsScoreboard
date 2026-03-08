@@ -40,7 +40,7 @@ struct RoundInputView: View {
                                     }
                                     .buttonStyle(.borderless)
                                     .font(.headline)
-                                    .disabled(isRoundValid)
+                                    .disabled(isShootTheMoonRound)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .font(.title3.weight(.semibold))
@@ -70,7 +70,7 @@ struct RoundInputView: View {
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
                                         .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid)
+                                        .disabled(isRoundValid || remainingPoints(for: player.id) < 5)
 
                                         Button("Q♠") {
                                             addQueenOfSpades(for: player.id)
@@ -138,19 +138,12 @@ struct RoundInputView: View {
                 }
 
                 HStack(spacing: 16) {
-                    Button("Back") {
-                        dismiss()
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.blue)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
                     Button("Reset") {
                         reset()
                     }
                     .buttonStyle(.bordered)
                     .tint(.blue)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                     Button("Submit") {
                         submit()
@@ -165,6 +158,15 @@ struct RoundInputView: View {
             }
             .navigationTitle(showNavigationTitle ? String(format: String(localized: "Round %d"), model.game.hands.count + 1) : "")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Label("Back", systemImage: "chevron.left")
+                    }
+                }
+            }
         }
         .onAppear {
             if points.isEmpty {
@@ -228,6 +230,14 @@ struct RoundInputView: View {
             return true
         }
         return sum == -26 || sum == shootMoonTotal
+    }
+
+    /// True when the round is valid and is a shoot-the-moon outcome (not a normal 26 split). Subtract buttons should be disabled in this case.
+    private var isShootTheMoonRound: Bool {
+        let n = model.game.players.count
+        guard n > 0, isRoundValid else { return false }
+        let sum = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        return sum == -26 || sum == (n - 1) * 26
     }
 
     private func reset() {
