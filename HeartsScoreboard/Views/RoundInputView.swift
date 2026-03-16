@@ -90,15 +90,10 @@ struct RoundInputView: View {
 
                                     VStack(spacing: 4) {
                                         let remaining = remainingPoints(for: player.id)
-                                        let isSubtract26Button = model.settings.shootMoonPreference == .subtract26 && remaining == 26
                                         Button {
-                                            if isSubtract26Button {
-                                                applyShootMoonValue(for: player.id)
-                                            } else {
-                                                addRemainingPoints(for: player.id)
-                                            }
+                                            addRemainingPoints(for: player.id)
                                         } label: {
-                                            Text(isShootTheMoonRound ? "+0" : (isSubtract26Button ? "-26" : "+\(remaining)"))
+                                            Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .font(.subheadline.weight(.semibold))
@@ -106,7 +101,7 @@ struct RoundInputView: View {
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
                                         .frame(width: 52, height: 32)
-                                        .disabled(isSubtract26Button ? isRoundValid : (remaining == 0 || isRoundValid))
+                                        .disabled(remaining == 0 || isRoundValid)
 
                                         Button {
                                             applyShootMoonValue(for: player.id)
@@ -230,7 +225,7 @@ struct RoundInputView: View {
         adjustPoints(for: playerID, delta: delta)
     }
 
-    /// Shoot the moon: Add 26 = shooter gets 0, everyone else gets 26. Subtract 26 = tapped player gets -26, others unchanged.
+    /// Shoot the moon: Add 26 = shooter gets 0, everyone else gets 26. Subtract 26 = shooter gets -26, everyone else gets 0.
     private func applyShootMoonValue(for shooterID: UUID) {
         switch model.settings.shootMoonPreference {
         case .add26:
@@ -238,8 +233,9 @@ struct RoundInputView: View {
                 points[p.id] = p.id == shooterID ? 0 : 26
             }
         case .subtract26:
-            let current = points[shooterID] ?? 0
-            points[shooterID] = max(-26, current - 26)
+            for p in model.game.players {
+                points[p.id] = p.id == shooterID ? -26 : 0
+            }
         }
     }
 

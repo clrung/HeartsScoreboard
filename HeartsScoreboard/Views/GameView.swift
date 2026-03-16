@@ -9,6 +9,8 @@ struct GameView: View {
     @State private var showingHistory = false
     @State private var showUndoAlert = false
     @State private var showNewGameAlert = false
+    @State private var showShakeHint = false
+    @State private var hasShownShakeHint = UserDefaults.standard.bool(forKey: "hasShownShakeUndoHint")
 
     var body: some View {
         ZStack {
@@ -21,6 +23,11 @@ struct GameView: View {
                 bottomBar
             }
             .padding(.horizontal)
+
+            if showShakeHint {
+                shakeHintOverlay
+                    .transition(.opacity)
+            }
         }
         .background(
             ShakeDetectorView {
@@ -62,6 +69,19 @@ struct GameView: View {
         .onChange(of: showingSettings) { _, isShowing in
             if !isShowing { model.persistToCloud() }
         }
+        .onChange(of: model.game.hands.count) { _, newCount in
+            guard newCount == 1, !hasShownShakeHint else { return }
+            hasShownShakeHint = true
+            UserDefaults.standard.set(true, forKey: "hasShownShakeUndoHint")
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                showShakeHint = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
+                    showShakeHint = false
+                }
+            }
+        }
     }
 
     private var dealerIndex: Int { model.currentDealerIndex }
@@ -81,6 +101,37 @@ struct GameView: View {
                     .strokeBorder(Color.white.opacity(colorScheme == .dark ? 0.35 : 0.5), lineWidth: 1)
             }
             .shadow(color: .black.opacity(colorScheme == .dark ? 0.4 : 0.15), radius: 2, x: 0, y: 1)
+    }
+
+    private var shakeHintOverlay: some View {
+        VStack(spacing: 12) {
+            HStack(spacing: 8) {
+                if #available(iOS 18.0, *) {
+                    Image(systemName: "iphone.radiowaves.left.and.right")
+                        .font(.system(size: 28, weight: .semibold))
+                        .symbolEffect(.bounce, options: .repeating)
+                } else {
+                    // Fallback on earlier versions
+                }
+
+                Text(String(localized: "Shake to undo the last round!"))
+                    .font(.headline.weight(.semibold))
+                    .multilineTextAlignment(.leading)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18, style: .continuous)
+                            .stroke(Color.white.opacity(colorScheme == .dark ? 0.45 : 0.7), lineWidth: 1)
+                    )
+            )
+        }
+        .padding(.horizontal, 24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 120)
     }
 
     private var dealerBadgeScale: CGFloat {
