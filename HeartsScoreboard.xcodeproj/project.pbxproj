@@ -17,12 +17,12 @@
 		B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */; };
 		CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A380EF88AB8E66E04E54FCCE /* HistoryView.swift */; };
 		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
+		E8D7C6B5A43210FEDCBA9877 /* PlayerScoreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */; };
 		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
 		F13B17722F5937DB0021E0BA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F13B17702F5937DB0021E0BA /* InfoPlist.strings */; };
 		F16687302F58E2E30081C2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F166872A2F58E2E30081C2DC /* Assets.xcassets */; };
 		F16687322F58E2E30081C2DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F16687282F58DF390081C2DC /* Localizable.strings */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
-		E8D7C6B5A43210FEDCBA9877 /* PlayerScoreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +41,7 @@
 		CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorView.swift; sourceTree = "<group>"; };
 		CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGame.swift; sourceTree = "<group>"; };
 		DFFC23505122D4B973E56CD3 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreViews.swift; sourceTree = "<group>"; };
 		F13B17712F5937DB0021E0BA /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F13B17732F59380F0021E0BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F13B17742F59380F0021E0BA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		F16687262F58DF390081C2DC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F16687272F58DF390081C2DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F166872A2F58E2E30081C2DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E8D7C6B5A43210FEDCBA9876 /* PlayerScoreViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -290,7 +290,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
@@ -299,7 +299,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,7 +442,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
@@ -451,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
