@@ -229,11 +229,13 @@ final class GameViewModel {
         if isGameOver {
             return winnerDescription(for: game) ?? String(localized: "Game over")
         }
-        switch game.hands.count % 3 {
+        switch game.hands.count % 4 {
         case 0:
             return String(localized: "Pass to the Left")
         case 1:
             return String(localized: "Pass to the Right")
+        case 2:
+            return String(localized: "Pass Across")
         default:
             return String(localized: "Hold on Tight!")
         }

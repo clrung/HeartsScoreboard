@@ -14,6 +14,7 @@
 "Game to: %d" = "目标分数：%d";
 "Pass: Left ←" = "传牌：左 ←";
 "Pass: Right →" = "传牌：右 →";
+"Pass: Across ↔" = "传牌：对家 ↔";
 "Pass: Hold ✋" = "传牌：留 ✋";
 "Next Round" = "下一轮";
 
@@ -21,6 +22,7 @@
 "Game over" = "游戏结束";
 "Pass to the Left" = "向左传牌";
 "Pass to the Right" = "向右传牌";
+"Pass Across" = "传给对家";
 "Hold on Tight!" = "留牌！";
 "No winner" = "无赢家";
 "%@ won!" = "%@ 赢了！";

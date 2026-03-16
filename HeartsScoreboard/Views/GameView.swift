@@ -263,11 +263,13 @@ struct GameView: View {
             return model.statusText
         }
 
-        switch model.game.hands.count % 3 {
+        switch model.game.hands.count % 4 {
         case 0:
             return String(localized: "Pass: Left \u{2190}")
         case 1:
             return String(localized: "Pass: Right \u{2192}")
+        case 2:
+            return String(localized: "Pass: Across \u{2194}")
         default:
             return String(localized: "Pass: Hold \u{270B}")
         }

@@ -14,6 +14,7 @@
 "Game to: %d" = "Spel tot: %d";
 "Pass: Left ←" = "Doorgeven: Links ←";
 "Pass: Right →" = "Doorgeven: Rechts →";
+"Pass: Across ↔" = "Doorgeven: Tegenover ↔";
 "Pass: Hold ✋" = "Doorgeven: Houden ✋";
 "Next Round" = "Volgende ronde";
 
@@ -21,6 +22,7 @@
 "Game over" = "Spel afgelopen";
 "Pass to the Left" = "Doorgeven naar links";
 "Pass to the Right" = "Doorgeven naar rechts";
+"Pass Across" = "Doorgeven naar tegenover";
 "Hold on Tight!" = "Houden!";
 "No winner" = "Geen winnaar";
 "%@ won!" = "%@ heeft gewonnen!";

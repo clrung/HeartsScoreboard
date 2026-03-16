@@ -14,6 +14,7 @@
 "Game to: %d" = "Partita a %d";
 "Pass: Left ←" = "Passa: Sinistra ←";
 "Pass: Right →" = "Passa: Destra →";
+"Pass: Across ↔" = "Passa: Di fronte ↔";
 "Pass: Hold ✋" = "Passa: Tieni ✋";
 "Next Round" = "Prossimo giro";
 
@@ -21,6 +22,7 @@
 "Game over" = "Fine partita";
 "Pass to the Left" = "Passa a sinistra";
 "Pass to the Right" = "Passa a destra";
+"Pass Across" = "Passa di fronte";
 "Hold on Tight!" = "Tieni duro!";
 "No winner" = "Nessun vincitore";
 "%@ won!" = "%@ ha vinto!";

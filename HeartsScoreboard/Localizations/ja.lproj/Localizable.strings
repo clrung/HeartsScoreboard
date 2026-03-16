@@ -14,6 +14,7 @@
 "Game to: %d" = "目標得点: %d";
 "Pass: Left ←" = "渡す: 左 ←";
 "Pass: Right →" = "渡す: 右 →";
+"Pass: Across ↔" = "渡す: 向かい ↔";
 "Pass: Hold ✋" = "渡す: キープ ✋";
 "Next Round" = "次のラウンド";
 
@@ -21,6 +22,7 @@
 "Game over" = "ゲーム終了";
 "Pass to the Left" = "左に渡す";
 "Pass to the Right" = "右に渡す";
+"Pass Across" = "向かいに渡す";
 "Hold on Tight!" = "キープ！";
 "No winner" = "勝者なし";
 "%@ won!" = "%@の勝ち！";

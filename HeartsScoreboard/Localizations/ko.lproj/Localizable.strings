@@ -14,6 +14,7 @@
 "Game to: %d" = "목표 점수: %d";
 "Pass: Left ←" = "건네기: 왼쪽 ←";
 "Pass: Right →" = "건네기: 오른쪽 →";
+"Pass: Across ↔" = "건네기: 맞은편 ↔";
 "Pass: Hold ✋" = "건네기: 홀드 ✋";
 "Next Round" = "다음 라운드";
 
@@ -21,6 +22,7 @@
 "Game over" = "게임 종료";
 "Pass to the Left" = "왼쪽으로 건네기";
 "Pass to the Right" = "오른쪽으로 건네기";
+"Pass Across" = "맞은편으로 건네기";
 "Hold on Tight!" = "홀드!";
 "No winner" = "승자 없음";
 "%@ won!" = "%@ 승리!";
