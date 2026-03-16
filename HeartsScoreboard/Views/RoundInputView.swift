@@ -143,26 +143,26 @@ struct RoundInputView: View {
                     }
                 }
 
-                Button("Submit") {
+                Button {
                     submit()
-                }
-                .font(.headline.weight(.semibold))
-                .foregroundStyle(Color.white)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
-                .background {
-                    Capsule(style: .continuous)
-                        .fill(.ultraThinMaterial)
-                        .overlay {
+                } label: {
+                    Text("Submit")
+                        .font(.headline.weight(.semibold))
+                        .foregroundStyle(Color.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .contentShape(Rectangle())
+                        .background {
                             Capsule(style: .continuous)
-                                .fill(Color.blue.opacity(1.0))
+                                .fill(.ultraThinMaterial)
+                                .overlay {
+                                    Capsule(style: .continuous)
+                                        .fill(Color.blue.opacity(1.0))
+                                }
+                                .shadow(color: .black.opacity(colorScheme == .dark ? 0.5 : 0.1), radius: 8, y: 4)
                         }
-                        .overlay {
-                            Capsule(style: .continuous)
-                                .strokeBorder(Color.white.opacity(0.5), lineWidth: 1)
-                        }
-                        .shadow(color: .black.opacity(colorScheme == .dark ? 0.5 : 0.1), radius: 8, y: 4)
                 }
+                .buttonStyle(.plain)
                 .opacity(isRoundValid ? 1 : 0.5)
                 .disabled(!isRoundValid)
                 .padding(.horizontal)

@@ -76,7 +76,7 @@ struct GameView: View {
             withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
                 showShakeHint = true
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
                     showShakeHint = false
                 }
