@@ -290,7 +290,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
@@ -299,7 +299,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -442,7 +442,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
@@ -451,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.2.0;
+				MARKETING_VERSION = 3.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-Scoreboard";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

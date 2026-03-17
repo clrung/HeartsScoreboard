@@ -6,6 +6,21 @@ struct SettingsView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Bindable var model: GameViewModel
     @State private var showingAbout = false
+    @State private var appearanceVersion: Int = 0
+
+    /// Color scheme Settings should render with, based on the in-app preference.
+    /// - System: follow whatever the current environment is using (device / app).
+    /// - Light / Dark: force that scheme for this view.
+    private var effectiveColorScheme: ColorScheme {
+        switch model.settings.appearance {
+        case .system:
+            return colorScheme
+        case .light:
+            return .light
+        case .dark:
+            return .dark
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -89,6 +104,14 @@ struct SettingsView: View {
             .sheet(isPresented: $showingAbout) {
                 AboutView()
             }
+        }
+        // Keep Settings visually in sync with the app's appearance setting
+        .environment(\.colorScheme, effectiveColorScheme)
+        // Force a re-render when the appearance setting changes,
+        // so the new color scheme is applied consistently.
+        .id(appearanceVersion)
+        .onChange(of: model.settings.appearance) { _, _ in
+            appearanceVersion &+= 1
         }
     }
 
