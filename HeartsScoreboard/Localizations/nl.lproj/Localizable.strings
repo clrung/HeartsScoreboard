@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "Laatste ronde ongedaan maken";
+"Undo Round" = "Ronde ongedaan maken";
+"Shake to undo the last round!" = "Schud om de laatste ronde ongedaan te maken!";
 "Are you sure you would like to undo the last round?" = "Weet je zeker dat je de laatste ronde ongedaan wilt maken?";
 "New Game" = "Nieuw spel";
 "Are you sure? This will clear all round scores." = "Weet je het zeker? Alle ronde-scores worden gewist.";
@@ -64,6 +66,7 @@
 "Back" = "Terug";
 "Reset" = "Resetten";
 "Submit" = "Verzenden";
+"Submit round scores" = "Rondescores verzenden";
 "Round %d" = "Ronde %d";
 
 /* About */

@@ -111,7 +111,8 @@ struct GameView: View {
                         .font(.system(size: 28, weight: .semibold))
                         .symbolEffect(.bounce, options: .repeating)
                 } else {
-                    // Fallback on earlier versions
+                    Image(systemName: "iphone.radiowaves.left.and.right")
+                        .font(.system(size: 28, weight: .semibold))
                 }
 
                 Text(String(localized: "Shake to undo the last round!"))
@@ -132,6 +133,8 @@ struct GameView: View {
         .padding(.horizontal, 24)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.top, 120)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(String(localized: "Shake to undo the last round!")))
     }
 
     private var dealerBadgeScale: CGFloat {
@@ -387,6 +390,7 @@ struct GameView: View {
                             .font(.footnote.weight(.medium))
                             .foregroundStyle(Color.primary)
                             .frame(width: 56, height: 26)
+                            .accessibilityLabel(isMoon ? String(localized: "Shoot the moon") : "\(score)")
                             .background(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(
@@ -428,6 +432,7 @@ struct GameView: View {
             .tint(.blue)
             .frame(maxWidth: .infinity, alignment: .leading)
             .disabled(model.game.hands.isEmpty)
+            .accessibilityHint(Text("Starts a new game with the same players"))
 
             Spacer()
 
@@ -440,6 +445,7 @@ struct GameView: View {
             .tint(.blue)
             .frame(maxWidth: .infinity, alignment: .trailing)
             .disabled(model.isGameOver)
+            .accessibilityHint(Text("Enter scores for the next round"))
         }
         .font(.callout)
         .padding(.vertical, 12)

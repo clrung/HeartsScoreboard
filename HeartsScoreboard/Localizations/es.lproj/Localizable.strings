@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "Deshacer última ronda";
+"Undo Round" = "Deshacer ronda";
+"Shake to undo the last round!" = "¡Agita para deshacer la última ronda!";
 "Are you sure you would like to undo the last round?" = "¿Seguro que quieres deshacer la última ronda?";
 "New Game" = "Nueva partida";
 "Are you sure? This will clear all round scores." = "¿Seguro? Se borrarán todas las puntuaciones de las rondas.";
@@ -64,6 +66,7 @@
 "Back" = "Atrás";
 "Reset" = "Reiniciar";
 "Submit" = "Enviar";
+"Submit round scores" = "Enviar puntuación de la ronda";
 "Round %d" = "Ronda %d";
 
 /* About */

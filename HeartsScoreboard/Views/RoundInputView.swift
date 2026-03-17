@@ -10,8 +10,6 @@ struct RoundInputView: View {
     @State private var points: [UUID: Int] = [:]
     @State private var queenOwnerID: UUID? = nil
 
-    private var showNavigationTitle: Bool { verticalSizeClass != .compact }
-
     private var leadingPlayerIDs: Set<UUID> {
         let totals = model.game.totals()
         guard let minTotal = totals.map(\.total).min() else { return [] }
@@ -28,7 +26,7 @@ struct RoundInputView: View {
                 Form {
                     Section {
                         ForEach(model.game.players) { player in
-                            HStack(alignment: .center, spacing: 12) {
+                            HStack(alignment: .center, spacing: 0) {
                                 PlayerNameWithTotalView(
                                     name: player.name,
                                     total: model.game.totalPoints(for: player.id),
@@ -38,7 +36,7 @@ struct RoundInputView: View {
                                 .frame(width: 130, alignment: .leading)
                                 .frame(maxHeight: .infinity, alignment: .center)
 
-                                HStack(spacing: 0) {
+                                HStack(spacing: -4) {
                                     Button("-") {
                                         adjustPoints(for: player.id, delta: -1)
                                     }
@@ -63,7 +61,7 @@ struct RoundInputView: View {
                                 .frame(maxWidth: .infinity)
                                 .frame(maxHeight: .infinity, alignment: .center)
 
-                                HStack(spacing: 4) {
+                                HStack(spacing: 0) {
                                     VStack(spacing: 4) {
                                         Button("+5") {
                                             adjustPoints(for: player.id, delta: 5)
@@ -163,12 +161,13 @@ struct RoundInputView: View {
                         }
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(Text("Submit round scores"))
                 .opacity(isRoundValid ? 1 : 0.5)
                 .disabled(!isRoundValid)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .navigationTitle(showNavigationTitle ? String(format: String(localized: "Round %d"), model.game.hands.count + 1) : "")
+            .navigationTitle(String(format: String(localized: "Round %d"), model.game.hands.count + 1))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

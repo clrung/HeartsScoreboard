@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "Letzte Runde rückgängig";
+"Undo Round" = "Runde rückgängig";
+"Shake to undo the last round!" = "Schütteln, um die letzte Runde rückgängig zu machen!";
 "Are you sure you would like to undo the last round?" = "Möchtest du die letzte Runde wirklich rückgängig machen?";
 "New Game" = "Neues Spiel";
 "Are you sure? This will clear all round scores." = "Bist du sicher? Alle Rundenpunkte werden gelöscht.";
@@ -64,6 +66,7 @@
 "Back" = "Zurück";
 "Reset" = "Zurücksetzen";
 "Submit" = "Absenden";
+"Submit round scores" = "Rundenpunkte absenden";
 "Round %d" = "Runde %d";
 
 /* About */

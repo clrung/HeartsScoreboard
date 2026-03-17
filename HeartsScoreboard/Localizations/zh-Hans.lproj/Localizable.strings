@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "撤销上一轮";
+"Undo Round" = "撤销本轮";
+"Shake to undo the last round!" = "摇一摇可撤销上一轮！";
 "Are you sure you would like to undo the last round?" = "确定要撤销上一轮吗？";
 "New Game" = "新游戏";
 "Are you sure? This will clear all round scores." = "确定吗？将清除所有轮次分数。";
@@ -64,6 +66,7 @@
 "Back" = "返回";
 "Reset" = "重置";
 "Submit" = "提交";
+"Submit round scores" = "提交本轮分数";
 "Round %d" = "第 %d 轮";
 
 /* About */

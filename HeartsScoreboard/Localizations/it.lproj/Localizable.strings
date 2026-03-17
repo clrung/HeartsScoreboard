@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "Annulla ultimo giro";
+"Undo Round" = "Annulla giro";
+"Shake to undo the last round!" = "Scuoti per annullare l'ultimo giro!";
 "Are you sure you would like to undo the last round?" = "Vuoi davvero annullare l'ultimo giro?";
 "New Game" = "Nuova partita";
 "Are you sure? This will clear all round scores." = "Sei sicuro? Verranno cancellati tutti i punteggi dei giri.";
@@ -64,6 +66,7 @@
 "Back" = "Indietro";
 "Reset" = "Reimposta";
 "Submit" = "Invia";
+"Submit round scores" = "Invia punteggio del giro";
 "Round %d" = "Giro %d";
 
 /* About */

@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "마지막 라운드 취소";
+"Undo Round" = "라운드 취소";
+"Shake to undo the last round!" = "흔들면 마지막 라운드를 취소할 수 있습니다!";
 "Are you sure you would like to undo the last round?" = "마지막 라운드를 취소하시겠습니까?";
 "New Game" = "새 게임";
 "Are you sure? This will clear all round scores." = "계속하시겠습니까? 모든 라운드 점수가 삭제됩니다.";
@@ -64,6 +66,7 @@
 "Back" = "뒤로";
 "Reset" = "초기화";
 "Submit" = "제출";
+"Submit round scores" = "라운드 점수 제출";
 "Round %d" = "라운드 %d";
 
 /* About */

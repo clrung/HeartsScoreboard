@@ -4,6 +4,8 @@
 
 /* Alerts */
 "Undo last round" = "Annuler la dernière donne";
+"Undo Round" = "Annuler la donne";
+"Shake to undo the last round!" = "Secouez pour annuler la dernière donne !";
 "Are you sure you would like to undo the last round?" = "Voulez-vous vraiment annuler la dernière donne ?";
 "New Game" = "Nouvelle partie";
 "Are you sure? This will clear all round scores." = "Confirmer ? Tous les scores des donnes seront effacés.";
@@ -64,6 +66,7 @@
 "Back" = "Retour";
 "Reset" = "Réinitialiser";
 "Submit" = "Valider";
+"Submit round scores" = "Valider les scores de la donne";
 "Round %d" = "Donne %d";
 
 /* About */
