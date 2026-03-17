@@ -290,7 +290,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
@@ -442,7 +442,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = HeartsScoreboard/HeartsScoreboard.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 6;
 				INFOPLIST_FILE = HeartsScoreboard/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Scoreboard;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";

@@ -37,25 +37,33 @@ struct RoundInputView: View {
                                 .frame(maxHeight: .infinity, alignment: .center)
 
                                 HStack(spacing: -4) {
-                                    Button("-") {
+                                    Button {
                                         adjustPoints(for: player.id, delta: -1)
+                                    } label: {
+                                        Image(systemName: "minus.circle.fill")
+                                            .font(.title3.weight(.semibold))
                                     }
                                     .buttonStyle(.borderless)
-                                    .font(.headline)
-                                    .disabled(isShootTheMoonRound)
+                                    .frame(width: 32, alignment: .center)
+                                    .foregroundStyle(isRoundValid || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
+                                    .disabled(isRoundValid || (points[player.id] ?? 0) == 0)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .font(.title3.weight(.semibold))
                                         .monospacedDigit()
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
-                                        .frame(minWidth: 52, alignment: .center)
+                                        .frame(width: 32, alignment: .center)
 
-                                    Button("+") {
+                                    Button {
                                         adjustPoints(for: player.id, delta: 1)
+                                    } label: {
+                                        Image(systemName: "plus.circle.fill")
+                                            .font(.title3.weight(.semibold))
                                     }
                                     .buttonStyle(.borderless)
-                                    .font(.headline)
+                                    .frame(width: 32, alignment: .center)
+                                    .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.blue)
                                     .disabled(isRoundValid)
                                 }
                                 .frame(maxWidth: .infinity)
