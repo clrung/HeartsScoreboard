@@ -266,15 +266,30 @@ struct GameView: View {
             return model.statusText
         }
 
-        switch model.game.hands.count % 4 {
-        case 0:
-            return String(localized: "Pass: Left \u{2190}")
-        case 1:
-            return String(localized: "Pass: Right \u{2192}")
-        case 2:
-            return String(localized: "Pass: Across \u{2194}")
-        default:
-            return String(localized: "Pass: Hold \u{270B}")
+        let phase = model.passDirectionPhaseIndex(forCompletedHandCount: model.game.hands.count)
+        let oddPlayerCount = model.game.players.count % 2 == 1
+        if oddPlayerCount {
+            // 3 (or 5) players: Left → Right → Hold only.
+            switch phase {
+            case 0:
+                return String(localized: "Pass: Left \u{2190}")
+            case 1:
+                return String(localized: "Pass: Right \u{2192}")
+            default:
+                return String(localized: "Pass: Hold \u{270B}")
+            }
+        } else {
+            // 4 or 6 players: include Across.
+            switch phase {
+            case 0:
+                return String(localized: "Pass: Left \u{2190}")
+            case 1:
+                return String(localized: "Pass: Right \u{2192}")
+            case 2:
+                return String(localized: "Pass: Across \u{2194}")
+            default:
+                return String(localized: "Pass: Hold \u{270B}")
+            }
         }
     }
 

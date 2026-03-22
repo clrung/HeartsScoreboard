@@ -229,15 +229,43 @@ final class GameViewModel {
         if isGameOver {
             return winnerDescription(for: game) ?? String(localized: "Game over")
         }
-        switch game.hands.count % 4 {
-        case 0:
-            return String(localized: "Pass to the Left")
-        case 1:
-            return String(localized: "Pass to the Right")
-        case 2:
-            return String(localized: "Pass Across")
-        default:
-            return String(localized: "Hold on Tight!")
+        let phase = passDirectionPhaseIndex(forCompletedHandCount: game.hands.count)
+        let oddPlayerCount = game.players.count % 2 == 1
+        if oddPlayerCount {
+            // 3 players (or 5): no "across" — cycle Left → Right → Hold.
+            switch phase {
+            case 0:
+                return String(localized: "Pass to the Left")
+            case 1:
+                return String(localized: "Pass to the Right")
+            default:
+                return String(localized: "Hold on Tight!")
+            }
+        } else {
+            // 4 or 6 players: full cycle including Across.
+            switch phase {
+            case 0:
+                return String(localized: "Pass to the Left")
+            case 1:
+                return String(localized: "Pass to the Right")
+            case 2:
+                return String(localized: "Pass Across")
+            default:
+                return String(localized: "Hold on Tight!")
+            }
+        }
+    }
+
+    /// Phase index for the next pass direction after `forCompletedHandCount` hands.
+    /// Odd player counts: 3 phases (Left, Right, Hold) — no Across.
+    /// Even player counts: 4 phases (Left, Right, Across, Hold).
+    func passDirectionPhaseIndex(forCompletedHandCount handCount: Int) -> Int {
+        let n = game.players.count
+        guard n > 0 else { return 0 }
+        if n % 2 == 1 {
+            return handCount % 3
+        } else {
+            return handCount % 4
         }
     }
 
