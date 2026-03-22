@@ -16,12 +16,36 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
 
 ## Screenshots
 
+### iPhone (iOS)
+
 <p align="center">
-  <img src="screenshots/iPadOS%20-%20Game%20Summary.png" alt="iPadOS – Game Summary" width="50%" />
+  <img src="screenshots/iOS/1%20-%20Main.png" alt="iOS – Main scoreboard" width="32%" />
+  &nbsp;
+  <img src="screenshots/iOS/2%20-%20Round%20Input.png" alt="iOS – Round input" width="32%" />
+  &nbsp;
+  <img src="screenshots/iOS/3%20-%20Game%20Summary.png" alt="iOS – Game summary" width="32%" />
 </p>
 
 <p align="center">
-  <img src="screenshots/iOS%20-%20Game%20Summary.png" alt="iOS – Game Summary" width="50%" />
+  <img src="screenshots/iOS/4%20-%20Settings.png" alt="iOS – Settings" width="32%" />
+  &nbsp;
+  <img src="screenshots/iOS/5%20-%20Dark.png" alt="iOS – Dark mode" width="32%" />
+</p>
+
+### iPad (iPadOS)
+
+<p align="center">
+  <img src="screenshots/iPadOS/1%20-%20Main.png" alt="iPadOS – Main scoreboard" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPadOS/2%20-%20Round%20Input.png" alt="iPadOS – Round input" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPadOS/3%20-%20Game%20Summary.png" alt="iPadOS – Game summary" width="32%" />
+</p>
+
+<p align="center">
+  <img src="screenshots/iPadOS/4%20-%20Settings.png" alt="iPadOS – Settings" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPadOS/5%20-%20Dark.png" alt="iPadOS – Dark mode" width="32%" />
 </p>
 
 ## Generate and open the project
