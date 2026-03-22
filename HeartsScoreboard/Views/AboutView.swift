@@ -86,6 +86,31 @@ struct AboutView: View {
                         }
                     }
                 }
+
+                Section {
+                    HStack {
+                        Spacer(minLength: 0)
+                        HStack(spacing: 8) {
+                            Image(systemName: "heart.fill")
+                                .font(.caption)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        colors: [.pink, .red.opacity(0.85)],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                            Text(String(localized: "Made with love in Denver, CO"))
+                                .font(.footnote.weight(.medium))
+                                .foregroundStyle(.secondary)
+                            Text("🏔️")
+                                .font(.footnote)
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    .padding(.vertical, 8)
+                    .listRowBackground(Color.clear)
+                }
             }
             .navigationTitle("About")
             .navigationBarTitleDisplayMode(.large)
