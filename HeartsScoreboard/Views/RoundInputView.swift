@@ -45,8 +45,8 @@ struct RoundInputView: View {
                                     }
                                     .buttonStyle(.borderless)
                                     .frame(width: 32, alignment: .center)
-                                    .foregroundStyle(isRoundValid || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
-                                    .disabled(isRoundValid || (points[player.id] ?? 0) == 0)
+                                    .foregroundStyle(isShootTheMoonRound || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
+                                    .disabled(isShootTheMoonRound || (points[player.id] ?? 0) == 0)
 
                                     Text("\(points[player.id] ?? 0)")
                                         .font(.title3.weight(.semibold))
