@@ -59,6 +59,8 @@
 "Game Summary" = "ゲーム概要";
 
 /* Round input */
+"Quick add" = "クイック追加";
+"Adds %d points per tap" = "タップごとに%d点追加";
 "Shoot the Moon Preference" = "「月を取る」の設定";
 "Shoot the moon" = "月を取る";
 "Adds 26 points to every other players' score." = "他の全プレイヤーの得点に26点を加算します。";

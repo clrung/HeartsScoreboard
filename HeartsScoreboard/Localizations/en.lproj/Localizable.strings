@@ -59,6 +59,8 @@
 "Game Summary" = "Game Summary";
 
 /* Round input */
+"Quick add" = "Quick add";
+"Adds %d points per tap" = "Adds %d points per tap";
 "Shoot the Moon Preference" = "Shoot the Moon Preference";
 "Shoot the moon" = "Shoot the moon";
 "Adds 26 points to every other players' score." = "Adds 26 points to every other players' score.";

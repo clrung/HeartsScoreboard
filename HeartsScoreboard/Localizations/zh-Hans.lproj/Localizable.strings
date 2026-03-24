@@ -59,6 +59,8 @@
 "Game Summary" = "游戏摘要";
 
 /* Round input */
+"Quick add" = "快捷加分";
+"Adds %d points per tap" = "每次点击加 %d 分";
 "Shoot the Moon Preference" = "“全收”规则";
 "Shoot the moon" = "全收";
 "Adds 26 points to every other players' score." = "给其他每位玩家加 26 分。";

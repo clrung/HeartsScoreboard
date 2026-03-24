@@ -59,6 +59,8 @@
 "Game Summary" = "게임 요약";
 
 /* Round input */
+"Quick add" = "빠른 추가";
+"Adds %d points per tap" = "탭할 때마다 %d점 추가";
 "Shoot the Moon Preference" = "달 잡기 설정";
 "Shoot the moon" = "달 잡기";
 "Adds 26 points to every other players' score." = "다른 모든 플레이어 점수에 26점을 더합니다.";

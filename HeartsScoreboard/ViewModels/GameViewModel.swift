@@ -35,21 +35,30 @@ struct GameSettings: Codable {
     var endingScore: Int = 100
     var shootMoonPreference: ShootMoonPreference = .add26
     var appearance: AppearancePreference = .system
+    /// Points added by the round-input quick-add button (clamped 2–9).
+    var quickIncrementPoints: Int = 5
 
     private enum CodingKeys: String, CodingKey {
         case endingScore
         case shootMoonPreference
         case appearance
+        case quickIncrementPoints
     }
 
     init(
         endingScore: Int = 100,
         shootMoonPreference: ShootMoonPreference = .add26,
-        appearance: AppearancePreference = .system
+        appearance: AppearancePreference = .system,
+        quickIncrementPoints: Int = 5
     ) {
         self.endingScore = endingScore
         self.shootMoonPreference = shootMoonPreference
         self.appearance = appearance
+        self.quickIncrementPoints = Self.clampQuickIncrement(quickIncrementPoints)
+    }
+
+    static func clampQuickIncrement(_ value: Int) -> Int {
+        min(9, max(2, value))
     }
 
     init(from decoder: Decoder) throws {
@@ -57,6 +66,16 @@ struct GameSettings: Codable {
         endingScore = try container.decodeIfPresent(Int.self, forKey: .endingScore) ?? 100
         shootMoonPreference = try container.decodeIfPresent(ShootMoonPreference.self, forKey: .shootMoonPreference) ?? .add26
         appearance = try container.decodeIfPresent(AppearancePreference.self, forKey: .appearance) ?? .system
+        let quick = try container.decodeIfPresent(Int.self, forKey: .quickIncrementPoints) ?? 5
+        quickIncrementPoints = Self.clampQuickIncrement(quick)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(endingScore, forKey: .endingScore)
+        try container.encode(shootMoonPreference, forKey: .shootMoonPreference)
+        try container.encode(appearance, forKey: .appearance)
+        try container.encode(quickIncrementPoints, forKey: .quickIncrementPoints)
     }
 }
 

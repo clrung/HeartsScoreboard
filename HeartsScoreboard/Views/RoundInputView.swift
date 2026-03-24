@@ -71,8 +71,8 @@ struct RoundInputView: View {
 
                                 HStack(spacing: 0) {
                                     VStack(spacing: 4) {
-                                        Button("+5") {
-                                            adjustPoints(for: player.id, delta: 5)
+                                        Button("+\(model.settings.quickIncrementPoints)") {
+                                            adjustPoints(for: player.id, delta: model.settings.quickIncrementPoints)
                                         }
                                         .buttonStyle(.borderedProminent)
                                         .font(.subheadline.weight(.semibold))
@@ -80,7 +80,7 @@ struct RoundInputView: View {
                                         .minimumScaleFactor(0.6)
                                         .allowsTightening(true)
                                         .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid || remainingPoints(for: player.id) < 5)
+                                        .disabled(isRoundValid || remainingPoints(for: player.id) < model.settings.quickIncrementPoints)
 
                                         Button("Q♠") {
                                             addQueenOfSpades(for: player.id)
@@ -146,6 +146,28 @@ struct RoundInputView: View {
                             }
                         }
                         .padding(.top, 4)
+                    }
+
+                    Section {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(String(format: String(localized: "Adds %d points per tap"), model.settings.quickIncrementPoints))
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                            Slider(
+                                value: Binding(
+                                    get: { Double(model.settings.quickIncrementPoints) },
+                                    set: { newValue in
+                                        let v = Int(newValue.rounded())
+                                        model.settings.quickIncrementPoints = GameSettings.clampQuickIncrement(v)
+                                        model.persistToCloud()
+                                    }
+                                ),
+                                in: 2...9,
+                                step: 1
+                            )
+                        }
+                    } header: {
+                        Text(String(localized: "Quick add"))
                     }
                 }
 

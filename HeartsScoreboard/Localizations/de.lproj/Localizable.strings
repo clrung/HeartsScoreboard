@@ -59,6 +59,8 @@
 "Game Summary" = "Spielzusammenfassung";
 
 /* Round input */
+"Quick add" = "Schnell addieren";
+"Adds %d points per tap" = "Fügt %d Punkte pro Tipp hinzu";
 "Shoot the Moon Preference" = "Einstellung „Mond schießen“";
 "Shoot the moon" = "Mond schießen";
 "Adds 26 points to every other players' score." = "Addiert 26 Punkte zur Punktzahl jedes anderen Spielers.";

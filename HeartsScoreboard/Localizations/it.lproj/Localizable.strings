@@ -59,6 +59,8 @@
 "Game Summary" = "Riepilogo partita";
 
 /* Round input */
+"Quick add" = "Aggiunta rapida";
+"Adds %d points per tap" = "Aggiunge %d punti per tocco";
 "Shoot the Moon Preference" = "Preferenza \"prendi la luna\"";
 "Shoot the moon" = "Prendi la luna";
 "Adds 26 points to every other players' score." = "Aggiunge 26 punti al punteggio di ogni altro giocatore.";

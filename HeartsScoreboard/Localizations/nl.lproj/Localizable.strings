@@ -59,6 +59,8 @@
 "Game Summary" = "Speloverzicht";
 
 /* Round input */
+"Quick add" = "Snel toevoegen";
+"Adds %d points per tap" = "Voegt %d punten per tik toe";
 "Shoot the Moon Preference" = "Voorkeur \"pak de maan\"";
 "Shoot the moon" = "Pak de maan";
 "Adds 26 points to every other players' score." = "Telt 26 punten op bij de score van elke andere speler.";

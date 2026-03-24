@@ -25,6 +25,7 @@ struct SyncableState: Codable {
     private struct SyncedSettings: Codable {
         var endingScore: Int
         var shootMoonPreference: ShootMoonPreference
+        var quickIncrementPoints: Int?
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -45,14 +46,16 @@ struct SyncableState: Codable {
             settings = GameSettings(
                 endingScore: synced.endingScore,
                 shootMoonPreference: synced.shootMoonPreference,
-                appearance: .system
+                appearance: .system,
+                quickIncrementPoints: synced.quickIncrementPoints ?? 5
             )
         } else {
             let legacy = try container.decode(GameSettings.self, forKey: .settings)
             settings = GameSettings(
                 endingScore: legacy.endingScore,
                 shootMoonPreference: legacy.shootMoonPreference,
-                appearance: .system
+                appearance: .system,
+                quickIncrementPoints: legacy.quickIncrementPoints
             )
         }
     }
@@ -62,7 +65,8 @@ struct SyncableState: Codable {
         try container.encode(game, forKey: .game)
         let synced = SyncedSettings(
             endingScore: settings.endingScore,
-            shootMoonPreference: settings.shootMoonPreference
+            shootMoonPreference: settings.shootMoonPreference,
+            quickIncrementPoints: settings.quickIncrementPoints
         )
         try container.encode(synced, forKey: .settings)
         try container.encode(firstDealerIndex, forKey: .firstDealerIndex)
