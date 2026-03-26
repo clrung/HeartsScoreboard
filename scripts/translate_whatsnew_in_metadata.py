@@ -16,6 +16,7 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 LOCALE_TO_GOOGLE = {
     "nb": "no",
     "fil": "tl",
+    "bs": "hr",
     "sr-Latn": "sr",
     "pt-PT": "pt",
     "es-419": "es",
