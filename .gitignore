@@ -16,3 +16,6 @@ project.local.yml
 
 # macOS
 .DS_Store
+
+# Generated translation cache (Localizable.strings in repo are canonical)
+scripts/.locale_cache/
