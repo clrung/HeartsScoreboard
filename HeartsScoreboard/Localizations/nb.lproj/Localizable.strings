@@ -12,7 +12,7 @@
 "Pass: Left ←" = "Pass: Venstre ←";
 "Pass: Right →" = "Pass: Høyre →";
 "Pass: Across ↔" = "Passering: Over ↔";
-"Pass: Hold ✋" = "Pass: Hold ✋";
+"Pass: Hold ✋" = "Behold alle kortene – ingen bestått denne runden (hjerter) ✋";
 "Next Round" = "Neste runde";
 "Game over" = "Spillet er over";
 "Pass to the Left" = "Passer til venstre";
@@ -31,7 +31,7 @@
 "Appearance" = "Utseende";
 "Settings" = "Innstillinger";
 "Done" = "Ferdig";
-"System" = "System";
+"System" = "Automatisk";
 "Light" = "Lys";
 "Dark" = "Mørkt";
 "Add 26" = "Legg til 26";
@@ -44,7 +44,7 @@
 "Game Summary" = "Spillsammendrag";
 "Quick add" = "Rask tilføyelse";
 "Adds %d points per tap" = "Legger til %d poeng per trykk";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Preferanse for skyt-månen-scoringsregelen i Hearts";
 "Shoot the moon" = "Skyt månen";
 "Adds 26 points to every other players' score." = "Legger til 26 poeng til hver annen spillers poengsum.";
 "Subtracts 26 points from the selected player's score." = "Trekker 26 poeng fra den valgte spillerens poengsum.";

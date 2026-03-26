@@ -19,3 +19,4 @@ project.local.yml
 
 # Generated translation cache (Localizable.strings in repo are canonical)
 scripts/.locale_cache/
+scripts/.venv/

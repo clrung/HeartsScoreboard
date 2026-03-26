@@ -7,7 +7,7 @@
 "New Game" = "Nova igra";
 "Are you sure? This will clear all round scores." = "Ste prepričani? To bo izbrisalo vse rezultate krogov.";
 "D" = "D";
-"Hearts Scoreboard" = "Hearts Scoreboard";
+"Hearts Scoreboard" = "Semafor za igro s kartami Hearts";
 "Game to: %d" = "Igra do: %d";
 "Pass: Left ←" = "Prehod: levo ←";
 "Pass: Right →" = "Prehod: desno →";
@@ -44,7 +44,7 @@
 "Game Summary" = "Povzetek igre";
 "Quick add" = "Hitro dodajanje";
 "Adds %d points per tap" = "Doda %d točk na dotik";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Prednost pravilo točkovanja streljaj na luno v Hearts";
 "Shoot the moon" = "Ustreli luno";
 "Adds 26 points to every other players' score." = "Dodaja 26 točk rezultatom vseh drugih igralcev.";
 "Subtracts 26 points from the selected player's score." = "Odšteje 26 točk od rezultata izbranega igralca.";

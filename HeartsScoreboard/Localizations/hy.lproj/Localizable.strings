@@ -7,7 +7,7 @@
 "New Game" = "Նոր Խաղ";
 "Are you sure? This will clear all round scores." = "Համոզվա՞ծ ես։ Սա կջնջի բոլոր փուլերի միավորները:";
 "D" = "Դ";
-"Hearts Scoreboard" = "Hearts Scoreboard";
+"Hearts Scoreboard" = "Ցուցատախտակ Hearts քարտային խաղի համար";
 "Game to: %d" = "Խաղ՝ %d";
 "Pass: Left ←" = "Անցում` ձախ ←";
 "Pass: Right →" = "Անցում: Աջ →";
@@ -44,7 +44,7 @@
 "Game Summary" = "Խաղի ամփոփում";
 "Quick add" = "Արագ ավելացում";
 "Adds %d points per tap" = "Ավելացնում է %d միավոր մեկ հպումով";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Նախապատվությունը նկարահանել լուսնի միավորների կանոնին Hearts-ում";
 "Shoot the moon" = "Կրակեք լուսինը";
 "Adds 26 points to every other players' score." = "Յուրաքանչյուր այլ խաղացողի միավորին ավելացնում է 26 միավոր:";
 "Subtracts 26 points from the selected player's score." = "Ընտրված խաղացողի միավորից հանում է 26 միավոր:";

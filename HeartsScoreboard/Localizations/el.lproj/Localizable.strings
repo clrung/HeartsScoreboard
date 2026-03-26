@@ -44,7 +44,7 @@
 "Game Summary" = "Περίληψη παιχνιδιού";
 "Quick add" = "Γρήγορη προσθήκη";
 "Adds %d points per tap" = "Προσθέτει %d πόντους ανά πάτημα";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Προτίμηση για τον κανόνα βαθμολογίας shoot-the-moon στο Hearts";
 "Shoot the moon" = "Πυροβόλησε το φεγγάρι";
 "Adds 26 points to every other players' score." = "Προσθέτει 26 πόντους σε κάθε βαθμολογία των άλλων παικτών.";
 "Subtracts 26 points from the selected player's score." = "Αφαιρεί 26 πόντους από τη βαθμολογία του επιλεγμένου παίκτη.";

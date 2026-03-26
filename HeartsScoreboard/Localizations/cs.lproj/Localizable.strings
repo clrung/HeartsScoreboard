@@ -17,7 +17,7 @@
 "Game over" = "Konec hry";
 "Pass to the Left" = "Průjezd doleva";
 "Pass to the Right" = "Průchod doprava";
-"Pass Across" = "Pass Across";
+"Pass Across" = "Předávání karet opačnému hráči v Hearts";
 "Hold on Tight!" = "Držte se pevně!";
 "No winner" = "Žádný vítěz";
 "%@ won!" = "%@ vyhrál!";
@@ -25,7 +25,7 @@
 "Player" = "Přehrávač";
 "Add Player" = "Přidat přehrávač";
 "Hearts supports 3–6 players." = "Hearts podporuje 3–6 hráčů.";
-"Dealer" = "Dealer";
+"Dealer" = "Obchodník";
 "Ending Score" = "Konečné skóre";
 "Ending Score: %d" = "Konečné skóre: %d";
 "Appearance" = "Vzhled";
@@ -44,7 +44,7 @@
 "Game Summary" = "Shrnutí hry";
 "Quick add" = "Rychlé přidání";
 "Adds %d points per tap" = "Přidá %d bodů za klepnutí";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Preference pro bodovací pravidlo střílet na měsíc v Hearts";
 "Shoot the moon" = "Střílejte na měsíc";
 "Adds 26 points to every other players' score." = "Přidá 26 bodů ke skóre každého dalšího hráče.";
 "Subtracts 26 points from the selected player's score." = "Odečte 26 bodů od skóre vybraného hráče.";

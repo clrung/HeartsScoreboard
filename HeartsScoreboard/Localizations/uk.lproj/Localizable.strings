@@ -44,7 +44,7 @@
 "Game Summary" = "Підсумок гри";
 "Quick add" = "Швидке додавання";
 "Adds %d points per tap" = "Додає %d балів за дотик";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Надання переваги правилу підрахунку очок у Hearts";
 "Shoot the moon" = "Стріляйте в місяць";
 "Adds 26 points to every other players' score." = "Додає 26 очок до результатів усіх інших гравців.";
 "Subtracts 26 points from the selected player's score." = "Віднімає 26 балів від результату обраного гравця.";

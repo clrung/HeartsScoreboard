@@ -17,7 +17,7 @@
 "Game over" = "Peli ohi";
 "Pass to the Left" = "Ohita vasemmalle";
 "Pass to the Right" = "Ohita oikealle";
-"Pass Across" = "Pass Across";
+"Pass Across" = "Korttien jakaminen vastakkaiselle pelaajalle Heartsissa";
 "Hold on Tight!" = "Pidä tiukasti kiinni!";
 "No winner" = "Ei voittajaa";
 "%@ won!" = "%@ voitti!";

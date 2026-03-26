@@ -1,0 +1,23 @@
+/* App Store Metadata for it */
+
+"description" = "Tieni traccia dei punteggi di Hearts in modo rapido e semplice!
+
+Perfetto per chiunque ami giocare a Hearts, che si tratti di tenere il punteggio per una partita veloce o per una partita competitiva.
+
+Caratteristiche:
+• Supporta da 3 a 6 giocatori
+• Cronologia completa delle partite per rivedere ogni round
+• Indicatore di direzione del passaggio: sinistra, destra o tieni duro!
+• Pulsante di aggiunta rapida per assegnare i punti rimanenti a un giocatore
+• Sincronizzazione iCloud: avvia una partita sul tuo iPhone e continua sull'iPad
+• Agita per annullare il round precedente
+• Regole flessibili per \"Spara alla Luna\": sottrai 26 punti al tiratore o aggiungi 26 punti al punteggio di tutti gli altri
+• Design pulito e semplice, perfetto sia in verticale che in orizzontale
+• Supporto per la modalità scura
+
+Questa app è gratuita, open source e non includerà mai pubblicità.
+
+Spero che ti diverta la tua prossima partita a Hearts!";
+"keywords" = "cuori,blocco segnapunti,punteggi,punteggio,tabellone,traccia,tracker,blocco,carte";
+"supportUrl" = "https://christopherrung.com";
+"whatsNew" = "Il tabellone segnapunti di Hearts ora parla la tua lingua! Aggiunto supporto per oltre 50 nuove lingue";

@@ -1,0 +1,23 @@
+/* App Store Metadata for en */
+
+"description" = "Track Hearts scores quickly and easily!
+
+Perfect for anyone who loves playing Hearts, whether you're keeping score for a quick game night or a competitive match.
+
+Features:
+• Supports 3–6 players
+• Full game history so you can review every round
+• Pass direction indicator – left, right, or hold on tight!
+• Quick add button to assign the remaining points to a player
+• iCloud sync – start a game on your iPhone and continue on your iPad
+• Shake to undo the previous round
+• Flexible Shoot the Moon rules – subtract 26 points from the shooter or add 26 points to everyone else's score
+• Clean, simple design that looks great in portrait or landscape
+• Dark Mode support
+
+This app is free, open source, and will never include ads.
+
+I hope you enjoy your next game of Hearts!";
+"keywords" = "hearts, scoreboard, scorepad, scores, score, board, track, tracker, score tracker, pad, card, cards";
+"supportUrl" = "https://christopherrung.com";
+"whatsNew" = "Hearts Scoreboard now speaks your language! Added support for 50+ new languages";

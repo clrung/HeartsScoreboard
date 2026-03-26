@@ -7,7 +7,7 @@
 "New Game" = "Umdlalo Omusha";
 "Are you sure? This will clear all round scores." = "Uqinisekile? Lokhu kuzosula wonke amaphuzu ayindilinga.";
 "D" = "D";
-"Hearts Scoreboard" = "Hearts Scoreboard";
+"Hearts Scoreboard" = "Ibhodi lamaphuzu lomdlalo wekhadi lezinhliziyo";
 "Game to: %d" = "Umdlalo oya ku-: %d";
 "Pass: Left ←" = "Dlula: Kwesobunxele ←";
 "Pass: Right →" = "Dlula: Kwesokudla →";
@@ -44,7 +44,7 @@
 "Game Summary" = "Isifinyezo somdlalo";
 "Quick add" = "Engeza ngokushesha";
 "Adds %d points per tap" = "Ingeza amaphuzu angu-%d ngokuthepha ngakunye";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Okuncamelayo komthetho wokushaya i-shoot-the-moon ku-Hearts";
 "Shoot the moon" = "Dubula inyanga";
 "Adds 26 points to every other players' score." = "Ingeza amaphuzu angu-26 kuwo wonke amaphuzu abanye abadlali.";
 "Subtracts 26 points from the selected player's score." = "Ikhipha amaphuzu angu-26 esikolweni somdlali okhethiwe.";

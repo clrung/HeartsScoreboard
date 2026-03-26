@@ -1,16 +1,11 @@
-/* Alert buttons */
 "No" = "Nein";
 "Yes" = "Ja";
-
-/* Alerts */
 "Undo last round" = "Letzte Runde rückgängig";
 "Undo Round" = "Runde rückgängig";
 "Shake to undo the last round!" = "Schütteln, um die letzte Runde rückgängig zu machen!";
 "Are you sure you would like to undo the last round?" = "Möchtest du die letzte Runde wirklich rückgängig machen?";
 "New Game" = "Neues Spiel";
 "Are you sure? This will clear all round scores." = "Bist du sicher? Alle Rundenpunkte werden gelöscht.";
-
-/* Game view */
 "D" = "D";
 "Hearts Scoreboard" = "Herz-Zähler";
 "Game to: %d" = "Spiel bis: %d";
@@ -19,8 +14,6 @@
 "Pass: Across ↔" = "Weiter: Gegenüber ↔";
 "Pass: Hold ✋" = "Weiter: Behalten ✋";
 "Next Round" = "Nächste Runde";
-
-/* Game status (ViewModel) */
 "Game over" = "Spiel beendet";
 "Pass to the Left" = "Nach links weitergeben";
 "Pass to the Right" = "Nach rechts weitergeben";
@@ -28,8 +21,6 @@
 "Hold on Tight!" = "Alle behalten!";
 "No winner" = "Kein Gewinner";
 "%@ won!" = "%@ hat gewonnen!";
-
-/* Settings */
 "Players" = "Spieler";
 "Player" = "Spieler";
 "Add Player" = "Spieler hinzufügen";
@@ -40,25 +31,17 @@
 "Appearance" = "Darstellung";
 "Settings" = "Einstellungen";
 "Done" = "Fertig";
-
-/* Appearance options */
-"System" = "System";
+"System" = "Automatisch";
 "Light" = "Hell";
 "Dark" = "Dunkel";
-
-/* Shoot the moon */
 "Add 26" = "26 addieren";
 "Subtract 26" = "26 abziehen";
-
-/* History */
 "No completed games yet." = "Noch keine abgeschlossenen Spiele.";
 "Delete" = "Löschen";
 "Time" = "Zeit";
 "Winner" = "Gewinner";
 "Game History" = "Spielverlauf";
 "Game Summary" = "Spielzusammenfassung";
-
-/* Round input */
 "Quick add" = "Schnell addieren";
 "Adds %d points per tap" = "Fügt %d Punkte pro Tipp hinzu";
 "Shoot the Moon Preference" = "Einstellung „Mond schießen“";
@@ -70,8 +53,6 @@
 "Submit" = "Absenden";
 "Submit round scores" = "Rundenpunkte absenden";
 "Round %d" = "Runde %d";
-
-/* About */
 "Developed by Christopher Rung" = "Entwickelt von Christopher Rung";
 "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Meinem Vater gewidmet, der Herz liebt und mir beigebracht hat, immer den Mond zu schießen.";
 "I would love to hear your feedback!" = "Über dein Feedback würde ich mich freuen!";

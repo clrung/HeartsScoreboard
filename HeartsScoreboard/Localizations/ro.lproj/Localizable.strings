@@ -25,7 +25,7 @@
 "Player" = "Jucător";
 "Add Player" = "Adăugați un jucător";
 "Hearts supports 3–6 players." = "Hearts acceptă 3–6 jucători.";
-"Dealer" = "Dealer";
+"Dealer" = "Jucătorul care împarte cărțile";
 "Ending Score" = "Scor final";
 "Ending Score: %d" = "Scor final: %d";
 "Appearance" = "Aspectul";

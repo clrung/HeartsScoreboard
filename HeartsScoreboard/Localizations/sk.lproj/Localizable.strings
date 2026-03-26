@@ -17,7 +17,7 @@
 "Game over" = "Koniec hry";
 "Pass to the Left" = "Prejdite doľava";
 "Pass to the Right" = "Prejdite doprava";
-"Pass Across" = "Pass Across";
+"Pass Across" = "Odovzdávanie kariet opačnému hráčovi v Hearts";
 "Hold on Tight!" = "Držte sa pevne!";
 "No winner" = "Žiadny víťaz";
 "%@ won!" = "%@ vyhral!";
@@ -44,7 +44,7 @@
 "Game Summary" = "Súhrn hry";
 "Quick add" = "Rýchle pridanie";
 "Adds %d points per tap" = "Pridá %d bodov za klepnutie";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Preferuje sa pravidlo bodovania strieľaním na mesiac v Hearts";
 "Shoot the moon" = "Zastreľte mesiac";
 "Adds 26 points to every other players' score." = "Pripočítava 26 bodov k skóre každého ďalšieho hráča.";
 "Subtracts 26 points from the selected player's score." = "Odčíta 26 bodov od skóre vybraného hráča.";

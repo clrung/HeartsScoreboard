@@ -1,0 +1,6 @@
+/* App Store Metadata for sv */
+
+"description" = "Spåra Hearts poäng snabbt och enkelt!\n\nPerfekt för alla som älskar att spela Hearts, oavsett om du håller poäng för en snabb spelkväll eller en tävlingsmatch.\n\nFunktioner:\n• Stöder 3–6 spelare\n• Fullständig spelhistorik så att du kan granska varje omgång\n• Passeringsriktningsvisare – vänster, höger eller håll hårt!\n• Snabbknapp för att tilldela återstående poäng till en spelare\n• iCloud-synkronisering – starta ett spel på din iPhone och fortsätt på din iPad\n• Skaka för att ångra föregående omgång\n• Flexibla Shoot the Moon-regler – subtrahera 26 poäng från skytten eller lägg till 26 poäng till alla andras poäng\n• Ren, enkel design som ser bra ut i stående eller landskap\n• Stöd för mörkt läge\n\nDen här appen är gratis, öppen källkod och kommer aldrig att innehålla annonser.\n\nJag hoppas att du gillar din nästa omgång Hearts!";
+"keywords" = "hjärtan, resultattavla, poängtavla, poäng, poäng, tavla, spår, spårare, poängspårare, block, kort, kort";
+"supportUrl" = "https://christopherrung.com";
+"whatsNew" = "Hearts Scoreboard talar nu ditt språk! Lade till stöd för 50+ nya språk";

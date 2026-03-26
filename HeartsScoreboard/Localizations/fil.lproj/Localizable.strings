@@ -25,7 +25,7 @@
 "Player" = "Manlalaro";
 "Add Player" = "Magdagdag ng Manlalaro";
 "Hearts supports 3–6 players." = "Sinusuportahan ng Hearts ang 3–6 na manlalaro.";
-"Dealer" = "Dealer";
+"Dealer" = "Manlalaro na nagdedeal ng mga card";
 "Ending Score" = "Pangwakas na Iskor";
 "Ending Score: %d" = "Pangwakas na Marka: %d";
 "Appearance" = "Hitsura";
@@ -52,7 +52,7 @@
 "Reset" = "I-reset";
 "Submit" = "Isumite";
 "Submit round scores" = "Isumite ang mga round score";
-"Round %d" = "Round %d";
+"Round %d" = "Round number %d";
 "Developed by Christopher Rung" = "Binuo ni Christopher Rung";
 "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedicated to my father, who loves Hearts, and has teach me to always shoot the moon.";
 "I would love to hear your feedback!" = "Gusto kong marinig ang iyong feedback!";

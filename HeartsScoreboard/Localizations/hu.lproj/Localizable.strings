@@ -17,7 +17,7 @@
 "Game over" = "A játéknak vége";
 "Pass to the Left" = "Haladjon balra";
 "Pass to the Right" = "Haladjon jobbra";
-"Pass Across" = "Pass Across";
+"Pass Across" = "Lapok átadása a Szívek ellentétes játékosának";
 "Hold on Tight!" = "Kapaszkodj szorosan!";
 "No winner" = "Nincs győztes";
 "%@ won!" = "%@ nyert!";
@@ -49,7 +49,7 @@
 "Adds 26 points to every other players' score." = "26 pontot ad minden más játékos pontszámához.";
 "Subtracts 26 points from the selected player's score." = "Levon 26 pontot a kiválasztott játékos pontszámából.";
 "Back" = "Vissza";
-"Reset" = "Reset";
+"Reset" = "Alapértékek visszaállítása";
 "Submit" = "Beküld";
 "Submit round scores" = "Küldje be a fordulópontszámokat";
 "Round %d" = "%d. forduló";

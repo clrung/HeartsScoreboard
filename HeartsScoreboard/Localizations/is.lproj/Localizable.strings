@@ -44,7 +44,7 @@
 "Game Summary" = "Leikjasamantekt";
 "Quick add" = "Fljótleg viðbót";
 "Adds %d points per tap" = "Bætir við %d punktum fyrir hvern smell";
-"Shoot the Moon Preference" = "Shoot the Moon Preference";
+"Shoot the Moon Preference" = "Val fyrir skjóta-the-moon-skoraregluna í Hearts";
 "Shoot the moon" = "Skjóta tunglið";
 "Adds 26 points to every other players' score." = "Bætir 26 stigum við stig annarra leikmanna.";
 "Subtracts 26 points from the selected player's score." = "Dregur 26 stig frá skori valins leikmanns.";
