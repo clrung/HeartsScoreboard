@@ -63,3 +63,12 @@
 "View Source" = "මූලාශ්රය බලන්න";
 "About" = "ගැන";
 "Made with love in Denver, CO" = "CO ඩෙන්වර් හි ආදරයෙන් සාදන ලදී";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ හි අගය −10";
+"10 of Diamonds" = "දියමන්ති 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ප්‍රභේදය: 10♦ ගන්නා අයට එම අතට −10 ලැබේ. මෙය \"සඳට වෙඩි තියන්න\" වෙතින් වෙන්ව පවතී.";
+"10♦ taken by" = "10♦ ගත්තේ";
+"The player who took the 10♦ scores −10 this round." = "10♦ ගත් ක්‍රීඩකයාට මෙම වටයේදී −10 ලැබේ.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ ගත්තේ කවුදැයි තෝරන්න";

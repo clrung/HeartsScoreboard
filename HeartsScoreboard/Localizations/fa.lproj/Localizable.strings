@@ -63,3 +63,12 @@
 "View Source" = "مشاهده منبع";
 "About" = "درباره";
 "Made with love in Denver, CO" = "ساخته شده با عشق در دنور، CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "۱۰♦ برابر −۱۰";
+"10 of Diamonds" = "خشت ۱۰";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "نسخه Omnibus Hearts: هر که ۱۰♦ را بگیرد در آن دست −۱۰ امتیاز می‌گیرد. این قانون جدا از «به ماه شلیک کن» است.";
+"10♦ taken by" = "۱۰♦ را گرفت";
+"The player who took the 10♦ scores −10 this round." = "بازیکنی که ۱۰♦ را گرفته در این دور −۱۰ امتیاز می‌گیرد.";
+"−10" = "−10";
+"Select who took the 10♦" = "انتخاب کنید چه کسی ۱۰♦ را گرفت";

@@ -63,3 +63,12 @@
 "View Source" = "Näytä lähde";
 "About" = "Tietoja";
 "Made with love in Denver, CO" = "Valmistettu rakkaudella Denverissä, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ on arvoltaan −10";
+"10 of Diamonds" = "Ruutu 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts -variantti: 10♦:n ottava saa kyseisestä jaosta −10. Tämä on erillinen \"Ammu kuu\" -säännöstä.";
+"10♦ taken by" = "10♦:n otti";
+"The player who took the 10♦ scores −10 this round." = "10♦:n ottanut pelaaja saa tällä kierroksella −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Valitse, kuka otti 10♦:n";

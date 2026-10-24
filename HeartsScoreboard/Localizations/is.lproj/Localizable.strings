@@ -63,3 +63,12 @@
 "View Source" = "Skoða heimild";
 "About" = "Um";
 "Made with love in Denver, CO" = "Gert af ást í Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ er −10 virði";
+"10 of Diamonds" = "Tígull 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts afbrigði: sá sem tekur 10♦ fær −10 fyrir þá gjöf. Þetta er óháð \"Skjóta tunglið\".";
+"10♦ taken by" = "10♦ tekinn af";
+"The player who took the 10♦ scores −10 this round." = "Leikmaðurinn sem tók 10♦ fær −10 í þessari umferð.";
+"−10" = "−10";
+"Select who took the 10♦" = "Veldu hver tók 10♦";

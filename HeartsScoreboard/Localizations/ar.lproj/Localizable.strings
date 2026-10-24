@@ -63,3 +63,12 @@
 "View Source" = "عرض المصدر";
 "About" = "حول";
 "Made with love in Denver, CO" = "صُنع بحب في دنفر، كولورادو";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "الـ10♦ تساوي −10";
+"10 of Diamonds" = "عشرة الديناري";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "نسخة Omnibus Hearts: من يأخذ الـ10♦ يحصل على −10 في تلك اليد. وهذا منفصل عن «أخذ القمر».";
+"10♦ taken by" = "من أخذ الـ10♦";
+"The player who took the 10♦ scores −10 this round." = "اللاعب الذي أخذ الـ10♦ يحصل على −10 في هذه الجولة.";
+"−10" = "−10";
+"Select who took the 10♦" = "اختر من أخذ الـ10♦";

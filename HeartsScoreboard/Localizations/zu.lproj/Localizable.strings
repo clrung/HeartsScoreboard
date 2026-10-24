@@ -63,3 +63,12 @@
 "View Source" = "Buka Umthombo";
 "About" = "Mayelana";
 "Made with love in Denver, CO" = "Kwenziwe ngothando e-Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "I-10♦ ibiza −10";
+"10 of Diamonds" = "I-10 ye-diamond";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Uhlobo lwe-Omnibus Hearts: noma ubani othatha i-10♦ uthola −10 kuleyo ngalo. Lokhu kuhlukile ku-\"Dubula inyanga\".";
+"10♦ taken by" = "I-10♦ ithathwe ngu";
+"The player who took the 10♦ scores −10 this round." = "Umdlali othathe i-10♦ uthola −10 kulo mjikelezo.";
+"−10" = "−10";
+"Select who took the 10♦" = "Khetha ukuthi ubani othathe i-10♦";

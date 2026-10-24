@@ -82,3 +82,12 @@
 "View Source" = "ソースを表示";
 "About" = "このアプリについて";
 "Made with love in Denver, CO" = "コロラド州デンバーから愛を込めて";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "♦10は−10点";
+"10 of Diamonds" = "ダイヤの10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts方式：♦10を取ったプレイヤーはそのハンドで−10点になります。「月を取る」とは別のルールです。";
+"10♦ taken by" = "♦10を取った人";
+"The player who took the 10♦ scores −10 this round." = "♦10を取ったプレイヤーはこのラウンドで−10点になります。";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦を取った人を選択";

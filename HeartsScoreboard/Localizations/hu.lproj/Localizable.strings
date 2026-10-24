@@ -63,3 +63,12 @@
 "View Source" = "Forrás megtekintése";
 "About" = "Körülbelül";
 "Made with love in Denver, CO" = "Szeretettel készült Denverben, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "A 10♦ értéke −10";
+"10 of Diamonds" = "Káró 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts változat: aki elviszi a 10♦-t, −10 pontot kap arra a leosztásra. Ez független a \"Lődd le a holdat\" szabálytól.";
+"10♦ taken by" = "A 10♦-t vitte";
+"The player who took the 10♦ scores −10 this round." = "A 10♦-t elvivő játékos −10 pontot kap ebben a fordulóban.";
+"−10" = "−10";
+"Select who took the 10♦" = "Válaszd ki, ki vitte el a 10♦-t";

@@ -10,12 +10,20 @@ struct HeartsGame: Equatable, Codable {
     /// - Each heart: 1 point
     /// - Queen of spades: 13 points
     /// Total possible: 26 points
+    ///
+    /// `pointsByPlayerID` holds each player's FINAL points for the hand. When the optional
+    /// "10♦ = -10" rule is on, the holder's entry already includes the -10, so totals need no special handling.
     struct Hand: Identifiable, Equatable, Codable {
         let id: UUID
         var pointsByPlayerID: [UUID: Int]
         var notes: String
         var createdAt: Date
+        /// Player who took the 10♦ (Omnibus Hearts variant). Nil when the rule was off.
+        var tenOfDiamondsPlayerID: UUID? = nil
     }
+
+    /// Points awarded to whoever takes the 10♦ when the optional rule is on.
+    static let tenOfDiamondsPoints = -10
 
     var id: UUID
     var players: [Player]
@@ -39,15 +47,44 @@ struct HeartsGame: Equatable, Codable {
         players.map { ($0, totalPoints(for: $0.id)) }
     }
 
+    /// Final per-player points for a hand: the hearts/Q♠ penalty points plus the -10 for the 10♦ holder (if any).
+    static func finalPoints(
+        penaltyPoints: [UUID: Int],
+        tenOfDiamondsPlayerID: UUID?
+    ) -> [UUID: Int] {
+        var result = penaltyPoints
+        if let holder = tenOfDiamondsPlayerID {
+            result[holder] = (result[holder] ?? 0) + tenOfDiamondsPoints
+        }
+        return result
+    }
+
+    /// Valid Hearts round (hearts/Q♠ points only, 10♦ excluded): total is 26 (split among ≥2 players),
+    /// -26, or (players - 1) * 26 (shoot the moon). One player having 26 and the rest 0 is invalid.
+    static func isValidRound(penaltyScores: [Int]) -> Bool {
+        let n = penaltyScores.count
+        guard n > 0 else { return false }
+        let sum = penaltyScores.reduce(0, +)
+        if sum == 26 {
+            return !penaltyScores.contains(26)
+        }
+        return sum == -26 || sum == (n - 1) * 26
+    }
+
     /// Returns true if the given hand represents a "shoot the moon" outcome for the specified player,
     /// based on the current players and their per-hand points.
     func isMoonHand(_ hand: Hand, for playerID: UUID) -> Bool {
         let n = players.count
         guard n > 0 else { return false }
 
-        let scores = players.map { hand.pointsByPlayerID[$0.id] ?? 0 }
-        let sum = scores.reduce(0, +)
-        let playerScore = hand.pointsByPlayerID[playerID] ?? 0
+        // Take the 10♦ bonus back out so the checks below only see hearts/Q♠ points.
+        func penaltyScore(for id: UUID) -> Int {
+            let score = hand.pointsByPlayerID[id] ?? 0
+            return id == hand.tenOfDiamondsPlayerID ? score - Self.tenOfDiamondsPoints : score
+        }
+
+        let sum = players.reduce(0) { $0 + penaltyScore(for: $1.id) }
+        let playerScore = penaltyScore(for: playerID)
 
         // Subtract 26 preference: one player at -26, total -26
         if sum == -26, playerScore == -26 {

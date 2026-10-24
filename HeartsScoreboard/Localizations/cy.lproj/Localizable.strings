@@ -63,3 +63,12 @@
 "View Source" = "Gweld Ffynhonnell";
 "About" = "Ynghylch";
 "Made with love in Denver, CO" = "Wedi'i wneud â chariad yn Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ yn werth −10";
+"10 of Diamonds" = "10 o Ddiemwntau";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Amrywiad Omnibus Hearts: mae pwy bynnag sy'n cymryd y 10♦ yn sgorio −10 am y llaw honno. Mae'n wahanol i \"Saethu y lleuad\".";
+"10♦ taken by" = "10♦ wedi'i gymryd gan";
+"The player who took the 10♦ scores −10 this round." = "Mae'r chwaraewr a gymerodd y 10♦ yn sgorio −10 yn y rownd hon.";
+"−10" = "−10";
+"Select who took the 10♦" = "Dewiswch pwy gymerodd y 10♦";

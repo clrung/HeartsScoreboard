@@ -63,3 +63,12 @@
 "View Source" = "Peržiūrėti šaltinį";
 "About" = "Apie";
 "Made with love in Denver, CO" = "Pagaminta su meile Denveryje, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ vertė −10";
+"10 of Diamonds" = "Būgnų 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variantas: kas paima 10♦, už tą dalybą gauna −10. Tai atskira nuo „Šaudyti į mėnulį“.";
+"10♦ taken by" = "10♦ paėmė";
+"The player who took the 10♦ scores −10 this round." = "Žaidėjas, paėmęs 10♦, šiame ture gauna −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Pasirinkite, kas paėmė 10♦";

@@ -63,3 +63,12 @@
 "View Source" = "Vizualizați sursa";
 "About" = "Despre";
 "Made with love in Denver, CO" = "Făcut cu dragoste în Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ valorează −10";
+"10 of Diamonds" = "10 de caro";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianta Omnibus Hearts: cine ia 10♦ primește −10 pentru acea mână. Este separat de „Trage luna”.";
+"10♦ taken by" = "10♦ luat de";
+"The player who took the 10♦ scores −10 this round." = "Jucătorul care a luat 10♦ primește −10 în această rundă.";
+"−10" = "−10";
+"Select who took the 10♦" = "Alege cine a luat 10♦";

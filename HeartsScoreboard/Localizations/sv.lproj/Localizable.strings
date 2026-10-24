@@ -63,3 +63,12 @@
 "View Source" = "Visa källkod";
 "About" = "Om";
 "Made with love in Denver, CO" = "Gjort med kärlek i Denver, Colorado";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ är värd −10";
+"10 of Diamonds" = "Ruter 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: den som tar 10♦ får −10 för den given. Det är separat från \"Ta månen\".";
+"10♦ taken by" = "10♦ taget av";
+"The player who took the 10♦ scores −10 this round." = "Spelaren som tog 10♦ får −10 i den här rundan.";
+"−10" = "−10";
+"Select who took the 10♦" = "Välj vem som tog 10♦";

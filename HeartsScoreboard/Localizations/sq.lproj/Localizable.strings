@@ -63,3 +63,12 @@
 "View Source" = "Shiko Burimin";
 "About" = "Rreth";
 "Made with love in Denver, CO" = "Bërë me dashuri në Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ vlen −10";
+"10 of Diamonds" = "Karo 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianti Omnibus Hearts: kush merr 10♦ fiton −10 për atë dorë. Kjo është e ndarë nga \"Gjuaj hënën\".";
+"10♦ taken by" = "10♦ e mori";
+"The player who took the 10♦ scores −10 this round." = "Lojtari që mori 10♦ fiton −10 në këtë raund.";
+"−10" = "−10";
+"Select who took the 10♦" = "Zgjidh kush e mori 10♦";

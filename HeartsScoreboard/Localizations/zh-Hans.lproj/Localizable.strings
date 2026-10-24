@@ -82,3 +82,12 @@
 "View Source" = "查看源代码";
 "About" = "关于";
 "Made with love in Denver, CO" = "在科罗拉多州丹佛用心制作";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "♦10 值 −10 分";
+"10 of Diamonds" = "方块10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts 变体：拿到 ♦10 的玩家该局得 −10 分。这与“全收”相互独立。";
+"10♦ taken by" = "♦10 由谁拿到";
+"The player who took the 10♦ scores −10 this round." = "拿到 ♦10 的玩家本轮得 −10 分。";
+"−10" = "−10";
+"Select who took the 10♦" = "选择谁拿了 10♦";

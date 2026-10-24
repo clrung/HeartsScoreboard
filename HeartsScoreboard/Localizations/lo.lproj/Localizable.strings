@@ -63,3 +63,12 @@
 "View Source" = "ເບິ່ງແຫຼ່ງ";
 "About" = "ກ່ຽວກັບ";
 "Made with love in Denver, CO" = "ເຮັດດ້ວຍຄວາມຮັກໃນ Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ມີຄ່າ −10";
+"10 of Diamonds" = "ເພັດ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ແບບ Omnibus Hearts: ຜູ້ທີ່ເອົາ 10♦ ຈະໄດ້ −10 ສຳລັບມືນັ້ນ. ນີ້ແຍກຕ່າງຫາກຈາກ \"ຍິງດວງເດືອນ\".";
+"10♦ taken by" = "ຜູ້ເອົາ 10♦";
+"The player who took the 10♦ scores −10 this round." = "ຜູ້ຫຼິ້ນທີ່ເອົາ 10♦ ຈະໄດ້ −10 ໃນຮອບນີ້.";
+"−10" = "−10";
+"Select who took the 10♦" = "ເລືອກຜູ້ທີ່ເອົາ 10♦";

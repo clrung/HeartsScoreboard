@@ -63,3 +63,12 @@
 "View Source" = "ਸਰੋਤ ਵੇਖੋ";
 "About" = "ਬਾਰੇ";
 "Made with love in Denver, CO" = "ਡੇਨਵਰ ਵਿੱਚ ਪਿਆਰ ਨਾਲ ਬਣਾਇਆ ਗਿਆ, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ਦੀ ਕੀਮਤ −10";
+"10 of Diamonds" = "ਇੱਟ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ਵੇਰੀਐਂਟ: ਜੋ 10♦ ਲੈਂਦਾ ਹੈ ਉਸਨੂੰ ਉਸ ਹੱਥ ਲਈ −10 ਮਿਲਦੇ ਹਨ। ਇਹ \"ਚੰਦ ਨੂੰ ਸ਼ੂਟ ਕਰੋ\" ਤੋਂ ਵੱਖਰਾ ਹੈ।";
+"10♦ taken by" = "10♦ ਕਿਸਨੇ ਲਿਆ";
+"The player who took the 10♦ scores −10 this round." = "ਜਿਸ ਖਿਡਾਰੀ ਨੇ 10♦ ਲਿਆ ਉਸਨੂੰ ਇਸ ਦੌਰ ਵਿੱਚ −10 ਮਿਲਦੇ ਹਨ।";
+"−10" = "−10";
+"Select who took the 10♦" = "ਚੁਣੋ ਕਿ 10♦ ਕਿਸਨੇ ਲਿਆ";

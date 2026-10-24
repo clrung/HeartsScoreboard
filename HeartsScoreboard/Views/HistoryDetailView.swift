@@ -167,6 +167,7 @@ private struct ScoreColumnView: View {
                 ScoreCellView(
                     score: hand.pointsByPlayerID[playerID] ?? 0,
                     isMoon: game.isMoonHand(hand, for: playerID),
+                    hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == playerID,
                     isEvenRow: index.isMultiple(of: 2),
                     colorScheme: colorScheme
                 )
@@ -178,6 +179,7 @@ private struct ScoreColumnView: View {
 private struct ScoreCellView: View {
     let score: Int
     let isMoon: Bool
+    let hasTenOfDiamonds: Bool
     let isEvenRow: Bool
     let colorScheme: ColorScheme
 
@@ -192,6 +194,14 @@ private struct ScoreCellView: View {
         .font(.footnote.weight(.medium))
         .foregroundStyle(Color.primary)
         .frame(width: 56, height: 26)
+        .overlay(alignment: .topTrailing) {
+            if hasTenOfDiamonds {
+                Text("♦")
+                    .font(.system(size: 9, weight: .semibold))
+                    .foregroundStyle(Color.red)
+                    .padding(.trailing, 4)
+            }
+        }
         .background(
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(

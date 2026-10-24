@@ -63,3 +63,12 @@
 "View Source" = "మూలాన్ని వీక్షించండి";
 "About" = "గురించి";
 "Made with love in Denver, CO" = "డెన్వర్, CO లో ప్రేమతో తయారు చేయబడింది";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ విలువ −10";
+"10 of Diamonds" = "డైమండ్ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts వేరియంట్: 10♦ తీసుకున్నవారికి ఆ చేతికి −10 వస్తుంది. ఇది \"చంద్రుడిని కాల్చండి\" నుండి వేరుగా ఉంటుంది.";
+"10♦ taken by" = "10♦ తీసుకున్నవారు";
+"The player who took the 10♦ scores −10 this round." = "10♦ తీసుకున్న ఆటగాడికి ఈ రౌండ్‌లో −10 వస్తుంది.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ ఎవరు తీసుకున్నారో ఎంచుకోండి";

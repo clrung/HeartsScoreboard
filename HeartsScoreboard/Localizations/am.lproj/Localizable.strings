@@ -63,3 +63,12 @@
 "View Source" = "ምንጭ ይመልከቱ";
 "About" = "ስለ";
 "Made with love in Denver, CO" = "በፍቅር የተሰራ በዴንቨር፣ CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ዋጋ −10";
+"10 of Diamonds" = "አልማዝ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "የ Omnibus Hearts ልዩነት፦ 10♦ን የወሰደ ሰው ለዚያ እጅ −10 ያገኛል። ይህ ከ«ጨረቃን ተኩሱ» የተለየ ነው።";
+"10♦ taken by" = "10♦ የወሰደው";
+"The player who took the 10♦ scores −10 this round." = "10♦ን የወሰደው ተጫዋች በዚህ ዙር −10 ያገኛል።";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ን የወሰደውን ይምረጡ";

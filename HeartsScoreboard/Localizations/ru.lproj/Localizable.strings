@@ -63,3 +63,12 @@
 "View Source" = "Исходный код";
 "About" = "О программе";
 "Made with love in Denver, CO" = "Сделано с любовью в Денвере, штат Колорадо";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ стоит −10";
+"10 of Diamonds" = "10 бубён";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: кто берёт 10♦, получает −10 за эту раздачу. Это отдельно от «Взять луну».";
+"10♦ taken by" = "10♦ взял(а)";
+"The player who took the 10♦ scores −10 this round." = "Игрок, взявший 10♦, получает −10 в этом раунде.";
+"−10" = "−10";
+"Select who took the 10♦" = "Выберите, кто взял 10♦";

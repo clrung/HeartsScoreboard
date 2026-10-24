@@ -9,6 +9,9 @@ struct RoundInputView: View {
 
     @State private var points: [UUID: Int] = [:]
     @State private var queenOwnerID: UUID? = nil
+    @State private var tenOfDiamondsOwnerID: UUID? = nil
+
+    private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
     private var leadingPlayerIDs: Set<UUID> {
         let totals = model.game.totals()
@@ -18,6 +21,16 @@ struct RoundInputView: View {
 
     private var isAllScoresZero: Bool {
         model.game.players.allSatisfy { (points[$0.id] ?? 0) == 0 }
+    }
+
+    /// True when the hearts/Q♠ round is valid but the 10♦ holder still has to be chosen.
+    private var needsTenOfDiamondsHolder: Bool {
+        isTenRuleOn && isRoundValid && tenOfDiamondsOwnerID == nil
+    }
+
+    /// Submit needs a valid 26-point round and, when the 10♦ rule is on, a chosen 10♦ holder.
+    private var canSubmit: Bool {
+        isRoundValid && (!isTenRuleOn || tenOfDiamondsOwnerID != nil)
     }
 
     var body: some View {
@@ -54,6 +67,15 @@ struct RoundInputView: View {
                                         .lineLimit(1)
                                         .minimumScaleFactor(0.6)
                                         .frame(width: 32, alignment: .center)
+                                        .overlay(alignment: .top) {
+                                            if isTenRuleOn && tenOfDiamondsOwnerID == player.id {
+                                                Text("−10")
+                                                    .font(.caption2.weight(.semibold))
+                                                    .foregroundStyle(Color.red)
+                                                    .fixedSize()
+                                                    .offset(y: -16)
+                                            }
+                                        }
 
                                     Button {
                                         adjustPoints(for: player.id, delta: 1)
@@ -124,6 +146,37 @@ struct RoundInputView: View {
                         }
                     }
 
+                    if isTenRuleOn {
+                        Section {
+                            FlowLayout(spacing: 8) {
+                                ForEach(model.game.players) { player in
+                                    let isSelected = tenOfDiamondsOwnerID == player.id
+                                    Button {
+                                        tenOfDiamondsOwnerID = isSelected ? nil : player.id
+                                    } label: {
+                                        Text(player.name)
+                                            .lineLimit(1)
+                                            .truncationMode(.tail)
+                                    }
+                                    .buttonStyle(.borderless)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 6)
+                                    .foregroundStyle(isSelected ? Color.white : Color.accentColor)
+                                    .background(
+                                        Capsule(style: .continuous)
+                                            .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
+                                    )
+                                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                                }
+                            }
+                            .padding(.vertical, 2)
+                        } header: {
+                            Text("10♦ taken by")
+                        } footer: {
+                            Text("The player who took the 10♦ scores −10 this round.")
+                        }
+                    }
+
                     Section("Shoot the Moon Preference") {
                         Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
                             ForEach(ShootMoonPreference.allCases) { pref in
@@ -174,7 +227,7 @@ struct RoundInputView: View {
                 Button {
                     submit()
                 } label: {
-                    Text("Submit")
+                    Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : "Submit")
                         .font(.headline.weight(.semibold))
                         .foregroundStyle(Color.white)
                         .frame(maxWidth: .infinity)
@@ -192,8 +245,8 @@ struct RoundInputView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(Text("Submit round scores"))
-                .opacity(isRoundValid ? 1 : 0.5)
-                .disabled(!isRoundValid)
+                .opacity(canSubmit ? 1 : 0.5)
+                .disabled(!canSubmit)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
@@ -213,7 +266,7 @@ struct RoundInputView: View {
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
                     }
-                    .disabled(isAllScoresZero)
+                    .disabled(isAllScoresZero && tenOfDiamondsOwnerID == nil)
                 }
             }
         }
@@ -268,18 +321,9 @@ struct RoundInputView: View {
         }
     }
 
-    /// Valid Hearts round: total is 26 (split among ≥2 players), -26, or (players - 1) * 26 (shoot the moon). One player having 26 and the rest 0 is invalid.
+    /// Valid Hearts round, judged on hearts/Q♠ points only (the 10♦ bonus is applied on submit).
     private var isRoundValid: Bool {
-        let n = model.game.players.count
-        guard n > 0 else { return false }
-        let sum = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
-        let shootMoonTotal = (n - 1) * 26
-        if sum == 26 {
-            let hasSomeoneWith26 = model.game.players.contains { (points[$0.id] ?? 0) == 26 }
-            if hasSomeoneWith26 { return false }
-            return true
-        }
-        return sum == -26 || sum == shootMoonTotal
+        HeartsGame.isValidRound(penaltyScores: model.game.players.map { points[$0.id] ?? 0 })
     }
 
     /// True when the round is valid and is a shoot-the-moon outcome (not a normal 26 split). Subtract buttons should be disabled in this case.
@@ -297,11 +341,52 @@ struct RoundInputView: View {
         }
         points = dict
         queenOwnerID = nil
+        tenOfDiamondsOwnerID = nil
     }
 
     private func submit() {
-        model.addHand(pointsByPlayerID: points)
+        model.addHand(
+            pointsByPlayerID: points,
+            tenOfDiamondsPlayerID: isTenRuleOn ? tenOfDiamondsOwnerID : nil
+        )
         dismiss()
+    }
+}
+
+/// Wraps children onto multiple lines; each child is proposed at most the container width so long names truncate.
+private struct FlowLayout: Layout {
+    var spacing: CGFloat = 8
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        arrange(width: proposal.width ?? .infinity, subviews: subviews).size
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let result = arrange(width: bounds.width, subviews: subviews)
+        for (subview, origin) in zip(subviews, result.origins) {
+            subview.place(
+                at: CGPoint(x: bounds.minX + origin.x, y: bounds.minY + origin.y),
+                proposal: ProposedViewSize(width: min(bounds.width, origin.maxWidth), height: nil)
+            )
+        }
+    }
+
+    private func arrange(width: CGFloat, subviews: Subviews) -> (size: CGSize, origins: [(x: CGFloat, y: CGFloat, maxWidth: CGFloat)]) {
+        var origins: [(x: CGFloat, y: CGFloat, maxWidth: CGFloat)] = []
+        var x: CGFloat = 0, y: CGFloat = 0, rowHeight: CGFloat = 0, usedWidth: CGFloat = 0
+        for subview in subviews {
+            let size = subview.sizeThatFits(ProposedViewSize(width: width, height: nil))
+            if x > 0, x + size.width > width {
+                x = 0
+                y += rowHeight + spacing
+                rowHeight = 0
+            }
+            origins.append((x, y, size.width))
+            x += size.width + spacing
+            rowHeight = max(rowHeight, size.height)
+            usedWidth = max(usedWidth, x - spacing)
+        }
+        return (CGSize(width: usedWidth, height: y + rowHeight), origins)
     }
 }
 

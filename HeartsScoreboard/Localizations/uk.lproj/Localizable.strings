@@ -63,3 +63,12 @@
 "View Source" = "Перегляд вихідного коду";
 "About" = "про";
 "Made with love in Denver, CO" = "Зроблено з любов'ю в Денвері, Колорадо";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ коштує −10";
+"10 of Diamonds" = "10 бубон";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варіант Omnibus Hearts: хто бере 10♦, отримує −10 за цю роздачу. Це окремо від «Стріляйте в місяць».";
+"10♦ taken by" = "10♦ взяв(ла)";
+"The player who took the 10♦ scores −10 this round." = "Гравець, який узяв 10♦, отримує −10 у цьому раунді.";
+"−10" = "−10";
+"Select who took the 10♦" = "Виберіть, хто взяв 10♦";

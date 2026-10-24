@@ -39,6 +39,17 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0B04D58B8584FB9F8002D60B"
+               BuildableName = "HeartsScoreboardTests.xctest"
+               BlueprintName = "HeartsScoreboardTests"
+               ReferencedContainer = "container:HeartsScoreboard.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

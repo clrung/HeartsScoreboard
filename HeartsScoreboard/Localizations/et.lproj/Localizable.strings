@@ -63,3 +63,12 @@
 "View Source" = "Vaata allikat";
 "About" = "Umbes";
 "Made with love in Denver, CO" = "Armastusega valmistatud Denveris, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ väärtus on −10";
+"10 of Diamonds" = "Ruutu 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variant: kes võtab 10♦, saab selle käe eest −10. See on eraldi reegel \"Tulista kuu\" juurest.";
+"10♦ taken by" = "10♦ võttis";
+"The player who took the 10♦ scores −10 this round." = "Mängija, kes 10♦ võttis, saab selles ringis −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Vali, kes 10♦ võttis";

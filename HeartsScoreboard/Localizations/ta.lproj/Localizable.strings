@@ -63,3 +63,12 @@
 "View Source" = "மூலத்தைக் காண்க";
 "About" = "பற்றி";
 "Made with love in Denver, CO" = "டென்வர், CO இல் அன்புடன் உருவாக்கப்பட்டது";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ மதிப்பு −10";
+"10 of Diamonds" = "டைமண்ட் 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts மாறுபாடு: 10♦ எடுப்பவர் அந்தக் கைக்கு −10 பெறுவார். இது \"சந்திரனை சுடவும்\" என்பதிலிருந்து தனியானது.";
+"10♦ taken by" = "10♦ எடுத்தவர்";
+"The player who took the 10♦ scores −10 this round." = "10♦ எடுத்த வீரர் இந்தச் சுற்றில் −10 பெறுவார்.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ யார் எடுத்தார் எனத் தேர்ந்தெடுக்கவும்";

@@ -63,3 +63,12 @@
 "View Source" = "Lihat sumber";
 "About" = "Tentang";
 "Made with love in Denver, CO" = "Dibuat dengan cinta di Denver, Colorado";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ bernilai −10";
+"10 of Diamonds" = "Wajik 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varian Omnibus Hearts: siapa yang mengambil 10♦ mendapat −10 untuk babak itu. Ini terpisah dari \"Ambil bulan\".";
+"10♦ taken by" = "10♦ diambil oleh";
+"The player who took the 10♦ scores −10 this round." = "Pemain yang mengambil 10♦ mendapat −10 di babak ini.";
+"−10" = "−10";
+"Select who took the 10♦" = "Pilih siapa yang mengambil 10♦";

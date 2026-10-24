@@ -63,3 +63,12 @@
 "View Source" = "Mã nguồn";
 "About" = "Giới thiệu";
 "Made with love in Denver, CO" = "Làm bằng tình yêu tại Denver, Colorado";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ có giá trị −10";
+"10 of Diamonds" = "10 rô";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Biến thể Omnibus Hearts: ai lấy 10♦ sẽ được −10 ở ván bài đó. Luật này tách biệt với \"Lấy trăng\".";
+"10♦ taken by" = "10♦ do ai lấy";
+"The player who took the 10♦ scores −10 this round." = "Người chơi lấy 10♦ được −10 ở vòng này.";
+"−10" = "−10";
+"Select who took the 10♦" = "Chọn người đã lấy 10♦";

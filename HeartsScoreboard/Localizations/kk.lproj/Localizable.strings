@@ -63,3 +63,12 @@
 "View Source" = "Дереккөзді көру";
 "About" = "туралы";
 "Made with love in Denver, CO" = "Денверде сүйіспеншілікпен жасалған, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ құны −10";
+"10 of Diamonds" = "Бубна 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts нұсқасы: 10♦ алған ойыншы сол қол үшін −10 ұпай алады. Бұл «Айды түсір» ережесінен бөлек.";
+"10♦ taken by" = "10♦ алған";
+"The player who took the 10♦ scores −10 this round." = "10♦ алған ойыншы осы раундта −10 ұпай алады.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ кім алғанын таңдаңыз";

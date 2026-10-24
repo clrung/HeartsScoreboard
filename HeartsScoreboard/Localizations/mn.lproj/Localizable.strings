@@ -63,3 +63,12 @@
 "View Source" = "Эх сурвалжийг харах";
 "About" = "тухай";
 "Made with love in Denver, CO" = "Денвер хотод хайраар хийсэн, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ нь −10 оноотой";
+"10 of Diamonds" = "Алмаз 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts хувилбар: 10♦-г авсан тоглогч тэр гарын хувьд −10 оноо авна. Энэ нь «Сарыг бууд»-аас тусдаа.";
+"10♦ taken by" = "10♦-г авсан";
+"The player who took the 10♦ scores −10 this round." = "10♦-г авсан тоглогч энэ тойрогт −10 оноо авна.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦-г хэн авсныг сонгоно уу";

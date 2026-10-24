@@ -63,3 +63,12 @@
 "View Source" = "ماخذ دیکھیں";
 "About" = "کے بارے میں";
 "Made with love in Denver, CO" = "ڈینور، CO میں محبت کے ساتھ بنایا گیا۔";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ کی قدر −10";
+"10 of Diamonds" = "اینٹ کا 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ویریئنٹ: جو 10♦ لے اسے اس ہاتھ کے لیے −10 ملتے ہیں۔ یہ \"چاند کو گولی مارو\" سے الگ ہے۔";
+"10♦ taken by" = "10♦ کس نے لیا";
+"The player who took the 10♦ scores −10 this round." = "جس کھلاڑی نے 10♦ لیا اسے اس راؤنڈ میں −10 ملتے ہیں۔";
+"−10" = "−10";
+"Select who took the 10♦" = "منتخب کریں کہ 10♦ کس نے لیا";

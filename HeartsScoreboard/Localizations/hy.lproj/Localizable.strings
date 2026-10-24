@@ -63,3 +63,12 @@
 "View Source" = "Դիտել աղբյուրը";
 "About" = "Մոտ";
 "Made with love in Denver, CO" = "Պատրաստված է սիրով Դենվերում, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦-ը արժե −10";
+"10 of Diamonds" = "10 շեղանկյուն";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts տարբերակ. 10♦ վերցնողը այդ խաղաբաժնի համար ստանում է −10: Սա առանձին է «Կրակեք լուսինը»-ից:";
+"10♦ taken by" = "10♦-ը վերցրեց";
+"The player who took the 10♦ scores −10 this round." = "10♦ վերցրած խաղացողն այս կլորում ստանում է −10:";
+"−10" = "−10";
+"Select who took the 10♦" = "Ընտրեք՝ ով վերցրեց 10♦-ը";

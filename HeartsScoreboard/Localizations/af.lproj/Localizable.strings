@@ -63,3 +63,12 @@
 "View Source" = "Bekyk Bron";
 "About" = "Oor";
 "Made with love in Denver, CO" = "Met liefde gemaak in Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ is −10 werd";
+"10 of Diamonds" = "Ruit 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: wie die 10♦ neem, kry −10 vir daardie hand. Dit staan los van \"Skiet die maan\".";
+"10♦ taken by" = "10♦ geneem deur";
+"The player who took the 10♦ scores −10 this round." = "Die speler wat die 10♦ geneem het, kry −10 hierdie rondte.";
+"−10" = "−10";
+"Select who took the 10♦" = "Kies wie die 10♦ geneem het";

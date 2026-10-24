@@ -63,3 +63,12 @@
 "View Source" = "Вижте източника";
 "About" = "За";
 "Made with love in Denver, CO" = "Направено с любов в Денвър, Колорадо";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ струва −10";
+"10 of Diamonds" = "10 каро";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: който вземе 10♦, получава −10 за тази ръка. Това е отделно от «Застреляй луната».";
+"10♦ taken by" = "10♦ взета от";
+"The player who took the 10♦ scores −10 this round." = "Играчът, взел 10♦, получава −10 в този кръг.";
+"−10" = "−10";
+"Select who took the 10♦" = "Изберете кой взе 10♦";

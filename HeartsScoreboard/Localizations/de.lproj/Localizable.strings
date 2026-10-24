@@ -63,3 +63,12 @@
 "View Source" = "Quellcode anzeigen";
 "About" = "Über";
 "Made with love in Denver, CO" = "Mit Liebe in Denver, CO gemacht";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ zählt −10";
+"10 of Diamonds" = "Karo 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus-Hearts-Variante: Wer die 10♦ nimmt, erhält −10 für diese Runde. Das ist unabhängig von „Mond schießen“.";
+"10♦ taken by" = "10♦ genommen von";
+"The player who took the 10♦ scores −10 this round." = "Der Spieler, der die 10♦ genommen hat, erhält in dieser Runde −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Wähle, wer die 10♦ genommen hat";

@@ -63,3 +63,12 @@
 "View Source" = "Kaynağı gör";
 "About" = "Hakkında";
 "Made with love in Denver, CO" = "Denver, Colorado’da sevgiyle yapıldı";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ −10 değerinde";
+"10 of Diamonds" = "Karo 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varyantı: 10♦'yı alan oyuncu o el için −10 puan alır. Bu, \"Ayı al\" kuralından bağımsızdır.";
+"10♦ taken by" = "10♦'yı alan";
+"The player who took the 10♦ scores −10 this round." = "10♦'yı alan oyuncu bu turda −10 puan alır.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦'yı kimin aldığını seçin";

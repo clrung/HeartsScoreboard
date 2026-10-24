@@ -63,3 +63,12 @@
 "View Source" = "Skatīt avotu";
 "About" = "Par";
 "Made with love in Denver, CO" = "Ražots ar mīlestību Denverā, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ vērtība ir −10";
+"10 of Diamonds" = "Kāravu 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variants: kas paņem 10♦, par šo izspēli iegūst −10. Tas ir atsevišķi no „Izšauj mēnesi“.";
+"10♦ taken by" = "10♦ paņēma";
+"The player who took the 10♦ scores −10 this round." = "Spēlētājs, kurš paņēma 10♦, šajā kārtā iegūst −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Izvēlieties, kas paņēma 10♦";

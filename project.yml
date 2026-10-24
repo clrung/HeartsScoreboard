@@ -59,6 +59,20 @@ targets:
             UIWindowSceneSessionRoleApplication:
               - UISceneConfigurationName: Default Configuration
                 UISceneDelegateClassName: ""
+  HeartsScoreboardTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: HeartsScoreboardTests
+    dependencies:
+      - target: HeartsScoreboard
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.clrungdev.Hearts-ScoreboardTests
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/HeartsScoreboard.app/HeartsScoreboard
+        BUNDLE_LOADER: $(TEST_HOST)
 schemes:
   HeartsScoreboard:
     build:
@@ -68,6 +82,8 @@ schemes:
       config: Debug
     test:
       config: Debug
+      targets:
+        - HeartsScoreboardTests
     profile:
       config: Release
     archive:

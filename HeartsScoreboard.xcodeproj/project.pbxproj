@@ -15,6 +15,7 @@
 		3E67486EB0D4F0D5D8CF516D /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA6A5243D25F7B6BD6BF99 /* CloudSyncManager.swift */; };
 		4E173AC0590C2FEB266A2CF1 /* HeartsScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */; };
 		6DBDC082946113E5579CC968 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD19947D819B9036C020016 /* AboutView.swift */; };
+		9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */; };
 		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
 		B333AB77AEA22C861E2A952B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6EE229925EA17F605B75 /* InfoPlist.strings */; };
 		B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */; };
@@ -25,6 +26,16 @@
 		F0ECA66CE123200CFCB9E860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4287621BA5B3DBCFA976FC85 /* Assets.xcassets */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AE99FB880ADB8269DC758836 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03C09241F100D211BEF8C8F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B83C91C3825F24ED278E21;
+			remoteInfo = HeartsScoreboard;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00B334095380C5F81F015BF1 /* lv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lv; path = lv.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -123,6 +134,7 @@
 		5236533516D5E07D242425F6 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		524EAA3407BF7FEA39130BDB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/AppStoreMetadata.strings"; sourceTree = "<group>"; };
 		531065F17FD6EC68E881A387 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		533034982A3D7FDDF4C628C0 /* HeartsScoreboardTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HeartsScoreboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53BEE0F317655B2E78B344D3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		557B62418D15EA260835866B /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		559F8F82C983C96833EAA31B /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -183,6 +195,7 @@
 		8C1BB2151377C0DC488E828A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E711980436DECF4906CC494 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8EC542D210B84365D05237BA /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenOfDiamondsTests.swift; sourceTree = "<group>"; };
 		937E87C3646A76C96AD90A2B /* te */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = te; path = te.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		95C9E76764A1A7DD62A61A9C /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -286,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				2A290100C70B5C54CFC4B0ED /* HeartsScoreboard */,
+				CF1FF8FDFBD0A8C4987D3DD0 /* HeartsScoreboardTests */,
 				21D1795C95F9F633813DAA86 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -302,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				208E13E882D6991262710311 /* HeartsScoreboard.app */,
+				533034982A3D7FDDF4C628C0 /* HeartsScoreboardTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -354,9 +369,35 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CF1FF8FDFBD0A8C4987D3DD0 /* HeartsScoreboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */,
+			);
+			path = HeartsScoreboardTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0B04D58B8584FB9F8002D60B /* HeartsScoreboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB13C48D6773369261B15D5C /* Build configuration list for PBXNativeTarget "HeartsScoreboardTests" */;
+			buildPhases = (
+				775AD8CA4DF6266D9D9F9A8C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8EE92747483B099BD668AA31 /* PBXTargetDependency */,
+			);
+			name = HeartsScoreboardTests;
+			packageProductDependencies = (
+			);
+			productName = HeartsScoreboardTests;
+			productReference = 533034982A3D7FDDF4C628C0 /* HeartsScoreboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		65B83C91C3825F24ED278E21 /* HeartsScoreboard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B3430CBE5C014785B343261 /* Build configuration list for PBXNativeTarget "HeartsScoreboard" */;
@@ -384,6 +425,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2710;
 				TargetAttributes = {
+					0B04D58B8584FB9F8002D60B = {
+						DevelopmentTeam = 2848SVWH7M;
+					};
 					65B83C91C3825F24ED278E21 = {
 						DevelopmentTeam = 2848SVWH7M;
 					};
@@ -478,6 +522,7 @@
 			projectRoot = "";
 			targets = (
 				65B83C91C3825F24ED278E21 /* HeartsScoreboard */,
+				0B04D58B8584FB9F8002D60B /* HeartsScoreboardTests */,
 			);
 		};
 /* End PBXProject section */
@@ -517,7 +562,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		775AD8CA4DF6266D9D9F9A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8EE92747483B099BD668AA31 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B83C91C3825F24ED278E21 /* HeartsScoreboard */;
+			targetProxy = AE99FB880ADB8269DC758836 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		04CB6EE229925EA17F605B75 /* InfoPlist.strings */ = {
@@ -792,6 +853,24 @@
 			};
 			name = Debug;
 		};
+		619DD193288C865304E80475 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-ScoreboardTests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartsScoreboard.app/HeartsScoreboard";
+			};
+			name = Debug;
+		};
 		6D0EE11CCFE1046C8203ED1D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -949,6 +1028,24 @@
 			};
 			name = Release;
 		};
+		F4273C0DA9B499D80184BBD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.clrungdev.Hearts-ScoreboardTests";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HeartsScoreboard.app/HeartsScoreboard";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -966,6 +1063,15 @@
 			buildConfigurations = (
 				4D389D55D7B2055F2040EDE2 /* Debug */,
 				F0C985E41243E7962A47F1C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CB13C48D6773369261B15D5C /* Build configuration list for PBXNativeTarget "HeartsScoreboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				619DD193288C865304E80475 /* Debug */,
+				F4273C0DA9B499D80184BBD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

@@ -63,3 +63,12 @@
 "View Source" = "Ikusi iturria";
 "About" = "Buruz";
 "Made with love in Denver, CO" = "Maitasunez egina Denver-en, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ = −10";
+"10 of Diamonds" = "Diamanteen 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts aldaera: 10♦ hartzen duenak −10 lortzen du esku horretan. \"Tiro egin ilargiari\" jokaldiaz bereizita dago.";
+"10♦ taken by" = "10♦ hartu duena";
+"The player who took the 10♦ scores −10 this round." = "10♦ hartu zuen jokalariak −10 lortzen du txanda honetan.";
+"−10" = "−10";
+"Select who took the 10♦" = "Hautatu nork hartu duen 10♦";

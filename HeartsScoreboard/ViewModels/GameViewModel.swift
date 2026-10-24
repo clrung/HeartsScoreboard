@@ -37,24 +37,29 @@ struct GameSettings: Codable {
     var appearance: AppearancePreference = .system
     /// Points added by the round-input quick-add button (clamped 2–9).
     var quickIncrementPoints: Int = 5
+    /// Optional Omnibus Hearts rule: whoever takes the 10♦ scores -10 for the hand.
+    var tenOfDiamondsMinus10: Bool = false
 
     private enum CodingKeys: String, CodingKey {
         case endingScore
         case shootMoonPreference
         case appearance
         case quickIncrementPoints
+        case tenOfDiamondsMinus10
     }
 
     init(
         endingScore: Int = 100,
         shootMoonPreference: ShootMoonPreference = .add26,
         appearance: AppearancePreference = .system,
-        quickIncrementPoints: Int = 5
+        quickIncrementPoints: Int = 5,
+        tenOfDiamondsMinus10: Bool = false
     ) {
         self.endingScore = endingScore
         self.shootMoonPreference = shootMoonPreference
         self.appearance = appearance
         self.quickIncrementPoints = Self.clampQuickIncrement(quickIncrementPoints)
+        self.tenOfDiamondsMinus10 = tenOfDiamondsMinus10
     }
 
     static func clampQuickIncrement(_ value: Int) -> Int {
@@ -68,6 +73,7 @@ struct GameSettings: Codable {
         appearance = try container.decodeIfPresent(AppearancePreference.self, forKey: .appearance) ?? .system
         let quick = try container.decodeIfPresent(Int.self, forKey: .quickIncrementPoints) ?? 5
         quickIncrementPoints = Self.clampQuickIncrement(quick)
+        tenOfDiamondsMinus10 = try container.decodeIfPresent(Bool.self, forKey: .tenOfDiamondsMinus10) ?? false
     }
 
     func encode(to encoder: Encoder) throws {
@@ -76,6 +82,7 @@ struct GameSettings: Codable {
         try container.encode(shootMoonPreference, forKey: .shootMoonPreference)
         try container.encode(appearance, forKey: .appearance)
         try container.encode(quickIncrementPoints, forKey: .quickIncrementPoints)
+        try container.encode(tenOfDiamondsMinus10, forKey: .tenOfDiamondsMinus10)
     }
 }
 
@@ -151,13 +158,19 @@ final class GameViewModel {
         persistToCloud()
     }
 
-    func addHand(pointsByPlayerID: [UUID: Int]) {
+    /// - Parameter pointsByPlayerID: hearts/Q♠ points per player (without the 10♦ bonus).
+    /// - Parameter tenOfDiamondsPlayerID: player who took the 10♦ when the rule is on; their -10 is folded into the stored points.
+    func addHand(pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) {
         game.hands.append(
             .init(
                 id: UUID(),
-                pointsByPlayerID: pointsByPlayerID,
+                pointsByPlayerID: HeartsGame.finalPoints(
+                    penaltyPoints: pointsByPlayerID,
+                    tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
+                ),
                 notes: "",
-                createdAt: Date()
+                createdAt: Date(),
+                tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
             )
         )
         if isGameOver {

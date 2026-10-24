@@ -82,3 +82,12 @@
 "View Source" = "소스 보기";
 "About" = "정보";
 "Made with love in Denver, CO" = "콜로라도주 덴버에서 사랑을 담아";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "♦10은 −10점";
+"10 of Diamonds" = "다이아몬드 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts 변형 규칙: ♦10을 가져간 사람은 해당 핸드에서 −10점을 받습니다. \"달 잡기\"와는 별개입니다.";
+"10♦ taken by" = "♦10을 가져간 사람";
+"The player who took the 10♦ scores −10 this round." = "♦10을 가져간 플레이어는 이번 라운드에서 −10점을 받습니다.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦을 가져간 사람 선택";

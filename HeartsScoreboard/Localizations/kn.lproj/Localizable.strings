@@ -63,3 +63,12 @@
 "View Source" = "ಮೂಲವನ್ನು ವೀಕ್ಷಿಸಿ";
 "About" = "ಬಗ್ಗೆ";
 "Made with love in Denver, CO" = "ಡೆನ್ವರ್, CO ನಲ್ಲಿ ಪ್ರೀತಿಯಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ಬೆಲೆ −10";
+"10 of Diamonds" = "ಡೈಮಂಡ್ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ರೂಪಾಂತರ: 10♦ ತೆಗೆದುಕೊಂಡವರಿಗೆ ಆ ಕೈಗೆ −10 ಸಿಗುತ್ತದೆ. ಇದು \"ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ\" ಗಿಂತ ಬೇರೆ.";
+"10♦ taken by" = "10♦ ತೆಗೆದುಕೊಂಡವರು";
+"The player who took the 10♦ scores −10 this round." = "10♦ ತೆಗೆದುಕೊಂಡ ಆಟಗಾರನಿಗೆ ಈ ಸುತ್ತಿನಲ್ಲಿ −10 ಸಿಗುತ್ತದೆ.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ ಯಾರು ತೆಗೆದುಕೊಂಡರು ಎಂದು ಆರಿಸಿ";

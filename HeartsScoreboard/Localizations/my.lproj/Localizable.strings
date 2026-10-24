@@ -63,3 +63,12 @@
 "View Source" = "အရင်းအမြစ်ကိုကြည့်ပါ။";
 "About" = "အကြောင်း";
 "Made with love in Denver, CO" = "Denver, CO တွင် မေတ္တာဖြင့် ပြုလုပ်ထားသည်။";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ တန်ဖိုး −10";
+"10 of Diamonds" = "စိန် 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ပုံစံ- 10♦ ယူသူသည် ထိုလက်အတွက် −10 ရမည်။ ၎င်းသည် \"လကို ပစ်ပါ။\" နှင့် သီးခြားဖြစ်သည်။";
+"10♦ taken by" = "10♦ ယူသူ";
+"The player who took the 10♦ scores −10 this round." = "10♦ ယူသော ကစားသမားသည် ဤအဝိုင်းတွင် −10 ရမည်။";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ ယူသူကို ရွေးပါ";

@@ -63,3 +63,12 @@
 "View Source" = "ഉറവിടം കാണുക";
 "About" = "കുറിച്ച്";
 "Made with love in Denver, CO" = "ഡെൻവർ, CO ൽ സ്നേഹത്തോടെ നിർമ്മിച്ചത്";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ന്റെ മൂല്യം −10";
+"10 of Diamonds" = "ഡയമണ്ട് 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts വേരിയന്റ്: 10♦ എടുക്കുന്നയാൾക്ക് ആ കൈയിൽ −10 ലഭിക്കും. ഇത് \"ചന്ദ്രനെ വെടിവയ്ക്കുക\" എന്നതിൽ നിന്ന് വേറിട്ടതാണ്.";
+"10♦ taken by" = "10♦ എടുത്തത്";
+"The player who took the 10♦ scores −10 this round." = "10♦ എടുത്ത കളിക്കാരന് ഈ റൗണ്ടിൽ −10 ലഭിക്കും.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ ആരാണ് എടുത്തതെന്ന് തിരഞ്ഞെടുക്കുക";

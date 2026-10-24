@@ -63,3 +63,12 @@
 "View Source" = "Tazama Chanzo";
 "About" = "Kuhusu";
 "Made with love in Denver, CO" = "Imetengenezwa kwa upendo huko Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ina thamani ya −10";
+"10 of Diamonds" = "Almasi 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Toleo la Omnibus Hearts: anayechukua 10♦ anapata −10 kwa mkono huo. Hii ni tofauti na \"Risasi mwezi\".";
+"10♦ taken by" = "10♦ amechukua";
+"The player who took the 10♦ scores −10 this round." = "Mchezaji aliyechukua 10♦ anapata −10 katika raundi hii.";
+"−10" = "−10";
+"Select who took the 10♦" = "Chagua aliyechukua 10♦";

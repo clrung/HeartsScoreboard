@@ -63,3 +63,12 @@
 "View Source" = "Zobrazit zdroj";
 "About" = "O";
 "Made with love in Denver, CO" = "Vyrobeno s láskou v Denveru, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ má hodnotu −10";
+"10 of Diamonds" = "Káro 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianta Omnibus Hearts: kdo vezme 10♦, získá za dané rozdání −10. Je to nezávislé na „Střílejte na měsíc“.";
+"10♦ taken by" = "10♦ vzal";
+"The player who took the 10♦ scores −10 this round." = "Hráč, který vzal 10♦, získá v tomto kole −10.";
+"−10" = "−10";
+"Select who took the 10♦" = "Vyberte, kdo vzal 10♦";

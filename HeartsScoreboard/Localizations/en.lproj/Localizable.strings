@@ -82,3 +82,12 @@
 "View Source" = "View Source";
 "About" = "About";
 "Made with love in Denver, CO" = "Made with love in Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ worth −10";
+"10 of Diamonds" = "10 of Diamonds";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon.";
+"10♦ taken by" = "10♦ taken by";
+"The player who took the 10♦ scores −10 this round." = "The player who took the 10♦ scores −10 this round.";
+"−10" = "−10";
+"Select who took the 10♦" = "Select who took the 10♦";

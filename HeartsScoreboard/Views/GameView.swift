@@ -405,6 +405,14 @@ struct GameView: View {
                             .font(.footnote.weight(.medium))
                             .foregroundStyle(Color.primary)
                             .frame(width: 56, height: 26)
+                            .overlay(alignment: .topTrailing) {
+                                if hand.tenOfDiamondsPlayerID == player.id {
+                                    Text("♦")
+                                        .font(.system(size: 9, weight: .semibold))
+                                        .foregroundStyle(Color.red)
+                                        .padding(.trailing, 4)
+                                }
+                            }
                             .accessibilityLabel(isMoon ? String(localized: "Shoot the moon") : "\(score)")
                             .background(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)

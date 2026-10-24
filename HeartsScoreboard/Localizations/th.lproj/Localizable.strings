@@ -63,3 +63,12 @@
 "View Source" = "ดูซอร์ส";
 "About" = "เกี่ยวกับ";
 "Made with love in Denver, CO" = "ทำด้วยรักที่เดนเวอร์ รัฐโคโลราโด";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ มีค่า −10";
+"10 of Diamonds" = "10 ข้าวหลามตัด";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "รูปแบบ Omnibus Hearts: ผู้ที่เก็บ 10♦ ได้ −10 ในรอบมือนั้น แยกจาก \"ยิงดวงจันทร์\"";
+"10♦ taken by" = "ผู้เก็บ 10♦";
+"The player who took the 10♦ scores −10 this round." = "ผู้เล่นที่เก็บ 10♦ ได้ −10 ในรอบนี้";
+"−10" = "−10";
+"Select who took the 10♦" = "เลือกผู้ที่เก็บ 10♦";

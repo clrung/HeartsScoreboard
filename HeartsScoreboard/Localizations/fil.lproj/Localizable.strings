@@ -63,3 +63,12 @@
 "View Source" = "Tingnan ang Pinagmulan";
 "About" = "Tungkol sa";
 "Made with love in Denver, CO" = "Ginawa nang may pagmamahal sa Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ ay −10";
+"10 of Diamonds" = "10 ng Diamante";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variant: ang kukuha ng 10♦ ay makakakuha ng −10 sa kamay na iyon. Hiwalay ito sa \"Abutin ang buwan\".";
+"10♦ taken by" = "Kumuha ng 10♦";
+"The player who took the 10♦ scores −10 this round." = "Ang manlalarong kumuha ng 10♦ ay makakakuha ng −10 sa round na ito.";
+"−10" = "−10";
+"Select who took the 10♦" = "Piliin kung sino ang kumuha ng 10♦";

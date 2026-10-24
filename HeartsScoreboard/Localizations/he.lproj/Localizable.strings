@@ -63,3 +63,12 @@
 "View Source" = "הצג מקור";
 "About" = "בערך";
 "Made with love in Denver, CO" = "מיוצר באהבה בדנוור, קולורדו";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "‏10♦ שווה −10";
+"10 of Diamonds" = "10 יהלום";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "גרסת Omnibus Hearts: מי שלוקח את 10♦ מקבל −10 ביד הזו. זה נפרד מ\"לירות בירח\".";
+"10♦ taken by" = "10♦ נלקח על ידי";
+"The player who took the 10♦ scores −10 this round." = "השחקן שלקח את 10♦ מקבל −10 בסיבוב הזה.";
+"−10" = "−10";
+"Select who took the 10♦" = "בחרו מי לקח את 10♦";

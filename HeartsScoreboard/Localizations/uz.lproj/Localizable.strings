@@ -63,3 +63,12 @@
 "View Source" = "Manbani ko'rish";
 "About" = "Haqida";
 "Made with love in Denver, CO" = "Denverda sevgi bilan qilingan, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ qiymati −10";
+"10 of Diamonds" = "Olmos 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varianti: 10♦ni olgan o'yinchi shu qo'l uchun −10 ball oladi. Bu \"Oyni otib tashlang\"dan alohida.";
+"10♦ taken by" = "10♦ni olgan";
+"The player who took the 10♦ scores −10 this round." = "10♦ni olgan o'yinchi bu turda −10 ball oladi.";
+"−10" = "−10";
+"Select who took the 10♦" = "10♦ni kim olganini tanlang";

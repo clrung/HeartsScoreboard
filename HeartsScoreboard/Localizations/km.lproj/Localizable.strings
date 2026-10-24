@@ -63,3 +63,12 @@
 "View Source" = "មើលប្រភព";
 "About" = "អំពី";
 "Made with love in Denver, CO" = "ធ្វើឡើងដោយក្តីស្រលាញ់នៅទីក្រុង Denver, CO";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ មានតម្លៃ −10";
+"10 of Diamonds" = "ការ៉ូ 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ជំនាន់ Omnibus Hearts៖ អ្នកដែលយក 10♦ ទទួលបាន −10 សម្រាប់ដៃនោះ។ វាដាច់ដោយឡែកពី «បាញ់ព្រះច័ន្ទ»។";
+"10♦ taken by" = "អ្នកយក 10♦";
+"The player who took the 10♦ scores −10 this round." = "អ្នកលេងដែលយក 10♦ ទទួលបាន −10 ក្នុងជុំនេះ។";
+"−10" = "−10";
+"Select who took the 10♦" = "ជ្រើសអ្នកដែលយក 10♦";

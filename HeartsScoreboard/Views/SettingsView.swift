@@ -78,6 +78,14 @@ struct SettingsView: View {
                     }
                 }
 
+                Section {
+                    Toggle("10♦ worth −10", isOn: $model.settings.tenOfDiamondsMinus10)
+                } header: {
+                    Text("10 of Diamonds")
+                } footer: {
+                    Text("Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon.")
+                }
+
                 Section("Appearance") {
                     Picker("Appearance", selection: appearanceBinding) {
                         ForEach(AppearancePreference.allCases) { pref in

@@ -3,7 +3,7 @@ import Foundation
 /// State that is synced via iCloud key-value storage.
 ///
 /// Note: Appearance preference is intentionally NOT synced. Only game-related
-/// settings (ending score, shoot-moon behavior) are shared across devices.
+/// settings (ending score, shoot-moon behavior, 10♦ rule) are shared across devices.
 struct SyncableState: Codable {
     var game: HeartsGame
     var settings: GameSettings
@@ -26,6 +26,7 @@ struct SyncableState: Codable {
         var endingScore: Int
         var shootMoonPreference: ShootMoonPreference
         var quickIncrementPoints: Int?
+        var tenOfDiamondsMinus10: Bool?
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -47,7 +48,8 @@ struct SyncableState: Codable {
                 endingScore: synced.endingScore,
                 shootMoonPreference: synced.shootMoonPreference,
                 appearance: .system,
-                quickIncrementPoints: synced.quickIncrementPoints ?? 5
+                quickIncrementPoints: synced.quickIncrementPoints ?? 5,
+                tenOfDiamondsMinus10: synced.tenOfDiamondsMinus10 ?? false
             )
         } else {
             let legacy = try container.decode(GameSettings.self, forKey: .settings)
@@ -55,7 +57,8 @@ struct SyncableState: Codable {
                 endingScore: legacy.endingScore,
                 shootMoonPreference: legacy.shootMoonPreference,
                 appearance: .system,
-                quickIncrementPoints: legacy.quickIncrementPoints
+                quickIncrementPoints: legacy.quickIncrementPoints,
+                tenOfDiamondsMinus10: legacy.tenOfDiamondsMinus10
             )
         }
     }
@@ -66,7 +69,8 @@ struct SyncableState: Codable {
         let synced = SyncedSettings(
             endingScore: settings.endingScore,
             shootMoonPreference: settings.shootMoonPreference,
-            quickIncrementPoints: settings.quickIncrementPoints
+            quickIncrementPoints: settings.quickIncrementPoints,
+            tenOfDiamondsMinus10: settings.tenOfDiamondsMinus10
         )
         try container.encode(synced, forKey: .settings)
         try container.encode(firstDealerIndex, forKey: .firstDealerIndex)

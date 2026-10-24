@@ -63,3 +63,12 @@
 "View Source" = "Виев Соурце";
 "About" = "Абоут";
 "Made with love in Denver, CO" = "Направљено с љубављу у Денверу, ЦО";
+
+/* Rules (Omnibus Hearts variant) */
+"10♦ worth −10" = "10♦ вреди −10";
+"10 of Diamonds" = "Каро 10";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts варијанта: ко узме 10♦ добија −10 за ту руку. Ово је одвојено од „Пуцај у месец“.";
+"10♦ taken by" = "10♦ узео/ла";
+"The player who took the 10♦ scores −10 this round." = "Играч који је узео 10♦ добија −10 у овој рунди.";
+"−10" = "−10";
+"Select who took the 10♦" = "Изабери ко је узео 10♦";
