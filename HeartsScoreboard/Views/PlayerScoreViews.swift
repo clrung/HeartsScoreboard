@@ -149,6 +149,8 @@ struct ScoreCellContent: View {
     let isMoon: Bool
     /// From `HeartsGame.moonCellTenOfDiamondsBonus`; only meaningful with `isMoon`.
     var moonBonus: Int? = nil
+    /// A full-26 hand (a moon victim): bolder text so it stands out without relying on color.
+    var emphasize: Bool = false
 
     var body: some View {
         Group {
@@ -166,7 +168,7 @@ struct ScoreCellContent: View {
                 Text("\(score)")
             }
         }
-        .font(.footnote.weight(.medium))
+        .font(.footnote.weight(emphasize ? .bold : .medium))
         .foregroundStyle(Color.primary)
         .lineLimit(1)
         .minimumScaleFactor(0.6)

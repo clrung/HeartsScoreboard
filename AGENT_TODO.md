@@ -93,15 +93,15 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 ### Tier 2 — high impact, medium effort
 - [x] (Done: GameOverView card + confetti, Rematch, View history.) End-of-game moment: winner sheet/overlay (trophy, ranked standings, confetti gated on Reduce Motion, Rematch / View history). Today only subtitle text changes and Next Round goes dead.
 - [ ] Undo without alert + "Undone — Redo" toast; edit any past round by tapping its row (needs `GameViewModel.updateHand(id:)` + tests).
-- [ ] Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
+- [x] (Done: round rail, 26 highlight, "No rounds yet".) Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
 - [x] (Done.) History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
 - [x] (Done: @ScaledMetric/minHeight/ViewThatFits; scoreboard type size capped per player count.) Dynamic Type: fixed `frame(height: 26)` cells, `frame(width: 36, height: 26)` total badge, `.system(size: 9)` ♦ glyph, fixed bottom-bar HStack → `@ScaledMetric` / `minHeight` / `ViewThatFits`.
 - [x] (Done: Recent players chips.) Reuse player names from history (suggestion chips/menu in Settings), placeholder "Player N".
 
 ### Tier 3 — polish
-- [ ] Bottom bar: full-width prominent Next Round; move destructive New Game to a menu.
-- [ ] Header: replace "Hearts Scoreboard" title with pass-direction chip + "Round N" + target; remove hard-coded `.padding(.horizontal, 70)`.
-- [ ] Pass direction: render arrow as SF Symbol `Label` instead of glyph in strings (RTL + VoiceOver); needs new keys across all locales via scripts/.
+- [x] (Done: … menu + Undo + full-width Next Round.) Bottom bar: full-width prominent Next Round; move destructive New Game to a menu.
+- [x] (Done.) Header: replace "Hearts Scoreboard" title with pass-direction chip + "Round N" + target; remove hard-coded `.padding(.horizontal, 70)`.
+- [x] (Done: PassDirectionChip; English-only chip titles.) Pass direction: render arrow as SF Symbol `Label` instead of glyph in strings (RTL + VoiceOver); needs new keys across all locales via scripts/.
 - [x] (Done.) Settings regroup: Players (incl. dealer picker) / Game Rules / Appearance / About as pushed `NavigationLink`; replace `.id(appearanceVersion)` hack (SettingsView.swift:121).
 - [ ] Accessibility announcements on round submit/game over; Reduce Motion for springs + repeating `.symbolEffect(.bounce)`; Increase Contrast / Reduce Transparency fallbacks for white-on-gradient and materials.
 - [ ] iPad: ⌘↩ submit, ⌘N next round, ⌘Z undo, ⌘, settings; `.hoverEffect()` on custom buttons; 44pt chip min height; long-press-repeat on +.
@@ -148,5 +148,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [x] (Done.) At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
-- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result").
+- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result"); header keys ("Left", "Right", "Across", "Hold", "to %d", "No rounds yet", "More").
 - [x] (Done: ViewThatFits compact layout.) Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.
+- [ ] Unused after header redesign: "Pass: Left ←"-style keys and the "Hearts Scoreboard" title in GameView (verify with grep before removing in the unused-keys cleanup).
+- [ ] Header/scoreboard redesign not checked in RTL, and the dark-mode 26 tint / empty-state "No rounds yet" have no snapshot.

@@ -160,7 +160,8 @@ struct GameView: View {
                 if dismissible { resultsDismissed = true }
                 showingHistory = true
             },
-            onClose: dismissible ? { resultsDismissed = true } : nil
+            onClose: dismissible ? { resultsDismissed = true } : nil,
+            completedGame: CompletedGame(game: model.game, settings: model.settings)
         )
     }
 
@@ -273,122 +274,105 @@ struct GameView: View {
         }
     }
 
+    private var historyButton: some View {
+        Button {
+            showingHistory = true
+        } label: {
+            Image(systemName: "clock.arrow.circlepath")
+                .font(.title2.weight(.semibold))
+                .padding(8)
+                .background {
+                    Capsule(style: .continuous)
+                        .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
+                }
+                .overlay {
+                    Capsule(style: .continuous)
+                        .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
+                }
+        }
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .accessibilityLabel(Text("History"))
+        .accessibilityIdentifier("historyButton")
+    }
+
+    private var settingsButton: some View {
+        Button {
+            showingSettings = true
+        } label: {
+            Image(systemName: "gearshape.fill")
+                .font(.title2.weight(.semibold))
+                .padding(8)
+                .background {
+                    Capsule(style: .continuous)
+                        .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
+                }
+                .overlay {
+                    Capsule(style: .continuous)
+                        .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
+                }
+                .foregroundStyle(.primary)
+        }
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .accessibilityLabel(Text("Settings"))
+        .accessibilityIdentifier("settingsButton")
+    }
+
+    /// History and Settings flank a compact status line (pass direction, round, target).
     private var header: some View {
-        VStack(spacing: 4) {
-            ZStack {
-                HStack {
-                    Button {
-                        showingHistory = true
-                    } label: {
-                        Image(systemName: "clock.arrow.circlepath")
-                            .font(.title2.weight(.semibold))
-                            .padding(8)
-                            .background {
-                                Capsule(style: .continuous)
-                                    .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
-                            }
-                            .overlay {
-                                Capsule(style: .continuous)
-                                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
-                            }
-                    }
-                    .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-                    .accessibilityLabel(Text("History"))
-                    .accessibilityIdentifier("historyButton")
-
-                    Spacer()
-                    Button {
-                        showingSettings = true
-                    } label: {
-                        Image(systemName: "gearshape.fill")
-                            .font(.title2.weight(.semibold))
-                            .padding(8)
-                            .background {
-                                Capsule(style: .continuous)
-                                    .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
-                            }
-                            .overlay {
-                                Capsule(style: .continuous)
-                                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
-                            }
-                            .foregroundStyle(.primary)
-                    }
-                    .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-                    .accessibilityLabel(Text("Settings"))
-                    .accessibilityIdentifier("settingsButton")
-                }
-
-                Text("Hearts Scoreboard")
-                    .font(.title2.weight(.semibold))
-                    .foregroundStyle(Color.white)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.5)
-                    .padding(.horizontal, 64) // clear of the History / Settings buttons
-            }
-
-            // Side by side when they fit; stacked at large text sizes instead of truncating.
-            ViewThatFits(in: .horizontal) {
-                HStack {
-                    headerSubtitleText
-                    Spacer()
-                    gameToText
-                }
-                VStack(spacing: 2) {
-                    headerSubtitleText
-                    gameToText
-                }
-            }
-            .padding(.horizontal, dynamicTypeSize.isAccessibilitySize ? 16 : 70)
+        HStack(spacing: 8) {
+            historyButton
+            statusLine
+                .frame(maxWidth: .infinity)
+            settingsButton
         }
         .padding(.vertical, 12)
     }
 
-    private var headerSubtitleText: some View {
-        Text(headerSubtitle)
-            .font(.subheadline.weight(.semibold))
-            .foregroundStyle(Color.white)
-            .lineLimit(1)
-            .minimumScaleFactor(0.7)
-            .allowsTightening(true)
-    }
-
-    private var gameToText: some View {
-        Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore))
-            .font(.subheadline.weight(.semibold))
-            .foregroundStyle(Color.white)
-            .lineLimit(1)
-            .fixedSize(horizontal: true, vertical: false)
-    }
-
-    private var headerSubtitle: String {
-        if model.isGameOver {
-            return model.statusText
-        }
-
+    private var currentDirection: PassDirection {
         let phase = model.passDirectionPhaseIndex(forCompletedHandCount: model.game.hands.count)
-        let oddPlayerCount = model.game.players.count % 2 == 1
-        if oddPlayerCount {
-            // 3 (or 5) players: Left → Right → Hold only.
-            switch phase {
-            case 0:
-                return String(localized: "Pass: Left \u{2190}")
-            case 1:
-                return String(localized: "Pass: Right \u{2192}")
-            default:
-                return String(localized: "Pass: Hold \u{270B}")
-            }
+        return PassDirection.forPhase(phase, playerCount: model.game.players.count)
+    }
+
+    private var roundText: some View {
+        Text(String(format: String(localized: "Round %d"), model.game.hands.count + 1))
+            .fontWeight(.semibold)
+            .lineLimit(1)
+    }
+
+    private var targetText: some View {
+        Text(String(format: String(localized: "to %d"), model.settings.endingScore))
+            .lineLimit(1)
+            .accessibilityLabel(Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore)))
+    }
+
+    @ViewBuilder
+    private var statusLine: some View {
+        if model.isGameOver {
+            Text(model.statusText)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(Color.white)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .minimumScaleFactor(0.7)
         } else {
-            // 4 or 6 players: include Across.
-            switch phase {
-            case 0:
-                return String(localized: "Pass: Left \u{2190}")
-            case 1:
-                return String(localized: "Pass: Right \u{2192}")
-            case 2:
-                return String(localized: "Pass: Across \u{2194}")
-            default:
-                return String(localized: "Pass: Hold \u{270B}")
+            // One line when it fits; stacked at large text sizes instead of truncating.
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 10) {
+                    PassDirectionChip(direction: currentDirection)
+                    roundText
+                    targetText
+                }
+                VStack(spacing: 4) {
+                    PassDirectionChip(direction: currentDirection)
+                    HStack(spacing: 8) {
+                        roundText
+                        targetText
+                    }
+                }
             }
+            .font(.subheadline)
+            .foregroundStyle(Color.white)
+            .accessibilityElement(children: .contain)
         }
     }
 
@@ -420,6 +404,7 @@ struct GameView: View {
         VStack(spacing: 12) {
             VStack(spacing: 8) {
                 HStack(spacing: 0) {
+                    Color.clear.frame(width: RoundRail.width, height: 1)
                     ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
                         let headerLabel = usesInitialHeaders ? headerLabels[index] : player.name
                         VStack(spacing: 6) {
@@ -452,7 +437,8 @@ struct GameView: View {
                 .frame(maxWidth: .infinity)
 
                 let leaders = model.leadingPlayerIDs
-                HStack(alignment: .top) {
+                HStack(alignment: .top, spacing: 0) {
+                    Color.clear.frame(width: RoundRail.width, height: 1)
                     ForEach(model.game.players) { player in
                         PlayerTotalBadge(
                             total: model.game.totalPoints(for: player.id),
@@ -493,6 +479,8 @@ struct GameView: View {
     private func scoresScroll(proxy: ScrollViewProxy) -> some View {
         ScrollView {
             HStack(alignment: .top, spacing: 0) {
+                RoundRailColumn(count: model.game.hands.count)
+                    .frame(width: RoundRail.width)
                 ForEach(model.game.players) { player in
                     VStack(spacing: 8) {
                         ForEach(Array(model.game.hands.enumerated()), id: \.element.id) { index, hand in
@@ -502,7 +490,8 @@ struct GameView: View {
                             ScoreCellContent(
                                 score: score,
                                 isMoon: isMoon,
-                                moonBonus: model.game.moonCellTenOfDiamondsBonus(hand, for: player.id)
+                                moonBonus: model.game.moonCellTenOfDiamondsBonus(hand, for: player.id),
+                                emphasize: score == 26 && !isMoon
                             )
                             .modifier(ScoreCellFrame(hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == player.id))
                             .accessibilityLabel(cellAccessibilityLabel(
@@ -512,7 +501,9 @@ struct GameView: View {
                             .background(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(
-                                        (isEvenRow
+                                        score == 26 && !isMoon
+                                        ? Color.orange.opacity(colorScheme == .dark ? 0.35 : 0.3)
+                                        : (isEvenRow
                                          ? Color.white.opacity(colorScheme == .dark ? (contrast == .increased ? 0.25 : 0.15) : (contrast == .increased ? 0.6 : 0.35))
                                          : Color.white.opacity(colorScheme == .dark ? (contrast == .increased ? 0.4 : 0.3) : (contrast == .increased ? 0.9 : 0.7))
                                         )
@@ -529,6 +520,15 @@ struct GameView: View {
             .animation(.spring(response: 0.35, dampingFraction: 0.85), value: model.game.hands.count)
         }
         .frame(maxHeight: .infinity)
+        .overlay {
+            if model.game.hands.isEmpty {
+                Text("No rounds yet")
+                    .font(.subheadline)
+                    .foregroundStyle(Color.secondary)
+                    .multilineTextAlignment(.center)
+                    .accessibilityIdentifier("emptyRoundsLabel")
+            }
+        }
         .scrollIndicators(.visible)
         .onChange(of: model.game.hands.count) {
             withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
@@ -552,49 +552,55 @@ struct GameView: View {
     /// (the dark-mode accent is too light for white text).
     private static let feltButtonGreen = Color(red: 0.10, green: 0.45, blue: 0.20)
 
-    /// One row when it fits; stacked at large text sizes (or narrow panes) so labels never clip.
+    /// Next Round is the prominent full-width action; Undo and a "more" menu (New Game) sit beside it.
+    /// Stacks at large text sizes so labels never clip. The split layout has no Next Round (the
+    /// round-entry pane is inline), so it just shows the secondary controls.
     private var bottomBar: some View {
         ViewThatFits(in: .horizontal) {
-            HStack {
-                newGameButton
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            HStack(spacing: 10) {
+                moreMenu
                 undoButton
                 if !usesSplitLayout {
                     nextRoundButton
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity)
+                } else {
+                    Spacer(minLength: 0)
                 }
             }
             VStack(spacing: 8) {
                 if !usesSplitLayout {
                     nextRoundButton
+                        .frame(maxWidth: .infinity)
                 }
-                HStack {
-                    newGameButton
+                HStack(spacing: 10) {
+                    moreMenu
                     undoButton
+                    if usesSplitLayout { Spacer(minLength: 0) }
                 }
-                .frame(maxWidth: .infinity)
-            }
-            VStack(spacing: 8) {
-                if !usesSplitLayout {
-                    nextRoundButton
-                }
-                newGameButton
-                undoButton
             }
         }
         .font(.callout)
         .padding(.vertical, 12)
     }
 
-    private var newGameButton: some View {
-        Button {
-            showNewGameAlert = true
+    private var moreMenu: some View {
+        Menu {
+            Button(role: .destructive) {
+                showNewGameAlert = true
+            } label: {
+                Label("New Game", systemImage: "arrow.counterclockwise")
+            }
         } label: {
-            Label("New Game", systemImage: "arrow.counterclockwise")
+            Image(systemName: "ellipsis")
+                .frame(minWidth: 20, minHeight: 22)
+                .modifier(FeltChipLook(isEnabled: !model.game.hands.isEmpty))
         }
-        .buttonStyle(FeltChipButtonStyle())
+        .menuStyle(.button)
+        .buttonStyle(.plain)
         .disabled(model.game.hands.isEmpty)
+        .accessibilityLabel(Text("More"))
         .accessibilityHint(Text("Starts a new game with the same players"))
+        .accessibilityIdentifier("moreMenu")
     }
 
     private var undoButton: some View {
@@ -617,8 +623,10 @@ struct GameView: View {
                 resultsDismissed = false
             } label: {
                 Label("Results", systemImage: "trophy.fill")
+                    .frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             .tint(Self.feltButtonGreen)
             .accessibilityIdentifier("resultsButton")
         } else {
@@ -631,8 +639,10 @@ struct GameView: View {
             showingRoundInput = true
         } label: {
             Label("Next Round", systemImage: "arrow.right.circle.fill")
+                .frame(maxWidth: .infinity)
         }
         .buttonStyle(.borderedProminent)
+        .controlSize(.large)
         .tint(Self.feltButtonGreen)
         .accessibilityHint(Text("Enter scores for the next round"))
         .accessibilityIdentifier("nextRoundButton")
@@ -768,10 +778,21 @@ private struct GameRoundEventsModifier: ViewModifier {
 /// `.bordered` button would wash out. Disabled state dims the whole chip.
 private struct FeltChipButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
-    @Environment(\.colorSchemeContrast) private var contrast
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .modifier(FeltChipLook(isEnabled: isEnabled, isPressed: configuration.isPressed))
+    }
+}
+
+/// The chip appearance, shared with the "more" Menu (which doesn't take a ButtonStyle reliably).
+private struct FeltChipLook: ViewModifier {
+    let isEnabled: Bool
+    var isPressed = false
+    @Environment(\.colorSchemeContrast) private var contrast
+
+    func body(content: Content) -> some View {
+        content
             .foregroundStyle(Theme.accent)
             .padding(.horizontal, 12)
             .padding(.vertical, 7)
@@ -780,7 +801,7 @@ private struct FeltChipButtonStyle: ButtonStyle {
                 Capsule(style: .continuous)
                     .strokeBorder(Theme.accent.opacity(contrast == .increased ? 1 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
             )
-            .opacity(isEnabled ? (configuration.isPressed ? 0.7 : 1) : 0.45)
+            .opacity(isEnabled ? (isPressed ? 0.7 : 1) : 0.45)
     }
 }
 
