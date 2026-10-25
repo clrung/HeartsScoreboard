@@ -187,3 +187,11 @@
 "to %d" = "to %d";
 "No rounds yet" = "No rounds yet";
 "More" = "More";
+"Round %d undone" = "Round %d undone";
+"Redo" = "Redo";
+"Round %d restored" = "Round %d restored";
+"Edit Round %d" = "Edit Round %d";
+"Save" = "Save";
+"Save round scores" = "Save round scores";
+"Round %d updated" = "Round %d updated";
+"Edit this round" = "Edit this round";

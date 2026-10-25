@@ -102,6 +102,9 @@ final class GameViewModel {
     /// VoiceOver announcement off this instead of `game.hands.count`, so a round that merely arrives
     /// via iCloud sync (which changes the count by one too) stays silent. Undo/sync never touch it.
     private(set) var localRoundToken = 0
+    /// Hands removed by `undoLastHand()` that `redo()` can put back, most recently undone last.
+    /// Cleared by anything else that changes the game (new round, edit, new game, player changes, iCloud sync).
+    private(set) var redoStack: [HeartsGame.Hand] = []
 
     init(
         game: HeartsGame = HeartsGame(players: [
@@ -142,6 +145,7 @@ final class GameViewModel {
         settings = state.settings
         self.firstDealerIndex = state.firstDealerIndex
         self.history = state.history
+        redoStack.removeAll() // the synced game may no longer contain the hand we could redo onto
         applyLocalAppearancePreference()
     }
 
@@ -166,6 +170,7 @@ final class GameViewModel {
     func newGame() {
         // Start a fresh game with the same players.
         game = HeartsGame(players: game.players)
+        redoStack.removeAll()
         persistToCloud()
     }
 
@@ -173,6 +178,7 @@ final class GameViewModel {
     /// - Parameter tenOfDiamondsPlayerID: player who took the 10♦ when the rule is on; their -10 is folded into the stored points.
     func addHand(pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) {
         localRoundToken += 1
+        redoStack.removeAll()
         game.hands.append(
             .init(
                 id: UUID(),
@@ -185,25 +191,70 @@ final class GameViewModel {
                 tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
             )
         )
-        if isGameOver {
-            archiveCompletedGameIfNeeded()
-        } else {
-            persistToCloud()
-        }
+        reconcileArchivedGame()
+        persistToCloud()
+    }
+
+    /// Replaces the points (and 10♦ holder) of an existing round, keeping its id, date and notes.
+    /// Same rules as a new round: the hearts/Q♠ points must form a valid round, and with the 10♦ rule on a
+    /// holder is required. Totals are derived, so they follow; the game may end or un-end as a result and
+    /// the archived history entry is kept in step. Returns false (changing nothing) when rejected.
+    /// - Parameter pointsByPlayerID: hearts/Q♠ points per player (without the 10♦ bonus), as for `addHand`.
+    @discardableResult
+    func updateHand(id: UUID, pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) -> Bool {
+        guard let index = game.hands.firstIndex(where: { $0.id == id }) else { return false }
+        let playerIDs = game.players.map(\.id)
+        guard HeartsGame.isValidRound(penaltyScores: playerIDs.map { pointsByPlayerID[$0] ?? 0 }) else { return false }
+        if let holder = tenOfDiamondsPlayerID, !playerIDs.contains(holder) { return false }
+        if settings.tenOfDiamondsMinus10 && tenOfDiamondsPlayerID == nil { return false }
+
+        var penalty: [UUID: Int] = [:]
+        for pid in playerIDs { penalty[pid] = pointsByPlayerID[pid] ?? 0 }
+        game.hands[index].pointsByPlayerID = HeartsGame.finalPoints(
+            penaltyPoints: penalty,
+            tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
+        )
+        game.hands[index].tenOfDiamondsPlayerID = tenOfDiamondsPlayerID
+        redoStack.removeAll()
+        reconcileArchivedGame()
+        persistToCloud()
+        return true
     }
 
     func deleteHands(at offsets: IndexSet) {
         game.hands.remove(atOffsets: offsets)
+        redoStack.removeAll()
+        reconcileArchivedGame()
         persistToCloud()
     }
 
     /// Undo is available only when there is a round to remove.
     var canUndo: Bool { !game.hands.isEmpty }
 
-    func removeLastHand() {
-        guard !game.hands.isEmpty else { return }
-        game.hands.removeLast()
+    /// True when `redo()` has a just-undone round to put back.
+    var canRedo: Bool { !redoStack.isEmpty }
+
+    /// Removes the last round (no confirmation; the UI offers Redo instead) and remembers it for `redo()`.
+    /// Dealer and pass direction are derived from the hand count, so they follow automatically.
+    /// Returns the removed hand, or nil when there was nothing to undo.
+    @discardableResult
+    func undoLastHand() -> HeartsGame.Hand? {
+        guard let hand = game.hands.popLast() else { return nil }
+        redoStack.append(hand)
+        reconcileArchivedGame()
         persistToCloud()
+        return hand
+    }
+
+    /// Puts back the most recently undone round exactly as it was (same id, points, 10♦ holder, date).
+    /// Returns the restored hand, or nil when there is nothing to redo.
+    @discardableResult
+    func redo() -> HeartsGame.Hand? {
+        guard let hand = redoStack.popLast() else { return nil }
+        game.hands.append(hand)
+        reconcileArchivedGame()
+        persistToCloud()
+        return hand
     }
 
     func movePlayers(from source: IndexSet, to destination: Int) {
@@ -245,6 +296,7 @@ final class GameViewModel {
         let sorted = offsets.sorted()
         let indicesToRemove = Array(sorted.prefix(maxRemovable))
         game.players.remove(atOffsets: IndexSet(indicesToRemove))
+        redoStack.removeAll() // a removed player's hand can't be put back cleanly
 
         if let dealerID = currentDealerID,
            let newIndex = game.players.firstIndex(where: { $0.id == dealerID }) {
@@ -395,17 +447,21 @@ final class GameViewModel {
 
     // MARK: - History helpers
 
-    private func archiveCompletedGameIfNeeded() {
-        guard isGameOver else { return }
-
-        // Avoid duplicating this game in history.
-        if history.contains(where: { $0.game.id == game.id }) {
-            return
+    /// Keeps history in step with the current game: a finished game is archived once (an edit or redo
+    /// refreshes its entry, keeping id and date), and a game that is no longer finished (undo, edit,
+    /// delete) has its entry removed. Does not persist; callers do.
+    private func reconcileArchivedGame() {
+        let existing = history.firstIndex(where: { $0.game.id == game.id })
+        if isGameOver {
+            if let existing {
+                let old = history[existing]
+                history[existing] = CompletedGame(id: old.id, finishedAt: old.finishedAt, game: game, settings: settings)
+            } else {
+                history.insert(CompletedGame(game: game, settings: settings), at: 0)
+            }
+        } else if let existing {
+            history.remove(at: existing)
         }
-
-        let completed = CompletedGame(game: game, settings: settings)
-        history.insert(completed, at: 0)
-        persistToCloud()
     }
 
     func deleteHistory(at offsets: IndexSet) {

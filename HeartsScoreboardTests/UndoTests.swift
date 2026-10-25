@@ -23,15 +23,15 @@ final class UndoTests: XCTestCase {
         model.addHand(pointsByPlayerID: [ids[0]: 0, ids[1]: 13, ids[2]: 13, ids[3]: 0])
         XCTAssertTrue(model.canUndo)
 
-        model.removeLastHand()
+        model.undoLastHand()
         XCTAssertEqual(model.game.hands.count, 1)
         XCTAssertEqual(model.game.totals().map(\.total), totalsAfterOne)
         XCTAssertEqual(model.currentDealerIndex, dealer1)
 
-        model.removeLastHand()
+        model.undoLastHand()
         XCTAssertFalse(model.canUndo)
         XCTAssertEqual(model.currentDealerIndex, dealer0)
-        model.removeLastHand() // no-op when empty
+        model.undoLastHand() // no-op when empty
         XCTAssertTrue(model.game.hands.isEmpty)
     }
 
@@ -52,7 +52,7 @@ final class UndoTests: XCTestCase {
         XCTAssertEqual(model.game.hands.count, 2)
         XCTAssertEqual(model.localRoundToken, 1, "sync must not look like a local add")
 
-        model.removeLastHand()
+        model.undoLastHand()
         XCTAssertEqual(model.localRoundToken, 1, "undo must not bump the token")
     }
 

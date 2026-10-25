@@ -17,13 +17,24 @@ struct RoundInputView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Bindable var model: GameViewModel
     let presentation: Presentation
+    /// When set, the sheet edits this existing round (pre-filled, "Save" instead of "Submit").
+    let editingHandID: UUID?
 
     @ScaledMetric(relativeTo: .body) private var tapSize: CGFloat = 44
     @ScaledMetric(relativeTo: .body) private var stepperSize: CGFloat = 34
 
-    init(model: GameViewModel, presentation: Presentation = .sheet) {
+    init(model: GameViewModel, presentation: Presentation = .sheet, editingHandID: UUID? = nil) {
         self.model = model
         self.presentation = presentation
+        self.editingHandID = editingHandID
+    }
+
+    private var isEditing: Bool { editingHandID != nil }
+
+    /// The round being edited; nil if it vanished (e.g. removed by an iCloud sync while the sheet was open).
+    private var editedHandIndex: Int? {
+        guard let id = editingHandID else { return nil }
+        return model.game.hands.firstIndex(where: { $0.id == id })
     }
 
     @State private var entry = RoundEntryState()
@@ -94,13 +105,23 @@ struct RoundInputView: View {
         }
         .onAppear {
             if entry.points.isEmpty {
-                reset()
+                if let index = editedHandIndex {
+                    entry = RoundEntryState(hand: model.game.hands[index], players: model.game.players)
+                } else {
+                    reset()
+                }
             }
+        }
+        .onChange(of: editedHandIndex == nil) { _, missing in
+            if isEditing && missing { dismiss() }
         }
     }
 
     private var roundTitle: String {
-        String(format: String(localized: "Round %d"), model.game.hands.count + 1)
+        if let index = editedHandIndex {
+            return String(format: String(localized: "Edit Round %d"), index + 1)
+        }
+        return String(format: String(localized: "Round %d"), model.game.hands.count + 1)
     }
 
     private var resetButton: some View {
@@ -193,13 +214,13 @@ struct RoundInputView: View {
                     Button {
                         submit()
                     } label: {
-                        Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : "Submit")
+                        Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : (isEditing ? "Save" : "Submit"))
                             .font(.headline.weight(.semibold))
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
-                    .accessibilityLabel(Text("Submit round scores"))
+                    .accessibilityLabel(isEditing ? Text("Save round scores") : Text("Submit round scores"))
                     .accessibilityIdentifier("roundInput.submit")
                     .disabled(!canSubmit)
                 }
@@ -507,6 +528,12 @@ struct RoundInputView: View {
     }
 
     private func submit() {
+        if let id = editingHandID {
+            guard let index = editedHandIndex, entry.save(over: id, in: model) else { return }
+            AccessibilityNotification.Announcement(String(format: String(localized: "Round %d updated"), index + 1)).post()
+            dismiss()
+            return
+        }
         guard entry.submit(to: model) else { return }
         switch presentation {
         case .sheet: dismiss()

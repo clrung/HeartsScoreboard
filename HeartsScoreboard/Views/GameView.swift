@@ -1,5 +1,16 @@
 import SwiftUI
 
+/// Identifies the round whose edit sheet is open.
+struct EditTarget: Identifiable, Equatable {
+    let id: UUID
+}
+
+/// The transient "Round N undone" toast; a new `id` restarts its auto-dismiss timer.
+struct UndoToast: Equatable {
+    let id = UUID()
+    let message: String
+}
+
 struct GameView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.colorSchemeContrast) private var contrast
@@ -9,7 +20,8 @@ struct GameView: View {
     @State private var showingRoundInput = false
     @State private var showingSettings = false
     @State private var showingHistory = false
-    @State private var showUndoAlert = false
+    @State private var editTarget: EditTarget?
+    @State private var undoToast: UndoToast?
     @State private var showNewGameAlert = false
     @State private var showShakeHint = false
     @State private var shakeRefocusToken = 0
@@ -25,7 +37,9 @@ struct GameView: View {
 
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
-    init(model: GameViewModel? = nil) {
+    /// - Parameter initialUndoToast: test hook that shows the undo toast from the first frame.
+    init(model: GameViewModel? = nil, initialUndoToast: String? = nil) {
+        _undoToast = State(initialValue: initialUndoToast.map { UndoToast(message: $0) })
         _model = State(initialValue: model ?? GameViewModel(initialState: CloudSyncManager.shared.load()))
         // Injected models (tests, screenshot demo) must never see or set the first-run shake hint.
         _hasShownShakeHint = State(initialValue: model != nil || UserDefaults.standard.bool(forKey: "hasShownShakeUndoHint"))
@@ -61,11 +75,27 @@ struct GameView: View {
                 shakeHintOverlay
                     .transition(.opacity)
             }
+
+            if let toast = undoToast {
+                undoToastOverlay(toast)
+            }
+        }
+        .task(id: undoToast?.id) {
+            // Auto-dismiss; VoiceOver users get longer to find the Redo button.
+            guard undoToast != nil else { return }
+            let seconds: Double = UIAccessibility.isVoiceOverRunning ? 10 : 4
+            try? await Task.sleep(for: .seconds(seconds))
+            guard !Task.isCancelled else { return }
+            withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) { undoToast = nil }
+        }
+        .onChange(of: model.canRedo) { _, canRedo in
+            // A new round, an edit or an iCloud sync invalidates the redo; the toast must not offer it.
+            if !canRedo { undoToast = nil }
         }
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.25), value: showsResultsOverlay)
         .background(
             ShakeDetectorView(onShake: {
-                if model.canUndo { showUndoAlert = true }
+                performUndo()
             }, refocusToken: shakeRefocusToken)
                 .frame(width: 1, height: 1)
                 .allowsHitTesting(false)
@@ -75,7 +105,7 @@ struct GameView: View {
             showingRoundInput: $showingRoundInput,
             showingSettings: $showingSettings,
             showingHistory: $showingHistory,
-            showUndoAlert: $showUndoAlert,
+            editTarget: $editTarget,
             showNewGameAlert: $showNewGameAlert,
             undoFeedbackToken: $undoFeedbackToken,
             newGameFeedbackToken: $newGameFeedbackToken
@@ -86,7 +116,7 @@ struct GameView: View {
             showingRoundInput: showingRoundInput,
             showingSettings: showingSettings,
             showingHistory: showingHistory,
-            showUndoAlert: showUndoAlert,
+            showingEdit: editTarget != nil,
             showNewGameAlert: showNewGameAlert
         ))
         .modifier(GameRoundEventsModifier(
@@ -479,7 +509,9 @@ struct GameView: View {
     private func scoresScroll(proxy: ScrollViewProxy) -> some View {
         ScrollView {
             HStack(alignment: .top, spacing: 0) {
-                RoundRailColumn(count: model.game.hands.count)
+                RoundRailColumn(count: model.game.hands.count, onSelect: { index in
+                    editTarget = EditTarget(id: model.game.hands[index].id)
+                })
                     .frame(width: RoundRail.width)
                 ForEach(model.game.players) { player in
                     VStack(spacing: 8) {
@@ -509,6 +541,10 @@ struct GameView: View {
                                         )
                                     )
                             )
+                            .contentShape(Rectangle())
+                            .onTapGesture { editTarget = EditTarget(id: hand.id) }
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityHint(Text("Edit this round"))
                             .id(hand.id)
                         }
                     }
@@ -603,9 +639,49 @@ struct GameView: View {
         .accessibilityIdentifier("moreMenu")
     }
 
+    /// Undo with no confirmation (button and shake share this); offers Redo in a toast instead.
+    private func performUndo() {
+        guard model.undoLastHand() != nil else { return }
+        undoFeedbackToken += 1
+        let round = model.game.hands.count + 1
+        let message = String(format: String(localized: "Round %d undone"), round)
+        AccessibilityNotification.Announcement("\(message). Redo available").post()
+        withAnimation(reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.85)) {
+            undoToast = UndoToast(message: message)
+        }
+    }
+
+    private func performRedo() {
+        guard model.redo() != nil else { return }
+        undoFeedbackToken += 1
+        AccessibilityNotification.Announcement(
+            String(format: String(localized: "Round %d restored"), model.game.hands.count)
+        ).post()
+        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) { undoToast = nil }
+    }
+
+    /// Bottom-aligned toast just above the bottom bar. In the split layout it stays inside the left pane
+    /// so nothing crosses the center fold.
+    private func undoToastOverlay(_ toast: UndoToast) -> some View {
+        HStack(spacing: 0) {
+            UndoToastView(message: toast.message, onRedo: performRedo)
+                .frame(maxWidth: .infinity)
+                .padding(.leading, usesSplitLayout ? 24 : 0)
+                .padding(.trailing, usesSplitLayout ? 20 : 0)
+            if usesSplitLayout {
+                Color.clear.frame(maxWidth: .infinity, maxHeight: 0).allowsHitTesting(false)
+            }
+        }
+        .padding(.horizontal, usesSplitLayout ? 0 : 16)
+        .frame(maxWidth: usesSplitLayout ? 1200 : .infinity)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+        .padding(.bottom, 76)
+        .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
+    }
+
     private var undoButton: some View {
         Button {
-            showUndoAlert = true
+            performUndo()
         } label: {
             Image(systemName: "arrow.uturn.backward")
         }
@@ -651,28 +727,19 @@ struct GameView: View {
 
 // MARK: - Body modifier groups (keep GameView.body under the type-checker limit)
 
-/// Undo / new-game alerts and the round-input, settings and history sheets.
+/// The new-game alert and the round-input, edit-round, settings and history sheets.
 private struct GamePresentationsModifier: ViewModifier {
     let model: GameViewModel
     @Binding var showingRoundInput: Bool
     @Binding var showingSettings: Bool
     @Binding var showingHistory: Bool
-    @Binding var showUndoAlert: Bool
+    @Binding var editTarget: EditTarget?
     @Binding var showNewGameAlert: Bool
     @Binding var undoFeedbackToken: Int
     @Binding var newGameFeedbackToken: Int
 
     func body(content: Content) -> some View {
         content
-            .alert("Undo last round", isPresented: $showUndoAlert) {
-                Button("No", role: .cancel) {}
-                Button("Yes") {
-                    model.removeLastHand()
-                    undoFeedbackToken += 1
-                }
-            } message: {
-                Text("Are you sure you would like to undo the last round?")
-            }
             .alert("New Game", isPresented: $showNewGameAlert) {
                 Button("No", role: .cancel) {}
                 Button("Yes") {
@@ -684,6 +751,10 @@ private struct GamePresentationsModifier: ViewModifier {
             }
             .sheet(isPresented: $showingRoundInput) {
                 RoundInputView(model: model)
+            }
+            // A sheet in the split layout too, so the inline pane keeps entering the next round.
+            .sheet(item: $editTarget) { target in
+                RoundInputView(model: model, editingHandID: target.id)
             }
             .sheet(isPresented: $showingSettings) {
                 SettingsView(model: model)
@@ -702,7 +773,7 @@ private struct GameShakeRefocusModifier: ViewModifier {
     let showingRoundInput: Bool
     let showingSettings: Bool
     let showingHistory: Bool
-    let showUndoAlert: Bool
+    let showingEdit: Bool
     let showNewGameAlert: Bool
     @Environment(\.scenePhase) private var scenePhase
 
@@ -714,7 +785,7 @@ private struct GameShakeRefocusModifier: ViewModifier {
             .onChange(of: showingHistory) { _, isShowing in
                 if !isShowing { token += 1 }
             }
-            .onChange(of: showUndoAlert) { _, isShowing in
+            .onChange(of: showingEdit) { _, isShowing in
                 if !isShowing { token += 1 }
             }
             .onChange(of: showNewGameAlert) { _, isShowing in

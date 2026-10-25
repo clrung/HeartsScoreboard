@@ -287,6 +287,38 @@ final class DuoLayoutSnapshotTests: XCTestCase {
                        root: AnyView(RoundInputView(model: m, presentation: .sheet)))
     }
 
+    // MARK: Undo toast and edit round (visual review only: PNGs)
+
+    func testUndoToastCompact() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5)
+        _ = try render("toast-compact", size: Self.outer, regular: false, model: m,
+                       root: AnyView(GameView(model: m, initialUndoToast: "Round 6 undone")))
+    }
+
+    func testUndoToastCompactDark() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5)
+        _ = try render("toast-compact-dark", size: Self.outer, regular: false, model: m, dark: true,
+                       root: AnyView(GameView(model: m, initialUndoToast: "Round 6 undone")))
+    }
+
+    func testUndoToastSplit() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5)
+        _ = try render("toast-split", size: Self.innerPortrait, regular: true, model: m,
+                       root: AnyView(GameView(model: m, initialUndoToast: "Round 6 undone")))
+    }
+
+    func testEditRoundSheetCompact() throws {
+        let m = model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique"], rounds: 6, tenRule: true)
+        _ = try render("edit-round-compact", size: Self.outer, regular: false, model: m,
+                       root: AnyView(RoundInputView(model: m, presentation: .sheet, editingHandID: m.game.hands[2].id)))
+    }
+
+    func testEditRoundSheetCompactDark() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 6)
+        _ = try render("edit-round-compact-dark", size: Self.outer, regular: false, model: m, dark: true,
+                       root: AnyView(RoundInputView(model: m, presentation: .sheet, editingHandID: m.game.hands[3].id)))
+    }
+
     // MARK: History (visual review only: PNGs)
 
     private func history(_ names: [String], rounds: Int, tenRule: Bool) -> [CompletedGame] {
