@@ -158,4 +158,4 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done 2026-10-25: HeartsGame.totals(excluding:), snapshot cases added.) Edit mode totals included the edited round; empty board / dark 26 highlight / Increase Contrast snapshots.
 - [ ] Reduce Transparency has no snapshot (not settable via traits). Score cells are labelled per cell, not per round row; a row-wise VoiceOver order would need a layout restructure.
 - [ ] Dark mode: More/Undo chips render near-black (systemBackground on felt); consider a lighter chip fill.
-- [ ] Dark mode: the More/Undo chips render near-black on the dark felt; consider a lighter fill.
+- Note (2026-10-25): the Duo simulator remembers its DeviceHub fold posture across runs. A duo-folded run after an unfolded session captured the dark outer display (all-black PNGs). screenshots.sh now fails on single-colour images; fold the Duo in DeviceHub before duo-folded.

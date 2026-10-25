@@ -91,6 +91,23 @@ strip_alpha() {
   [[ "$(sips -g hasAlpha "$f" | awk '/hasAlpha/ {print $2}')" == "no" ]] || die "$f still has an alpha channel"
 }
 
+# Fails on a single-colour frame (e.g. a dark Duo display captured in the wrong posture).
+assert_not_blank() {
+  python3 -I - "$1" <<'PY' || die "$1 is a blank single-colour image (Duo in the wrong fold posture?)"
+import struct, sys, zlib
+data = open(sys.argv[1], "rb").read()
+pos, idat = 8, b""
+while pos < len(data):
+    length, kind = struct.unpack(">I4s", data[pos:pos + 8])
+    if kind == b"IDAT":
+        idat += data[pos + 8:pos + 8 + length]
+    pos += 12 + length
+raw = zlib.decompress(idat)
+# Filtered scanlines of a flat image collapse to a handful of byte values.
+sys.exit(0 if len(set(raw[::97])) > 8 else 1)
+PY
+}
+
 # Builds the app and UI tests once; works for every simulator runtime (27.0 and 27.1).
 XCTESTRUN=""
 build_once() {
@@ -188,6 +205,7 @@ PY
       h="$(sips -g pixelHeight "$f" | awk '/pixelHeight/ {print $2}')"
     fi
     [[ "${w}x${h}" == "$size" ]] || die "$f is ${w}x${h}, expected $size"
+    assert_not_blank "$f"
   done
   echo "    saved 5 screenshots ($size) to ${dest#"$ROOT"/}"
 }
