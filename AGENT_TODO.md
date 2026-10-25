@@ -121,8 +121,8 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: deleted, README points at new folders.) Old `screenshots/iOS` (1284x2778) and `screenshots/iPadOS` (2048x2732) are stale sizes; decide whether to delete and update the README Screenshots section to the new folders.
 - [x] (Accepted as-is.) Main shot is an in-progress game (old one was a finished game with "won!"); the Game Summary shot is a separate completed game in history.
 - [x] (Accepted as-is.) iPad/Duo-open "Round Input" shows the inline panel; no keyboard-based entry is shown anywhere.
-- [ ] Add a CI/lint check that the identifiers used by `ScreenshotTests` still exist (a rename silently breaks the pipeline until run).
-- [ ] Screenshot run takes ~1.5-4.5 min per device (first build + sim boot); consider `build-for-testing` once and `test-without-building` per device.
+- [x] (Done: scripts/check_screenshot_identifiers.sh, run first by screenshots.sh.) Add a CI/lint check that the identifiers used by `ScreenshotTests` still exist (a rename silently breaks the pipeline until run).
+- [x] (Done: build-for-testing once + test-without-building per device.) Screenshot run takes ~1.5-4.5 min per device (first build + sim boot); consider `build-for-testing` once and `test-without-building` per device.
 
 ### Tier-1 implementation (2026-10-24, uncommitted)
 - Felt-green `AccentColor` (light #1F7A3B / dark #389E57) + `ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME` in project.yml; shared palette in `Views/Theme.swift` (felt gradient, card, dealer badge, gold `Theme.leader`).
