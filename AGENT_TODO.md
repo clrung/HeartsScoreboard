@@ -94,7 +94,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [ ] End-of-game moment: winner sheet/overlay (trophy, ranked standings, confetti gated on Reduce Motion, Rematch / View history). Today only subtitle text changes and Next Round goes dead.
 - [ ] Undo without alert + "Undone — Redo" toast; edit any past round by tapping its row (needs `GameViewModel.updateHand(id:)` + tests).
 - [ ] Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
-- [ ] History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
+- [x] (Done.) History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
 - [x] (Done: @ScaledMetric/minHeight/ViewThatFits; scoreboard type size capped per player count.) Dynamic Type: fixed `frame(height: 26)` cells, `frame(width: 36, height: 26)` total badge, `.system(size: 9)` ♦ glyph, fixed bottom-bar HStack → `@ScaledMetric` / `minHeight` / `ViewThatFits`.
 - [x] (Done: Recent players chips.) Reuse player names from history (suggestion chips/menu in Settings), placeholder "Player N".
 
@@ -109,7 +109,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done; PayPal link kept per user.) About: header with icon/name, group links, `ShareLink`, version in footer, single tint. PayPal $5 donate link (AboutView.swift:10) may conflict with App Review rules on donations from non-nonprofits — decide.
 
 ### Feature ideas (not yet decided)
-- [ ] Players leaderboard tab in History (games, wins, win %, avg score, moons) derived from `model.history` — no new storage.
+- [x] (Done: Games | Players picker.) Players leaderboard tab in History (games, wins, win %, avg score, moons) derived from `model.history` — no new storage.
 - [ ] Share result card via `ImageRenderer` + `ShareLink` from game over and history detail.
 - [ ] Widget / Live Activity (new extension + App Group) — larger; defer.
 
@@ -148,4 +148,4 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [x] (Done.) At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
-- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App".
+- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail).

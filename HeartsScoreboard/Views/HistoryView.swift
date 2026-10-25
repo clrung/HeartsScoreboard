@@ -4,6 +4,9 @@ import Observation
 struct HistoryView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var model: GameViewModel
+    @State private var tab: Tab = .games
+
+    private enum Tab: Hashable { case games, players }
 
     private var sortedHistory: [CompletedGame] {
         model.history.sorted { $0.finishedAt > $1.finishedAt }
@@ -11,6 +14,31 @@ struct HistoryView: View {
 
     var body: some View {
         NavigationStack {
+            VStack(spacing: 0) {
+                Picker("View", selection: $tab) {
+                    Text("Games").tag(Tab.games)
+                    Text("Players").tag(Tab.players)
+                }
+                .pickerStyle(.segmented)
+                .padding(.horizontal)
+                .padding(.vertical, 8)
+                .accessibilityIdentifier("history.tab")
+
+                switch tab {
+                case .games: gamesList
+                case .players: PlayersLeaderboardView(records: model.history.playerRecords)
+                }
+            }
+            .navigationTitle("Game History")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Done") { dismiss() }
+                }
+            }
+        }
+    }
+
+    private var gamesList: some View {
             List {
                 if sortedHistory.isEmpty {
                     ContentUnavailableView(
@@ -37,13 +65,6 @@ struct HistoryView: View {
                     }
                 }
             }
-            .navigationTitle("Game History")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button("Done") { dismiss() }
-                }
-            }
-        }
     }
 }
 

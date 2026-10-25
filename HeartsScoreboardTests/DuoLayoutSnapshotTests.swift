@@ -66,7 +66,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
 
     private func render(_ name: String, size: CGSize, regular: Bool, model: GameViewModel,
                         dark: Bool = false, category: UIContentSizeCategory? = nil,
-                        root: AnyView? = nil) throws -> Rendered {
+                        root: AnyView? = nil, cancelSideInsets: Bool = false) throws -> Rendered {
         // A window without a scene doesn't render; attach to the host app's scene.
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
@@ -90,11 +90,17 @@ final class DuoLayoutSnapshotTests: XCTestCase {
             left: want.left - leaked.left + host.additionalSafeAreaInsets.left,
             bottom: want.bottom - leaked.bottom + host.additionalSafeAreaInsets.bottom,
             right: want.right - leaked.right + host.additionalSafeAreaInsets.right)
+        // The scene's side insets also reach UIKit-backed scroll views through the window; cancel them.
+        if cancelSideInsets {
+            host.additionalSafeAreaInsets.left -= window.safeAreaInsets.left
+            host.additionalSafeAreaInsets.right -= window.safeAreaInsets.right
+        }
         host.view.layoutIfNeeded()
         RunLoop.main.run(until: Date().addingTimeInterval(0.5))
         host.view.layoutIfNeeded()
+        RunLoop.main.run(until: Date().addingTimeInterval(0.3))
 
-        print("SNAPDBG \(name) window=\(window.frame) host=\(host.view.frame) safe=\(host.view.safeAreaInsets) tc=\(host.traitCollection.horizontalSizeClass.rawValue) scale=\(host.traitCollection.displayScale)")
+        print("SNAPDBG  \(name) window=\(window.frame) host=\(host.view.frame) safe=\(host.view.safeAreaInsets) tc=\(host.traitCollection.horizontalSizeClass.rawValue) scale=\(host.traitCollection.displayScale)")
         let renderer = UIGraphicsImageRenderer(bounds: window.bounds)
         let image = renderer.image { _ in
             window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
@@ -244,5 +250,71 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         let m = model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique"], rounds: 6, tenRule: true)
         _ = try render("sheet-compact-4p-10d-default", size: Self.outer, regular: false, model: m,
                        root: AnyView(RoundInputView(model: m, presentation: .sheet)))
+    }
+
+    // MARK: History (visual review only: PNGs)
+
+    private func history(_ names: [String], rounds: Int, tenRule: Bool) -> [CompletedGame] {
+        let ps = players(names)
+        let hs = hands(for: ps, rounds: rounds, tenRule: tenRule)
+        let g1 = CompletedGame(finishedAt: Date().addingTimeInterval(-3600), game: HeartsGame(players: ps, hands: hs),
+                               settings: GameSettings(tenOfDiamondsMinus10: tenRule))
+        // Second game with the same names (different case) and a tie-free result.
+        let ps2 = ps.map { HeartsGame.Player(id: UUID(), name: $0.name.uppercased()) }
+        let g2 = CompletedGame(finishedAt: Date().addingTimeInterval(-90_000),
+                               game: HeartsGame(players: ps2, hands: hands(for: ps2, rounds: rounds + 2, tenRule: false)),
+                               settings: GameSettings(endingScore: 75))
+        return [g1, g2]
+    }
+
+    private func renderHistoryDetail(_ name: String, size: CGSize, regular: Bool, dark: Bool, names: [String], rounds: Int, tenRule: Bool) throws {
+        let c = history(names, rounds: rounds, tenRule: tenRule)[0]
+        _ = try render(name, size: size, regular: regular, model: model(names: names, rounds: 1), dark: dark,
+                       root: AnyView(NavigationStack { HistoryDetailView(completedGame: c) }), cancelSideInsets: true)
+    }
+
+    func testHistoryDetailCompactLight() throws {
+        try renderHistoryDetail("history-detail-compact-light", size: Self.outer, regular: false, dark: false,
+                                names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 8, tenRule: true)
+    }
+
+    func testHistoryDetailCompactDark() throws {
+        try renderHistoryDetail("history-detail-compact-dark", size: Self.outer, regular: false, dark: true,
+                                names: ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"], rounds: 8, tenRule: true)
+    }
+
+    func testHistoryDetailRegularLight() throws {
+        try renderHistoryDetail("history-detail-regular-light", size: Self.innerPortrait, regular: true, dark: false,
+                                names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 8, tenRule: true)
+    }
+
+    func testHistoryDetailRegularDark() throws {
+        try renderHistoryDetail("history-detail-regular-dark", size: Self.innerPortrait, regular: true, dark: true,
+                                names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 8, tenRule: false)
+    }
+
+    private func renderLeaderboard(_ name: String, size: CGSize, regular: Bool, dark: Bool) throws {
+        let m = GameViewModel(initialState: SyncableState(
+            game: HeartsGame(players: players(["Ace", "Deuce"])),
+            settings: GameSettings(), firstDealerIndex: 0,
+            history: history(["Ace", "Deuce", "Trey", "Queen"], rounds: 6, tenRule: true)))
+        _ = try render(name, size: size, regular: regular, model: m, dark: dark,
+                       root: AnyView(NavigationStack { PlayersLeaderboardView(records: m.history.playerRecords).navigationTitle("Players") }), cancelSideInsets: true)
+    }
+
+    func testLeaderboardCompactLight() throws {
+        try renderLeaderboard("leaderboard-compact-light", size: Self.outer, regular: false, dark: false)
+    }
+
+    func testLeaderboardCompactDark() throws {
+        try renderLeaderboard("leaderboard-compact-dark", size: Self.outer, regular: false, dark: true)
+    }
+
+    func testLeaderboardRegularLight() throws {
+        try renderLeaderboard("leaderboard-regular-light", size: Self.innerPortrait, regular: true, dark: false)
+    }
+
+    func testLeaderboardRegularDark() throws {
+        try renderLeaderboard("leaderboard-regular-dark", size: Self.innerPortrait, regular: true, dark: true)
     }
 }
