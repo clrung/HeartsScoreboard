@@ -2,10 +2,27 @@ import SwiftUI
 import Observation
 
 struct RoundInputView: View {
+    /// How the round-entry UI is hosted.
+    enum Presentation {
+        /// Own NavigationStack with Back/Reset toolbar; dismisses after submit.
+        case sheet
+        /// Embedded panel (no NavigationStack); resets for the next round after submit.
+        case inline
+    }
+
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Bindable var model: GameViewModel
+    let presentation: Presentation
+
+    @ScaledMetric(relativeTo: .body) private var tapSize: CGFloat = 44
+    @ScaledMetric(relativeTo: .body) private var stepperSize: CGFloat = 34
+
+    init(model: GameViewModel, presentation: Presentation = .sheet) {
+        self.model = model
+        self.presentation = presentation
+    }
 
     @State private var points: [UUID: Int] = [:]
     @State private var queenOwnerID: UUID? = nil
@@ -34,115 +51,65 @@ struct RoundInputView: View {
     }
 
     var body: some View {
-        NavigationStack {
+        Group {
+            switch presentation {
+            case .sheet:
+                NavigationStack {
+                    content
+                        .navigationTitle(roundTitle)
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .topBarLeading) {
+                                Button {
+                                    dismiss()
+                                } label: {
+                                    Label("Back", systemImage: "chevron.left")
+                                }
+                            }
+                            ToolbarItem(placement: .topBarTrailing) { resetButton }
+                        }
+                }
+                .modifier(FormPresentationSizing())
+            case .inline:
+                VStack(spacing: 0) {
+                    HStack {
+                        Text(roundTitle)
+                            .font(.headline)
+                        Spacer()
+                        resetButton
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 10)
+                    content
+                }
+            }
+        }
+        .onAppear {
+            if points.isEmpty {
+                reset()
+            }
+        }
+    }
+
+    private var roundTitle: String {
+        String(format: String(localized: "Round %d"), model.game.hands.count + 1)
+    }
+
+    private var resetButton: some View {
+        Button {
+            reset()
+        } label: {
+            Label("Reset", systemImage: "arrow.counterclockwise")
+        }
+        .disabled(isAllScoresZero && tenOfDiamondsOwnerID == nil)
+    }
+
+    private var content: some View {
             VStack {
                 Form {
                     Section {
-                        ForEach(model.game.players) { player in
-                            HStack(alignment: .center, spacing: 0) {
-                                PlayerNameWithTotalView(
-                                    name: player.name,
-                                    total: model.game.totalPoints(for: player.id),
-                                    isLeader: leadingPlayerIDs.contains(player.id),
-                                    colorScheme: colorScheme
-                                )
-                                .frame(width: 130, alignment: .leading)
-                                .frame(maxHeight: .infinity, alignment: .center)
-
-                                HStack(spacing: -4) {
-                                    Button {
-                                        adjustPoints(for: player.id, delta: -1)
-                                    } label: {
-                                        Image(systemName: "minus.circle.fill")
-                                            .font(.title3.weight(.semibold))
-                                    }
-                                    .buttonStyle(.borderless)
-                                    .frame(width: 32, alignment: .center)
-                                    .foregroundStyle(isShootTheMoonRound || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
-                                    .disabled(isShootTheMoonRound || (points[player.id] ?? 0) == 0)
-
-                                    Text("\(points[player.id] ?? 0)")
-                                        .font(.title3.weight(.semibold))
-                                        .monospacedDigit()
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.6)
-                                        .frame(width: 32, alignment: .center)
-                                        .overlay(alignment: .top) {
-                                            if isTenRuleOn && tenOfDiamondsOwnerID == player.id {
-                                                Text("−10")
-                                                    .font(.caption2.weight(.semibold))
-                                                    .foregroundStyle(Color.red)
-                                                    .fixedSize()
-                                                    .offset(y: -16)
-                                            }
-                                        }
-
-                                    Button {
-                                        adjustPoints(for: player.id, delta: 1)
-                                    } label: {
-                                        Image(systemName: "plus.circle.fill")
-                                            .font(.title3.weight(.semibold))
-                                    }
-                                    .buttonStyle(.borderless)
-                                    .frame(width: 32, alignment: .center)
-                                    .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.blue)
-                                    .disabled(isRoundValid)
-                                }
-                                .frame(maxWidth: .infinity)
-                                .frame(maxHeight: .infinity, alignment: .center)
-
-                                HStack(spacing: 0) {
-                                    VStack(spacing: 4) {
-                                        Button("+\(model.settings.quickIncrementPoints)") {
-                                            adjustPoints(for: player.id, delta: model.settings.quickIncrementPoints)
-                                        }
-                                        .buttonStyle(.borderedProminent)
-                                        .font(.subheadline.weight(.semibold))
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.6)
-                                        .allowsTightening(true)
-                                        .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid || remainingPoints(for: player.id) < model.settings.quickIncrementPoints)
-
-                                        Button("Q♠") {
-                                            addQueenOfSpades(for: player.id)
-                                        }
-                                        .buttonStyle(.borderedProminent)
-                                        .font(.subheadline.weight(.semibold))
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.6)
-                                        .allowsTightening(true)
-                                        .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid || queenOwnerID != nil)
-                                    }
-
-                                    VStack(spacing: 4) {
-                                        let remaining = remainingPoints(for: player.id)
-                                        Button {
-                                            addRemainingPoints(for: player.id)
-                                        } label: {
-                                            Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
-                                        }
-                                        .buttonStyle(.borderedProminent)
-                                        .font(.subheadline.weight(.semibold))
-                                        .lineLimit(1)
-                                        .minimumScaleFactor(0.6)
-                                        .allowsTightening(true)
-                                        .frame(width: 52, height: 32)
-                                        .disabled(remaining == 0 || isRoundValid)
-
-                                        Button {
-                                            applyShootMoonValue(for: player.id)
-                                        } label: {
-                                            Image(systemName: "moon.fill")
-                                                .font(.subheadline.weight(.semibold))
-                                        }
-                                        .buttonStyle(.borderedProminent)
-                                        .frame(width: 52, height: 32)
-                                        .disabled(isRoundValid)
-                                    }
-                                }
-                            }
+                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                            playerRow(player, index: index)
                         }
                     }
 
@@ -223,6 +190,7 @@ struct RoundInputView: View {
                         Text(String(localized: "Quick add"))
                     }
                 }
+                .modifier(InlineFormMargins(isInline: presentation == .inline))
 
                 Button {
                     submit()
@@ -245,35 +213,147 @@ struct RoundInputView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(Text("Submit round scores"))
+                .accessibilityIdentifier("roundInput.submit")
                 .opacity(canSubmit ? 1 : 0.5)
                 .disabled(!canSubmit)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .navigationTitle(String(format: String(localized: "Round %d"), model.game.hands.count + 1))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Label("Back", systemImage: "chevron.left")
+    }
+
+    @ViewBuilder
+    private func playerRow(_ player: HeartsGame.Player, index: Int) -> some View {
+        let quick = model.settings.quickIncrementPoints
+        let remaining = remainingPoints(for: player.id)
+        let nameView = PlayerNameWithTotalView(
+            name: player.name,
+            total: model.game.totalPoints(for: player.id),
+            isLeader: leadingPlayerIDs.contains(player.id),
+            colorScheme: colorScheme
+        )
+        Group {
+            if presentation == .inline {
+                // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
+                // so long names never collapse to "…".
+                VStack(spacing: 6) {
+                    HStack(spacing: 8) {
+                        nameView
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        stepper(for: player)
                     }
+                    HStack(spacing: 6) {
+                        quickChip(for: player, quick: quick, remaining: remaining)
+                        remainingChip(for: player, remaining: remaining)
+                        queenChip(for: player)
+                        moonChip(for: player)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        reset()
-                    } label: {
-                        Label("Reset", systemImage: "arrow.counterclockwise")
+                .padding(.vertical, 4)
+            } else {
+                HStack(alignment: .center, spacing: 8) {
+                    nameView
+                        .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
+                        .layoutPriority(1)
+
+                    Spacer(minLength: 0)
+
+                    stepper(for: player)
+
+                    Grid(horizontalSpacing: 4, verticalSpacing: 4) {
+                        GridRow {
+                            quickChip(for: player, quick: quick, remaining: remaining)
+                            remainingChip(for: player, remaining: remaining)
+                        }
+                        GridRow {
+                            queenChip(for: player)
+                            moonChip(for: player)
+                        }
                     }
-                    .disabled(isAllScoresZero && tenOfDiamondsOwnerID == nil)
                 }
             }
         }
-        .onAppear {
-            if points.isEmpty {
-                reset()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("roundInput.row.\(index)")
+    }
+
+    private func quickChip(for player: HeartsGame.Player, quick: Int, remaining: Int) -> some View {
+        Button("+\(quick)") {
+            adjustPoints(for: player.id, delta: quick)
+        }
+        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .disabled(isRoundValid || remaining < quick)
+    }
+
+    private func remainingChip(for player: HeartsGame.Player, remaining: Int) -> some View {
+        Button {
+            addRemainingPoints(for: player.id)
+        } label: {
+            Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
+        }
+        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .disabled(remaining == 0 || isRoundValid)
+    }
+
+    private func queenChip(for player: HeartsGame.Player) -> some View {
+        Button("Q♠") {
+            addQueenOfSpades(for: player.id)
+        }
+        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .disabled(isRoundValid || queenOwnerID != nil)
+    }
+
+    private func moonChip(for player: HeartsGame.Player) -> some View {
+        Button {
+            applyShootMoonValue(for: player.id)
+        } label: {
+            Image(systemName: "moon.fill")
+        }
+        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .disabled(isRoundValid)
+    }
+
+    private func stepper(for player: HeartsGame.Player) -> some View {
+        HStack(spacing: 0) {
+            Button {
+                adjustPoints(for: player.id, delta: -1)
+            } label: {
+                Image(systemName: "minus.circle.fill")
+                    .font(.title3.weight(.semibold))
+                    .frame(width: stepperSize, height: tapSize)
+                    .contentShape(Rectangle())
             }
+            .buttonStyle(.borderless)
+            .foregroundStyle(isShootTheMoonRound || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
+            .disabled(isShootTheMoonRound || (points[player.id] ?? 0) == 0)
+
+            Text("\(points[player.id] ?? 0)")
+                .font(.title3.weight(.semibold))
+                .monospacedDigit()
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .frame(minWidth: 30)
+                .overlay(alignment: .top) {
+                    if isTenRuleOn && tenOfDiamondsOwnerID == player.id {
+                        Text("−10")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(Color.red)
+                            .fixedSize()
+                            .offset(y: -16)
+                    }
+                }
+
+            Button {
+                adjustPoints(for: player.id, delta: 1)
+            } label: {
+                Image(systemName: "plus.circle.fill")
+                    .font(.title3.weight(.semibold))
+                    .frame(width: stepperSize, height: tapSize)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.borderless)
+            .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.blue)
+            .disabled(isRoundValid)
         }
     }
 
@@ -349,7 +429,45 @@ struct RoundInputView: View {
             pointsByPlayerID: points,
             tenOfDiamondsPlayerID: isTenRuleOn ? tenOfDiamondsOwnerID : nil
         )
-        dismiss()
+        switch presentation {
+        case .sheet: dismiss()
+        case .inline: reset()
+        }
+    }
+}
+
+private extension View {
+    /// Prominent compact chip button that grows with Dynamic Type but keeps a minimum tap width.
+    func chipStyle(minWidth: CGFloat, fill: Bool = false) -> some View {
+        self.buttonStyle(.borderedProminent)
+            .font(.subheadline.weight(.semibold))
+            .lineLimit(1)
+            .minimumScaleFactor(0.6)
+            .allowsTightening(true)
+            .frame(minWidth: minWidth, maxWidth: fill ? .infinity : nil, minHeight: 32)
+    }
+}
+
+/// Inline panel has its own title row, so drop the Form's default top inset.
+private struct InlineFormMargins: ViewModifier {
+    let isInline: Bool
+    func body(content: Content) -> some View {
+        if isInline {
+            content.contentMargins(.top, 0, for: .scrollContent)
+        } else {
+            content
+        }
+    }
+}
+
+/// Applies `.presentationSizing(.form)` on iOS 18+; no-op on iOS 17.
+private struct FormPresentationSizing: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 18.0, *) {
+            content.presentationSizing(.form)
+        } else {
+            content
+        }
     }
 }
 

@@ -3,26 +3,38 @@ import SwiftUI
 struct GameView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @State private var model = GameViewModel(initialState: CloudSyncManager.shared.load())
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var model: GameViewModel
     @State private var showingRoundInput = false
     @State private var showingSettings = false
     @State private var showingHistory = false
     @State private var showUndoAlert = false
     @State private var showNewGameAlert = false
     @State private var showShakeHint = false
+    @State private var shakeRefocusToken = 0
+    @Environment(\.scenePhase) private var scenePhase
     @State private var hasShownShakeHint = UserDefaults.standard.bool(forKey: "hasShownShakeUndoHint")
+
+    /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
+    init(model: GameViewModel? = nil) {
+        _model = State(initialValue: model ?? GameViewModel(initialState: CloudSyncManager.shared.load()))
+    }
 
     var body: some View {
         ZStack {
             backgroundGradient
                 .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                header
-                scoreboard
-                bottomBar
+            if usesSplitLayout {
+                splitLayout
+            } else {
+                VStack(spacing: 0) {
+                    header
+                    scoreboard
+                    bottomBar
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
 
             if showShakeHint {
                 shakeHintOverlay
@@ -30,9 +42,9 @@ struct GameView: View {
             }
         }
         .background(
-            ShakeDetectorView {
-                if !model.game.hands.isEmpty { showUndoAlert = true }
-            }
+            ShakeDetectorView(onShake: {
+                if model.canUndo { showUndoAlert = true }
+            }, refocusToken: shakeRefocusToken)
                 .frame(width: 1, height: 1)
                 .allowsHitTesting(false)
         )
@@ -66,7 +78,27 @@ struct GameView: View {
                 model.applySyncedState(state)
             }
         }
+        .onChange(of: usesSplitLayout) { _, isSplit in
+            // The inline panel replaces the round-input sheet.
+            if isSplit { showingRoundInput = false }
+        }
+        .onChange(of: showingRoundInput) { _, isShowing in
+            if !isShowing { shakeRefocusToken += 1 }
+        }
+        .onChange(of: showingHistory) { _, isShowing in
+            if !isShowing { shakeRefocusToken += 1 }
+        }
+        .onChange(of: showUndoAlert) { _, isShowing in
+            if !isShowing { shakeRefocusToken += 1 }
+        }
+        .onChange(of: showNewGameAlert) { _, isShowing in
+            if !isShowing { shakeRefocusToken += 1 }
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active { shakeRefocusToken += 1 }
+        }
         .onChange(of: showingSettings) { _, isShowing in
+            if !isShowing { shakeRefocusToken += 1 }
             if !isShowing { model.persistToCloud() }
         }
         .onChange(of: model.game.hands.count) { _, newCount in
@@ -82,6 +114,64 @@ struct GameView: View {
                 }
             }
         }
+    }
+
+    /// Regular width (unfolded iPhone Duo, iPad): scoreboard and inline round entry side by side.
+    private var usesSplitLayout: Bool { horizontalSizeClass == .regular }
+
+    /// Two equal panes with a gap centered on the screen, so no pane's content crosses the
+    /// vertical center line (the fold on a partially folded iPhone Duo).
+    private var splitLayout: some View {
+        VStack(spacing: 0) {
+            // Full-width header so both panes start at the same y.
+            header
+                .padding(.horizontal, 24)
+
+            HStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    scoreboard
+                    bottomBar
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.leading, 24)
+                .padding(.trailing, 20)
+
+                roundEntryPane
+                    .frame(maxWidth: .infinity)
+                    .padding(.leading, 20)
+                    .padding(.trailing, 24)
+            }
+        }
+        .frame(maxWidth: 1200)
+        .frame(maxWidth: .infinity)
+    }
+
+    @ViewBuilder
+    private var roundEntryPane: some View {
+        VStack(spacing: 0) {
+            if model.isGameOver {
+                VStack(spacing: 12) {
+                    Image(systemName: "trophy.fill")
+                        .font(.system(size: 44))
+                    Text(model.statusText)
+                        .font(.title3.weight(.semibold))
+                        .multilineTextAlignment(.center)
+                }
+                .foregroundStyle(Color.white)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                RoundInputView(model: model, presentation: .inline)
+                    .background(
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .fill(Color(.systemGroupedBackground))
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                    .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
+                    .frame(maxHeight: .infinity)
+            }
+        }
+        .padding(.top, 8) // matches the scoreboard card's top inset
+        .padding(.bottom, 12)
     }
 
     private var dealerIndex: Int { model.currentDealerIndex }
@@ -255,6 +345,8 @@ struct GameView: View {
                 Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore))
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(Color.white)
+                    .lineLimit(1)
+                    .fixedSize(horizontal: true, vertical: false)
             }
             .padding(.horizontal, 70)
         }
@@ -341,8 +433,9 @@ struct GameView: View {
                             }
                             .frame(height: 25)
                             Text(player.name)
-                                .font(.headline.weight(.semibold))
+                                .font((usesSplitLayout && model.game.players.count > 4 ? Font.subheadline : Font.headline).weight(.semibold))
                                 .lineLimit(1)
+                                .minimumScaleFactor(0.7)
                                 .truncationMode(.tail)
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 8)
@@ -404,7 +497,8 @@ struct GameView: View {
                             }
                             .font(.footnote.weight(.medium))
                             .foregroundStyle(Color.primary)
-                            .frame(width: 56, height: 26)
+                            .frame(maxWidth: 56) // shrinks with the column so 6 players fit narrow panes
+                            .frame(height: 26)
                             .overlay(alignment: .topTrailing) {
                                 if hand.tenOfDiamondsPlayerID == player.id {
                                     Text("♦")
@@ -457,18 +551,29 @@ struct GameView: View {
             .disabled(model.game.hands.isEmpty)
             .accessibilityHint(Text("Starts a new game with the same players"))
 
-            Spacer()
-
             Button {
-                showingRoundInput = true
+                showUndoAlert = true
             } label: {
-                Label("Next Round", systemImage: "arrow.right.circle.fill")
+                Image(systemName: "arrow.uturn.backward")
             }
-            .buttonStyle(.borderedProminent)
+            .buttonStyle(.bordered)
             .tint(.blue)
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .disabled(model.isGameOver)
-            .accessibilityHint(Text("Enter scores for the next round"))
+            .disabled(!model.canUndo)
+            .accessibilityLabel(Text("Undo Round"))
+            .accessibilityIdentifier("undoButton")
+
+            if !usesSplitLayout {
+                Button {
+                    showingRoundInput = true
+                } label: {
+                    Label("Next Round", systemImage: "arrow.right.circle.fill")
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(.blue)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .disabled(model.isGameOver)
+                .accessibilityHint(Text("Enter scores for the next round"))
+            }
         }
         .font(.callout)
         .padding(.vertical, 12)

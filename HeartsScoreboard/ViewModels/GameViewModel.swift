@@ -185,6 +185,9 @@ final class GameViewModel {
         persistToCloud()
     }
 
+    /// Undo is available only when there is a round to remove.
+    var canUndo: Bool { !game.hands.isEmpty }
+
     func removeLastHand() {
         guard !game.hands.isEmpty else { return }
         game.hands.removeLast()

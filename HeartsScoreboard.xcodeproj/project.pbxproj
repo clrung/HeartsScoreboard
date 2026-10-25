@@ -15,6 +15,7 @@
 		3E67486EB0D4F0D5D8CF516D /* CloudSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CA6A5243D25F7B6BD6BF99 /* CloudSyncManager.swift */; };
 		4E173AC0590C2FEB266A2CF1 /* HeartsScoreboardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */; };
 		6DBDC082946113E5579CC968 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD19947D819B9036C020016 /* AboutView.swift */; };
+		7DFEFC76353825CF4A6BD907 /* UndoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */; };
 		9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */; };
 		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
 		B333AB77AEA22C861E2A952B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6EE229925EA17F605B75 /* InfoPlist.strings */; };
@@ -23,6 +24,7 @@
 		CDBC91223F367538413750E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 382425696492181EC54F34C8 /* Localizable.strings */; };
 		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
 		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
+		F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */; };
 		F0ECA66CE123200CFCB9E860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4287621BA5B3DBCFA976FC85 /* Assets.xcassets */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,7 @@
 		1CA5114EA361570FF7E4E8CA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1CC91E2120703C4F9D66BD5D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppStoreMetadata.strings"; sourceTree = "<group>"; };
 		1CD8D8E9FF0D651C985720CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuoLayoutSnapshotTests.swift; sourceTree = "<group>"; };
 		208E13E882D6991262710311 /* HeartsScoreboard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HeartsScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223A2D7AB7307B0C59146BB3 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		23F02FE5AF5A01BD6839151A /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		28A658D6A530393EB4A6ABF6 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Localizable.strings; sourceTree = "<group>"; };
 		29C5A935EBBB4403AF140C2D /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		2C775037E0EE46059844A8A2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoTests.swift; sourceTree = "<group>"; };
 		2F2216D44459E1684ABB6100 /* kk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = kk; path = kk.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		2F60FD7C955361EDDE3E9FF2 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2F64121EAC646EFFF7B6BE87 /* bs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bs; path = bs.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -372,7 +376,9 @@
 		CF1FF8FDFBD0A8C4987D3DD0 /* HeartsScoreboardTests */ = {
 			isa = PBXGroup;
 			children = (
+				1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */,
 				9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */,
+				2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */,
 			);
 			path = HeartsScoreboardTests;
 			sourceTree = "<group>";
@@ -566,7 +572,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */,
 				9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */,
+				7DFEFC76353825CF4A6BD907 /* UndoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
