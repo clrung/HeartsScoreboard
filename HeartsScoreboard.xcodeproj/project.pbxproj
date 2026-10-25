@@ -26,6 +26,7 @@
 		87530D5A6088A3401A13887E /* RoundEntryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FD0F23EC0B50E1F5485861 /* RoundEntryState.swift */; };
 		9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */; };
 		926A1AC34EA707E060000DB8 /* GameOverStandingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6671AC56548FCDF62F47C67 /* GameOverStandingsTests.swift */; };
+		A6B7488FB5B98944261CC3C2 /* ResultCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */; };
 		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
 		B0BA7A8631171852401AC255 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55B141DDC24244AEFAB437 /* GameOverView.swift */; };
 		B333AB77AEA22C861E2A952B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6EE229925EA17F605B75 /* InfoPlist.strings */; };
@@ -39,6 +40,7 @@
 		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
 		D4BD2EBFD5A9CEEE6B2CDD2A /* PlayerNameSuggestionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBF553DF99319D8FBF88C5 /* PlayerNameSuggestionsTests.swift */; };
 		DC27D479FE723FF93EE6FBAC /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895B119E0949C712555CD8A /* ScreenshotTests.swift */; };
+		DC5BB38633DD3A501D65C639 /* ResultCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72099C0C32F6E9893FEB9BA1 /* ResultCardView.swift */; };
 		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
 		F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */; };
 		F0ECA66CE123200CFCB9E860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4287621BA5B3DBCFA976FC85 /* Assets.xcassets */; };
@@ -85,6 +87,7 @@
 		0CA4433941980B0DB9B792F8 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		0D7E1296FDF30B39DDAB8F46 /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E400FFEE6D313D0026D618E /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
+		0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCardTests.swift; sourceTree = "<group>"; };
 		1154A9708442CE7241E7C353 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = mn.lproj/Localizable.strings; sourceTree = "<group>"; };
 		133DC35DF43FE620E946EBFD /* zu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zu; path = zu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14472C78D6CE65657E9F19ED /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 		6DCA38CF2F4BD97D2C797459 /* SettingsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSnapshotTests.swift; sourceTree = "<group>"; };
 		704C8B9B4B2CFC8BCF43B228 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7179250BBD5775C8C9403EFA /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		72099C0C32F6E9893FEB9BA1 /* ResultCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCardView.swift; sourceTree = "<group>"; };
 		75BDC69C3F1C3E68432A3625 /* HeartsScoreboardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsScoreboardApp.swift; sourceTree = "<group>"; };
 		7726DA787671A72786FA82AD /* ta */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ta; path = ta.lproj/Localizable.strings; sourceTree = "<group>"; };
 		776FB2FBECAC1BF0DF587F41 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -421,6 +425,7 @@
 				DFEC7EF90DECB7F9B395538E /* PlayerNameSuggestions.swift */,
 				9CFC694DA88D9FA2F8FDDBAB /* PlayerScoreViews.swift */,
 				4525F3DD53A7218371236BAF /* PlayersLeaderboardView.swift */,
+				72099C0C32F6E9893FEB9BA1 /* ResultCardView.swift */,
 				C7FD0F23EC0B50E1F5485861 /* RoundEntryState.swift */,
 				038D972ED22A697EDA8313A6 /* RoundInputView.swift */,
 				C4DBE481A691D544BA60BA3B /* SettingsView.swift */,
@@ -440,6 +445,7 @@
 				E8CBE01D2A1F7AEDACDC612E /* HistoryStatsTests.swift */,
 				D0F08569F62A9BB54AFED28F /* LeaderIndicatorTests.swift */,
 				87CBF553DF99319D8FBF88C5 /* PlayerNameSuggestionsTests.swift */,
+				0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */,
 				B5AC7C02606E5278B43FCAB5 /* RoundEntryStateTests.swift */,
 				6DCA38CF2F4BD97D2C797459 /* SettingsSnapshotTests.swift */,
 				9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */,
@@ -654,6 +660,7 @@
 				1CB41B7BAB95D1F6E598DC77 /* PlayerNameSuggestions.swift in Sources */,
 				1BEC997CF82551C7E83F6CBE /* PlayerScoreViews.swift in Sources */,
 				8528B0AD917F967B1DB7D935 /* PlayersLeaderboardView.swift in Sources */,
+				DC5BB38633DD3A501D65C639 /* ResultCardView.swift in Sources */,
 				87530D5A6088A3401A13887E /* RoundEntryState.swift in Sources */,
 				CF935772FE398475553CC67D /* RoundInputView.swift in Sources */,
 				7D133ED54F2B94100D1CFEAB /* ScreenshotDemo.swift in Sources */,
@@ -674,6 +681,7 @@
 				C561ECEE989F69872843FA4B /* HistoryStatsTests.swift in Sources */,
 				C6F4F0977DA157C10B93EC82 /* LeaderIndicatorTests.swift in Sources */,
 				D4BD2EBFD5A9CEEE6B2CDD2A /* PlayerNameSuggestionsTests.swift in Sources */,
+				A6B7488FB5B98944261CC3C2 /* ResultCardTests.swift in Sources */,
 				6DC1DB981055ACB7148B9ACF /* RoundEntryStateTests.swift in Sources */,
 				C12335BF769B7438890E8D57 /* SettingsSnapshotTests.swift in Sources */,
 				9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */,

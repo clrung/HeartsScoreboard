@@ -110,7 +110,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 
 ### Feature ideas (not yet decided)
 - [x] (Done: Games | Players picker.) Players leaderboard tab in History (games, wins, win %, avg score, moons) derived from `model.history` — no new storage.
-- [ ] Share result card via `ImageRenderer` + `ShareLink` from game over and history detail.
+- [x] (Done: ResultCardView + ShareLink from game-over card and history detail.) Share result card via `ImageRenderer` + `ShareLink` from game over and history detail.
 - [ ] Widget / Live Activity (new extension + App Group) — larger; defer.
 
 ## Screenshot pipeline (2026-10-24, uncommitted)
@@ -148,5 +148,5 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [x] (Done.) At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
-- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...).
-- [ ] Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.
+- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result").
+- [x] (Done: ViewThatFits compact layout.) Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.

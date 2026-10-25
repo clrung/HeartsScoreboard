@@ -32,6 +32,12 @@ struct HistoryDetailView: View {
         }
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                ResultShareButton(data: ResultCardData(completed: completedGame))
+                    .accessibilityIdentifier("historyDetail.share")
+            }
+        }
     }
 
     // MARK: Summary

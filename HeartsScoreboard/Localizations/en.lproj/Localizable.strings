@@ -176,3 +176,7 @@
 "%d. %@, %d points" = "%d. %@, %d points";
 "%@ won with %lld points." = "%@ won with %lld points.";
 "%@ tied for the win with %lld points." = "%@ tied for the win with %lld points.";
+"%lld rounds" = "%lld rounds";
+"1 round" = "1 round";
+"Hearts Scoreboard result" = "Hearts Scoreboard result";
+"Share result" = "Share result";

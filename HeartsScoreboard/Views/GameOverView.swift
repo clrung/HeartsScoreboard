@@ -8,6 +8,8 @@ struct GameOverView: View {
     let onViewHistory: () -> Void
     /// Nil when the card can't be dismissed (the split layout shows it in a pane next to the scoreboard).
     var onClose: (() -> Void)?
+    /// When provided, the shared result card also shows the round count, date and score sparkline.
+    var completedGame: CompletedGame?
 
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
@@ -22,80 +24,138 @@ struct GameOverView: View {
         ListFormatter.localizedString(byJoining: winners.map(\.player.name))
     }
 
-    var body: some View {
-        // Buttons stay pinned below the scrolling standings, except at accessibility text sizes where
-        // pinned buttons would squeeze the standings to nothing: there everything scrolls together.
-        let pinButtons = !dynamicTypeSize.isAccessibilitySize
-        return VStack(spacing: 16) {
-            ScrollView {
-                VStack(spacing: 16) {
-                    hero
-                    standingsList
-                    if !pinButtons { buttons }
-                }
-                .padding(.top, 8)
-            }
-            .scrollBounceBehavior(.basedOnSize)
+    private enum Density { case regular, compact }
 
-            if pinButtons { buttons }
+    private var cardData: ResultCardData {
+        if let completedGame { return ResultCardData(completed: completedGame) }
+        return ResultCardData(standings: standings, date: Date())
+    }
+
+    var body: some View {
+        // Try the roomy layout, then a compact one (small trophy, tight rows, side-by-side buttons);
+        // if neither fits the height (very short pane, accessibility text sizes) scroll.
+        let accessibility = dynamicTypeSize.isAccessibilitySize
+        return ViewThatFits(in: .vertical) {
+            if !accessibility {
+                flat(.regular)
+                flat(.compact)
+            }
+            scrolling(accessibility ? .regular : .compact)
         }
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .fill(Color(.systemBackground))
         )
+        .overlay(alignment: .topLeading) {
+            ResultShareButton(data: cardData)
+                .font(.title2)
+                .frame(minWidth: 44, minHeight: 44)
+                .padding(4)
+                .accessibilityIdentifier("gameOver.share")
+        }
         .modifier(CloseOverlay(onClose: onClose))
         .shadow(color: .black.opacity(colorScheme == .dark ? 0.5 : 0.25), radius: 18, x: 0, y: 10)
         .accessibilityElement(children: .contain)
     }
 
-    private var buttons: some View {
-        VStack(spacing: 10) {
-                Button(action: onRematch) {
-                    Label("Rematch", systemImage: "arrow.counterclockwise")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Self.buttonGreen)
-                .accessibilityIdentifier("gameOver.rematch")
-
-                Button(action: onViewHistory) {
-                    Label("View history", systemImage: "clock.arrow.circlepath")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-                .accessibilityIdentifier("gameOver.history")
-            }
-        .controlSize(.large)
+    private func flat(_ density: Density) -> some View {
+        VStack(spacing: density == .compact ? 10 : 16) {
+            hero(density)
+            standingsList(density)
+            buttons(density)
+        }
+        .padding(.top, density == .compact ? 0 : 8)
     }
 
-    private var hero: some View {
-        VStack(spacing: 6) {
-            Image(systemName: "trophy.fill")
-                .font(.system(size: 48))
-                .foregroundStyle(Theme.leader)
-                .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
-                .accessibilityHidden(true)
-            Text(winners.count > 1 ? "Winners" : "Winner")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.secondary)
-                .textCase(.uppercase)
-            Text(winnerNames)
-                .font(.largeTitle.weight(.bold))
-                .multilineTextAlignment(.center)
-                .minimumScaleFactor(0.6)
-                .accessibilityAddTraits(.isHeader)
+    private func scrolling(_ density: Density) -> some View {
+        // Buttons stay pinned below the scrolling standings, except at accessibility text sizes where
+        // pinned buttons would squeeze the standings to nothing: there everything scrolls together.
+        let pinButtons = !dynamicTypeSize.isAccessibilitySize
+        return VStack(spacing: 16) {
+            ScrollView {
+                VStack(spacing: 16) {
+                    hero(density)
+                    standingsList(density)
+                    if !pinButtons { buttons(density) }
+                }
+                .padding(.top, 8)
+            }
+            .scrollBounceBehavior(.basedOnSize)
+            if pinButtons { buttons(density) }
+        }
+    }
+
+    @ViewBuilder
+    private func buttons(_ density: Density) -> some View {
+        let rematch = Button(action: onRematch) {
+            Label("Rematch", systemImage: "arrow.counterclockwise")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(Self.buttonGreen)
+        .accessibilityIdentifier("gameOver.rematch")
+
+        let history = Button(action: onViewHistory) {
+            Label("View history", systemImage: "clock.arrow.circlepath")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.bordered)
+        .accessibilityIdentifier("gameOver.history")
+
+        Group {
+            if density == .compact {
+                HStack(spacing: 10) { rematch; history }
+            } else {
+                VStack(spacing: 10) { rematch; history }
+            }
+        }
+        .controlSize(density == .compact ? .regular : .large)
+    }
+
+    @ViewBuilder
+    private func hero(_ density: Density) -> some View {
+        let compact = density == .compact
+        let trophy = Image(systemName: "trophy.fill")
+            .font(.system(size: compact ? 30 : 48))
+            .foregroundStyle(Theme.leader)
+            .shadow(color: .black.opacity(0.25), radius: 2, y: 1)
+            .accessibilityHidden(true)
+        let label = Text(winners.count > 1 ? "Winners" : "Winner")
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
+        let name = Text(winnerNames)
+            .font(compact ? .title.weight(.bold) : .largeTitle.weight(.bold))
+            .multilineTextAlignment(.center)
+            .minimumScaleFactor(0.6)
+            .accessibilityAddTraits(.isHeader)
+        let points = Group {
             if let score = winners.first?.total {
                 Text("\(score) points")
-                    .font(.title3.monospacedDigit())
+                    .font((compact ? Font.subheadline : .title3).monospacedDigit())
                     .foregroundStyle(.secondary)
+            }
+        }
+        Group {
+            if compact {
+                HStack(spacing: 12) {
+                    trophy
+                    VStack(alignment: .leading, spacing: 2) { label; name; points }
+                }
+                .frame(maxWidth: .infinity)
+                // Leave room for the share / close buttons in the card's top corners.
+                .padding(.horizontal, 44)
+            } else {
+                VStack(spacing: 6) { trophy; label; name; points }
             }
         }
         .accessibilityElement(children: .combine)
     }
 
-    private var standingsList: some View {
-        VStack(alignment: .leading, spacing: 6) {
+    private func standingsList(_ density: Density) -> some View {
+        let compact = density == .compact
+        return VStack(alignment: .leading, spacing: compact ? 4 : 6) {
             Text("Final standings")
                 .font(.footnote.weight(.semibold))
                 .foregroundStyle(.secondary)
@@ -116,7 +176,7 @@ struct GameOverView: View {
                         .font(.title3.weight(.semibold).monospacedDigit())
                 }
                 .padding(.horizontal, 12)
-                .padding(.vertical, 8)
+                .padding(.vertical, compact ? 4 : 8)
                 .background(
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(standing.isWinner ? Theme.leader.opacity(0.22) : Color.primary.opacity(0.06))
