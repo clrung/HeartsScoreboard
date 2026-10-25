@@ -45,7 +45,7 @@
   - [ ] Follow-up: the 0.5s re-focus retry after sheet dismissal is a timing guess — verify shake works after closing each sheet on a device.
 - [x] Pin device family + orientations in `project.yml` (done in the 10♦ work).
 - [x] Unit tests (25: 10♦, undo, Duo snapshot harness). No XCUITest target yet.
-- [ ] New App Store screenshot size set for the new device (1398×2034 outer / 2007×2853 inner per blogs — verify in App Store Connect). Unfolded sim can't be driven from CLI; capture via DeviceHub UI or device.
+- [x] (Done: scripts/screenshots.sh, all 5 sizes committed; sizes confirmed against Apple's spec page.) New App Store screenshot size set for the new device (1398×2034 outer / 2007×2853 inner per blogs — verify in App Store Connect). Unfolded sim can't be driven from CLI; capture via DeviceHub UI or device.
 - [ ] Verify on a real/DeviceHub-unfolded Duo, incl. partial fold; consider `#available(iOS 27.1, *)` hinge APIs only if the center gap proves insufficient.
 
 ## 10♦ = −10 rule (Omnibus Hearts variant) (started 2026-10-24)
@@ -66,12 +66,12 @@
 - [ ] Gendered "taken by" phrasing (ru, uk, bs, hr, sr) uses "взял(а)"/"uzeo/la" forms — native review.
 - [ ] Moon cells show only the moon icon, so a shooter's −10 (10♦) isn't visible as a number — only the ♦ marker shows it (totals are correct).
 - [ ] "Select who took the 10♦" (Submit hint): native check of case/particle endings in am, az, hu, tr, uz, fi, mn, ne, pa, si, ta, te, kn, ml, mr, gu, ka, hy, kk, my, zu; ka/ml/ta/te labels are long (may truncate on the full-width button).
-- [ ] Coordinate with Duo work: `RoundInputView` now has a private `FlowLayout` for the 10♦ chips and a `canSubmit` gate — keep both when making rows flexible.
+- [x] (Done: FlowLayout and canSubmit preserved.) Coordinate with Duo work: `RoundInputView` now has a private `FlowLayout` for the 10♦ chips and a `canSubmit` gate — keep both when making rows flexible.
 - [ ] "10 of Diamonds" Settings header: native check of suit term in az, eu, hy, km, lo, mn, uz, ka, sw, zu, ar, lt, lv, cy, is, si, ta, te, kn, ml.
 
 ### Duo wide layout (2026-10-24, uncommitted)
 - [x] GameView: `horizontalSizeClass == .regular` -> `splitLayout` (scoreboard left, inline `RoundInputView` right, gap centered on the fold, max width 1200); Next Round button hidden; game over shows trophy + status in the right pane.
-- [ ] Not verified on the Duo unfolded display: simctl cannot fold/unfold (inner display stays black; powering the outer screen off crashes SpringBoard). Verified on iPad Pro 13" (regular/regular) instead. Verify on hardware / DeviceHub UI.
+- [ ] Unfolded Duo checked by the user in DeviceHub and captured in screenshots; partial-fold posture still unverified. (Was: simctl cannot fold/unfold (inner display stays black; powering the outer screen off crashes SpringBoard). Verified on iPad Pro 13" (regular/regular) instead. Verify on hardware / DeviceHub UI.
 - [ ] iPad landscape (1376pt wide, hits the 1200 cap) not screenshotted: simctl has no rotate command.
 
 ### Build gotcha (2026-10-24)
@@ -115,12 +115,12 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 
 ## Screenshot pipeline (2026-10-24, uncommitted)
 - Added `scripts/screenshots.sh`, `scripts/strip_alpha.swift`, `HeartsScoreboardUITests` + scheme `HeartsScoreboardScreenshots`, DEBUG-only `ScreenshotDemo`.
-- [ ] `duo-open` never run: needs a human to unfold the Duo in DeviceHub; inner-display capture via XCUIScreen unverified.
+- [x] (Done 2026-10-24: captured via DeviceHub; inner display needs SCREENSHOT_LARGEST_SCREEN.) `duo-open` never run: needs a human to unfold the Duo in DeviceHub; inner-display capture via XCUIScreen unverified.
 - [ ] Only the Duo device type exists on the iOS 27.1 runtime; other devices run on iOS 27.0 (dedicated "HS Screenshots ..." sims). Revisit when 27.1 supports iPhone/iPad.
 - [ ] Non-English locales untested: UI tests use identifiers, but demo player names / dates are English-only and Apple-locale rendering of the fixed dates is unchecked.
-- [ ] Old `screenshots/iOS` (1284x2778) and `screenshots/iPadOS` (2048x2732) are stale sizes; decide whether to delete and update the README Screenshots section to the new folders.
-- [ ] Main shot is an in-progress game (old one was a finished game with "won!"); the Game Summary shot is a separate completed game in history.
-- [ ] iPad/Duo-open "Round Input" shows the inline panel; no keyboard-based entry is shown anywhere.
+- [x] (Done: deleted, README points at new folders.) Old `screenshots/iOS` (1284x2778) and `screenshots/iPadOS` (2048x2732) are stale sizes; decide whether to delete and update the README Screenshots section to the new folders.
+- [x] (Accepted as-is.) Main shot is an in-progress game (old one was a finished game with "won!"); the Game Summary shot is a separate completed game in history.
+- [x] (Accepted as-is.) iPad/Duo-open "Round Input" shows the inline panel; no keyboard-based entry is shown anywhere.
 - [ ] Add a CI/lint check that the identifiers used by `ScreenshotTests` still exist (a rename silently breaks the pipeline until run).
 - [ ] Screenshot run takes ~1.5-4.5 min per device (first build + sim boot); consider `build-for-testing` once and `test-without-building` per device.
 
@@ -144,4 +144,5 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - iOS 27.0 and 26.4 runtimes were removed mid-session (likely a disk cleanup); the iPhone/iPad screenshot sims need 27.0 (27.1 only supports the Duo). Restore with `xcodebuild -downloadPlatform iOS -buildVersion 27.0`.
 - `xcodebuild` test runner can crash at bootstrap ("Early unexpected exit"); `xcrun simctl shutdown all` and retry.
 - DeviceHub can only show/unfold a sim it booted itself; a headless `simctl boot` makes its Start fail with "current state: Booted". `screenshots.sh` now leaves duo-open booting to DeviceHub.
-- [ ] After the 27.0 runtime install, DeviceHub's Start boots the sim (simctl shows Booted) but never attaches a display — same for every Duo sim, and survived quitting DeviceHub, `simctl erase`, and restarting CoreSimulatorService. Duo Open screenshots blocked until DeviceHub works again (try a Mac restart).
+- [x] (Fixed by a Mac restart.) After the 27.0 runtime install, DeviceHub's Start boots the sim (simctl shows Booted) but never attaches a display — same for every Duo sim, and survived quitting DeviceHub, `simctl erase`, and restarting CoreSimulatorService. Duo Open screenshots blocked until DeviceHub works again (try a Mac restart).
+- [ ] Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
