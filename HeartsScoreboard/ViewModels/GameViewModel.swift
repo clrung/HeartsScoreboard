@@ -159,6 +159,10 @@ final class GameViewModel {
 
     // MARK: - Game flow
 
+    /// Rematch after a finished game: same players, fresh scores. The finished game was already archived
+    /// to history when its last round was added, so this is exactly the New Game path.
+    func rematch() { newGame() }
+
     func newGame() {
         // Start a fresh game with the same players.
         game = HeartsGame(players: game.players)
@@ -355,9 +359,38 @@ final class GameViewModel {
     /// VoiceOver announcement for a round just added locally: the result when it ended the game,
     /// otherwise who leads.
     var roundAddedAnnouncement: String {
-        if isGameOver { return statusText }
+        if isGameOver { return gameOverAnnouncement }
         let leaders = ListFormatter.localizedString(byJoining: leadingPlayerNames)
         return String(format: String(localized: "Round added. %@ leads"), leaders)
+    }
+
+    // MARK: - Final standings
+
+    /// Everyone ranked lowest total first (Hearts: lowest score wins). Ties share a rank and keep seat
+    /// order; the next rank skips (1, 1, 3). Valid at any point, but meant for the game-over screen.
+    var standings: [Standing] {
+        let totals = game.totals()
+        return totals
+            .enumerated()
+            .sorted { ($0.element.total, $0.offset) < ($1.element.total, $1.offset) }
+            .map { entry in
+                let rank = 1 + totals.filter { $0.total < entry.element.total }.count
+                return Standing(rank: rank, player: entry.element.player, total: entry.element.total)
+            }
+    }
+
+    /// The winners (everyone tied on the lowest total), in seat order.
+    var winners: [Standing] { standings.filter(\.isWinner) }
+
+    /// Spoken result: winner(s) and their score.
+    var gameOverAnnouncement: String {
+        let winners = winners
+        guard let score = winners.first?.total else { return String(localized: "Game over") }
+        let names = ListFormatter.localizedString(byJoining: winners.map(\.player.name))
+        let key: String.LocalizationValue = winners.count == 1
+            ? "\(names) won with \(score) points."
+            : "\(names) tied for the win with \(score) points."
+        return String(localized: key)
     }
 
     // MARK: - History helpers
@@ -412,6 +445,16 @@ final class GameViewModel {
     }
 }
 
+
+/// One row of the final standings.
+struct Standing: Identifiable, Equatable {
+    /// 1-based competition rank; tied players share it.
+    let rank: Int
+    let player: HeartsGame.Player
+    let total: Int
+    var id: UUID { player.id }
+    var isWinner: Bool { rank == 1 }
+}
 
 extension HeartsGame {
     /// The 10♦ bonus (−10) to show next to the moon icon when this player shot the moon AND took the

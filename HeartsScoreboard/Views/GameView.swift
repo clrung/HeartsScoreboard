@@ -17,7 +17,11 @@ struct GameView: View {
     @State private var undoFeedbackToken = 0
     @State private var newGameFeedbackToken = 0
     @State private var hasShownShakeHint: Bool
-
+    /// Compact width: the user closed the game-over card to look at the final scoreboard.
+    @State private var resultsDismissed = false
+    /// Confetti plays only when the game ends while watching (not for an already-finished game on launch).
+    @State private var confettiPlaying = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
@@ -43,11 +47,22 @@ struct GameView: View {
                 .padding(.horizontal)
             }
 
+            if showsResultsOverlay {
+                resultsOverlay
+                    .transition(.opacity)
+            }
+
+            if confettiPlaying && !reduceMotion && (usesSplitLayout || showsResultsOverlay) {
+                ConfettiView()
+                    .ignoresSafeArea()
+            }
+
             if showShakeHint {
                 shakeHintOverlay
                     .transition(.opacity)
             }
         }
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.25), value: showsResultsOverlay)
         .background(
             ShakeDetectorView(onShake: {
                 if model.canUndo { showUndoAlert = true }
@@ -87,6 +102,11 @@ struct GameView: View {
                 model.applySyncedState(state)
             }
         }
+        .onChange(of: model.isGameOver) { _, isOver in
+            // A new game (rematch, undo of the final round) re-arms the card for the next finish.
+            resultsDismissed = false
+            confettiPlaying = isOver
+        }
         .onChange(of: usesSplitLayout) { _, isSplit in
             // The inline panel replaces the round-input sheet.
             if isSplit { showingRoundInput = false }
@@ -123,20 +143,47 @@ struct GameView: View {
         .frame(maxWidth: .infinity)
     }
 
+    /// Compact width only; the split layout shows the same card in the right pane instead.
+    private var showsResultsOverlay: Bool {
+        model.isGameOver && !resultsDismissed && !usesSplitLayout
+    }
+
+    private func gameOverCard(dismissible: Bool) -> some View {
+        GameOverView(
+            standings: model.standings,
+            onRematch: {
+                model.rematch()
+                newGameFeedbackToken += 1
+            },
+            onViewHistory: {
+                // Hide the card first so it isn't sitting under the sheet when the user comes back.
+                if dismissible { resultsDismissed = true }
+                showingHistory = true
+            },
+            onClose: dismissible ? { resultsDismissed = true } : nil
+        )
+    }
+
+    private var resultsOverlay: some View {
+        ZStack {
+            Color.black.opacity(0.5)
+                .ignoresSafeArea()
+                .onTapGesture { resultsDismissed = true }
+                .accessibilityHidden(true)
+            gameOverCard(dismissible: true)
+                .frame(maxWidth: 440)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 40)
+        }
+        .accessibilityAddTraits(.isModal)
+    }
+
     @ViewBuilder
     private var roundEntryPane: some View {
         VStack(spacing: 0) {
             if model.isGameOver {
-                VStack(spacing: 12) {
-                    Image(systemName: "trophy.fill")
-                        .font(.system(size: 44))
-                        .accessibilityHidden(true)
-                    Text(model.statusText)
-                        .font(.title3.weight(.semibold))
-                        .multilineTextAlignment(.center)
-                }
-                .foregroundStyle(Color.white)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                gameOverCard(dismissible: false)
+                    .frame(maxHeight: .infinity)
             } else {
                 RoundInputView(model: model, presentation: .inline)
                     .background(
@@ -562,7 +609,24 @@ struct GameView: View {
         .accessibilityIdentifier("undoButton")
     }
 
+    @ViewBuilder
     private var nextRoundButton: some View {
+        if model.isGameOver {
+            // Next Round is dead once the game ends; bring the result card back instead.
+            Button {
+                resultsDismissed = false
+            } label: {
+                Label("Results", systemImage: "trophy.fill")
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Self.feltButtonGreen)
+            .accessibilityIdentifier("resultsButton")
+        } else {
+            roundEntryButton
+        }
+    }
+
+    private var roundEntryButton: some View {
         Button {
             showingRoundInput = true
         } label: {
@@ -570,7 +634,6 @@ struct GameView: View {
         }
         .buttonStyle(.borderedProminent)
         .tint(Self.feltButtonGreen)
-        .disabled(model.isGameOver)
         .accessibilityHint(Text("Enter scores for the next round"))
         .accessibilityIdentifier("nextRoundButton")
     }

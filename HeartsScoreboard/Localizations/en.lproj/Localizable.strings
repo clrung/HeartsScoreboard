@@ -166,3 +166,13 @@
 "Wins" = "Wins";
 "Avg score" = "Avg score";
 "%d wins in %d games" = "%d wins in %d games";
+"Rematch" = "Rematch";
+"View history" = "View history";
+"Results" = "Results";
+"Close" = "Close";
+"Winners" = "Winners";
+"Final standings" = "Final standings";
+"%lld points" = "%lld points";
+"%d. %@, %d points" = "%d. %@, %d points";
+"%@ won with %lld points." = "%@ won with %lld points.";
+"%@ tied for the win with %lld points." = "%@ tied for the win with %lld points.";

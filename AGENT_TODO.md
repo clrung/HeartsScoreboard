@@ -91,7 +91,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] Brand: add `AccentColor` (light/dark) + a `Theme` file for the felt-green palette; replace raw RGB duplicated in GameView/HistoryDetailView and `.tint(.blue)` calls; Settings currently looks stock blue/white.
 
 ### Tier 2 — high impact, medium effort
-- [ ] End-of-game moment: winner sheet/overlay (trophy, ranked standings, confetti gated on Reduce Motion, Rematch / View history). Today only subtitle text changes and Next Round goes dead.
+- [x] (Done: GameOverView card + confetti, Rematch, View history.) End-of-game moment: winner sheet/overlay (trophy, ranked standings, confetti gated on Reduce Motion, Rematch / View history). Today only subtitle text changes and Next Round goes dead.
 - [ ] Undo without alert + "Undone — Redo" toast; edit any past round by tapping its row (needs `GameViewModel.updateHand(id:)` + tests).
 - [ ] Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
 - [x] (Done.) History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
@@ -148,4 +148,5 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [x] (Done.) At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
-- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail).
+- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...).
+- [ ] Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.

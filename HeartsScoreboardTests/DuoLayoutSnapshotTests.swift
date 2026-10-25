@@ -176,8 +176,43 @@ final class DuoLayoutSnapshotTests: XCTestCase {
     func testInnerGameOverPortrait() throws {
         let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 3, gameOver: true)
         XCTAssertTrue(m.isGameOver)
-        let r = try render("inner-gameover-portrait", size: Self.innerPortrait, regular: true, model: m)
-        XCTAssertFalse(isPanelColor(pixel(r.image, 669 * 0.75, 125)), "game over hides the inline entry panel")
+        // The right pane now holds the game-over card (also a light card), so this is a visual-review PNG.
+        _ = try render("inner-gameover-portrait", size: Self.innerPortrait, regular: true, model: m)
+    }
+
+    // MARK: Game over (visual review)
+
+    func testInnerGameOverLandscape() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 3, gameOver: true)
+        _ = try render("inner-gameover-landscape", size: Self.innerLandscape, regular: true, model: m)
+    }
+
+    func testInnerGameOverSixPlayersDark() throws {
+        let names = ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"]
+        let m = model(names: names, rounds: 3, gameOver: true)
+        _ = try render("inner-gameover-6p-dark", size: Self.innerPortrait, regular: true, model: m, dark: true)
+    }
+
+    func testOuterGameOverCard() throws {
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 3, gameOver: true)
+        _ = try render("outer-gameover", size: Self.outer, regular: false, model: m)
+    }
+
+    func testOuterGameOverCardAccessibilityTextSize() throws {
+        let names = ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"]
+        let m = model(names: names, rounds: 3, gameOver: true)
+        _ = try render("outer-gameover-6p-ax3", size: Self.outer, regular: false, model: m,
+                       category: .accessibilityExtraLarge)
+    }
+
+    func testOuterGameOverConfettiFrame() throws {
+        // Confetti started 1.2s ago: a mid-fall frame over the card.
+        let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 3, gameOver: true)
+        let root = AnyView(ZStack {
+            GameOverView(standings: m.standings, onRematch: {}, onViewHistory: {}, onClose: {}).padding(20)
+            ConfettiView(start: Date().addingTimeInterval(-1.2))
+        }.background(Color.green))
+        _ = try render("outer-gameover-confetti", size: Self.outer, regular: false, model: m, root: root)
     }
 
     func testInnerTenOfDiamondsPortrait() throws {
