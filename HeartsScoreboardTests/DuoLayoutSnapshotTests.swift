@@ -65,7 +65,8 @@ final class DuoLayoutSnapshotTests: XCTestCase {
     }
 
     private func render(_ name: String, size: CGSize, regular: Bool, model: GameViewModel,
-                        dark: Bool = false, category: UIContentSizeCategory? = nil) throws -> Rendered {
+                        dark: Bool = false, category: UIContentSizeCategory? = nil,
+                        root: AnyView? = nil) throws -> Rendered {
         // A window without a scene doesn't render; attach to the host app's scene.
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
@@ -75,7 +76,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         if size.width > size.height && !regular { window.traitOverrides.verticalSizeClass = .compact }
         window.overrideUserInterfaceStyle = dark ? .dark : .light
         if let category { window.traitOverrides.preferredContentSizeCategory = category }
-        let host = UIHostingController(rootView: GameView(model: model))
+        let host = UIHostingController(rootView: root ?? AnyView(GameView(model: model)))
         window.rootViewController = host
         window.makeKeyAndVisible()
         host.view.frame = window.bounds
@@ -230,5 +231,18 @@ final class DuoLayoutSnapshotTests: XCTestCase {
     func testInner6PlayersTenRuleMoonDefaultSize() throws {
         _ = try render("outer-compact-6p-10d-default", size: Self.outer, regular: false,
                        model: model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"], rounds: 6, tenRule: true))
+    }
+
+    func testRoundInputSheetAccessibilityTextSize() throws {
+        let m = model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique"], rounds: 6, tenRule: true)
+        _ = try render("sheet-compact-4p-10d-ax3", size: Self.outer, regular: false, model: m,
+                       category: .accessibilityExtraLarge,
+                       root: AnyView(RoundInputView(model: m, presentation: .sheet)))
+    }
+
+    func testRoundInputSheetDefaultTextSize() throws {
+        let m = model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique"], rounds: 6, tenRule: true)
+        _ = try render("sheet-compact-4p-10d-default", size: Self.outer, regular: false, model: m,
+                       root: AnyView(RoundInputView(model: m, presentation: .sheet)))
     }
 }

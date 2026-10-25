@@ -85,9 +85,10 @@ struct PlayerTotalBadge: View {
                     Image(systemName: "crown.fill")
                         .font(.system(size: crownSize, weight: .bold))
                         .foregroundStyle(Theme.leader)
-                        .padding(3)
+                        .padding(2.5)
                         .background(Circle().fill(leaderFill))
-                        .offset(x: 6, y: -8)
+                        // Sits on the capsule's top-right corner, above the digits (scales with the crown).
+                        .offset(x: crownSize * 0.6, y: -crownSize * 0.95)
                         .accessibilityHidden(true)
                 }
             }
@@ -123,6 +124,7 @@ struct PlayerNameWithTotalView: View {
     let total: Int
     let isLeader: Bool
     let colorScheme: ColorScheme
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         HStack(spacing: 8) {
@@ -130,6 +132,8 @@ struct PlayerNameWithTotalView: View {
                 .font(.headline.weight(.semibold))
                 .lineLimit(1)
                 .truncationMode(.tail)
+                // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
+                .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.5 : 1)
 
             PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme)
         }
@@ -174,17 +178,20 @@ struct ScoreCellContent: View {
 struct ScoreCellFrame: ViewModifier {
     let hasTenOfDiamonds: Bool
     @ScaledMetric(relativeTo: .footnote) private var cellHeight: CGFloat = 26
+    @ScaledMetric(relativeTo: .footnote) private var maxCellWidth: CGFloat = 56
     @ScaledMetric(relativeTo: .caption2) private var diamondSize: CGFloat = 9
 
     func body(content: Content) -> some View {
         content
-            .frame(maxWidth: 56, minHeight: cellHeight)
+            // Reserve room on both sides (so the number stays centered) for the ♦ marker to sit clear of the text.
+            .padding(.horizontal, hasTenOfDiamonds ? diamondSize * 0.9 : 0)
+            .frame(maxWidth: maxCellWidth, minHeight: cellHeight)
             .overlay(alignment: .topTrailing) {
                 if hasTenOfDiamonds {
                     Text("♦")
                         .font(.system(size: diamondSize, weight: .semibold))
                         .foregroundStyle(Color.red)
-                        .padding(.trailing, 4)
+                        .padding(.trailing, 2)
                 }
             }
     }

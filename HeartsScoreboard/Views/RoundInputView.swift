@@ -14,6 +14,7 @@ struct RoundInputView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Bindable var model: GameViewModel
     let presentation: Presentation
 
@@ -26,6 +27,12 @@ struct RoundInputView: View {
     }
 
     @State private var entry = RoundEntryState()
+
+    private var isAccessibilitySize: Bool { dynamicTypeSize.isAccessibilitySize }
+
+    /// Inline is always stacked (narrow pane); the sheet stacks only at accessibility sizes, where
+    /// the one-line sheet row can't hold the name, stepper and chips.
+    private var stacksRow: Bool { presentation == .inline || isAccessibilitySize }
 
     private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
@@ -74,7 +81,9 @@ struct RoundInputView: View {
                     HStack {
                         Text(roundTitle)
                             .font(.headline)
-                        Spacer()
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
+                        Spacer(minLength: 8)
                         resetButton
                     }
                     .padding(.horizontal)
@@ -98,7 +107,12 @@ struct RoundInputView: View {
         Button {
             reset()
         } label: {
-            Label("Reset", systemImage: "arrow.counterclockwise")
+            if isAccessibilitySize {
+                // Icon-only when the text would wrap; Label keeps "Reset" as the accessibility label.
+                Label("Reset", systemImage: "arrow.counterclockwise").labelStyle(.iconOnly)
+            } else {
+                Label("Reset", systemImage: "arrow.counterclockwise")
+            }
         }
         .disabled(isAllScoresZero && entry.tenOfDiamondsOwnerID == nil)
     }
@@ -278,7 +292,25 @@ struct RoundInputView: View {
             colorScheme: colorScheme
         )
         Group {
-            if presentation == .inline {
+            if isAccessibilitySize {
+                // Accessibility sizes: name + total, then the stepper, then the chips in a 2x2 grid.
+                VStack(alignment: .leading, spacing: 0) {
+                    nameView
+                    stepper(for: player)
+                    Grid(horizontalSpacing: 6, verticalSpacing: 0) {
+                        GridRow {
+                            quickChip(for: player, quick: quick, remaining: remaining)
+                            remainingChip(for: player, remaining: remaining)
+                        }
+                        GridRow {
+                            queenChip(for: player)
+                            moonChip(for: player)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                .listRowInsets(EdgeInsets(top: 2, leading: 16, bottom: 2, trailing: 16))
+            } else if presentation == .inline {
                 // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
                 // so long names never collapse to "…".
                 VStack(spacing: 0) {
@@ -331,7 +363,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), quick, player.name))
         .accessibilityIdentifier("roundInput.quick.\(player.name)")
-        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .chipStyle(minWidth: tapSize, fill: stacksRow)
         .disabled(isRoundValid || remaining < quick)
     }
 
@@ -342,7 +374,7 @@ struct RoundInputView: View {
             Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), remaining, player.name))
-        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .chipStyle(minWidth: tapSize, fill: stacksRow)
         .disabled(remaining == 0 || isRoundValid)
     }
 
@@ -352,7 +384,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
-        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .chipStyle(minWidth: tapSize, fill: stacksRow)
         .disabled(isRoundValid || entry.queenOwnerID != nil)
     }
 
@@ -363,7 +395,7 @@ struct RoundInputView: View {
             Image(systemName: "moon.fill")
         }
         .accessibilityLabel(String(format: String(localized: "Shoot the moon for %@"), player.name))
-        .chipStyle(minWidth: tapSize, fill: presentation == .inline)
+        .chipStyle(minWidth: tapSize, fill: stacksRow)
         .disabled(isRoundValid)
     }
 
