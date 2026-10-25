@@ -73,7 +73,32 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.clrungdev.Hearts-ScoreboardTests
         TEST_HOST: $(BUILT_PRODUCTS_DIR)/HeartsScoreboard.app/HeartsScoreboard
         BUNDLE_LOADER: $(TEST_HOST)
+  HeartsScoreboardUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: HeartsScoreboardUITests
+    dependencies:
+      - target: HeartsScoreboard
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.clrungdev.Hearts-ScoreboardUITests
+        TEST_TARGET_NAME: HeartsScoreboard
 schemes:
+  # App Store screenshots (scripts/screenshots.sh). Kept separate so the normal unit-test run stays fast.
+  HeartsScoreboardScreenshots:
+    build:
+      targets:
+        HeartsScoreboard: all
+        HeartsScoreboardUITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - HeartsScoreboardUITests
   HeartsScoreboard:
     build:
       targets:

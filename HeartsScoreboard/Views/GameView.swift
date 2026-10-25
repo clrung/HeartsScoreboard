@@ -13,11 +13,13 @@ struct GameView: View {
     @State private var showShakeHint = false
     @State private var shakeRefocusToken = 0
     @Environment(\.scenePhase) private var scenePhase
-    @State private var hasShownShakeHint = UserDefaults.standard.bool(forKey: "hasShownShakeUndoHint")
+    @State private var hasShownShakeHint: Bool
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
     init(model: GameViewModel? = nil) {
         _model = State(initialValue: model ?? GameViewModel(initialState: CloudSyncManager.shared.load()))
+        // Injected models (tests, screenshot demo) must never see or set the first-run shake hint.
+        _hasShownShakeHint = State(initialValue: model != nil || UserDefaults.standard.bool(forKey: "hasShownShakeUndoHint"))
     }
 
     var body: some View {
@@ -74,6 +76,7 @@ struct GameView: View {
             HistoryView(model: model)
         }
         .onAppear {
+            guard model.persistsToCloud else { return }
             CloudSyncManager.shared.onSyncFromCloud = { [model] state in
                 model.applySyncedState(state)
             }
@@ -307,6 +310,7 @@ struct GameView: View {
                                     .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
                             }
                     }
+                    .accessibilityIdentifier("historyButton")
 
                     Spacer()
                     Button {
@@ -325,6 +329,7 @@ struct GameView: View {
                             }
                             .foregroundStyle(.primary)
                     }
+                    .accessibilityIdentifier("settingsButton")
                 }
 
                 Text("Hearts Scoreboard")
@@ -580,6 +585,7 @@ struct GameView: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .disabled(model.isGameOver)
                 .accessibilityHint(Text("Enter scores for the next round"))
+                .accessibilityIdentifier("nextRoundButton")
             }
         }
         .font(.callout)

@@ -281,6 +281,7 @@ struct RoundInputView: View {
         Button("+\(quick)") {
             adjustPoints(for: player.id, delta: quick)
         }
+        .accessibilityIdentifier("roundInput.quick.\(player.name)")
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(isRoundValid || remaining < quick)
     }
@@ -299,6 +300,7 @@ struct RoundInputView: View {
         Button("Q♠") {
             addQueenOfSpades(for: player.id)
         }
+        .accessibilityIdentifier("roundInput.queen.\(player.name)")
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(isRoundValid || queenOwnerID != nil)
     }

@@ -107,6 +107,7 @@ struct SettingsView: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
+                        .accessibilityIdentifier("settings.done")
                 }
             }
             .sheet(isPresented: $showingAbout) {

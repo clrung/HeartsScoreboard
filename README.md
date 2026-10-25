@@ -48,6 +48,25 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
   <img src="screenshots/iPadOS/5%20-%20Dark.png" alt="iPadOS – Dark mode" width="32%" />
 </p>
 
+### Regenerating the App Store screenshots
+
+`scripts/screenshots.sh` drives the app with XCUITest (scheme `HeartsScoreboardScreenshots`, DEBUG-only `-screenshotDemo` demo data, no iCloud writes) and saves the five scenes per device:
+
+```bash
+DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer scripts/screenshots.sh \
+  [--devices iphone,iphone-6.3,ipad,duo-folded,duo-open] [--locales en,de] [--non-interactive]
+```
+
+| Flag | Device | Output folder | Size |
+| --- | --- | --- | --- |
+| `iphone` | iPhone 17 Pro Max (6.9") | `screenshots/iOS 6.9` | 1320x2868 |
+| `iphone-6.3` | iPhone 17 Pro (6.3") | `screenshots/iOS 6.3` | 1206x2622 |
+| `ipad` | iPad Pro 13" (M5) | `screenshots/iPadOS 13` | 2064x2752 |
+| `duo-folded` | iPhone Duo, outer display | `screenshots/iPhone Duo Folded` | 1398x2034 |
+| `duo-open` | iPhone Duo, inner display | `screenshots/iPhone Duo Open` | 2007x2853 |
+
+`duo-open` pauses and asks you to unfold the Duo in DeviceHub (the CLI can't), then press Enter; `--non-interactive` skips it. Non-English locales go to `screenshots/<locale>/<folder>/`. Sizes are checked and alpha channels stripped; the script fails on any mismatch. Quit Xcode.app first (a running Xcode can hang `xcodebuild`).
+
 ## Generate and open the project
 
 From this directory:

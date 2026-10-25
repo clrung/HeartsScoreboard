@@ -96,6 +96,8 @@ final class GameViewModel {
     var firstDealerIndex: Int = 0
     /// Completed games history (most recent first).
     var history: [CompletedGame] = []
+    /// When false, state is never pushed to iCloud (screenshot demo mode keeps its own isolated state).
+    var persistsToCloud = true
 
     init(
         game: HeartsGame = HeartsGame(players: [
@@ -140,6 +142,7 @@ final class GameViewModel {
     }
 
     func persistToCloud() {
+        guard persistsToCloud else { return }
         CloudSyncManager.shared.save(
             SyncableState(
                 game: game,

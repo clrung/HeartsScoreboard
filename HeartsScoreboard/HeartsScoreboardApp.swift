@@ -15,8 +15,18 @@ struct HeartsScoreboardApp: App {
 
     var body: some Scene {
         WindowGroup {
+            #if DEBUG
+            if ScreenshotDemo.isEnabled {
+                GameView(model: ScreenshotDemo.makeModel())
+                    .preferredColorScheme(ScreenshotDemo.forcedColorScheme)
+            } else {
+                GameView()
+                    .preferredColorScheme(preferredScheme)
+            }
+            #else
             GameView()
                 .preferredColorScheme(preferredScheme)
+            #endif
         }
     }
 }

@@ -38,6 +38,7 @@ struct HistoryView: View {
                                 }
                                 .padding(.vertical, 4)
                             }
+                            .accessibilityIdentifier("history.row")
                             .swipeActions(edge: .trailing) {
                                 Button(role: .destructive) {
                                     delete(game: game)

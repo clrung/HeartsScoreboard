@@ -18,6 +18,7 @@ struct HistoryDetailView: View {
                 Text(completedGame.finishedAt, format: .dateTime.month().day().year().hour().minute())
                     .font(.headline)
                     .foregroundStyle(.primary)
+                    .accessibilityIdentifier("historyDetail.date")
 
                 scoreboard
 
