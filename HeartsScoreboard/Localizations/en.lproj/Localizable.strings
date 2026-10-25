@@ -141,3 +141,7 @@
 "%d / 26 · %d over" = "%d / 26 · %d over";
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · %d left";
+"Game Rules" = "Game Rules";
+"Recent players" = "Recent players";
+"Add %@" = "Add %@";
+"Share App" = "Share App";
