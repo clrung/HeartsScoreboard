@@ -33,7 +33,7 @@
 - Fixed from screenshots: inline player rows showed names as "..." (stacked layout now: name+stepper, then 4 chips); 6-player score cells (fixed 56pt) overflowed the card; header "Game to" wrapped; inline panel top was above the scoreboard (header is now full-width above both panes); Form top gap in inline panel.
 - [ ] Still unverified on a real unfolded device: partial-fold posture, hinge/reserved regions.
 - [ ] Inline entry Form scrolls at Duo inner size for 4 players in landscape and 6 players in portrait (Submit stays pinned); 10♦ picker sits below the fold with 6 players. Consider compacting rows.
-- [ ] 6-player header names truncate to ~3 chars in the ~300pt scoreboard pane.
+- [x] 6-player header names truncate to ~3 chars in the ~300pt scoreboard pane. Fixed: split layout with 6 players shows initials (`HeartsGame.headerLabels`, collisions -> 2 letters -> full name; full name kept as accessibility label).
 
 ### Planned work
 - [x] Cap/center main content width on regular width (1200pt cap); score cells shrink with column.
@@ -73,3 +73,6 @@
 - [x] GameView: `horizontalSizeClass == .regular` -> `splitLayout` (scoreboard left, inline `RoundInputView` right, gap centered on the fold, max width 1200); Next Round button hidden; game over shows trophy + status in the right pane.
 - [ ] Not verified on the Duo unfolded display: simctl cannot fold/unfold (inner display stays black; powering the outer screen off crashes SpringBoard). Verified on iPad Pro 13" (regular/regular) instead. Verify on hardware / DeviceHub UI.
 - [ ] iPad landscape (1376pt wide, hits the 1200 cap) not screenshotted: simctl has no rotate command.
+
+### Build gotcha (2026-10-24)
+- `xcodebuild` hung indefinitely with no output (blocked in `NSFileCoordinator` reading the .xcodeproj) while Xcode.app had the project open after `xcodegen generate` rewrote it. Quitting Xcode fixed it. If a CLI build hangs before any build output, check for an open Xcode first.

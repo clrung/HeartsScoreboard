@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		134E6032B9869E7A17BC533E /* HeaderLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E3CA9D80CF6E45F7B9F85 /* HeaderLabelTests.swift */; };
 		1BEC997CF82551C7E83F6CBE /* PlayerScoreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC694DA88D9FA2F8FDDBAB /* PlayerScoreViews.swift */; };
 		25F27EF4EFD43ADF30594E1A /* ShakeDetectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */; };
 		2F8574FC825FE467327606F5 /* AppStoreMetadata.strings in Resources */ = {isa = PBXBuildFile; fileRef = DF8FDFB8281BE4404282F245 /* AppStoreMetadata.strings */; };
@@ -178,6 +179,7 @@
 		7943924E230E032C75285D94 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		797B00C70AF7F0961DA0A6B8 /* am */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = am; path = am.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7997D2152EDE2CDBBE6DDAFC /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7A0E3CA9D80CF6E45F7B9F85 /* HeaderLabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderLabelTests.swift; sourceTree = "<group>"; };
 		7A900A6C09C4E0DE613F3D86 /* sl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sl; path = sl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7AC156EBFB5ADD6C4840F32D /* bn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = bn; path = bn.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C1AF3B9890C27C5BACBCD50 /* eu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = eu; path = eu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */,
+				7A0E3CA9D80CF6E45F7B9F85 /* HeaderLabelTests.swift */,
 				9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */,
 				2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */,
 			);
@@ -573,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */,
+				134E6032B9869E7A17BC533E /* HeaderLabelTests.swift in Sources */,
 				9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */,
 				7DFEFC76353825CF4A6BD907 /* UndoTests.swift in Sources */,
 			);

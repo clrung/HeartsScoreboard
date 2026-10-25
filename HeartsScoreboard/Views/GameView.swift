@@ -420,11 +420,17 @@ struct GameView: View {
             .padding(.top, 8)
     }
 
+    /// 6 players in the side-by-side pane: names get truncated to ~3 characters, so show initials instead.
+    private var usesInitialHeaders: Bool { usesSplitLayout && model.game.players.count > 5 }
+
+    private var headerLabels: [String] { HeartsGame.headerLabels(for: model.game.players.map(\.name)) }
+
     private var scoreboardContent: some View {
         VStack(spacing: 12) {
             VStack(spacing: 8) {
                 HStack(spacing: 0) {
                     ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                        let headerLabel = usesInitialHeaders ? headerLabels[index] : player.name
                         VStack(spacing: 6) {
                             ZStack {
                                 if index == dealerIndex {
@@ -432,7 +438,8 @@ struct GameView: View {
                                 }
                             }
                             .frame(height: 25)
-                            Text(player.name)
+                            Text(headerLabel)
+                                .accessibilityLabel(player.name)
                                 .font((usesSplitLayout && model.game.players.count > 4 ? Font.subheadline : Font.headline).weight(.semibold))
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)

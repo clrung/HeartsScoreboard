@@ -100,3 +100,37 @@ struct HeartsGame: Equatable, Codable {
     }
 }
 
+
+extension HeartsGame {
+    /// Short column-header labels for crowded scoreboards (6 players in a narrow pane).
+    ///
+    /// Each label is the uppercased first letter of the first two words ("Mary Ann" -> "MA").
+    /// Players whose initials collide use the first two characters of their first word instead
+    /// ("Alexandra"/"Andrew" -> "Al"/"An"). Any that still collide fall back to the full name.
+    /// A blank name always falls back to itself. Uses `Character`, so emoji and composed characters stay intact.
+    static func headerLabels(for names: [String]) -> [String] {
+        func words(_ name: String) -> [Substring] { name.split(whereSeparator: \.isWhitespace) }
+
+        let initials = names.map { name -> String? in
+            let w = words(name)
+            guard !w.isEmpty else { return nil }
+            return w.prefix(2).compactMap { $0.first }.map { String($0).uppercased() }.joined()
+        }
+        var labels = zip(names, initials).map { $1 ?? $0 }
+
+        func collidingIndices(_ values: [String]) -> Set<Int> {
+            var seen: [String: [Int]] = [:]
+            for (i, v) in values.enumerated() where initials[i] != nil { seen[v, default: []].append(i) }
+            return Set(seen.values.filter { $0.count > 1 }.flatMap { $0 })
+        }
+
+        let firstPass = collidingIndices(labels)
+        for i in firstPass {
+            labels[i] = String(words(names[i])[0].prefix(2))
+        }
+        for i in collidingIndices(labels) {
+            labels[i] = names[i]
+        }
+        return labels
+    }
+}
