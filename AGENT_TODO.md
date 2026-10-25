@@ -32,15 +32,15 @@
 - `HeartsScoreboardTests/DuoLayoutSnapshotTests.swift` renders GameView at 669x951 / 951x669 (regular) and 466x678 (compact) and writes PNGs to `$SNAPSHOT_DIR` (run with `TEST_RUNNER_SNAPSHOT_DIR=...`). `GameView(model:)` is now injectable.
 - Fixed from screenshots: inline player rows showed names as "..." (stacked layout now: name+stepper, then 4 chips); 6-player score cells (fixed 56pt) overflowed the card; header "Game to" wrapped; inline panel top was above the scoreboard (header is now full-width above both panes); Form top gap in inline panel.
 - [ ] Still unverified on a real unfolded device: partial-fold posture, hinge/reserved regions.
-- [ ] Inline entry Form scrolls at Duo inner size for 4 players in landscape and 6 players in portrait (Submit stays pinned); 10♦ picker sits below the fold with 6 players. Consider compacting rows.
+- [x] (Done: compact inline rows + Submit as bottom safe-area inset; 6p+10♦ picker starts just above the bar.) Inline entry Form scrolls at Duo inner size for 4 players in landscape and 6 players in portrait (Submit stays pinned); 10♦ picker sits below the fold with 6 players. Consider compacting rows.
 - [x] 6-player header names truncate to ~3 chars in the ~300pt scoreboard pane. Fixed: split layout with 6 players shows initials (`HeartsGame.headerLabels`, collisions -> 2 letters -> full name; full name kept as accessibility label).
 
 ### Planned work
 - [x] Cap/center main content width on regular width (1200pt cap); score cells shrink with column.
 - [x] Wide layout: scoreboard + inline round input side-by-side on regular width, 40pt gap at the center fold (`GameView`).
 - [x] Flexible `RoundInputView` row layout (Grid / flexible frames); `presentationSizing(.form)`; `presentation: .sheet | .inline`.
-  - [ ] Follow-up: no unit test for the inline reset after submit (entry state is private `@State`; would need extracting an entry-state type).
-  - [ ] Follow-up: chips are 32pt tall (below the 44pt tap target) to keep two chip rows per player row.
+  - [x] (Done: RoundEntryState + RoundEntryStateTests.) Follow-up: no unit test for the inline reset after submit (entry state is private `@State`; would need extracting an entry-state type).
+  - [x] (Done: ChipButtonStyle gives a 44pt hit area around the 32pt capsule.) Follow-up: chips are 32pt tall (below the 44pt tap target) to keep two chip rows per player row.
 - [x] Visible Undo button; restore shake first responder after sheets (`ShakeDetectorView.refocusToken`, regression test in `UndoTests.swift`).
   - [ ] Follow-up: the 0.5s re-focus retry after sheet dismissal is a timing guess — verify shake works after closing each sheet on a device.
 - [x] Pin device family + orientations in `project.yml` (done in the 10♦ work).
@@ -145,5 +145,6 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - `xcodebuild` test runner can crash at bootstrap ("Early unexpected exit"); `xcrun simctl shutdown all` and retry.
 - DeviceHub can only show/unfold a sim it booted itself; a headless `simctl boot` makes its Start fail with "current state: Booted". `screenshots.sh` now leaves duo-open booting to DeviceHub.
 - [x] (Fixed by a Mac restart.) After the 27.0 runtime install, DeviceHub's Start boots the sim (simctl shows Booted) but never attaches a display — same for every Duo sim, and survived quitting DeviceHub, `simctl erase`, and restarting CoreSimulatorService. Duo Open screenshots blocked until DeviceHub works again (try a Mac restart).
-- [ ] Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
+- [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [ ] At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
+- [ ] Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).

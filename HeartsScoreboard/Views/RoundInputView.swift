@@ -25,9 +25,7 @@ struct RoundInputView: View {
         self.presentation = presentation
     }
 
-    @State private var points: [UUID: Int] = [:]
-    @State private var queenOwnerID: UUID? = nil
-    @State private var tenOfDiamondsOwnerID: UUID? = nil
+    @State private var entry = RoundEntryState()
 
     private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
@@ -38,17 +36,17 @@ struct RoundInputView: View {
     }
 
     private var isAllScoresZero: Bool {
-        model.game.players.allSatisfy { (points[$0.id] ?? 0) == 0 }
+        model.game.players.allSatisfy { (entry.points[$0.id] ?? 0) == 0 }
     }
 
     /// True when the hearts/Q♠ round is valid but the 10♦ holder still has to be chosen.
     private var needsTenOfDiamondsHolder: Bool {
-        isTenRuleOn && isRoundValid && tenOfDiamondsOwnerID == nil
+        isTenRuleOn && isRoundValid && entry.tenOfDiamondsOwnerID == nil
     }
 
     /// Submit needs a valid 26-point round and, when the 10♦ rule is on, a chosen 10♦ holder.
     private var canSubmit: Bool {
-        isRoundValid && (!isTenRuleOn || tenOfDiamondsOwnerID != nil)
+        entry.canSubmit(players: model.game.players, tenRuleOn: isTenRuleOn)
     }
 
     var body: some View {
@@ -86,7 +84,7 @@ struct RoundInputView: View {
             }
         }
         .onAppear {
-            if points.isEmpty {
+            if entry.points.isEmpty {
                 reset()
             }
         }
@@ -102,11 +100,11 @@ struct RoundInputView: View {
         } label: {
             Label("Reset", systemImage: "arrow.counterclockwise")
         }
-        .disabled(isAllScoresZero && tenOfDiamondsOwnerID == nil)
+        .disabled(isAllScoresZero && entry.tenOfDiamondsOwnerID == nil)
     }
 
     private var content: some View {
-            VStack {
+            submitLayout {
                 Form {
                     Section {
                         ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
@@ -118,27 +116,29 @@ struct RoundInputView: View {
                         Section {
                             FlowLayout(spacing: 8) {
                                 ForEach(model.game.players) { player in
-                                    let isSelected = tenOfDiamondsOwnerID == player.id
+                                    let isSelected = entry.tenOfDiamondsOwnerID == player.id
                                     Button {
-                                        tenOfDiamondsOwnerID = isSelected ? nil : player.id
+                                        entry.tenOfDiamondsOwnerID = isSelected ? nil : player.id
                                     } label: {
                                         Text(player.name)
                                             .lineLimit(1)
                                             .truncationMode(.tail)
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 6)
+                                            .foregroundStyle(isSelected ? Color.white : Color.accentColor)
+                                            .background(
+                                                Capsule(style: .continuous)
+                                                    .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
+                                            )
+                                            // Visual capsule stays compact; the hit area is a full 44pt.
+                                            .frame(minHeight: 44)
+                                            .contentShape(Rectangle())
                                     }
                                     .buttonStyle(.borderless)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 6)
-                                    .foregroundStyle(isSelected ? Color.white : Color.accentColor)
-                                    .background(
-                                        Capsule(style: .continuous)
-                                            .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
-                                    )
                                     .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
                                     .accessibilityAddTraits(isSelected ? .isSelected : [])
                                 }
                             }
-                            .padding(.vertical, 2)
                         } header: {
                             Text("10♦ taken by")
                         } footer: {
@@ -172,6 +172,7 @@ struct RoundInputView: View {
                 }
                 .modifier(InlineFormMargins(isInline: presentation == .inline))
 
+            } bar: {
                 VStack(spacing: 10) {
                     progressStrip
 
@@ -191,11 +192,11 @@ struct RoundInputView: View {
                 .padding(.horizontal)
                 .padding(.vertical)
             }
-            .sensoryFeedback(.selection, trigger: points) { old, new in
+            .sensoryFeedback(.selection, trigger: entry.points) { old, new in
                 // Skip the initial fill and resets (all zeros); only real edits tick.
                 !old.isEmpty && old != new && new.values.contains { $0 != 0 }
             }
-            .sensoryFeedback(.selection, trigger: tenOfDiamondsOwnerID) { old, new in
+            .sensoryFeedback(.selection, trigger: entry.tenOfDiamondsOwnerID) { old, new in
                 old != new && new != nil
             }
             .sensoryFeedback(.success, trigger: canSubmit) { old, new in
@@ -208,8 +209,28 @@ struct RoundInputView: View {
             }
     }
 
+    /// Lays out the form and the pinned progress/Submit bar. Inline uses a bottom safe-area inset so the
+    /// form's scroll content is inset clear of the bar (the last rows can always be scrolled fully into view);
+    /// the sheet keeps its plain stacked layout.
+    @ViewBuilder
+    private func submitLayout<Body: View, Bar: View>(
+        @ViewBuilder _ body: () -> Body,
+        @ViewBuilder bar: () -> Bar
+    ) -> some View {
+        if presentation == .inline {
+            body().safeAreaInset(edge: .bottom, spacing: 0) {
+                bar().background(Color(.systemGroupedBackground))
+            }
+        } else {
+            VStack {
+                body()
+                bar()
+            }
+        }
+    }
+
     private var totalPoints: Int {
-        model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        model.game.players.reduce(0) { $0 + (entry.points[$1.id] ?? 0) }
     }
 
     /// Progress toward the 26 hearts/Q♠ points. The 10♦ −10 is applied on submit and never counts here.
@@ -260,7 +281,7 @@ struct RoundInputView: View {
             if presentation == .inline {
                 // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
                 // so long names never collapse to "…".
-                VStack(spacing: 6) {
+                VStack(spacing: 0) {
                     HStack(spacing: 8) {
                         nameView
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -274,7 +295,7 @@ struct RoundInputView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .padding(.vertical, 4)
+                .listRowInsets(EdgeInsets(top: 2, leading: 16, bottom: 2, trailing: 16))
             } else {
                 HStack(alignment: .center, spacing: 8) {
                     nameView
@@ -300,7 +321,7 @@ struct RoundInputView: View {
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel(player.name)
-        .accessibilityValue(String(format: String(localized: "%d points"), points[player.id] ?? 0))
+        .accessibilityValue(String(format: String(localized: "%d points"), entry.points[player.id] ?? 0))
         .accessibilityIdentifier("roundInput.row.\(index)")
     }
 
@@ -332,7 +353,7 @@ struct RoundInputView: View {
         .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
-        .disabled(isRoundValid || queenOwnerID != nil)
+        .disabled(isRoundValid || entry.queenOwnerID != nil)
     }
 
     private func moonChip(for player: HeartsGame.Player) -> some View {
@@ -358,17 +379,17 @@ struct RoundInputView: View {
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Decrease points for %@"), player.name))
-            .foregroundStyle(isShootTheMoonRound || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
-            .disabled(isShootTheMoonRound || (points[player.id] ?? 0) == 0)
+            .foregroundStyle(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
+            .disabled(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0)
 
-            Text("\(points[player.id] ?? 0)")
+            Text("\(entry.points[player.id] ?? 0)")
                 .font(.title3.weight(.semibold))
                 .monospacedDigit()
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
                 .frame(minWidth: 30)
                 .overlay(alignment: .top) {
-                    if isTenRuleOn && tenOfDiamondsOwnerID == player.id {
+                    if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
                         Text("−10")
                             .font(.caption2.weight(.semibold))
                             .foregroundStyle(Color.red)
@@ -393,25 +414,25 @@ struct RoundInputView: View {
     }
 
     private func adjustPoints(for playerID: UUID, delta: Int) {
-        let current = points[playerID] ?? 0
+        let current = entry.points[playerID] ?? 0
         let newValue = max(0, min(26, current + delta))
-        points[playerID] = newValue
+        entry.points[playerID] = newValue
     }
 
     private func setPoints(for playerID: UUID, to value: Int) {
         let newValue = max(0, min(26, value))
-        points[playerID] = newValue
+        entry.points[playerID] = newValue
     }
 
     private func addQueenOfSpades(for playerID: UUID) {
         adjustPoints(for: playerID, delta: 13)
-        if queenOwnerID == nil {
-            queenOwnerID = playerID
+        if entry.queenOwnerID == nil {
+            entry.queenOwnerID = playerID
         }
     }
 
     private func remainingPoints(for playerID: UUID) -> Int {
-        let total = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        let total = model.game.players.reduce(0) { $0 + (entry.points[$1.id] ?? 0) }
         let remaining = 26 - total
         return max(0, remaining)
     }
@@ -427,43 +448,34 @@ struct RoundInputView: View {
         switch model.settings.shootMoonPreference {
         case .add26:
             for p in model.game.players {
-                points[p.id] = p.id == shooterID ? 0 : 26
+                entry.points[p.id] = p.id == shooterID ? 0 : 26
             }
         case .subtract26:
             for p in model.game.players {
-                points[p.id] = p.id == shooterID ? -26 : 0
+                entry.points[p.id] = p.id == shooterID ? -26 : 0
             }
         }
     }
 
     /// Valid Hearts round, judged on hearts/Q♠ points only (the 10♦ bonus is applied on submit).
     private var isRoundValid: Bool {
-        HeartsGame.isValidRound(penaltyScores: model.game.players.map { points[$0.id] ?? 0 })
+        entry.isRoundValid(players: model.game.players)
     }
 
     /// True when the round is valid and is a shoot-the-moon outcome (not a normal 26 split). Subtract buttons should be disabled in this case.
     private var isShootTheMoonRound: Bool {
         let n = model.game.players.count
         guard n > 0, isRoundValid else { return false }
-        let sum = model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+        let sum = model.game.players.reduce(0) { $0 + (entry.points[$1.id] ?? 0) }
         return sum == -26 || sum == (n - 1) * 26
     }
 
     private func reset() {
-        var dict: [UUID: Int] = [:]
-        for p in model.game.players {
-            dict[p.id] = 0
-        }
-        points = dict
-        queenOwnerID = nil
-        tenOfDiamondsOwnerID = nil
+        entry.reset(players: model.game.players)
     }
 
     private func submit() {
-        model.addHand(
-            pointsByPlayerID: points,
-            tenOfDiamondsPlayerID: isTenRuleOn ? tenOfDiamondsOwnerID : nil
-        )
+        guard entry.submit(to: model) else { return }
         switch presentation {
         case .sheet: dismiss()
         case .inline: reset()
@@ -472,14 +484,34 @@ struct RoundInputView: View {
 }
 
 private extension View {
-    /// Prominent compact chip button that grows with Dynamic Type but keeps a minimum tap width.
+    /// Compact capsule chip that grows with Dynamic Type but keeps a minimum tap width, with a full 44pt hit area.
     func chipStyle(minWidth: CGFloat, fill: Bool = false) -> some View {
-        self.buttonStyle(.borderedProminent)
+        self.buttonStyle(ChipButtonStyle(minWidth: minWidth, fill: fill))
+    }
+}
+
+/// Filled capsule (32pt tall) inside a 44pt-tall hit area, so rows stay compact without a small tap target.
+private struct ChipButtonStyle: ButtonStyle {
+    let minWidth: CGFloat
+    let fill: Bool
+    @Environment(\.isEnabled) private var isEnabled
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
             .font(.subheadline.weight(.semibold))
             .lineLimit(1)
             .minimumScaleFactor(0.6)
             .allowsTightening(true)
+            .foregroundStyle(isEnabled ? Color.white : Color.secondary)
+            .padding(.horizontal, 12)
             .frame(minWidth: minWidth, maxWidth: fill ? .infinity : nil, minHeight: 32)
+            .background(
+                Capsule(style: .continuous)
+                    .fill(isEnabled ? Color.accentColor : Color.secondary.opacity(0.25))
+            )
+            .opacity(configuration.isPressed ? 0.7 : 1)
+            .frame(minHeight: 44)
+            .contentShape(Rectangle())
     }
 }
 
