@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Hráč, ktorý vzal 10♦, získa v tomto kole −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Vyberte, kto vzal 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Zostáva %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Vedie";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "História";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Kolo pridané. Vedie %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Kolo %d, %@: %d bodov";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Kolo %d, %@: zastrelenie mesiaca";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", vzal 10 károv";
+/* HistoryView empty state title */
+"No Games Yet" = "Zatiaľ žiadne hry";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Dokončené hry sa zobrazia tu.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "Kolá: %d";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Zastrelenie mesiaca";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ vzal 10 károv";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "Body: %d";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Pridať %d bodov hráčovi %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Piková dáma pre %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Zastreľte mesiac pre %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Znížiť body: %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Zvýšiť body: %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Pripravené na odoslanie";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Vyberte, kto vzal 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Pripravené";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Jeden hráč nemôže vziať všetkých 26. Použite mesiac.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · o %d viac";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · zostáva %d";

@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "השחקן שלקח את 10♦ מקבל −10 בסיבוב הזה.";
 "−10" = "−10";
 "Select who took the 10♦" = "בחרו מי לקח את 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "נותרו %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "מוביל";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "היסטוריה";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "הסיבוב נוסף. %@ מוביל";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "סיבוב %d, %@: %d נקודות";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "סיבוב %d, %@: ירה בירח";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", לקח את 10 יהלום";
+/* HistoryView empty state title */
+"No Games Yet" = "עדיין אין משחקים";
+/* HistoryView empty state description */
+"Finished games will show up here." = "משחקים שהסתיימו יופיעו כאן.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d סיבובים";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "ירה בירח";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ לקח את 10 יהלום";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d נקודות";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "הוסף %d נקודות ל%@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "מלכת עלה עבור %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "לירות בירח עבור %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "הפחת נקודות עבור %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "הוסף נקודות עבור %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "מוכן לשליחה";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "בחרו מי לקח את 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "מוכן";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "שחקן אחד לא יכול לקחת את כל 26. השתמשו בירח.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d יותר";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · נותרו %d";

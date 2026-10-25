@@ -27,3 +27,36 @@ struct CompletedGame: Identifiable, Codable {
     }
 }
 
+extension CompletedGame {
+    /// One player's final standing, used by the history list.
+    struct PlayerResult: Equatable {
+        let name: String
+        let total: Int
+    }
+
+    /// Final totals ordered best to worst (lowest score first). Ties keep seating order.
+    var sortedResults: [PlayerResult] {
+        game.totals()
+            .enumerated()
+            .sorted { lhs, rhs in
+                lhs.element.total != rhs.element.total
+                    ? lhs.element.total < rhs.element.total
+                    : lhs.offset < rhs.offset
+            }
+            .map { PlayerResult(name: $0.element.player.name, total: $0.element.total) }
+    }
+
+    /// The winning (lowest) total, shared by every tied winner. Nil when there are no players.
+    var winningScore: Int? {
+        game.totals().map(\.total).min()
+    }
+
+    var roundCount: Int { game.hands.count }
+
+    /// True if any player shot the moon in any hand.
+    var hadMoonShot: Bool {
+        game.hands.contains { hand in
+            game.players.contains { game.isMoonHand(hand, for: $0.id) }
+        }
+    }
+}

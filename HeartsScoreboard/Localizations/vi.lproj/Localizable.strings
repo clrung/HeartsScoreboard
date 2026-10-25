@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Người chơi lấy 10♦ được −10 ở vòng này.";
 "−10" = "−10";
 "Select who took the 10♦" = "Chọn người đã lấy 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Còn %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Dẫn đầu";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Lịch sử";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Đã thêm vòng. %@ dẫn đầu";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Vòng %d, %@: %d điểm";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Vòng %d, %@: lấy trăng";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", lấy 10 rô";
+/* HistoryView empty state title */
+"No Games Yet" = "Chưa có ván nào";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Các ván đã kết thúc sẽ hiện ở đây.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d vòng";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Lấy trăng";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ lấy 10 rô";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d điểm";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Thêm %d điểm cho %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Đầm bích cho %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Lấy trăng cho %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Giảm điểm của %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Tăng điểm của %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Sẵn sàng gửi";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Chọn ai lấy 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Sẵn sàng";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Một người chơi không thể lấy cả 26. Hãy dùng lấy trăng.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · dư %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · còn %d";

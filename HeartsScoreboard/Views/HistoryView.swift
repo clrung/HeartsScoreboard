@@ -13,48 +13,27 @@ struct HistoryView: View {
         NavigationStack {
             List {
                 if sortedHistory.isEmpty {
-                    Text("No completed games yet.")
-                        .foregroundStyle(.secondary)
+                    ContentUnavailableView(
+                        "No Games Yet",
+                        systemImage: "clock.arrow.circlepath",
+                        description: Text("Finished games will show up here.")
+                    )
+                    .listRowBackground(Color.clear)
                 } else {
-                    Section {
-                        ForEach(sortedHistory) { game in
-                            NavigationLink {
-                                HistoryDetailView(completedGame: game)
+                    ForEach(sortedHistory) { game in
+                        NavigationLink {
+                            HistoryDetailView(completedGame: game)
+                        } label: {
+                            HistoryRow(game: game, winner: model.winnerDescription(for: game))
+                        }
+                        .accessibilityIdentifier("history.row")
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                delete(game: game)
                             } label: {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(game.finishedAt, format: .dateTime.month().day().year())
-                                            .font(.subheadline)
-                                        Text(game.finishedAt, format: .dateTime.hour().minute())
-                                            .font(.footnote)
-                                            .foregroundStyle(.secondary)
-                                    }
-
-                                    Spacer()
-
-                                    Text(game.winnerDescription)
-                                        .font(.subheadline.weight(.semibold))
-                                        .multilineTextAlignment(.trailing)
-                                }
-                                .padding(.vertical, 4)
-                            }
-                            .accessibilityIdentifier("history.row")
-                            .swipeActions(edge: .trailing) {
-                                Button(role: .destructive) {
-                                    delete(game: game)
-                                } label: {
-                                    Label("Delete", systemImage: "trash")
-                                }
+                                Label("Delete", systemImage: "trash")
                             }
                         }
-                    } header: {
-                        HStack {
-                            Text("Time")
-                            Spacer()
-                            Text("Winner")
-                        }
-                        .font(.caption.weight(.semibold))
-                        .textCase(nil)
                     }
                 }
             }
@@ -75,3 +54,77 @@ private extension HistoryView {
     }
 }
 
+
+private struct HistoryRow: View {
+    let game: CompletedGame
+    let winner: String
+
+    private var standings: String {
+        game.sortedResults.map { "\($0.name) \($0.total)" }.joined(separator: " · ")
+    }
+
+    /// Games from the last week read relatively ("2 hours ago"); older ones show the calendar date.
+    private var isRecent: Bool {
+        game.finishedAt > Date().addingTimeInterval(-7 * 24 * 60 * 60)
+    }
+
+    private var roundsText: String {
+        String(format: String(localized: "%d rounds"), game.roundCount)
+    }
+
+    private var accessibilitySummary: String {
+        var parts = [winner, standings, game.finishedAt.formatted(date: .abbreviated, time: .shortened), roundsText]
+        if game.hadMoonShot { parts.append(String(localized: "Shot the moon")) }
+        return parts.joined(separator: ", ")
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .firstTextBaseline, spacing: 6) {
+                Image(systemName: "trophy.fill")
+                    .foregroundStyle(Theme.leader)
+                    .imageScale(.small)
+                Text(winner)
+                    .font(.subheadline.weight(.semibold))
+                    .lineLimit(1)
+                if let score = game.winningScore {
+                    Text("\(score)")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                }
+                Spacer(minLength: 8)
+                HStack(spacing: 4) {
+                    if game.hadMoonShot {
+                        Image(systemName: "moon.fill")
+                    }
+                    Text(roundsText)
+                }
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(.secondary)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(Capsule().fill(Color.secondary.opacity(0.15)))
+            }
+
+            Text(standings)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(2)
+
+            HStack(spacing: 4) {
+                if isRecent {
+                    Text(game.finishedAt, format: .relative(presentation: .named))
+                } else {
+                    Text(game.finishedAt, format: .dateTime.month().day().year())
+                }
+                Text("·")
+                Text(game.finishedAt, format: .dateTime.hour().minute())
+            }
+            .font(.caption2)
+            .foregroundStyle(.tertiary)
+        }
+        .padding(.vertical, 4)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(accessibilitySummary)
+    }
+}

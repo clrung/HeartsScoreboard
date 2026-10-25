@@ -91,3 +91,53 @@
 "The player who took the 10♦ scores −10 this round." = "拿到 ♦10 的玩家本轮得 −10 分。";
 "−10" = "−10";
 "Select who took the 10♦" = "选择谁拿了 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "还差 %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "领先";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "历史";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "已添加一轮，%@ 领先";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "第 %d 轮，%@：%d 分";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "第 %d 轮，%@：全收";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = "，拿到 ♦10";
+/* HistoryView empty state title */
+"No Games Yet" = "暂无游戏";
+/* HistoryView empty state description */
+"Finished games will show up here." = "已结束的游戏会显示在这里。";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d 轮";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "全收";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ 拿到了 ♦10";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d 分";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "给 %2$@ 加 %1$d 分";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "黑桃皇后给 %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "为 %@ 全收";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "减少 %@ 的分数";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "增加 %@ 的分数";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "可以提交";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "选择谁拿到了 ♦10";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "就绪";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "一名玩家不能拿全部 26 分。请使用全收。";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · 超出 %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · 还差 %d";

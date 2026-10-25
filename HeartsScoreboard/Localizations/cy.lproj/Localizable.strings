@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Mae'r chwaraewr a gymerodd y 10♦ yn sgorio −10 yn y rownd hon.";
 "−10" = "−10";
 "Select who took the 10♦" = "Dewiswch pwy gymerodd y 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d i fynd";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Ar y blaen";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Hanes";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Ychwanegwyd y rownd. %@ sydd ar y blaen";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Rownd %d, %@: %d pwynt";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Rownd %d, %@: saethu y lleuad";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", cymerodd y 10 o Ddiemwntau";
+/* HistoryView empty state title */
+"No Games Yet" = "Dim Gemau Eto";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Bydd gemau gorffenedig yn ymddangos yma.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rownd";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Saethu y lleuad";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "Cymerodd %@ y 10 o Ddiemwntau";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d pwynt";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Ychwanegu %d pwynt at %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Brenhines y rhofiau i %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Saethu y lleuad dros %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Lleihau pwyntiau %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Cynyddu pwyntiau %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Barod i gyflwyno";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Dewiswch pwy gymerodd y 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Barod";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Ni all un chwaraewr gymryd pob un o'r 26. Defnyddiwch y lleuad.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d dros";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ar ôl";

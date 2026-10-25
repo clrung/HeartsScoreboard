@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "អ្នកលេងដែលយក 10♦ ទទួលបាន −10 ក្នុងជុំនេះ។";
 "−10" = "−10";
 "Select who took the 10♦" = "ជ្រើសអ្នកដែលយក 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "នៅសល់ %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ឈានមុខ";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ប្រវត្តិ";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "បានបន្ថែមជុំ។ %@ ឈានមុខ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "ជុំ %d, %@៖ %d ពិន្ទុ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "ជុំ %d, %@៖ បាញ់ព្រះច័ន្ទ";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", បានយក 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "មិនទាន់មានហ្គេមទេ";
+/* HistoryView empty state description */
+"Finished games will show up here." = "ហ្គេមដែលបានបញ្ចប់នឹងបង្ហាញនៅទីនេះ។";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d ជុំ";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "បាញ់ព្រះច័ន្ទ";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ បានយក 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ពិន្ទុ";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "បន្ថែម %d ពិន្ទុទៅ %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "ព្រះមហាក្សត្រិយ៍ស្ពែដសម្រាប់ %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "បាញ់ព្រះច័ន្ទសម្រាប់ %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "បន្ថយពិន្ទុសម្រាប់ %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "បង្កើនពិន្ទុសម្រាប់ %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "ត្រៀមដាក់ស្នើរួចរាល់";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "ជ្រើសរើសអ្នកដែលយក 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "រួចរាល់";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "អ្នកលេងម្នាក់មិនអាចយកទាំង 26 បានទេ។ សូមប្រើព្រះច័ន្ទ។";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · លើស %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · នៅសល់ %d";

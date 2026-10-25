@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ ගත් ක්‍රීඩකයාට මෙම වටයේදී −10 ලැබේ.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ගත්තේ කවුදැයි තෝරන්න";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d ඉතිරියි";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ඉදිරියෙන්";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ඉතිහාසය";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "වටය එකතු කළා. %@ ඉදිරියෙන්";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "වට %d, %@: ලකුණු %d";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "වට %d, %@: සඳට වෙඩි තැබුවා";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", දියමන්ති 10 ගත්තා";
+/* HistoryView empty state title */
+"No Games Yet" = "තවම ක්‍රීඩා නැත";
+/* HistoryView empty state description */
+"Finished games will show up here." = "අවසන් වූ ක්‍රීඩා මෙහි පෙන්වයි.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "වට %d";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "සඳට වෙඩි තැබුවා";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ දියමන්ති 10 ගත්තා";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "ලකුණු %d";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ ට ලකුණු %1$d ක් එක් කරන්න";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ ට ස්පේඩ් රැජින";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ සඳට වෙඩි තියන්න";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ ගේ ලකුණු අඩු කරන්න";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ ගේ ලකුණු වැඩි කරන්න";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "යැවීමට සූදානම්";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ ගත්තේ කවුදැයි තෝරන්න";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "සූදානම්";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "එක් ක්‍රීඩකයෙකුට 26 ම ගත නොහැක. සඳ භාවිතා කරන්න.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ඉක්මවා";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ඉතිරියි";

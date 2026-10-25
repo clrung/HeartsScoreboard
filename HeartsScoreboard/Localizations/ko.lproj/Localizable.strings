@@ -91,3 +91,53 @@
 "The player who took the 10♦ scores −10 this round." = "♦10을 가져간 플레이어는 이번 라운드에서 −10점을 받습니다.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦을 가져간 사람 선택";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d점 남음";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "선두";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "기록";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "라운드가 추가되었습니다. %@ 선두";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "라운드 %d, %@: %d점";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "라운드 %d, %@: 달 잡기";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", ♦10을 가져감";
+/* HistoryView empty state title */
+"No Games Yet" = "아직 게임이 없습니다";
+/* HistoryView empty state description */
+"Finished games will show up here." = "끝난 게임이 여기에 표시됩니다.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d라운드";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "달 잡기";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@이(가) ♦10을 가져감";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d점";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@에게 %1$d점 더하기";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@에게 스페이드 퀸";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ 달 잡기";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ 점수 줄이기";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ 점수 늘리기";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "제출 준비 완료";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "♦10을 가져간 사람 선택";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "준비됨";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "한 명이 26점을 모두 가져갈 수 없습니다. 달 잡기를 사용하세요.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d 초과";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d 남음";

@@ -37,7 +37,7 @@ struct AboutView: View {
                             Spacer()
                             Image(systemName: "envelope.fill")
                                 .font(.body)
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(Theme.accent)
                         }
                     }
                 }
@@ -49,7 +49,7 @@ struct AboutView: View {
                             Spacer()
                             Image(systemName: "heart.fill")
                                 .font(.body)
-                                .foregroundStyle(.red)
+                                .foregroundStyle(Theme.accent)
                         }
                     }
                 }
@@ -70,7 +70,7 @@ struct AboutView: View {
                             Spacer()
                             Image(systemName: "cup.and.saucer.fill")
                                 .font(.body)
-                                .foregroundStyle(.brown)
+                                .foregroundStyle(Theme.accent)
                         }
                     }
                 }
@@ -82,7 +82,7 @@ struct AboutView: View {
                             Spacer()
                             Image(systemName: "chevron.left.slash.chevron.right")
                                 .font(.body)
-                                .foregroundStyle(.blue)
+                                .foregroundStyle(Theme.accent)
                         }
                     }
                 }

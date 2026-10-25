@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "যে খেলোয়াড় ১০♦ নিয়েছেন তিনি এই রাউন্ডে −১০ পান।";
 "−10" = "−10";
 "Select who took the 10♦" = "কে ১০♦ নিয়েছে তা বেছে নিন";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "আর %d বাকি";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "এগিয়ে আছে";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ইতিহাস";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "রাউন্ড যোগ হয়েছে। %@ এগিয়ে আছে";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "রাউন্ড %d, %@: %d পয়েন্ট";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "রাউন্ড %d, %@: চাঁদ গুলি করেছে";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", ইটের ১০ নিয়েছে";
+/* HistoryView empty state title */
+"No Games Yet" = "এখনও কোনো গেম নেই";
+/* HistoryView empty state description */
+"Finished games will show up here." = "শেষ হওয়া গেম এখানে দেখা যাবে।";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%dটি রাউন্ড";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "চাঁদ গুলি করেছে";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ ইটের ১০ নিয়েছে";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d পয়েন্ট";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@-কে %1$d পয়েন্ট যোগ করুন";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@-কে ইস্কাপনের বিবি";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@-এর জন্য চাঁদ গুলি করুন";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@-এর পয়েন্ট কমান";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@-এর পয়েন্ট বাড়ান";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "জমা দিতে প্রস্তুত";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "কে ১০♦ নিয়েছে তা বেছে নিন";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "প্রস্তুত";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "একজন খেলোয়াড় সব ২৬ নিতে পারে না। চাঁদ ব্যবহার করুন।";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d বেশি";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d বাকি";

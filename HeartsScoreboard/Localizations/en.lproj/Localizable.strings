@@ -91,3 +91,53 @@
 "The player who took the 10♦ scores −10 this round." = "The player who took the 10♦ scores −10 this round.";
 "−10" = "−10";
 "Select who took the 10♦" = "Select who took the 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d to go";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Leading";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "History";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Round added. %@ leads";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Round %d, %@: %d points";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Round %d, %@: shot the moon";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", took the 10 of diamonds";
+/* HistoryView empty state title */
+"No Games Yet" = "No Games Yet";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Finished games will show up here.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rounds";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Shot the moon";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ took the 10 of diamonds";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d points";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Add %d points to %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Queen of spades to %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Shoot the moon for %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Decrease points for %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Increase points for %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Ready to submit";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Choose who took the 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Ready";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "One player can't take all 26. Use the moon.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d over";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d left";

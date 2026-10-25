@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "ຜູ້ຫຼິ້ນທີ່ເອົາ 10♦ ຈະໄດ້ −10 ໃນຮອບນີ້.";
 "−10" = "−10";
 "Select who took the 10♦" = "ເລືອກຜູ້ທີ່ເອົາ 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "ເຫຼືອ %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ນຳໜ້າ";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ປະຫວັດ";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "ເພີ່ມຮອບແລ້ວ. %@ ນຳໜ້າ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "ຮອບ %d, %@: %d ຄະແນນ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "ຮອບ %d, %@: ຍິງດວງເດືອນ";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", ເອົາ 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "ຍັງບໍ່ມີເກມ";
+/* HistoryView empty state description */
+"Finished games will show up here." = "ເກມທີ່ຈົບແລ້ວຈະສະແດງຢູ່ນີ້.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d ຮອບ";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "ຍິງດວງເດືອນ";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ ເອົາ 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ຄະແນນ";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "ເພີ່ມ %d ຄະແນນໃຫ້ %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "ຂຸນສະເປດສຳລັບ %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "ຍິງດວງເດືອນສຳລັບ %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "ຫຼຸດຄະແນນຂອງ %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "ເພີ່ມຄະແນນຂອງ %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "ພ້ອມສົ່ງ";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "ເລືອກຜູ້ທີ່ເອົາ 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "ພ້ອມ";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ຜູ້ນຄົນດຽວບໍ່ສາມາດເອົາທັງ 26 ໄດ້. ໃຫ້ໃຊ້ດວງເດືອນ.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · ເກີນ %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · ເຫຼືອ %d";

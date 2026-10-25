@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦'yı alan oyuncu bu turda −10 puan alır.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦'yı kimin aldığını seçin";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d kaldı";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Önde";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Geçmiş";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Tur eklendi. %@ önde";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Tur %d, %@: %d puan";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Tur %d, %@: ayı aldı";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", karo 10'u aldı";
+/* HistoryView empty state title */
+"No Games Yet" = "Henüz Oyun Yok";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Biten oyunlar burada görünecek.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d tur";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Ayı aldı";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ karo 10'u aldı";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d puan";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ için %1$d puan ekle";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ için maça kızı";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ için ayı al";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ için puanı azalt";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ için puanı artır";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Göndermeye hazır";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦'yı kimin aldığını seçin";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Hazır";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Bir oyuncu 26'nın hepsini alamaz. Ayı al'ı kullanın.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d fazla";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d kaldı";

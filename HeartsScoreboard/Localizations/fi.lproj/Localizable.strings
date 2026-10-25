@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦:n ottanut pelaaja saa tällä kierroksella −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Valitse, kuka otti 10♦:n";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d jäljellä";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Johdossa";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Historia";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Kierros lisätty. %@ johtaa";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Kierros %d, %@: %d pistettä";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Kierros %d, %@: ampui kuun";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", otti ruutu 10:n";
+/* HistoryView empty state title */
+"No Games Yet" = "Ei vielä pelejä";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Päättyneet pelit näkyvät tässä.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d kierrosta";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Ampui kuun";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ otti ruutu 10:n";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d pistettä";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Lisää %d pistettä pelaajalle %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Pata-rouva pelaajalle %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Ammu kuu pelaajalle %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Vähennä pelaajan %@ pisteitä";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Lisää pelaajan %@ pisteitä";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Valmis lähetettäväksi";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Valitse, kuka otti 10♦:n";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Valmis";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Yksi pelaaja ei voi ottaa kaikkia 26. Käytä kuuta.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d yli";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d jäljellä";

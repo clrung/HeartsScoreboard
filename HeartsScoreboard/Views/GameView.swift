@@ -2,6 +2,7 @@ import SwiftUI
 
 struct GameView: View {
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var contrast
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var model: GameViewModel
@@ -12,8 +13,13 @@ struct GameView: View {
     @State private var showNewGameAlert = false
     @State private var showShakeHint = false
     @State private var shakeRefocusToken = 0
+    /// Bumped by confirmed undo / new game so `.sensoryFeedback` fires for those actions only.
+    @State private var undoFeedbackToken = 0
+    @State private var newGameFeedbackToken = 0
     @Environment(\.scenePhase) private var scenePhase
     @State private var hasShownShakeHint: Bool
+
+
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
     init(model: GameViewModel? = nil) {
@@ -24,7 +30,7 @@ struct GameView: View {
 
     var body: some View {
         ZStack {
-            backgroundGradient
+            Theme.feltGradient(for: colorScheme)
                 .ignoresSafeArea()
 
             if usesSplitLayout {
@@ -54,6 +60,7 @@ struct GameView: View {
             Button("No", role: .cancel) {}
             Button("Yes") {
                 model.removeLastHand()
+                undoFeedbackToken += 1
             }
         } message: {
             Text("Are you sure you would like to undo the last round?")
@@ -62,6 +69,7 @@ struct GameView: View {
             Button("No", role: .cancel) {}
             Button("Yes") {
                 model.newGame()
+                newGameFeedbackToken += 1
             }
         } message: {
             Text("Are you sure? This will clear all round scores.")
@@ -103,6 +111,21 @@ struct GameView: View {
         .onChange(of: showingSettings) { _, isShowing in
             if !isShowing { shakeRefocusToken += 1 }
             if !isShowing { model.persistToCloud() }
+        }
+        .sensoryFeedback(trigger: model.game.hands.count, roundAddedFeedback)
+        .sensoryFeedback(.warning, trigger: undoFeedbackToken)
+        .sensoryFeedback(.selection, trigger: newGameFeedbackToken)
+        .sensoryFeedback(trigger: model.isGameOver, gameOverFeedback)
+        .onChange(of: model.game.hands.count) { old, new in
+            guard new == old + 1 else { return }
+            let message: String
+            if model.isGameOver {
+                message = model.statusText
+            } else {
+                let leaders = ListFormatter.localizedString(byJoining: model.leadingPlayerNames)
+                message = String(format: String(localized: "Round added. %@ leads"), leaders)
+            }
+            AccessibilityNotification.Announcement(message).post()
         }
         .onChange(of: model.game.hands.count) { _, newCount in
             guard newCount == 1, !hasShownShakeHint else { return }
@@ -156,6 +179,7 @@ struct GameView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "trophy.fill")
                         .font(.system(size: 44))
+                        .accessibilityHidden(true)
                     Text(model.statusText)
                         .font(.title3.weight(.semibold))
                         .multilineTextAlignment(.center)
@@ -187,13 +211,15 @@ struct GameView: View {
             .padding(.vertical, 4 * dealerBadgeScale)
             .background {
                 Capsule()
-                    .fill(dealerBadgeGradient)
+                    .fill(Theme.dealerBadgeGradient(for: colorScheme))
             }
             .overlay {
                 Capsule()
                     .strokeBorder(Color.white.opacity(colorScheme == .dark ? 0.35 : 0.5), lineWidth: 1)
             }
             .shadow(color: .black.opacity(colorScheme == .dark ? 0.4 : 0.15), radius: 2, x: 0, y: 1)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text("Dealer"))
     }
 
     private var shakeHintOverlay: some View {
@@ -203,9 +229,11 @@ struct GameView: View {
                     Image(systemName: "iphone.radiowaves.left.and.right")
                         .font(.system(size: 28, weight: .semibold))
                         .symbolEffect(.bounce, options: .repeating)
+                        .accessibilityHidden(true)
                 } else {
                     Image(systemName: "iphone.radiowaves.left.and.right")
                         .font(.system(size: 28, weight: .semibold))
+                        .accessibilityHidden(true)
                 }
 
                 Text(String(localized: "Shake to undo the last round!"))
@@ -245,52 +273,6 @@ struct GameView: View {
         }
     }
 
-    private var dealerBadgeGradient: LinearGradient {
-        switch colorScheme {
-        case .dark:
-            return LinearGradient(
-                colors: [Color(red: 0.2, green: 0.45, blue: 0.28), Color(red: 0.12, green: 0.32, blue: 0.2)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        default:
-            return LinearGradient(
-                colors: [Color(red: 0.15, green: 0.55, blue: 0.25), Color(red: 0.08, green: 0.42, blue: 0.18)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        }
-    }
-
-    private var backgroundGradient: LinearGradient {
-        switch colorScheme {
-        case .light:
-            return LinearGradient(
-                colors: [
-                    Color(red: 0.0, green: 0.55, blue: 0.25),
-                    Color(red: 0.5, green: 0.95, blue: 0.55)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .dark:
-            return LinearGradient(
-                colors: [
-                    Color(red: 0.03, green: 0.16, blue: 0.10),
-                    Color(red: 0.02, green: 0.28, blue: 0.18)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        @unknown default:
-            return LinearGradient(
-                colors: [Color.green, Color.green.opacity(0.7)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        }
-    }
-
     private var header: some View {
         VStack(spacing: 4) {
             ZStack {
@@ -310,6 +292,7 @@ struct GameView: View {
                                     .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
                             }
                     }
+                    .accessibilityLabel(Text("History"))
                     .accessibilityIdentifier("historyButton")
 
                     Spacer()
@@ -329,6 +312,7 @@ struct GameView: View {
                             }
                             .foregroundStyle(.primary)
                     }
+                    .accessibilityLabel(Text("Settings"))
                     .accessibilityIdentifier("settingsButton")
                 }
 
@@ -390,32 +374,16 @@ struct GameView: View {
         }
     }
 
-    private var leadingPlayerIDs: Set<UUID> {
-        let totals = model.game.totals()
-        guard let minTotal = totals.map(\.total).min() else { return [] }
-        let leaders = totals.filter { $0.total == minTotal }.map { $0.player.id }
-        return Set(leaders)
-    }
-
-    private var scoreboardCardBackground: Color {
-        switch colorScheme {
-        case .dark:
-            return Color(red: 0.10, green: 0.18, blue: 0.14)
-        default:
-            return Color(red: 0.86, green: 1.0, blue: 0.91)
-        }
-    }
-
     private var scoreboard: some View {
         RoundedRectangle(cornerRadius: 24, style: .continuous)
             .fill(.ultraThinMaterial)
             .background(
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .fill(scoreboardCardBackground.opacity(colorScheme == .dark ? 0.9 : 0.85))
+                    .fill(Theme.scoreboardCard(for: colorScheme).opacity(colorScheme == .dark ? 0.9 : 0.85))
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: 1)
+                    .stroke(contrast == .increased ? Color.primary.opacity(0.6) : Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
             )
             .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
             .overlay(alignment: .top) {
@@ -449,12 +417,13 @@ struct GameView: View {
                                 .lineLimit(1)
                                 .minimumScaleFactor(0.7)
                                 .truncationMode(.tail)
+                                .accessibilityAddTraits(.isHeader)
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 8)
                                 .background(
                                     RoundedRectangle(cornerRadius: 10, style: .continuous)
                                         .fill(
-                                            Color.white.opacity(colorScheme == .dark ? 0.10 : 0.26)
+                                            Color.white.opacity(colorScheme == .dark ? (contrast == .increased ? 0.22 : 0.10) : (contrast == .increased ? 0.5 : 0.26))
                                         )
                                 )
                                 .frame(maxWidth: .infinity)
@@ -464,12 +433,15 @@ struct GameView: View {
                 }
                 .frame(maxWidth: .infinity)
 
-                HStack {
+                let leaders = model.leadingPlayerIDs
+                HStack(alignment: .top) {
                     ForEach(model.game.players) { player in
                         PlayerTotalBadge(
                             total: model.game.totalPoints(for: player.id),
-                            isLeader: leadingPlayerIDs.contains(player.id),
-                            colorScheme: colorScheme
+                            isLeader: leaders.contains(player.id),
+                            colorScheme: colorScheme,
+                            progress: model.progress(for: player.id),
+                            pointsToGo: model.pointsToGo(for: player.id)
                         )
                         .frame(maxWidth: .infinity)
                     }
@@ -479,7 +451,7 @@ struct GameView: View {
             .padding(.vertical, 6)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(Color.black.opacity(colorScheme == .dark ? 0.14 : 0.06))
+                    .fill(Color.black.opacity(colorScheme == .dark ? 0.14 : (contrast == .increased ? 0.14 : 0.06)))
             )
 
             ScrollViewReader { proxy in
@@ -519,13 +491,16 @@ struct GameView: View {
                                         .padding(.trailing, 4)
                                 }
                             }
-                            .accessibilityLabel(isMoon ? String(localized: "Shoot the moon") : "\(score)")
+                            .accessibilityLabel(cellAccessibilityLabel(
+                                round: index + 1, playerName: player.name, score: score,
+                                isMoon: isMoon, tookTenOfDiamonds: hand.tenOfDiamondsPlayerID == player.id
+                            ))
                             .background(
                                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                                     .fill(
                                         (isEvenRow
-                                         ? Color.white.opacity(colorScheme == .dark ? 0.15 : 0.35)
-                                         : Color.white.opacity(colorScheme == .dark ? 0.3 : 0.7)
+                                         ? Color.white.opacity(colorScheme == .dark ? (contrast == .increased ? 0.25 : 0.15) : (contrast == .increased ? 0.6 : 0.35))
+                                         : Color.white.opacity(colorScheme == .dark ? (contrast == .increased ? 0.4 : 0.3) : (contrast == .increased ? 0.9 : 0.7))
                                         )
                                     )
                             )
@@ -550,6 +525,30 @@ struct GameView: View {
         }
     }
 
+    private func cellAccessibilityLabel(round: Int, playerName: String, score: Int, isMoon: Bool, tookTenOfDiamonds: Bool) -> String {
+        if isMoon {
+            return String(format: String(localized: "Round %d, %@: shot the moon"), round, playerName)
+        }
+        var label = String(format: String(localized: "Round %d, %@: %d points"), round, playerName, score)
+        if tookTenOfDiamonds { label += String(localized: ", took the 10 of diamonds") }
+        return label
+    }
+
+    /// Deep green for the primary button: white text on it is ~5.9:1 in both appearances
+    /// (the dark-mode accent is too light for white text).
+    private static let feltButtonGreen = Color(red: 0.10, green: 0.45, blue: 0.20)
+
+    /// A round that ends the game gets the heavier game-over haptic instead.
+    /// Only single-round steps buzz, so a bulk iCloud restore stays silent.
+    private func roundAddedFeedback(old: Int, new: Int) -> SensoryFeedback? {
+        guard new == old + 1, !model.isGameOver else { return nil }
+        return .success
+    }
+
+    private func gameOverFeedback(old: Bool, new: Bool) -> SensoryFeedback? {
+        new && !old ? .impact(weight: .heavy) : nil
+    }
+
     private var bottomBar: some View {
         HStack {
             Button {
@@ -557,8 +556,7 @@ struct GameView: View {
             } label: {
                 Label("New Game", systemImage: "arrow.counterclockwise")
             }
-            .buttonStyle(.bordered)
-            .tint(.blue)
+            .buttonStyle(FeltChipButtonStyle())
             .frame(maxWidth: .infinity, alignment: .leading)
             .disabled(model.game.hands.isEmpty)
             .accessibilityHint(Text("Starts a new game with the same players"))
@@ -568,8 +566,7 @@ struct GameView: View {
             } label: {
                 Image(systemName: "arrow.uturn.backward")
             }
-            .buttonStyle(.bordered)
-            .tint(.blue)
+            .buttonStyle(FeltChipButtonStyle())
             .disabled(!model.canUndo)
             .accessibilityLabel(Text("Undo Round"))
             .accessibilityIdentifier("undoButton")
@@ -581,7 +578,7 @@ struct GameView: View {
                     Label("Next Round", systemImage: "arrow.right.circle.fill")
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(.blue)
+                .tint(Self.feltButtonGreen)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .disabled(model.isGameOver)
                 .accessibilityHint(Text("Enter scores for the next round"))
@@ -590,6 +587,27 @@ struct GameView: View {
         }
         .font(.callout)
         .padding(.vertical, 12)
+    }
+}
+
+/// Secondary button on the green felt: opaque system-background chip with an accent label
+/// (about 5.6:1 in light, 6.5:1 in dark), so it stays legible where a translucent green
+/// `.bordered` button would wash out. Disabled state dims the whole chip.
+private struct FeltChipButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.colorSchemeContrast) private var contrast
+
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundStyle(Theme.accent)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 7)
+            .background(Capsule(style: .continuous).fill(Color(.systemBackground)))
+            .overlay(
+                Capsule(style: .continuous)
+                    .strokeBorder(Theme.accent.opacity(contrast == .increased ? 1 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
+            )
+            .opacity(isEnabled ? (configuration.isPressed ? 0.7 : 1) : 0.45)
     }
 }
 

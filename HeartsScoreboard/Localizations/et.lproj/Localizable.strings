@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Mängija, kes 10♦ võttis, saab selles ringis −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Vali, kes 10♦ võttis";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Jäänud %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Juhib";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Ajalugu";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Ring lisatud. Juhib %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Ring %d, %@: %d punkti";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Ring %d, %@: tulistas kuu";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", võttis ruutu 10";
+/* HistoryView empty state title */
+"No Games Yet" = "Mänge veel pole";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Lõpetatud mängud ilmuvad siia.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d ringi";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Tulistas kuu";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ võttis ruutu 10";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d punkti";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Lisa %d punkti mängijale %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Poti emand mängijale %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Tulista kuu mängija %@ jaoks";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Vähenda mängija %@ punkte";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Suurenda mängija %@ punkte";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Valmis esitamiseks";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Vali, kes 10♦ võttis";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Valmis";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Üks mängija ei saa võtta kõiki 26. Kasuta kuud.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d üle";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · jäänud %d";

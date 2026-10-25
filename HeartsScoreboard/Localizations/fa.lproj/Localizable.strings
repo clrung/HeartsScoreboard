@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "بازیکنی که ۱۰♦ را گرفته در این دور −۱۰ امتیاز می‌گیرد.";
 "−10" = "−10";
 "Select who took the 10♦" = "انتخاب کنید چه کسی ۱۰♦ را گرفت";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d مانده";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "پیشتاز";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "تاریخچه";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "دور اضافه شد. %@ پیشتاز است";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "دور %d، %@: %d امتیاز";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "دور %d، %@: به ماه شلیک کرد";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = "، خشت ۱۰ را گرفت";
+/* HistoryView empty state title */
+"No Games Yet" = "هنوز بازی‌ای نیست";
+/* HistoryView empty state description */
+"Finished games will show up here." = "بازی‌های تمام‌شده اینجا نمایش داده می‌شوند.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d دور";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "به ماه شلیک کرد";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ خشت ۱۰ را گرفت";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d امتیاز";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "افزودن %d امتیاز به %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "بی‌بی پیک برای %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "شلیک به ماه برای %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "کاهش امتیاز %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "افزایش امتیاز %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "آماده ارسال";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "انتخاب کنید چه کسی ۱۰♦ را گرفت";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "آماده";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "یک بازیکن نمی‌تواند هر ۲۶ را بگیرد. از ماه استفاده کنید.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d بیشتر";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d مانده";

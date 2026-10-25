@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ எடுத்த வீரர் இந்தச் சுற்றில் −10 பெறுவார்.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ யார் எடுத்தார் எனத் தேர்ந்தெடுக்கவும்";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "இன்னும் %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "முன்னிலையில்";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "வரலாறு";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "சுற்று சேர்க்கப்பட்டது. %@ முன்னிலையில்";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "சுற்று %d, %@: %d புள்ளிகள்";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "சுற்று %d, %@: சந்திரனை சுட்டார்";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", டைமண்ட் 10 எடுத்தார்";
+/* HistoryView empty state title */
+"No Games Yet" = "இன்னும் ஆட்டங்கள் இல்லை";
+/* HistoryView empty state description */
+"Finished games will show up here." = "முடிந்த ஆட்டங்கள் இங்கே தோன்றும்.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d சுற்றுகள்";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "சந்திரனை சுட்டார்";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ டைமண்ட் 10 எடுத்தார்";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d புள்ளிகள்";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ க்கு %1$d புள்ளிகளைச் சேர்";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ க்கு ஸ்பேட் ராணி";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ க்கு சந்திரனை சுடவும்";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ புள்ளிகளைக் குறை";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ புள்ளிகளை அதிகரி";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "சமர்ப்பிக்கத் தயார்";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ எடுத்தவரைத் தேர்ந்தெடுக்கவும்";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "தயார்";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ஒரு வீரர் 26 அனைத்தையும் எடுக்க முடியாது. சந்திரனைப் பயன்படுத்தவும்.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d அதிகம்";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d மீதம்";

@@ -76,3 +76,66 @@
 
 ### Build gotcha (2026-10-24)
 - `xcodebuild` hung indefinitely with no output (blocked in `NSFileCoordinator` reading the .xcodeproj) while Xcode.app had the project open after `xcodegen generate` rewrote it. Quitting Xcode fixed it. If a CLI build hangs before any build output, check for an open Xcode first.
+
+## UI/UX review (2026-10-24, 3 parallel reviewers; key claims spot-checked against code)
+
+Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon); undo uses a blocking `.alert`; Submit is hard-coded `Color.blue`; history empty state is plain `Text`; History/Settings toolbar icons have no a11y label; score cells labelled only `"\(score)"` (GameView.swift:524); no `keyboardShortcut`/`FocusState`/`accessibilityReduceMotion` in Views; pass-direction arrows baked into localized strings ("Pass: Left ←"). Correction to a reviewer claim: stepper width is `@ScaledMetric` 34 (scales), height uses `tapSize`.
+
+### Tier 1 — high impact, small effort
+- [x] Haptics: `.sensoryFeedback` on chip/stepper taps (.selection), round submit (.success), undo (.warning), game over (.success).
+- [x] Round input: live "18 / 26 — 8 left" / "4 over" strip above Submit; replace 50%-opacity disabled Submit with labelled state; `.borderedProminent` + `.controlSize(.large)`.
+- [x] Round input: Quick-add slider moved to Settings (user chose to keep the Shoot-the-Moon picker in round entry).
+- [x] Leader not color-only: crown/trophy symbol on leader badge (PlayerScoreViews.swift:15-21), `.accessibilityValue("Leading")`; bigger `.monospacedDigit()` totals with `.contentTransition(.numericText())`.
+- [x] VoiceOver labels: History, Settings, About, moon chip, ± steppers, dealer badge; score cells "Round 3, Alice: 13 points[, took 10♦]"; headers `.isHeader`; HistoryDetailView `ScoreCellView` has none.
+- [x] History list: two-line rows (winner + score, then all players' totals), relative date, drop fake "Time / Winner" header; `ContentUnavailableView` empty state (HistoryView.swift:15).
+- [x] Brand: add `AccentColor` (light/dark) + a `Theme` file for the felt-green palette; replace raw RGB duplicated in GameView/HistoryDetailView and `.tint(.blue)` calls; Settings currently looks stock blue/white.
+
+### Tier 2 — high impact, medium effort
+- [ ] End-of-game moment: winner sheet/overlay (trophy, ranked standings, confetti gated on Reduce Motion, Rematch / View history). Today only subtitle text changes and Next Round goes dead.
+- [ ] Undo without alert + "Undone — Redo" toast; edit any past round by tapping its row (needs `GameViewModel.updateHand(id:)` + tests).
+- [ ] Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
+- [ ] History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
+- [ ] Dynamic Type: fixed `frame(height: 26)` cells, `frame(width: 36, height: 26)` total badge, `.system(size: 9)` ♦ glyph, fixed bottom-bar HStack → `@ScaledMetric` / `minHeight` / `ViewThatFits`.
+- [ ] Reuse player names from history (suggestion chips/menu in Settings), placeholder "Player N".
+
+### Tier 3 — polish
+- [ ] Bottom bar: full-width prominent Next Round; move destructive New Game to a menu.
+- [ ] Header: replace "Hearts Scoreboard" title with pass-direction chip + "Round N" + target; remove hard-coded `.padding(.horizontal, 70)`.
+- [ ] Pass direction: render arrow as SF Symbol `Label` instead of glyph in strings (RTL + VoiceOver); needs new keys across all locales via scripts/.
+- [ ] Settings regroup: Players (incl. dealer picker) / Game Rules / Appearance / About as pushed `NavigationLink`; replace `.id(appearanceVersion)` hack (SettingsView.swift:121).
+- [ ] Accessibility announcements on round submit/game over; Reduce Motion for springs + repeating `.symbolEffect(.bounce)`; Increase Contrast / Reduce Transparency fallbacks for white-on-gradient and materials.
+- [ ] iPad: ⌘↩ submit, ⌘N next round, ⌘Z undo, ⌘, settings; `.hoverEffect()` on custom buttons; 44pt chip min height; long-press-repeat on +.
+- [ ] Shake hint: 3s auto-dismiss too short for VoiceOver; announce instead when VO running.
+- [ ] About: header with icon/name, group links, `ShareLink`, version in footer, single tint. PayPal $5 donate link (AboutView.swift:10) may conflict with App Review rules on donations from non-nonprofits — decide.
+
+### Feature ideas (not yet decided)
+- [ ] Players leaderboard tab in History (games, wins, win %, avg score, moons) derived from `model.history` — no new storage.
+- [ ] Share result card via `ImageRenderer` + `ShareLink` from game over and history detail.
+- [ ] Widget / Live Activity (new extension + App Group) — larger; defer.
+
+## Screenshot pipeline (2026-10-24, uncommitted)
+- Added `scripts/screenshots.sh`, `scripts/strip_alpha.swift`, `HeartsScoreboardUITests` + scheme `HeartsScoreboardScreenshots`, DEBUG-only `ScreenshotDemo`.
+- [ ] `duo-open` never run: needs a human to unfold the Duo in DeviceHub; inner-display capture via XCUIScreen unverified.
+- [ ] Only the Duo device type exists on the iOS 27.1 runtime; other devices run on iOS 27.0 (dedicated "HS Screenshots ..." sims). Revisit when 27.1 supports iPhone/iPad.
+- [ ] Non-English locales untested: UI tests use identifiers, but demo player names / dates are English-only and Apple-locale rendering of the fixed dates is unchecked.
+- [ ] Old `screenshots/iOS` (1284x2778) and `screenshots/iPadOS` (2048x2732) are stale sizes; decide whether to delete and update the README Screenshots section to the new folders.
+- [ ] Main shot is an in-progress game (old one was a finished game with "won!"); the Game Summary shot is a separate completed game in history.
+- [ ] iPad/Duo-open "Round Input" shows the inline panel; no keyboard-based entry is shown anywhere.
+- [ ] Add a CI/lint check that the identifiers used by `ScreenshotTests` still exist (a rename silently breaks the pipeline until run).
+- [ ] Screenshot run takes ~1.5-4.5 min per device (first build + sim boot); consider `build-for-testing` once and `test-without-building` per device.
+
+### Tier-1 implementation (2026-10-24, uncommitted)
+- Felt-green `AccentColor` (light #1F7A3B / dark #389E57) + `ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME` in project.yml; shared palette in `Views/Theme.swift` (felt gradient, card, dealer badge, gold `Theme.leader`).
+- Leader: crown + gold border, "Leading" a11y value, bigger monospaced totals with numericText, progress bar toward ending score (amber ≥75%, red ≥90%), "%d to go" under the highest scorer, Increase Contrast handling. Helpers in GameViewModel, tests in `LeaderIndicatorTests`.
+- History rows derive from `CompletedGame` extension (`sortedResults`, `roundCount`, `hadMoonShot`), tests in `CompletedGameSummaryTests`.
+- 24 new keys added to all 75 locales. Google Translate was CAPTCHA-blocked (429), so translations were LLM-generated and validated for specifier types and positions (caught 5 locales that swapped `%@`/`%d` and would have crashed; fixed with positional specifiers). Native review is still worthwhile, especially "Leading", "History" and "points".
+- Verified: 44 unit tests pass; screenshot UI tests pass on iPhone 17 + iPad Pro 13 (light/dark main, round input, summary, settings, history list checked visually).
+
+### Follow-ups found during implementation
+- [ ] Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
+- [ ] Unused keys left in all locales: "Time", "Winner", "No completed games yet." (history header/empty state). Remove in a cleanup pass.
+- [ ] `%d rounds` isn't pluralized (stringsdict); harmless today (finished games always have >1 round).
+- [ ] sr-Latn Localizable.strings is actually Cyrillic (pre-existing); new keys were added in Latin.
+- [ ] GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
+- [ ] Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
+- [ ] Not tested at accessibility Dynamic Type sizes, or with 6 players in the split layout (crown vs dealer badge overlap).

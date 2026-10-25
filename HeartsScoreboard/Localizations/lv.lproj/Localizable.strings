@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Spēlētājs, kurš paņēma 10♦, šajā kārtā iegūst −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Izvēlieties, kas paņēma 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Atlicis %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Vada";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Vēsture";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Kārta pievienota. Vada %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "%d. kārta, %@: %d punkti";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "%d. kārta, %@: izšāva mēnesi";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", paņēma 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "Vēl nav spēļu";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Pabeigtās spēles parādīsies šeit.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "Kārtu skaits: %d";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Izšāva mēnesi";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ paņēma 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d punkti";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Pievienot %d punktus: %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Pīķa dāma: %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Izšaut mēnesi: %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Samazināt punktus: %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Palielināt punktus: %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Gatavs iesniegšanai";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Izvēlieties, kurš paņēma 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Gatavs";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Viens spēlētājs nevar paņemt visus 26. Izmantojiet mēnesi.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · par daudz %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · atlicis %d";

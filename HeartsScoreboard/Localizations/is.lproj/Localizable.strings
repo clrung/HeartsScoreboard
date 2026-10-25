@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Leikmaðurinn sem tók 10♦ fær −10 í þessari umferð.";
 "−10" = "−10";
 "Select who took the 10♦" = "Veldu hver tók 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d eftir";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Leiðir";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Saga";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Umferð bætt við. %@ leiðir";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Umferð %d, %@: %d stig";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Umferð %d, %@: skaut tunglið";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", tók 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "Engir leikir enn";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Kláraðir leikir birtast hér.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d umferðir";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Skaut tunglið";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ tók 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d stig";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Bæta %d stigum við hjá %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Spaðadrottning til %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Skjóta tunglið fyrir %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Fækka stigum hjá %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Fjölga stigum hjá %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Tilbúið til sendingar";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Veldu hver tók 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Tilbúið";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Einn spilari getur ekki tekið öll 26. Notaðu tunglið.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d umfram";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d eftir";

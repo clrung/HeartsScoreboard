@@ -79,6 +79,27 @@ struct SettingsView: View {
                 }
 
                 Section {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(String(format: String(localized: "Adds %d points per tap"), model.settings.quickIncrementPoints))
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Slider(
+                            value: Binding(
+                                get: { Double(model.settings.quickIncrementPoints) },
+                                set: { newValue in
+                                    model.settings.quickIncrementPoints = GameSettings.clampQuickIncrement(Int(newValue.rounded()))
+                                }
+                            ),
+                            in: 2...9,
+                            step: 1
+                        )
+                        .accessibilityLabel("Quick add")
+                    }
+                } header: {
+                    Text(String(localized: "Quick add"))
+                }
+
+                Section {
                     Toggle("10♦ worth −10", isOn: $model.settings.tenOfDiamondsMinus10)
                 } header: {
                     Text("10 of Diamonds")
@@ -104,6 +125,7 @@ struct SettingsView: View {
                     } label: {
                         Image(systemName: "info.circle.fill")
                     }
+                    .accessibilityLabel("About")
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }

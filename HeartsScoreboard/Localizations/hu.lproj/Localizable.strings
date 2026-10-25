@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "A 10♦-t elvivő játékos −10 pontot kap ebben a fordulóban.";
 "−10" = "−10";
 "Select who took the 10♦" = "Válaszd ki, ki vitte el a 10♦-t";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Még %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Vezet";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Előzmények";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Kör hozzáadva. %@ vezet";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "%d. kör, %@: %d pont";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "%d. kör, %@: lelőtte a holdat";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", elvitte a 10♦-t";
+/* HistoryView empty state title */
+"No Games Yet" = "Még nincs játék";
+/* HistoryView empty state description */
+"Finished games will show up here." = "A befejezett játékok itt jelennek meg.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d kör";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Lelőtte a holdat";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ elvitte a 10♦-t";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d pont";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%d pont hozzáadása: %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Pikk dáma: %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Holdlövés: %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Pontok csökkentése: %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Pontok növelése: %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Készen áll a beküldésre";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Válaszd ki, ki vitte a 10♦-t";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Kész";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Egy játékos nem vihet el mind a 26-ot. Használd a holdat.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d túl sok";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d hátra";

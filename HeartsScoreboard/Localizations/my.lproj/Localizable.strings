@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ ယူသော ကစားသမားသည် ဤအဝိုင်းတွင် −10 ရမည်။";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ယူသူကို ရွေးပါ";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d ကျန်";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ဦးဆောင်နေသည်";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "မှတ်တမ်း";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "အချီထည့်ပြီး။ %@ ဦးဆောင်နေသည်";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "အဝိုင်း %d, %@: %d မှတ်";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "အဝိုင်း %d, %@: လကို ပစ်သည်";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", 10♦ ယူသည်";
+/* HistoryView empty state title */
+"No Games Yet" = "ဂိမ်း မရှိသေးပါ";
+/* HistoryView empty state description */
+"Finished games will show up here." = "ပြီးဆုံးသော ဂိမ်းများ ဤနေရာတွင် ပေါ်လာမည်။";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d အဝိုင်း";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "လကို ပစ်သည်";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ က 10♦ ယူသည်";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d မှတ်";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ ကို %1$d မှတ် ထည့်ပါ";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ အတွက် စပိတ်ဘုရင်မ";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ အတွက် လကို ပစ်ပါ";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ ၏ မှတ်ကို လျှော့ပါ";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ ၏ မှတ်ကို တိုးပါ";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "တင်ရန် အဆင်သင့်";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ ယူသူကို ရွေးပါ";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "အဆင်သင့်";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ကစားသမားတစ်ဦးက 26 အားလုံး မယူနိုင်ပါ။ လကို အသုံးပြုပါ။";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ပိုနေ";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ကျန်";

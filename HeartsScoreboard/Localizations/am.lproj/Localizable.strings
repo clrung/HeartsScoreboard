@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ን የወሰደው ተጫዋች በዚህ ዙር −10 ያገኛል።";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ን የወሰደውን ይምረጡ";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d ይቀራል";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "እየመራ ነው";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ታሪክ";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "ዙር ታክሏል። %@ እየመራ ነው";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "ዙር %d፣ %@፦ %d ነጥብ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "ዙር %d፣ %@፦ ጨረቃን ተኮሰ";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = "፣ አልማዝ 10 ወሰደ";
+/* HistoryView empty state title */
+"No Games Yet" = "እስካሁን ጨዋታ የለም";
+/* HistoryView empty state description */
+"Finished games will show up here." = "የተጠናቀቁ ጨዋታዎች እዚህ ይታያሉ።";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d ዙሮች";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "ጨረቃን ተኮሰ";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ አልማዝ 10 ወሰደ";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ነጥብ";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "ለ%2$@ %1$d ነጥብ ጨምር";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "የጦር ንግሥት ለ%@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "ለ%@ ጨረቃን ተኩሱ";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "የ%@ ነጥብ ቀንስ";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "የ%@ ነጥብ ጨምር";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "ለማስገባት ዝግጁ";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ን የወሰደውን ይምረጡ";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "ዝግጁ";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "አንድ ተጫዋች ሁሉንም 26 መውሰድ አይችልም። ጨረቃን ይጠቀሙ።";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ይበልጣል";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ይቀራል";

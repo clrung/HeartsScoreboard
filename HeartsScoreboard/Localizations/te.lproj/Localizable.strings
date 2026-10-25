@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ తీసుకున్న ఆటగాడికి ఈ రౌండ్‌లో −10 వస్తుంది.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ఎవరు తీసుకున్నారో ఎంచుకోండి";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "ఇంకా %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ముందంజలో";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "చరిత్ర";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "రౌండ్ జోడించబడింది. %@ ముందంజలో ఉన్నారు";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "రౌండ్ %d, %@: %d పాయింట్లు";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "రౌండ్ %d, %@: చంద్రుడిని కాల్చారు";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", డైమండ్ 10 తీసుకున్నారు";
+/* HistoryView empty state title */
+"No Games Yet" = "ఇంకా గేమ్‌లు లేవు";
+/* HistoryView empty state description */
+"Finished games will show up here." = "పూర్తైన గేమ్‌లు ఇక్కడ కనిపిస్తాయి.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d రౌండ్లు";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "చంద్రుడిని కాల్చారు";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ డైమండ్ 10 తీసుకున్నారు";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d పాయింట్లు";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@కి %1$d పాయింట్లు జోడించండి";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@కి స్పేడ్స్ రాణి";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ కోసం చంద్రుడిని కాల్చండి";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ పాయింట్లు తగ్గించండి";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ పాయింట్లు పెంచండి";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "సమర్పించడానికి సిద్ధం";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ ఎవరు తీసుకున్నారో ఎంచుకోండి";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "సిద్ధం";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ఒక ఆటగాడు మొత్తం 26 తీసుకోలేరు. చంద్రుడిని ఉపయోగించండి.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ఎక్కువ";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d మిగిలింది";

@@ -13,6 +13,7 @@ struct RoundInputView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.verticalSizeClass) private var verticalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Bindable var model: GameViewModel
     let presentation: Presentation
 
@@ -133,6 +134,7 @@ struct RoundInputView: View {
                                         Capsule(style: .continuous)
                                             .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
                                     )
+                                    .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
                                     .accessibilityAddTraits(isSelected ? .isSelected : [])
                                 }
                             }
@@ -167,58 +169,81 @@ struct RoundInputView: View {
                         }
                         .padding(.top, 4)
                     }
-
-                    Section {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(String(format: String(localized: "Adds %d points per tap"), model.settings.quickIncrementPoints))
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                            Slider(
-                                value: Binding(
-                                    get: { Double(model.settings.quickIncrementPoints) },
-                                    set: { newValue in
-                                        let v = Int(newValue.rounded())
-                                        model.settings.quickIncrementPoints = GameSettings.clampQuickIncrement(v)
-                                        model.persistToCloud()
-                                    }
-                                ),
-                                in: 2...9,
-                                step: 1
-                            )
-                        }
-                    } header: {
-                        Text(String(localized: "Quick add"))
-                    }
                 }
                 .modifier(InlineFormMargins(isInline: presentation == .inline))
 
-                Button {
-                    submit()
-                } label: {
-                    Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : "Submit")
-                        .font(.headline.weight(.semibold))
-                        .foregroundStyle(Color.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .contentShape(Rectangle())
-                        .background {
-                            Capsule(style: .continuous)
-                                .fill(.ultraThinMaterial)
-                                .overlay {
-                                    Capsule(style: .continuous)
-                                        .fill(Color.blue.opacity(1.0))
-                                }
-                                .shadow(color: .black.opacity(colorScheme == .dark ? 0.5 : 0.1), radius: 8, y: 4)
-                        }
+                VStack(spacing: 10) {
+                    progressStrip
+
+                    Button {
+                        submit()
+                    } label: {
+                        Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : "Submit")
+                            .font(.headline.weight(.semibold))
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .controlSize(.large)
+                    .accessibilityLabel(Text("Submit round scores"))
+                    .accessibilityIdentifier("roundInput.submit")
+                    .disabled(!canSubmit)
                 }
-                .buttonStyle(.plain)
-                .accessibilityLabel(Text("Submit round scores"))
-                .accessibilityIdentifier("roundInput.submit")
-                .opacity(canSubmit ? 1 : 0.5)
-                .disabled(!canSubmit)
                 .padding(.horizontal)
                 .padding(.vertical)
             }
+            .sensoryFeedback(.selection, trigger: points) { old, new in
+                // Skip the initial fill and resets (all zeros); only real edits tick.
+                !old.isEmpty && old != new && new.values.contains { $0 != 0 }
+            }
+            .sensoryFeedback(.selection, trigger: tenOfDiamondsOwnerID) { old, new in
+                old != new && new != nil
+            }
+            .sensoryFeedback(.success, trigger: canSubmit) { old, new in
+                !old && new
+            }
+            .onChange(of: canSubmit) { old, new in
+                if !old && new {
+                    AccessibilityNotification.Announcement(String(localized: "Ready to submit")).post()
+                }
+            }
+    }
+
+    private var totalPoints: Int {
+        model.game.players.reduce(0) { $0 + (points[$1.id] ?? 0) }
+    }
+
+    /// Progress toward the 26 hearts/Q♠ points. The 10♦ −10 is applied on submit and never counts here.
+    private var progressText: String {
+        let total = totalPoints
+        if isRoundValid {
+            if needsTenOfDiamondsHolder { return String(localized: "Choose who took the 10♦") }
+            return isShootTheMoonRound ? String(localized: "Shoot the moon") : String(localized: "Ready")
+        }
+        if total == 26 {
+            return String(localized: "One player can't take all 26. Use the moon.")
+        }
+        if total > 26 {
+            return String(format: String(localized: "%d / 26 · %d over"), total, total - 26)
+        }
+        return String(format: String(localized: "%d / 26 · %d left"), total, 26 - total)
+    }
+
+    private var progressStrip: some View {
+        let isOver = !isRoundValid && totalPoints > 26
+        let isDone = canSubmit
+        return HStack(spacing: 6) {
+            Image(systemName: isDone ? "checkmark.circle.fill" : (isOver ? "exclamationmark.triangle.fill" : "circle.dashed"))
+            Text(progressText)
+                .contentTransition(reduceMotion ? .identity : .numericText())
+        }
+        .font(.subheadline.weight(.medium))
+        .monospacedDigit()
+        .foregroundStyle(isOver ? Color.red : (isDone ? Color.accentColor : Color.secondary))
+        .frame(maxWidth: .infinity)
+        .animation(reduceMotion ? nil : .default, value: progressText)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(progressText)
+        .accessibilityIdentifier("roundInput.progress")
     }
 
     @ViewBuilder
@@ -274,6 +299,8 @@ struct RoundInputView: View {
             }
         }
         .accessibilityElement(children: .contain)
+        .accessibilityLabel(player.name)
+        .accessibilityValue(String(format: String(localized: "%d points"), points[player.id] ?? 0))
         .accessibilityIdentifier("roundInput.row.\(index)")
     }
 
@@ -281,6 +308,7 @@ struct RoundInputView: View {
         Button("+\(quick)") {
             adjustPoints(for: player.id, delta: quick)
         }
+        .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), quick, player.name))
         .accessibilityIdentifier("roundInput.quick.\(player.name)")
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(isRoundValid || remaining < quick)
@@ -292,6 +320,7 @@ struct RoundInputView: View {
         } label: {
             Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
         }
+        .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), remaining, player.name))
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(remaining == 0 || isRoundValid)
     }
@@ -300,6 +329,7 @@ struct RoundInputView: View {
         Button("Q♠") {
             addQueenOfSpades(for: player.id)
         }
+        .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(isRoundValid || queenOwnerID != nil)
@@ -311,6 +341,7 @@ struct RoundInputView: View {
         } label: {
             Image(systemName: "moon.fill")
         }
+        .accessibilityLabel(String(format: String(localized: "Shoot the moon for %@"), player.name))
         .chipStyle(minWidth: tapSize, fill: presentation == .inline)
         .disabled(isRoundValid)
     }
@@ -326,6 +357,7 @@ struct RoundInputView: View {
                     .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
+            .accessibilityLabel(String(format: String(localized: "Decrease points for %@"), player.name))
             .foregroundStyle(isShootTheMoonRound || (points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
             .disabled(isShootTheMoonRound || (points[player.id] ?? 0) == 0)
 
@@ -354,7 +386,8 @@ struct RoundInputView: View {
                     .contentShape(Rectangle())
             }
             .buttonStyle(.borderless)
-            .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.blue)
+            .accessibilityLabel(String(format: String(localized: "Increase points for %@"), player.name))
+            .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.accentColor)
             .disabled(isRoundValid)
         }
     }

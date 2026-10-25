@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Ang manlalarong kumuha ng 10♦ ay makakakuha ng −10 sa round na ito.";
 "−10" = "−10";
 "Select who took the 10♦" = "Piliin kung sino ang kumuha ng 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d na lang";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Nangunguna";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Kasaysayan";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Naidagdag ang round. Nangunguna si %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Round %d, %@: %d puntos";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Round %d, %@: inabot ang buwan";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", kinuha ang 10 ng Diamante";
+/* HistoryView empty state title */
+"No Games Yet" = "Wala Pang Laro";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Lalabas dito ang mga natapos na laro.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d round";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Inabot ang buwan";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "Kinuha ni %@ ang 10 ng Diamante";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d puntos";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Magdagdag ng %d puntos kay %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Reyna ng spades kay %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Abutin ang buwan para kay %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Bawasan ang puntos ni %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Dagdagan ang puntos ni %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Handa nang isumite";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Piliin kung sino ang kumuha ng 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Handa";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Hindi makukuha ng isang manlalaro ang lahat ng 26. Gamitin ang buwan.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · sobra ng %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d na lang";

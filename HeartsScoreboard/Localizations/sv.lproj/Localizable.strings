@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Spelaren som tog 10♦ får −10 i den här rundan.";
 "−10" = "−10";
 "Select who took the 10♦" = "Välj vem som tog 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d kvar";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Leder";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Historik";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Rundan lades till. %@ leder";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Runda %d, %@: %d poäng";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Runda %d, %@: tog månen";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", tog ruter tio";
+/* HistoryView empty state title */
+"No Games Yet" = "Inga spel än";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Avslutade spel visas här.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rundor";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Tog månen";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ tog ruter tio";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d poäng";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Lägg till %d poäng till %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Spader dam till %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Ta månen för %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Minska poäng för %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Öka poäng för %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Redo att skicka";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Välj vem som tog 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Redo";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "En spelare kan inte ta alla 26. Använd månen.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d över";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d kvar";

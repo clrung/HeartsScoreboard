@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ алған ойыншы осы раундта −10 ұпай алады.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ кім алғанын таңдаңыз";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d қалды";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Көшбасшы";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Тарих";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Раунд қосылды. %@ алда";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "%d раунд, %@: %d ұпай";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "%d раунд, %@: айды түсірді";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", 10♦ алды";
+/* HistoryView empty state title */
+"No Games Yet" = "Әлі ойын жоқ";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Аяқталған ойындар осында көрінеді.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d раунд";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Айды түсірді";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ 10♦ алды";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ұпай";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ ойыншысына %1$d ұпай қосу";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ ойыншысына қарға дамасы";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ үшін айды түсіру";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ ұпайын азайту";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ ұпайын көбейту";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Жіберуге дайын";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ алғанды таңдаңыз";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Дайын";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Бір ойыншы барлық 26-ны ала алмайды. Айды қолданыңыз.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d артық";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d қалды";

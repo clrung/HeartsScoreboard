@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Ο παίκτης που πήρε το 10♦ παίρνει −10 σε αυτόν τον γύρο.";
 "−10" = "−10";
 "Select who took the 10♦" = "Επιλέξτε ποιος πήρε το 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Απομένουν %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Προηγείται";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Ιστορικό";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Ο γύρος προστέθηκε. Προηγείται ο/η %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Γύρος %d, %@: %d πόντοι";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Γύρος %d, %@: πυροβόλησε το φεγγάρι";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", πήρε το 10 καρό";
+/* HistoryView empty state title */
+"No Games Yet" = "Κανένα παιχνίδι ακόμη";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Τα ολοκληρωμένα παιχνίδια θα εμφανίζονται εδώ.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d γύροι";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Πυροβόλησε το φεγγάρι";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "Ο/Η %@ πήρε το 10 καρό";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d πόντοι";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Προσθήκη %d πόντων στον/στην %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Ντάμα μπαστούνι στον/στην %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Πυροβόλησε το φεγγάρι για τον/την %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Μείωση πόντων για %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Αύξηση πόντων για %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Έτοιμο για υποβολή";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Επιλέξτε ποιος πήρε το 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Έτοιμο";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Ένας παίκτης δεν μπορεί να πάρει και τα 26. Χρησιμοποιήστε το φεγγάρι.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d πάνω";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ακόμη";

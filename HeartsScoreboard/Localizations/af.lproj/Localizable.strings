@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Die speler wat die 10♦ geneem het, kry −10 hierdie rondte.";
 "−10" = "−10";
 "Select who took the 10♦" = "Kies wie die 10♦ geneem het";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d oor";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Voor";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Geskiedenis";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Rondte bygevoeg. %@ lei";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Rondte %d, %@: %d punte";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Rondte %d, %@: het die maan geskiet";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", het die ruit 10 geneem";
+/* HistoryView empty state title */
+"No Games Yet" = "Nog Geen Speletjies";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Voltooide speletjies verskyn hier.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rondtes";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Het die maan geskiet";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ het die ruit 10 geneem";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d punte";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Voeg %d punte by vir %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Skoppensvrou aan %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Skiet die maan vir %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Verminder punte vir %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Verhoog punte vir %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Gereed om in te dien";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Kies wie die 10♦ geneem het";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Gereed";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Een speler kan nie al 26 neem nie. Gebruik die maan.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d te veel";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d oor";

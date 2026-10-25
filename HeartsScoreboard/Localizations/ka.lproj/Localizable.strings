@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "მოთამაშე, რომელმაც 10♦ აიღო, ამ რაუნდში იღებს −10-ს.";
 "−10" = "−10";
 "Select who took the 10♦" = "აირჩიეთ, ვინ აიღო 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "დარჩა %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ლიდერობს";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ისტორია";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "რაუნდი დაემატა. ლიდერობს %@";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "რაუნდი %d, %@: %d ქულა";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "რაუნდი %d, %@: მთვარეს ესროლა";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", აიღო 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "ჯერ თამაშები არ არის";
+/* HistoryView empty state description */
+"Finished games will show up here." = "დასრულებული თამაშები აქ გამოჩნდება.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d რაუნდი";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "მთვარეს ესროლა";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@-მ აიღო 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ქულა";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "დაამატეთ %d ქულა: %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "ყვავის დედოფალი: %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "მთვარეს სროლა: %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "ქულების შემცირება: %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "ქულების გაზრდა: %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "მზადაა გასაგზავნად";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "აირჩიეთ, ვინ აიღო 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "მზადაა";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ერთ მოთამაშეს ყველა 26 ვერ აიღებს. გამოიყენეთ მთვარე.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ზედმეტი";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d დარჩა";

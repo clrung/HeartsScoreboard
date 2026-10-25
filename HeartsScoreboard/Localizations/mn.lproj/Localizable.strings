@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦-г авсан тоглогч энэ тойрогт −10 оноо авна.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦-г хэн авсныг сонгоно уу";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d үлдсэн";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Тэргүүлж байна";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Түүх";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Тойрог нэмэгдлээ. %@ тэргүүлж байна";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "%d тойрог, %@: %d оноо";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "%d тойрог, %@: сарыг буудсан";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", 10♦-г авсан";
+/* HistoryView empty state title */
+"No Games Yet" = "Тоглоом алга";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Дууссан тоглоомууд энд харагдана.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d тойрог";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Сарыг буудсан";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ 10♦-г авсан";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d оноо";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@-д %1$d оноо нэмэх";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@-д лиангийн хатан";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@-д сарыг буудах";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@-ийн оноог багасгах";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@-ийн оноог нэмэгдүүлэх";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Илгээхэд бэлэн";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦-г хэн авсныг сонгоно уу";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Бэлэн";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Нэг тоглогч бүх 26-г авч болохгүй. Сарыг ашиглана уу.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d илүү";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d үлдсэн";

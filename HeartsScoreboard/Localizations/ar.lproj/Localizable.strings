@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "اللاعب الذي أخذ الـ10♦ يحصل على −10 في هذه الجولة.";
 "−10" = "−10";
 "Select who took the 10♦" = "اختر من أخذ الـ10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "متبقي %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "في الصدارة";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "السجل";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "تمت إضافة الجولة. %@ في الصدارة";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "الجولة %d، %@: %d نقطة";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "الجولة %d، %@: أخذ القمر";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = "، أخذ عشرة الديناري";
+/* HistoryView empty state title */
+"No Games Yet" = "لا توجد ألعاب بعد";
+/* HistoryView empty state description */
+"Finished games will show up here." = "ستظهر الألعاب المنتهية هنا.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d جولات";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "أخذ القمر";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ أخذ عشرة الديناري";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d نقطة";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "إضافة %d نقطة إلى %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "بنت البستوني إلى %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "أخذ القمر لـ%@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "إنقاص نقاط %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "زيادة نقاط %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "جاهز للإرسال";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "اختر من أخذ الـ10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "جاهز";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "لا يمكن للاعب واحد أخذ كل الـ26. استخدم القمر.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · زيادة %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · متبقي %d";

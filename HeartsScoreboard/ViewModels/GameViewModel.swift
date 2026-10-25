@@ -263,6 +263,46 @@ final class GameViewModel {
         game.players.contains { game.totalPoints(for: $0.id) >= settings.endingScore }
     }
 
+    /// Players with the lowest total (Hearts: lowest score leads). Empty before the first round
+    /// so nobody is crowned while everyone is tied at zero.
+    var leadingPlayerIDs: Set<UUID> {
+        guard !game.hands.isEmpty else { return [] }
+        let totals = game.totals()
+        guard let minTotal = totals.map(\.total).min() else { return [] }
+        return Set(totals.filter { $0.total == minTotal }.map(\.player.id))
+    }
+
+    /// Names of the current leaders, in seat order.
+    var leadingPlayerNames: [String] {
+        let ids = leadingPlayerIDs
+        return game.players.filter { ids.contains($0.id) }.map(\.name)
+    }
+
+    /// Players with the highest total, i.e. closest to ending the game. Empty before any points are scored.
+    var highestScorerIDs: Set<UUID> {
+        let totals = game.totals()
+        guard let maxTotal = totals.map(\.total).max(), maxTotal > 0 else { return [] }
+        return Set(totals.filter { $0.total == maxTotal }.map(\.player.id))
+    }
+
+    /// Points a player can still take before reaching the ending score (never negative).
+    func pointsRemaining(for playerID: UUID) -> Int {
+        max(0, settings.endingScore - game.totalPoints(for: playerID))
+    }
+
+    /// Fraction of the ending score a player has reached, clamped to 0...1.
+    func progress(for playerID: UUID) -> Double {
+        guard settings.endingScore > 0 else { return 1 }
+        let fraction = Double(game.totalPoints(for: playerID)) / Double(settings.endingScore)
+        return min(1, max(0, fraction))
+    }
+
+    /// Points left before the game ends, shown only under the highest scorer(s) while the game is in play.
+    func pointsToGo(for playerID: UUID) -> Int? {
+        guard !isGameOver, highestScorerIDs.contains(playerID) else { return nil }
+        return pointsRemaining(for: playerID)
+    }
+
     var statusText: String {
         if isGameOver {
             return winnerDescription(for: game) ?? String(localized: "Game over")

@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Lojtari që mori 10♦ fiton −10 në këtë raund.";
 "−10" = "−10";
 "Select who took the 10♦" = "Zgjidh kush e mori 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Edhe %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Në krye";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Historiku";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Raundi u shtua. %@ udhëheq";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Rreth %d, %@: %d pikë";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Rreth %d, %@: gjuajti hënën";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", mori dhjetën e karos";
+/* HistoryView empty state title */
+"No Games Yet" = "Ende pa lojëra";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Lojërat e përfunduara do të shfaqen këtu.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rrethe";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Gjuajti hënën";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ mori dhjetën e karos";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d pikë";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Shto %d pikë për %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Mbretëresha e maçit për %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Gjuaj hënën për %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Ul pikët për %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Rrit pikët për %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Gati për dërgim";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Zgjidh kush mori 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Gati";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Një lojtar nuk mund t'i marrë të gjitha 26. Përdor hënën.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d mbi";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · edhe %d";

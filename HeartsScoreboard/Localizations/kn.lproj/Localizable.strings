@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ ತೆಗೆದುಕೊಂಡ ಆಟಗಾರನಿಗೆ ಈ ಸುತ್ತಿನಲ್ಲಿ −10 ಸಿಗುತ್ತದೆ.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ಯಾರು ತೆಗೆದುಕೊಂಡರು ಎಂದು ಆರಿಸಿ";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "ಇನ್ನೂ %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "ಮುನ್ನಡೆ";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "ಇತಿಹಾಸ";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "ಸುತ್ತು ಸೇರಿಸಲಾಗಿದೆ. %@ ಮುನ್ನಡೆಯಲ್ಲಿದ್ದಾರೆ";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "ಸುತ್ತು %d, %@: %d ಅಂಕಗಳು";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "ಸುತ್ತು %d, %@: ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿದರು";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", 10♦ ತೆಗೆದುಕೊಂಡರು";
+/* HistoryView empty state title */
+"No Games Yet" = "ಇನ್ನೂ ಆಟಗಳಿಲ್ಲ";
+/* HistoryView empty state description */
+"Finished games will show up here." = "ಮುಗಿದ ಆಟಗಳು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d ಸುತ್ತುಗಳು";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿದರು";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ 10♦ ತೆಗೆದುಕೊಂಡರು";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d ಅಂಕಗಳು";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "%2$@ ಗೆ %1$d ಅಂಕಗಳನ್ನು ಸೇರಿಸಿ";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "%@ ಗೆ ಸ್ಪೇಡ್ಸ್ ರಾಣಿ";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "%@ ಗಾಗಿ ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "%@ ಅವರ ಅಂಕಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಿ";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "%@ ಅವರ ಅಂಕಗಳನ್ನು ಹೆಚ್ಚಿಸಿ";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "ಸಲ್ಲಿಸಲು ಸಿದ್ಧ";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "10♦ ತೆಗೆದುಕೊಂಡವರನ್ನು ಆರಿಸಿ";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "ಸಿದ್ಧ";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "ಒಬ್ಬ ಆಟಗಾರ ಎಲ್ಲಾ 26 ತೆಗೆದುಕೊಳ್ಳಲಾಗದು. ಚಂದ್ರನನ್ನು ಬಳಸಿ.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d ಹೆಚ್ಚು";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d ಉಳಿದಿದೆ";

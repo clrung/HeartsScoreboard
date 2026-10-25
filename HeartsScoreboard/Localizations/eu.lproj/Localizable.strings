@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "10♦ hartu zuen jokalariak −10 lortzen du txanda honetan.";
 "−10" = "−10";
 "Select who took the 10♦" = "Hautatu nork hartu duen 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "%d falta dira";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Aurrean";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Historia";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Txanda gehitu da. %@ buru da";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "%d. txanda, %@: %d puntu";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "%d. txanda, %@: ilargiari tiro egin dio";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", diamanteen 10a hartu zuen";
+/* HistoryView empty state title */
+"No Games Yet" = "Oraindik ez dago jokorik";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Amaitutako jokoak hemen agertuko dira.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d txanda";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Ilargiari tiro egin dio";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@(e)k diamanteen 10a hartu zuen";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d puntu";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Gehitu %d puntu: %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Pikaren erregina: %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Tiro egin ilargiari: %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Murriztu puntuak: %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Handitu puntuak: %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Bidaltzeko prest";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Hautatu nork hartu duen 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Prest";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Jokalari batek ezin ditu 26ak hartu. Erabili ilargia.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d soberan";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · %d falta dira";

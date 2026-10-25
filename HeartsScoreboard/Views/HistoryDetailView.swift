@@ -12,7 +12,7 @@ struct HistoryDetailView: View {
 
     var body: some View {
         ZStack {
-            backgroundGradient.ignoresSafeArea()
+            Theme.feltGradient(for: colorScheme).ignoresSafeArea()
 
             VStack(spacing: 16) {
                 Text(completedGame.finishedAt, format: .dateTime.month().day().year().hour().minute())
@@ -31,42 +31,13 @@ struct HistoryDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private var backgroundGradient: LinearGradient {
-        switch colorScheme {
-        case .light:
-            return LinearGradient(
-                colors: [
-                    Color(red: 0.0, green: 0.55, blue: 0.25),
-                    Color(red: 0.5, green: 0.95, blue: 0.55)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        case .dark:
-            return LinearGradient(
-                colors: [
-                    Color(red: 0.03, green: 0.16, blue: 0.10),
-                    Color(red: 0.02, green: 0.28, blue: 0.18)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-        @unknown default:
-            return LinearGradient(
-                colors: [Color.green, Color.green.opacity(0.7)],
-                startPoint: .top,
-                endPoint: .bottom
-            )
-        }
-    }
-
     private var scoreboard: some View {
         RoundedRectangle(cornerRadius: 24, style: .continuous)
             .fill(.ultraThinMaterial)
             .background(
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
                     .fill(
-                        Color(red: 0.86, green: 1.0, blue: 0.91)
+                        Theme.scoreboardCard(for: colorScheme)
                             .opacity(colorScheme == .dark ? 0.9 : 0.85)
                     )
             )
@@ -101,6 +72,7 @@ struct HistoryDetailView: View {
                     .font(.headline.weight(.semibold))
                     .lineLimit(1)
                     .truncationMode(.tail)
+                    .accessibilityAddTraits(.isHeader)
                     .padding(.vertical, 4)
                     .padding(.horizontal, 8)
                     .background(
@@ -166,6 +138,8 @@ private struct ScoreColumnView: View {
         VStack(spacing: 8) {
             ForEach(Array(game.hands.enumerated()), id: \.element.id) { index, hand in
                 ScoreCellView(
+                    round: index + 1,
+                    playerName: game.players.first { $0.id == playerID }?.name ?? "",
                     score: hand.pointsByPlayerID[playerID] ?? 0,
                     isMoon: game.isMoonHand(hand, for: playerID),
                     hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == playerID,
@@ -178,11 +152,21 @@ private struct ScoreColumnView: View {
 }
 
 private struct ScoreCellView: View {
+    let round: Int
+    let playerName: String
     let score: Int
     let isMoon: Bool
     let hasTenOfDiamonds: Bool
     let isEvenRow: Bool
     let colorScheme: ColorScheme
+
+    private var accessibilityText: String {
+        var text = isMoon
+            ? String(format: String(localized: "Round %d, %@: shot the moon"), round, playerName)
+            : String(format: String(localized: "Round %d, %@: %d points"), round, playerName, score)
+        if hasTenOfDiamonds { text += String(localized: ", took the 10 of diamonds") }
+        return text
+    }
 
     var body: some View {
         Group {
@@ -194,6 +178,8 @@ private struct ScoreCellView: View {
         }
         .font(.footnote.weight(.medium))
         .foregroundStyle(Color.primary)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(accessibilityText)
         .frame(width: 56, height: 26)
         .overlay(alignment: .topTrailing) {
             if hasTenOfDiamonds {

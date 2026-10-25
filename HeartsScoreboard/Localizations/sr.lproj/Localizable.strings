@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Играч који је узео 10♦ добија −10 у овој рунди.";
 "−10" = "−10";
 "Select who took the 10♦" = "Изабери ко је узео 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Још %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Води";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Историја";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Рунда додата. %@ води";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Рунда %d, %@: %d поена";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Рунда %d, %@: пуцање у месец";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", узео 10 каро";
+/* HistoryView empty state title */
+"No Games Yet" = "Још нема игара";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Завршене игре ће се појавити овде.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "Рунди: %d";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Пуцање у месец";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ је узео 10 каро";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "Поена: %d";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Додај %d поена за %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Дама пик за %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Пуцај у месец за %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Смањи поене за %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Повећај поене за %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Спремно за слање";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Изабери ко је узео 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Спремно";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Један играч не може узети свих 26. Користи месец.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d преко";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · још %d";

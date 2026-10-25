@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "El jugador que ha agafat el 10♦ obté −10 en aquesta ronda.";
 "−10" = "−10";
 "Select who took the 10♦" = "Selecciona qui s'ha emportat el 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Falten %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Al capdavant";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Historial";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Ronda afegida. %@ va al capdavant";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Ronda %d, %@: %d punts";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Ronda %d, %@: ha disparat a la lluna";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", s'ha emportat el 10 de diamants";
+/* HistoryView empty state title */
+"No Games Yet" = "Encara no hi ha partides";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Les partides acabades apareixeran aquí.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d rondes";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Ha disparat a la lluna";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ s'ha emportat el 10 de diamants";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d punts";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Afegeix %d punts a %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Dama de piques per a %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Dispara a la lluna per a %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Redueix els punts de %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Augmenta els punts de %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "A punt per enviar";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Selecciona qui s'ha emportat el 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "A punt";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Un jugador no pot emportar-se els 26. Usa la lluna.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · %d de més";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · falten %d";

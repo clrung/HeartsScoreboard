@@ -72,3 +72,53 @@
 "The player who took the 10♦ scores −10 this round." = "Pemain yang mengambil 10♦ mendapat −10 di babak ini.";
 "−10" = "−10";
 "Select who took the 10♦" = "Pilih siapa yang mengambil 10♦";
+
+/* UI/UX refresh: round progress, leader, VoiceOver, history */
+/* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
+"%d to go" = "Sisa %d";
+/* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
+"Leading" = "Memimpin";
+/* GameView: History toolbar button VoiceOver label */
+"History" = "Riwayat";
+/* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
+"Round added. %@ leads" = "Babak ditambahkan. %@ memimpin";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: %d points" = "Babak %d, %@: %d poin";
+/* HistoryDetailView score cell accessibility (shared with GameView) */
+"Round %d, %@: shot the moon" = "Babak %d, %@: mengambil bulan";
+/* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
+", took the 10 of diamonds" = ", mengambil 10♦";
+/* HistoryView empty state title */
+"No Games Yet" = "Belum Ada Permainan";
+/* HistoryView empty state description */
+"Finished games will show up here." = "Permainan yang selesai akan muncul di sini.";
+/* HistoryView row badge (round count) and accessibility label */
+"%d rounds" = "%d babak";
+/* HistoryView row accessibility label when a moon was shot */
+"Shot the moon" = "Mengambil bulan";
+/* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
+"%@ took the 10 of diamonds" = "%@ mengambil 10♦";
+/* RoundInputView: VoiceOver value on a player row */
+"%d points" = "%d poin";
+/* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
+"Add %d points to %@" = "Tambah %d poin untuk %@";
+/* RoundInputView: VoiceOver label for Q spades chip */
+"Queen of spades to %@" = "Ratu sekop untuk %@";
+/* RoundInputView: VoiceOver label for moon chip */
+"Shoot the moon for %@" = "Ambil bulan untuk %@";
+/* RoundInputView: VoiceOver label for minus stepper */
+"Decrease points for %@" = "Kurangi poin untuk %@";
+/* RoundInputView: VoiceOver label for plus stepper */
+"Increase points for %@" = "Tambah poin untuk %@";
+/* RoundInputView: VoiceOver announcement when round becomes submittable */
+"Ready to submit" = "Siap dikirim";
+/* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
+"Choose who took the 10♦" = "Pilih siapa yang mengambil 10♦";
+/* RoundInputView: progress strip, valid normal round */
+"Ready" = "Siap";
+/* RoundInputView: progress strip, 26 total but all on one player */
+"One player can't take all 26. Use the moon." = "Satu pemain tidak bisa mengambil semua 26. Gunakan bulan.";
+/* RoundInputView: progress strip over 26 */
+"%d / 26 · %d over" = "%d / 26 · lebih %d";
+/* RoundInputView: progress strip under 26 */
+"%d / 26 · %d left" = "%d / 26 · sisa %d";
