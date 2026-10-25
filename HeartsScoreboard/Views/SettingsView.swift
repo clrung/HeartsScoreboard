@@ -64,7 +64,8 @@ struct SettingsView: View {
                     }
                 }
                 
-                Section("Ending Score") {
+                // No header: the row text already reads "Ending Score: N".
+                Section {
                     VStack(alignment: .leading) {
                         Text(String(format: String(localized: "Ending Score: %d"), model.settings.endingScore))
                         Slider(

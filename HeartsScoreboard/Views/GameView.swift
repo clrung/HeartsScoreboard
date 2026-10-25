@@ -16,7 +16,6 @@ struct GameView: View {
     /// Bumped by confirmed undo / new game so `.sensoryFeedback` fires for those actions only.
     @State private var undoFeedbackToken = 0
     @State private var newGameFeedbackToken = 0
-    @Environment(\.scenePhase) private var scenePhase
     @State private var hasShownShakeHint: Bool
 
 
@@ -56,33 +55,32 @@ struct GameView: View {
                 .frame(width: 1, height: 1)
                 .allowsHitTesting(false)
         )
-        .alert("Undo last round", isPresented: $showUndoAlert) {
-            Button("No", role: .cancel) {}
-            Button("Yes") {
-                model.removeLastHand()
-                undoFeedbackToken += 1
-            }
-        } message: {
-            Text("Are you sure you would like to undo the last round?")
-        }
-        .alert("New Game", isPresented: $showNewGameAlert) {
-            Button("No", role: .cancel) {}
-            Button("Yes") {
-                model.newGame()
-                newGameFeedbackToken += 1
-            }
-        } message: {
-            Text("Are you sure? This will clear all round scores.")
-        }
-        .sheet(isPresented: $showingRoundInput) {
-            RoundInputView(model: model)
-        }
-        .sheet(isPresented: $showingSettings) {
-            SettingsView(model: model)
-        }
-        .sheet(isPresented: $showingHistory) {
-            HistoryView(model: model)
-        }
+        .modifier(GamePresentationsModifier(
+            model: model,
+            showingRoundInput: $showingRoundInput,
+            showingSettings: $showingSettings,
+            showingHistory: $showingHistory,
+            showUndoAlert: $showUndoAlert,
+            showNewGameAlert: $showNewGameAlert,
+            undoFeedbackToken: $undoFeedbackToken,
+            newGameFeedbackToken: $newGameFeedbackToken
+        ))
+        .modifier(GameShakeRefocusModifier(
+            model: model,
+            token: $shakeRefocusToken,
+            showingRoundInput: showingRoundInput,
+            showingSettings: showingSettings,
+            showingHistory: showingHistory,
+            showUndoAlert: showUndoAlert,
+            showNewGameAlert: showNewGameAlert
+        ))
+        .modifier(GameRoundEventsModifier(
+            model: model,
+            undoFeedbackToken: undoFeedbackToken,
+            newGameFeedbackToken: newGameFeedbackToken,
+            hasShownShakeHint: $hasShownShakeHint,
+            showShakeHint: $showShakeHint
+        ))
         .onAppear {
             guard model.persistsToCloud else { return }
             CloudSyncManager.shared.onSyncFromCloud = { [model] state in
@@ -92,53 +90,6 @@ struct GameView: View {
         .onChange(of: usesSplitLayout) { _, isSplit in
             // The inline panel replaces the round-input sheet.
             if isSplit { showingRoundInput = false }
-        }
-        .onChange(of: showingRoundInput) { _, isShowing in
-            if !isShowing { shakeRefocusToken += 1 }
-        }
-        .onChange(of: showingHistory) { _, isShowing in
-            if !isShowing { shakeRefocusToken += 1 }
-        }
-        .onChange(of: showUndoAlert) { _, isShowing in
-            if !isShowing { shakeRefocusToken += 1 }
-        }
-        .onChange(of: showNewGameAlert) { _, isShowing in
-            if !isShowing { shakeRefocusToken += 1 }
-        }
-        .onChange(of: scenePhase) { _, phase in
-            if phase == .active { shakeRefocusToken += 1 }
-        }
-        .onChange(of: showingSettings) { _, isShowing in
-            if !isShowing { shakeRefocusToken += 1 }
-            if !isShowing { model.persistToCloud() }
-        }
-        .sensoryFeedback(trigger: model.game.hands.count, roundAddedFeedback)
-        .sensoryFeedback(.warning, trigger: undoFeedbackToken)
-        .sensoryFeedback(.selection, trigger: newGameFeedbackToken)
-        .sensoryFeedback(trigger: model.isGameOver, gameOverFeedback)
-        .onChange(of: model.game.hands.count) { old, new in
-            guard new == old + 1 else { return }
-            let message: String
-            if model.isGameOver {
-                message = model.statusText
-            } else {
-                let leaders = ListFormatter.localizedString(byJoining: model.leadingPlayerNames)
-                message = String(format: String(localized: "Round added. %@ leads"), leaders)
-            }
-            AccessibilityNotification.Announcement(message).post()
-        }
-        .onChange(of: model.game.hands.count) { _, newCount in
-            guard newCount == 1, !hasShownShakeHint else { return }
-            hasShownShakeHint = true
-            UserDefaults.standard.set(true, forKey: "hasShownShakeUndoHint")
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                showShakeHint = true
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
-                    showShakeHint = false
-                }
-            }
         }
     }
 
@@ -200,6 +151,8 @@ struct GameView: View {
         .padding(.top, 8) // matches the scoreboard card's top inset
         .padding(.bottom, 12)
     }
+
+    @ScaledMetric(relativeTo: .caption) private var dealerSlotHeight: CGFloat = 25
 
     private var dealerIndex: Int { model.currentDealerIndex }
 
@@ -292,6 +245,7 @@ struct GameView: View {
                                     .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
                             }
                     }
+                    .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     .accessibilityLabel(Text("History"))
                     .accessibilityIdentifier("historyButton")
 
@@ -312,6 +266,7 @@ struct GameView: View {
                             }
                             .foregroundStyle(.primary)
                     }
+                    .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
                     .accessibilityLabel(Text("Settings"))
                     .accessibilityIdentifier("settingsButton")
                 }
@@ -319,27 +274,43 @@ struct GameView: View {
                 Text("Hearts Scoreboard")
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(Color.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .padding(.horizontal, 64) // clear of the History / Settings buttons
             }
 
-            HStack {
-                Text(headerSubtitle)
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(Color.white)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
-                    .allowsTightening(true)
-
-                Spacer()
-
-                Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore))
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(Color.white)
-                    .lineLimit(1)
-                    .fixedSize(horizontal: true, vertical: false)
+            // Side by side when they fit; stacked at large text sizes instead of truncating.
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    headerSubtitleText
+                    Spacer()
+                    gameToText
+                }
+                VStack(spacing: 2) {
+                    headerSubtitleText
+                    gameToText
+                }
             }
-            .padding(.horizontal, 70)
+            .padding(.horizontal, dynamicTypeSize.isAccessibilitySize ? 16 : 70)
         }
         .padding(.vertical, 12)
+    }
+
+    private var headerSubtitleText: some View {
+        Text(headerSubtitle)
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(Color.white)
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
+            .allowsTightening(true)
+    }
+
+    private var gameToText: some View {
+        Text(String(format: String(localized: "Game to: %d"), model.settings.endingScore))
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(Color.white)
+            .lineLimit(1)
+            .fixedSize(horizontal: true, vertical: false)
     }
 
     private var headerSubtitle: String {
@@ -410,7 +381,7 @@ struct GameView: View {
                                     dealerBadge
                                 }
                             }
-                            .frame(height: 25)
+                            .frame(minHeight: dealerSlotHeight)
                             Text(headerLabel)
                                 .accessibilityLabel(player.name)
                                 .font((usesSplitLayout && model.game.players.count > 4 ? Font.subheadline : Font.headline).weight(.semibold))
@@ -461,6 +432,15 @@ struct GameView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .padding(.vertical, 6)
         .padding(.horizontal, 6)
+        .dynamicTypeSize(...maxScoreboardTypeSize)
+    }
+
+    /// One column per player can't hold accessibility-size totals once 5-6 players share a phone-width
+    /// card (columns overflowed and clipped), so crowded boards stop growing at a size that still fits.
+    private var maxScoreboardTypeSize: DynamicTypeSize {
+        let count = model.game.players.count
+        if count <= 4 { return .accessibility2 }
+        return usesSplitLayout ? .large : .xxxLarge
     }
 
     private func scoresScroll(proxy: ScrollViewProxy) -> some View {
@@ -472,25 +452,12 @@ struct GameView: View {
                             let score = hand.pointsByPlayerID[player.id] ?? 0
                             let isEvenRow = index.isMultiple(of: 2)
                             let isMoon = model.game.isMoonHand(hand, for: player.id)
-                            Group {
-                                if isMoon {
-                                    Image(systemName: "moon.fill")
-                                } else {
-                                    Text("\(score)")
-                                }
-                            }
-                            .font(.footnote.weight(.medium))
-                            .foregroundStyle(Color.primary)
-                            .frame(maxWidth: 56) // shrinks with the column so 6 players fit narrow panes
-                            .frame(height: 26)
-                            .overlay(alignment: .topTrailing) {
-                                if hand.tenOfDiamondsPlayerID == player.id {
-                                    Text("♦")
-                                        .font(.system(size: 9, weight: .semibold))
-                                        .foregroundStyle(Color.red)
-                                        .padding(.trailing, 4)
-                                }
-                            }
+                            ScoreCellContent(
+                                score: score,
+                                isMoon: isMoon,
+                                moonBonus: model.game.moonCellTenOfDiamondsBonus(hand, for: player.id)
+                            )
+                            .modifier(ScoreCellFrame(hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == player.id))
                             .accessibilityLabel(cellAccessibilityLabel(
                                 round: index + 1, playerName: player.name, score: score,
                                 isMoon: isMoon, tookTenOfDiamonds: hand.tenOfDiamondsPlayerID == player.id
@@ -538,55 +505,198 @@ struct GameView: View {
     /// (the dark-mode accent is too light for white text).
     private static let feltButtonGreen = Color(red: 0.10, green: 0.45, blue: 0.20)
 
-    /// A round that ends the game gets the heavier game-over haptic instead.
-    /// Only single-round steps buzz, so a bulk iCloud restore stays silent.
-    private func roundAddedFeedback(old: Int, new: Int) -> SensoryFeedback? {
-        guard new == old + 1, !model.isGameOver else { return nil }
-        return .success
-    }
-
-    private func gameOverFeedback(old: Bool, new: Bool) -> SensoryFeedback? {
-        new && !old ? .impact(weight: .heavy) : nil
-    }
-
+    /// One row when it fits; stacked at large text sizes (or narrow panes) so labels never clip.
     private var bottomBar: some View {
-        HStack {
-            Button {
-                showNewGameAlert = true
-            } label: {
-                Label("New Game", systemImage: "arrow.counterclockwise")
-            }
-            .buttonStyle(FeltChipButtonStyle())
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .disabled(model.game.hands.isEmpty)
-            .accessibilityHint(Text("Starts a new game with the same players"))
-
-            Button {
-                showUndoAlert = true
-            } label: {
-                Image(systemName: "arrow.uturn.backward")
-            }
-            .buttonStyle(FeltChipButtonStyle())
-            .disabled(!model.canUndo)
-            .accessibilityLabel(Text("Undo Round"))
-            .accessibilityIdentifier("undoButton")
-
-            if !usesSplitLayout {
-                Button {
-                    showingRoundInput = true
-                } label: {
-                    Label("Next Round", systemImage: "arrow.right.circle.fill")
+        ViewThatFits(in: .horizontal) {
+            HStack {
+                newGameButton
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                undoButton
+                if !usesSplitLayout {
+                    nextRoundButton
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(Self.feltButtonGreen)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .disabled(model.isGameOver)
-                .accessibilityHint(Text("Enter scores for the next round"))
-                .accessibilityIdentifier("nextRoundButton")
+            }
+            VStack(spacing: 8) {
+                if !usesSplitLayout {
+                    nextRoundButton
+                }
+                HStack {
+                    newGameButton
+                    undoButton
+                }
+                .frame(maxWidth: .infinity)
+            }
+            VStack(spacing: 8) {
+                if !usesSplitLayout {
+                    nextRoundButton
+                }
+                newGameButton
+                undoButton
             }
         }
         .font(.callout)
         .padding(.vertical, 12)
+    }
+
+    private var newGameButton: some View {
+        Button {
+            showNewGameAlert = true
+        } label: {
+            Label("New Game", systemImage: "arrow.counterclockwise")
+        }
+        .buttonStyle(FeltChipButtonStyle())
+        .disabled(model.game.hands.isEmpty)
+        .accessibilityHint(Text("Starts a new game with the same players"))
+    }
+
+    private var undoButton: some View {
+        Button {
+            showUndoAlert = true
+        } label: {
+            Image(systemName: "arrow.uturn.backward")
+        }
+        .buttonStyle(FeltChipButtonStyle())
+        .disabled(!model.canUndo)
+        .accessibilityLabel(Text("Undo Round"))
+        .accessibilityIdentifier("undoButton")
+    }
+
+    private var nextRoundButton: some View {
+        Button {
+            showingRoundInput = true
+        } label: {
+            Label("Next Round", systemImage: "arrow.right.circle.fill")
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(Self.feltButtonGreen)
+        .disabled(model.isGameOver)
+        .accessibilityHint(Text("Enter scores for the next round"))
+        .accessibilityIdentifier("nextRoundButton")
+    }
+}
+
+// MARK: - Body modifier groups (keep GameView.body under the type-checker limit)
+
+/// Undo / new-game alerts and the round-input, settings and history sheets.
+private struct GamePresentationsModifier: ViewModifier {
+    let model: GameViewModel
+    @Binding var showingRoundInput: Bool
+    @Binding var showingSettings: Bool
+    @Binding var showingHistory: Bool
+    @Binding var showUndoAlert: Bool
+    @Binding var showNewGameAlert: Bool
+    @Binding var undoFeedbackToken: Int
+    @Binding var newGameFeedbackToken: Int
+
+    func body(content: Content) -> some View {
+        content
+            .alert("Undo last round", isPresented: $showUndoAlert) {
+                Button("No", role: .cancel) {}
+                Button("Yes") {
+                    model.removeLastHand()
+                    undoFeedbackToken += 1
+                }
+            } message: {
+                Text("Are you sure you would like to undo the last round?")
+            }
+            .alert("New Game", isPresented: $showNewGameAlert) {
+                Button("No", role: .cancel) {}
+                Button("Yes") {
+                    model.newGame()
+                    newGameFeedbackToken += 1
+                }
+            } message: {
+                Text("Are you sure? This will clear all round scores.")
+            }
+            .sheet(isPresented: $showingRoundInput) {
+                RoundInputView(model: model)
+            }
+            .sheet(isPresented: $showingSettings) {
+                SettingsView(model: model)
+            }
+            .sheet(isPresented: $showingHistory) {
+                HistoryView(model: model)
+            }
+    }
+}
+
+/// Bumps the shake detector's refocus token whenever something that may have stolen first responder
+/// (a sheet, an alert, backgrounding) goes away; also persists settings when that sheet closes.
+private struct GameShakeRefocusModifier: ViewModifier {
+    let model: GameViewModel
+    @Binding var token: Int
+    let showingRoundInput: Bool
+    let showingSettings: Bool
+    let showingHistory: Bool
+    let showUndoAlert: Bool
+    let showNewGameAlert: Bool
+    @Environment(\.scenePhase) private var scenePhase
+
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: showingRoundInput) { _, isShowing in
+                if !isShowing { token += 1 }
+            }
+            .onChange(of: showingHistory) { _, isShowing in
+                if !isShowing { token += 1 }
+            }
+            .onChange(of: showUndoAlert) { _, isShowing in
+                if !isShowing { token += 1 }
+            }
+            .onChange(of: showNewGameAlert) { _, isShowing in
+                if !isShowing { token += 1 }
+            }
+            .onChange(of: scenePhase) { _, phase in
+                if phase == .active { token += 1 }
+            }
+            .onChange(of: showingSettings) { _, isShowing in
+                if !isShowing { token += 1 }
+                if !isShowing { model.persistToCloud() }
+            }
+    }
+}
+
+/// Haptics, the VoiceOver round announcement, and the first-round shake hint.
+private struct GameRoundEventsModifier: ViewModifier {
+    let model: GameViewModel
+    let undoFeedbackToken: Int
+    let newGameFeedbackToken: Int
+    @Binding var hasShownShakeHint: Bool
+    @Binding var showShakeHint: Bool
+
+    func body(content: Content) -> some View {
+        content
+            // Keyed off the local-add token, not hands.count: a round arriving via iCloud sync stays silent.
+            .sensoryFeedback(trigger: model.localRoundToken, roundAddedFeedback)
+            .sensoryFeedback(.warning, trigger: undoFeedbackToken)
+            .sensoryFeedback(.selection, trigger: newGameFeedbackToken)
+            .sensoryFeedback(trigger: model.isGameOver, gameOverFeedback)
+            .onChange(of: model.localRoundToken) {
+                AccessibilityNotification.Announcement(model.roundAddedAnnouncement).post()
+            }
+            .onChange(of: model.game.hands.count) { _, newCount in
+                guard newCount == 1, !hasShownShakeHint else { return }
+                hasShownShakeHint = true
+                UserDefaults.standard.set(true, forKey: "hasShownShakeUndoHint")
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                    showShakeHint = true
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
+                        showShakeHint = false
+                    }
+                }
+            }
+    }
+
+    /// A round that ends the game gets the heavier game-over haptic instead.
+    private func roundAddedFeedback(old: Int, new: Int) -> SensoryFeedback? {
+        model.isGameOver ? nil : .success
+    }
+
+    private func gameOverFeedback(old: Bool, new: Bool) -> SensoryFeedback? {
+        new && !old ? .impact(weight: .heavy) : nil
     }
 }
 

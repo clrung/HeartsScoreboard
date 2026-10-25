@@ -98,6 +98,10 @@ final class GameViewModel {
     var history: [CompletedGame] = []
     /// When false, state is never pushed to iCloud (screenshot demo mode keeps its own isolated state).
     var persistsToCloud = true
+    /// Bumped by every round added on THIS device (`addHand`). Views key the round-added haptic and
+    /// VoiceOver announcement off this instead of `game.hands.count`, so a round that merely arrives
+    /// via iCloud sync (which changes the count by one too) stays silent. Undo/sync never touch it.
+    private(set) var localRoundToken = 0
 
     init(
         game: HeartsGame = HeartsGame(players: [
@@ -164,6 +168,7 @@ final class GameViewModel {
     /// - Parameter pointsByPlayerID: hearts/Q♠ points per player (without the 10♦ bonus).
     /// - Parameter tenOfDiamondsPlayerID: player who took the 10♦ when the rule is on; their -10 is folded into the stored points.
     func addHand(pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) {
+        localRoundToken += 1
         game.hands.append(
             .init(
                 id: UUID(),
@@ -347,6 +352,14 @@ final class GameViewModel {
         }
     }
 
+    /// VoiceOver announcement for a round just added locally: the result when it ended the game,
+    /// otherwise who leads.
+    var roundAddedAnnouncement: String {
+        if isGameOver { return statusText }
+        let leaders = ListFormatter.localizedString(byJoining: leadingPlayerNames)
+        return String(format: String(localized: "Round added. %@ leads"), leaders)
+    }
+
     // MARK: - History helpers
 
     private func archiveCompletedGameIfNeeded() {
@@ -399,3 +412,13 @@ final class GameViewModel {
     }
 }
 
+
+extension HeartsGame {
+    /// The 10♦ bonus (−10) to show next to the moon icon when this player shot the moon AND took the
+    /// 10♦ that hand; nil otherwise. A moon cell has no number, so without this the −10 would be
+    /// invisible. Display only: totals already include it.
+    func moonCellTenOfDiamondsBonus(_ hand: Hand, for playerID: UUID) -> Int? {
+        guard hand.tenOfDiamondsPlayerID == playerID, isMoonHand(hand, for: playerID) else { return nil }
+        return Self.tenOfDiamondsPoints
+    }
+}

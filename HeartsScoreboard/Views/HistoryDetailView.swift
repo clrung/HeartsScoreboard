@@ -143,6 +143,7 @@ private struct ScoreColumnView: View {
                     score: hand.pointsByPlayerID[playerID] ?? 0,
                     isMoon: game.isMoonHand(hand, for: playerID),
                     hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == playerID,
+                    moonBonus: game.moonCellTenOfDiamondsBonus(hand, for: playerID),
                     isEvenRow: index.isMultiple(of: 2),
                     colorScheme: colorScheme
                 )
@@ -157,6 +158,7 @@ private struct ScoreCellView: View {
     let score: Int
     let isMoon: Bool
     let hasTenOfDiamonds: Bool
+    let moonBonus: Int?
     let isEvenRow: Bool
     let colorScheme: ColorScheme
 
@@ -169,26 +171,10 @@ private struct ScoreCellView: View {
     }
 
     var body: some View {
-        Group {
-            if isMoon {
-                Image(systemName: "moon.fill")
-            } else {
-                Text("\(score)")
-            }
-        }
-        .font(.footnote.weight(.medium))
-        .foregroundStyle(Color.primary)
+        ScoreCellContent(score: score, isMoon: isMoon, moonBonus: moonBonus)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(accessibilityText)
-        .frame(width: 56, height: 26)
-        .overlay(alignment: .topTrailing) {
-            if hasTenOfDiamonds {
-                Text("♦")
-                    .font(.system(size: 9, weight: .semibold))
-                    .foregroundStyle(Color.red)
-                    .padding(.trailing, 4)
-            }
-        }
+        .modifier(ScoreCellFrame(hasTenOfDiamonds: hasTenOfDiamonds))
         .background(
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(

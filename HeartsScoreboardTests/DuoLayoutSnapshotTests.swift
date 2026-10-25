@@ -31,7 +31,8 @@ final class DuoLayoutSnapshotTests: XCTestCase {
                 players.forEach { pts[$0.id] = 26 }
                 pts[a] = 0
             }
-            let holder = tenRule ? players[(r + 2) % players.count].id : nil
+            // On the moon hand the shooter also took the 10♦ (shows the "−10" beside the moon).
+            let holder = tenRule ? (r == 3 ? a : players[(r + 2) % players.count].id) : nil
             if let holder { pts[holder, default: 0] -= 10 }
             return .init(id: UUID(), pointsByPlayerID: pts, notes: "", createdAt: Date(), tenOfDiamondsPlayerID: holder)
         }
@@ -64,7 +65,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
     }
 
     private func render(_ name: String, size: CGSize, regular: Bool, model: GameViewModel,
-                        dark: Bool = false) throws -> Rendered {
+                        dark: Bool = false, category: UIContentSizeCategory? = nil) throws -> Rendered {
         // A window without a scene doesn't render; attach to the host app's scene.
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
@@ -73,6 +74,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         window.traitOverrides.verticalSizeClass = regular ? .regular : .compact
         if size.width > size.height && !regular { window.traitOverrides.verticalSizeClass = .compact }
         window.overrideUserInterfaceStyle = dark ? .dark : .light
+        if let category { window.traitOverrides.preferredContentSizeCategory = category }
         let host = UIHostingController(rootView: GameView(model: model))
         window.rootViewController = host
         window.makeKeyAndVisible()
@@ -194,5 +196,39 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         let r = try render("outer-compact-4p-5r", size: Self.outer, regular: false,
                            model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5))
         XCTAssertFalse(isPanelColor(pixel(r.image, 466 * 0.75, 125)), "compact layout has no inline panel")
+    }
+
+    // MARK: Dynamic Type (visual review only: PNGs, plus a "renders something" check)
+
+    func testOuterAccessibilityTextSize4Players() throws {
+        _ = try render("outer-compact-4p-10d-ax3", size: Self.outer, regular: false,
+                       model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 6, tenRule: true),
+                       category: .accessibilityExtraLarge)
+    }
+
+    func testOuterAccessibilityTextSize6Players() throws {
+        let names = ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"]
+        _ = try render("outer-compact-6p-10d-ax3", size: Self.outer, regular: false,
+                       model: model(names: names, rounds: 6, tenRule: true),
+                       category: .accessibilityExtraLarge)
+    }
+
+    func testInner6PlayersAccessibilityTextSizeSplit() throws {
+        let names = ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"]
+        _ = try render("inner-6p-10d-portrait-ax3", size: Self.innerPortrait, regular: true,
+                       model: model(names: names, rounds: 6, tenRule: true),
+                       category: .accessibilityExtraLarge)
+    }
+
+    func testOuterLargeTextSize6Players() throws {
+        let names = ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"]
+        _ = try render("outer-compact-6p-10d-xxxl", size: Self.outer, regular: false,
+                       model: model(names: names, rounds: 6, tenRule: true),
+                       category: .extraExtraExtraLarge)
+    }
+
+    func testInner6PlayersTenRuleMoonDefaultSize() throws {
+        _ = try render("outer-compact-6p-10d-default", size: Self.outer, regular: false,
+                       model: model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"], rounds: 6, tenRule: true))
     }
 }

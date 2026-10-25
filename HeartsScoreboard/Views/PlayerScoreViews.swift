@@ -135,3 +135,57 @@ struct PlayerNameWithTotalView: View {
         }
     }
 }
+
+// MARK: - Score cell pieces (shared by GameView and HistoryDetailView)
+
+/// The text/icon inside a round-score cell: the number, or a moon for a shooter. A shooter who also
+/// took the 10♦ gets a small "−10" beside the moon, since the cell shows no number.
+struct ScoreCellContent: View {
+    let score: Int
+    let isMoon: Bool
+    /// From `HeartsGame.moonCellTenOfDiamondsBonus`; only meaningful with `isMoon`.
+    var moonBonus: Int? = nil
+
+    var body: some View {
+        Group {
+            if isMoon {
+                HStack(spacing: 3) {
+                    Image(systemName: "moon.fill")
+                    if let moonBonus {
+                        Text("\u{2212}\(abs(moonBonus))")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(Color.secondary)
+                            .monospacedDigit()
+                    }
+                }
+            } else {
+                Text("\(score)")
+            }
+        }
+        .font(.footnote.weight(.medium))
+        .foregroundStyle(Color.primary)
+        .lineLimit(1)
+        .minimumScaleFactor(0.6)
+    }
+}
+
+/// Sizing and 10♦ marker for a score cell. Height and the ♦ glyph scale with Dynamic Type; the width
+/// caps at 56pt but shrinks with its column so six players fit narrow panes.
+struct ScoreCellFrame: ViewModifier {
+    let hasTenOfDiamonds: Bool
+    @ScaledMetric(relativeTo: .footnote) private var cellHeight: CGFloat = 26
+    @ScaledMetric(relativeTo: .caption2) private var diamondSize: CGFloat = 9
+
+    func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: 56, minHeight: cellHeight)
+            .overlay(alignment: .topTrailing) {
+                if hasTenOfDiamonds {
+                    Text("♦")
+                        .font(.system(size: diamondSize, weight: .semibold))
+                        .foregroundStyle(Color.red)
+                        .padding(.trailing, 4)
+                }
+            }
+    }
+}

@@ -122,4 +122,28 @@ final class TenOfDiamondsTests: XCTestCase {
         XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [10, 0, 0, 0]))
         XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: []))
     }
+
+    // MARK: Moon cell display
+
+    func testMoonCellShowsMinusTenOnlyForShooterWhoTookTen() {
+        let shooterTook = hand([a.id: 0, b.id: 26, c.id: 26, d.id: 26], ten: a.id)
+        XCTAssertEqual(game.moonCellTenOfDiamondsBonus(shooterTook, for: a.id), -10)
+        // Others' cells are not moon cells.
+        XCTAssertNil(game.moonCellTenOfDiamondsBonus(shooterTook, for: b.id))
+        // Totals are untouched: the helper is display-only.
+        XCTAssertEqual(shooterTook.pointsByPlayerID[a.id], -10)
+
+        let subtract = hand([a.id: -26, b.id: 0, c.id: 0, d.id: 0], ten: a.id)
+        XCTAssertEqual(game.moonCellTenOfDiamondsBonus(subtract, for: a.id), -10)
+    }
+
+    func testMoonCellShowsNothingWhenAnotherPlayerTookTenOrRuleOff() {
+        let otherTook = hand([a.id: 0, b.id: 26, c.id: 26, d.id: 26], ten: c.id)
+        XCTAssertNil(game.moonCellTenOfDiamondsBonus(otherTook, for: a.id))
+        let ruleOff = hand([a.id: 0, b.id: 26, c.id: 26, d.id: 26], ten: nil)
+        XCTAssertNil(game.moonCellTenOfDiamondsBonus(ruleOff, for: a.id))
+        // Non-moon hand where the holder just has a lower score.
+        let plain = hand([a.id: 13, b.id: 13, c.id: 0, d.id: 0], ten: a.id)
+        XCTAssertNil(game.moonCellTenOfDiamondsBonus(plain, for: a.id))
+    }
 }

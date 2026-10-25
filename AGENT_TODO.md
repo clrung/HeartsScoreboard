@@ -64,7 +64,7 @@
 - [ ] `sr-Latn.lproj` existing strings are Cyrillic (transliterated, e.g. "Хеартс Сцоребоард"), not Latin; new 10♦ entries are Latin, so the file is mixed. Re-translate sr-Latn.
 - [ ] Existing "shoot the moon" translations look literal/machine-made in az, am, my, km, lo, mk, uz, ka, hy, kn, ml, si, zu — native review.
 - [ ] Gendered "taken by" phrasing (ru, uk, bs, hr, sr) uses "взял(а)"/"uzeo/la" forms — native review.
-- [ ] Moon cells show only the moon icon, so a shooter's −10 (10♦) isn't visible as a number — only the ♦ marker shows it (totals are correct).
+- [x] (Done: moon cell shows a small −10; HeartsGame.moonCellTenOfDiamondsBonus.) Moon cells show only the moon icon, so a shooter's −10 (10♦) isn't visible as a number — only the ♦ marker shows it (totals are correct).
 - [ ] "Select who took the 10♦" (Submit hint): native check of case/particle endings in am, az, hu, tr, uz, fi, mn, ne, pa, si, ta, te, kn, ml, mr, gu, ka, hy, kk, my, zu; ka/ml/ta/te labels are long (may truncate on the full-width button).
 - [x] (Done: FlowLayout and canSubmit preserved.) Coordinate with Duo work: `RoundInputView` now has a private `FlowLayout` for the 10♦ chips and a `canSubmit` gate — keep both when making rows flexible.
 - [ ] "10 of Diamonds" Settings header: native check of suit term in az, eu, hy, km, lo, mn, uz, ka, sw, zu, ar, lt, lv, cy, is, si, ta, te, kn, ml.
@@ -95,7 +95,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [ ] Undo without alert + "Undone — Redo" toast; edit any past round by tapping its row (needs `GameViewModel.updateHand(id:)` + tests).
 - [ ] Scoreboard readability: round-number rail, per-player progress bar toward ending score (amber/red near the end), highlight 26s; empty state "No rounds yet".
 - [ ] History detail: Swift Charts cumulative-score `LineMark` per player + `RuleMark` at ending score; stats row (rounds, moons, 10♦, biggest hand); hero line "Deuce won with 54" + rule summary from `completedGame.settings`; flexible cell widths on iPad.
-- [ ] Dynamic Type: fixed `frame(height: 26)` cells, `frame(width: 36, height: 26)` total badge, `.system(size: 9)` ♦ glyph, fixed bottom-bar HStack → `@ScaledMetric` / `minHeight` / `ViewThatFits`.
+- [x] (Done: @ScaledMetric/minHeight/ViewThatFits; scoreboard type size capped per player count.) Dynamic Type: fixed `frame(height: 26)` cells, `frame(width: 36, height: 26)` total badge, `.system(size: 9)` ♦ glyph, fixed bottom-bar HStack → `@ScaledMetric` / `minHeight` / `ViewThatFits`.
 - [ ] Reuse player names from history (suggestion chips/menu in Settings), placeholder "Player N".
 
 ### Tier 3 — polish
@@ -132,12 +132,12 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - Verified: 44 unit tests pass; screenshot UI tests pass on iPhone 17 + iPad Pro 13 (light/dark main, round input, summary, settings, history list checked visually).
 
 ### Follow-ups found during implementation
-- [ ] Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
+- [x] (Done: gated on GameViewModel.localRoundToken; regression test in UndoTests.) Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
 - [ ] Unused keys left in all locales: "Time", "Winner", "No completed games yet." (history header/empty state). Remove in a cleanup pass.
 - [ ] `%d rounds` isn't pluralized (stringsdict); harmless today (finished games always have >1 round).
 - [ ] sr-Latn Localizable.strings is actually Cyrillic (pre-existing); new keys were added in Latin.
-- [ ] GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
-- [ ] Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
+- [x] (Done: extracted into private ViewModifiers in GameView.swift.) GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
+- [x] (Done: header dropped.) Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
 - [ ] Not tested at accessibility Dynamic Type sizes, or with 6 players in the split layout (crown vs dealer badge overlap).
 
 ### Simulator / DeviceHub issues (2026-10-24)
@@ -146,3 +146,4 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - DeviceHub can only show/unfold a sim it booted itself; a headless `simctl boot` makes its Start fail with "current state: Booted". `screenshots.sh` now leaves duo-open booting to DeviceHub.
 - [x] (Fixed by a Mac restart.) After the 27.0 runtime install, DeviceHub's Start boots the sim (simctl shows Booted) but never attaches a display — same for every Duo sim, and survived quitting DeviceHub, `simctl erase`, and restarting CoreSimulatorService. Duo Open screenshots blocked until DeviceHub works again (try a Mac restart).
 - [ ] Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
+- [ ] At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").

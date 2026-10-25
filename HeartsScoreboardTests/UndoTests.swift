@@ -35,6 +35,27 @@ final class UndoTests: XCTestCase {
         XCTAssertTrue(model.game.hands.isEmpty)
     }
 
+    /// Regression: the round-added haptic/announcement is keyed off `localRoundToken`, which only a
+    /// local `addHand` bumps. A round arriving via iCloud sync (hands.count + 1) must not.
+    func testLocalRoundTokenBumpsOnlyForLocalAdds() {
+        let model = makeModel()
+        let ids = model.game.players.map(\.id)
+        XCTAssertEqual(model.localRoundToken, 0)
+
+        model.addHand(pointsByPlayerID: [ids[0]: 26, ids[1]: 0, ids[2]: 0, ids[3]: 0])
+        XCTAssertEqual(model.localRoundToken, 1)
+
+        // Another device's single new round arrives.
+        var synced = model.game
+        synced.hands.append(.init(id: UUID(), pointsByPlayerID: [ids[1]: 26], notes: "", createdAt: Date()))
+        model.applySyncedState(SyncableState(game: synced, settings: model.settings, firstDealerIndex: 1))
+        XCTAssertEqual(model.game.hands.count, 2)
+        XCTAssertEqual(model.localRoundToken, 1, "sync must not look like a local add")
+
+        model.removeLastHand()
+        XCTAssertEqual(model.localRoundToken, 1, "undo must not bump the token")
+    }
+
     /// Regression: after the first responder is lost (sheet dismissed), refocus() must restore it.
     func testShakeDetectorRegainsFirstResponderAfterLoss() {
         let window = UIWindow(frame: UIScreen.main.bounds)
