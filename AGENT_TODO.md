@@ -103,9 +103,9 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done.) Header: replace "Hearts Scoreboard" title with pass-direction chip + "Round N" + target; remove hard-coded `.padding(.horizontal, 70)`.
 - [x] (Done: PassDirectionChip; English-only chip titles.) Pass direction: render arrow as SF Symbol `Label` instead of glyph in strings (RTL + VoiceOver); needs new keys across all locales via scripts/.
 - [x] (Done.) Settings regroup: Players (incl. dealer picker) / Game Rules / Appearance / About as pushed `NavigationLink`; replace `.id(appearanceVersion)` hack (SettingsView.swift:121).
-- [ ] Accessibility announcements on round submit/game over; Reduce Motion for springs + repeating `.symbolEffect(.bounce)`; Increase Contrast / Reduce Transparency fallbacks for white-on-gradient and materials.
-- [ ] iPad: ⌘↩ submit, ⌘N next round, ⌘Z undo, ⌘, settings; `.hoverEffect()` on custom buttons; 44pt chip min height; long-press-repeat on +.
-- [ ] Shake hint: 3s auto-dismiss too short for VoiceOver; announce instead when VO running.
+- [x] (Done 2026-10-25: Announcer helper, Reduce Motion gating, solid fallbacks for Reduce Transparency/Increase Contrast; VoiceOver flow still needs a device.) Accessibility announcements on round submit/game over; Reduce Motion for springs + repeating `.symbolEffect(.bounce)`; Increase Contrast / Reduce Transparency fallbacks for white-on-gradient and materials.
+- [x] (Done; keyboard/hover/hold-repeat unverified without a device; ⇧⌘Z is an invisible button, ⌘N compact only.) iPad: ⌘↩ submit, ⌘N next round, ⌘Z undo, ⌘, settings; `.hoverEffect()` on custom buttons; 44pt chip min height; long-press-repeat on +.
+- [x] (Done: under VoiceOver the hint is appended to the round-added announcement, no overlay.) Shake hint: 3s auto-dismiss too short for VoiceOver; announce instead when VO running.
 - [x] (Done; PayPal link kept per user.) About: header with icon/name, group links, `ShareLink`, version in footer, single tint. PayPal $5 donate link (AboutView.swift:10) may conflict with App Review rules on donations from non-nonprofits — decide.
 
 ### Feature ideas (not yet decided)
@@ -148,9 +148,14 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: visible unscrolled with 4 players.) Duo open inline round-entry panel: the "Add 26 / Subtract 26" segmented control is partly hidden behind the pinned Submit area until scrolled (visible in `screenshots/iPhone Duo Open/1 - Main.png`). Fixing it means regenerating the duo-open screenshots.
 - [x] (Done.) At accessibility Dynamic Type (AX3) the ♦ marker overlaps the last digit of "-10" score cells and the crown covers the leader's total (e.g. "-19").
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
-- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result"); header keys ("Left", "Right", "Across", "Hold", "to %d", "No rounds yet", "More"); undo/edit keys ("Round %d undone", "Redo", "Edit Round %d", "Save", ...).
+- [ ] English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result"); header keys ("Left", "Right", "Across", "Hold", "to %d", "No rounds yet", "More"); undo/edit keys ("Round %d undone", "Redo", "Edit Round %d", "Save", ...); "Redo available".
 - [x] (Done: ViewThatFits compact layout.) Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.
 - [ ] Unused after header redesign: "Pass: Left ←"-style keys and the "Hearts Scoreboard" title in GameView (verify with grep before removing in the unused-keys cleanup).
 - [ ] Header/scoreboard redesign not checked in RTL, and the dark-mode 26 tint / empty-state "No rounds yet" have no snapshot.
 - [ ] Check in the running app: edit-round sheet layout (snapshot harness squeezes sheets), shake-to-undo + toast, toast over the stacked bottom bar at accessibility sizes, VoiceOver flow. In edit mode the per-player total badges still include the round being edited.
 - [ ] Unused keys now: "Undo last round" alert strings (cleanup pass).
+
+- [x] (Done 2026-10-25: HeartsGame.totals(excluding:), snapshot cases added.) Edit mode totals included the edited round; empty board / dark 26 highlight / Increase Contrast snapshots.
+- [ ] Reduce Transparency has no snapshot (not settable via traits). Score cells are labelled per cell, not per round row; a row-wise VoiceOver order would need a layout restructure.
+- [ ] Dark mode: More/Undo chips render near-black (systemBackground on felt); consider a lighter chip fill.
+- [ ] Dark mode: the More/Undo chips render near-black on the dark felt; consider a lighter fill.

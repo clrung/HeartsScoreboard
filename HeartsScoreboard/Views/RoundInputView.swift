@@ -48,9 +48,16 @@ struct RoundInputView: View {
     private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
     private var leadingPlayerIDs: Set<UUID> {
-        let totals = model.game.totals()
+        let totals = model.game.totals(excluding: editingHandID)
         guard let minTotal = totals.map(\.total).min() else { return [] }
         return Set(totals.filter { $0.total == minTotal }.map { $0.player.id })
+    }
+
+    /// Edit mode right after the sheet pre-fills the round: the entry is valid but the user hasn't
+    /// done anything yet, so "ready to submit" feedback would be noise.
+    private var isUntouchedEdit: Bool {
+        guard let index = editedHandIndex else { return false }
+        return entry == RoundEntryState(hand: model.game.hands[index], players: model.game.players)
     }
 
     private var isAllScoresZero: Bool {
@@ -168,6 +175,8 @@ struct RoundInputView: View {
                                             // Visual capsule stays compact; the hit area is a full 44pt.
                                             .frame(minHeight: 44)
                                             .contentShape(Rectangle())
+                                            .contentShape(.hoverEffect, Capsule(style: .continuous))
+                                            .hoverEffect()
                                     }
                                     .buttonStyle(.borderless)
                                     .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
@@ -220,6 +229,7 @@ struct RoundInputView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
+                    .keyboardShortcut(.return, modifiers: .command)
                     .accessibilityLabel(isEditing ? Text("Save round scores") : Text("Submit round scores"))
                     .accessibilityIdentifier("roundInput.submit")
                     .disabled(!canSubmit)
@@ -235,11 +245,11 @@ struct RoundInputView: View {
                 old != new && new != nil
             }
             .sensoryFeedback(.success, trigger: canSubmit) { old, new in
-                !old && new
+                !old && new && !isUntouchedEdit
             }
             .onChange(of: canSubmit) { old, new in
-                if !old && new {
-                    AccessibilityNotification.Announcement(String(localized: "Ready to submit")).post()
+                if !old && new && !isUntouchedEdit {
+                    Announcer.post(String(localized: "Ready to submit"))
                 }
             }
     }
@@ -308,7 +318,7 @@ struct RoundInputView: View {
         let remaining = remainingPoints(for: player.id)
         let nameView = PlayerNameWithTotalView(
             name: player.name,
-            total: model.game.totalPoints(for: player.id),
+            total: model.game.totalPoints(for: player.id, excluding: editingHandID),
             isLeader: leadingPlayerIDs.contains(player.id),
             colorScheme: colorScheme
         )
@@ -422,13 +432,14 @@ struct RoundInputView: View {
 
     private func stepper(for player: HeartsGame.Player) -> some View {
         HStack(spacing: 0) {
-            Button {
+            HoldRepeatButton {
                 adjustPoints(for: player.id, delta: -1)
             } label: {
                 Image(systemName: "minus.circle.fill")
                     .font(.title3.weight(.semibold))
                     .frame(width: stepperSize, height: tapSize)
                     .contentShape(Rectangle())
+                    .hoverEffect()
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Decrease points for %@"), player.name))
@@ -451,13 +462,14 @@ struct RoundInputView: View {
                     }
                 }
 
-            Button {
+            HoldRepeatButton {
                 adjustPoints(for: player.id, delta: 1)
             } label: {
                 Image(systemName: "plus.circle.fill")
                     .font(.title3.weight(.semibold))
                     .frame(width: stepperSize, height: tapSize)
                     .contentShape(Rectangle())
+                    .hoverEffect()
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Increase points for %@"), player.name))
@@ -530,7 +542,7 @@ struct RoundInputView: View {
     private func submit() {
         if let id = editingHandID {
             guard let index = editedHandIndex, entry.save(over: id, in: model) else { return }
-            AccessibilityNotification.Announcement(String(format: String(localized: "Round %d updated"), index + 1)).post()
+            Announcer.post(GameViewModel.updatedAnnouncement(round: index + 1))
             dismiss()
             return
         }
@@ -571,6 +583,8 @@ private struct ChipButtonStyle: ButtonStyle {
             .opacity(configuration.isPressed ? 0.7 : 1)
             .frame(minHeight: 44)
             .contentShape(Rectangle())
+            .contentShape(.hoverEffect, Capsule(style: .continuous))
+            .hoverEffect()
     }
 }
 

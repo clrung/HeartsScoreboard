@@ -4,6 +4,8 @@ import Charts
 struct HistoryDetailView: View {
     let completedGame: CompletedGame
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var contrast
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     private var leadingPlayerIDs: Set<UUID> {
         let totals = completedGame.game.totals()
@@ -15,7 +17,7 @@ struct HistoryDetailView: View {
 
     var body: some View {
         ZStack {
-            Theme.feltGradient(for: colorScheme).ignoresSafeArea()
+            Theme.feltGradient(for: colorScheme, contrast: contrast).ignoresSafeArea()
 
             ScrollView {
                 VStack(spacing: 16) {
@@ -100,7 +102,9 @@ struct HistoryDetailView: View {
     }
 
     private var cardFill: Color {
-        Theme.scoreboardCard(for: colorScheme).opacity(colorScheme == .dark ? 0.9 : 0.85)
+        reduceTransparency
+            ? Theme.scoreboardCard(for: colorScheme)
+            : Theme.scoreboardCard(for: colorScheme).opacity(colorScheme == .dark ? 0.9 : 0.85)
     }
 
     private var chartCard: some View {
@@ -175,11 +179,7 @@ struct HistoryDetailView: View {
         .padding(.bottom, 4)
         .frame(maxWidth: .infinity)
         .background(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .background(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous).fill(cardFill)
-                )
+            FeltCardSurface(cornerRadius: 24, colorScheme: colorScheme)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 24, style: .continuous)

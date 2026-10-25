@@ -55,6 +55,7 @@ enum PassDirection: Equatable {
 struct PassDirectionChip: View {
     let direction: PassDirection
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var contrast
 
     var body: some View {
         Label {
@@ -68,7 +69,7 @@ struct PassDirectionChip: View {
         .lineLimit(1)
         .padding(.horizontal, 10)
         .padding(.vertical, 5)
-        .background(Capsule(style: .continuous).fill(Color.black.opacity(colorScheme == .dark ? 0.3 : 0.22)))
+        .background(Capsule(style: .continuous).fill(Color.black.opacity(contrast == .increased ? 0.55 : (colorScheme == .dark ? 0.3 : 0.22))))
         .overlay(Capsule(style: .continuous).stroke(Color.white.opacity(0.45), lineWidth: 0.5))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Text(direction.spokenTitle))

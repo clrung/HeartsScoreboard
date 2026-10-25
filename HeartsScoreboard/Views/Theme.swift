@@ -6,7 +6,18 @@ enum Theme {
     static let accent = Color.accentColor
 
     /// Card-table background behind the game and history-detail screens.
-    static func feltGradient(for colorScheme: ColorScheme) -> LinearGradient {
+    /// `contrast == .increased` deepens the light-mode green so the white header text on it clears 4.5:1.
+    static func feltGradient(for colorScheme: ColorScheme, contrast: ColorSchemeContrast = .standard) -> LinearGradient {
+        if colorScheme != .dark && contrast == .increased {
+            return LinearGradient(
+                colors: [
+                    Color(red: 0.0, green: 0.36, blue: 0.16),
+                    Color(red: 0.10, green: 0.55, blue: 0.28)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        }
         switch colorScheme {
         case .dark:
             return LinearGradient(

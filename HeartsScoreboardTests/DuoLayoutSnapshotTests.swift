@@ -66,7 +66,8 @@ final class DuoLayoutSnapshotTests: XCTestCase {
 
     private func render(_ name: String, size: CGSize, regular: Bool, model: GameViewModel,
                         dark: Bool = false, category: UIContentSizeCategory? = nil,
-                        root: AnyView? = nil, cancelSideInsets: Bool = false) throws -> Rendered {
+                        root: AnyView? = nil, cancelSideInsets: Bool = false,
+                        highContrast: Bool = false) throws -> Rendered {
         // A window without a scene doesn't render; attach to the host app's scene.
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
@@ -76,6 +77,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         if size.width > size.height && !regular { window.traitOverrides.verticalSizeClass = .compact }
         window.overrideUserInterfaceStyle = dark ? .dark : .light
         if let category { window.traitOverrides.preferredContentSizeCategory = category }
+        if highContrast { window.traitOverrides.accessibilityContrast = .high }
         let host = UIHostingController(rootView: root ?? AnyView(GameView(model: model)))
         window.rootViewController = host
         window.makeKeyAndVisible()
@@ -317,6 +319,55 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         let m = model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 6)
         _ = try render("edit-round-compact-dark", size: Self.outer, regular: false, model: m, dark: true,
                        root: AnyView(RoundInputView(model: m, presentation: .sheet, editingHandID: m.game.hands[3].id)))
+    }
+
+    // MARK: Empty board, 26 highlight, Increase Contrast (visual review only: PNGs)
+
+    func testOuterEmptyBoardLight() throws {
+        _ = try render("outer-empty-board", size: Self.outer, regular: false,
+                       model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 0))
+    }
+
+    func testOuterEmptyBoardDark() throws {
+        _ = try render("outer-empty-board-dark", size: Self.outer, regular: false,
+                       model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 0), dark: true)
+    }
+
+    /// Round 3 is a moon by Ace: the three other players take 26 each, which gets the orange highlight.
+    private func modelWithMoonVictims() -> GameViewModel {
+        let ps = players(["Ace", "Deuce", "Trey", "Queen"])
+        var hs = hands(for: ps, rounds: 2)
+        var moon: [UUID: Int] = [:]
+        ps.forEach { moon[$0.id] = 26 }
+        moon[ps[0].id] = 0
+        hs.append(.init(id: UUID(), pointsByPlayerID: moon, notes: "", createdAt: Date()))
+        hs.append(contentsOf: hands(for: ps, rounds: 4).suffix(1))
+        return GameViewModel(initialState: SyncableState(game: HeartsGame(players: ps, hands: hs), settings: GameSettings(), firstDealerIndex: 0))
+    }
+
+    func testOuterMoonVictim26HighlightDark() throws {
+        _ = try render("outer-26-highlight-dark", size: Self.outer, regular: false, model: modelWithMoonVictims(), dark: true)
+    }
+
+    func testOuterMoonVictim26HighlightLight() throws {
+        _ = try render("outer-26-highlight-light", size: Self.outer, regular: false, model: modelWithMoonVictims())
+    }
+
+    func testOuterIncreaseContrastLight() throws {
+        _ = try render("outer-increase-contrast-light", size: Self.outer, regular: false,
+                       model: modelWithMoonVictims(), highContrast: true)
+    }
+
+    func testOuterIncreaseContrastDark() throws {
+        _ = try render("outer-increase-contrast-dark", size: Self.outer, regular: false,
+                       model: modelWithMoonVictims(), dark: true, highContrast: true)
+    }
+
+    func testEditRoundTotalsExcludeEditedHand() throws {
+        // Round 3 (the moon) is being edited: the badges must not include its 26s.
+        let m = modelWithMoonVictims()
+        _ = try render("edit-round-totals", size: Self.outer, regular: false, model: m,
+                       root: AnyView(RoundInputView(model: m, presentation: .sheet, editingHandID: m.game.hands[2].id)))
     }
 
     // MARK: History (visual review only: PNGs)

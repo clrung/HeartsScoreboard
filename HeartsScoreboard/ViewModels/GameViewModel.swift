@@ -416,6 +416,32 @@ final class GameViewModel {
         return String(format: String(localized: "Round added. %@ leads"), leaders)
     }
 
+    /// The round-added announcement for the first round of a first-run game, with the shake-undo hint
+    /// folded in so VoiceOver speaks one message instead of two competing ones.
+    func roundAddedAnnouncement(includingShakeHint: Bool) -> String {
+        guard includingShakeHint else { return roundAddedAnnouncement }
+        return roundAddedAnnouncement + " " + Self.shakeHintText
+    }
+
+    static var shakeHintText: String { String(localized: "Shake to undo the last round!") }
+
+    /// Spoken after an undo. `round` is the round that is now open again.
+    static func undoneMessage(round: Int) -> String {
+        String(format: String(localized: "Round %d undone"), round)
+    }
+
+    static func undoneAnnouncement(round: Int) -> String {
+        undoneMessage(round: round) + ". " + String(localized: "Redo available")
+    }
+
+    static func restoredAnnouncement(round: Int) -> String {
+        String(format: String(localized: "Round %d restored"), round)
+    }
+
+    static func updatedAnnouncement(round: Int) -> String {
+        String(format: String(localized: "Round %d updated"), round)
+    }
+
     // MARK: - Final standings
 
     /// Everyone ranked lowest total first (Hearts: lowest score wins). Ties share a rank and keep seat

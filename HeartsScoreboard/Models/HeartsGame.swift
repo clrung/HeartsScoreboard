@@ -47,6 +47,16 @@ struct HeartsGame: Equatable, Codable {
         players.map { ($0, totalPoints(for: $0.id)) }
     }
 
+    /// A player's total over every hand except `handID`; used while editing that round, so the
+    /// badges show the standing the edited hand is being added to. An unknown id excludes nothing.
+    func totalPoints(for playerID: UUID, excluding handID: UUID?) -> Int {
+        hands.reduce(0) { $0 + ($1.id == handID ? 0 : ($1.pointsByPlayerID[playerID] ?? 0)) }
+    }
+
+    func totals(excluding handID: UUID?) -> [(player: Player, total: Int)] {
+        players.map { ($0, totalPoints(for: $0.id, excluding: handID)) }
+    }
+
     /// Final per-player points for a hand: the hearts/Q♠ penalty points plus the -10 for the 10♦ holder (if any).
     static func finalPoints(
         penaltyPoints: [UUID: Int],

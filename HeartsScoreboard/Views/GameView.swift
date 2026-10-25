@@ -34,7 +34,7 @@ struct GameView: View {
     /// Confetti plays only when the game ends while watching (not for an already-finished game on launch).
     @State private var confettiPlaying = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
     /// - Parameter initialUndoToast: test hook that shows the undo toast from the first frame.
@@ -47,7 +47,7 @@ struct GameView: View {
 
     var body: some View {
         ZStack {
-            Theme.feltGradient(for: colorScheme)
+            Theme.feltGradient(for: colorScheme, contrast: contrast)
                 .ignoresSafeArea()
 
             if usesSplitLayout {
@@ -78,6 +78,10 @@ struct GameView: View {
 
             if let toast = undoToast {
                 undoToastOverlay(toast)
+            }
+
+            if model.canRedo && !anySheetPresented {
+                redoShortcutButton
             }
         }
         .task(id: undoToast?.id) {
@@ -253,10 +257,13 @@ struct GameView: View {
             .accessibilityLabel(Text("Dealer"))
     }
 
+    /// The hint's blurred material is unreadable over the felt without transparency; use a solid card then.
+    private var hintNeedsSolidBackground: Bool { reduceTransparency || contrast == .increased }
+
     private var shakeHintOverlay: some View {
         VStack(spacing: 12) {
             HStack(spacing: 8) {
-                if #available(iOS 18.0, *) {
+                if #available(iOS 18.0, *), !reduceMotion {
                     Image(systemName: "iphone.radiowaves.left.and.right")
                         .font(.system(size: 28, weight: .semibold))
                         .symbolEffect(.bounce, options: .repeating)
@@ -275,10 +282,13 @@ struct GameView: View {
             .padding(.vertical, 12)
             .background(
                 RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(.ultraThinMaterial)
+                    .fill(hintNeedsSolidBackground ? AnyShapeStyle(Color(.systemBackground)) : AnyShapeStyle(.ultraThinMaterial))
                     .overlay(
                         RoundedRectangle(cornerRadius: 18, style: .continuous)
-                            .stroke(Color.white.opacity(colorScheme == .dark ? 0.45 : 0.7), lineWidth: 1)
+                            .stroke(
+                                hintNeedsSolidBackground ? Color.primary.opacity(0.7) : Color.white.opacity(colorScheme == .dark ? 0.45 : 0.7),
+                                lineWidth: hintNeedsSolidBackground ? 1.5 : 1
+                            )
                     )
             )
         }
@@ -310,15 +320,7 @@ struct GameView: View {
         } label: {
             Image(systemName: "clock.arrow.circlepath")
                 .font(.title2.weight(.semibold))
-                .padding(8)
-                .background {
-                    Capsule(style: .continuous)
-                        .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
-                }
-                .overlay {
-                    Capsule(style: .continuous)
-                        .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
-                }
+                .feltIconButtonLook()
         }
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("History"))
@@ -331,17 +333,10 @@ struct GameView: View {
         } label: {
             Image(systemName: "gearshape.fill")
                 .font(.title2.weight(.semibold))
-                .padding(8)
-                .background {
-                    Capsule(style: .continuous)
-                        .fill(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3))
-                }
-                .overlay {
-                    Capsule(style: .continuous)
-                        .stroke(Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6), lineWidth: 0.5)
-                }
                 .foregroundStyle(.primary)
+                .feltIconButtonLook()
         }
+        .keyboardShortcut(",", modifiers: .command)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("Settings"))
         .accessibilityIdentifier("settingsButton")
@@ -407,12 +402,7 @@ struct GameView: View {
     }
 
     private var scoreboard: some View {
-        RoundedRectangle(cornerRadius: 24, style: .continuous)
-            .fill(.ultraThinMaterial)
-            .background(
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .fill(Theme.scoreboardCard(for: colorScheme).opacity(colorScheme == .dark ? 0.9 : 0.85))
-            )
+        FeltCardSurface(cornerRadius: 24, colorScheme: colorScheme)
             .overlay(
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
                     .stroke(contrast == .increased ? Color.primary.opacity(0.6) : Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
@@ -553,7 +543,7 @@ struct GameView: View {
             }
             .frame(maxWidth: .infinity)
             .padding(.bottom, 8)
-            .animation(.spring(response: 0.35, dampingFraction: 0.85), value: model.game.hands.count)
+            .animation(reduceMotion ? nil : .spring(response: 0.35, dampingFraction: 0.85), value: model.game.hands.count)
         }
         .frame(maxHeight: .infinity)
         .overlay {
@@ -567,7 +557,7 @@ struct GameView: View {
         }
         .scrollIndicators(.visible)
         .onChange(of: model.game.hands.count) {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
+            withAnimation(reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.85)) {
                 if let lastHand = model.game.hands.last {
                     proxy.scrollTo(lastHand.id, anchor: .bottom)
                 }
@@ -644,19 +634,22 @@ struct GameView: View {
         guard model.undoLastHand() != nil else { return }
         undoFeedbackToken += 1
         let round = model.game.hands.count + 1
-        let message = String(format: String(localized: "Round %d undone"), round)
-        AccessibilityNotification.Announcement("\(message). Redo available").post()
+        Announcer.post(GameViewModel.undoneAnnouncement(round: round))
         withAnimation(reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.85)) {
-            undoToast = UndoToast(message: message)
+            undoToast = UndoToast(message: GameViewModel.undoneMessage(round: round))
         }
+    }
+
+    /// True while a sheet or alert covers the board; keyboard shortcuts must not undo/redo rounds then
+    /// (⌘Z belongs to a text field in Settings, for instance).
+    private var anySheetPresented: Bool {
+        showingRoundInput || showingSettings || showingHistory || editTarget != nil || showNewGameAlert
     }
 
     private func performRedo() {
         guard model.redo() != nil else { return }
         undoFeedbackToken += 1
-        AccessibilityNotification.Announcement(
-            String(format: String(localized: "Round %d restored"), model.game.hands.count)
-        ).post()
+        Announcer.post(GameViewModel.restoredAnnouncement(round: model.game.hands.count))
         withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.25)) { undoToast = nil }
     }
 
@@ -679,6 +672,17 @@ struct GameView: View {
         .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
     }
 
+    /// Redo is only a button inside the short-lived toast, so keyboard users get ⇧⌘Z on this invisible
+    /// one for as long as a redo is available (it shows in the ⌘-hold shortcut list as "Redo").
+    private var redoShortcutButton: some View {
+        Button("Redo") { performRedo() }
+            .keyboardShortcut("z", modifiers: [.command, .shift])
+            .frame(width: 0, height: 0)
+            .opacity(0)
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+    }
+
     private var undoButton: some View {
         Button {
             performUndo()
@@ -686,6 +690,7 @@ struct GameView: View {
             Image(systemName: "arrow.uturn.backward")
         }
         .buttonStyle(FeltChipButtonStyle())
+        .keyboardShortcut("z", modifiers: .command)
         .disabled(!model.canUndo)
         .accessibilityLabel(Text("Undo Round"))
         .accessibilityIdentifier("undoButton")
@@ -704,6 +709,7 @@ struct GameView: View {
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
             .tint(Self.feltButtonGreen)
+            .overlay { contrastOutline }
             .accessibilityIdentifier("resultsButton")
         } else {
             roundEntryButton
@@ -720,8 +726,17 @@ struct GameView: View {
         .buttonStyle(.borderedProminent)
         .controlSize(.large)
         .tint(Self.feltButtonGreen)
+        .overlay { contrastOutline }
+        .keyboardShortcut("n", modifiers: .command)
         .accessibilityHint(Text("Enter scores for the next round"))
         .accessibilityIdentifier("nextRoundButton")
+    }
+
+    /// Increase Contrast darkens the felt, so the green prominent button needs an edge to stand out.
+    @ViewBuilder private var contrastOutline: some View {
+        if contrast == .increased {
+            Capsule().strokeBorder(.white, lineWidth: 2).allowsHitTesting(false)
+        }
     }
 }
 
@@ -808,6 +823,7 @@ private struct GameRoundEventsModifier: ViewModifier {
     let newGameFeedbackToken: Int
     @Binding var hasShownShakeHint: Bool
     @Binding var showShakeHint: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func body(content: Content) -> some View {
         content
@@ -816,22 +832,28 @@ private struct GameRoundEventsModifier: ViewModifier {
             .sensoryFeedback(.warning, trigger: undoFeedbackToken)
             .sensoryFeedback(.selection, trigger: newGameFeedbackToken)
             .sensoryFeedback(trigger: model.isGameOver, gameOverFeedback)
-            .onChange(of: model.localRoundToken) {
-                AccessibilityNotification.Announcement(model.roundAddedAnnouncement).post()
+            .onChange(of: model.localRoundToken) { roundAdded() }
+    }
+
+    /// One announcement per locally added round. The first-run shake hint rides along in it when
+    /// VoiceOver is on (a timed overlay is too short to find and read); otherwise it is shown briefly.
+    private func roundAdded() {
+        let isFirstRound = model.game.hands.count == 1 && !hasShownShakeHint
+        let voiceOver = UIAccessibility.isVoiceOverRunning
+        if isFirstRound {
+            hasShownShakeHint = true
+            UserDefaults.standard.set(true, forKey: "hasShownShakeUndoHint")
+        }
+        Announcer.post(model.roundAddedAnnouncement(includingShakeHint: isFirstRound && voiceOver))
+        guard isFirstRound, !voiceOver else { return }
+        withAnimation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.8)) {
+            showShakeHint = true
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            withAnimation(reduceMotion ? nil : .spring(response: 0.5, dampingFraction: 0.85)) {
+                showShakeHint = false
             }
-            .onChange(of: model.game.hands.count) { _, newCount in
-                guard newCount == 1, !hasShownShakeHint else { return }
-                hasShownShakeHint = true
-                UserDefaults.standard.set(true, forKey: "hasShownShakeUndoHint")
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
-                    showShakeHint = true
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    withAnimation(.spring(response: 0.5, dampingFraction: 0.85)) {
-                        showShakeHint = false
-                    }
-                }
-            }
+        }
     }
 
     /// A round that ends the game gets the heavier game-over haptic instead.
@@ -873,6 +895,8 @@ private struct FeltChipLook: ViewModifier {
                     .strokeBorder(Theme.accent.opacity(contrast == .increased ? 1 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
             )
             .opacity(isEnabled ? (isPressed ? 0.7 : 1) : 0.45)
+            .contentShape(.hoverEffect, Capsule(style: .continuous))
+            .hoverEffect()
     }
 }
 
