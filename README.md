@@ -58,6 +58,16 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
   <img src="screenshots/iPhone%20Duo%20Folded/5%20-%20Dark.png" alt="iPhone Duo folded – Dark mode" width="32%" />
 </p>
 
+### iPhone Duo (open)
+
+<p align="center">
+  <img src="screenshots/iPhone%20Duo%20Open/1%20-%20Main.png" alt="iPhone Duo open – Main scoreboard" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPhone%20Duo%20Open/2%20-%20Round%20Input.png" alt="iPhone Duo open – Round input" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPhone%20Duo%20Open/5%20-%20Dark.png" alt="iPhone Duo open – Dark mode" width="32%" />
+</p>
+
 ### Regenerating the App Store screenshots
 
 `scripts/screenshots.sh` drives the app with XCUITest (scheme `HeartsScoreboardScreenshots`, DEBUG-only `-screenshotDemo` demo data, no iCloud writes) and saves the five scenes per device:

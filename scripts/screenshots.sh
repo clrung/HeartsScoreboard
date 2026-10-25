@@ -87,7 +87,9 @@ capture() {
   rm -rf "$bundle" "$out"; mkdir -p "$out"
 
   echo "==> [$key/$locale] running screenshot tests"
+  # XCUIScreen.main is the Duo's outer display, which is dark when unfolded.
   TEST_RUNNER_SCREENSHOT_LOCALE="$([[ "$locale" == en ]] && echo "" || echo "$locale")" \
+  TEST_RUNNER_SCREENSHOT_LARGEST_SCREEN="$([[ "$key" == duo-open ]] && echo 1 || echo "")" \
   xcodebuild test -project HeartsScoreboard.xcodeproj -scheme "$SCHEME" \
     -destination "platform=iOS Simulator,id=$udid" \
     -resultBundlePath "$bundle" -quiet >"$WORK/$key-$locale.log" 2>&1 \
@@ -123,6 +125,13 @@ PY
     strip_alpha "$f"
     w="$(sips -g pixelWidth "$f" | awk '/pixelWidth/ {print $2}')"
     h="$(sips -g pixelHeight "$f" | awk '/pixelHeight/ {print $2}')"
+    # XCUIScreen rounds the Duo's inner display down by a pixel (2006x2852);
+    # App Store Connect needs exactly 2007x2853, so resample by that pixel only.
+    if [[ "$key" == duo-open && "${w}x${h}" == "2006x2852" ]]; then
+      sips --resampleHeightWidth "${size#*x}" "${size%x*}" "$f" >/dev/null
+      w="$(sips -g pixelWidth "$f" | awk '/pixelWidth/ {print $2}')"
+      h="$(sips -g pixelHeight "$f" | awk '/pixelHeight/ {print $2}')"
+    fi
     [[ "${w}x${h}" == "$size" ]] || die "$f is ${w}x${h}, expected $size"
   done
   echo "    saved 5 screenshots ($size) to ${dest#$ROOT/}"

@@ -22,10 +22,22 @@ final class ScreenshotTests: XCTestCase {
     }
 
 
+    /// The main screen, or (for the unfolded iPhone Duo, whose main screen is the dark
+    /// outer display) the largest active screen when SCREENSHOT_LARGEST_SCREEN is set.
+    private func screenToCapture() -> XCUIScreen {
+        guard ProcessInfo.processInfo.environment["SCREENSHOT_LARGEST_SCREEN"] == "1" else {
+            return XCUIScreen.main
+        }
+        return XCUIScreen.screens.max { a, b in
+            let sa = a.screenshot().image.size, sb = b.screenshot().image.size
+            return sa.width * sa.height < sb.width * sb.height
+        } ?? XCUIScreen.main
+    }
+
     private func capture(_ name: String) {
         // Let sheet/navigation animations settle before capturing.
         Thread.sleep(forTimeInterval: 1.0)
-        let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        let attachment = XCTAttachment(screenshot: screenToCapture().screenshot())
         attachment.name = name
         attachment.lifetime = .keepAlways
         add(attachment)
