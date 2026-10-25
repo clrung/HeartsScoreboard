@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B80E95C955AE5B12FA58010 /* LocalizationFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777F2F8CCCA4904E7DAB37F /* LocalizationFormatTests.swift */; };
 		0CF049815752ED9911A61A95 /* PassDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880CFCFA5C5684135BCE8410 /* PassDirectionTests.swift */; };
 		134E6032B9869E7A17BC533E /* HeaderLabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0E3CA9D80CF6E45F7B9F85 /* HeaderLabelTests.swift */; };
 		1BEC997CF82551C7E83F6CBE /* PlayerScoreViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFC694DA88D9FA2F8FDDBAB /* PlayerScoreViews.swift */; };
@@ -337,6 +338,7 @@
 		F67AD960CB202CEE941CE269 /* gu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gu; path = gu.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		F6C7520F9F47832B53356F45 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F7035A0BA43EAA0320248076 /* pa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pa; path = pa.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F777F2F8CCCA4904E7DAB37F /* LocalizationFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationFormatTests.swift; sourceTree = "<group>"; };
 		FA8589D9C1097FA58CD9A8CB /* lo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lo; path = lo.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FA9242290ACBA00D48887924 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC31D6AABF3499C81A262E31 /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				7A0E3CA9D80CF6E45F7B9F85 /* HeaderLabelTests.swift */,
 				E8CBE01D2A1F7AEDACDC612E /* HistoryStatsTests.swift */,
 				D0F08569F62A9BB54AFED28F /* LeaderIndicatorTests.swift */,
+				F777F2F8CCCA4904E7DAB37F /* LocalizationFormatTests.swift */,
 				880CFCFA5C5684135BCE8410 /* PassDirectionTests.swift */,
 				87CBF553DF99319D8FBF88C5 /* PlayerNameSuggestionsTests.swift */,
 				EDB4702FBDA55A4895BE201E /* RedoAndEditTests.swift */,
@@ -702,6 +705,7 @@
 				134E6032B9869E7A17BC533E /* HeaderLabelTests.swift in Sources */,
 				C561ECEE989F69872843FA4B /* HistoryStatsTests.swift in Sources */,
 				C6F4F0977DA157C10B93EC82 /* LeaderIndicatorTests.swift in Sources */,
+				0B80E95C955AE5B12FA58010 /* LocalizationFormatTests.swift in Sources */,
 				0CF049815752ED9911A61A95 /* PassDirectionTests.swift in Sources */,
 				D4BD2EBFD5A9CEEE6B2CDD2A /* PlayerNameSuggestionsTests.swift in Sources */,
 				334C055EDD760649B1C8B813 /* RedoAndEditTests.swift in Sources */,
