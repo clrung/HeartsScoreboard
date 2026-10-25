@@ -74,7 +74,7 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
 
 ```bash
 DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer scripts/screenshots.sh \
-  [--devices iphone,iphone-6.3,ipad,duo-folded,duo-open] [--locales en,de] [--non-interactive]
+  [--devices iphone,iphone-6.3,ipad,duo-folded,duo-open] [--locales en,de] [--non-interactive] [--build-only]
 ```
 
 | Flag | Device | Output folder | Size |
@@ -86,6 +86,8 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer scripts/screenshots.sh 
 | `duo-open` | iPhone Duo, inner display | `screenshots/iPhone Duo Open` | 2007x2853 |
 
 `duo-open` pauses and asks you to unfold the Duo in DeviceHub (the CLI can't), then press Enter; `--non-interactive` skips it. Non-English locales go to `screenshots/<locale>/<folder>/`. Sizes are checked and alpha channels stripped; the script fails on any mismatch. Quit Xcode.app first (a running Xcode can hang `xcodebuild`).
+
+The app and UI tests are built once (`xcodebuild build-for-testing`, generic iOS Simulator destination, derived data in `$TMPDIR/hs-screenshots/DerivedData`, override with `HS_DERIVED_DATA`), then each device/locale runs `test-without-building` against a per-run copy of the `.xctestrun` (which carries the locale / largest-screen env vars). `--build-only` stops after the build. Before building, `scripts/check_screenshot_identifiers.sh` statically verifies every accessibility identifier used by `ScreenshotTests.swift` is still set in `HeartsScoreboard/` and fails fast with the missing names; run it on its own any time you touch identifiers.
 
 ## Generate and open the project
 

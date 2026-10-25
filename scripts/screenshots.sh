@@ -2,7 +2,7 @@
 # Generates App Store screenshots via XCUITest (scheme HeartsScoreboardScreenshots).
 #
 #   scripts/screenshots.sh [--devices iphone,iphone-6.3,ipad,duo-folded,duo-open]
-#                          [--locales en,de] [--non-interactive]
+#                          [--locales en,de] [--non-interactive] [--build-only]
 #
 # Devices (default: all):
 #   iphone       iPhone 17 Pro Max (6.9")      -> screenshots/iOS 6.9          1320x2868
@@ -14,6 +14,10 @@
 # Locales other than "en" are saved under screenshots/<locale>/<folder>/.
 # Simulators are dedicated "HS Screenshots ..." devices (created if missing): Duo on iOS 27.1, others on iOS 27.0
 # (the 27.1 runtime only supports the Duo device type).
+# The app + UI tests are built ONCE (build-for-testing, generic iOS Simulator destination, derived data in
+# $WORK/DerivedData or $HS_DERIVED_DATA); each device/locale then runs test-without-building from a per-run
+# copy of the .xctestrun. --build-only stops after the build (no simulators touched).
+# scripts/check_screenshot_identifiers.sh runs first so a renamed accessibility identifier fails fast.
 # Output PNGs are re-encoded without an alpha channel (App Store requirement).
 set -euo pipefail
 
@@ -27,16 +31,22 @@ RUNTIME_STD="com.apple.CoreSimulator.SimRuntime.iOS-27-0"
 SCHEME="HeartsScoreboardScreenshots"
 SCENES=("1 - Main" "2 - Round Input" "3 - Game Summary" "4 - Settings" "5 - Dark")
 WORK="${TMPDIR:-/tmp}/hs-screenshots"
+DERIVED="${HS_DERIVED_DATA:-$WORK/DerivedData}"
+
+# Fail fast if the UI tests reference an accessibility identifier the app no longer sets.
+"$ROOT/scripts/check_screenshot_identifiers.sh"
 
 DEVICES="iphone,iphone-6.3,ipad,duo-folded,duo-open"
 LOCALES="en"
 INTERACTIVE=1
+BUILD_ONLY=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --devices) DEVICES="$2"; shift 2 ;;
     --locales) LOCALES="$2"; shift 2 ;;
     --non-interactive) INTERACTIVE=0; shift ;;
-    -h|--help) sed -n '2,19p' "$0"; exit 0 ;;
+    --build-only) BUILD_ONLY=1; shift ;;
+    -h|--help) sed -n '2,23p' "$0"; exit 0 ;;
     *) echo "Unknown argument: $1" >&2; exit 2 ;;
   esac
 done
@@ -81,16 +91,61 @@ strip_alpha() {
   [[ "$(sips -g hasAlpha "$f" | awk '/hasAlpha/ {print $2}')" == "no" ]] || die "$f still has an alpha channel"
 }
 
+# Builds the app and UI tests once; works for every simulator runtime (27.0 and 27.1).
+XCTESTRUN=""
+build_once() {
+  mkdir -p "$WORK"
+  echo "==> building for testing (once)"
+  xcodebuild build-for-testing -project HeartsScoreboard.xcodeproj -scheme "$SCHEME" \
+    -destination "generic/platform=iOS Simulator" -derivedDataPath "$DERIVED" -quiet \
+    >"$WORK/build.log" 2>&1 \
+    || { tail -40 "$WORK/build.log" >&2; die "build-for-testing failed (log: $WORK/build.log)"; }
+  # Skip our per-run copies (*.run.xctestrun) written next to the original by capture().
+  XCTESTRUN="$(ls -t "$DERIVED"/Build/Products/*.xctestrun 2>/dev/null | grep -v '\.run\.xctestrun$' | head -1 || true)"
+  [[ -n "$XCTESTRUN" ]] || die "no .xctestrun found under $DERIVED/Build/Products"
+  echo "    $XCTESTRUN"
+}
+
+# Writes a per-run copy of the .xctestrun with the runner env vars injected, so we do not rely on
+# xcodebuild forwarding TEST_RUNNER_* when -xctestrun is used. Prints the new path.
+make_xctestrun() {
+  local out="$1" locale="$2" largest="$3"
+  python3 -I - "$XCTESTRUN" "$out" "$locale" "$largest" <<'PY'
+import plistlib, sys
+src, out, locale, largest = sys.argv[1:]
+plist = plistlib.load(open(src, "rb"))
+env = {"SCREENSHOT_LOCALE": locale, "SCREENSHOT_LARGEST_SCREEN": largest}
+def patch(target):
+    for key in ("EnvironmentVariables", "TestingEnvironmentVariables"):
+        target.setdefault(key, {}).update(env)
+if "TestConfigurations" in plist:
+    for cfg in plist["TestConfigurations"]:
+        for t in cfg.get("TestTargets", []):
+            patch(t)
+else:  # xctestrun format 1: top-level keys are the targets
+    for k, t in plist.items():
+        if isinstance(t, dict) and "BlueprintName" in t:
+            patch(t)
+plistlib.dump(plist, open(out, "wb"))
+PY
+}
+
 capture() {
   local key="$1" locale="$2" udid="$3" folder="$4" size="$5"
   local bundle="$WORK/$key-$locale.xcresult" out="$WORK/$key-$locale-attachments"
   rm -rf "$bundle" "$out"; mkdir -p "$out"
 
   echo "==> [$key/$locale] running screenshot tests"
-  # XCUIScreen.main is the Duo's outer display, which is dark when unfolded.
-  TEST_RUNNER_SCREENSHOT_LOCALE="$([[ "$locale" == en ]] && echo "" || echo "$locale")" \
-  TEST_RUNNER_SCREENSHOT_LARGEST_SCREEN="$([[ "$key" == duo-open ]] && echo 1 || echo "")" \
-  xcodebuild test -project HeartsScoreboard.xcodeproj -scheme "$SCHEME" \
+  # XCUIScreen.main is the Duo's outer display, which is dark when unfolded, hence LARGEST_SCREEN for duo-open.
+  # The copy must sit next to the original: its paths are relative to __TESTROOT__ (its own folder).
+  local env_locale env_largest run
+  run="$(dirname "$XCTESTRUN")/$key-$locale.run.xctestrun"
+  env_locale="$([[ "$locale" == en ]] && echo "" || echo "$locale")"
+  env_largest="$([[ "$key" == duo-open ]] && echo 1 || echo "")"
+  make_xctestrun "$run" "$env_locale" "$env_largest"
+  # The env vars are set both in the xctestrun copy and as TEST_RUNNER_* (belt and braces).
+  TEST_RUNNER_SCREENSHOT_LOCALE="$env_locale" TEST_RUNNER_SCREENSHOT_LARGEST_SCREEN="$env_largest" \
+  xcodebuild test-without-building -xctestrun "$run" \
     -destination "platform=iOS Simulator,id=$udid" \
     -resultBundlePath "$bundle" -quiet >"$WORK/$key-$locale.log" 2>&1 \
     || { tail -40 "$WORK/$key-$locale.log" >&2; die "xcodebuild failed for $key (log: $WORK/$key-$locale.log)"; }
@@ -134,10 +189,12 @@ PY
     fi
     [[ "${w}x${h}" == "$size" ]] || die "$f is ${w}x${h}, expected $size"
   done
-  echo "    saved 5 screenshots ($size) to ${dest#$ROOT/}"
+  echo "    saved 5 screenshots ($size) to ${dest#"$ROOT"/}"
 }
 
 mkdir -p "$WORK"
+build_once
+if [[ $BUILD_ONLY -eq 1 ]]; then echo "Built (--build-only)."; exit 0; fi
 IFS=',' read -r -a DEVICE_LIST <<<"$DEVICES"
 IFS=',' read -r -a LOCALE_LIST <<<"$LOCALES"
 

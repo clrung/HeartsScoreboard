@@ -28,7 +28,7 @@ Gotchas:
 - `project.yml` includes `project.local.yml`, which is **gitignored** (holds the signing team ID). If it's missing, `xcodegen generate` fails; create one with only what's needed, e.g. `settings: { base: { DEVELOPMENT_TEAM: "<id>" } }`, and never commit it. For simulator builds, signing isn't required.
 - Pick an installed simulator (`xcrun simctl list devices available`) if the name above doesn't exist.
 - New Swift files are picked up by XcodeGen on regenerate; after adding/removing files run `xcodegen generate` and commit the updated `.xcodeproj`.
-- App Store screenshots: `scripts/screenshots.sh` (see README "Regenerating the App Store screenshots"). It runs the separate `HeartsScoreboardScreenshots` scheme (`HeartsScoreboardUITests`) against DEBUG-only `-screenshotDemo` data; keep accessibility identifiers (`historyButton`, `settingsButton`, `nextRoundButton`, `roundInput.quick.<name>`, `roundInput.queen.<name>`, `history.row`, `historyDetail.date`, `settings.done`) stable.
+- App Store screenshots: `scripts/screenshots.sh` (see README "Regenerating the App Store screenshots"). It runs the separate `HeartsScoreboardScreenshots` scheme (`HeartsScoreboardUITests`) against DEBUG-only `-screenshotDemo` data; keep accessibility identifiers (`historyButton`, `settingsButton`, `nextRoundButton`, `roundInput.quick.<name>`, `roundInput.queen.<name>`, `history.row`, `historyDetail.date`, `settings.done`) stable; `scripts/check_screenshot_identifiers.sh` (also run first by `screenshots.sh`) statically checks they still exist.
 
 ## Tests
 
