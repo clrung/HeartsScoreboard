@@ -139,3 +139,9 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [ ] GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
 - [ ] Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
 - [ ] Not tested at accessibility Dynamic Type sizes, or with 6 players in the split layout (crown vs dealer badge overlap).
+
+### Simulator / DeviceHub issues (2026-10-24)
+- iOS 27.0 and 26.4 runtimes were removed mid-session (likely a disk cleanup); the iPhone/iPad screenshot sims need 27.0 (27.1 only supports the Duo). Restore with `xcodebuild -downloadPlatform iOS -buildVersion 27.0`.
+- `xcodebuild` test runner can crash at bootstrap ("Early unexpected exit"); `xcrun simctl shutdown all` and retry.
+- DeviceHub can only show/unfold a sim it booted itself; a headless `simctl boot` makes its Start fail with "current state: Booted". `screenshots.sh` now leaves duo-open booting to DeviceHub.
+- [ ] After the 27.0 runtime install, DeviceHub's Start boots the sim (simctl shows Booted) but never attaches a display — same for every Duo sim, and survived quitting DeviceHub, `simctl erase`, and restarting CoreSimulatorService. Duo Open screenshots blocked until DeviceHub works again (try a Mac restart).

@@ -141,7 +141,20 @@ for key in "${DEVICE_LIST[@]}"; do
   runtime="$RUNTIME_STD"; [[ "$type" == *Duo ]] && runtime="$RUNTIME_DUO"
   udid="$(ensure_sim "$name" "$type" "$runtime")"
   echo "==> $key: $name ($udid)"
-  xcrun simctl boot "$udid" 2>/dev/null || true
+  if [[ "$key" == duo-open ]]; then
+    # DeviceHub can only show (and unfold) a simulator it booted itself; a
+    # headless `simctl boot` makes its Start fail with "current state: Booted".
+    # So only shut down a Duo this run booted (duo-folded); leave one the user
+    # already started in DeviceHub alone.
+    if [[ "${headless_booted:-}" == *"$udid"* ]]; then
+      xcrun simctl shutdown "$udid" 2>/dev/null || true
+    fi
+    echo
+    echo ">>> In DeviceHub, start '$name' (if not already running), unfold it, then press Enter."
+    read -r _
+  else
+    xcrun simctl boot "$udid" 2>/dev/null && headless_booted="${headless_booted:-} $udid" || true
+  fi
   xcrun simctl bootstatus "$udid" -b >/dev/null
   # Fixed local 9:41 on a fixed date so iPad's status-bar date is stable too.
   # simctl only accepts ISO strings with fractional seconds, in UTC.
@@ -150,11 +163,6 @@ for key in "${DEVICE_LIST[@]}"; do
     --cellularBars 4 --batteryState charged --batteryLevel 100
   open -g -a Simulator >/dev/null 2>&1 || true
 
-  if [[ "$key" == duo-open ]]; then
-    echo
-    echo ">>> Unfold the iPhone Duo in DeviceHub ('$name', $udid), then press Enter."
-    read -r _
-  fi
   for locale in "${LOCALE_LIST[@]}"; do
     capture "$key" "$locale" "$udid" "$folder" "$size"
   done
