@@ -16,36 +16,46 @@ This repo was revived and modernized using Cursor. Some of the biggest changes:
 
 ## Screenshots
 
-### iPhone (iOS)
+### iPhone (iOS, 6.9")
 
 <p align="center">
-  <img src="screenshots/iOS/1%20-%20Main.png" alt="iOS – Main scoreboard" width="32%" />
+  <img src="screenshots/iOS%206.9/1%20-%20Main.png" alt="iOS – Main scoreboard" width="32%" />
   &nbsp;
-  <img src="screenshots/iOS/2%20-%20Round%20Input.png" alt="iOS – Round input" width="32%" />
+  <img src="screenshots/iOS%206.9/2%20-%20Round%20Input.png" alt="iOS – Round input" width="32%" />
   &nbsp;
-  <img src="screenshots/iOS/3%20-%20Game%20Summary.png" alt="iOS – Game summary" width="32%" />
+  <img src="screenshots/iOS%206.9/3%20-%20Game%20Summary.png" alt="iOS – Game summary" width="32%" />
 </p>
 
 <p align="center">
-  <img src="screenshots/iOS/4%20-%20Settings.png" alt="iOS – Settings" width="32%" />
+  <img src="screenshots/iOS%206.9/4%20-%20Settings.png" alt="iOS – Settings" width="32%" />
   &nbsp;
-  <img src="screenshots/iOS/5%20-%20Dark.png" alt="iOS – Dark mode" width="32%" />
+  <img src="screenshots/iOS%206.9/5%20-%20Dark.png" alt="iOS – Dark mode" width="32%" />
 </p>
 
-### iPad (iPadOS)
+### iPad (iPadOS, 13")
 
 <p align="center">
-  <img src="screenshots/iPadOS/1%20-%20Main.png" alt="iPadOS – Main scoreboard" width="32%" />
+  <img src="screenshots/iPadOS%2013/1%20-%20Main.png" alt="iPadOS – Main scoreboard" width="32%" />
   &nbsp;
-  <img src="screenshots/iPadOS/2%20-%20Round%20Input.png" alt="iPadOS – Round input" width="32%" />
+  <img src="screenshots/iPadOS%2013/2%20-%20Round%20Input.png" alt="iPadOS – Round input" width="32%" />
   &nbsp;
-  <img src="screenshots/iPadOS/3%20-%20Game%20Summary.png" alt="iPadOS – Game summary" width="32%" />
+  <img src="screenshots/iPadOS%2013/3%20-%20Game%20Summary.png" alt="iPadOS – Game summary" width="32%" />
 </p>
 
 <p align="center">
-  <img src="screenshots/iPadOS/4%20-%20Settings.png" alt="iPadOS – Settings" width="32%" />
+  <img src="screenshots/iPadOS%2013/4%20-%20Settings.png" alt="iPadOS – Settings" width="32%" />
   &nbsp;
-  <img src="screenshots/iPadOS/5%20-%20Dark.png" alt="iPadOS – Dark mode" width="32%" />
+  <img src="screenshots/iPadOS%2013/5%20-%20Dark.png" alt="iPadOS – Dark mode" width="32%" />
+</p>
+
+### iPhone Duo (folded)
+
+<p align="center">
+  <img src="screenshots/iPhone%20Duo%20Folded/1%20-%20Main.png" alt="iPhone Duo folded – Main scoreboard" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPhone%20Duo%20Folded/2%20-%20Round%20Input.png" alt="iPhone Duo folded – Round input" width="32%" />
+  &nbsp;
+  <img src="screenshots/iPhone%20Duo%20Folded/5%20-%20Dark.png" alt="iPhone Duo folded – Dark mode" width="32%" />
 </p>
 
 ### Regenerating the App Store screenshots
