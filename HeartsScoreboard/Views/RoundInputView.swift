@@ -309,14 +309,20 @@ struct RoundInputView: View {
             name: player.name,
             total: model.game.totalPoints(for: player.id, excluding: editingHandID),
             isLeader: leadingPlayerIDs.contains(player.id),
-            colorScheme: colorScheme
+            colorScheme: colorScheme,
+            // Symmetric badge padding so the capsule is centered with the name and stepper; the crown
+            // overlay gets its headroom from the row (see the insets below) instead of the badge's box.
+            reservesCrownSpace: false
         )
         Group {
             if isAccessibilitySize {
                 // Accessibility sizes: name + total, then the stepper, then the chips in a 2x2 grid.
                 VStack(alignment: .leading, spacing: 0) {
                     nameView
-                    stepper(for: player)
+                    HStack(spacing: 8) {
+                        tenChip(for: player)
+                        stepper(for: player)
+                    }
                     Grid(horizontalSpacing: 6, verticalSpacing: 0) {
                         GridRow {
                             quickChip(for: player, quick: quick, remaining: remaining)
@@ -329,7 +335,7 @@ struct RoundInputView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .listRowInsets(EdgeInsets(top: 2, leading: 16, bottom: 2, trailing: 16))
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 2, trailing: 16))
             } else if presentation == .inline {
                 // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
                 // so long names never collapse to "…".
@@ -337,6 +343,7 @@ struct RoundInputView: View {
                     HStack(spacing: 8) {
                         nameView
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        tenChip(for: player)
                         stepper(for: player)
                     }
                     HStack(spacing: 6) {
@@ -347,34 +354,65 @@ struct RoundInputView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .listRowInsets(EdgeInsets(top: 2, leading: 16, bottom: 2, trailing: 16))
+                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 2, trailing: 16))
             } else {
-                HStack(alignment: .center, spacing: 8) {
-                    nameView
-                        .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
-                        .layoutPriority(1)
-
-                    Spacer(minLength: 0)
-
-                    stepper(for: player)
-
-                    Grid(horizontalSpacing: 4, verticalSpacing: 4) {
-                        GridRow {
-                            quickChip(for: player, quick: quick, remaining: remaining)
-                            remainingChip(for: player, remaining: remaining)
-                        }
-                        GridRow {
-                            queenChip(for: player)
-                            moonChip(for: player)
-                        }
-                    }
-                }
+                sheetRow(player, nameView: nameView, quick: quick, remaining: remaining)
             }
         }
         .accessibilityElement(children: .contain)
         .accessibilityLabel(player.name)
         .accessibilityValue(String(format: String(localized: "%d points"), entry.points[player.id] ?? 0))
         .accessibilityIdentifier("roundInput.row.\(index)")
+    }
+
+    /// One-line sheet row: name + total, [10♦ chip], stepper, chip grid. The stepper/grid are trailing and
+    /// fixed-size, so the holder's row never shifts them. The chip goes left of the stepper only if the
+    /// whole name + total + chip fit; otherwise (long name, 3-digit total, narrow phone) it falls back to
+    /// sitting under the name, so nothing overlaps and the name isn't squeezed to a letter.
+    @ViewBuilder
+    private func sheetRow(_ player: HeartsGame.Player, nameView: PlayerNameWithTotalView, quick: Int, remaining: Int) -> some View {
+        let controls = HStack(alignment: .center, spacing: 8) {
+            stepper(for: player)
+            Grid(horizontalSpacing: 4, verticalSpacing: 4) {
+                GridRow {
+                    quickChip(for: player, quick: quick, remaining: remaining)
+                    remainingChip(for: player, remaining: remaining)
+                }
+                GridRow {
+                    queenChip(for: player)
+                    moonChip(for: player)
+                }
+            }
+        }
+        let plain = HStack(alignment: .center, spacing: 8) {
+            nameView
+                .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
+                .layoutPriority(1)
+            Spacer(minLength: 0)
+            controls
+        }
+        if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .center, spacing: 8) {
+                    nameView.fixedSize(horizontal: true, vertical: false)
+                    Spacer(minLength: 0)
+                    tenChip(for: player)
+                    controls
+                }
+                HStack(alignment: .center, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        nameView
+                        tenChip(for: player)
+                    }
+                    .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
+                    .layoutPriority(1)
+                    Spacer(minLength: 0)
+                    controls
+                }
+            }
+        } else {
+            plain
+        }
     }
 
     private func tenOfDiamondsButton(for player: HeartsGame.Player) -> some View {
@@ -447,6 +485,31 @@ struct RoundInputView: View {
         .disabled(isRoundValid)
     }
 
+    /// Display-only "10♦" indicator shown left of the stepper in the holder's row only.
+    @ViewBuilder
+    private func tenChip(for player: HeartsGame.Player) -> some View {
+        if isTenRuleOn {
+            if entry.tenOfDiamondsOwnerID == player.id {
+                tenChipLabel
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
+                    .accessibilityIdentifier("roundInput.tenBadge.\(player.name)")
+            }
+        }
+    }
+
+    private var tenChipLabel: some View {
+        (Text(verbatim: "10") + Text(verbatim: "♦").foregroundColor(.red))
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(Color.primary)
+            .lineLimit(1)
+            .fixedSize()
+            .padding(.horizontal, 6)
+            .frame(minHeight: 28)
+            .background(Capsule(style: .continuous).fill(Color.accentColor.opacity(0.18)))
+            .overlay(Capsule(style: .continuous).strokeBorder(Color.accentColor, lineWidth: 1.5))
+    }
+
     private func stepper(for player: HeartsGame.Player) -> some View {
         HStack(spacing: 0) {
             HoldRepeatButton {
@@ -469,17 +532,7 @@ struct RoundInputView: View {
                 .monospacedDigit()
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
-                // Full tap height so the −10 badge sits inside the row; an offset above it got clipped by the list cell.
                 .frame(minWidth: 30, minHeight: tapSize)
-                .overlay(alignment: .top) {
-                    if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
-                        Text("−10")
-                            .font(.caption2.weight(.semibold))
-                            .foregroundStyle(Color.red)
-                            .fixedSize()
-                            .accessibilityIdentifier("roundInput.tenBadge.\(player.name)")
-                    }
-                }
 
             HoldRepeatButton {
                 adjustPoints(for: player.id, delta: 1)

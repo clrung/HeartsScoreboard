@@ -13,6 +13,11 @@ struct PlayerTotalBadge: View {
     var progress: Double? = nil
     /// Points left before the game ends; nil hides the caption.
     var pointsToGo: Int? = nil
+    /// When true (default) the badge reserves headroom above the capsule for the leader's crown, which
+    /// makes its layout box taller than the capsule and puts the capsule below the box's center. Rows that
+    /// center the badge against sibling content pass false (symmetric padding, so box center == capsule
+    /// center) and must leave room for the crown overlay themselves.
+    var reservesCrownSpace: Bool = true
 
     @Environment(\.colorSchemeContrast) private var contrast
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -94,7 +99,7 @@ struct PlayerTotalBadge: View {
             }
             // Room for the crown (its top sits ~0.95*crownSize above the capsule); constant so a leader
             // doesn't shift the row, and scales with Dynamic Type via crownSize.
-            .padding(.top, max(4, crownSize * 0.95 + 2))
+            .padding(.top, reservesCrownSpace ? max(4, crownSize * 0.95 + 2) : 4)
             .padding(.bottom, 4)
     }
 
@@ -127,6 +132,8 @@ struct PlayerNameWithTotalView: View {
     let total: Int
     let isLeader: Bool
     let colorScheme: ColorScheme
+    /// See `PlayerTotalBadge.reservesCrownSpace`.
+    var reservesCrownSpace: Bool = true
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
@@ -138,7 +145,7 @@ struct PlayerNameWithTotalView: View {
                 // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
                 .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.5 : 1)
 
-            PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme)
+            PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme, reservesCrownSpace: reservesCrownSpace)
         }
     }
 }
