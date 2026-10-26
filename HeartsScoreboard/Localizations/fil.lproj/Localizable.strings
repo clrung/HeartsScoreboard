@@ -43,7 +43,6 @@
 "Game History" = "Kasaysayan ng Laro";
 "Game Summary" = "Buod ng Laro";
 "Quick add" = "Mabilis na idagdag";
-"Adds %d points per tap" = "Nagdaragdag ng %d puntos sa bawat pag-tap";
 "Shoot the Moon Preference" = "Kunin ang Moon Preference";
 "Shoot the moon" = "Abutin ang buwan";
 "Adds 26 points to every other players' score." = "Nagdaragdag ng 26 puntos sa bawat puntos ng iba pang manlalaro.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Na-update ang round %d.";
 "Edit this round" = "I-edit ang round na ito";
 "Redo available" = "Available ang redo";
+"Quick-add button: +%d" = "Button na mabilis na magdagdag: +%d";
+"The +%d button in score entry adds this many points per tap." = "Ang button na +%d sa entry ng marka ay nagdaragdag ng maraming puntos sa bawat pag-tap.";

@@ -43,7 +43,6 @@
 "Game History" = "Zgodovina igre";
 "Game Summary" = "Povzetek igre";
 "Quick add" = "Hitro dodajanje";
-"Adds %d points per tap" = "Doda %d točk na dotik";
 "Shoot the Moon Preference" = "Prednost pravilo točkovanja streljaj na luno v Hearts";
 "Shoot the moon" = "Ustreli luno";
 "Adds 26 points to every other players' score." = "Dodaja 26 točk rezultatom vseh drugih igralcev.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Krog %d posodobljen";
 "Edit this round" = "Uredite ta krog";
 "Redo available" = "Na voljo je ponovitev";
+"Quick-add button: +%d" = "Gumb za hitro dodajanje: +%d";
+"The +%d button in score entry adds this many points per tap." = "Gumb +%d pri vnosu rezultata doda toliko točk na dotik.";

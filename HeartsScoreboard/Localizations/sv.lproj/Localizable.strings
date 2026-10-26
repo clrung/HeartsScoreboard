@@ -43,7 +43,6 @@
 "Game History" = "Spelhistorik";
 "Game Summary" = "Sammanfattning";
 "Quick add" = "Snabb tillägg";
-"Adds %d points per tap" = "+%d poäng per tryck";
 "Shoot the Moon Preference" = "Månregel";
 "Shoot the moon" = "Ta månen";
 "Adds 26 points to every other players' score." = "Lägger till 26 poäng för övriga spelare.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Omgång %d uppdaterad";
 "Edit this round" = "Redigera denna omgång";
 "Redo available" = "Gör om tillgängligt";
+"Quick-add button: +%d" = "Snabbläggsknapp: +%d";
+"The +%d button in score entry adds this many points per tap." = "Knappen +%d i poänginmatningen ger så många poäng per tryck.";

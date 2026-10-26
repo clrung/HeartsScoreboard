@@ -43,7 +43,6 @@
 "Game History" = "የጨዋታ ታሪክ";
 "Game Summary" = "የጨዋታ ማጠቃለያ";
 "Quick add" = "በፍጥነት ይጨምሩ";
-"Adds %d points per tap" = "በአንድ መታ %d ነጥቦችን ያክላል";
 "Shoot the Moon Preference" = "የጨረቃ ምርጫን ያንሱ";
 "Shoot the moon" = "ጨረቃን ተኩሱ";
 "Adds 26 points to every other players' score." = "ለእያንዳንዱ ሌሎች ተጫዋቾች ነጥብ 26 ነጥቦችን ይጨምራል።";
@@ -177,3 +176,5 @@
 "Round %d updated" = "ዙር %d ተዘምኗል";
 "Edit this round" = "ይህንን ዙር ያርትዑ";
 "Redo available" = "ድገም ይገኛል።";
+"Quick-add button: +%d" = "ፈጣን አክል አዝራር፡ +%d";
+"The +%d button in score entry adds this many points per tap." = "በውጤት ግቤት ውስጥ ያለው የ+%d አዝራር በአንድ መታ በማድረግ ብዙ ነጥቦችን ይጨምራል።";

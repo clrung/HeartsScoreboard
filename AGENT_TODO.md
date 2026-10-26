@@ -167,3 +167,9 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - Google Translate (deep-translator) was rate-limited for this pass, so App Store metadata translations were LLM-generated. Native review is worthwhile, especially am, az, bn, cy, eu, fa, hy, ka, kk, km, lo, mk, ml, mn, mr, my, ne, pa, si, sw, ta, te, ur, uz, zu, and game names (pl "Kierki", ru "Червы", nl "Hartenjagen", pt/pt-PT "Copas", zh-Hant "傷心小棧", zh-Hans "红心大战").
 - [ ] Non-English ASC locales fall back to the English screenshots (no localized screenshots).
 
+
+## Visual polish follow-ups (2026-10-25)
+
+- [ ] Main-screen pass-direction pill truncates to "← L…" at XXXL Dynamic Type on iPhone Air (pre-existing; seen while verifying bottom-bar heights).
+- [ ] Bottom-bar chip height uses `@ScaledMetric` 35pt tuned to match Next Round; at XXXL the chips run a few pt taller than Next Round. A layout-driven equal height (shared `maxHeight: .infinity` + `fixedSize(vertical:)`) would remove the magic number.
+- [ ] Throwaway simulators created during this work (chips-air, chips-ipad, chips-se, chips-16e, plus the bottom-bar agent's Air/iPad Pro 13") can be deleted with `xcrun simctl delete`.

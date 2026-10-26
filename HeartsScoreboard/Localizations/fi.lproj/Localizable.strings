@@ -43,7 +43,6 @@
 "Game History" = "Pelihistoria";
 "Game Summary" = "Pelin yhteenveto";
 "Quick add" = "Nopea lisäys";
-"Adds %d points per tap" = "Lisää %d pistettä napautusta kohden";
 "Shoot the Moon Preference" = "Ammu Moon Preference";
 "Shoot the moon" = "Ammu kuu";
 "Adds 26 points to every other players' score." = "Lisää 26 pistettä kaikkien muiden pelaajien pisteisiin.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Kierros %d päivitetty";
 "Edit this round" = "Muokkaa tätä kierrosta";
 "Redo available" = "Uusinta saatavilla";
+"Quick-add button: +%d" = "Pikalisäyspainike: +%d";
+"The +%d button in score entry adds this many points per tap." = "Tulosmerkinnän +%d-painike lisää näin monta pistettä napautusta kohti.";

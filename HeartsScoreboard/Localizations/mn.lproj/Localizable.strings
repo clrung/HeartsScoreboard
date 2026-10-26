@@ -43,7 +43,6 @@
 "Game History" = "Тоглоомын түүх";
 "Game Summary" = "Тоглоомын хураангуй";
 "Quick add" = "Түргэн нэмэх";
-"Adds %d points per tap" = "Нэг товшилт тутамд %d оноо нэмнэ";
 "Shoot the Moon Preference" = "Сарны давуу талыг буудна";
 "Shoot the moon" = "Сарыг бууд";
 "Adds 26 points to every other players' score." = "Бусад тоглогч бүрийн оноонд 26 оноо нэмнэ.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d-р тойрог шинэчлэгдсэн";
 "Edit this round" = "Энэ тойргийг засварлана уу";
 "Redo available" = "Дахин хийх боломжтой";
+"Quick-add button: +%d" = "Quick-add button: +%d";
+"The +%d button in score entry adds this many points per tap." = "Онооны бичилт дэх +%d товчлуур нь нэг товшилт бүрт ийм олон оноо нэмнэ.";

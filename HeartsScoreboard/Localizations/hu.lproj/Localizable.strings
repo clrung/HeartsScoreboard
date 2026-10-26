@@ -43,7 +43,6 @@
 "Game History" = "Játéktörténet";
 "Game Summary" = "Játék összefoglaló";
 "Quick add" = "Gyors hozzáadás";
-"Adds %d points per tap" = "Érintésenként %d pontot ad hozzá";
 "Shoot the Moon Preference" = "Lődd le a Hold Preferenciát";
 "Shoot the moon" = "Lődd le a holdat";
 "Adds 26 points to every other players' score." = "26 pontot ad minden más játékos pontszámához.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d. forduló frissítve";
 "Edit this round" = "Szerkessze ezt a kört";
 "Redo available" = "Újra elkészíthető";
+"Quick-add button: +%d" = "Gyors hozzáadás gomb: +%d";
+"The +%d button in score entry adds this many points per tap." = "A +%d gomb a pontszámbevitelnél ennyi pontot ad hozzá érintésenként.";

@@ -43,7 +43,6 @@
 "Game History" = "గేమ్ చరిత్ర";
 "Game Summary" = "గేమ్ సారాంశం";
 "Quick add" = "త్వరిత జోడించండి";
-"Adds %d points per tap" = "ఒక్కో ట్యాప్‌కు %d పాయింట్‌లను జోడిస్తుంది";
 "Shoot the Moon Preference" = "మూన్ ప్రాధాన్యతను షూట్ చేయండి";
 "Shoot the moon" = "చంద్రుడిని కాల్చండి";
 "Adds 26 points to every other players' score." = "ప్రతి ఇతర ఆటగాళ్ల స్కోర్‌కు 26 పాయింట్లను జోడిస్తుంది.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "రౌండ్ %d నవీకరించబడింది";
 "Edit this round" = "ఈ రౌండ్‌ను సవరించండి";
 "Redo available" = "మళ్లీ చేయి అందుబాటులో ఉంది";
+"Quick-add button: +%d" = "త్వరిత-జోడించు బటన్: +%d";
+"The +%d button in score entry adds this many points per tap." = "స్కోర్ నమోదులోని +%d బటన్ ఒక్కో ట్యాప్‌కు ఇన్ని పాయింట్లను జోడిస్తుంది.";

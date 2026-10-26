@@ -43,7 +43,6 @@
 "Game History" = "遊戲紀錄";
 "Game Summary" = "遊戲摘要";
 "Quick add" = "快捷加分";
-"Adds %d points per tap" = "每次點擊加 %d 分";
 "Shoot the Moon Preference" = "「全收」規則";
 "Shoot the moon" = "全收";
 "Adds 26 points to every other players' score." = "為其他每位玩家加 26 分。";
@@ -177,3 +176,5 @@
 "Round %d updated" = "第 %d 輪已更新";
 "Edit this round" = "編輯本輪";
 "Redo available" = "可用重做";
+"Quick-add button: +%d" = "快速新增按鈕：+%d";
+"The +%d button in score entry adds this many points per tap." = "分數輸入中的 +%d 按鈕每次點擊都會增加這麼多分數。";

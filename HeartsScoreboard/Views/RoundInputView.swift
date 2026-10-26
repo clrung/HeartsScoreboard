@@ -22,6 +22,8 @@ struct RoundInputView: View {
 
     @ScaledMetric(relativeTo: .body) private var tapSize: CGFloat = 44
     @ScaledMetric(relativeTo: .body) private var stepperSize: CGFloat = 34
+    /// Min chip width: wide enough for "+26" (the widest chip text), scaling with Dynamic Type.
+    @ScaledMetric(relativeTo: .subheadline) private var chipWidth: CGFloat = ChipMetrics.baseMinWidth
 
     init(model: GameViewModel, presentation: Presentation = .sheet, editingHandID: UUID? = nil) {
         self.model = model
@@ -394,7 +396,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), quick, player.name))
         .accessibilityIdentifier("roundInput.quick.\(player.name)")
-        .chipStyle(minWidth: tapSize, fill: stacksRow)
+        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
         .disabled(isRoundValid || remaining < quick)
     }
 
@@ -405,7 +407,8 @@ struct RoundInputView: View {
             Text(isShootTheMoonRound ? "+0" : "+\(remaining)")
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), remaining, player.name))
-        .chipStyle(minWidth: tapSize, fill: stacksRow)
+        .accessibilityIdentifier("roundInput.remaining.\(player.name)")
+        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
         .disabled(remaining == 0 || isRoundValid)
     }
 
@@ -415,7 +418,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
-        .chipStyle(minWidth: tapSize, fill: stacksRow)
+        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
         .disabled(isRoundValid || entry.queenOwnerID != nil)
     }
 
@@ -426,7 +429,7 @@ struct RoundInputView: View {
             Image(systemName: "moon.fill")
         }
         .accessibilityLabel(String(format: String(localized: "Shoot the moon for %@"), player.name))
-        .chipStyle(minWidth: tapSize, fill: stacksRow)
+        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
         .disabled(isRoundValid)
     }
 
@@ -554,6 +557,23 @@ struct RoundInputView: View {
     }
 }
 
+/// Sizing for the score chips. The width is derived from the widest chip text ("+26") so it is never truncated.
+enum ChipMetrics {
+    static let horizontalPadding: CGFloat = 10
+    /// Subheadline's base point size (15pt at the default Dynamic Type size).
+    static let baseFontSize: CGFloat = 15
+    static let widestText = "+26"
+
+    /// Width of `widestText` in the chip font (semibold) at `fontSize`, plus the capsule padding.
+    static func minWidth(fontSize: CGFloat = baseFontSize) -> CGFloat {
+        let font = UIFont.systemFont(ofSize: fontSize, weight: .semibold)
+        let text = (widestText as NSString).size(withAttributes: [.font: font]).width
+        return ceil(text) + 2 * horizontalPadding
+    }
+
+    static var baseMinWidth: CGFloat { minWidth() }
+}
+
 private extension View {
     /// Compact capsule chip that grows with Dynamic Type but keeps a minimum tap width, with a full 44pt hit area.
     func chipStyle(minWidth: CGFloat, fill: Bool = false) -> some View {
@@ -574,7 +594,7 @@ private struct ChipButtonStyle: ButtonStyle {
             .minimumScaleFactor(0.6)
             .allowsTightening(true)
             .foregroundStyle(isEnabled ? Color.white : Color.secondary)
-            .padding(.horizontal, 12)
+            .padding(.horizontal, ChipMetrics.horizontalPadding)
             .frame(minWidth: minWidth, maxWidth: fill ? .infinity : nil, minHeight: 32)
             .background(
                 Capsule(style: .continuous)

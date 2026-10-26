@@ -43,7 +43,6 @@
 "Game History" = "ಗೇಮ್ ಇತಿಹಾಸ";
 "Game Summary" = "ಗೇಮ್ ಸಾರಾಂಶ";
 "Quick add" = "ತ್ವರಿತ ಸೇರಿಸಿ";
-"Adds %d points per tap" = "ಪ್ರತಿ ಟ್ಯಾಪ್‌ಗೆ %d ಅಂಕಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ";
 "Shoot the Moon Preference" = "ಚಂದ್ರನ ಆದ್ಯತೆಯನ್ನು ಶೂಟ್ ಮಾಡಿ";
 "Shoot the moon" = "ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ";
 "Adds 26 points to every other players' score." = "ಪ್ರತಿ ಇತರ ಆಟಗಾರರ ಸ್ಕೋರ್‌ಗೆ 26 ಅಂಕಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "ಸುತ್ತಿನ %d ಅನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ";
 "Edit this round" = "ಈ ಸುತ್ತನ್ನು ಸಂಪಾದಿಸಿ";
 "Redo available" = "ಮತ್ತೆಮಾಡು ಲಭ್ಯವಿದೆ";
+"Quick-add button: +%d" = "ತ್ವರಿತ-ಸೇರಿಸು ಬಟನ್: +%d";
+"The +%d button in score entry adds this many points per tap." = "ಸ್ಕೋರ್ ಪ್ರವೇಶದಲ್ಲಿರುವ +%d ಬಟನ್ ಪ್ರತಿ ಟ್ಯಾಪ್‌ಗೆ ಇಷ್ಟು ಅಂಕಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.";

@@ -43,7 +43,6 @@
 "Game History" = "Istoria jocului";
 "Game Summary" = "Rezumatul jocului";
 "Quick add" = "Adăugare rapidă";
-"Adds %d points per tap" = "Adaugă %d puncte per fiecare atingere";
 "Shoot the Moon Preference" = "Trage Preferința Lunii";
 "Shoot the moon" = "Trage luna";
 "Adds 26 points to every other players' score." = "Adaugă 26 de puncte la scorul tuturor celorlalți jucători.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Runda %d a fost actualizată";
 "Edit this round" = "Editați această rundă";
 "Redo available" = "Reface disponibil";
+"Quick-add button: +%d" = "Buton de adăugare rapidă: +%d";
+"The +%d button in score entry adds this many points per tap." = "Butonul +%d din introducerea scorului adaugă atât de multe puncte la fiecare atingere.";

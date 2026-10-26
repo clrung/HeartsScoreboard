@@ -83,4 +83,16 @@ final class ScreenshotTests: XCTestCase {
         _ = launch(dark: true)
         capture("5 - Dark")
     }
+
+    /// The New Game chip is a plain button (no menu): one tap shows the confirmation alert.
+    func testNewGameButtonShowsAlert() {
+        let app = launch()
+        let button = app.buttons["newGameButton"]
+        XCTAssertTrue(button.waitForExistence(timeout: 10))
+        XCTAssertTrue(button.isEnabled)
+        button.tap()
+        let alert = app.alerts.matching(identifier: "New Game").firstMatch
+        XCTAssertTrue(alert.waitForExistence(timeout: 5))
+        alert.buttons.matching(identifier: "No").firstMatch.tap()
+    }
 }

@@ -43,7 +43,6 @@
 "Game History" = "Jokoen historia";
 "Game Summary" = "Jokoaren laburpena";
 "Quick add" = "Gehitu azkarra";
-"Adds %d points per tap" = "%d puntu gehitzen ditu ukitu bakoitzeko";
 "Shoot the Moon Preference" = "Shoot Moon Preference";
 "Shoot the moon" = "Tiro egin ilargiari";
 "Adds 26 points to every other players' score." = "26 puntu gehitzen dizkio beste jokalari guztien puntuazioari.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d txanda eguneratu da";
 "Edit this round" = "Editatu txanda hau";
 "Redo available" = "Berregin eskuragarri";
+"Quick-add button: +%d" = "Bizkor gehitzeko botoia: +%d";
+"The +%d button in score entry adds this many points per tap." = "Puntuazio sarrerako +%d botoiak puntu asko gehitzen ditu ukitu bakoitzeko.";

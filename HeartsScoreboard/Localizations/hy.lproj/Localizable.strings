@@ -43,7 +43,6 @@
 "Game History" = "Խաղի պատմություն";
 "Game Summary" = "Խաղի ամփոփում";
 "Quick add" = "Արագ ավելացում";
-"Adds %d points per tap" = "Ավելացնում է %d միավոր մեկ հպումով";
 "Shoot the Moon Preference" = "Նախապատվությունը նկարահանել լուսնի միավորների կանոնին Hearts-ում";
 "Shoot the moon" = "Կրակեք լուսինը";
 "Adds 26 points to every other players' score." = "Յուրաքանչյուր այլ խաղացողի միավորին ավելացնում է 26 միավոր:";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Կլոր %d թարմացվել է";
 "Edit this round" = "Խմբագրել այս փուլը";
 "Redo available" = "Կրկնել հասանելի է";
+"Quick-add button: +%d" = "Արագ ավելացման կոճակ՝ +%d";
+"The +%d button in score entry adds this many points per tap." = "Միավորների մուտքագրման +%d կոճակը այսքան միավոր է ավելացնում յուրաքանչյուր հպումով:";

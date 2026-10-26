@@ -60,7 +60,8 @@
 
 /* Round input */
 "Quick add" = "Quick add";
-"Adds %d points per tap" = "Adds %d points per tap";
+"Quick-add button: +%d" = "Quick-add button: +%d";
+"The +%d button in score entry adds this many points per tap." = "The +%d button in score entry adds this many points per tap.";
 "Shoot the Moon Preference" = "Shoot the Moon Preference";
 "Shoot the moon" = "Shoot the moon";
 "Adds 26 points to every other players' score." = "Adds 26 points to every other players' score.";

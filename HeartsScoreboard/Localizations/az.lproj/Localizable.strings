@@ -43,7 +43,6 @@
 "Game History" = "Oyun Tarixçəsi";
 "Game Summary" = "Oyunun xülasəsi";
 "Quick add" = "Tez əlavə edin";
-"Adds %d points per tap" = "Hər toxunuşa %d xal əlavə edir";
 "Shoot the Moon Preference" = "Aya üstünlük verin";
 "Shoot the moon" = "Ayı vur";
 "Adds 26 points to every other players' score." = "Digər oyunçuların hesabına 26 xal əlavə edir.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d raund yeniləndi";
 "Edit this round" = "Bu turu redaktə edin";
 "Redo available" = "Yenidən etmək mümkündür";
+"Quick-add button: +%d" = "Tez əlavə et düyməsi: +%d";
+"The +%d button in score entry adds this many points per tap." = "Hesab girişindəki +%d düyməsi hər toxunuşa bu qədər xal əlavə edir.";

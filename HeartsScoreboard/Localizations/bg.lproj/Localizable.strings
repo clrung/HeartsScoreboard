@@ -43,7 +43,6 @@
 "Game History" = "История на играта";
 "Game Summary" = "Резюме на играта";
 "Quick add" = "Бързо добавяне";
-"Adds %d points per tap" = "Добавя %d точки на докосване";
 "Shoot the Moon Preference" = "Предпочитание за правилото за стреляне по луната в Hearts";
 "Shoot the moon" = "Застреляй луната";
 "Adds 26 points to every other players' score." = "Добавя 26 точки към резултата на всеки друг играч.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Рунд %d е актуализиран";
 "Edit this round" = "Редактирайте този кръг";
 "Redo available" = "Налично повторение";
+"Quick-add button: +%d" = "Бутон за бързо добавяне: +%d";
+"The +%d button in score entry adds this many points per tap." = "Бутонът +%d при въвеждане на резултат добавя толкова много точки на докосване.";

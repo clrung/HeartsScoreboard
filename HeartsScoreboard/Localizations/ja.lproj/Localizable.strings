@@ -60,7 +60,6 @@
 
 /* Round input */
 "Quick add" = "クイック追加";
-"Adds %d points per tap" = "タップごとに%d点追加";
 "Shoot the Moon Preference" = "「月を取る」の設定";
 "Shoot the moon" = "月を取る";
 "Adds 26 points to every other players' score." = "他の全プレイヤーの得点に26点を加算します。";
@@ -196,3 +195,5 @@
 "Round %d updated" = "ラウンド %d が更新されました";
 "Edit this round" = "このラウンドを編集する";
 "Redo available" = "やり直し可能";
+"Quick-add button: +%d" = "クイック追加ボタン: +%d";
+"The +%d button in score entry adds this many points per tap." = "スコア入力の +%d ボタンは、タップごとにこの数のポイントを追加します。";

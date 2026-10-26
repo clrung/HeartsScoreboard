@@ -43,7 +43,6 @@
 "Game History" = "ഗെയിം ചരിത്രം";
 "Game Summary" = "ഗെയിം സംഗ്രഹം";
 "Quick add" = "പെട്ടെന്ന് കൂട്ടിച്ചേർക്കുക";
-"Adds %d points per tap" = "ഓരോ ടാപ്പിനും %d പോയിൻ്റുകൾ ചേർക്കുന്നു";
 "Shoot the Moon Preference" = "ചന്ദ്രൻ്റെ മുൻഗണന ഷൂട്ട് ചെയ്യുക";
 "Shoot the moon" = "ചന്ദ്രനെ വെടിവയ്ക്കുക";
 "Adds 26 points to every other players' score." = "മറ്റെല്ലാ കളിക്കാരുടെയും സ്കോറിലേക്ക് 26 പോയിൻ്റുകൾ ചേർക്കുന്നു.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "റൗണ്ട് %d അപ്ഡേറ്റ് ചെയ്തു";
 "Edit this round" = "ഈ റൗണ്ട് എഡിറ്റ് ചെയ്യുക";
 "Redo available" = "വീണ്ടും ചെയ്യുക ലഭ്യമാണ്";
+"Quick-add button: +%d" = "പെട്ടെന്ന് ചേർക്കുക ബട്ടൺ: +%d";
+"The +%d button in score entry adds this many points per tap." = "സ്കോർ എൻട്രിയിലെ +%d ബട്ടൺ ഓരോ ടാപ്പിലും ഇത്രയും പോയിൻ്റുകൾ ചേർക്കുന്നു.";

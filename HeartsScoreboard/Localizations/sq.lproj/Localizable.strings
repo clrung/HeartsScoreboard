@@ -43,7 +43,6 @@
 "Game History" = "Historia e lojës";
 "Game Summary" = "Përmbledhja e lojës";
 "Quick add" = "Shtim i shpejtë";
-"Adds %d points per tap" = "Shton %d pikë për trokitje";
 "Shoot the Moon Preference" = "Xhironi Preferencën e Hënës";
 "Shoot the moon" = "Gjuaj hënën";
 "Adds 26 points to every other players' score." = "Shton 26 pikë në rezultatin e çdo lojtari tjetër.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Raundi %d u përditësua";
 "Edit this round" = "Redakto këtë raund";
 "Redo available" = "Ribërje në dispozicion";
+"Quick-add button: +%d" = "Butoni i shtimit të shpejtë: +%d";
+"The +%d button in score entry adds this many points per tap." = "Butoni +%d në hyrjen e rezultatit shton kaq shumë pikë për çdo trokitje.";

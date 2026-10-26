@@ -43,7 +43,6 @@
 "Game History" = "Spillhistorie";
 "Game Summary" = "Spillsammendrag";
 "Quick add" = "Rask tilføyelse";
-"Adds %d points per tap" = "Legger til %d poeng per trykk";
 "Shoot the Moon Preference" = "Preferanse for skyt-månen-scoringsregelen i Hearts";
 "Shoot the moon" = "Skyt månen";
 "Adds 26 points to every other players' score." = "Legger til 26 poeng til hver annen spillers poengsum.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Runde %d oppdatert";
 "Edit this round" = "Rediger denne runden";
 "Redo available" = "Gjenta tilgjengelig";
+"Quick-add button: +%d" = "Hurtiglegg til-knapp: +%d";
+"The +%d button in score entry adds this many points per tap." = "+%d-knappen i poengskriving legger til så mange poeng per trykk.";

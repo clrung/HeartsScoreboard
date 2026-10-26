@@ -43,7 +43,6 @@
 "Game History" = "ဂိမ်းသမိုင်း";
 "Game Summary" = "ဂိမ်းအကျဉ်းချုပ်";
 "Quick add" = "အမြန်ထည့်ပါ။";
-"Adds %d points per tap" = "တစ်ချက်နှိပ်လျှင် %d မှတ် ပေါင်းထည့်သည်။";
 "Shoot the Moon Preference" = "Moon Preference ကို ရိုက်ကူးပါ။";
 "Shoot the moon" = "လကို ပစ်ပါ။";
 "Adds 26 points to every other players' score." = "အခြားကစားသမားတိုင်း၏ရမှတ်သို့ 26 မှတ်ထည့်ပါ။";
@@ -177,3 +176,5 @@
 "Round %d updated" = "အဝိုင်း %d ကို အပ်ဒိတ်လုပ်ထားသည်။";
 "Edit this round" = "ဤအဝိုင်းကို တည်းဖြတ်ပါ။";
 "Redo available" = "ပြန်လုပ်လို့ရပါပြီ။";
+"Quick-add button: +%d" = "အမြန်ထည့်ရန် ခလုတ်- +%d";
+"The +%d button in score entry adds this many points per tap." = "ရမှတ်ထည့်သွင်းမှုတွင် +%d ခလုတ်သည် နှိပ်လိုက်လျှင် အမှတ်များစွာကို ထည့်ပေးသည်။";

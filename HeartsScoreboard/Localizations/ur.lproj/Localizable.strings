@@ -43,7 +43,6 @@
 "Game History" = "کھیل ہی کھیل میں تاریخ";
 "Game Summary" = "کھیل کا خلاصہ";
 "Quick add" = "جلدی شامل کریں۔";
-"Adds %d points per tap" = "فی نل پر %d پوائنٹس شامل کرتا ہے۔";
 "Shoot the Moon Preference" = "چاند کی ترجیح کو گولی مارو";
 "Shoot the moon" = "چاند کو گولی مارو";
 "Adds 26 points to every other players' score." = "ہر دوسرے کھلاڑی کے اسکور میں 26 پوائنٹس کا اضافہ کرتا ہے۔";
@@ -177,3 +176,5 @@
 "Round %d updated" = "راؤنڈ %d اپ ڈیٹ ہو گیا۔";
 "Edit this round" = "اس دور میں ترمیم کریں۔";
 "Redo available" = "دوبارہ کریں دستیاب";
+"Quick-add button: +%d" = "فوری شامل کرنے کا بٹن: +%d";
+"The +%d button in score entry adds this many points per tap." = "سکور کے اندراج میں +%d بٹن فی نل پر یہ کئی پوائنٹس کا اضافہ کرتا ہے۔";

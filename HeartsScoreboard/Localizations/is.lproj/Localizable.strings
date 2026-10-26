@@ -43,7 +43,6 @@
 "Game History" = "Saga leiksins";
 "Game Summary" = "Leikjasamantekt";
 "Quick add" = "Fljótleg viðbót";
-"Adds %d points per tap" = "Bætir við %d punktum fyrir hvern smell";
 "Shoot the Moon Preference" = "Val fyrir skjóta-the-moon-skoraregluna í Hearts";
 "Shoot the moon" = "Skjóta tunglið";
 "Adds 26 points to every other players' score." = "Bætir 26 stigum við stig annarra leikmanna.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Umferð %d uppfærð";
 "Edit this round" = "Breyta þessari umferð";
 "Redo available" = "Endurgerð í boði";
+"Quick-add button: +%d" = "Hnappur til að bæta við fljótt: +%d";
+"The +%d button in score entry adds this many points per tap." = "+%d hnappurinn í stigafærslu bætir við þessum mörgum stigum fyrir hvern smell.";

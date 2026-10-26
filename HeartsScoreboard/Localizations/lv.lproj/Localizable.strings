@@ -43,7 +43,6 @@
 "Game History" = "Spēļu vēsture";
 "Game Summary" = "Spēles kopsavilkums";
 "Quick add" = "Ātra pievienošana";
-"Adds %d points per tap" = "Par katru pieskārienu pievieno %d punktus";
 "Shoot the Moon Preference" = "Shoot Moon Preference";
 "Shoot the moon" = "Izšauj mēnesi";
 "Adds 26 points to every other players' score." = "Katram citam spēlētājam pievieno 26 punktus.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d. kārta ir atjaunināta";
 "Edit this round" = "Rediģēt šo kārtu";
 "Redo available" = "Ir pieejama pārtaisīšana";
+"Quick-add button: +%d" = "Ātrās pievienošanas poga: +%d";
+"The +%d button in score entry adds this many points per tap." = "Poga +%d rezultāta ierakstā pievieno tik daudz punktu par vienu pieskārienu.";

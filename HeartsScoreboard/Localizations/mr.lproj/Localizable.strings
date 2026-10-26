@@ -43,7 +43,6 @@
 "Game History" = "खेळ इतिहास";
 "Game Summary" = "गेमचा सारांश";
 "Quick add" = "द्रुत जोडा";
-"Adds %d points per tap" = "प्रति टॅप %d पॉइंट जोडते";
 "Shoot the Moon Preference" = "चंद्र प्राधान्य शूट करा";
 "Shoot the moon" = "चंद्र शूट करा";
 "Adds 26 points to every other players' score." = "प्रत्येक इतर खेळाडूंच्या स्कोअरमध्ये 26 गुण जोडतो.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "फेरी %d अपडेट केली";
 "Edit this round" = "ही फेरी संपादित करा";
 "Redo available" = "पुन्हा करा उपलब्ध";
+"Quick-add button: +%d" = "द्रुत-जोडा बटण: +%d";
+"The +%d button in score entry adds this many points per tap." = "स्कोअर एंट्रीमधील +%d बटण प्रति टॅपमध्ये अनेक गुण जोडते.";

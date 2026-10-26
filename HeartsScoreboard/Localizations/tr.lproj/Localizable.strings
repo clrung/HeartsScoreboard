@@ -43,7 +43,6 @@
 "Game History" = "Oyun geçmişi";
 "Game Summary" = "Oyun özeti";
 "Quick add" = "Hızlı ekleme";
-"Adds %d points per tap" = "Dokunuş başına %d puan ekler";
 "Shoot the Moon Preference" = "Ay tercihi";
 "Shoot the moon" = "Ayı al";
 "Adds 26 points to every other players' score." = "Diğer her oyuncuya 26 puan ekler.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d. tur güncellendi";
 "Edit this round" = "Bu turu düzenle";
 "Redo available" = "Yineleme mevcut";
+"Quick-add button: +%d" = "Hızlı ekleme düğmesi: +%d";
+"The +%d button in score entry adds this many points per tap." = "Puan girişindeki +%d düğmesi, dokunma başına şu kadar puan ekler.";

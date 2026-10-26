@@ -43,7 +43,6 @@
 "Game History" = "ປະຫວັດເກມ";
 "Game Summary" = "ສະຫຼຸບເກມ";
 "Quick add" = "ເພີ່ມດ່ວນ";
-"Adds %d points per tap" = "ເພີ່ມ %d ຈຸດຕໍ່ການແຕະ";
 "Shoot the Moon Preference" = "ຫນໍ່ໄມ້ສ່ວນຫຼາຍຕາມຄວາມມັກຂອງດວງຈັນ";
 "Shoot the moon" = "ຍິງດວງເດືອນ";
 "Adds 26 points to every other players' score." = "ເພີ່ມ 26 ຄະແນນໃຫ້ກັບທຸກໆຄະແນນຂອງຜູ້ນອື່ນໆ.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "ອັບເດດຮອບ %d ແລ້ວ";
 "Edit this round" = "ແກ້ໄຂຮອບນີ້";
 "Redo available" = "ມີໃຫ້ເຮັດຄືນໃໝ່";
+"Quick-add button: +%d" = "ປຸ່ມເພີ່ມດ່ວນ: +%d";
+"The +%d button in score entry adds this many points per tap." = "ປຸ່ມ +%d ໃນການປ້ອນຄະແນນຈະເພີ່ມຫຼາຍຈຸດນີ້ຕໍ່ການແຕະ.";

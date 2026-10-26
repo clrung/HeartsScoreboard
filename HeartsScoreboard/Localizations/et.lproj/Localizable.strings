@@ -43,7 +43,6 @@
 "Game History" = "Mänguajalugu";
 "Game Summary" = "Mängu kokkuvõte";
 "Quick add" = "Kiire lisamine";
-"Adds %d points per tap" = "Lisab %d punkti puudutuse kohta";
 "Shoot the Moon Preference" = "Tulista Kuu eelistus";
 "Shoot the moon" = "Tulista kuu";
 "Adds 26 points to every other players' score." = "Lisab kõigi teiste mängijate punktisummale 26 punkti.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d. vooru värskendati";
 "Edit this round" = "Redigeeri seda ringi";
 "Redo available" = "Saadaval uuesti teha";
+"Quick-add button: +%d" = "Kiirlisamise nupp: +%d";
+"The +%d button in score entry adds this many points per tap." = "Nupp +%d skoori sisestamisel lisab ühe puudutuse kohta nii palju punkte.";

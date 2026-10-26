@@ -43,7 +43,6 @@
 "Game History" = "Spielverlauf";
 "Game Summary" = "Spielzusammenfassung";
 "Quick add" = "Schnell addieren";
-"Adds %d points per tap" = "Fügt %d Punkte pro Tipp hinzu";
 "Shoot the Moon Preference" = "Einstellung „Mond schießen“";
 "Shoot the moon" = "Mond schießen";
 "Adds 26 points to every other players' score." = "Addiert 26 Punkte zur Punktzahl jedes anderen Spielers.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Runde %d aktualisiert";
 "Edit this round" = "Bearbeiten Sie diese Runde";
 "Redo available" = "Wiederherstellung verfügbar";
+"Quick-add button: +%d" = "Schaltfläche „Schnell hinzufügen“: +%d";
+"The +%d button in score entry adds this many points per tap." = "Die +%d-Schaltfläche in der Punkteeingabe fügt pro Tippen diese Anzahl an Punkten hinzu.";

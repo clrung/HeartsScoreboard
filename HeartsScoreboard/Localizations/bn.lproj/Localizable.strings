@@ -43,7 +43,6 @@
 "Game History" = "খেলার ইতিহাস";
 "Game Summary" = "গেমের সারাংশ";
 "Quick add" = "দ্রুত যোগ করুন";
-"Adds %d points per tap" = "প্রতি ট্যাপে %d পয়েন্ট যোগ করে";
 "Shoot the Moon Preference" = "চাঁদ পছন্দ অঙ্কুর";
 "Shoot the moon" = "চাঁদ গুলি করুন";
 "Adds 26 points to every other players' score." = "অন্য খেলোয়াড়দের স্কোরে 26 পয়েন্ট যোগ করে।";
@@ -177,3 +176,5 @@
 "Round %d updated" = "রাউন্ড %d আপডেট করা হয়েছে";
 "Edit this round" = "এই রাউন্ড সম্পাদনা করুন";
 "Redo available" = "উপলব্ধ পুনরায় করুন";
+"Quick-add button: +%d" = "দ্রুত যোগ করার বোতাম: +%d";
+"The +%d button in score entry adds this many points per tap." = "স্কোর এন্ট্রিতে +%d বোতাম প্রতি ট্যাপে এই অনেক পয়েন্ট যোগ করে।";

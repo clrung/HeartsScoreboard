@@ -40,6 +40,7 @@
 		B73E6EB7EFB165155ECE20F1 /* CompletedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */; };
 		C12335BF769B7438890E8D57 /* SettingsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCA38CF2F4BD97D2C797459 /* SettingsSnapshotTests.swift */; };
 		C561ECEE989F69872843FA4B /* HistoryStatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CBE01D2A1F7AEDACDC612E /* HistoryStatsTests.swift */; };
+		C62DE335293050084AB99235 /* ChipLayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8455E3F1ED71C035C18B35 /* ChipLayoutUITests.swift */; };
 		C6F4F0977DA157C10B93EC82 /* LeaderIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F08569F62A9BB54AFED28F /* LeaderIndicatorTests.swift */; };
 		CC5A8FBFCB3F07E25F3B7BFB /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A380EF88AB8E66E04E54FCCE /* HistoryView.swift */; };
 		CDBC91223F367538413750E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 382425696492181EC54F34C8 /* Localizable.strings */; };
@@ -51,6 +52,7 @@
 		EF8207392E52AC17D6C65ECB /* HistoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A727F6404B6A9D5AE8D704A7 /* HistoryDetailView.swift */; };
 		F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */; };
 		F0ECA66CE123200CFCB9E860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4287621BA5B3DBCFA976FC85 /* Assets.xcassets */; };
+		F501CD992FDDFAE019C686E6 /* ChipMetricsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D6186F5344EB61147ADDD /* ChipMetricsTests.swift */; };
 		FFB7F82F4BE09748068E8E80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DBE481A691D544BA60BA3B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,7 @@
 		0E400FFEE6D313D0026D618E /* ur */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ur; path = ur.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		0E8691A0494C38095FD5D5E5 /* UndoToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoToastView.swift; sourceTree = "<group>"; };
 		0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCardTests.swift; sourceTree = "<group>"; };
+		0F8455E3F1ED71C035C18B35 /* ChipLayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipLayoutUITests.swift; sourceTree = "<group>"; };
 		1154A9708442CE7241E7C353 /* mn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = mn; path = mn.lproj/Localizable.strings; sourceTree = "<group>"; };
 		133DC35DF43FE620E946EBFD /* zu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zu; path = zu.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14472C78D6CE65657E9F19ED /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 		1CC91E2120703C4F9D66BD5D /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/AppStoreMetadata.strings"; sourceTree = "<group>"; };
 		1CD8D8E9FF0D651C985720CD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuoLayoutSnapshotTests.swift; sourceTree = "<group>"; };
+		1F8D6186F5344EB61147ADDD /* ChipMetricsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipMetricsTests.swift; sourceTree = "<group>"; };
 		208E13E882D6991262710311 /* HeartsScoreboard.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HeartsScoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		223A2D7AB7307B0C59146BB3 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		23F02FE5AF5A01BD6839151A /* km */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = km; path = km.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -423,6 +427,7 @@
 		88DE1653AE2D416F24121BB5 /* HeartsScoreboardUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0F8455E3F1ED71C035C18B35 /* ChipLayoutUITests.swift */,
 				4895B119E0949C712555CD8A /* ScreenshotTests.swift */,
 			);
 			path = HeartsScoreboardUITests;
@@ -456,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				1A06CA4F1F9F45114D127C47 /* AccessibilityAndEditTotalsTests.swift */,
+				1F8D6186F5344EB61147ADDD /* ChipMetricsTests.swift */,
 				25E1167B83EA974678B391AF /* CompletedGameSummaryTests.swift */,
 				1DFB8013D7100A4F25DF8846 /* DuoLayoutSnapshotTests.swift */,
 				B6671AC56548FCDF62F47C67 /* GameOverStandingsTests.swift */,
@@ -699,6 +705,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24AAD1ED1DBE2AFD7AB1AE4F /* AccessibilityAndEditTotalsTests.swift in Sources */,
+				F501CD992FDDFAE019C686E6 /* ChipMetricsTests.swift in Sources */,
 				B4E98D4EF576C1DE8400F40C /* CompletedGameSummaryTests.swift in Sources */,
 				F07C4846ADE040E6D2B562B9 /* DuoLayoutSnapshotTests.swift in Sources */,
 				926A1AC34EA707E060000DB8 /* GameOverStandingsTests.swift in Sources */,
@@ -721,6 +728,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62DE335293050084AB99235 /* ChipLayoutUITests.swift in Sources */,
 				DC27D479FE723FF93EE6FBAC /* ScreenshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

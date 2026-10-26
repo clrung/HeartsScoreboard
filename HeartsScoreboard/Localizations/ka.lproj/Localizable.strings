@@ -43,7 +43,6 @@
 "Game History" = "თამაშის ისტორია";
 "Game Summary" = "თამაშის რეზიუმე";
 "Quick add" = "სწრაფი დამატება";
-"Adds %d points per tap" = "ამატებს %d ქულას ყოველ შეხებაზე";
 "Shoot the Moon Preference" = "პრიორიტეტი სროლა-მთვარეზე ქულების წესისთვის გულებში";
 "Shoot the moon" = "ესროლეთ მთვარეს";
 "Adds 26 points to every other players' score." = "ყოველი სხვა მოთამაშის ქულას ამატებს 26 ქულას.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "რაუნდი %d განახლდა";
 "Edit this round" = "ამ რაუნდის რედაქტირება";
 "Redo available" = "ხელახლა შესაძლებელია";
+"Quick-add button: +%d" = "სწრაფი დამატების ღილაკი: +%d";
+"The +%d button in score entry adds this many points per tap." = "ქულების ჩანაწერში +%d ღილაკი ამდენ ქულას ამატებს თითო შეხებაზე.";

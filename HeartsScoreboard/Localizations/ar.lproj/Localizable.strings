@@ -43,7 +43,6 @@
 "Game History" = "سجل الألعاب";
 "Game Summary" = "ملخص اللعبة";
 "Quick add" = "إضافة سريعة";
-"Adds %d points per tap" = "يضيف %d نقطة لكل نقرة";
 "Shoot the Moon Preference" = "تفضيل أخذ القمر";
 "Shoot the moon" = "أخذ القمر";
 "Adds 26 points to every other players' score." = "يضيف 26 نقطة لكل اللاعبين الآخرين.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "تم تحديث الجولة %d.";
 "Edit this round" = "تحرير هذه الجولة";
 "Redo available" = "الإعادة متاحة";
+"Quick-add button: +%d" = "زر الإضافة السريعة: +%d";
+"The +%d button in score entry adds this many points per tap." = "يضيف الزر +%d في إدخال النتيجة هذا العدد من النقاط لكل نقرة.";

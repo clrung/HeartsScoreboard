@@ -574,17 +574,21 @@ struct GameView: View {
         return label
     }
 
+    /// Content height shared by the three bottom-bar buttons so they render at one height; scales with
+    /// the bar's callout text so the chips keep matching Next Round at every Dynamic Type size.
+    @ScaledMetric(relativeTo: .callout) private var barContentHeight: CGFloat = 35
+
     /// Deep green for the primary button: white text on it is ~5.9:1 in both appearances
     /// (the dark-mode accent is too light for white text).
     private static let feltButtonGreen = Color(red: 0.10, green: 0.45, blue: 0.20)
 
-    /// Next Round is the prominent full-width action; Undo and a "more" menu (New Game) sit beside it.
+    /// Next Round is the prominent full-width action; Undo and a New Game button sit beside it.
     /// Stacks at large text sizes so labels never clip. The split layout has no Next Round (the
     /// round-entry pane is inline), so it just shows the secondary controls.
     private var bottomBar: some View {
         ViewThatFits(in: .horizontal) {
             HStack(spacing: 10) {
-                moreMenu
+                newGameButton
                 undoButton
                 if !usesSplitLayout {
                     nextRoundButton
@@ -599,7 +603,7 @@ struct GameView: View {
                         .frame(maxWidth: .infinity)
                 }
                 HStack(spacing: 10) {
-                    moreMenu
+                    newGameButton
                     undoButton
                     if usesSplitLayout { Spacer(minLength: 0) }
                 }
@@ -609,24 +613,19 @@ struct GameView: View {
         .padding(.vertical, 12)
     }
 
-    private var moreMenu: some View {
-        Menu {
-            Button(role: .destructive) {
-                showNewGameAlert = true
-            } label: {
-                Label("New Game", systemImage: "arrow.counterclockwise")
-            }
+    /// Starts a new game with the same players (after the confirmation alert).
+    private var newGameButton: some View {
+        Button {
+            showNewGameAlert = true
         } label: {
-            Image(systemName: "ellipsis")
-                .frame(minWidth: 20, minHeight: 22)
-                .modifier(FeltChipLook(isEnabled: !model.game.hands.isEmpty))
+            Image(systemName: "plus.circle")
+                .frame(minWidth: 20, minHeight: barContentHeight)
         }
-        .menuStyle(.button)
-        .buttonStyle(.plain)
+        .buttonStyle(FeltChipButtonStyle())
         .disabled(model.game.hands.isEmpty)
-        .accessibilityLabel(Text("More"))
+        .accessibilityLabel(Text("New Game"))
         .accessibilityHint(Text("Starts a new game with the same players"))
-        .accessibilityIdentifier("moreMenu")
+        .accessibilityIdentifier("newGameButton")
     }
 
     /// Undo with no confirmation (button and shake share this); offers Redo in a toast instead.
@@ -688,6 +687,7 @@ struct GameView: View {
             performUndo()
         } label: {
             Image(systemName: "arrow.uturn.backward")
+                .frame(minHeight: barContentHeight)
         }
         .buttonStyle(FeltChipButtonStyle())
         .keyboardShortcut("z", modifiers: .command)
@@ -878,7 +878,7 @@ private struct FeltChipButtonStyle: ButtonStyle {
     }
 }
 
-/// The chip appearance, shared with the "more" Menu (which doesn't take a ButtonStyle reliably).
+/// The chip appearance, used by `FeltChipButtonStyle`.
 private struct FeltChipLook: ViewModifier {
     let isEnabled: Bool
     var isPressed = false

@@ -43,7 +43,6 @@
 "Game History" = "Lịch sử";
 "Game Summary" = "Tóm tắt ván";
 "Quick add" = "Cộng nhanh";
-"Adds %d points per tap" = "Mỗi lần chạm +%d điểm";
 "Shoot the Moon Preference" = "Quy tắc lấy trăng";
 "Shoot the moon" = "Lấy trăng";
 "Adds 26 points to every other players' score." = "Cộng 26 điểm cho mọi người khác.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Đã cập nhật vòng %d";
 "Edit this round" = "Chỉnh sửa vòng này";
 "Redo available" = "Làm lại có sẵn";
+"Quick-add button: +%d" = "Nút thêm nhanh: +%d";
+"The +%d button in score entry adds this many points per tap." = "Nút +%d trong mục nhập điểm sẽ thêm số điểm này cho mỗi lần nhấn.";

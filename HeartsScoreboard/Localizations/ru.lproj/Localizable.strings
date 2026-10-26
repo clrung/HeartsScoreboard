@@ -43,7 +43,6 @@
 "Game History" = "История игр";
 "Game Summary" = "Итог игры";
 "Quick add" = "Быстрое добавление";
-"Adds %d points per tap" = "+%d очков за нажатие";
 "Shoot the Moon Preference" = "Правило «взять луну»";
 "Shoot the moon" = "Взять луну";
 "Adds 26 points to every other players' score." = "Добавляет 26 очков всем остальным.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Раунд %d обновлен.";
 "Edit this round" = "Изменить этот раунд";
 "Redo available" = "Повтор доступен";
+"Quick-add button: +%d" = "Кнопка быстрого добавления: +%d";
+"The +%d button in score entry adds this many points per tap." = "Кнопка +%d при вводе результатов добавляет указанное количество баллов за одно нажатие.";

@@ -43,7 +43,6 @@
 "Game History" = "היסטוריית המשחקים";
 "Game Summary" = "תקציר המשחק";
 "Quick add" = "תוספת מהירה";
-"Adds %d points per tap" = "מוסיף %d נקודות בכל הקשה";
 "Shoot the Moon Preference" = "צילום העדפת הירח";
 "Shoot the moon" = "לירות בירח";
 "Adds 26 points to every other players' score." = "מוסיף 26 נקודות לכל ניקוד של שחקנים אחרים.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "סיבוב %d עודכן";
 "Edit this round" = "ערוך את הסיבוב הזה";
 "Redo available" = "ביצוע מחדש זמין";
+"Quick-add button: +%d" = "לחצן הוספה מהירה: +%d";
+"The +%d button in score entry adds this many points per tap." = "הלחצן +%d בהזנת ניקוד מוסיף כל כך הרבה נקודות בכל הקשה.";

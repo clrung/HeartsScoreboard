@@ -43,7 +43,6 @@
 "Game History" = "Historia gier";
 "Game Summary" = "Podsumowanie gry";
 "Quick add" = "Szybkie dodawanie";
-"Adds %d points per tap" = "Dodaje %d pkt za dotknięcie";
 "Shoot the Moon Preference" = "Preferencja „wzięcia księżyca”";
 "Shoot the moon" = "Wzięcie księżyca";
 "Adds 26 points to every other players' score." = "Dodaje 26 pkt pozostałym graczom.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Runda %d zaktualizowana";
 "Edit this round" = "Edytuj tę rundę";
 "Redo available" = "Ponów dostępne";
+"Quick-add button: +%d" = "Przycisk szybkiego dodawania: +%d";
+"The +%d button in score entry adds this many points per tap." = "Przycisk +%d we wpisie wyniku dodaje tyle punktów za każde dotknięcie.";

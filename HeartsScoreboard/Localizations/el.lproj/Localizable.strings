@@ -43,7 +43,6 @@
 "Game History" = "Ιστορία Παιχνιδιού";
 "Game Summary" = "Περίληψη παιχνιδιού";
 "Quick add" = "Γρήγορη προσθήκη";
-"Adds %d points per tap" = "Προσθέτει %d πόντους ανά πάτημα";
 "Shoot the Moon Preference" = "Προτίμηση για τον κανόνα βαθμολογίας shoot-the-moon στο Hearts";
 "Shoot the moon" = "Πυροβόλησε το φεγγάρι";
 "Adds 26 points to every other players' score." = "Προσθέτει 26 πόντους σε κάθε βαθμολογία των άλλων παικτών.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Ο γύρος %d ενημερώθηκε";
 "Edit this round" = "Επεξεργαστείτε αυτόν τον γύρο";
 "Redo available" = "Επανάληψη διαθέσιμη";
+"Quick-add button: +%d" = "Κουμπί γρήγορης προσθήκης: +%d";
+"The +%d button in score entry adds this many points per tap." = "Το κουμπί +%d στην καταχώριση βαθμολογίας προσθέτει πολλούς πόντους ανά πάτημα.";

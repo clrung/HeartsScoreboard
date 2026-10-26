@@ -43,7 +43,6 @@
 "Game History" = "Historie hry";
 "Game Summary" = "Shrnutí hry";
 "Quick add" = "Rychlé přidání";
-"Adds %d points per tap" = "Přidá %d bodů za klepnutí";
 "Shoot the Moon Preference" = "Preference pro bodovací pravidlo střílet na měsíc v Hearts";
 "Shoot the moon" = "Střílejte na měsíc";
 "Adds 26 points to every other players' score." = "Přidá 26 bodů ke skóre každého dalšího hráče.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Kolo %d aktualizováno";
 "Edit this round" = "Upravit toto kolo";
 "Redo available" = "Znovu k dispozici";
+"Quick-add button: +%d" = "Tlačítko rychlého přidání: +%d";
+"The +%d button in score entry adds this many points per tap." = "Tlačítko +%d v zadávání skóre přidá tolik bodů za klepnutí.";

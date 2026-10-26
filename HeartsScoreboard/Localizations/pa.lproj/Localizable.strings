@@ -43,7 +43,6 @@
 "Game History" = "ਖੇਡ ਇਤਿਹਾਸ";
 "Game Summary" = "ਖੇਡ ਸੰਖੇਪ";
 "Quick add" = "ਜਲਦੀ ਜੋੜੋ";
-"Adds %d points per tap" = "ਪ੍ਰਤੀ ਟੈਪ %d ਪੁਆਇੰਟ ਜੋੜਦਾ ਹੈ";
 "Shoot the Moon Preference" = "ਚੰਦਰਮਾ ਦੀ ਤਰਜੀਹ ਨੂੰ ਸ਼ੂਟ ਕਰੋ";
 "Shoot the moon" = "ਚੰਦ ਨੂੰ ਸ਼ੂਟ ਕਰੋ";
 "Adds 26 points to every other players' score." = "ਹਰ ਦੂਜੇ ਖਿਡਾਰੀ ਦੇ ਸਕੋਰ ਵਿੱਚ 26 ਅੰਕ ਜੋੜਦਾ ਹੈ।";
@@ -177,3 +176,5 @@
 "Round %d updated" = "ਦੌਰ %d ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ";
 "Edit this round" = "ਇਸ ਦੌਰ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰੋ";
 "Redo available" = "ਦੁਬਾਰਾ ਕਰੋ ਉਪਲਬਧ";
+"Quick-add button: +%d" = "ਤੁਰੰਤ ਜੋੜੋ ਬਟਨ: +%d";
+"The +%d button in score entry adds this many points per tap." = "ਸਕੋਰ ਐਂਟਰੀ ਵਿੱਚ +%d ਬਟਨ ਪ੍ਰਤੀ ਟੈਪ ਵਿੱਚ ਬਹੁਤ ਸਾਰੇ ਅੰਕ ਜੋੜਦਾ ਹੈ।";

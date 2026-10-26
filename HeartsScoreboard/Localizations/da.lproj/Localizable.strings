@@ -43,7 +43,6 @@
 "Game History" = "Spilhistorie";
 "Game Summary" = "Spiloversigt";
 "Quick add" = "Hurtig tilføjelse";
-"Adds %d points per tap" = "Tilføjer %d point pr. tryk";
 "Shoot the Moon Preference" = "Skyd Månen præference";
 "Shoot the moon" = "Skyd månen";
 "Adds 26 points to every other players' score." = "Tilføjer 26 point til hver anden spillers score.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Runde %d opdateret";
 "Edit this round" = "Rediger denne runde";
 "Redo available" = "Gendan tilgængelig";
+"Quick-add button: +%d" = "Hurtig tilføjelsesknap: +%d";
+"The +%d button in score entry adds this many points per tap." = "Knappen +%d i scoreindtastning tilføjer så mange point pr. tryk.";

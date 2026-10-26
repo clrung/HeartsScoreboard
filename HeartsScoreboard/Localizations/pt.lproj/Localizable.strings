@@ -60,7 +60,6 @@
 
 /* Round input */
 "Quick add" = "Adição rápida";
-"Adds %d points per tap" = "Adiciona %d pontos por toque";
 "Shoot the Moon Preference" = "Preferência \"pegar a lua\"";
 "Shoot the moon" = "Pegar a lua";
 "Adds 26 points to every other players' score." = "Soma 26 pontos à pontuação dos outros jogadores.";
@@ -196,3 +195,5 @@
 "Round %d updated" = "Rodada %d atualizada";
 "Edit this round" = "Editar esta rodada";
 "Redo available" = "Refazer disponível";
+"Quick-add button: +%d" = "Botão de adição rápida: +%d";
+"The +%d button in score entry adds this many points per tap." = "O botão +%d na entrada de pontuação adiciona esta quantidade de pontos por toque.";

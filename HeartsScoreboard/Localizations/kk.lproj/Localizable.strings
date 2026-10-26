@@ -43,7 +43,6 @@
 "Game History" = "Ойын тарихы";
 "Game Summary" = "Ойынның қорытындысы";
 "Quick add" = "Жылдам қосу";
-"Adds %d points per tap" = "Әр түртуге %d ұпай қосады";
 "Shoot the Moon Preference" = "Ай артықшылығын түсіріңіз";
 "Shoot the moon" = "Айды түсір";
 "Adds 26 points to every other players' score." = "Басқа ойыншылардың ұпайларына 26 ұпай қосады.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d раунд жаңартылды";
 "Edit this round" = "Осы айналымды өңдеңіз";
 "Redo available" = "Қайталау қолжетімді";
+"Quick-add button: +%d" = "Жылдам қосу түймесі: +%d";
+"The +%d button in score entry adds this many points per tap." = "Ұпай жазбасындағы +%d түймесі әр түртуге осынша көп ұпай қосады.";

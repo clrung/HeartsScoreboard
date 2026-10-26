@@ -43,7 +43,6 @@
 "Game History" = "ប្រវត្តិហ្គេម";
 "Game Summary" = "សង្ខេបហ្គេម";
 "Quick add" = "បន្ថែមរហ័ស";
-"Adds %d points per tap" = "បន្ថែម %d ពិន្ទុក្នុងមួយប៉ះ";
 "Shoot the Moon Preference" = "បាញ់ចំណង់ចំណូលចិត្តព្រះច័ន្ទ";
 "Shoot the moon" = "បាញ់ព្រះច័ន្ទ";
 "Adds 26 points to every other players' score." = "បន្ថែម 26 ពិន្ទុទៅគ្រប់ពិន្ទុរបស់អ្នកលេងផ្សេងទៀត។";
@@ -177,3 +176,5 @@
 "Round %d updated" = "ជុំទី %d បានធ្វើបច្ចុប្បន្នភាព";
 "Edit this round" = "កែសម្រួលជុំនេះ។";
 "Redo available" = "អាចធ្វើឡើងវិញបាន។";
+"Quick-add button: +%d" = "ប៊ូតុងបន្ថែមរហ័ស៖ +%d";
+"The +%d button in score entry adds this many points per tap." = "ប៊ូតុង +%d ក្នុងការបញ្ចូលពិន្ទុបន្ថែមពិន្ទុជាច្រើននេះក្នុងមួយចុច";

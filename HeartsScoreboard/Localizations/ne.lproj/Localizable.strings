@@ -43,7 +43,6 @@
 "Game History" = "खेल इतिहास";
 "Game Summary" = "खेल सारांश";
 "Quick add" = "छिटो थप्नुहोस्";
-"Adds %d points per tap" = "प्रति ट्याप %d अंक थप्छ";
 "Shoot the Moon Preference" = "चन्द्र प्राथमिकता शूट गर्नुहोस्";
 "Shoot the moon" = "चन्द्रमा शूट गर्नुहोस्";
 "Adds 26 points to every other players' score." = "प्रत्येक अन्य खेलाडीको स्कोरमा 26 अंक थप्छ।";
@@ -177,3 +176,5 @@
 "Round %d updated" = "राउन्ड %d अद्यावधिक गरियो";
 "Edit this round" = "यो राउन्ड सम्पादन गर्नुहोस्";
 "Redo available" = "पुन: उपलब्ध छ";
+"Quick-add button: +%d" = "द्रुत-थप बटन: +%d";
+"The +%d button in score entry adds this many points per tap." = "स्कोर प्रविष्टिमा +%d बटनले प्रति ट्यापमा धेरै अंकहरू थप्छ।";

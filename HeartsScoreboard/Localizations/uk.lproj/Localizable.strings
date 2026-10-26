@@ -43,7 +43,6 @@
 "Game History" = "Історія гри";
 "Game Summary" = "Підсумок гри";
 "Quick add" = "Швидке додавання";
-"Adds %d points per tap" = "Додає %d балів за дотик";
 "Shoot the Moon Preference" = "Надання переваги правилу підрахунку очок у Hearts";
 "Shoot the moon" = "Стріляйте в місяць";
 "Adds 26 points to every other players' score." = "Додає 26 очок до результатів усіх інших гравців.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Раунд %d оновлено";
 "Edit this round" = "Відредагуйте цей раунд";
 "Redo available" = "Доступне повторення";
+"Quick-add button: +%d" = "Кнопка швидкого додавання: +%d";
+"The +%d button in score entry adds this many points per tap." = "Кнопка +%d під час введення результатів додає стільки балів за одне натискання.";

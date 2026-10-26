@@ -43,7 +43,6 @@
 "Game History" = "Historia do xogo";
 "Game Summary" = "Resumo do xogo";
 "Quick add" = "Engadido rápido";
-"Adds %d points per tap" = "Engade %d puntos por toque";
 "Shoot the Moon Preference" = "Preferencia pola regra de puntuación shoot-the-moon en Hearts";
 "Shoot the moon" = "Tire á lúa";
 "Adds 26 points to every other players' score." = "Engade 26 puntos á puntuación de todos os demais xogadores.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Rolda %d actualizada";
 "Edit this round" = "Edita esta rolda";
 "Redo available" = "Refacer dispoñible";
+"Quick-add button: +%d" = "Botón de engadido rápido: +%d";
+"The +%d button in score entry adds this many points per tap." = "O botón +%d na entrada de puntuación engade tantos puntos por toque.";

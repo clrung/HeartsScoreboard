@@ -43,7 +43,6 @@
 "Game History" = "ประวัติเกม";
 "Game Summary" = "สรุปเกม";
 "Quick add" = "เพิ่มด่วน";
-"Adds %d points per tap" = "แตะครั้งละ %d คะแนน";
 "Shoot the Moon Preference" = "กฎยิงดวงจันทร์";
 "Shoot the moon" = "ยิงดวงจันทร์";
 "Adds 26 points to every other players' score." = "เพิ่ม 26 คะแนนให้คนอื่นทุกคน";
@@ -177,3 +176,5 @@
 "Round %d updated" = "อัปเดตรอบ %d แล้ว";
 "Edit this round" = "แก้ไขรอบนี้";
 "Redo available" = "ทำซ้ำได้";
+"Quick-add button: +%d" = "ปุ่มเพิ่มด่วน: +%d";
+"The +%d button in score entry adds this many points per tap." = "ปุ่ม +%d ในรายการคะแนนจะเพิ่มคะแนนจำนวนมากต่อการแตะหนึ่งครั้ง";

@@ -43,7 +43,6 @@
 "Game History" = "Žaidimo istorija";
 "Game Summary" = "Žaidimo santrauka";
 "Quick add" = "Greitas papildymas";
-"Adds %d points per tap" = "Prideda %d taškų už paspaudimą";
 "Shoot the Moon Preference" = "Nušaukite Mėnulio pirmenybę";
 "Shoot the moon" = "Šaudyti į mėnulį";
 "Adds 26 points to every other players' score." = "Prideda 26 taškus prie visų kitų žaidėjų taškų.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d turas atnaujintas";
 "Edit this round" = "Redaguoti šį raundą";
 "Redo available" = "Galima perdaryti";
+"Quick-add button: +%d" = "Greito pridėjimo mygtukas: +%d";
+"The +%d button in score entry adds this many points per tap." = "Balų įvedimo mygtukas +%d prideda tiek taškų už paspaudimą.";

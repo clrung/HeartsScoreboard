@@ -43,7 +43,6 @@
 "Game History" = "விளையாட்டு வரலாறு";
 "Game Summary" = "விளையாட்டு சுருக்கம்";
 "Quick add" = "விரைவாகச் சேர்க்கவும்";
-"Adds %d points per tap" = "ஒரு தட்டலுக்கு %d புள்ளிகளைச் சேர்க்கிறது";
 "Shoot the Moon Preference" = "சந்திரன் விருப்பத்தை சுடவும்";
 "Shoot the moon" = "சந்திரனை சுடவும்";
 "Adds 26 points to every other players' score." = "மற்ற ஒவ்வொரு வீரர்களின் ஸ்கோருக்கும் 26 புள்ளிகளைச் சேர்க்கிறது.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "சுற்று %d புதுப்பிக்கப்பட்டது";
 "Edit this round" = "இந்தச் சுற்றைத் திருத்தவும்";
 "Redo available" = "மீண்டும் செய்யவும்";
+"Quick-add button: +%d" = "விரைவு-சேர் பொத்தான்: +%d";
+"The +%d button in score entry adds this many points per tap." = "ஸ்கோர் உள்ளீட்டில் உள்ள +%d பொத்தான் ஒரு தட்டலுக்கு இத்தனை புள்ளிகளைச் சேர்க்கிறது.";

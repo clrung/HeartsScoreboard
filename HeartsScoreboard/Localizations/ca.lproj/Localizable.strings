@@ -43,7 +43,6 @@
 "Game History" = "Història del joc";
 "Game Summary" = "Resum del joc";
 "Quick add" = "Addició ràpida";
-"Adds %d points per tap" = "Afegeix %d punts per toc";
 "Shoot the Moon Preference" = "Dispara la preferència de la Lluna";
 "Shoot the moon" = "Dispara a la lluna";
 "Adds 26 points to every other players' score." = "Afegeix 26 punts a la puntuació de tots els altres jugadors.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Ronda %d actualitzada";
 "Edit this round" = "Edita aquesta ronda";
 "Redo available" = "Refer disponible";
+"Quick-add button: +%d" = "Botó d'addició ràpida: +%d";
+"The +%d button in score entry adds this many points per tap." = "El botó +%d a l'entrada de la puntuació afegeix tants punts per toc.";

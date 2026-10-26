@@ -43,7 +43,6 @@
 "Game History" = "Sejarah Permainan";
 "Game Summary" = "Ringkasan Permainan";
 "Quick add" = "Tambah cepat";
-"Adds %d points per tap" = "Menambah %d mata setiap ketikan";
 "Shoot the Moon Preference" = "Tembak Keutamaan Bulan";
 "Shoot the moon" = "Tembak bulan";
 "Adds 26 points to every other players' score." = "Menambah 26 mata kepada setiap markah pemain lain.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Pusingan %d dikemas kini";
 "Edit this round" = "Edit pusingan ini";
 "Redo available" = "Buat semula tersedia";
+"Quick-add button: +%d" = "Butang tambah cepat: +%d";
+"The +%d button in score entry adds this many points per tap." = "Butang +%d dalam kemasukan skor menambah banyak mata ini setiap ketikan.";

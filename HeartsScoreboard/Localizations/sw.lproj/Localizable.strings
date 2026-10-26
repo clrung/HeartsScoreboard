@@ -43,7 +43,6 @@
 "Game History" = "Historia ya Mchezo";
 "Game Summary" = "Muhtasari wa Mchezo";
 "Quick add" = "Ongeza haraka";
-"Adds %d points per tap" = "Huongeza pointi %d kwa kila bomba";
 "Shoot the Moon Preference" = "Piga Upendeleo wa Mwezi";
 "Shoot the moon" = "Risasi mwezi";
 "Adds 26 points to every other players' score." = "Huongeza pointi 26 kwa kila alama ya wachezaji wengine.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Raundi ya %d imesasishwa";
 "Edit this round" = "Hariri raundi hii";
 "Redo available" = "Rudia inapatikana";
+"Quick-add button: +%d" = "Kitufe cha kuongeza haraka: +%d";
+"The +%d button in score entry adds this many points per tap." = "Kitufe cha +%d katika kuweka alama huongeza pointi nyingi kwa kila mguso.";

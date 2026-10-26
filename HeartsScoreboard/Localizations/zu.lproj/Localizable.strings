@@ -43,7 +43,6 @@
 "Game History" = "Umlando Wegeyimu";
 "Game Summary" = "Isifinyezo somdlalo";
 "Quick add" = "Engeza ngokushesha";
-"Adds %d points per tap" = "Ingeza amaphuzu angu-%d ngokuthepha ngakunye";
 "Shoot the Moon Preference" = "Okuncamelayo komthetho wokushaya i-shoot-the-moon ku-Hearts";
 "Shoot the moon" = "Dubula inyanga";
 "Adds 26 points to every other players' score." = "Ingeza amaphuzu angu-26 kuwo wonke amaphuzu abanye abadlali.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Umjikelezo %d ubuyekeziwe";
 "Edit this round" = "Hlela lo mzuliswano";
 "Redo available" = "Yenza futhi kuyatholakala";
+"Quick-add button: +%d" = "Inkinobho yokwengeza ngokushesha: +%d";
+"The +%d button in score entry adds this many points per tap." = "Inkinobho ethi +%d ekufakweni kwemiphumela yengeza lawa maphuzu amaningi ngokuthepha ngakunye.";

@@ -36,4 +36,19 @@ final class LocalizationFormatTests: XCTestCase {
         }
         XCTAssertEqual(problems, [], problems.joined(separator: "\n"))
     }
+
+    /// The quick-add settings label and caption must exist in every locale, with their "%d" intact.
+    func testQuickAddSettingsKeysExistInEveryLocale() throws {
+        let keys = ["Quick-add button: +%d",
+                    "The +%d button in score entry adds this many points per tap."]
+        let locales = Bundle(for: GameViewModel.self).localizations.filter { $0 != "Base" }
+        for locale in locales {
+            let t = try table(locale)
+            for key in keys {
+                let value = try XCTUnwrap(t[key], "\(locale) is missing \(key)")
+                XCTAssertEqual(specifiers(value), ["d"], "\(locale): \(key) -> \(value)")
+            }
+            XCTAssertNil(t["Adds %d points per tap"], "\(locale) still has the removed key")
+        }
+    }
 }

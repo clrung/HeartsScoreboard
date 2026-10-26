@@ -139,7 +139,7 @@ struct SettingsView: View {
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                Text(String(format: String(localized: "Adds %d points per tap"), model.settings.quickIncrementPoints))
+                Text(String(format: String(localized: "Quick-add button: +%d"), model.settings.quickIncrementPoints))
                 Slider(
                     value: Binding(
                         get: { Double(model.settings.quickIncrementPoints) },
@@ -151,6 +151,9 @@ struct SettingsView: View {
                     step: 1
                 )
                 .accessibilityLabel("Quick add")
+                Text(String(format: String(localized: "The +%d button in score entry adds this many points per tap."), model.settings.quickIncrementPoints))
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
             }
 
             Toggle("10♦ worth −10", isOn: $model.settings.tenOfDiamondsMinus10)

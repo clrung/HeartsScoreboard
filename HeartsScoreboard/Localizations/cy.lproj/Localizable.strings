@@ -43,7 +43,6 @@
 "Game History" = "Hanes Gêm";
 "Game Summary" = "Crynodeb Gêm";
 "Quick add" = "Ychwanegu cyflym";
-"Adds %d points per tap" = "Yn ychwanegu %d pwynt y tap";
 "Shoot the Moon Preference" = "Dewis Saethu'r Lleuad";
 "Shoot the moon" = "Saethu y lleuad";
 "Adds 26 points to every other players' score." = "Ychwanegu 26 pwynt at sgôr pob chwaraewr arall.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Rownd %d wedi'i diweddaru";
 "Edit this round" = "Golygu'r rownd hon";
 "Redo available" = "Ail-wneud ar gael";
+"Quick-add button: +%d" = "Botwm ychwanegu cyflym: +%d";
+"The +%d button in score entry adds this many points per tap." = "Mae'r botwm +%d yn y cofnod sgôr yn ychwanegu cymaint o bwyntiau fesul tap.";

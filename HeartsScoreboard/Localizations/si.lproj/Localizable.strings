@@ -43,7 +43,6 @@
 "Game History" = "ක්රීඩා ඉතිහාසය";
 "Game Summary" = "ක්‍රීඩා සාරාංශය";
 "Quick add" = "ඉක්මන් එකතු කරන්න";
-"Adds %d points per tap" = "තට්ටු කිරීමකට ලකුණු %dක් එක් කරයි";
 "Shoot the Moon Preference" = "සඳ මනාප වෙඩි තියන්න";
 "Shoot the moon" = "සඳට වෙඩි තියන්න";
 "Adds 26 points to every other players' score." = "අනෙක් සෑම ක්‍රීඩකයෙකුගේම ලකුණු වලට ලකුණු 26ක් එක් කරයි.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "%d වටය යාවත්කාලීන කරන ලදී";
 "Edit this round" = "මෙම වටය සංස්කරණය කරන්න";
 "Redo available" = "නැවත කරන්න තිබේ";
+"Quick-add button: +%d" = "ඉක්මන් එකතු කිරීමේ බොත්තම: +%d";
+"The +%d button in score entry adds this many points per tap." = "ලකුණු ඇතුළත් කිරීමේ +%d බොත්තම තට්ටු කිරීමකට මෙතරම් ලකුණු එකතු කරයි.";

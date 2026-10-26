@@ -43,7 +43,6 @@
 "Game History" = "Историја на играта";
 "Game Summary" = "Резиме на играта";
 "Quick add" = "Брзо додавање";
-"Adds %d points per tap" = "Додава %d поени по допир";
 "Shoot the Moon Preference" = "Снимајте го изборот на Месечината";
 "Shoot the moon" = "Снимајте ја месечината";
 "Adds 26 points to every other players' score." = "Додава 26 поени на резултатот на секој друг играч.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "Круг %d е ажуриран";
 "Edit this round" = "Уредете ја оваа рунда";
 "Redo available" = "Достапно е повторно";
+"Quick-add button: +%d" = "Копче за брзо додавање: +%d";
+"The +%d button in score entry adds this many points per tap." = "Копчето +%d во запишувањето резултати додава толку поени по допир.";

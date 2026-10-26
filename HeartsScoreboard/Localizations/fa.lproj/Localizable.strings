@@ -43,7 +43,6 @@
 "Game History" = "تاریخچه بازی";
 "Game Summary" = "خلاصه بازی";
 "Quick add" = "اضافه کردن سریع";
-"Adds %d points per tap" = "%d امتیاز در هر ضربه اضافه می کند";
 "Shoot the Moon Preference" = "شلیک به ترجیح ماه";
 "Shoot the moon" = "به ماه شلیک کن";
 "Adds 26 points to every other players' score." = "26 امتیاز به امتیاز هر بازیکن دیگر اضافه می کند.";
@@ -177,3 +176,5 @@
 "Round %d updated" = "دور %d به روز شد";
 "Edit this round" = "این دور را ویرایش کنید";
 "Redo available" = "انجام مجدد موجود است";
+"Quick-add button: +%d" = "دکمه افزودن سریع: +%d";
+"The +%d button in score entry adds this many points per tap." = "دکمه +%d در ورودی امتیاز این تعداد امتیاز را در هر ضربه اضافه می کند.";
