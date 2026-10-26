@@ -3,10 +3,8 @@
 "Yes" = "是";
 
 /* Alerts */
-"Undo last round" = "撤销上一轮";
 "Undo Round" = "撤销本轮";
 "Shake to undo the last round!" = "摇一摇可撤销上一轮！";
-"Are you sure you would like to undo the last round?" = "确定要撤销上一轮吗？";
 "New Game" = "新游戏";
 "Are you sure? This will clear all round scores." = "确定吗？将清除所有轮次分数。";
 
@@ -14,10 +12,6 @@
 "D" = "D";
 "Hearts Scoreboard" = "红心大战计分";
 "Game to: %d" = "目标分数：%d";
-"Pass: Left ←" = "传牌：左 ←";
-"Pass: Right →" = "传牌：右 →";
-"Pass: Across ↔" = "传牌：对家 ↔";
-"Pass: Hold ✋" = "传牌：留 ✋";
 "Next Round" = "下一轮";
 
 /* Game status (ViewModel) */
@@ -51,9 +45,7 @@
 "Subtract 26" = "减 26";
 
 /* History */
-"No completed games yet." = "暂无已完成的游戏。";
 "Delete" = "删除";
-"Time" = "时间";
 "Winner" = "赢家";
 "Game History" = "游戏历史";
 "Game Summary" = "游戏摘要";
@@ -84,7 +76,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "♦10 值 −10 分";
-"10 of Diamonds" = "方块10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts 变体：拿到 ♦10 的玩家该局得 −10 分。这与“全收”相互独立。";
 "10♦ taken by" = "♦10 由谁拿到";
 "−10" = "−10";
@@ -184,7 +175,6 @@
 "Hold" = "留";
 "to %d" = "到%d";
 "No rounds yet" = "还没有回合";
-"More" = "更多";
 "Round %d undone" = "第 %d 轮已撤消";
 "Redo" = "重做";
 "Round %d restored" = "第 %d 轮已恢复";

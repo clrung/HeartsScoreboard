@@ -1,18 +1,12 @@
 "No" = "yox";
 "Yes" = "Bəli";
-"Undo last round" = "Son turu geri qaytarın";
 "Undo Round" = "Dəyirmi geri qaytarın";
 "Shake to undo the last round!" = "Son turu geri qaytarmaq üçün silkələyin!";
-"Are you sure you would like to undo the last round?" = "Son turu geri qaytarmaq istədiyinizə əminsiniz?";
 "New Game" = "Yeni Oyun";
 "Are you sure? This will clear all round scores." = "əminsən? Bu, bütün dövrlərdə xalları təmizləyəcək.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts kart oyunu üçün hesab lövhəsi";
 "Game to: %d" = "Oyun üçün: %d";
-"Pass: Left ←" = "Keçid: Sol ←";
-"Pass: Right →" = "Keçid: Sağ →";
-"Pass: Across ↔" = "Keçid: Qarşıdan ↔";
-"Pass: Hold ✋" = "Keçid: ✋ saxlayın";
 "Next Round" = "Növbəti Tur";
 "Game over" = "Oyun bitdi";
 "Pass to the Left" = "Sola keçin";
@@ -36,9 +30,7 @@
 "Dark" = "Qaranlıq";
 "Add 26" = "26 əlavə edin";
 "Subtract 26" = "26-nı çıxarın";
-"No completed games yet." = "Hələ tamamlanmış oyun yoxdur.";
 "Delete" = "Sil";
-"Time" = "Vaxt";
 "Winner" = "Qalib";
 "Game History" = "Oyun Tarixçəsi";
 "Game Summary" = "Oyunun xülasəsi";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ = −10";
-"10 of Diamonds" = "Kərpic 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variantı: 10♦ götürən oyunçu həmin əl üçün −10 xal alır. Bu, \"Ayı vur\"dan ayrıdır.";
 "10♦ taken by" = "10♦ götürən";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "✋ saxlayın";
 "to %d" = "%d";
 "No rounds yet" = "Hələ tur yoxdur";
-"More" = "Daha çox";
 "Round %d undone" = "%d raund geri alındı";
 "Redo" = "Yenidən edin";
 "Round %d restored" = "%d raund bərpa edildi";

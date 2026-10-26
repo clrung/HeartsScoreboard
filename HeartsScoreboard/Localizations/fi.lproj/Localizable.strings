@@ -1,18 +1,12 @@
 "No" = "Ei";
 "Yes" = "Kyllä";
-"Undo last round" = "Kumoa viimeinen kierros";
 "Undo Round" = "Kumoa kierros";
 "Shake to undo the last round!" = "Kumoa viimeinen kierros ravistamalla!";
-"Are you sure you would like to undo the last round?" = "Oletko varma, että haluat peruuttaa viimeisen kierroksen?";
 "New Game" = "Uusi Peli";
 "Are you sure? This will clear all round scores." = "Oletko varma? Tämä poistaa kaikkien kierrosten tulokset.";
 "D" = "D";
 "Hearts Scoreboard" = "Sydämien tulostaulu";
 "Game to: %d" = "Peli: %d";
-"Pass: Left ←" = "Pass: Vasen ←";
-"Pass: Right →" = "Syöttö: Oikea →";
-"Pass: Across ↔" = "Kulku: poikki ↔";
-"Pass: Hold ✋" = "Pass: Pidä ✋";
 "Next Round" = "Seuraava kierros";
 "Game over" = "Peli ohi";
 "Pass to the Left" = "Ohita vasemmalle";
@@ -36,9 +30,7 @@
 "Dark" = "Tumma";
 "Add 26" = "Lisää 26";
 "Subtract 26" = "Vähennä 26";
-"No completed games yet." = "Ei vielä valmiita pelejä.";
 "Delete" = "Poista";
-"Time" = "Aika";
 "Winner" = "Voittaja";
 "Game History" = "Pelihistoria";
 "Game Summary" = "Pelin yhteenveto";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ on arvoltaan −10";
-"10 of Diamonds" = "Ruutu 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts -variantti: 10♦:n ottava saa kyseisestä jaosta −10. Tämä on erillinen \"Ammu kuu\" -säännöstä.";
 "10♦ taken by" = "10♦:n otti";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Pidä";
 "to %d" = "vastaanottajalle %d";
 "No rounds yet" = "Ei vielä kierroksia";
-"More" = "Lisää";
 "Round %d undone" = "Kierros %d kumottu";
 "Redo" = "Tee uudelleen";
 "Round %d restored" = "Kierros %d palautettu";

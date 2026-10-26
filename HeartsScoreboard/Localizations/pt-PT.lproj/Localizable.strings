@@ -1,18 +1,12 @@
 "No" = "Não";
 "Yes" = "Sim";
-"Undo last round" = "Desfazer última rodada";
 "Undo Round" = "Desfazer rodada";
 "Shake to undo the last round!" = "Agite para desfazer a última rodada!";
-"Are you sure you would like to undo the last round?" = "Tem certeza de que deseja desfazer a última rodada?";
 "New Game" = "Novo jogo";
 "Are you sure? This will clear all round scores." = "Você tem certeza? Isso limpará todas as pontuações da rodada.";
 "D" = "D";
 "Hearts Scoreboard" = "Placar de Copas";
 "Game to: %d" = "Jogo para: %d";
-"Pass: Left ←" = "Passe: Esquerda ←";
-"Pass: Right →" = "Passe: Direita →";
-"Pass: Across ↔" = "Passe: Através ↔";
-"Pass: Hold ✋" = "Passe: Segure ✋";
 "Next Round" = "Próxima Rodada";
 "Game over" = "Fim do jogo";
 "Pass to the Left" = "Passe para a esquerda";
@@ -36,9 +30,7 @@
 "Dark" = "Escuro";
 "Add 26" = "Adicionar 26";
 "Subtract 26" = "Subtraia 26";
-"No completed games yet." = "Nenhum jogo concluído ainda.";
 "Delete" = "Excluir";
-"Time" = "Hora";
 "Winner" = "Vencedor";
 "Game History" = "História do jogo";
 "Game Summary" = "Resumo do jogo";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "O 10♦ vale −10";
-"10 of Diamonds" = "10 de ouros";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variante Omnibus Hearts: quem levar o 10♦ marca −10 nessa mão. É independente de \"Atire na lua\".";
 "10♦ taken by" = "10♦ levado por";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Segure";
 "to %d" = "para %d";
 "No rounds yet" = "Ainda não há rodadas";
-"More" = "Mais";
 "Round %d undone" = "Rodada %d desfeita";
 "Redo" = "Refazer";
 "Round %d restored" = "Rodada %d restaurada";

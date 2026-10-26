@@ -1,18 +1,12 @@
 "No" = "ទេ";
 "Yes" = "បាទ";
-"Undo last round" = "មិនធ្វើវិញជុំចុងក្រោយ";
 "Undo Round" = "មិនធ្វើវិញជុំ";
 "Shake to undo the last round!" = "អ្រងួនដើម្បីមិនធ្វើជុំចុងក្រោយ!";
-"Are you sure you would like to undo the last round?" = "តើ​អ្នក​ប្រាកដ​ជា​ចង់​មិន​ធ្វើ​ការ​ប្រកួត​ជុំ​ចុង​ក្រោយ​ទេ?";
 "New Game" = "ហ្គេមថ្មី។";
 "Are you sure? This will clear all round scores." = "តើអ្នកប្រាកដទេ? វានឹងជម្រះពិន្ទុជុំទាំងអស់។";
 "D" = "ឃ";
 "Hearts Scoreboard" = "តារាងពិន្ទុបេះដូង";
 "Game to: %d" = "ហ្គេមទៅ៖ %d";
-"Pass: Left ←" = "ឆ្លងកាត់៖ ខាងឆ្វេង ←";
-"Pass: Right →" = "ឆ្លងកាត់៖ ស្តាំ →";
-"Pass: Across ↔" = "ឆ្លងកាត់៖ ឆ្លងកាត់↔";
-"Pass: Hold ✋" = "ហុច៖ កាន់ ✋";
 "Next Round" = "ជុំបន្ទាប់";
 "Game over" = "ហ្គេមចប់ហើយ។";
 "Pass to the Left" = "ឆ្លងទៅខាងឆ្វេង";
@@ -36,9 +30,7 @@
 "Dark" = "ងងឹត";
 "Add 26" = "បន្ថែម 26";
 "Subtract 26" = "ដក ២៦";
-"No completed games yet." = "មិនទាន់មានហ្គេមដែលបានបញ្ចប់នៅឡើយទេ។";
 "Delete" = "លុប";
-"Time" = "ពេលវេលា";
 "Winner" = "អ្នកឈ្នះ";
 "Game History" = "ប្រវត្តិហ្គេម";
 "Game Summary" = "សង្ខេបហ្គេម";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ មានតម្លៃ −10";
-"10 of Diamonds" = "ការ៉ូ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ជំនាន់ Omnibus Hearts៖ អ្នកដែលយក 10♦ ទទួលបាន −10 សម្រាប់ដៃនោះ។ វាដាច់ដោយឡែកពី «បាញ់ព្រះច័ន្ទ»។";
 "10♦ taken by" = "អ្នកយក 10♦";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "សង្កត់";
 "to %d" = "ទៅ %d";
 "No rounds yet" = "មិនទាន់មានជុំទេ។";
-"More" = "More";
 "Round %d undone" = "ជុំទី %d មិនធ្វើវិញទេ។";
 "Redo" = "ធ្វើវិញ";
 "Round %d restored" = "បាន​ស្ដារ​ជុំទី %d";

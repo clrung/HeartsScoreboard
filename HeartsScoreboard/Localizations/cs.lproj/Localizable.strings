@@ -1,18 +1,12 @@
 "No" = "Ne";
 "Yes" = "Ano";
-"Undo last round" = "Vrátit zpět poslední kolo";
 "Undo Round" = "Vrátit zpět kolo";
 "Shake to undo the last round!" = "Zatřeste, abyste zrušili poslední kolo!";
-"Are you sure you would like to undo the last round?" = "Jste si jisti, že chcete vrátit zpět poslední kolo?";
 "New Game" = "Nová hra";
 "Are you sure? This will clear all round scores." = "jsi si jistý? Tím vymažete skóre všech kol.";
 "D" = "D";
 "Hearts Scoreboard" = "Scoreboard Hearts";
 "Game to: %d" = "Hra do: %d";
-"Pass: Left ←" = "Průchod: vlevo ←";
-"Pass: Right →" = "Přihrávka: vpravo →";
-"Pass: Across ↔" = "Průchod: Přes ↔";
-"Pass: Hold ✋" = "Pass: Podržte ✋";
 "Next Round" = "Další kolo";
 "Game over" = "Konec hry";
 "Pass to the Left" = "Průjezd doleva";
@@ -36,9 +30,7 @@
 "Dark" = "Tmavý";
 "Add 26" = "Přidejte 26";
 "Subtract 26" = "Odečíst 26";
-"No completed games yet." = "Zatím žádné dokončené hry.";
 "Delete" = "Smazat";
-"Time" = "Čas";
 "Winner" = "vítěz";
 "Game History" = "Historie hry";
 "Game Summary" = "Shrnutí hry";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ má hodnotu −10";
-"10 of Diamonds" = "Káro 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianta Omnibus Hearts: kdo vezme 10♦, získá za dané rozdání −10. Je to nezávislé na „Střílejte na měsíc“.";
 "10♦ taken by" = "10♦ vzal";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Podržte";
 "to %d" = "do %d";
 "No rounds yet" = "Zatím žádná kola";
-"More" = "Více";
 "Round %d undone" = "Kolo %d bylo zrušeno";
 "Redo" = "Opakovat";
 "Round %d restored" = "Kolo %d bylo obnoveno";

@@ -1,18 +1,12 @@
 "No" = "Nein";
 "Yes" = "Ja";
-"Undo last round" = "Letzte Runde rückgängig";
 "Undo Round" = "Runde rückgängig";
 "Shake to undo the last round!" = "Schütteln, um die letzte Runde rückgängig zu machen!";
-"Are you sure you would like to undo the last round?" = "Möchtest du die letzte Runde wirklich rückgängig machen?";
 "New Game" = "Neues Spiel";
 "Are you sure? This will clear all round scores." = "Bist du sicher? Alle Rundenpunkte werden gelöscht.";
 "D" = "D";
 "Hearts Scoreboard" = "Herz-Zähler";
 "Game to: %d" = "Spiel bis: %d";
-"Pass: Left ←" = "Weiter: Links ←";
-"Pass: Right →" = "Weiter: Rechts →";
-"Pass: Across ↔" = "Weiter: Gegenüber ↔";
-"Pass: Hold ✋" = "Weiter: Behalten ✋";
 "Next Round" = "Nächste Runde";
 "Game over" = "Spiel beendet";
 "Pass to the Left" = "Nach links weitergeben";
@@ -36,9 +30,7 @@
 "Dark" = "Dunkel";
 "Add 26" = "26 addieren";
 "Subtract 26" = "26 abziehen";
-"No completed games yet." = "Noch keine abgeschlossenen Spiele.";
 "Delete" = "Löschen";
-"Time" = "Zeit";
 "Winner" = "Gewinner";
 "Game History" = "Spielverlauf";
 "Game Summary" = "Spielzusammenfassung";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ zählt −10";
-"10 of Diamonds" = "Karo 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus-Hearts-Variante: Wer die 10♦ nimmt, erhält −10 für diese Runde. Das ist unabhängig von „Mond schießen“.";
 "10♦ taken by" = "10♦ genommen von";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Behalten";
 "to %d" = "bis %d";
 "No rounds yet" = "Noch keine Runden";
-"More" = "Mehr";
 "Round %d undone" = "Runde %d rückgängig gemacht";
 "Redo" = "Wiederherstellen";
 "Round %d restored" = "Runde %d wiederhergestellt";

@@ -1,18 +1,12 @@
 "No" = "Cha";
 "Yes" = "Yebo";
-"Undo last round" = "Hlehlisa umzuliswano wokugcina";
 "Undo Round" = "Hlehlisa Umjikelezo";
 "Shake to undo the last round!" = "Nyakazisa ukuze uhlehlise umzuliswano wokugcina!";
-"Are you sure you would like to undo the last round?" = "Uqinisekile ukuthi ungathanda ukuhlehlisa umjikelezo wokugcina?";
 "New Game" = "Umdlalo Omusha";
 "Are you sure? This will clear all round scores." = "Uqinisekile? Lokhu kuzosula wonke amaphuzu ayindilinga.";
 "D" = "D";
 "Hearts Scoreboard" = "Ibhodi lamaphuzu lomdlalo wekhadi lezinhliziyo";
 "Game to: %d" = "Umdlalo oya ku-: %d";
-"Pass: Left ←" = "Dlula: Kwesobunxele ←";
-"Pass: Right →" = "Dlula: Kwesokudla →";
-"Pass: Across ↔" = "Dlula: Ngaphesheya ↔";
-"Pass: Hold ✋" = "Dlula: Bamba ✋";
 "Next Round" = "Umjikelezo Olandelayo";
 "Game over" = "Umdlalo uphelile";
 "Pass to the Left" = "Dlulela Kwesokunxele";
@@ -36,9 +30,7 @@
 "Dark" = "Kumnyama";
 "Add 26" = "Engeza 26";
 "Subtract 26" = "Susa 26";
-"No completed games yet." = "Ayikho imidlalo eqediwe okwamanje.";
 "Delete" = "Susa";
-"Time" = "Isikhathi";
 "Winner" = "Owinile";
 "Game History" = "Umlando Wegeyimu";
 "Game Summary" = "Isifinyezo somdlalo";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "I-10♦ ibiza −10";
-"10 of Diamonds" = "I-10 ye-diamond";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Uhlobo lwe-Omnibus Hearts: noma ubani othatha i-10♦ uthola −10 kuleyo ngalo. Lokhu kuhlukile ku-\"Dubula inyanga\".";
 "10♦ taken by" = "I-10♦ ithathwe ngu";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Bamba";
 "to %d" = "kuya ku-%d";
 "No rounds yet" = "Ayikho imizuliswano okwamanje";
-"More" = "Okuningi";
 "Round %d undone" = "Umjikelezo %d uhlehlisiwe";
 "Redo" = "Yenza futhi";
 "Round %d restored" = "Umjikelezo %d ubuyiselwe";

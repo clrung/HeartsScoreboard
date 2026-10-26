@@ -1,18 +1,12 @@
 "No" = "නැත";
 "Yes" = "ඔව්";
-"Undo last round" = "අවසන් වටය අස් කරන්න";
 "Undo Round" = "වටය අහෝසි කරන්න";
 "Shake to undo the last round!" = "අවසන් වටය අහෝසි කිරීමට සොලවන්න!";
-"Are you sure you would like to undo the last round?" = "ඔබ අවසන් වටය පසුගමනය කිරීමට කැමති බව ඔබට විශ්වාසද?";
 "New Game" = "නව ක්‍රීඩාව";
 "Are you sure? This will clear all round scores." = "ඔබට විශ්වාසද? මෙය සියලු වටයේ ලකුණු ඉවත් කරනු ඇත.";
 "D" = "ඩී";
 "Hearts Scoreboard" = "හාර්ට්ස් ලකුණු පුවරුව";
 "Game to: %d" = "ක්‍රීඩාව වෙත: %d";
-"Pass: Left ←" = "සමත්: වම ←";
-"Pass: Right →" = "සමත්: දකුණ →";
-"Pass: Across ↔" = "සමත්: හරහා ↔";
-"Pass: Hold ✋" = "සමත්: අල්ලාගෙන සිටින්න ✋";
 "Next Round" = "ඊළඟ වටය";
 "Game over" = "ක්‍රීඩාව අවසන්";
 "Pass to the Left" = "වම් පැත්තට යන්න";
@@ -36,9 +30,7 @@
 "Dark" = "අඳුරු";
 "Add 26" = "26 එකතු කරන්න";
 "Subtract 26" = "26 අඩු කරන්න";
-"No completed games yet." = "තවමත් සම්පූර්ණ කළ ක්‍රීඩා නැත.";
 "Delete" = "මකන්න";
-"Time" = "කාලය";
 "Winner" = "ජයග්රාහකයා";
 "Game History" = "ක්රීඩා ඉතිහාසය";
 "Game Summary" = "ක්‍රීඩා සාරාංශය";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ හි අගය −10";
-"10 of Diamonds" = "දියමන්ති 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ප්‍රභේදය: 10♦ ගන්නා අයට එම අතට −10 ලැබේ. මෙය \"සඳට වෙඩි තියන්න\" වෙතින් වෙන්ව පවතී.";
 "10♦ taken by" = "10♦ ගත්තේ";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "අල්ලාගෙන සිටින්න";
 "to %d" = "%d වෙත";
 "No rounds yet" = "තවම වටයක් නැත";
-"More" = "තවත්";
 "Round %d undone" = "%d වටය පසුගමනය කරන ලදී";
 "Redo" = "නැවත කරන්න";
 "Round %d restored" = "%d වටය ප්‍රතිසාධනය කරන ලදී";

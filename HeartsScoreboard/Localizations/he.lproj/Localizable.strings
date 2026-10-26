@@ -1,18 +1,12 @@
 "No" = "לא";
 "Yes" = "כן";
-"Undo last round" = "בטל את הסיבוב האחרון";
 "Undo Round" = "בטל סיבוב";
 "Shake to undo the last round!" = "טלטל כדי לבטל את הסיבוב האחרון!";
-"Are you sure you would like to undo the last round?" = "האם אתה בטוח שתרצה לבטל את הסיבוב האחרון?";
 "New Game" = "משחק חדש";
 "Are you sure? This will clear all round scores." = "אתה בטוח? זה ימחק את כל התוצאות.";
 "D" = "ד";
 "Hearts Scoreboard" = "לוח תוצאות לבבות";
 "Game to: %d" = "משחק ל: %d";
-"Pass: Left ←" = "מעבר: שמאלה ←";
-"Pass: Right →" = "מעבר: ימינה →";
-"Pass: Across ↔" = "מעבר: מעבר ↔";
-"Pass: Hold ✋" = "מעבר: החזק ✋";
 "Next Round" = "הסיבוב הבא";
 "Game over" = "המשחק נגמר";
 "Pass to the Left" = "עוברים שמאלה";
@@ -36,9 +30,7 @@
 "Dark" = "כהה";
 "Add 26" = "הוסף 26";
 "Subtract 26" = "הורידו 26";
-"No completed games yet." = "עדיין אין משחקים שהושלמו.";
 "Delete" = "מחק";
-"Time" = "זמן";
 "Winner" = "זוכה";
 "Game History" = "היסטוריית המשחקים";
 "Game Summary" = "תקציר המשחק";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "‏10♦ שווה −10";
-"10 of Diamonds" = "10 יהלום";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "גרסת Omnibus Hearts: מי שלוקח את 10♦ מקבל −10 ביד הזו. זה נפרד מ\"לירות בירח\".";
 "10♦ taken by" = "10♦ נלקח על ידי";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "החזק";
 "to %d" = "אל %d";
 "No rounds yet" = "עדיין אין סיבובים";
-"More" = "עוד";
 "Round %d undone" = "סיבוב %d בוטל";
 "Redo" = "בצע שוב";
 "Round %d restored" = "סיבוב %d שוחזר";

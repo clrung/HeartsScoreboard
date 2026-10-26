@@ -1,18 +1,12 @@
 "No" = "Yo'q";
 "Yes" = "Ha";
-"Undo last round" = "Oxirgi turni bekor qilish";
 "Undo Round" = "Davrani bekor qilish";
 "Shake to undo the last round!" = "Oxirgi turni bekor qilish uchun silkiting!";
-"Are you sure you would like to undo the last round?" = "Haqiqatan ham oxirgi turni bekor qilmoqchimisiz?";
 "New Game" = "Yangi O'yin";
 "Are you sure? This will clear all round scores." = "Ishonchingiz komilmi? Bu barcha davra ballarini tozalaydi.";
 "D" = "D";
 "Hearts Scoreboard" = "Yuraklar jadvali";
 "Game to: %d" = "Oʻyin: %d";
-"Pass: Left ←" = "O'tish: Chap ←";
-"Pass: Right →" = "O'tish: O'ng →";
-"Pass: Across ↔" = "O'tish: ↔ bo'ylab";
-"Pass: Hold ✋" = "Oʻtish: ✋ ushlab turing";
 "Next Round" = "Keyingi tur";
 "Game over" = "O'yin tugadi";
 "Pass to the Left" = "Chapga o'tish";
@@ -36,9 +30,7 @@
 "Dark" = "Qorong'i";
 "Add 26" = "26 qo'shing";
 "Subtract 26" = "26 ni olib tashlang";
-"No completed games yet." = "Hali tugallangan oʻyinlar yoʻq.";
 "Delete" = "Oʻchirish";
-"Time" = "Vaqt";
 "Winner" = "G'olib";
 "Game History" = "O'yin tarixi";
 "Game Summary" = "O'yin xulosasi";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ qiymati −10";
-"10 of Diamonds" = "Olmos 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varianti: 10♦ni olgan o'yinchi shu qo'l uchun −10 ball oladi. Bu \"Oyni otib tashlang\"dan alohida.";
 "10♦ taken by" = "10♦ni olgan";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "✋ ushlab turing";
 "to %d" = "%dga";
 "No rounds yet" = "Hozircha turlar yo'q";
-"More" = "Ko'proq";
 "Round %d undone" = "%d-raund bekor qilindi";
 "Redo" = "Qayta qilish";
 "Round %d restored" = "%d-raund tiklandi";

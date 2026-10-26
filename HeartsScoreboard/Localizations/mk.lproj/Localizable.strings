@@ -1,18 +1,12 @@
 "No" = "бр";
 "Yes" = "Да";
-"Undo last round" = "Врати го последниот круг";
 "Undo Round" = "Врати круг";
 "Shake to undo the last round!" = "Протресете за да го вратите последниот круг!";
-"Are you sure you would like to undo the last round?" = "Дали сте сигурни дека сакате да го вратите последниот круг?";
 "New Game" = "Нова игра";
 "Are you sure? This will clear all round scores." = "Дали си сигурен? Ова ќе ги исчисти резултатите од сите кругови.";
 "D" = "Д";
 "Hearts Scoreboard" = "Табла на срца";
 "Game to: %d" = "Игра до: %d";
-"Pass: Left ←" = "Лозинка: лево ←";
-"Pass: Right →" = "Поминете: десно →";
-"Pass: Across ↔" = "Премин: преку ↔";
-"Pass: Hold ✋" = "Поминете: Држете ✋";
 "Next Round" = "Следен круг";
 "Game over" = "Играта е завршена";
 "Pass to the Left" = "Поминете на лево";
@@ -36,9 +30,7 @@
 "Dark" = "Темно";
 "Add 26" = "Додадете 26";
 "Subtract 26" = "Одземете 26";
-"No completed games yet." = "Сè уште нема завршени игри.";
 "Delete" = "Избриши";
-"Time" = "Време";
 "Winner" = "Победник";
 "Game History" = "Историја на играта";
 "Game Summary" = "Резиме на играта";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ вреди −10";
-"10 of Diamonds" = "Каро 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варијанта Omnibus Hearts: тој што ќе ја земе 10♦ добива −10 за таа рака. Ова е одвоено од „Снимајте ја месечината“.";
 "10♦ taken by" = "10♦ ја зеде";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Држете";
 "to %d" = "до %d";
 "No rounds yet" = "Сè уште нема кругови";
-"More" = "Повеќе";
 "Round %d undone" = "Круг %d е вратен";
 "Redo" = "Повтори";
 "Round %d restored" = "Круг %d е обновен";

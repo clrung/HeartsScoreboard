@@ -1,18 +1,12 @@
 "No" = "አይ";
 "Yes" = "አዎ";
-"Undo last round" = "የመጨረሻውን ዙር ይቀልብሱ";
 "Undo Round" = "ዙር ቀልብስ";
 "Shake to undo the last round!" = "የመጨረሻውን ዙር ለመቀልበስ ይንቀጠቀጡ!";
-"Are you sure you would like to undo the last round?" = "እርግጠኛ ነህ የመጨረሻውን ዙር መቀልበስ ትፈልጋለህ?";
 "New Game" = "አዲስ ጨዋታ";
 "Are you sure? This will clear all round scores." = "እርግጠኛ ነህ? ይህ ሁሉንም የክብ ነጥቦችን ያስወግዳል።";
 "D" = "ዲ";
 "Hearts Scoreboard" = "ልቦች የውጤት ሰሌዳ";
 "Game to: %d" = "ጨዋታ ወደ፡%d";
-"Pass: Left ←" = "ማለፍ፡ ግራ ←";
-"Pass: Right →" = "ማለፍ፡ ቀኝ →";
-"Pass: Across ↔" = "ማለፍ፡ ማዶ ↔";
-"Pass: Hold ✋" = "ማለፍ፡ ✋ ጠብቅ";
 "Next Round" = "ቀጣይ ዙር";
 "Game over" = "ጨዋታው አልቋል";
 "Pass to the Left" = "ወደ ግራ ይለፉ";
@@ -36,9 +30,7 @@
 "Dark" = "ጨለማ";
 "Add 26" = "26 ጨምር";
 "Subtract 26" = "መቀነስ 26";
-"No completed games yet." = "እስካሁን ምንም የተጠናቀቁ ጨዋታዎች የሉም።";
 "Delete" = "ሰርዝ";
-"Time" = "ጊዜ";
 "Winner" = "አሸናፊ";
 "Game History" = "የጨዋታ ታሪክ";
 "Game Summary" = "የጨዋታ ማጠቃለያ";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ዋጋ −10";
-"10 of Diamonds" = "አልማዝ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "የ Omnibus Hearts ልዩነት፦ 10♦ን የወሰደ ሰው ለዚያ እጅ −10 ያገኛል። ይህ ከ«ጨረቃን ተኩሱ» የተለየ ነው።";
 "10♦ taken by" = "10♦ የወሰደው";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "ያዝ";
 "to %d" = "ወደ %d";
 "No rounds yet" = "እስካሁን ምንም ዙር የለም።";
-"More" = "ተጨማሪ";
 "Round %d undone" = "ዙር %d ተቀልብሷል";
 "Redo" = "ድገም";
 "Round %d restored" = "ዙር %d ተመልሷል";

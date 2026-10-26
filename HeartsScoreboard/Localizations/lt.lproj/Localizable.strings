@@ -1,18 +1,12 @@
 "No" = "Nr";
 "Yes" = "Taip";
-"Undo last round" = "Anuliuoti paskutinį raundą";
 "Undo Round" = "Anuliuoti raundą";
 "Shake to undo the last round!" = "Pakratykite, kad atšauktumėte paskutinį raundą!";
-"Are you sure you would like to undo the last round?" = "Ar tikrai norite anuliuoti paskutinį raundą?";
 "New Game" = "Naujas Žaidimas";
 "Are you sure? This will clear all round scores." = "Ar esi tikras? Tai išvalys visus rezultatus.";
 "D" = "D";
 "Hearts Scoreboard" = "Širdelių rezultatų suvestinė";
 "Game to: %d" = "Žaidimas: %d";
-"Pass: Left ←" = "Praėjimas: Kairėn ←";
-"Pass: Right →" = "Perdavimas: dešinėn →";
-"Pass: Across ↔" = "Pravažiavimas: skersai ↔";
-"Pass: Hold ✋" = "Leidimas: Laikykite ✋";
 "Next Round" = "Kitas turas";
 "Game over" = "Žaidimas baigtas";
 "Pass to the Left" = "Pereikite į kairę";
@@ -36,9 +30,7 @@
 "Dark" = "Tamsus";
 "Add 26" = "Pridėti 26";
 "Subtract 26" = "Atimti 26";
-"No completed games yet." = "Dar nėra užbaigtų žaidimų.";
 "Delete" = "Ištrinti";
-"Time" = "Laikas";
 "Winner" = "Nugalėtojas";
 "Game History" = "Žaidimo istorija";
 "Game Summary" = "Žaidimo santrauka";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vertė −10";
-"10 of Diamonds" = "Būgnų 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variantas: kas paima 10♦, už tą dalybą gauna −10. Tai atskira nuo „Šaudyti į mėnulį“.";
 "10♦ taken by" = "10♦ paėmė";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Laikykite";
 "to %d" = "į %d";
 "No rounds yet" = "Raundų dar nėra";
-"More" = "Daugiau";
 "Round %d undone" = "%d raundas anuliuotas";
 "Redo" = "Perdaryti";
 "Round %d restored" = "%d turas atkurtas";

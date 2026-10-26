@@ -1,18 +1,12 @@
 "No" = "Hayır";
 "Yes" = "Evet";
-"Undo last round" = "Son turu geri al";
 "Undo Round" = "Son turu geri al";
 "Shake to undo the last round!" = "Son turu geri almak için sallayın!";
-"Are you sure you would like to undo the last round?" = "Son tur geri alınsın mı?";
 "New Game" = "Yeni oyun";
 "Are you sure? This will clear all round scores." = "Tüm tur puanları silinecek.";
 "D" = "D";
 "Hearts Scoreboard" = "İskambil Skoru";
 "Game to: %d" = "Oyun: %d puana kadar";
-"Pass: Left ←" = "Pas: sola ←";
-"Pass: Right →" = "Pas: sağa →";
-"Pass: Across ↔" = "Pas: karşıya ↔";
-"Pass: Hold ✋" = "Pas: tut ✋";
 "Next Round" = "Sonraki tur";
 "Game over" = "Oyun bitti";
 "Pass to the Left" = "Sola pas";
@@ -36,9 +30,7 @@
 "Dark" = "Koyu";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "Henüz tamamlanan oyun yok.";
 "Delete" = "Sil";
-"Time" = "Zaman";
 "Winner" = "Kazanan";
 "Game History" = "Oyun geçmişi";
 "Game Summary" = "Oyun özeti";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ −10 değerinde";
-"10 of Diamonds" = "Karo 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varyantı: 10♦'yı alan oyuncu o el için −10 puan alır. Bu, \"Ayı al\" kuralından bağımsızdır.";
 "10♦ taken by" = "10♦'yı alan";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "tut";
 "to %d" = "%d'a";
 "No rounds yet" = "Henüz tur yok";
-"More" = "Daha fazla";
 "Round %d undone" = "%d. tur geri alındı";
 "Redo" = "Yinele";
 "Round %d restored" = "%d. tur geri yüklendi";

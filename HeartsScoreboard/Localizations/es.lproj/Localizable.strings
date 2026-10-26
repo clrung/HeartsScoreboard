@@ -3,10 +3,8 @@
 "Yes" = "Sí";
 
 /* Alerts */
-"Undo last round" = "Deshacer última ronda";
 "Undo Round" = "Deshacer ronda";
 "Shake to undo the last round!" = "¡Agita para deshacer la última ronda!";
-"Are you sure you would like to undo the last round?" = "¿Seguro que quieres deshacer la última ronda?";
 "New Game" = "Nueva partida";
 "Are you sure? This will clear all round scores." = "¿Seguro? Se borrarán todas las puntuaciones de las rondas.";
 
@@ -14,10 +12,6 @@
 "D" = "D";
 "Hearts Scoreboard" = "Marcador de Corazones";
 "Game to: %d" = "Partida a: %d";
-"Pass: Left ←" = "Pasar: Izq. ←";
-"Pass: Right →" = "Pasar: Der. →";
-"Pass: Across ↔" = "Pasar: Al frente ↔";
-"Pass: Hold ✋" = "Pasar: Retener ✋";
 "Next Round" = "Siguiente ronda";
 
 /* Game status (ViewModel) */
@@ -51,9 +45,7 @@
 "Subtract 26" = "Restar 26";
 
 /* History */
-"No completed games yet." = "Aún no hay partidas completadas.";
 "Delete" = "Eliminar";
-"Time" = "Hora";
 "Winner" = "Ganador";
 "Game History" = "Historial de partidas";
 "Game Summary" = "Resumen de partida";
@@ -84,7 +76,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "El 10♦ vale −10";
-"10 of Diamonds" = "10 de diamantes";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variante Omnibus Hearts: quien se lleve el 10♦ suma −10 en esa mano. Es independiente de «Coger la luna».";
 "10♦ taken by" = "10♦ cogido por";
 "−10" = "−10";
@@ -184,7 +175,6 @@
 "Hold" = "Retener";
 "to %d" = "a %d";
 "No rounds yet" = "Aún no hay rondas";
-"More" = "Más";
 "Round %d undone" = "Ronda %d deshecha";
 "Redo" = "Rehacer";
 "Round %d restored" = "Ronda %d restaurada";

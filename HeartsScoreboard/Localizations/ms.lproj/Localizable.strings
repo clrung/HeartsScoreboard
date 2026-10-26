@@ -1,18 +1,12 @@
 "No" = "Tidak";
 "Yes" = "ya";
-"Undo last round" = "Buat asal pusingan terakhir";
 "Undo Round" = "Buat asal Pusingan";
 "Shake to undo the last round!" = "Goncang untuk membatalkan pusingan terakhir!";
-"Are you sure you would like to undo the last round?" = "Adakah anda pasti mahu membuat asal pusingan terakhir?";
 "New Game" = "Permainan Baru";
 "Are you sure? This will clear all round scores." = "Adakah anda pasti? Ini akan mengosongkan semua markah pusingan.";
 "D" = "D";
 "Hearts Scoreboard" = "Papan Markah Hati";
 "Game to: %d" = "Permainan ke: %d";
-"Pass: Left ←" = "Pas: Kiri ←";
-"Pass: Right →" = "Laluan: Kanan →";
-"Pass: Across ↔" = "Lulus: Seberang ↔";
-"Pass: Hold ✋" = "Pas: Tahan ✋";
 "Next Round" = "Pusingan Seterusnya";
 "Game over" = "Permainan tamat";
 "Pass to the Left" = "Lulus ke Kiri";
@@ -36,9 +30,7 @@
 "Dark" = "Gelap";
 "Add 26" = "Tambah 26";
 "Subtract 26" = "Tolak 26";
-"No completed games yet." = "Belum ada permainan yang lengkap.";
 "Delete" = "Padam";
-"Time" = "Masa";
 "Winner" = "Pemenang";
 "Game History" = "Sejarah Permainan";
 "Game Summary" = "Ringkasan Permainan";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ bernilai −10";
-"10 of Diamonds" = "Wajik 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varian Omnibus Hearts: sesiapa yang mengambil 10♦ mendapat −10 untuk pusingan tangan itu. Ia berasingan daripada \"Tembak bulan\".";
 "10♦ taken by" = "10♦ diambil oleh";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Tahan";
 "to %d" = "kepada %d";
 "No rounds yet" = "Tiada pusingan lagi";
-"More" = "Lagi";
 "Round %d undone" = "Pusingan %d dibuat asal";
 "Redo" = "Buat semula";
 "Round %d restored" = "Pusingan %d dipulihkan";

@@ -1,18 +1,12 @@
 "No" = "ไม่";
 "Yes" = "ใช่";
-"Undo last round" = "เลิกทำรอบ";
 "Undo Round" = "เลิกทำรอบ";
 "Shake to undo the last round!" = "เขย่าเพื่อเลิกทำรอบล่าสุด!";
-"Are you sure you would like to undo the last round?" = "คุณแน่ใจหรือไม่ว่าต้องการยกเลิกรอบล่าสุด?";
 "New Game" = "เกมใหม่";
 "Are you sure? This will clear all round scores." = "คะแนนรอบทั้งหมดจะถูกล้าง";
 "D" = "D";
 "Hearts Scoreboard" = "กระดานคะแนน Hearts";
 "Game to: %d" = "เล่นถึง %d คะแนน";
-"Pass: Left ←" = "ส่ง: ซ้าย ←";
-"Pass: Right →" = "ส่ง: ขวา →";
-"Pass: Across ↔" = "ส่ง: ตรงข้าม ↔";
-"Pass: Hold ✋" = "ส่ง: เก็บ ✋";
 "Next Round" = "รอบถัดไป";
 "Game over" = "จบเกม";
 "Pass to the Left" = "ส่งซ้าย";
@@ -36,9 +30,7 @@
 "Dark" = "มืด";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "ยังไม่มีเกมที่จบ";
 "Delete" = "ลบ";
-"Time" = "เวลา";
 "Winner" = "ผู้ชนะ";
 "Game History" = "ประวัติเกม";
 "Game Summary" = "สรุปเกม";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ มีค่า −10";
-"10 of Diamonds" = "10 ข้าวหลามตัด";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "รูปแบบ Omnibus Hearts: ผู้ที่เก็บ 10♦ ได้ −10 ในรอบมือนั้น แยกจาก \"ยิงดวงจันทร์\"";
 "10♦ taken by" = "ผู้เก็บ 10♦";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "เก็บ";
 "to %d" = "ถึง %d";
 "No rounds yet" = "ยังไม่มีรอบ.";
-"More" = "เพิ่มเติม";
 "Round %d undone" = "เลิกทำรอบ %d แล้ว";
 "Redo" = "ทำซ้ำ";
 "Round %d restored" = "เรียกคืนรอบที่ %d แล้ว";

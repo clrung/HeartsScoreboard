@@ -1,18 +1,12 @@
 "No" = "नाही";
 "Yes" = "होय";
-"Undo last round" = "शेवटची फेरी पूर्ववत करा";
 "Undo Round" = "फेरी पूर्ववत करा";
 "Shake to undo the last round!" = "शेवटची फेरी पूर्ववत करण्यासाठी हलवा!";
-"Are you sure you would like to undo the last round?" = "तुमची खात्री आहे की तुम्ही शेवटची फेरी पूर्ववत करू इच्छिता?";
 "New Game" = "नवीन खेळ";
 "Are you sure? This will clear all round scores." = "तुम्हाला खात्री आहे का? यामुळे अष्टपैलू गुण स्पष्ट होतील.";
 "D" = "डी";
 "Hearts Scoreboard" = "हार्ट स्कोअरबोर्ड";
 "Game to: %d" = "गेम ते: %d";
-"Pass: Left ←" = "पास: डावीकडे ←";
-"Pass: Right →" = "पास: उजवीकडे →";
-"Pass: Across ↔" = "पास: ओलांडून ↔";
-"Pass: Hold ✋" = "पास: धरा ✋";
 "Next Round" = "पुढील फेरी";
 "Game over" = "खेळ संपला";
 "Pass to the Left" = "डावीकडे पास";
@@ -36,9 +30,7 @@
 "Dark" = "गडद";
 "Add 26" = "26 जोडा";
 "Subtract 26" = "26 वजा करा";
-"No completed games yet." = "अद्याप कोणतेही पूर्ण झालेले गेम नाहीत.";
 "Delete" = "हटवा";
-"Time" = "वेळ";
 "Winner" = "विजेता";
 "Game History" = "खेळ इतिहास";
 "Game Summary" = "गेमचा सारांश";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ची किंमत −10";
-"10 of Diamonds" = "चौकट 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts प्रकार: जो खेळाडू 10♦ घेतो त्याला त्या हातासाठी −10 मिळतात. हे \"चंद्र शूट करा\" पासून वेगळे आहे.";
 "10♦ taken by" = "10♦ कोणी घेतला";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "धरा";
 "to %d" = "ते %d";
 "No rounds yet" = "अजून फेऱ्या नाहीत";
-"More" = "अधिक";
 "Round %d undone" = "फेरी %d पूर्ववत केली";
 "Redo" = "पुन्हा करा";
 "Round %d restored" = "फेरी %d पुनर्संचयित केली";

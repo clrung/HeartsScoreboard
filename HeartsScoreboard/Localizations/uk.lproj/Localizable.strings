@@ -1,18 +1,12 @@
 "No" = "немає";
 "Yes" = "так";
-"Undo last round" = "Скасувати останній раунд";
 "Undo Round" = "Скасувати раунд";
 "Shake to undo the last round!" = "Струсіть, щоб скасувати останній раунд!";
-"Are you sure you would like to undo the last round?" = "Ви впевнені, що хочете скасувати останній раунд?";
 "New Game" = "Нова гра";
 "Are you sure? This will clear all round scores." = "Ви впевнені? Це очистить результати всіх раундів.";
 "D" = "Д";
 "Hearts Scoreboard" = "Серве табло";
 "Game to: %d" = "Гра до: %d";
-"Pass: Left ←" = "Пас: Ліворуч ←";
-"Pass: Right →" = "Перехід: Праворуч →";
-"Pass: Across ↔" = "Перевал: Поперек ↔";
-"Pass: Hold ✋" = "Пас: утримуйте ✋";
 "Next Round" = "Наступний раунд";
 "Game over" = "Гра закінчена";
 "Pass to the Left" = "Пройдіть ліворуч";
@@ -36,9 +30,7 @@
 "Dark" = "Темний";
 "Add 26" = "Додайте 26";
 "Subtract 26" = "Відняти 26";
-"No completed games yet." = "Ще немає завершених ігор.";
 "Delete" = "Видалити";
-"Time" = "час";
 "Winner" = "Переможець";
 "Game History" = "Історія гри";
 "Game Summary" = "Підсумок гри";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ коштує −10";
-"10 of Diamonds" = "10 бубон";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варіант Omnibus Hearts: хто бере 10♦, отримує −10 за цю роздачу. Це окремо від «Стріляйте в місяць».";
 "10♦ taken by" = "10♦ взяв(ла)";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "утримуйте";
 "to %d" = "до %d";
 "No rounds yet" = "Раундів ще немає";
-"More" = "Більше";
 "Round %d undone" = "Раунд %d скасовано";
 "Redo" = "Повторити";
 "Round %d restored" = "Раунд %d відновлено";

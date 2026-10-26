@@ -1,18 +1,12 @@
 "No" = "Nej";
 "Yes" = "Ja";
-"Undo last round" = "Ångra runda";
 "Undo Round" = "Ångra runda";
 "Shake to undo the last round!" = "Skaka för att ångra senaste runden!";
-"Are you sure you would like to undo the last round?" = "Ångra senaste runden?";
 "New Game" = "Nytt spel";
 "Are you sure? This will clear all round scores." = "Alla rundpoäng raderas.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts-poäng";
 "Game to: %d" = "Spela till %d";
-"Pass: Left ←" = "Passa: vänster ←";
-"Pass: Right →" = "Passa: höger →";
-"Pass: Across ↔" = "Passa: mittemot ↔";
-"Pass: Hold ✋" = "Passa: stanna ✋";
 "Next Round" = "Nästa runda";
 "Game over" = "Spelet slut";
 "Pass to the Left" = "Passa vänster";
@@ -36,9 +30,7 @@
 "Dark" = "Mörkt";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "Inga avslutade spel än.";
 "Delete" = "Radera";
-"Time" = "Tid";
 "Winner" = "Vinnare";
 "Game History" = "Spelhistorik";
 "Game Summary" = "Sammanfattning";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ är värd −10";
-"10 of Diamonds" = "Ruter 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: den som tar 10♦ får −10 för den given. Det är separat från \"Ta månen\".";
 "10♦ taken by" = "10♦ taget av";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "stanna";
 "to %d" = "till %d";
 "No rounds yet" = "Inga omgångar än";
-"More" = "Mer";
 "Round %d undone" = "Omgång %d har ångrats";
 "Redo" = "Gör om";
 "Round %d restored" = "Omgång %d återställd";

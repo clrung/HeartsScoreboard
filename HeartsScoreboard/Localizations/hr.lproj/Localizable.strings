@@ -1,18 +1,12 @@
 "No" = "br";
 "Yes" = "da";
-"Undo last round" = "Poništi zadnji krug";
 "Undo Round" = "Poništavanje kruga";
 "Shake to undo the last round!" = "Protresite da poništite zadnji krug!";
-"Are you sure you would like to undo the last round?" = "Jeste li sigurni da želite poništiti zadnji krug?";
 "New Game" = "Nova igra";
 "Are you sure? This will clear all round scores." = "Jeste li sigurni? Ovo će obrisati rezultate svih rundi.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts semafor";
 "Game to: %d" = "Igra do: %d";
-"Pass: Left ←" = "Dodavanje: lijevo ←";
-"Pass: Right →" = "Prolaz: Desno →";
-"Pass: Across ↔" = "Prijelaz: Preko ↔";
-"Pass: Hold ✋" = "Prolaz: Držite ✋";
 "Next Round" = "Sljedeća runda";
 "Game over" = "Igra gotova";
 "Pass to the Left" = "Prođite ulijevo";
@@ -36,9 +30,7 @@
 "Dark" = "tamno";
 "Add 26" = "Dodajte 26";
 "Subtract 26" = "Oduzmi 26";
-"No completed games yet." = "Još nema dovršenih igara.";
 "Delete" = "Izbriši";
-"Time" = "Vrijeme";
 "Winner" = "Pobjednik";
 "Game History" = "Povijest igre";
 "Game Summary" = "Sažetak igre";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vrijedi −10";
-"10 of Diamonds" = "Karo 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varijanta: tko uzme 10♦ dobiva −10 za tu ruku. Ovo je odvojeno od \"Pucaj u mjesec\".";
 "10♦ taken by" = "10♦ uzeo/la";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Držite";
 "to %d" = "do %d";
 "No rounds yet" = "Još nema rundi";
-"More" = "Više";
 "Round %d undone" = "Runda %d poništena";
 "Redo" = "Ponovi";
 "Round %d restored" = "Runda %d vraćena";

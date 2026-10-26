@@ -1,18 +1,12 @@
 "No" = "Nei";
 "Yes" = "Já";
-"Undo last round" = "Afturkalla síðustu umferð";
 "Undo Round" = "Afturkalla umferð";
 "Shake to undo the last round!" = "Hristið til að afturkalla síðustu umferð!";
-"Are you sure you would like to undo the last round?" = "Ertu viss um að þú viljir afturkalla síðustu umferð?";
 "New Game" = "Nýr leikur";
 "Are you sure? This will clear all round scores." = "Ertu viss? Þetta mun hreinsa allar lotur.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts stigatafla";
 "Game to: %d" = "Leikur til: %d";
-"Pass: Left ←" = "Pass: Vinstri ←";
-"Pass: Right →" = "Pass: Hægri →";
-"Pass: Across ↔" = "Farið: Yfir ↔";
-"Pass: Hold ✋" = "Pass: Haltu ✋";
 "Next Round" = "Næsta umferð";
 "Game over" = "Leik lokið";
 "Pass to the Left" = "Farið til vinstri";
@@ -36,9 +30,7 @@
 "Dark" = "Myrkur";
 "Add 26" = "Bættu við 26";
 "Subtract 26" = "Dragðu frá 26";
-"No completed games yet." = "Engum leikjum lokið ennþá.";
 "Delete" = "Eyða";
-"Time" = "Tími";
 "Winner" = "Sigurvegari";
 "Game History" = "Saga leiksins";
 "Game Summary" = "Leikjasamantekt";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ er −10 virði";
-"10 of Diamonds" = "Tígull 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts afbrigði: sá sem tekur 10♦ fær −10 fyrir þá gjöf. Þetta er óháð \"Skjóta tunglið\".";
 "10♦ taken by" = "10♦ tekinn af";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Haltu";
 "to %d" = "til %d";
 "No rounds yet" = "Engar umferðir ennþá";
-"More" = "Fleiri";
 "Round %d undone" = "Umferð %d afturkölluð";
 "Redo" = "Endurtaka";
 "Round %d restored" = "Umferð %d endurheimt";

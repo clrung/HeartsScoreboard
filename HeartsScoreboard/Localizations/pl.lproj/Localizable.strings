@@ -1,18 +1,12 @@
 "No" = "Nie";
 "Yes" = "Tak";
-"Undo last round" = "Cofnij rundę";
 "Undo Round" = "Cofnij rundę";
 "Shake to undo the last round!" = "Potrząśnij, aby cofnąć ostatnią rundę!";
-"Are you sure you would like to undo the last round?" = "Cofnąć ostatnią rundę?";
 "New Game" = "Nowa gra";
 "Are you sure? This will clear all round scores." = "Wszystkie punkty rund zostaną usunięte.";
 "D" = "D";
 "Hearts Scoreboard" = "Licznik Kierów";
 "Game to: %d" = "Gra do: %d";
-"Pass: Left ←" = "Pas: w lewo ←";
-"Pass: Right →" = "Pas: w prawo →";
-"Pass: Across ↔" = "Pas: naprzeciwko ↔";
-"Pass: Hold ✋" = "Pas: czekaj ✋";
 "Next Round" = "Następna runda";
 "Game over" = "Koniec gry";
 "Pass to the Left" = "Pas w lewo";
@@ -36,9 +30,7 @@
 "Dark" = "Ciemny";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "Brak ukończonych gier.";
 "Delete" = "Usuń";
-"Time" = "Czas";
 "Winner" = "Zwycięzca";
 "Game History" = "Historia gier";
 "Game Summary" = "Podsumowanie gry";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ jest warte −10";
-"10 of Diamonds" = "10 karo";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Wariant Omnibus Hearts: kto weźmie 10♦, otrzymuje −10 za to rozdanie. Jest to niezależne od „Wzięcia księżyca”.";
 "10♦ taken by" = "10♦ wziął";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "czekaj";
 "to %d" = "do %d";
 "No rounds yet" = "Nie ma jeszcze rund";
-"More" = "Więcej";
 "Round %d undone" = "Runda %d zakończona";
 "Redo" = "Ponów";
 "Round %d restored" = "Runda %d przywrócona";

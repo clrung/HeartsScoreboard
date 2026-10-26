@@ -1,18 +1,12 @@
 "No" = "Үгүй";
 "Yes" = "Тиймээ";
-"Undo last round" = "Сүүлийн тойргийг буцаах";
 "Undo Round" = "Дугуйг буцаах";
 "Shake to undo the last round!" = "Сүүлийн тойргийг буцаахын тулд сэгсэрнэ үү!";
-"Are you sure you would like to undo the last round?" = "Та сүүлчийн тойргийг буцаахдаа итгэлтэй байна уу?";
 "New Game" = "Шинэ тоглоом";
 "Are you sure? This will clear all round scores." = "Та итгэлтэй байна уу? Энэ нь бүх тойргийн оноог арилгах болно.";
 "D" = "Д";
 "Hearts Scoreboard" = "Зүрхний онооны самбар";
 "Game to: %d" = "Тоглоом: %d";
-"Pass: Left ←" = "Дамжуулах: Зүүн ←";
-"Pass: Right →" = "Дамжуулах: Баруун →";
-"Pass: Across ↔" = "Дамжуулах: ↔ хөндлөн";
-"Pass: Hold ✋" = "Дамжуулах: ✋ барина уу";
 "Next Round" = "Дараагийн тойрог";
 "Game over" = "Тоглолт дууслаа";
 "Pass to the Left" = "Зүүн тийшээ дамжуулна";
@@ -36,9 +30,7 @@
 "Dark" = "Харанхуй";
 "Add 26" = "26 нэмнэ";
 "Subtract 26" = "26-г хас";
-"No completed games yet." = "Одоогоор дууссан тоглоом алга.";
 "Delete" = "Устгах";
-"Time" = "Цаг хугацаа";
 "Winner" = "Ялагч";
 "Game History" = "Тоглоомын түүх";
 "Game Summary" = "Тоглоомын хураангуй";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ нь −10 оноотой";
-"10 of Diamonds" = "Алмаз 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts хувилбар: 10♦-г авсан тоглогч тэр гарын хувьд −10 оноо авна. Энэ нь «Сарыг бууд»-аас тусдаа.";
 "10♦ taken by" = "10♦-г авсан";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "✋ барина уу";
 "to %d" = "%d руу";
 "No rounds yet" = "Одоогоор тойрог гараагүй байна";
-"More" = "Илүү";
 "Round %d undone" = "%d-р тойргийг буцаав";
 "Redo" = "Дахин хийх";
 "Round %d restored" = "%d-р тойрог сэргээгдсэн";

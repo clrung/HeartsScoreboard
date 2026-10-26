@@ -1,18 +1,12 @@
 "No" = "Όχι";
 "Yes" = "Ναι";
-"Undo last round" = "Αναίρεση τελευταίου γύρου";
 "Undo Round" = "Αναίρεση γύρου";
 "Shake to undo the last round!" = "Ανακινήστε για να αναιρέσετε τον τελευταίο γύρο!";
-"Are you sure you would like to undo the last round?" = "Είστε βέβαιοι ότι θέλετε να αναιρέσετε τον τελευταίο γύρο;";
 "New Game" = "Νέο Παιχνίδι";
 "Are you sure? This will clear all round scores." = "Είσαι σίγουρος; Αυτό θα καθαρίσει όλες τις βαθμολογίες του γύρου.";
 "D" = "Δ";
 "Hearts Scoreboard" = "Πίνακας αποτελεσμάτων Hearts";
 "Game to: %d" = "Παιχνίδι για: %d";
-"Pass: Left ←" = "Πάσο: Αριστερά ←";
-"Pass: Right →" = "Πάσο: Δεξιά →";
-"Pass: Across ↔" = "Πάσο: Απέναντι ↔";
-"Pass: Hold ✋" = "Πάσο: Κρατήστε ✋";
 "Next Round" = "Επόμενος Γύρος";
 "Game over" = "Το παιχνίδι τελείωσε";
 "Pass to the Left" = "Πέρασμα προς τα αριστερά";
@@ -36,9 +30,7 @@
 "Dark" = "Σκοτεινό";
 "Add 26" = "Προσθέστε 26";
 "Subtract 26" = "Αφαιρέστε 26";
-"No completed games yet." = "Δεν υπάρχουν ακόμα ολοκληρωμένα παιχνίδια.";
 "Delete" = "Διαγραφή";
-"Time" = "Χρόνος";
 "Winner" = "Νικητής";
 "Game History" = "Ιστορία Παιχνιδιού";
 "Game Summary" = "Περίληψη παιχνιδιού";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "Το 10♦ αξίζει −10";
-"10 of Diamonds" = "10 καρό";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Παραλλαγή Omnibus Hearts: όποιος πάρει το 10♦ παίρνει −10 για αυτό το χέρι. Είναι ξεχωριστό από το «Πυροβόλησε το φεγγάρι».";
 "10♦ taken by" = "Το 10♦ πήρε ο/η";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Κρατήστε";
 "to %d" = "προς %d";
 "No rounds yet" = "Δεν υπάρχουν ακόμη γύροι";
-"More" = "Περισσότερα";
 "Round %d undone" = "Ο γύρος %d αναιρέθηκε";
 "Redo" = "Επανάληψη";
 "Round %d restored" = "Ο γύρος %d αποκαταστάθηκε";

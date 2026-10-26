@@ -1,18 +1,12 @@
 "No" = "Hapana";
 "Yes" = "Ndiyo";
-"Undo last round" = "Tendua raundi ya mwisho";
 "Undo Round" = "Tendua Mzunguko";
 "Shake to undo the last round!" = "Tikisa ili kutendua raundi ya mwisho!";
-"Are you sure you would like to undo the last round?" = "Je, una uhakika ungependa kutendua raundi ya mwisho?";
 "New Game" = "Mchezo Mpya";
 "Are you sure? This will clear all round scores." = "Je, una uhakika? Hii itafuta alama zote za raundi.";
 "D" = "D";
 "Hearts Scoreboard" = "Ubao wa alama za mioyo";
 "Game to: %d" = "Mchezo kwa: %d";
-"Pass: Left ←" = "Pasi: Kushoto ←";
-"Pass: Right →" = "Pasi: Kulia →";
-"Pass: Across ↔" = "Pitia: Kuvuka ↔";
-"Pass: Hold ✋" = "Pasi: Shikilia ✋";
 "Next Round" = "Raundi Inayofuata";
 "Game over" = "Mchezo umekwisha";
 "Pass to the Left" = "Pitia kwa Kushoto";
@@ -36,9 +30,7 @@
 "Dark" = "Giza";
 "Add 26" = "Ongeza 26";
 "Subtract 26" = "Ondoa 26";
-"No completed games yet." = "Bado hakuna michezo iliyokamilika.";
 "Delete" = "Futa";
-"Time" = "Muda";
 "Winner" = "Mshindi";
 "Game History" = "Historia ya Mchezo";
 "Game Summary" = "Muhtasari wa Mchezo";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ina thamani ya −10";
-"10 of Diamonds" = "Almasi 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Toleo la Omnibus Hearts: anayechukua 10♦ anapata −10 kwa mkono huo. Hii ni tofauti na \"Risasi mwezi\".";
 "10♦ taken by" = "10♦ amechukua";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Shikilia";
 "to %d" = "hadi %d";
 "No rounds yet" = "Bado hakuna raundi";
-"More" = "Zaidi";
 "Round %d undone" = "Raundi ya %d imetenguliwa";
 "Redo" = "Rudia";
 "Round %d restored" = "Mzunguko wa %d umerejeshwa";

@@ -1,18 +1,12 @@
 "No" = "Нет";
 "Yes" = "Да";
-"Undo last round" = "Отменить раунд";
 "Undo Round" = "Отменить раунд";
 "Shake to undo the last round!" = "Встряхните, чтобы отменить последний раунд!";
-"Are you sure you would like to undo the last round?" = "Отменить последний раунд?";
 "New Game" = "Новая игра";
 "Are you sure? This will clear all round scores." = "Все очки раундов будут сброшены.";
 "D" = "Д";
 "Hearts Scoreboard" = "Счёт в Червях";
 "Game to: %d" = "Игра до: %d";
-"Pass: Left ←" = "Пас: влево ←";
-"Pass: Right →" = "Пас: вправо →";
-"Pass: Across ↔" = "Пас: напротив ↔";
-"Pass: Hold ✋" = "Пас: удержать ✋";
 "Next Round" = "Следующий раунд";
 "Game over" = "Игра окончена";
 "Pass to the Left" = "Пас влево";
@@ -36,9 +30,7 @@
 "Dark" = "Тёмная";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "Пока нет завершённых игр.";
 "Delete" = "Удалить";
-"Time" = "Время";
 "Winner" = "Победитель";
 "Game History" = "История игр";
 "Game Summary" = "Итог игры";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ стоит −10";
-"10 of Diamonds" = "10 бубён";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: кто берёт 10♦, получает −10 за эту раздачу. Это отдельно от «Взять луну».";
 "10♦ taken by" = "10♦ взял(а)";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "удержать";
 "to %d" = "до %d";
 "No rounds yet" = "Пока нет раундов";
-"More" = "Больше";
 "Round %d undone" = "Раунд %d отменен";
 "Redo" = "Повторить";
 "Round %d restored" = "Раунд %d восстановлен.";

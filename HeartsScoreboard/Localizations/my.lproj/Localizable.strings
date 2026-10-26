@@ -1,18 +1,12 @@
 "No" = "မရှိ";
 "Yes" = "ဟုတ်ကဲ့";
-"Undo last round" = "နောက်ဆုံးအချီကို မလုပ်တော့";
 "Undo Round" = "Round လုပ်တော့";
 "Shake to undo the last round!" = "နောက်ဆုံးအချီကို ပြန်ဖျက်ရန် လှုပ်ခါပါ။";
-"Are you sure you would like to undo the last round?" = "နောက်ဆုံးအဆင့်ကို ပြန်ဖျက်လိုသည်မှာ သေချာပါသလား။";
 "New Game" = "ဂိမ်းအသစ်";
 "Are you sure? This will clear all round scores." = "သေချာသလား။ ၎င်းသည် ပတ်ပတ်လည်ရမှတ်အားလုံးကို ရှင်းလင်းပါမည်။";
 "D" = "ဃ";
 "Hearts Scoreboard" = "နှလုံးသားအမှတ်စာရင်း";
 "Game to: %d" = "ဂိမ်း- %d";
-"Pass: Left ←" = "Pass- ဘယ်ဘက် ←";
-"Pass: Right →" = "Pass: ညာဘက် →";
-"Pass: Across ↔" = "Pass : ↔ တစ်ဖက်";
-"Pass: Hold ✋" = "Pass- ✋ ကိုင်ထားပါ။";
 "Next Round" = "နောက်တစ်ခု Round";
 "Game over" = "ဂိမ်းပြီးပါပြီ။";
 "Pass to the Left" = "လက်ဝဲသို့ကူးပါ။";
@@ -36,9 +30,7 @@
 "Dark" = "အမှောင်";
 "Add 26" = "ထည့်ပါ ၂၆";
 "Subtract 26" = "နုတ် ၂၆";
-"No completed games yet." = "ပြီးပြည့်စုံသောဂိမ်းများမရှိသေးပါ။";
 "Delete" = "ဖျက်ပါ။";
-"Time" = "အချိန်";
 "Winner" = "အောင်နိုင်သူ";
 "Game History" = "ဂိမ်းသမိုင်း";
 "Game Summary" = "ဂိမ်းအကျဉ်းချုပ်";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ တန်ဖိုး −10";
-"10 of Diamonds" = "စိန် 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ပုံစံ- 10♦ ယူသူသည် ထိုလက်အတွက် −10 ရမည်။ ၎င်းသည် \"လကို ပစ်ပါ။\" နှင့် သီးခြားဖြစ်သည်။";
 "10♦ taken by" = "10♦ ယူသူ";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "ကိုင်ထားပါ";
 "to %d" = "%d သို့";
 "No rounds yet" = "အလှည့်မကျသေးဘူး။";
-"More" = "နောက်ထပ်";
 "Round %d undone" = "အဝိုင်း %d ကို ပြန်ပြင်သည်။";
 "Redo" = "ပြန်လုပ်ပါ";
 "Round %d restored" = "အဝိုင်း %d ကို ပြန်လည်ရယူခဲ့သည်။";

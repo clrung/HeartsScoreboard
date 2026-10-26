@@ -1,18 +1,12 @@
 "No" = "Nem";
 "Yes" = "Igen";
-"Undo last round" = "Az utolsó kör visszavonása";
 "Undo Round" = "Kör visszavonása";
 "Shake to undo the last round!" = "Rázza meg az utolsó kör visszavonásához!";
-"Are you sure you would like to undo the last round?" = "Biztos benne, hogy vissza akarja vonni az utolsó kört?";
 "New Game" = "Új játék";
 "Are you sure? This will clear all round scores." = "Biztos vagy benne? Ezzel törli az összes forduló pontszámát.";
 "D" = "D";
 "Hearts Scoreboard" = "Szívek eredménytábla";
 "Game to: %d" = "Játék ide: %d";
-"Pass: Left ←" = "Passz: Bal ←";
-"Pass: Right →" = "Passz: jobbra →";
-"Pass: Across ↔" = "Átmenet: keresztben ↔";
-"Pass: Hold ✋" = "Passz: Tartsa ✋";
 "Next Round" = "Következő kör";
 "Game over" = "A játéknak vége";
 "Pass to the Left" = "Haladjon balra";
@@ -36,9 +30,7 @@
 "Dark" = "Sötét";
 "Add 26" = "Add hozzá a 26-ot";
 "Subtract 26" = "Vonja ki a 26-ot";
-"No completed games yet." = "Még nincsenek befejezett játékok.";
 "Delete" = "Törölje";
-"Time" = "Idő";
 "Winner" = "Győztes";
 "Game History" = "Játéktörténet";
 "Game Summary" = "Játék összefoglaló";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "A 10♦ értéke −10";
-"10 of Diamonds" = "Káró 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts változat: aki elviszi a 10♦-t, −10 pontot kap arra a leosztásra. Ez független a \"Lődd le a holdat\" szabálytól.";
 "10♦ taken by" = "A 10♦-t vitte";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Tartsa";
 "to %d" = "címzett: %d";
 "No rounds yet" = "Még nincsenek körök";
-"More" = "További";
 "Round %d undone" = "%d. forduló visszavonva";
 "Redo" = "Újra";
 "Round %d restored" = "%d. forduló visszaállítva";

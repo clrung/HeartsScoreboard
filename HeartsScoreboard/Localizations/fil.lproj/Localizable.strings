@@ -1,18 +1,12 @@
 "No" = "Hindi";
 "Yes" = "Oo";
-"Undo last round" = "I-undo ang huling round";
 "Undo Round" = "I-undo ang Round";
 "Shake to undo the last round!" = "Iling para i-undo ang huling round!";
-"Are you sure you would like to undo the last round?" = "Sigurado ka bang gusto mong i-undo ang huling round?";
 "New Game" = "Bagong Laro";
 "Are you sure? This will clear all round scores." = "Sigurado ka ba? Aalisin nito ang lahat ng round score.";
 "D" = "D";
 "Hearts Scoreboard" = "Puso Scoreboard";
 "Game to: %d" = "Laro sa: %d";
-"Pass: Left ←" = "Pass: Kaliwa ←";
-"Pass: Right →" = "Pass: Kanan →";
-"Pass: Across ↔" = "Pass: Sa kabila ↔";
-"Pass: Hold ✋" = "Pass: Hawakan ✋";
 "Next Round" = "Susunod na Round";
 "Game over" = "Tapos na ang laro";
 "Pass to the Left" = "Dumaan sa Kaliwa";
@@ -36,9 +30,7 @@
 "Dark" = "Madilim";
 "Add 26" = "Magdagdag ng 26";
 "Subtract 26" = "Ibawas 26";
-"No completed games yet." = "Wala pang nakumpletong laro.";
 "Delete" = "Tanggalin";
-"Time" = "Oras";
 "Winner" = "Nagwagi";
 "Game History" = "Kasaysayan ng Laro";
 "Game Summary" = "Buod ng Laro";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ay −10";
-"10 of Diamonds" = "10 ng Diamante";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variant: ang kukuha ng 10♦ ay makakakuha ng −10 sa kamay na iyon. Hiwalay ito sa \"Abutin ang buwan\".";
 "10♦ taken by" = "Kumuha ng 10♦";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Hawakan";
 "to %d" = "sa %d";
 "No rounds yet" = "Wala pang round";
-"More" = "Higit pa";
 "Round %d undone" = "Na-undo ang round %d.";
 "Redo" = "Ulitin";
 "Round %d restored" = "Na-restore ang round %d.";

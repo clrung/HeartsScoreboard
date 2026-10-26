@@ -1,18 +1,12 @@
 "No" = "لا";
 "Yes" = "نعم";
-"Undo last round" = "تراجع عن الجولة";
 "Undo Round" = "تراجع عن الجولة";
 "Shake to undo the last round!" = "هزّ الجهاز للتراجع عن الجولة!";
-"Are you sure you would like to undo the last round?" = "هل تريد التراجع عن الجولة الأخيرة؟";
 "New Game" = "لعبة جديدة";
 "Are you sure? This will clear all round scores." = "سيُمسح كل نقاط الجولات.";
 "D" = "د";
 "Hearts Scoreboard" = "لوحة قلوب";
 "Game to: %d" = "اللعب حتى: %d";
-"Pass: Left ←" = "تمرير: يسار ←";
-"Pass: Right →" = "تمرير: يمين →";
-"Pass: Across ↔" = "تمرير: مقابل ↔";
-"Pass: Hold ✋" = "تمرير: إبقاء ✋";
 "Next Round" = "الجولة التالية";
 "Game over" = "انتهت اللعبة";
 "Pass to the Left" = "مرّر لليسار";
@@ -36,9 +30,7 @@
 "Dark" = "داكن";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "لا ألعاب مكتملة بعد.";
 "Delete" = "حذف";
-"Time" = "الوقت";
 "Winner" = "الفائز";
 "Game History" = "سجل الألعاب";
 "Game Summary" = "ملخص اللعبة";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "الـ10♦ تساوي −10";
-"10 of Diamonds" = "عشرة الديناري";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "نسخة Omnibus Hearts: من يأخذ الـ10♦ يحصل على −10 في تلك اليد. وهذا منفصل عن «أخذ القمر».";
 "10♦ taken by" = "من أخذ الـ10♦";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "إبقاء";
 "to %d" = "إلى %d";
 "No rounds yet" = "لا جولات بعد";
-"More" = "المزيد";
 "Round %d undone" = "تم التراجع عن الجولة %d.";
 "Redo" = "إعادة";
 "Round %d restored" = "تمت استعادة الجولة %d.";

@@ -3,10 +3,8 @@
 "Yes" = "Ja";
 
 /* Alerts */
-"Undo last round" = "Laatste ronde ongedaan maken";
 "Undo Round" = "Ronde ongedaan maken";
 "Shake to undo the last round!" = "Schud om de laatste ronde ongedaan te maken!";
-"Are you sure you would like to undo the last round?" = "Weet je zeker dat je de laatste ronde ongedaan wilt maken?";
 "New Game" = "Nieuw spel";
 "Are you sure? This will clear all round scores." = "Weet je het zeker? Alle ronde-scores worden gewist.";
 
@@ -14,10 +12,6 @@
 "D" = "D";
 "Hearts Scoreboard" = "Harten Scorebord";
 "Game to: %d" = "Spel tot: %d";
-"Pass: Left ←" = "Doorgeven: Links ←";
-"Pass: Right →" = "Doorgeven: Rechts →";
-"Pass: Across ↔" = "Doorgeven: Tegenover ↔";
-"Pass: Hold ✋" = "Doorgeven: Houden ✋";
 "Next Round" = "Volgende ronde";
 
 /* Game status (ViewModel) */
@@ -51,9 +45,7 @@
 "Subtract 26" = "26 aftrekken";
 
 /* History */
-"No completed games yet." = "Nog geen voltooide spellen.";
 "Delete" = "Verwijderen";
-"Time" = "Tijd";
 "Winner" = "Winnaar";
 "Game History" = "Spelgeschiedenis";
 "Game Summary" = "Speloverzicht";
@@ -84,7 +76,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ is −10 waard";
-"10 of Diamonds" = "Ruiten 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: wie de 10♦ pakt, krijgt −10 voor die hand. Dit staat los van „Pak de maan”.";
 "10♦ taken by" = "10♦ gepakt door";
 "−10" = "−10";
@@ -184,7 +175,6 @@
 "Hold" = "Houden";
 "to %d" = "naar %d";
 "No rounds yet" = "Nog geen rondes";
-"More" = "Meer";
 "Round %d undone" = "Ronde %d ongedaan gemaakt";
 "Redo" = "Opnieuw";
 "Round %d restored" = "Ronde %d hersteld";

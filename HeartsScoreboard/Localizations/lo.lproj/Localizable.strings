@@ -1,18 +1,12 @@
 "No" = "ບໍ່";
 "Yes" = "ແມ່ນແລ້ວ";
-"Undo last round" = "ຍົກເລີກຮອບສຸດທ້າຍ";
 "Undo Round" = "ຍົກເລີກຮອບ";
 "Shake to undo the last round!" = "ສັ່ນເພື່ອຍົກເລີກຮອບສຸດທ້າຍ!";
-"Are you sure you would like to undo the last round?" = "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຍົກເລີກຮອບສຸດທ້າຍ?";
 "New Game" = "ເກມໃໝ່";
 "Are you sure? This will clear all round scores." = "ເຈົ້າແນ່ໃຈບໍ? ນີ້ຈະລຶບລ້າງຄະແນນຕະຫຼອດ.";
 "D" = "ງ";
 "Hearts Scoreboard" = "ກະດານຄະແນນຫົວໃຈ";
 "Game to: %d" = "ເກມຫາ: %d";
-"Pass: Left ←" = "ຜ່ານ: ຊ້າຍ ←";
-"Pass: Right →" = "ຜ່ານ: ຂວາ →";
-"Pass: Across ↔" = "ຜ່ານ: ຂ້າມ ↔";
-"Pass: Hold ✋" = "ຜ່ານ: ຖື ✋";
 "Next Round" = "ຮອບຕໍ່ໄປ";
 "Game over" = "ເກມຈົບແລ້ວ";
 "Pass to the Left" = "ຜ່ານໄປທາງຊ້າຍ";
@@ -36,9 +30,7 @@
 "Dark" = "ມືດ";
 "Add 26" = "ຕື່ມ 26";
 "Subtract 26" = "ລົບ 26";
-"No completed games yet." = "ບໍ່ມີເກມທີ່ສໍາເລັດເທື່ອ.";
 "Delete" = "ລຶບ";
-"Time" = "ເວລາ";
 "Winner" = "ຜູ້ຊະນະ";
 "Game History" = "ປະຫວັດເກມ";
 "Game Summary" = "ສະຫຼຸບເກມ";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ມີຄ່າ −10";
-"10 of Diamonds" = "ເພັດ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ແບບ Omnibus Hearts: ຜູ້ທີ່ເອົາ 10♦ ຈະໄດ້ −10 ສຳລັບມືນັ້ນ. ນີ້ແຍກຕ່າງຫາກຈາກ \"ຍິງດວງເດືອນ\".";
 "10♦ taken by" = "ຜູ້ເອົາ 10♦";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "ຖື";
 "to %d" = "ເຖິງ %d";
 "No rounds yet" = "ບໍ່ມີຮອບເທື່ອ";
-"More" = "ເພີ່ມເຕີມ";
 "Round %d undone" = "ຍົກເລີກຮອບ %d";
 "Redo" = "ເຮັດຊ້ຳ";
 "Round %d restored" = "ຟື້ນຟູຮອບທີ %d ແລ້ວ";

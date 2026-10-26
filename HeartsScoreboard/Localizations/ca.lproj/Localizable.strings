@@ -1,18 +1,12 @@
 "No" = "No";
 "Yes" = "Sí";
-"Undo last round" = "Desfer l'última ronda";
 "Undo Round" = "Desfer la ronda";
 "Shake to undo the last round!" = "Sacseja per desfer l'última ronda!";
-"Are you sure you would like to undo the last round?" = "Esteu segur que voleu desfer l'última ronda?";
 "New Game" = "Joc nou";
 "Are you sure? This will clear all round scores." = "N'estàs segur? Això esborrarà totes les puntuacions.";
 "D" = "D";
 "Hearts Scoreboard" = "Marcador de cors";
 "Game to: %d" = "Joc per a: %d";
-"Pass: Left ←" = "Passat: Esquerra ←";
-"Pass: Right →" = "Passar: Dreta →";
-"Pass: Across ↔" = "Passar: a través de ↔";
-"Pass: Hold ✋" = "Passa: mantén premuda ✋";
 "Next Round" = "Propera ronda";
 "Game over" = "S'ha acabat el joc";
 "Pass to the Left" = "Passeu a l'Esquerra";
@@ -36,9 +30,7 @@
 "Dark" = "Fosc";
 "Add 26" = "Afegeix 26";
 "Subtract 26" = "Resta 26";
-"No completed games yet." = "Encara no s'ha completat cap joc.";
 "Delete" = "Suprimeix";
-"Time" = "Temps";
 "Winner" = "Guanyador";
 "Game History" = "Història del joc";
 "Game Summary" = "Resum del joc";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "El 10♦ val −10";
-"10 of Diamonds" = "10 de diamants";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variant Omnibus Hearts: qui s'emporta el 10♦ obté −10 en aquella mà. És independent de «Dispara a la lluna».";
 "10♦ taken by" = "10♦ agafat per";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "mantén premuda";
 "to %d" = "a %d";
 "No rounds yet" = "Encara no hi ha rondes";
-"More" = "Més";
 "Round %d undone" = "Ronda %d desfet";
 "Redo" = "Refeix";
 "Round %d restored" = "S'ha restaurat la ronda %d";

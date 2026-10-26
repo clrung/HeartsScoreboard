@@ -1,18 +1,12 @@
 "No" = "Nac ydw";
 "Yes" = "Oes";
-"Undo last round" = "Dadwneud y rownd ddiwethaf";
 "Undo Round" = "Dadwneud Rownd";
 "Shake to undo the last round!" = "Ysgwyd i ddadwneud y rownd olaf!";
-"Are you sure you would like to undo the last round?" = "Ydych chi'n siŵr yr hoffech chi ddadwneud y rownd ddiwethaf?";
 "New Game" = "Gêm Newydd";
 "Are you sure? This will clear all round scores." = "Ydych chi'n siŵr? Bydd hyn yn clirio'r sgorau cyfan.";
 "D" = "D";
 "Hearts Scoreboard" = "Sgorfwrdd Calonnau";
 "Game to: %d" = "Gêm i: %d";
-"Pass: Left ←" = "Pasio: Chwith ←";
-"Pass: Right →" = "Pasio: Iawn →";
-"Pass: Across ↔" = "Pasio: Ar draws ↔";
-"Pass: Hold ✋" = "Pasio: Daliwch ✋";
 "Next Round" = "Rownd Nesaf";
 "Game over" = "Gêm drosodd";
 "Pass to the Left" = "Pasiwch i'r Chwith";
@@ -36,9 +30,7 @@
 "Dark" = "Tywyll";
 "Add 26" = "Ychwanegu 26";
 "Subtract 26" = "Tynnu 26";
-"No completed games yet." = "Dim gemau gorffenedig eto.";
 "Delete" = "Dileu";
-"Time" = "Amser";
 "Winner" = "Enillydd";
 "Game History" = "Hanes Gêm";
 "Game Summary" = "Crynodeb Gêm";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ yn werth −10";
-"10 of Diamonds" = "10 o Ddiemwntau";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Amrywiad Omnibus Hearts: mae pwy bynnag sy'n cymryd y 10♦ yn sgorio −10 am y llaw honno. Mae'n wahanol i \"Saethu y lleuad\".";
 "10♦ taken by" = "10♦ wedi'i gymryd gan";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Daliwch";
 "to %d" = "i %d";
 "No rounds yet" = "Dim rowndiau eto";
-"More" = "Mwy";
 "Round %d undone" = "Rownd %d wedi'i ddadwneud";
 "Redo" = "Ail-wneud";
 "Round %d restored" = "Rownd %d wedi'i hadfer";

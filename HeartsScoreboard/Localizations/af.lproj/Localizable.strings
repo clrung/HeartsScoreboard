@@ -1,18 +1,12 @@
 "No" = "Nee";
 "Yes" = "Ja";
-"Undo last round" = "Ontdoen laaste rondte";
 "Undo Round" = "Ontdoen rondte";
 "Shake to undo the last round!" = "Skud om die laaste rondte ongedaan te maak!";
-"Are you sure you would like to undo the last round?" = "Is jy seker jy wil die laaste rondte ongedaan maak?";
 "New Game" = "Nuwe speletjie";
 "Are you sure? This will clear all round scores." = "Is jy seker? Dit sal alle tellings uitvee.";
 "D" = "D";
 "Hearts Scoreboard" = "Harte telbord";
 "Game to: %d" = "Speletjie aan: %d";
-"Pass: Left ←" = "Slaag: Links ←";
-"Pass: Right →" = "Slaag: Regs →";
-"Pass: Across ↔" = "Slaag: Oorkant ↔";
-"Pass: Hold ✋" = "Slaag: Hou ✋";
 "Next Round" = "Volgende rondte";
 "Game over" = "Wedstryd verby";
 "Pass to the Left" = "Gaan na links";
@@ -36,9 +30,7 @@
 "Dark" = "Donker";
 "Add 26" = "Voeg 26 by";
 "Subtract 26" = "Trek 26 af";
-"No completed games yet." = "Nog geen voltooide speletjies nie.";
 "Delete" = "Vee uit";
-"Time" = "Tyd";
 "Winner" = "Wenner";
 "Game History" = "Spelgeskiedenis";
 "Game Summary" = "Speletjieopsomming";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ is −10 werd";
-"10 of Diamonds" = "Ruit 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: wie die 10♦ neem, kry −10 vir daardie hand. Dit staan los van \"Skiet die maan\".";
 "10♦ taken by" = "10♦ geneem deur";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Hou";
 "to %d" = "na %d";
 "No rounds yet" = "Nog geen rondtes nie";
-"More" = "Meer";
 "Round %d undone" = "Rondte %d is ongedaan gemaak";
 "Redo" = "Herdoen";
 "Round %d restored" = "Rondte %d is herstel";

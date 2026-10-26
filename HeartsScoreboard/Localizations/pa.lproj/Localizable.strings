@@ -1,18 +1,12 @@
 "No" = "ਨੰ";
 "Yes" = "ਹਾਂ";
-"Undo last round" = "ਆਖਰੀ ਦੌਰ ਨੂੰ ਅਣਡੂ ਕਰੋ";
 "Undo Round" = "ਗੇੜ ਨੂੰ ਅਣਕੀਤਾ ਕਰੋ";
 "Shake to undo the last round!" = "ਆਖਰੀ ਦੌਰ ਨੂੰ ਅਣਡੂ ਕਰਨ ਲਈ ਹਿਲਾਓ!";
-"Are you sure you would like to undo the last round?" = "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਹੋ ਕਿ ਤੁਸੀਂ ਆਖਰੀ ਦੌਰ ਨੂੰ ਅਣਡੂ ਕਰਨਾ ਚਾਹੋਗੇ?";
 "New Game" = "ਨਵੀਂ ਗੇਮ";
 "Are you sure? This will clear all round scores." = "ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ? ਇਹ ਆਲ ਰਾਊਂਡ ਸਕੋਰ ਸਾਫ਼ ਕਰੇਗਾ।";
 "D" = "ਡੀ";
 "Hearts Scoreboard" = "ਦਿਲ ਦਾ ਸਕੋਰਬੋਰਡ";
 "Game to: %d" = "ਗੇਮ ਇਸ ਲਈ: %d";
-"Pass: Left ←" = "ਪਾਸ: ਖੱਬੇ ←";
-"Pass: Right →" = "ਪਾਸ: ਸੱਜਾ →";
-"Pass: Across ↔" = "ਪਾਸ: ↔ ਦੇ ਪਾਰ";
-"Pass: Hold ✋" = "ਪਾਸ: ਹੋਲਡ ✋";
 "Next Round" = "ਅਗਲਾ ਦੌਰ";
 "Game over" = "ਖੇਡ ਖਤਮ";
 "Pass to the Left" = "ਖੱਬੇ ਪਾਸੇ ਪਾਸ ਕਰੋ";
@@ -36,9 +30,7 @@
 "Dark" = "ਹਨੇਰਾ";
 "Add 26" = "26 ਜੋੜੋ";
 "Subtract 26" = "26 ਨੂੰ ਘਟਾਓ";
-"No completed games yet." = "ਅਜੇ ਤੱਕ ਕੋਈ ਪੂਰੀਆਂ ਹੋਈਆਂ ਗੇਮਾਂ ਨਹੀਂ ਹਨ।";
 "Delete" = "ਮਿਟਾਓ";
-"Time" = "ਸਮਾਂ";
 "Winner" = "ਜੇਤੂ";
 "Game History" = "ਖੇਡ ਇਤਿਹਾਸ";
 "Game Summary" = "ਖੇਡ ਸੰਖੇਪ";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ਦੀ ਕੀਮਤ −10";
-"10 of Diamonds" = "ਇੱਟ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ਵੇਰੀਐਂਟ: ਜੋ 10♦ ਲੈਂਦਾ ਹੈ ਉਸਨੂੰ ਉਸ ਹੱਥ ਲਈ −10 ਮਿਲਦੇ ਹਨ। ਇਹ \"ਚੰਦ ਨੂੰ ਸ਼ੂਟ ਕਰੋ\" ਤੋਂ ਵੱਖਰਾ ਹੈ।";
 "10♦ taken by" = "10♦ ਕਿਸਨੇ ਲਿਆ";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "ਹੋਲਡ";
 "to %d" = "ਨੂੰ %d";
 "No rounds yet" = "ਅਜੇ ਕੋਈ ਦੌਰ ਨਹੀਂ";
-"More" = "ਹੋਰ";
 "Round %d undone" = "ਰਾਉਂਡ %d ਅਨਡਨ";
 "Redo" = "ਦੁਬਾਰਾ ਕਰੋ";
 "Round %d restored" = "ਦੌਰ %d ਮੁੜ ਬਹਾਲ ਕੀਤਾ ਗਿਆ";

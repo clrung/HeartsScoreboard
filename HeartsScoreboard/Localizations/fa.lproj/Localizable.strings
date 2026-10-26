@@ -1,18 +1,12 @@
 "No" = "خیر";
 "Yes" = "بله";
-"Undo last round" = "واگرد آخرین دور";
 "Undo Round" = "واگرد دور";
 "Shake to undo the last round!" = "برای خنثی کردن دور آخر تکان دهید!";
-"Are you sure you would like to undo the last round?" = "آیا مطمئن هستید که می خواهید دور آخر را لغو کنید؟";
 "New Game" = "بازی جدید";
 "Are you sure? This will clear all round scores." = "مطمئنی؟ این همه نمرات دور را پاک می کند.";
 "D" = "D";
 "Hearts Scoreboard" = "جدول امتیازات قلب ها";
 "Game to: %d" = "بازی به: %d";
-"Pass: Left ←" = "پاس: چپ ←";
-"Pass: Right →" = "پاس: راست →";
-"Pass: Across ↔" = "پاس: آن سوی ↔";
-"Pass: Hold ✋" = "پاس: نگه دارید ✋";
 "Next Round" = "دور بعدی";
 "Game over" = "بازی تمام شد";
 "Pass to the Left" = "به سمت چپ عبور کنید";
@@ -36,9 +30,7 @@
 "Dark" = "تاریک";
 "Add 26" = "26 را اضافه کنید";
 "Subtract 26" = "تفریق 26";
-"No completed games yet." = "هنوز هیچ بازی کاملی وجود ندارد.";
 "Delete" = "حذف کنید";
-"Time" = "زمان";
 "Winner" = "برنده";
 "Game History" = "تاریخچه بازی";
 "Game Summary" = "خلاصه بازی";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "۱۰♦ برابر −۱۰";
-"10 of Diamonds" = "خشت ۱۰";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "نسخه Omnibus Hearts: هر که ۱۰♦ را بگیرد در آن دست −۱۰ امتیاز می‌گیرد. این قانون جدا از «به ماه شلیک کن» است.";
 "10♦ taken by" = "۱۰♦ را گرفت";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "نگه دارید";
 "to %d" = "به %d";
 "No rounds yet" = "هنوز هیچ دوری وجود ندارد";
-"More" = "بیشتر";
 "Round %d undone" = "دور %d لغو شد";
 "Redo" = "مجددا";
 "Round %d restored" = "دور %d بازیابی شد";

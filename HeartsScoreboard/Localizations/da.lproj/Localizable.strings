@@ -1,18 +1,12 @@
 "No" = "Nej";
 "Yes" = "Ja";
-"Undo last round" = "Fortryd sidste runde";
 "Undo Round" = "Fortryd runde";
 "Shake to undo the last round!" = "Ryst for at fortryde den sidste runde!";
-"Are you sure you would like to undo the last round?" = "Er du sikker på, at du vil fortryde den sidste runde?";
 "New Game" = "Nyt spil";
 "Are you sure? This will clear all round scores." = "Er du sikker? Dette vil slette alle runde scoringer.";
 "D" = "D";
 "Hearts Scoreboard" = "Hjerter resultattavle";
 "Game to: %d" = "Spil til: %d";
-"Pass: Left ←" = "Bestået: Venstre ←";
-"Pass: Right →" = "Bestået: Højre →";
-"Pass: Across ↔" = "Passering: På tværs af ↔";
-"Pass: Hold ✋" = "Bestå: Hold ✋";
 "Next Round" = "Næste runde";
 "Game over" = "Spillet er slut";
 "Pass to the Left" = "Gå til venstre";
@@ -36,9 +30,7 @@
 "Dark" = "Mørk";
 "Add 26" = "Tilføj 26";
 "Subtract 26" = "Træk 26 fra";
-"No completed games yet." = "Ingen afsluttede spil endnu.";
 "Delete" = "Slet";
-"Time" = "Tid";
 "Winner" = "Vinder";
 "Game History" = "Spilhistorie";
 "Game Summary" = "Spiloversigt";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ er −10 værd";
-"10 of Diamonds" = "Ruder 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: Den, der tager 10♦, får −10 for den hånd. Det er adskilt fra \"Skyd månen\".";
 "10♦ taken by" = "10♦ taget af";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Hold";
 "to %d" = "til %d";
 "No rounds yet" = "Ingen runder endnu";
-"More" = "Flere";
 "Round %d undone" = "Runde %d fortrydet";
 "Redo" = "Gentag";
 "Round %d restored" = "Runde %d gendannet";

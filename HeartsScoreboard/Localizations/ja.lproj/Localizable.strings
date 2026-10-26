@@ -3,10 +3,8 @@
 "Yes" = "はい";
 
 /* Alerts */
-"Undo last round" = "前のラウンドを取り消す";
 "Undo Round" = "ラウンドを取り消す";
 "Shake to undo the last round!" = "振ると前のラウンドを取り消せます！";
-"Are you sure you would like to undo the last round?" = "前のラウンドを取り消してもよろしいですか？";
 "New Game" = "新しいゲーム";
 "Are you sure? This will clear all round scores." = "よろしいですか？ラウンドの得点がすべて消去されます。";
 
@@ -14,10 +12,6 @@
 "D" = "D";
 "Hearts Scoreboard" = "ハートのスコアボード";
 "Game to: %d" = "目標得点: %d";
-"Pass: Left ←" = "渡す: 左 ←";
-"Pass: Right →" = "渡す: 右 →";
-"Pass: Across ↔" = "渡す: 向かい ↔";
-"Pass: Hold ✋" = "渡す: キープ ✋";
 "Next Round" = "次のラウンド";
 
 /* Game status (ViewModel) */
@@ -51,9 +45,7 @@
 "Subtract 26" = "26を減算";
 
 /* History */
-"No completed games yet." = "まだ完了したゲームはありません。";
 "Delete" = "削除";
-"Time" = "時刻";
 "Winner" = "勝者";
 "Game History" = "ゲーム履歴";
 "Game Summary" = "ゲーム概要";
@@ -84,7 +76,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "♦10は−10点";
-"10 of Diamonds" = "ダイヤの10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts方式：♦10を取ったプレイヤーはそのハンドで−10点になります。「月を取る」とは別のルールです。";
 "10♦ taken by" = "♦10を取った人";
 "−10" = "−10";
@@ -184,7 +175,6 @@
 "Hold" = "キープ";
 "to %d" = "%dへ";
 "No rounds yet" = "まだラウンドはありません";
-"More" = "もっと";
 "Round %d undone" = "ラウンド %d を取り消しました";
 "Redo" = "やり直し";
 "Round %d restored" = "ラウンド %d が復元されました";

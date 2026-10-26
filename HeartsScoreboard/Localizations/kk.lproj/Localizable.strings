@@ -1,18 +1,12 @@
 "No" = "Жоқ";
 "Yes" = "Иә";
-"Undo last round" = "Соңғы айналымды болдырмау";
 "Undo Round" = "Айналуды болдырмау";
 "Shake to undo the last round!" = "Соңғы айналымды қайтару үшін шайқаңыз!";
-"Are you sure you would like to undo the last round?" = "Соңғы айналымды қайтарғыңыз келетініне сенімдісіз бе?";
 "New Game" = "Жаңа ойын";
 "Are you sure? This will clear all round scores." = "Сіз сенімдісіз бе? Бұл барлық раундтық ұпайларды тазартады.";
 "D" = "D";
 "Hearts Scoreboard" = "Жүректердің таблосы";
 "Game to: %d" = "Ойын: %d";
-"Pass: Left ←" = "Өту: солға ←";
-"Pass: Right →" = "Өту: оңға →";
-"Pass: Across ↔" = "Өту: ↔ арқылы";
-"Pass: Hold ✋" = "Өту: ✋ басып тұрыңыз";
 "Next Round" = "Келесі тур";
 "Game over" = "Ойын аяқталды";
 "Pass to the Left" = "Солға өту";
@@ -36,9 +30,7 @@
 "Dark" = "Қараңғы";
 "Add 26" = "26 қосыңыз";
 "Subtract 26" = "26-ны шегеріңіз";
-"No completed games yet." = "Әлі аяқталған ойындар жоқ.";
 "Delete" = "Жою";
-"Time" = "Уақыт";
 "Winner" = "Жеңімпаз";
 "Game History" = "Ойын тарихы";
 "Game Summary" = "Ойынның қорытындысы";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ құны −10";
-"10 of Diamonds" = "Бубна 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts нұсқасы: 10♦ алған ойыншы сол қол үшін −10 ұпай алады. Бұл «Айды түсір» ережесінен бөлек.";
 "10♦ taken by" = "10♦ алған";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "✋ басып тұрыңыз";
 "to %d" = "%d";
 "No rounds yet" = "Әзірге раундтар жоқ";
-"More" = "Қосымша";
 "Round %d undone" = "%d раунд кері қайтарылды";
 "Redo" = "Қайталау";
 "Round %d restored" = "%d раунд қалпына келтірілді";

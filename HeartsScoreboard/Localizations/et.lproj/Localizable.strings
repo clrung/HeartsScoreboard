@@ -1,18 +1,12 @@
 "No" = "Ei";
 "Yes" = "Jah";
-"Undo last round" = "Tühista viimane ring";
 "Undo Round" = "Võta vooru tagasi";
 "Shake to undo the last round!" = "Viimase ringi tühistamiseks raputage!";
-"Are you sure you would like to undo the last round?" = "Kas olete kindel, et soovite viimase vooru tagasi võtta?";
 "New Game" = "Uus Mäng";
 "Are you sure? This will clear all round scores." = "Oled sa kindel? See kustutab kõigi voorude tulemused.";
 "D" = "D";
 "Hearts Scoreboard" = "Südamete tulemustabel";
 "Game to: %d" = "Mäng: %d";
-"Pass: Left ←" = "Möödumine: vasakule ←";
-"Pass: Right →" = "Möödapääs: paremale →";
-"Pass: Across ↔" = "Läbimine: üle ↔";
-"Pass: Hold ✋" = "Pääs: hoidke ✋";
 "Next Round" = "Järgmine voor";
 "Game over" = "Mäng läbi";
 "Pass to the Left" = "Möödu vasakule";
@@ -36,9 +30,7 @@
 "Dark" = "Tume";
 "Add 26" = "Lisage 26";
 "Subtract 26" = "Lahutage 26";
-"No completed games yet." = "Lõpetatud mänge pole veel.";
 "Delete" = "Kustuta";
-"Time" = "Aeg";
 "Winner" = "Võitja";
 "Game History" = "Mänguajalugu";
 "Game Summary" = "Mängu kokkuvõte";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ väärtus on −10";
-"10 of Diamonds" = "Ruutu 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variant: kes võtab 10♦, saab selle käe eest −10. See on eraldi reegel \"Tulista kuu\" juurest.";
 "10♦ taken by" = "10♦ võttis";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "hoidke";
 "to %d" = "kasutajale %d";
 "No rounds yet" = "Pole veel vooru";
-"More" = "Rohkem";
 "Round %d undone" = "Ring %d on tagasi võetud";
 "Redo" = "Tee uuesti";
 "Round %d restored" = "%d. voor taastatud";

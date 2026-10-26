@@ -1,18 +1,12 @@
 "No" = "Ez";
 "Yes" = "Bai";
-"Undo last round" = "Desegin azken txanda";
 "Undo Round" = "Desegin txanda";
 "Shake to undo the last round!" = "Astindu azken txanda desegiteko!";
-"Are you sure you would like to undo the last round?" = "Ziur azken txanda desegin nahi duzula?";
 "New Game" = "Joko Berria";
 "Are you sure? This will clear all round scores." = "Ziur al zaude? Horrek puntuazio guztiak garbituko ditu.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts Markagailua";
 "Game to: %d" = "Jolasa: %d";
-"Pass: Left ←" = "Pasa: Ezkerra ←";
-"Pass: Right →" = "Pasa: Eskuin →";
-"Pass: Across ↔" = "Pasa: ↔ zeharkatu";
-"Pass: Hold ✋" = "Pasa: eutsi ✋";
 "Next Round" = "Hurrengo Txanda";
 "Game over" = "Bukatu da jokoa";
 "Pass to the Left" = "Pasatu Ezkerrerantz";
@@ -36,9 +30,7 @@
 "Dark" = "Iluna";
 "Add 26" = "Gehitu 26";
 "Subtract 26" = "26 kendu";
-"No completed games yet." = "Oraindik ez dago osaturiko jokorik.";
 "Delete" = "Ezabatu";
-"Time" = "Denbora";
 "Winner" = "Irabazlea";
 "Game History" = "Jokoen historia";
 "Game Summary" = "Jokoaren laburpena";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ = −10";
-"10 of Diamonds" = "Diamanteen 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts aldaera: 10♦ hartzen duenak −10 lortzen du esku horretan. \"Tiro egin ilargiari\" jokaldiaz bereizita dago.";
 "10♦ taken by" = "10♦ hartu duena";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "eutsi";
 "to %d" = "%d-ra";
 "No rounds yet" = "Oraindik ez dago txandarik";
-"More" = "Gehiago";
 "Round %d undone" = "%d txanda desegin";
 "Redo" = "Berregin";
 "Round %d restored" = "%d txanda leheneratu da";

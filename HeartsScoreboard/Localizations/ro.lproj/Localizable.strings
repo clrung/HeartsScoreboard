@@ -1,18 +1,12 @@
 "No" = "Nu";
 "Yes" = "Da";
-"Undo last round" = "Anulați ultima rundă";
 "Undo Round" = "Anulați runda";
 "Shake to undo the last round!" = "Agitați pentru a anula ultima rundă!";
-"Are you sure you would like to undo the last round?" = "Ești sigur că vrei să anulezi ultima rundă?";
 "New Game" = "Joc nou";
 "Are you sure? This will clear all round scores." = "esti sigur? Acest lucru va șterge toate scorurile.";
 "D" = "D";
 "Hearts Scoreboard" = "Tabloul de bord inimi";
 "Game to: %d" = "Joc pentru: %d";
-"Pass: Left ←" = "Trecere: Stânga ←";
-"Pass: Right →" = "Treci: Dreapta →";
-"Pass: Across ↔" = "Treci: peste ↔";
-"Pass: Hold ✋" = "Treci: Țineți ✋";
 "Next Round" = "Următoarea rundă";
 "Game over" = "S-a terminat jocul";
 "Pass to the Left" = "Treci la Stânga";
@@ -36,9 +30,7 @@
 "Dark" = "Întuneric";
 "Add 26" = "Adăugați 26";
 "Subtract 26" = "Scăderea 26";
-"No completed games yet." = "Niciun joc finalizat încă.";
 "Delete" = "Ștergeți";
-"Time" = "timpul";
 "Winner" = "Câștigător";
 "Game History" = "Istoria jocului";
 "Game Summary" = "Rezumatul jocului";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ valorează −10";
-"10 of Diamonds" = "10 de caro";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianta Omnibus Hearts: cine ia 10♦ primește −10 pentru acea mână. Este separat de „Trage luna”.";
 "10♦ taken by" = "10♦ luat de";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Țineți";
 "to %d" = "către %d";
 "No rounds yet" = "Nicio rundă încă";
-"More" = "Mai multe";
 "Round %d undone" = "Runda %d anulată";
 "Redo" = "Reface";
 "Round %d restored" = "Runda %d a fost restabilită";

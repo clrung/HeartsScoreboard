@@ -1,18 +1,12 @@
 "No" = "Nē";
 "Yes" = "Jā";
-"Undo last round" = "Atsaukt pēdējo kārtu";
 "Undo Round" = "Atsaukt kārtu";
 "Shake to undo the last round!" = "Pakratiet, lai atsauktu pēdējo kārtu!";
-"Are you sure you would like to undo the last round?" = "Vai tiešām vēlaties atsaukt pēdējo kārtu?";
 "New Game" = "Jauna spēle";
 "Are you sure? This will clear all round scores." = "Vai esat pārliecināts? Tādējādi tiks notīrīti visu spēļu rezultāti.";
 "D" = "D";
 "Hearts Scoreboard" = "Sirds rezultātu tablo";
 "Game to: %d" = "Spēle uz: %d";
-"Pass: Left ←" = "Piespēle: pa kreisi ←";
-"Pass: Right →" = "Piespēle: pa labi →";
-"Pass: Across ↔" = "Pāreja: pāri ↔";
-"Pass: Hold ✋" = "Iziet: turiet ✋";
 "Next Round" = "Nākamā kārta";
 "Game over" = "Spēle beigusies";
 "Pass to the Left" = "Pārejiet pa kreisi";
@@ -36,9 +30,7 @@
 "Dark" = "Tumšs";
 "Add 26" = "Pievienojiet 26";
 "Subtract 26" = "Atņemiet 26";
-"No completed games yet." = "Vēl nav pabeigtu spēļu.";
 "Delete" = "Dzēst";
-"Time" = "Laiks";
 "Winner" = "Uzvarētājs";
 "Game History" = "Spēļu vēsture";
 "Game Summary" = "Spēles kopsavilkums";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vērtība ir −10";
-"10 of Diamonds" = "Kāravu 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variants: kas paņem 10♦, par šo izspēli iegūst −10. Tas ir atsevišķi no „Izšauj mēnesi“.";
 "10♦ taken by" = "10♦ paņēma";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "turiet";
 "to %d" = "uz %d";
 "No rounds yet" = "Vēl nav apļu";
-"More" = "Vairāk";
 "Round %d undone" = "%d. kārta ir atsaukta";
 "Redo" = "Atkārtoti";
 "Round %d restored" = "%d. kārta ir atjaunota";

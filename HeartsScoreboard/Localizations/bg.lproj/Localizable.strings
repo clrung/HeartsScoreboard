@@ -1,18 +1,12 @@
 "No" = "не";
 "Yes" = "да";
-"Undo last round" = "Отмяна на последния кръг";
 "Undo Round" = "Отмяна на кръг";
 "Shake to undo the last round!" = "Разклатете, за да отмените последния кръг!";
-"Are you sure you would like to undo the last round?" = "Сигурни ли сте, че искате да отмените последния кръг?";
 "New Game" = "Нова игра";
 "Are you sure? This will clear all round scores." = "сигурен ли си Това ще изчисти резултатите от всички кръгове.";
 "D" = "г";
 "Hearts Scoreboard" = "Табло за сърцата";
 "Game to: %d" = "Игра до: %d";
-"Pass: Left ←" = "Проход: Ляво ←";
-"Pass: Right →" = "Проход: Надясно →";
-"Pass: Across ↔" = "Проход: Напречно ↔";
-"Pass: Hold ✋" = "Пропуск: Задръжте ✋";
 "Next Round" = "Следващ кръг";
 "Game over" = "Играта приключи";
 "Pass to the Left" = "Преминете наляво";
@@ -36,9 +30,7 @@
 "Dark" = "Тъмно";
 "Add 26" = "Добавете 26";
 "Subtract 26" = "Извадете 26";
-"No completed games yet." = "Все още няма завършени игри.";
 "Delete" = "Изтриване";
-"Time" = "време";
 "Winner" = "Победител";
 "Game History" = "История на играта";
 "Game Summary" = "Резюме на играта";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ струва −10";
-"10 of Diamonds" = "10 каро";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: който вземе 10♦, получава −10 за тази ръка. Това е отделно от «Застреляй луната».";
 "10♦ taken by" = "10♦ взета от";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Задръжте";
 "to %d" = "до %d";
 "No rounds yet" = "Все още няма кръгове";
-"More" = "Още";
 "Round %d undone" = "Рунд %d е отменен";
 "Redo" = "Повтори";
 "Round %d restored" = "Кръг %d възстановен";

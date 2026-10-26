@@ -1,18 +1,12 @@
 "No" = "Không";
 "Yes" = "Có";
-"Undo last round" = "Hoàn tác vòng";
 "Undo Round" = "Hoàn tác vòng";
 "Shake to undo the last round!" = "Lắc để hoàn tác vòng trước!";
-"Are you sure you would like to undo the last round?" = "Hoàn tác vòng trước?";
 "New Game" = "Ván mới";
 "Are you sure? This will clear all round scores." = "Sẽ xóa mọi điểm vòng.";
 "D" = "D";
 "Hearts Scoreboard" = "Bảng điểm Hearts";
 "Game to: %d" = "Chơi đến %d điểm";
-"Pass: Left ←" = "Chuyển: trái ←";
-"Pass: Right →" = "Chuyển: phải →";
-"Pass: Across ↔" = "Chuyển: đối diện ↔";
-"Pass: Hold ✋" = "Chuyển: giữ ✋";
 "Next Round" = "Vòng tiếp";
 "Game over" = "Hết ván";
 "Pass to the Left" = "Chuyển trái";
@@ -36,9 +30,7 @@
 "Dark" = "Tối";
 "Add 26" = "+26";
 "Subtract 26" = "−26";
-"No completed games yet." = "Chưa có ván nào hoàn thành.";
 "Delete" = "Xóa";
-"Time" = "Thời gian";
 "Winner" = "Người thắng";
 "Game History" = "Lịch sử";
 "Game Summary" = "Tóm tắt ván";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ có giá trị −10";
-"10 of Diamonds" = "10 rô";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Biến thể Omnibus Hearts: ai lấy 10♦ sẽ được −10 ở ván bài đó. Luật này tách biệt với \"Lấy trăng\".";
 "10♦ taken by" = "10♦ do ai lấy";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "giữ";
 "to %d" = "đến %d";
 "No rounds yet" = "Chưa có vòng nào";
-"More" = "Thêm";
 "Round %d undone" = "Vòng %d đã hoàn tác";
 "Redo" = "Làm lại";
 "Round %d restored" = "Vòng %d được khôi phục";

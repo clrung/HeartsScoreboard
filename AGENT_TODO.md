@@ -1,5 +1,16 @@
 # Agent TODO
 
+## Next up (ranked, /next 2026-10-26)
+Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip replaces −10 badge, build 8). Working tree clean except `scripts/fix_ctx_keys.py`.
+
+1. [ ] **Ship 4.0.0 build 8** (S): upload build 8, attach it to the 4.0.0 version in App Store Connect, submit for review (the user submits). Everything since build 4 is unreleased.
+2. [ ] **Verify round entry at the edges** (S–M): iPhone SE width, 6 players, and AX Dynamic Type with the 10♦ chip. These are the open items from the build-8 work, and that layout code is the newest.
+3. [ ] **Device checks** (M, needs hardware): shake-to-undo after closing each sheet (the 0.5s refocus is a guess), VoiceOver flow, edit-round sheet, keyboard shortcuts and hover on iPad, partial fold on Duo.
+4. [x] **Unused-string cleanup** (done 2026-10-26): removed 10 unused keys from all 75 locales ("Time", "No completed games yet.", 4× "Pass: … ←", "Undo last round" + its message, "10 of Diamonds", "More"). `scripts/fix_ctx_keys.py` (already applied) is still untracked: commit or delete it.
+5. [ ] **Translation quality** (M): re-translate sr-Latn (actually Cyrillic). "Moon adds 26 to others" reads clumsily in some locales, e.g. ja "月を取る は 26 を他のものに追加します". Native review of the locale lists below.
+6. [ ] Small polish (S each): dark-mode More/Undo chips near-black; pass-direction pill truncates at XXXL on iPhone Air; bottom-bar chip height magic number; `%d rounds` stringsdict; delete throwaway simulators.
+7. [ ] Deferred: localized App Store screenshots; Widget / Live Activity.
+
 ## iPhone Duo / wide-screen support (started 2026-10-24)
 
 ### Device facts (research 2026-10-24; Apple tech talks 111461/111466 + newsroom)
@@ -133,7 +144,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 
 ### Follow-ups found during implementation
 - [x] (Done: gated on GameViewModel.localRoundToken; regression test in UndoTests.) Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
-- [ ] Unused keys left in all locales: "Time", "Winner", "No completed games yet." (history header/empty state). Remove in a cleanup pass.
+- [x] (Done 2026-10-26.) Unused keys left in all locales: "Time", "No completed games yet."; "Winner" is still used.
 - [ ] `%d rounds` isn't pluralized (stringsdict); harmless today (finished games always have >1 round).
 - [ ] sr-Latn Localizable.strings is actually Cyrillic (pre-existing); new keys were added in Latin.
 - [x] (Done: extracted into private ViewModifiers in GameView.swift.) GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
@@ -150,10 +161,10 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: stacked rows + 2x2 chips + icon-only Reset at accessibility sizes.) Inline RoundInputView (split layout) at accessibility Dynamic Type (AX3) is broken: names clipped on the leading edge, chips overflow the trailing edge, "Round N"/"Reset" wrap (DuoLayoutSnapshotTests inner-6p-10d-portrait-ax3).
 - [x] (Done 886e92b: machine-translated into all locales.) English-only strings pending translation (user decision 2026-10-25): "Game Rules", "Recent players", "Add %@", "Share App"; history/leaderboard keys ("Rounds", "Moons", "Score by round", "%@ won with %d", "Players", "Wins", "Avg score", etc. — see en.lproj tail); game-over keys ("Rematch", "Results", "Winner(s)", "Final standings", "%lld points", ...); share keys ("Share result", "%lld rounds", "1 round", "Hearts Scoreboard result"); header keys ("Left", "Right", "Across", "Hold", "to %d", "No rounds yet", "More"); undo/edit keys ("Round %d undone", "Redo", "Edit Round %d", "Save", ...); "Redo available".
 - [x] (Done: ViewThatFits compact layout.) Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.
-- [ ] Unused after header redesign: "Pass: Left ←"-style keys and the "Hearts Scoreboard" title in GameView (verify with grep before removing in the unused-keys cleanup).
+- [x] (Removed 2026-10-26.) Unused after header redesign: "Pass: Left ←"-style keys and the "Hearts Scoreboard" title in GameView (verify with grep before removing in the unused-keys cleanup).
 - [ ] Header/scoreboard redesign not checked in RTL, and the dark-mode 26 tint / empty-state "No rounds yet" have no snapshot.
 - [ ] Check in the running app: edit-round sheet layout (snapshot harness squeezes sheets), shake-to-undo + toast, toast over the stacked bottom bar at accessibility sizes, VoiceOver flow. In edit mode the per-player total badges still include the round being edited.
-- [ ] Unused keys now: "Undo last round" alert strings (cleanup pass).
+- [x] (Removed 2026-10-26.) Unused keys now: "Undo last round" alert strings.
 
 - [x] (Done 2026-10-25: HeartsGame.totals(excluding:), snapshot cases added.) Edit mode totals included the edited round; empty board / dark 26 highlight / Increase Contrast snapshots.
 - [ ] Reduce Transparency has no snapshot (not settable via traits). Score cells are labelled per cell, not per round row; a row-wise VoiceOver order would need a layout restructure.

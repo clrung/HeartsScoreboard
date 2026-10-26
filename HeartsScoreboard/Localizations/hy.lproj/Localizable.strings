@@ -1,18 +1,12 @@
 "No" = "Ոչ";
 "Yes" = "Այո՛";
-"Undo last round" = "Հետարկել վերջին փուլը";
 "Undo Round" = "Հետարկել կլորը";
 "Shake to undo the last round!" = "Թափահարեք՝ վերջին փուլը չեղարկելու համար:";
-"Are you sure you would like to undo the last round?" = "Վստա՞հ եք, որ կցանկանայիք հետարկել վերջին փուլը:";
 "New Game" = "Նոր Խաղ";
 "Are you sure? This will clear all round scores." = "Համոզվա՞ծ ես։ Սա կջնջի բոլոր փուլերի միավորները:";
 "D" = "Դ";
 "Hearts Scoreboard" = "Ցուցատախտակ Hearts քարտային խաղի համար";
 "Game to: %d" = "Խաղ՝ %d";
-"Pass: Left ←" = "Անցում` ձախ ←";
-"Pass: Right →" = "Անցում: Աջ →";
-"Pass: Across ↔" = "Անցում: ↔ դիմաց";
-"Pass: Hold ✋" = "Անցում` պահիր ✋";
 "Next Round" = "Հաջորդ փուլ";
 "Game over" = "Խաղն ավարտվեց";
 "Pass to the Left" = "Անցում դեպի ձախ";
@@ -36,9 +30,7 @@
 "Dark" = "Մութ";
 "Add 26" = "Ավելացնել 26";
 "Subtract 26" = "հանել 26";
-"No completed games yet." = "Ավարտված խաղեր դեռ չկան:";
 "Delete" = "Ջնջել";
-"Time" = "Ժամանակը";
 "Winner" = "Հաղթող";
 "Game History" = "Խաղի պատմություն";
 "Game Summary" = "Խաղի ամփոփում";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦-ը արժե −10";
-"10 of Diamonds" = "10 շեղանկյուն";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts տարբերակ. 10♦ վերցնողը այդ խաղաբաժնի համար ստանում է −10: Սա առանձին է «Կրակեք լուսինը»-ից:";
 "10♦ taken by" = "10♦-ը վերցրեց";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Պահել";
 "to %d" = "դեպի %d";
 "No rounds yet" = "Տուրեր դեռ չկան";
-"More" = "Ավելին";
 "Round %d undone" = "%d կլորը հետարկված է";
 "Redo" = "Կրկնել";
 "Round %d restored" = "Կլոր %d-ը վերականգնվեց";

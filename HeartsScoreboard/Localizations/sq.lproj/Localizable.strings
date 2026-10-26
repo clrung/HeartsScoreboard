@@ -1,18 +1,12 @@
 "No" = "Nr";
 "Yes" = "po";
-"Undo last round" = "Zhbër raundin e fundit";
 "Undo Round" = "Zhbër Round";
 "Shake to undo the last round!" = "Shkundni për të zhbërë raundin e fundit!";
-"Are you sure you would like to undo the last round?" = "Jeni i sigurt që dëshironi të zhbëni raundin e fundit?";
 "New Game" = "Lojë e re";
 "Are you sure? This will clear all round scores." = "je i sigurt? Kjo do të pastrojë të gjitha rezultatet e raundit.";
 "D" = "D";
 "Hearts Scoreboard" = "Tabela e rezultateve të zemrave";
 "Game to: %d" = "Lojë për: %d";
-"Pass: Left ←" = "Kalimi: Majtas ←";
-"Pass: Right →" = "Kalimi: Djathtas →";
-"Pass: Across ↔" = "Kalim: Përtej ↔";
-"Pass: Hold ✋" = "Kaloni: Mbajeni ✋";
 "Next Round" = "Raundi tjetër";
 "Game over" = "Loja ka mbaruar";
 "Pass to the Left" = "Kaloni në të majtë";
@@ -36,9 +30,7 @@
 "Dark" = "E errët";
 "Add 26" = "Shtoni 26";
 "Subtract 26" = "Zbrit 26";
-"No completed games yet." = "Nuk ka ende lojëra të përfunduara.";
 "Delete" = "Fshije";
-"Time" = "Koha";
 "Winner" = "Fitues";
 "Game History" = "Historia e lojës";
 "Game Summary" = "Përmbledhja e lojës";
@@ -65,7 +57,6 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vlen −10";
-"10 of Diamonds" = "Karo 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianti Omnibus Hearts: kush merr 10♦ fiton −10 për atë dorë. Kjo është e ndarë nga \"Gjuaj hënën\".";
 "10♦ taken by" = "10♦ e mori";
 "−10" = "−10";
@@ -165,7 +156,6 @@
 "Hold" = "Mbajeni";
 "to %d" = "te %d";
 "No rounds yet" = "Nuk ka ende raunde";
-"More" = "Më shumë";
 "Round %d undone" = "Raundi %d u zhbë";
 "Redo" = "Ribëj";
 "Round %d restored" = "Raundi %d u rivendos";
