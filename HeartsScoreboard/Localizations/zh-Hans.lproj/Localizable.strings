@@ -87,7 +87,6 @@
 "10 of Diamonds" = "方块10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts 变体：拿到 ♦10 的玩家该局得 −10 分。这与“全收”相互独立。";
 "10♦ taken by" = "♦10 由谁拿到";
-"The player who took the 10♦ scores −10 this round." = "拿到 ♦10 的玩家本轮得 −10 分。";
 "−10" = "−10";
 "Select who took the 10♦" = "选择谁拿了 10♦";
 
@@ -197,3 +196,4 @@
 "Redo available" = "可用重做";
 "Quick-add button: +%d" = "快速添加按钮：+%d";
 "The +%d button in score entry adds this many points per tap." = "分数输入中的 +%d 按钮每次点击都会添加这么多分数。";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "点击拿走 10♦ 的玩家。他们本轮被扣掉10分。";

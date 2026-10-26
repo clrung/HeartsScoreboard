@@ -68,7 +68,6 @@
 "10 of Diamonds" = "10 շեղանկյուն";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts տարբերակ. 10♦ վերցնողը այդ խաղաբաժնի համար ստանում է −10: Սա առանձին է «Կրակեք լուսինը»-ից:";
 "10♦ taken by" = "10♦-ը վերցրեց";
-"The player who took the 10♦ scores −10 this round." = "10♦ վերցրած խաղացողն այս կլորում ստանում է −10:";
 "−10" = "−10";
 "Select who took the 10♦" = "Ընտրեք՝ ով վերցրեց 10♦-ը";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Կրկնել հասանելի է";
 "Quick-add button: +%d" = "Արագ ավելացման կոճակ՝ +%d";
 "The +%d button in score entry adds this many points per tap." = "Միավորների մուտքագրման +%d կոճակը այսքան միավոր է ավելացնում յուրաքանչյուր հպումով:";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Հպեք խաղացողին, ով վերցրել է 10♦-ը: Նրանք այս տուրից հանած 10 միավոր են ստանում։";

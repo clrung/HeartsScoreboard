@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Kərpic 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variantı: 10♦ götürən oyunçu həmin əl üçün −10 xal alır. Bu, \"Ayı vur\"dan ayrıdır.";
 "10♦ taken by" = "10♦ götürən";
-"The player who took the 10♦ scores −10 this round." = "10♦ götürən oyunçu bu dəyirmidə −10 xal alır.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ götürəni seçin";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Yenidən etmək mümkündür";
 "Quick-add button: +%d" = "Tez əlavə et düyməsi: +%d";
 "The +%d button in score entry adds this many points per tap." = "Hesab girişindəki +%d düyməsi hər toxunuşa bu qədər xal əlavə edir.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ alan oyunçuya toxunun. Bu turda 10 xal çıxılacaq.";

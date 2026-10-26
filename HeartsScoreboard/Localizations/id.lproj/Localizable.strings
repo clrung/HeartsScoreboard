@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Wajik 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varian Omnibus Hearts: siapa yang mengambil 10♦ mendapat −10 untuk babak itu. Ini terpisah dari \"Ambil bulan\".";
 "10♦ taken by" = "10♦ diambil oleh";
-"The player who took the 10♦ scores −10 this round." = "Pemain yang mengambil 10♦ mendapat −10 di babak ini.";
 "−10" = "−10";
 "Select who took the 10♦" = "Pilih siapa yang mengambil 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Pengulangan tersedia";
 "Quick-add button: +%d" = "Tombol tambah cepat: +%d";
 "The +%d button in score entry adds this many points per tap." = "Tombol +%d di entri skor menambahkan poin sebanyak ini per ketukan.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Ketuk pemain yang mengambil 10♦. Mereka mendapat pengurangan 10 poin pada putaran ini.";

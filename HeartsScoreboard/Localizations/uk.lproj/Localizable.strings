@@ -68,7 +68,6 @@
 "10 of Diamonds" = "10 бубон";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варіант Omnibus Hearts: хто бере 10♦, отримує −10 за цю роздачу. Це окремо від «Стріляйте в місяць».";
 "10♦ taken by" = "10♦ взяв(ла)";
-"The player who took the 10♦ scores −10 this round." = "Гравець, який узяв 10♦, отримує −10 у цьому раунді.";
 "−10" = "−10";
 "Select who took the 10♦" = "Виберіть, хто взяв 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Доступне повторення";
 "Quick-add button: +%d" = "Кнопка швидкого додавання: +%d";
 "The +%d button in score entry adds this many points per tap." = "Кнопка +%d під час введення результатів додає стільки балів за одне натискання.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Торкніться гравця, який взяв 10♦. У цьому раунді вони отримують 10 балів.";

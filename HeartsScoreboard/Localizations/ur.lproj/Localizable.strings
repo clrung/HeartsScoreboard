@@ -68,7 +68,6 @@
 "10 of Diamonds" = "اینٹ کا 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ویریئنٹ: جو 10♦ لے اسے اس ہاتھ کے لیے −10 ملتے ہیں۔ یہ \"چاند کو گولی مارو\" سے الگ ہے۔";
 "10♦ taken by" = "10♦ کس نے لیا";
-"The player who took the 10♦ scores −10 this round." = "جس کھلاڑی نے 10♦ لیا اسے اس راؤنڈ میں −10 ملتے ہیں۔";
 "−10" = "−10";
 "Select who took the 10♦" = "منتخب کریں کہ 10♦ کس نے لیا";
 
@@ -178,3 +177,4 @@
 "Redo available" = "دوبارہ کریں دستیاب";
 "Quick-add button: +%d" = "فوری شامل کرنے کا بٹن: +%d";
 "The +%d button in score entry adds this many points per tap." = "سکور کے اندراج میں +%d بٹن فی نل پر یہ کئی پوائنٹس کا اضافہ کرتا ہے۔";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "اس کھلاڑی کو تھپتھپائیں جس نے 10♦ لیا تھا۔ انہیں اس راؤنڈ میں گھٹا کر 10 پوائنٹس ملتے ہیں۔";

@@ -87,7 +87,6 @@
 "10 of Diamonds" = "ダイヤの10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts方式：♦10を取ったプレイヤーはそのハンドで−10点になります。「月を取る」とは別のルールです。";
 "10♦ taken by" = "♦10を取った人";
-"The player who took the 10♦ scores −10 this round." = "♦10を取ったプレイヤーはこのラウンドで−10点になります。";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦を取った人を選択";
 
@@ -197,3 +196,4 @@
 "Redo available" = "やり直し可能";
 "Quick-add button: +%d" = "クイック追加ボタン: +%d";
 "The +%d button in score entry adds this many points per tap." = "スコア入力の +%d ボタンは、タップごとにこの数のポイントを追加します。";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦を獲得したプレイヤーをタップします。このラウンドでは 10 ポイントが減点されます。";

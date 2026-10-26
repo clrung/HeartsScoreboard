@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Almasi 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Toleo la Omnibus Hearts: anayechukua 10♦ anapata −10 kwa mkono huo. Hii ni tofauti na \"Risasi mwezi\".";
 "10♦ taken by" = "10♦ amechukua";
-"The player who took the 10♦ scores −10 this round." = "Mchezaji aliyechukua 10♦ anapata −10 katika raundi hii.";
 "−10" = "−10";
 "Select who took the 10♦" = "Chagua aliyechukua 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Rudia inapatikana";
 "Quick-add button: +%d" = "Kitufe cha kuongeza haraka: +%d";
 "The +%d button in score entry adds this many points per tap." = "Kitufe cha +%d katika kuweka alama huongeza pointi nyingi kwa kila mguso.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Gusa mchezaji aliyechukua 10♦. Wanapata pointi 10 chini ya mzunguko huu.";

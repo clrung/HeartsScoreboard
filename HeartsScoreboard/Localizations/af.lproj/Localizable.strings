@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Ruit 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: wie die 10♦ neem, kry −10 vir daardie hand. Dit staan los van \"Skiet die maan\".";
 "10♦ taken by" = "10♦ geneem deur";
-"The player who took the 10♦ scores −10 this round." = "Die speler wat die 10♦ geneem het, kry −10 hierdie rondte.";
 "−10" = "−10";
 "Select who took the 10♦" = "Kies wie die 10♦ geneem het";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Herdoen beskikbaar";
 "Quick-add button: +%d" = "Vinnigvoeg-knoppie: +%d";
 "The +%d button in score entry adds this many points per tap." = "Die +%d-knoppie in tellinginskrywing voeg soveel punte per tik by.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tik op die speler wat die 10♦ geneem het. Hulle kry 10 punte afgetrek hierdie rondte.";

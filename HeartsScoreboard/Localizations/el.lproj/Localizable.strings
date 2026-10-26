@@ -68,7 +68,6 @@
 "10 of Diamonds" = "10 καρό";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Παραλλαγή Omnibus Hearts: όποιος πάρει το 10♦ παίρνει −10 για αυτό το χέρι. Είναι ξεχωριστό από το «Πυροβόλησε το φεγγάρι».";
 "10♦ taken by" = "Το 10♦ πήρε ο/η";
-"The player who took the 10♦ scores −10 this round." = "Ο παίκτης που πήρε το 10♦ παίρνει −10 σε αυτόν τον γύρο.";
 "−10" = "−10";
 "Select who took the 10♦" = "Επιλέξτε ποιος πήρε το 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Επανάληψη διαθέσιμη";
 "Quick-add button: +%d" = "Κουμπί γρήγορης προσθήκης: +%d";
 "The +%d button in score entry adds this many points per tap." = "Το κουμπί +%d στην καταχώριση βαθμολογίας προσθέτει πολλούς πόντους ανά πάτημα.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Πατήστε το πρόγραμμα αναπαραγωγής που πήρε το 10♦. Παίρνουν 10 πόντους που αφαιρούνται από αυτόν τον γύρο.";

@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Ruter 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: den som tar 10♦ får −10 för den given. Det är separat från \"Ta månen\".";
 "10♦ taken by" = "10♦ taget av";
-"The player who took the 10♦ scores −10 this round." = "Spelaren som tog 10♦ får −10 i den här rundan.";
 "−10" = "−10";
 "Select who took the 10♦" = "Välj vem som tog 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Gör om tillgängligt";
 "Quick-add button: +%d" = "Snabbläggsknapp: +%d";
 "The +%d button in score entry adds this many points per tap." = "Knappen +%d i poänginmatningen ger så många poäng per tryck.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tryck på spelaren som tog 10♦. De får 10 poäng subtraherat denna omgång.";

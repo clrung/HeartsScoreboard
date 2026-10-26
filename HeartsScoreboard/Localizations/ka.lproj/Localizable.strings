@@ -68,7 +68,6 @@
 "10 of Diamonds" = "აგურის 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ვარიანტი: ვინც 10♦-ს აიღებს, ამ ხელისთვის იღებს −10-ს. ეს განცალკევებულია «ესროლეთ მთვარეს»-გან.";
 "10♦ taken by" = "10♦ აიღო";
-"The player who took the 10♦ scores −10 this round." = "მოთამაშე, რომელმაც 10♦ აიღო, ამ რაუნდში იღებს −10-ს.";
 "−10" = "−10";
 "Select who took the 10♦" = "აირჩიეთ, ვინ აიღო 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "ხელახლა შესაძლებელია";
 "Quick-add button: +%d" = "სწრაფი დამატების ღილაკი: +%d";
 "The +%d button in score entry adds this many points per tap." = "ქულების ჩანაწერში +%d ღილაკი ამდენ ქულას ამატებს თითო შეხებაზე.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "შეეხეთ მოთამაშეს, რომელმაც აიღო 10♦. ამ რაუნდში გამოკლებულ 10 ქულას იღებენ.";

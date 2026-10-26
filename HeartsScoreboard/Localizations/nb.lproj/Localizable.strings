@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Ruter 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: Den som tar 10♦ får −10 for den hånden. Dette er adskilt fra «Skyt månen».";
 "10♦ taken by" = "10♦ tatt av";
-"The player who took the 10♦ scores −10 this round." = "Spilleren som tok 10♦ får −10 i denne runden.";
 "−10" = "−10";
 "Select who took the 10♦" = "Velg hvem som tok 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Gjenta tilgjengelig";
 "Quick-add button: +%d" = "Hurtiglegg til-knapp: +%d";
 "The +%d button in score entry adds this many points per tap." = "+%d-knappen i poengskriving legger til så mange poeng per trykk.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Trykk på spilleren som tok 10♦. De får 10 poeng fratrukket denne runden.";

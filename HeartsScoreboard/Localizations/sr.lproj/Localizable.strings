@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Каро 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts варијанта: ко узме 10♦ добија −10 за ту руку. Ово је одвојено од „Пуцај у месец“.";
 "10♦ taken by" = "10♦ узео/ла";
-"The player who took the 10♦ scores −10 this round." = "Играч који је узео 10♦ добија −10 у овој рунди.";
 "−10" = "−10";
 "Select who took the 10♦" = "Изабери ко је узео 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Понови доступно";
 "Quick-add button: +%d" = "Дугме за брзо додавање: +%d";
 "The +%d button in score entry adds this many points per tap." = "Дугме +%d у уносу резултата додаје оволико поена по додиру.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Додирните играча који је узео 10♦. Они добијају 10 поена одузетих у овој рунди.";

@@ -68,7 +68,6 @@
 "10 of Diamonds" = "ការ៉ូ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ជំនាន់ Omnibus Hearts៖ អ្នកដែលយក 10♦ ទទួលបាន −10 សម្រាប់ដៃនោះ។ វាដាច់ដោយឡែកពី «បាញ់ព្រះច័ន្ទ»។";
 "10♦ taken by" = "អ្នកយក 10♦";
-"The player who took the 10♦ scores −10 this round." = "អ្នកលេងដែលយក 10♦ ទទួលបាន −10 ក្នុងជុំនេះ។";
 "−10" = "−10";
 "Select who took the 10♦" = "ជ្រើសអ្នកដែលយក 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "អាចធ្វើឡើងវិញបាន។";
 "Quick-add button: +%d" = "ប៊ូតុងបន្ថែមរហ័ស៖ +%d";
 "The +%d button in score entry adds this many points per tap." = "ប៊ូតុង +%d ក្នុងការបញ្ចូលពិន្ទុបន្ថែមពិន្ទុជាច្រើននេះក្នុងមួយចុច";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ប៉ះអ្នកលេងដែលបានយក 10♦ ។ ពួកគេទទួលបាន 10 ពិន្ទុដកក្នុងជុំនេះ។";

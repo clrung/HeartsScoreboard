@@ -68,7 +68,6 @@
 "10 of Diamonds" = "டைமண்ட் 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts மாறுபாடு: 10♦ எடுப்பவர் அந்தக் கைக்கு −10 பெறுவார். இது \"சந்திரனை சுடவும்\" என்பதிலிருந்து தனியானது.";
 "10♦ taken by" = "10♦ எடுத்தவர்";
-"The player who took the 10♦ scores −10 this round." = "10♦ எடுத்த வீரர் இந்தச் சுற்றில் −10 பெறுவார்.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ யார் எடுத்தார் எனத் தேர்ந்தெடுக்கவும்";
 
@@ -178,3 +177,4 @@
 "Redo available" = "மீண்டும் செய்யவும்";
 "Quick-add button: +%d" = "விரைவு-சேர் பொத்தான்: +%d";
 "The +%d button in score entry adds this many points per tap." = "ஸ்கோர் உள்ளீட்டில் உள்ள +%d பொத்தான் ஒரு தட்டலுக்கு இத்தனை புள்ளிகளைச் சேர்க்கிறது.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ எடுத்த வீரரைத் தட்டவும். இந்த சுற்றில் கழித்தால் 10 புள்ளிகள் கிடைக்கும்.";

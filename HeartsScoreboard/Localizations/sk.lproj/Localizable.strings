@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Káro 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variant Omnibus Hearts: kto vezme 10♦, získa za dané rozdanie −10. Je to nezávislé od „Zastreľte mesiac“.";
 "10♦ taken by" = "10♦ vzal";
-"The player who took the 10♦ scores −10 this round." = "Hráč, ktorý vzal 10♦, získa v tomto kole −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Vyberte, kto vzal 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Znova k dispozícii";
 "Quick-add button: +%d" = "Tlačidlo rýchleho pridania: +%d";
 "The +%d button in score entry adds this many points per tap." = "Tlačidlo +%d v zadávaní skóre pridá toľko bodov za klepnutie.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Klepnite na hráča, ktorý získal 10♦. V tomto kole získajú odpočítaných 10 bodov.";

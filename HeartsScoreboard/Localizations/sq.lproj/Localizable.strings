@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Karo 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianti Omnibus Hearts: kush merr 10♦ fiton −10 për atë dorë. Kjo është e ndarë nga \"Gjuaj hënën\".";
 "10♦ taken by" = "10♦ e mori";
-"The player who took the 10♦ scores −10 this round." = "Lojtari që mori 10♦ fiton −10 në këtë raund.";
 "−10" = "−10";
 "Select who took the 10♦" = "Zgjidh kush e mori 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Ribërje në dispozicion";
 "Quick-add button: +%d" = "Butoni i shtimit të shpejtë: +%d";
 "The +%d button in score entry adds this many points per tap." = "Butoni +%d në hyrjen e rezultatit shton kaq shumë pikë për çdo trokitje.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Prekni lojtarin që mori 10♦. Ata marrin 10 pikë të zbritura këtë raund.";

@@ -68,7 +68,6 @@
 "10 of Diamonds" = "10 o Ddiemwntau";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Amrywiad Omnibus Hearts: mae pwy bynnag sy'n cymryd y 10♦ yn sgorio −10 am y llaw honno. Mae'n wahanol i \"Saethu y lleuad\".";
 "10♦ taken by" = "10♦ wedi'i gymryd gan";
-"The player who took the 10♦ scores −10 this round." = "Mae'r chwaraewr a gymerodd y 10♦ yn sgorio −10 yn y rownd hon.";
 "−10" = "−10";
 "Select who took the 10♦" = "Dewiswch pwy gymerodd y 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Ail-wneud ar gael";
 "Quick-add button: +%d" = "Botwm ychwanegu cyflym: +%d";
 "The +%d button in score entry adds this many points per tap." = "Mae'r botwm +%d yn y cofnod sgôr yn ychwanegu cymaint o bwyntiau fesul tap.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tapiwch y chwaraewr a gymerodd y 10♦. Maen nhw'n cael 10 pwynt yn cael ei dynnu y rownd yma.";

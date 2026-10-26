@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Káró 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts változat: aki elviszi a 10♦-t, −10 pontot kap arra a leosztásra. Ez független a \"Lődd le a holdat\" szabálytól.";
 "10♦ taken by" = "A 10♦-t vitte";
-"The player who took the 10♦ scores −10 this round." = "A 10♦-t elvivő játékos −10 pontot kap ebben a fordulóban.";
 "−10" = "−10";
 "Select who took the 10♦" = "Válaszd ki, ki vitte el a 10♦-t";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Újra elkészíthető";
 "Quick-add button: +%d" = "Gyors hozzáadás gomb: +%d";
 "The +%d button in score entry adds this many points per tap." = "A +%d gomb a pontszámbevitelnél ennyi pontot ad hozzá érintésenként.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Koppintson arra a játékosra, aki megszerezte a 10♦-t. Ebben a körben 10 pontot kapnak levonva.";

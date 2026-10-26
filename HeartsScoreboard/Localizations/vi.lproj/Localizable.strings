@@ -68,7 +68,6 @@
 "10 of Diamonds" = "10 rô";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Biến thể Omnibus Hearts: ai lấy 10♦ sẽ được −10 ở ván bài đó. Luật này tách biệt với \"Lấy trăng\".";
 "10♦ taken by" = "10♦ do ai lấy";
-"The player who took the 10♦ scores −10 this round." = "Người chơi lấy 10♦ được −10 ở vòng này.";
 "−10" = "−10";
 "Select who took the 10♦" = "Chọn người đã lấy 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Làm lại có sẵn";
 "Quick-add button: +%d" = "Nút thêm nhanh: +%d";
 "The +%d button in score entry adds this many points per tap." = "Nút +%d trong mục nhập điểm sẽ thêm số điểm này cho mỗi lần nhấn.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Nhấn vào người chơi đã lấy 10♦. Họ bị trừ 10 điểm ở vòng này.";

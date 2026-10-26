@@ -175,7 +175,7 @@ struct RoundInputView: View {
                         } header: {
                             Text("10♦ taken by")
                         } footer: {
-                            Text("The player who took the 10♦ scores −10 this round.")
+                            Text("Tap the player who took the 10♦. They get 10 points subtracted this round.")
                         }
                     }
 

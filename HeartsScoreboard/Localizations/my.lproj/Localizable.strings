@@ -68,7 +68,6 @@
 "10 of Diamonds" = "စိန် 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ပုံစံ- 10♦ ယူသူသည် ထိုလက်အတွက် −10 ရမည်။ ၎င်းသည် \"လကို ပစ်ပါ။\" နှင့် သီးခြားဖြစ်သည်။";
 "10♦ taken by" = "10♦ ယူသူ";
-"The player who took the 10♦ scores −10 this round." = "10♦ ယူသော ကစားသမားသည် ဤအဝိုင်းတွင် −10 ရမည်။";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ယူသူကို ရွေးပါ";
 
@@ -178,3 +177,4 @@
 "Redo available" = "ပြန်လုပ်လို့ရပါပြီ။";
 "Quick-add button: +%d" = "အမြန်ထည့်ရန် ခလုတ်- +%d";
 "The +%d button in score entry adds this many points per tap." = "ရမှတ်ထည့်သွင်းမှုတွင် +%d ခလုတ်သည် နှိပ်လိုက်လျှင် အမှတ်များစွာကို ထည့်ပေးသည်။";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ကို ရယူခဲ့သော ကစားသမားကို တို့ပါ။ ဒီအကျော့မှာ သူတို့ ၁၀ မှတ် နုတ်တယ်။";

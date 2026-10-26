@@ -87,7 +87,6 @@
 "10 of Diamonds" = "10 de diamantes";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variante Omnibus Hearts: quien se lleve el 10♦ suma −10 en esa mano. Es independiente de «Coger la luna».";
 "10♦ taken by" = "10♦ cogido por";
-"The player who took the 10♦ scores −10 this round." = "El jugador que cogió el 10♦ suma −10 en esta ronda.";
 "−10" = "−10";
 "Select who took the 10♦" = "Elige quién cogió el 10♦";
 
@@ -197,3 +196,4 @@
 "Redo available" = "Rehacer disponible";
 "Quick-add button: +%d" = "Botón de adición rápida: +%d";
 "The +%d button in score entry adds this many points per tap." = "El botón +%d en la entrada de puntuación suma esta cantidad de puntos por toque.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toca el jugador que tomó el 10♦. Se les restan 10 puntos en esta ronda.";

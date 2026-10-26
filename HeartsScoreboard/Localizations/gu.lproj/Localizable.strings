@@ -68,7 +68,6 @@
 "10 of Diamonds" = "ચોકટ 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts વેરિએન્ટ: જે 10♦ લે છે તેને તે હાથ માટે −10 મળે છે. આ \"ચંદ્રને શૂટ કરો\" થી અલગ છે.";
 "10♦ taken by" = "10♦ લેનાર";
-"The player who took the 10♦ scores −10 this round." = "જે ખેલાડીએ 10♦ લીધો તેને આ રાઉન્ડમાં −10 મળે છે.";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ કોણે લીધો તે પસંદ કરો";
 
@@ -178,3 +177,4 @@
 "Redo available" = "ઉપલબ્ધ ફરીથી કરો";
 "Quick-add button: +%d" = "ઝડપી ઉમેરો બટન: +%d";
 "The +%d button in score entry adds this many points per tap." = "સ્કોર એન્ટ્રીમાં +%d બટન ટેપ દીઠ આ ઘણા બધા પોઇન્ટ્સ ઉમેરે છે.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ લેનાર ખેલાડીને ટેપ કરો. તેમને આ રાઉન્ડ બાદ 10 પોઈન્ટ મળે છે.";

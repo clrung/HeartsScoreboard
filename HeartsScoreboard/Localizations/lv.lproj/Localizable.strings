@@ -68,7 +68,6 @@
 "10 of Diamonds" = "Kāravu 10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts variants: kas paņem 10♦, par šo izspēli iegūst −10. Tas ir atsevišķi no „Izšauj mēnesi“.";
 "10♦ taken by" = "10♦ paņēma";
-"The player who took the 10♦ scores −10 this round." = "Spēlētājs, kurš paņēma 10♦, šajā kārtā iegūst −10.";
 "−10" = "−10";
 "Select who took the 10♦" = "Izvēlieties, kas paņēma 10♦";
 
@@ -178,3 +177,4 @@
 "Redo available" = "Ir pieejama pārtaisīšana";
 "Quick-add button: +%d" = "Ātrās pievienošanas poga: +%d";
 "The +%d button in score entry adds this many points per tap." = "Poga +%d rezultāta ierakstā pievieno tik daudz punktu par vienu pieskārienu.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Pieskarieties spēlētājam, kurš uzņēma 10♦. Viņiem šajā kārtā tiek atņemti 10 punkti.";
