@@ -21,14 +21,22 @@ struct SettingsView: View {
                 playersSection
                 rulesSection
                 appearanceSection
-                aboutSection
             }
             .navigationTitle("Settings")
             // Reorder/delete handles for the player rows. Rows that need normal taps are Buttons
-            // (a NavigationLink row would not respond in edit mode), hence About below.
+            // (a NavigationLink row would not respond in edit mode).
             .environment(\.editMode, .constant(.active))
             .navigationDestination(isPresented: $showingAbout) { AboutView() }
             .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showingAbout = true
+                    } label: {
+                        Image(systemName: "info.circle.fill")
+                    }
+                    .accessibilityLabel("About")
+                    .accessibilityIdentifier("settings.about")
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Done") { dismiss() }
                         .accessibilityIdentifier("settings.done")
@@ -164,7 +172,7 @@ struct SettingsView: View {
         }
     }
 
-    // MARK: Appearance / About
+    // MARK: Appearance
 
     private var appearanceSection: some View {
         Section("Appearance") {
@@ -174,24 +182,6 @@ struct SettingsView: View {
                 }
             }
             .pickerStyle(.segmented)
-        }
-    }
-
-    private var aboutSection: some View {
-        Section {
-            Button {
-                showingAbout = true
-            } label: {
-                HStack {
-                    Label("About", systemImage: "info.circle")
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .font(.footnote.weight(.semibold))
-                        .foregroundStyle(.tertiary)
-                }
-                .contentShape(Rectangle())
-            }
-            .foregroundStyle(.primary)
         }
     }
 
