@@ -57,6 +57,8 @@ enum ScreenshotDemo {
 
         var settings = GameSettings(quickIncrementPoints: 5)
         if forcedColorScheme == .dark { settings.appearance = .dark }
+        // UI tests only: `-screenshotTenRule` turns on the 10♦ −10 rule.
+        if CommandLine.arguments.contains("-screenshotTenRule") { settings.tenOfDiamondsMinus10 = true }
         let model = GameViewModel(game: game, settings: settings, firstDealerIndex: 0, history: [completed])
         model.persistsToCloud = false
         model.settings.appearance = settings.appearance // undo anything read from UserDefaults

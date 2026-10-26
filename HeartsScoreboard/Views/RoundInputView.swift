@@ -160,29 +160,7 @@ struct RoundInputView: View {
                         Section {
                             FlowLayout(spacing: 8) {
                                 ForEach(model.game.players) { player in
-                                    let isSelected = entry.tenOfDiamondsOwnerID == player.id
-                                    Button {
-                                        entry.tenOfDiamondsOwnerID = isSelected ? nil : player.id
-                                    } label: {
-                                        Text(player.name)
-                                            .lineLimit(1)
-                                            .truncationMode(.tail)
-                                            .padding(.horizontal, 12)
-                                            .padding(.vertical, 6)
-                                            .foregroundStyle(isSelected ? Color.white : Color.accentColor)
-                                            .background(
-                                                Capsule(style: .continuous)
-                                                    .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
-                                            )
-                                            // Visual capsule stays compact; the hit area is a full 44pt.
-                                            .frame(minHeight: 44)
-                                            .contentShape(Rectangle())
-                                            .contentShape(.hoverEffect, Capsule(style: .continuous))
-                                            .hoverEffect()
-                                    }
-                                    .buttonStyle(.borderless)
-                                    .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
-                                    .accessibilityAddTraits(isSelected ? .isSelected : [])
+                                    tenOfDiamondsButton(for: player)
                                 }
                             }
                         } header: {
@@ -390,6 +368,33 @@ struct RoundInputView: View {
         .accessibilityIdentifier("roundInput.row.\(index)")
     }
 
+    private func tenOfDiamondsButton(for player: HeartsGame.Player) -> some View {
+        let isSelected = entry.tenOfDiamondsOwnerID == player.id
+        return Button {
+            entry.tenOfDiamondsOwnerID = isSelected ? nil : player.id
+        } label: {
+            Text(player.name)
+                .lineLimit(1)
+                .truncationMode(.tail)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .foregroundStyle(isSelected ? Color.white : Color.accentColor)
+                .background(
+                    Capsule(style: .continuous)
+                        .fill(isSelected ? Color.accentColor : Color.accentColor.opacity(0.15))
+                )
+                // Visual capsule stays compact; the hit area is a full 44pt.
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
+                .contentShape(.hoverEffect, Capsule(style: .continuous))
+                .hoverEffect()
+        }
+        .buttonStyle(.borderless)
+        .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
+        .accessibilityIdentifier("roundInput.ten.\(player.name)")
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+    }
+
     private func quickChip(for player: HeartsGame.Player, quick: Int, remaining: Int) -> some View {
         Button("+\(quick)") {
             adjustPoints(for: player.id, delta: quick)
@@ -446,6 +451,7 @@ struct RoundInputView: View {
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Decrease points for %@"), player.name))
+            .accessibilityIdentifier("roundInput.decrease.\(player.name)")
             .foregroundStyle(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
             .disabled(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0)
 
@@ -454,14 +460,15 @@ struct RoundInputView: View {
                 .monospacedDigit()
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
-                .frame(minWidth: 30)
+                // Full tap height so the −10 badge sits inside the row; an offset above it got clipped by the list cell.
+                .frame(minWidth: 30, minHeight: tapSize)
                 .overlay(alignment: .top) {
                     if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
                         Text("−10")
                             .font(.caption2.weight(.semibold))
                             .foregroundStyle(Color.red)
                             .fixedSize()
-                            .offset(y: -16)
+                            .accessibilityIdentifier("roundInput.tenBadge.\(player.name)")
                     }
                 }
 
