@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  html, body { margin: 0; width: 3840px; height: 1646px; overflow: hidden; }
+  body {
+    background:
+      radial-gradient(ellipse 60% 90% at 50% 45%, rgba(60, 200, 120, 0.35), transparent 70%),
+      linear-gradient(135deg, #082918 0%, #05472e 55%, #0a3a22 100%);
+    position: relative;
+  }
+  .suit { position: absolute; color: rgba(255,255,255,0.05); font-family: -apple-system, "Apple Symbols", sans-serif; }
+  .shot { position: absolute; border-radius: 120px; overflow: hidden;
+    box-shadow: 0 60px 140px rgba(0,0,0,0.55), 0 0 0 10px rgba(255,255,255,0.08); }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .phone { border-radius: 110px; }
+</style></head><body>
+  <div class="suit" style="font-size:900px; left:120px; top:-260px; transform:rotate(-18deg)">♠</div>
+  <div class="suit" style="font-size:760px; right:180px; top:-120px; transform:rotate(14deg)">♥</div>
+  <div class="suit" style="font-size:620px; right:900px; bottom:-420px; transform:rotate(-8deg)">♦</div>
+
+  <!-- left iPhone (dark mode), behind -->
+  <div class="shot phone" style="width:620px; height:1347px; left:800px; top:250px; transform:rotate(-7deg)"><img src="ip_dark.png"></div>
+  <!-- right iPhone (game summary), behind -->
+  <div class="shot phone" style="width:620px; height:1347px; right:800px; top:250px; transform:rotate(7deg)"><img src="ip_summary.png"></div>
+  <!-- center: Duo unfolded -->
+  <div class="shot" style="width:1080px; height:1536px; left:1380px; top:110px; border-radius:90px"><img src="duo_main.png"></div>
+</body></html>

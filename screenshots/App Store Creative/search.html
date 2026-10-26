@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  html, body { margin: 0; width: 3840px; height: 2560px; overflow: hidden; }
+  body {
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,255,255,0.25), transparent 70%),
+      linear-gradient(180deg, #008c40 0%, #3fbf6a 60%, #80f28c 100%);
+    position: relative;
+  }
+  .suit { position: absolute; color: rgba(255,255,255,0.10); font-family: -apple-system, "Apple Symbols", sans-serif; }
+  .shot { position: absolute; overflow: hidden; border-radius: 110px;
+    box-shadow: 0 50px 120px rgba(0,40,15,0.45), 0 0 0 10px rgba(255,255,255,0.35); }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+</style></head><body>
+  <div class="suit" style="font-size:1000px; left:-120px; top:-300px; transform:rotate(-16deg)">♠</div>
+  <div class="suit" style="font-size:900px; right:-80px; bottom:-380px; transform:rotate(12deg)">♥</div>
+
+  <!-- left: round input (iPhone) -->
+  <div class="shot" style="width:900px; height:1956px; left:170px; top:302px"><img src="ip_round.png"></div>
+  <!-- center: Duo unfolded, side-by-side layout -->
+  <div class="shot" style="width:1400px; height:1990px; left:1220px; top:285px; border-radius:90px; z-index:2"><img src="duo_main.png"></div>
+  <!-- right: game summary (iPhone) -->
+  <div class="shot" style="width:900px; height:1956px; right:170px; top:302px"><img src="ip_summary.png"></div>
+</body></html>
