@@ -6,11 +6,15 @@ Perfect for anyone who loves playing Hearts, whether you're keeping score for a 
 
 Features:
 • Supports 3–6 players
+• Made for iPhone Duo and iPad: scoreboard and score entry side by side
+• Winner screen and a shareable result card
+• Score charts, game stats, and a Players leaderboard
+• Optional 10 of Diamonds = −10 rule (Omnibus Hearts)
 • Full game history so you can review every round
 • Pass direction indicator – left, right, or hold on tight!
 • Quick add button to assign the remaining points to a player
 • iCloud sync – start a game on your iPhone and continue on your iPad
-• Shake to undo the previous round
+• Undo and redo with a tap or a shake, and edit any past round
 • Flexible Shoot the Moon rules – subtract 26 points from the shooter or add 26 points to everyone else's score
 • Clean, simple design that looks great in portrait or landscape
 • Dark Mode support
@@ -20,4 +24,13 @@ This app is free, open source, and will never include ads.
 I hope you enjoy your next game of Hearts!";
 "keywords" = "hearts, scoreboard, scorepad, scores, score, board, track, tracker, score tracker, pad, card, cards";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hello, world! Added support for 50+ new languages.";
+"whatsNew" = "Hearts Scoreboard 4.0 is the biggest update yet!
+
+• Made for iPhone Duo: unfold to see the scoreboard and score entry side by side. It's great on iPad, too.
+• New winner screen with final standings, a Rematch button, confetti, and a result card you can share.
+• Game history now shows score charts, game stats, and a Players leaderboard.
+• Redo any undo, and tap any past round to fix a score.
+• Optional 10 of Diamonds rule: whoever takes it scores −10.
+• Refreshed scoreboard: pass direction, round numbers, highlighted 26s, and who's closest to the end.
+• Suggestions from recent player names.
+• Better accessibility: larger text sizes, VoiceOver, Reduce Motion and Increase Contrast, plus keyboard shortcuts on iPad.";

@@ -1,6 +1,36 @@
 /* App Store Metadata for sw */
 
-"description" = "Fuatilia alama za Hearts haraka na kwa urahisi!\n\nNi kamili kwa mtu yeyote anayependa kucheza Hearts, iwe unahifadhi alama kwa ajili ya mchezo wa haraka wa usiku au mechi ya ushindani.\n\nVipengele:\n• Inaauni wachezaji 3–6\n• Historia kamili ya mchezo ili uweze kukagua kila raundi\n• Kiashiria cha mwelekeo wa kupita - kushoto, kulia, au shikilia sana!\n• Kitufe cha kuongeza haraka ili kukabidhi pointi zilizosalia kwa mchezaji\n• Usawazishaji wa iCloud - anzisha mchezo kwenye iPhone yako na uendelee kwenye iPad yako\n• Tikisa kutengua raundi iliyotangulia\n• Sheria zinazobadilika za Risasi Mwezi - toa pointi 26 kutoka kwa mpiga risasi au ongeza pointi 26 kwa alama za kila mtu mwingine.\n• Muundo safi na rahisi unaoonekana vizuri katika picha au mlalo\n• Usaidizi wa Hali Nyeusi\n\nProgramu hii ni bila malipo, chanzo huria na haitawahi kujumuisha matangazo.\n\nNatumai utafurahia mchezo wako unaofuata wa Hearts!";
+"description" = "Fuatilia alama za Hearts kwa haraka na kwa urahisi!
+
+Inafaa kwa yeyote anayependa kucheza Hearts, iwe unaweka alama kwa usiku wa mchezo wa haraka au mashindano makali.
+
+Vipengele:
+• Inasaidia wachezaji 3–6
+• Imetengenezwa kwa iPhone Duo na iPad: ubao wa alama na uingizaji wa alama pembeni kwa pembeni
+• Skrini ya mshindi na kadi ya matokeo inayoweza kushirikiwa
+• Chati za alama, takwimu za mchezo, na orodha ya wachezaji bora
+• Kanuni ya hiari: 10 ya Diamonds = −10 (Omnibus Hearts)
+• Historia kamili ya michezo ili ukague kila raundi
+• Kiashiria cha mwelekeo wa kupitisha – kushoto, kulia, au shikilia!
+• Kitufe cha kuongeza haraka kumpa mchezaji alama zilizobaki
+• Usawazishaji wa iCloud – anza mchezo kwenye iPhone yako na uendelee kwenye iPad yako
+• Tendua na rudia kwa mguso au kutikisa, na hariri raundi yoyote iliyopita
+• Kanuni zinazobadilika za Shoot the Moon – punguza alama 26 kutoka kwa mpigaji au ongeza alama 26 kwa alama za wengine wote
+• Muundo safi na rahisi unaoonekana vizuri wima au mlalo
+• Usaidizi wa Dark Mode
+
+Programu hii ni bure, chanzo huria, na haitakuwa na matangazo kamwe.
+
+Natumaini utafurahia mchezo wako ujao wa Hearts!";
 "keywords" = "mioyo, ubao wa matokeo, karatasi ya alama, alama, alama, ubao, wimbo, kifuatiliaji, kifuatilia alama, pedi, kadi, kadi";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Habari, ulimwengu! Usaidizi umeongezwa kwa lugha 50+ mpya.";
+"whatsNew" = "Hearts Scoreboard 4.0 ndiyo sasisho kubwa zaidi kuwahi kutokea!
+
+• Imetengenezwa kwa iPhone Duo: ifunue ili uone ubao wa alama na uingizaji wa alama pembeni kwa pembeni. Inafaa sana kwenye iPad pia.
+• Skrini mpya ya mshindi yenye nafasi za mwisho, kitufe cha Rudia Mchezo, confetti, na kadi ya matokeo unayoweza kushiriki.
+• Historia ya michezo sasa inaonyesha chati za alama, takwimu za mchezo, na orodha ya wachezaji bora.
+• Rudia tendua yoyote, na gusa raundi yoyote iliyopita ili kurekebisha alama.
+• Kanuni ya hiari ya 10 ya Diamonds: atakayeichukua anapata −10.
+• Ubao wa alama ulioboreshwa: mwelekeo wa kupitisha, namba za raundi, 26 zilizoangaziwa, na nani yuko karibu zaidi na mwisho.
+• Mapendekezo kutoka kwa majina ya wachezaji wa hivi karibuni.
+• Ufikivu bora: ukubwa mkubwa wa maandishi, VoiceOver, Reduce Motion na Increase Contrast, pamoja na njia za mkato za kibodi kwenye iPad.";

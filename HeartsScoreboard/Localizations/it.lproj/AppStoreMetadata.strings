@@ -1,23 +1,36 @@
 /* App Store Metadata for it */
 
-"description" = "Tieni traccia dei punteggi di Hearts in modo rapido e semplice!
+"description" = "Tieni il punteggio di Hearts in modo rapido e semplice!
 
-Perfetto per chiunque ami giocare a Hearts, che si tratti di tenere il punteggio per una partita veloce o per una partita competitiva.
+Perfetto per chiunque ami giocare a Hearts, sia che segni i punti di una serata tra amici sia di una partita competitiva.
 
-Caratteristiche:
+Funzionalità:
 • Supporta da 3 a 6 giocatori
-• Cronologia completa delle partite per rivedere ogni round
-• Indicatore di direzione del passaggio: sinistra, destra o tieni duro!
+• Pensata per iPhone Duo e iPad: tabellone e inserimento dei punti affiancati
+• Schermata del vincitore e scheda del risultato condivisibile
+• Grafici dei punteggi, statistiche di gioco e classifica dei giocatori
+• Regola opzionale del 10 di quadri = −10 (Omnibus Hearts)
+• Cronologia completa delle partite per rivedere ogni mano
+• Indicatore della direzione di passaggio: a sinistra, a destra o si tiene!
 • Pulsante di aggiunta rapida per assegnare i punti rimanenti a un giocatore
-• Sincronizzazione iCloud: avvia una partita sul tuo iPhone e continua sull'iPad
-• Agita per annullare il round precedente
-• Regole flessibili per \"Spara alla Luna\": sottrai 26 punti al tiratore o aggiungi 26 punti al punteggio di tutti gli altri
-• Design pulito e semplice, perfetto sia in verticale che in orizzontale
+• Sincronizzazione iCloud: inizia una partita su iPhone e continua su iPad
+• Annulla e ripristina con un tocco o scuotendo, e modifica qualsiasi mano passata
+• Regole flessibili per Shoot the Moon: sottrai 26 punti a chi lo realizza o aggiungi 26 punti al punteggio di tutti gli altri
+• Design pulito e semplice, ottimo sia in verticale sia in orizzontale
 • Supporto per la modalità scura
 
-Questa app è gratuita, open source e non includerà mai pubblicità.
+Questa app è gratuita, open source e non conterrà mai pubblicità.
 
-Spero che ti diverta la tua prossima partita a Hearts!";
+Spero che ti divertirai con la tua prossima partita a Hearts!";
 "keywords" = "cuori,blocco segnapunti,punteggi,punteggio,tabellone,traccia,tracker,blocco,carte";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Ciao mondo! Aggiunto supporto per oltre 50 nuove lingue.";
+"whatsNew" = "Hearts Scoreboard 4.0 è il più grande aggiornamento di sempre!
+
+• Pensata per iPhone Duo: aprilo per vedere il tabellone e l'inserimento dei punti affiancati. Funziona benissimo anche su iPad.
+• Nuova schermata del vincitore con classifica finale, pulsante Rivincita, coriandoli e una scheda del risultato da condividere.
+• La cronologia delle partite ora mostra grafici dei punteggi, statistiche di gioco e una classifica dei giocatori.
+• Ripristina qualsiasi annullamento e tocca una mano passata per correggere un punteggio.
+• Regola opzionale del 10 di quadri: chi lo prende segna −10.
+• Tabellone rinnovato: direzione di passaggio, numeri delle mani, 26 evidenziati e chi è più vicino alla fine.
+• Suggerimenti dai nomi dei giocatori recenti.
+• Accessibilità migliorata: dimensioni del testo più grandi, VoiceOver, Riduci movimento e Aumenta contrasto, più scorciatoie da tastiera su iPad.";

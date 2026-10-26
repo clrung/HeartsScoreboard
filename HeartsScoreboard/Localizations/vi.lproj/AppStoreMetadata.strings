@@ -1,6 +1,36 @@
 /* App Store Metadata for vi */
 
-"description" = "Theo dõi điểm số Hearts một cách nhanh chóng và dễ dàng!\n\nHoàn hảo cho những ai thích chơi Hearts, cho dù bạn đang ghi điểm cho một đêm chơi nhanh hay một trận đấu cạnh tranh.\n\nTính năng:\n• Hỗ trợ 3–6 người chơi\n• Lịch sử trò chơi đầy đủ để bạn có thể xem lại mỗi vòng\n• Đèn báo hướng vượt – trái, phải hoặc bám chặt!\n• Nút thêm nhanh để gán số điểm còn lại cho người chơi\n• Đồng bộ hóa iCloud – bắt đầu trò chơi trên iPhone và tiếp tục trên iPad của bạn\n• Lắc để hoàn tác vòng trước\n• Quy tắc Bắn Mặt Trăng linh hoạt – trừ 26 điểm cho người bắn hoặc cộng 26 điểm vào điểm của những người khác\n• Thiết kế đơn giản, gọn gàng, trông đẹp mắt khi chụp dọc hoặc ngang\n• Hỗ trợ Chế độ tối\n\nỨng dụng này miễn phí, mã nguồn mở và sẽ không bao giờ bao gồm quảng cáo.\n\nTôi hy vọng bạn thích trò chơi Hearts tiếp theo của mình!";
+"description" = "Theo dõi điểm Hearts nhanh chóng và dễ dàng!
+
+Hoàn hảo cho bất kỳ ai yêu thích chơi Hearts, dù bạn ghi điểm cho một buổi chơi nhanh hay một trận đấu cạnh tranh.
+
+Tính năng:
+• Hỗ trợ 3–6 người chơi
+• Dành cho iPhone Duo và iPad: bảng điểm và phần nhập điểm cạnh nhau
+• Màn hình người chiến thắng và thẻ kết quả có thể chia sẻ
+• Biểu đồ điểm, thống kê trò chơi và bảng xếp hạng người chơi
+• Quy tắc tùy chọn: 10 rô = −10 (Omnibus Hearts)
+• Lịch sử trò chơi đầy đủ để xem lại từng ván
+• Chỉ báo hướng chuyền bài – trái, phải, hoặc giữ lại!
+• Nút thêm nhanh để gán số điểm còn lại cho một người chơi
+• Đồng bộ iCloud – bắt đầu ván trên iPhone và tiếp tục trên iPad
+• Hoàn tác và làm lại bằng một chạm hoặc lắc, và chỉnh sửa bất kỳ ván nào trước đó
+• Quy tắc Shoot the Moon linh hoạt – trừ 26 điểm của người bắn hoặc cộng 26 điểm vào điểm của tất cả người còn lại
+• Thiết kế gọn gàng, đơn giản, trông tuyệt vời ở cả chế độ dọc lẫn ngang
+• Hỗ trợ chế độ tối
+
+Ứng dụng này miễn phí, mã nguồn mở và sẽ không bao giờ có quảng cáo.
+
+Tôi hy vọng bạn sẽ thích ván Hearts tiếp theo của mình!";
 "keywords" = "trái tim, bảng điểm, bảng điểm, điểm số, điểm số, bảng, theo dõi, theo dõi, theo dõi điểm số, tập giấy, thẻ, thẻ";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Xin chào thế giới! Đã thêm hỗ trợ cho hơn 50 ngôn ngữ mới.";
+"whatsNew" = "Hearts Scoreboard 4.0 là bản cập nhật lớn nhất từ trước đến nay!
+
+• Dành cho iPhone Duo: mở ra để xem bảng điểm và phần nhập điểm cạnh nhau. Trên iPad cũng rất tuyệt.
+• Màn hình người chiến thắng mới với bảng xếp hạng cuối cùng, nút Đấu lại, pháo giấy và thẻ kết quả bạn có thể chia sẻ.
+• Lịch sử trò chơi nay hiển thị biểu đồ điểm, thống kê trò chơi và bảng xếp hạng người chơi.
+• Làm lại bất kỳ thao tác hoàn tác nào và chạm vào ván trước đó để sửa điểm.
+• Quy tắc tùy chọn 10 rô: ai ăn lá này sẽ được tính −10.
+• Bảng điểm được làm mới: hướng chuyền bài, số ván, các điểm 26 được làm nổi bật và ai gần kết thúc nhất.
+• Gợi ý từ tên người chơi gần đây.
+• Trợ năng tốt hơn: cỡ chữ lớn hơn, VoiceOver, Giảm chuyển động và Tăng độ tương phản, cùng phím tắt bàn phím trên iPad.";

@@ -1,6 +1,36 @@
 /* App Store Metadata for eu */
 
-"description" = "Jarraitu Hearts-ek puntuazioak azkar eta erraz lortzen ditu!\n\nBihotzekin jolastea maite duen edonorentzat ezin hobea da, partida azkar batean edo norgehiagoka batean puntuazioa mantentzen baduzu.\n\nEzaugarriak:\n• 3-6 jokalari onartzen ditu\n• Jokoaren historia osoa, txanda guztiak berrikusi ahal izateko\n• Pasa norabide-adierazlea - ezkerrera, eskuinera edo eutsi gogor!\n• Gehitu azkar botoia gainerako puntuak jokalari bati esleitzeko\n• iCloud sinkronizazioa: hasi joko bat zure iPhonean eta jarraitu zure iPadean\n• Astindu aurreko txanda desegiteko\n• Shoot the Moon arau malguak: kendu jaurtitzaileari 26 puntu edo gehitu 26 puntu beste guztien puntuazioari\n• Diseinu garbia eta sinplea, erretratu edo paisaian itxura bikaina duena\n• Modu Ilunaren laguntza\n\nAplikazio hau doakoa da, kode irekikoa eta ez du inoiz iragarkirik sartuko.\n\nZure hurrengo Hearts-en jokoan gozatzea espero dut!";
+"description" = "Jarraitu Hearts-eko puntuazioei azkar eta erraz!
+
+Hearts jolastea gustatzen zaion edonorentzat ezin hobea, nahiz eta joko-gau azkar baterako edo lehiaketa bateko partida baterako puntuazioa eraman.
+
+Ezaugarriak:
+• 3–6 jokalari onartzen ditu
+• iPhone Duo-rako eta iPad-erako egina: markagailua eta puntuen sarrera aldez alde
+• Irabazlearen pantaila eta partekatzeko moduko emaitza-txartela
+• Puntuazio-grafikoak, partidaren estatistikak eta jokalarien sailkapena
+• Aukerako araua: 10 diamantea = −10 (Omnibus Hearts)
+• Partiden historia osoa, txanda guztiak berrikusteko
+• Pasatze-norabidearen adierazlea – ezkerrera, eskuinera edo eutsi!
+• Gehitze azkarreko botoia, geratzen diren puntuak jokalari bati esleitzeko
+• iCloud sinkronizazioa – hasi partida bat iPhone-an eta jarraitu iPad-ean
+• Desegin eta berregin ukitu batekin edo astindu batekin, eta editatu aurreko edozein txanda
+• Shoot the Moon arau malguak – kendu 26 puntu tiratzaileari edo gehitu 26 puntu beste guztiei
+• Diseinu garbi eta sinplea, bertikalean zein horizontalean primeran ikusten dena
+• Modu iluneko euskarria
+
+Aplikazio hau doakoa eta kode irekikoa da, eta ez du inoiz iragarkirik izango.
+
+Espero dut zure hurrengo Hearts partidaz gozatzea!";
 "keywords" = "bihotzak, markagailua, puntuazio-koadroa, puntuazioak, puntuazioa, taula, pista, jarraitzailea, puntuazio-jarraitzailea, kuadrilla, txartela, txartelak";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Kaixo, mundua! 50 hizkuntza berri baino gehiagorako laguntza gehitu da.";
+"whatsNew" = "Hearts Scoreboard 4.0 da orain arteko eguneratzerik handiena!
+
+• iPhone Duo-rako egina: zabaldu markagailua eta puntuen sarrera aldez alde ikusteko. iPad-ean ere primeran dabil.
+• Irabazlearen pantaila berria, azken sailkapenarekin, Rematch botoiarekin, konfetiarekin eta partekatzeko moduko emaitza-txartelarekin.
+• Partiden historiak orain puntuazio-grafikoak, partidaren estatistikak eta jokalarien sailkapena erakusten ditu.
+• Berregin edozein desegite eta ukitu aurreko edozein txanda puntuazioa zuzentzeko.
+• Aukerako 10 diamanteen araua: hartzen duenak −10 lortzen du.
+• Markagailu berritua: pasatze-norabidea, txanda-zenbakiak, nabarmendutako 26ak eta amaierara nor dagoen gertuen.
+• Azken jokalarien izenetatik abiatutako iradokizunak.
+• Irisgarritasun hobea: testu-tamaina handiagoak, VoiceOver, Murriztu mugimendua eta Handitu kontrastea, eta iPad-eko teklatu-lasterbideak.";

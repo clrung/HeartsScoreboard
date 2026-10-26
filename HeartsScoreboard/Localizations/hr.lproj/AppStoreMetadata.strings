@@ -1,6 +1,36 @@
 /* App Store Metadata for hr */
 
-"description" = "Pratite Hearts rezultate brzo i jednostavno!\n\nSavršeno za svakoga tko voli igrati Hearts, bilo da vodite rezultat za večer brze igre ili natjecateljski meč.\n\nZnačajke:\n• Podržava 3–6 igrača\n• Potpuna povijest igre tako da možete pregledati svaku rundu\n• Prođite pokazivač smjera – lijevo, desno ili držite!\n• Gumb za brzo dodavanje za dodjelu preostalih bodova igraču\n• iCloud sinkronizacija – pokrenite igru na svom iPhoneu i nastavite na svom iPadu\n• Protresite za poništavanje prethodne runde\n• Fleksibilna pravila Shoot the Moon – oduzmite 26 bodova od strijelca ili dodajte 26 bodova svakom drugom rezultatu\n• Čist, jednostavan dizajn koji izgleda sjajno u portretu ili pejzažu\n• Podrška za Dark Mode\n\nOva je aplikacija besplatna, otvorenog koda i nikada neće sadržavati oglase.\n\nNadam se da ćete uživati ​​u sljedećoj igri Hearts!";
+"description" = "Brzo i jednostavno pratite rezultate igre Hearts!
+
+Savršeno za sve koji vole igrati Hearts, bilo da bilježite rezultate za brzu večer igara ili za natjecateljsku partiju.
+
+Značajke:
+• Podržava 3–6 igrača
+• Napravljeno za iPhone Duo i iPad: ploča s rezultatima i unos rezultata jedno pored drugog
+• Zaslon pobjednika i rezultatna kartica za dijeljenje
+• Grafikoni rezultata, statistika igara i ljestvica igrača
+• Neobvezno pravilo 10 of Diamonds = −10 (Omnibus Hearts)
+• Cjelovita povijest igara za pregled svake runde
+• Pokazivač smjera prosljeđivanja – lijevo, desno ili zadržavanje!
+• Gumb za brzo dodavanje preostalih bodova igraču
+• iCloud sinkronizacija – započnite igru na iPhoneu i nastavite na iPadu
+• Poništavanje i ponovno primjenjivanje dodirom ili protresanjem te uređivanje bilo koje prošle runde
+• Fleksibilna pravila za Shoot the Moon – oduzmite 26 bodova igraču koji ga postigne ili dodajte 26 bodova rezultatu svih ostalih
+• Čist i jednostavan dizajn koji izgleda sjajno u portretnom i pejzažnom prikazu
+• Podrška za tamni način rada
+
+Ova je aplikacija besplatna, otvorenog koda i nikada neće sadržavati oglase.
+
+Nadam se da ćete uživati u sljedećoj igri Hearts!";
 "keywords" = "srca, semafor, semafor, rezultati, rezultat, ploča, staza, pratilac, pratilac rezultata, blok, karta, karte";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Zdravo svijete! Dodana podrška za 50+ novih jezika.";
+"whatsNew" = "Hearts Scoreboard 4.0 najveće je ažuriranje do sada!
+
+• Napravljeno za iPhone Duo: rasklopite ga i vidite ploču s rezultatima i unos rezultata jedno pored drugog. Odlično je i na iPadu.
+• Novi zaslon pobjednika s konačnim poretkom, gumbom Revanš, konfetima i rezultatnom karticom za dijeljenje.
+• Povijest igara sada prikazuje grafikone rezultata, statistiku igara i ljestvicu igrača.
+• Ponovno primijenite bilo koje poništavanje i dodirnite bilo koju prošlu rundu da ispravite rezultat.
+• Neobvezno pravilo 10 of Diamonds: tko ga uzme, dobiva −10.
+• Osvježena ploča s rezultatima: smjer prosljeđivanja, brojevi rundi, istaknutih 26 i tko je najbliži kraju.
+• Prijedlozi na temelju nedavnih imena igrača.
+• Bolja pristupačnost: veće veličine teksta, VoiceOver, Smanji pokret i Povećaj kontrast, te tipkovnički prečaci na iPadu.";

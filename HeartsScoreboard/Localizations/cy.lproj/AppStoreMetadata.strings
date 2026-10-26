@@ -1,6 +1,36 @@
 /* App Store Metadata for cy */
 
-"description" = "Traciwch sgoriau Hearts yn gyflym ac yn hawdd!\n\nPerffaith ar gyfer unrhyw un sy'n caru chwarae Hearts, p'un a ydych chi'n cadw sgôr ar gyfer noson gêm gyflym neu gêm gystadleuol.\n\nNodweddion:\n• Yn cefnogi 3-6 chwaraewr\n• Hanes gêm lawn fel y gallwch adolygu bob rownd\n• Pasiwch y dangosydd cyfeiriad – chwith, dde, neu daliwch eich gafael yn dynn!\n• Botwm ychwanegu cyflym i aseinio gweddill y pwyntiau i chwaraewr\n• iCloud cysoni – dechrau gêm ar eich iPhone a pharhau ar eich iPad\n• Ysgwydwch i ddadwneud y rownd flaenorol\n• Rheolau Saethu'r Lleuad Hyblyg – tynnwch 26 pwynt o'r saethwr neu ychwanegwch 26 pwynt at sgôr pawb arall\n• Dyluniad glân, syml sy'n edrych yn wych mewn portread neu dirwedd\n• Cefnogaeth Modd Tywyll\n\nMae'r ap hwn yn rhad ac am ddim, ffynhonnell agored, ac ni fydd byth yn cynnwys hysbysebion.\n\nGobeithio y gwnewch chi fwynhau eich gêm nesaf o Hearts!";
+"description" = "Cadwch sgôr Hearts yn gyflym ac yn hawdd!
+
+Perffaith i unrhyw un sy'n hoffi chwarae Hearts, boed yn cadw sgôr ar gyfer noson gemau gyflym neu gêm gystadleuol.
+
+Nodweddion:
+• Cefnogi 3–6 chwaraewr
+• Wedi'i wneud ar gyfer iPhone Duo ac iPad: bwrdd sgorio a mewnbynnu sgôr ochr yn ochr
+• Sgrin enillydd a cherdyn canlyniad y gellir ei rannu
+• Siartiau sgôr, ystadegau gêm a thabl arweinwyr Chwaraewyr
+• Rheol ddewisol: 10 o Ddiemwntau = −10 (Omnibus Hearts)
+• Hanes gêm llawn fel y gallwch adolygu pob rownd
+• Dangosydd cyfeiriad pasio – chwith, dde, neu ddal gafael!
+• Botwm ychwanegu cyflym i neilltuo'r pwyntiau sy'n weddill i chwaraewr
+• Cydweddu iCloud – dechreuwch gêm ar eich iPhone a pharhau ar eich iPad
+• Dadwneud ac ail-wneud gyda thap neu ysgwyd, a golygu unrhyw rownd flaenorol
+• Rheolau hyblyg Shoot the Moon – tynnwch 26 pwynt oddi wrth y saethwr neu ychwanegwch 26 pwynt at sgôr pawb arall
+• Dyluniad glân a syml sy'n edrych yn wych mewn portread neu dirwedd
+• Cefnogaeth Modd Tywyll
+
+Mae'r ap hwn yn rhad ac am ddim, yn ffynhonnell agored, ac ni fydd byth yn cynnwys hysbysebion.
+
+Gobeithio y byddwch yn mwynhau eich gêm nesaf o Hearts!";
 "keywords" = "calonnau, bwrdd sgorio, pad sgorio, sgoriau, sgôr, bwrdd, trac, traciwr, traciwr sgôr, pad, cerdyn, cardiau";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Helo, fyd! Cefnogaeth ychwanegol ar gyfer 50+ o ieithoedd newydd.";
+"whatsNew" = "Hearts Scoreboard 4.0 yw'r diweddariad mwyaf eto!
+
+• Wedi'i wneud ar gyfer iPhone Duo: agorwch i weld y bwrdd sgorio a mewnbynnu sgôr ochr yn ochr. Mae'n wych ar iPad hefyd.
+• Sgrin enillydd newydd gyda'r safleoedd terfynol, botwm Rematch, conffeti a cherdyn canlyniad y gallwch ei rannu.
+• Mae hanes gemau bellach yn dangos siartiau sgôr, ystadegau gêm a thabl arweinwyr Chwaraewyr.
+• Ail-wnewch unrhyw ddadwneud, a thapiwch unrhyw rownd flaenorol i gywiro sgôr.
+• Rheol ddewisol 10 o Ddiemwntau: mae'r sawl sy'n ei chymryd yn sgorio −10.
+• Bwrdd sgorio newydd: cyfeiriad pasio, rhifau rowndiau, 26au wedi'u hamlygu, a phwy sydd agosaf at y diwedd.
+• Awgrymiadau o enwau chwaraewyr diweddar.
+• Hygyrchedd gwell: meintiau testun mwy, VoiceOver, Lleihau Symudiad a Cynyddu Cyferbyniad, ynghyd â llwybrau byr bysellfwrdd ar iPad.";

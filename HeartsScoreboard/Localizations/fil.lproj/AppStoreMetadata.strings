@@ -1,6 +1,36 @@
 /* App Store Metadata for fil */
 
-"description" = "Subaybayan ang mga marka ng Puso nang mabilis at madali!\n\nPerpekto para sa sinumang mahilig maglaro ng Hearts, pinapanatili mo man ang iskor para sa isang mabilis na gabi ng laro o isang mapagkumpitensyang laban.\n\nMga Tampok:\n• Sinusuportahan ang 3–6 na manlalaro\n• Buong kasaysayan ng laro para masuri mo ang bawat round\n• Pass direction indicator – kaliwa, kanan, o kumapit nang mahigpit!\n• Quick add button para italaga ang natitirang mga puntos sa isang player\n• iCloud sync – magsimula ng laro sa iyong iPhone at magpatuloy sa iyong iPad\n• Iling para i-undo ang nakaraang round\n• Flexible Shoot the Moon rules – ibawas ang 26 puntos mula sa shooter o magdagdag ng 26 puntos sa score ng lahat\n• Malinis, simpleng disenyo na mukhang maganda sa portrait o landscape\n• Suporta sa Dark Mode\n\nAng app na ito ay libre, open source, at hindi kailanman magsasama ng mga ad.\n\nSana ay masiyahan ka sa iyong susunod na laro ng Hearts!";
+"description" = "Subaybayan ang mga score ng Hearts nang mabilis at madali!
+
+Perpekto para sa sinumang mahilig maglaro ng Hearts, para man sa mabilis na game night o sa kompetitibong laban.
+
+Mga Feature:
+• Sumusuporta sa 3–6 na manlalaro
+• Ginawa para sa iPhone Duo at iPad: scoreboard at pagpasok ng score nang magkatabi
+• Winner screen at result card na puwedeng ibahagi
+• Mga score chart, game stats, at leaderboard ng mga Manlalaro
+• Opsyonal na patakarang 10 of Diamonds = −10 (Omnibus Hearts)
+• Kumpletong kasaysayan ng laro para masuri ang bawat round
+• Indikasyon ng direksyon ng pasa – kaliwa, kanan, o hold!
+• Quick add button para ibigay sa isang manlalaro ang natitirang puntos
+• iCloud sync – magsimula ng laro sa iPhone at ituloy sa iPad
+• Undo at redo sa isang tap o iling, at i-edit ang anumang nakaraang round
+• Flexible na patakaran sa Shoot the Moon – magbawas ng 26 puntos sa shooter o magdagdag ng 26 puntos sa score ng iba
+• Malinis at simpleng disenyo na maganda sa portrait o landscape
+• Suporta sa Dark Mode
+
+Libre, open source ang app na ito, at hindi kailanman magkakaroon ng ads.
+
+Sana ay mag-enjoy ka sa susunod mong laro ng Hearts!";
 "keywords" = "mga puso, scoreboard, scorepad, score, score, board, track, tracker, score tracker, pad, card, card";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hello, mundo! Nagdagdag ng suporta para sa 50+ bagong wika.";
+"whatsNew" = "Ang Hearts Scoreboard 4.0 ang pinakamalaking update sa ngayon!
+
+• Ginawa para sa iPhone Duo: buksan ito para makita ang scoreboard at pagpasok ng score nang magkatabi. Maganda rin ito sa iPad.
+• Bagong winner screen na may huling ranggo, Rematch button, confetti, at result card na puwedeng ibahagi.
+• Ipinapakita na ng kasaysayan ng laro ang mga score chart, game stats, at leaderboard ng mga Manlalaro.
+• I-redo ang anumang undo, at i-tap ang anumang nakaraang round para ayusin ang score.
+• Opsyonal na patakarang 10 of Diamonds: ang makakakuha nito ay may −10.
+• Binagong scoreboard: direksyon ng pasa, numero ng round, naka-highlight na 26, at kung sino ang pinakamalapit sa dulo.
+• Mga mungkahi mula sa mga kamakailang pangalan ng manlalaro.
+• Mas pinahusay na accessibility: mas malalaking laki ng text, VoiceOver, Reduce Motion at Increase Contrast, pati mga keyboard shortcut sa iPad.";

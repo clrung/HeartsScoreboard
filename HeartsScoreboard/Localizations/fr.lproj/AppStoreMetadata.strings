@@ -2,31 +2,35 @@
 
 "description" = "Suivez les scores de Hearts rapidement et facilement !
 
-Idéal pour tous les amateurs de Hearts, que ce soit pour une partie rapide entre amis ou un match compétitif.
+Idéal pour tous les amateurs de Hearts, que vous teniez les comptes d'une soirée entre amis ou d'un match acharné.
 
 Fonctionnalités :
-
-• 3 à 6 joueurs
-
+• Prend en charge de 3 à 6 joueurs
+• Conçu pour l'iPhone Duo et l'iPad : tableau des scores et saisie des points côte à côte
+• Écran du vainqueur et carte de résultat à partager
+• Graphiques de scores, statistiques de parties et classement des joueurs
+• Règle optionnelle du 10 de carreau = −10 (Omnibus Hearts)
 • Historique complet des parties pour revoir chaque manche
-
-• Indicateur de direction des passes : gauche, droite ou gardez le ballon !
-
+• Indicateur du sens de passe : à gauche, à droite, ou on garde !
 • Bouton d'ajout rapide pour attribuer les points restants à un joueur
-
-• Synchronisation iCloud : commencez une partie sur votre iPhone et continuez-la sur votre iPad
-
-• Secouez votre appareil pour annuler la manche précédente
-
-• Règles flexibles pour le « Shoot the Moon » : soustrayez 26 points au tireur ou ajoutez 26 points au score de tous les autres joueurs
-
-• Design épuré et simple, parfait en mode portrait ou paysage
-
+• Synchronisation iCloud : commencez une partie sur votre iPhone et continuez sur votre iPad
+• Annuler et rétablir d'un geste ou en secouant, et modifier n'importe quelle manche passée
+• Règles flexibles du Shoot the Moon : retirez 26 points au preneur ou ajoutez 26 points au score de tous les autres
+• Design épuré et simple, superbe en mode portrait comme en paysage
 • Compatible avec le mode sombre
 
-Cette application est gratuite, open source et sans publicité.
+Cette app est gratuite, open source, et ne contiendra jamais de publicités.
 
-Bonne partie de Hearts !";
+J'espère que vous apprécierez votre prochaine partie de Hearts !";
 "keywords" = "cœurs, tableau des scores, bloc-notes, scores, score, plateau, piste, suivi, suivi des scores,cartes";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Bonjour le monde! Ajout de la prise en charge de plus de 50 nouvelles langues.";
+"whatsNew" = "Hearts Scoreboard 4.0 est la plus grosse mise à jour à ce jour !
+
+• Conçu pour l'iPhone Duo : dépliez-le pour afficher le tableau des scores et la saisie des points côte à côte. C'est aussi très agréable sur iPad.
+• Nouvel écran du vainqueur avec classement final, bouton Revanche, confettis et carte de résultat à partager.
+• L'historique des parties affiche désormais des graphiques de scores, des statistiques et un classement des joueurs.
+• Rétablissez n'importe quelle annulation, et touchez une manche passée pour corriger un score.
+• Règle optionnelle du 10 de carreau : celui qui le ramasse marque −10.
+• Tableau des scores repensé : sens de passe, numéros de manche, 26 mis en évidence et joueur le plus proche de la fin.
+• Suggestions à partir des noms de joueurs récents.
+• Meilleure accessibilité : tailles de texte plus grandes, VoiceOver, Réduire les animations et Augmenter le contraste, ainsi que des raccourcis clavier sur iPad.";

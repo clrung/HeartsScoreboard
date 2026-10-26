@@ -1,6 +1,36 @@
 /* App Store Metadata for uz */
 
-"description" = "Hearts ballarini tez va oson kuzatib boring!\n\nTez o'yin kechasi yoki raqobatbardosh o'yin uchun hisobni saqlab qolasizmi, Hearts o'ynashni yaxshi ko'radiganlar uchun juda mos keladi.\n\nXususiyatlari:\n• 3–6 o'yinchini qo'llab-quvvatlaydi\n• Har bir turni ko'rib chiqishingiz uchun to'liq o'yin tarixi\n• O'tish yo'nalishi ko'rsatkichi - chapga, o'ngga yoki mahkam ushlab turing!\n• Qolgan ballarni o'yinchiga belgilash uchun Tez qo'shish tugmasi\n• iCloud sinxronlash – iPhone’da o‘yinni boshlang va iPad’da davom eting\n• Oldingi turni bekor qilish uchun silkiting\n• Moslashuvchan Shoot the Moon qoidalari – otuvchidan 26 ballni ayirish yoki boshqalarning balliga 26 ball qo‘shish.\n• Portret yoki landshaftda ajoyib ko'rinadigan toza, oddiy dizayn\n• Qorong'i rejimni qo'llab-quvvatlash\n\nBu ilova bepul, ochiq manba va hech qachon reklamalarni o'z ichiga olmaydi.\n\nUmid qilamanki, sizga keyingi Hearts o'yiningiz yoqadi!";
+"description" = "Hearts ballarini tez va oson kuzatib boring!
+
+Hearts o'ynashni yaxshi ko'radigan har kim uchun ideal, xoh tezkor o'yin kechasida, xoh raqobatli o'yinda hisob yuritayotgan bo'lsangiz.
+
+Imkoniyatlar:
+• 3–6 o'yinchini qo'llab-quvvatlaydi
+• iPhone Duo va iPad uchun yaratilgan: hisob jadvali va ball kiritish yonma-yon
+• G'olib ekrani va ulashish mumkin bo'lgan natija kartasi
+• Ball grafiklari, o'yin statistikasi va o'yinchilar reytingi
+• Ixtiyoriy qoida: olmos 10 = −10 (Omnibus Hearts)
+• Har bir raundni ko'rib chiqish uchun to'liq o'yin tarixi
+• Uzatish yo'nalishi ko'rsatkichi – chapga, o'ngga yoki ushlab turing!
+• Qolgan ballarni o'yinchiga biriktiruvchi tezkor qo'shish tugmasi
+• iCloud sinxronlash – o'yinni iPhone'da boshlang va iPad'da davom ettiring
+• Bir bosish yoki silkitish bilan bekor qiling va qaytaring, o'tgan istalgan raundni tahrirlang
+• Moslashuvchan Shoot the Moon qoidalari – o'q uzuvchidan 26 ball ayiring yoki boshqa hammaning hisobiga 26 ball qo'shing
+• Vertikal va gorizontal holatda ajoyib ko'rinadigan toza, oddiy dizayn
+• Qorong'i rejim qo'llab-quvvatlanadi
+
+Bu ilova bepul, ochiq manbali va hech qachon reklama o'z ichiga olmaydi.
+
+Keyingi Hearts o'yiningizdan zavqlanishingizga umid qilaman!";
 "keywords" = "yuraklar, skorbord, skorpad, ballar, ball, doska, trek, kuzatuvchi, ball kuzatuvchisi, maydoncha, karta, kartalar";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Salom, dunyo! 50 dan ortiq yangi tillar uchun qo'llab-quvvatlash qo'shildi.";
+"whatsNew" = "Hearts Scoreboard 4.0 – hozirgacha eng katta yangilanish!
+
+• iPhone Duo uchun yaratilgan: oching va hisob jadvali bilan ball kiritishni yonma-yon ko'ring. iPad'da ham ajoyib ishlaydi.
+• Yakuniy o'rinlar, Revanj tugmasi, konfetti va ulashish mumkin bo'lgan natija kartasi bilan yangi g'olib ekrani.
+• O'yin tarixi endi ball grafiklari, o'yin statistikasi va o'yinchilar reytingini ko'rsatadi.
+• Har qanday bekor qilishni qaytaring va ballni tuzatish uchun o'tgan istalgan raundga bosing.
+• Ixtiyoriy olmos 10 qoidasi: uni olgan −10 ball oladi.
+• Yangilangan hisob jadvali: uzatish yo'nalishi, raund raqamlari, ajratib ko'rsatilgan 26 ballar va kim oxirga eng yaqin.
+• Yaqinda ishlatilgan o'yinchi ismlaridan takliflar.
+• Yaxshilangan qulaylik: kattaroq matn o'lchamlari, VoiceOver, Harakatni kamaytirish va Kontrastni oshirish, shuningdek iPad'da klaviatura yorliqlari.";

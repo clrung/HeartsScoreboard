@@ -1,24 +1,36 @@
 /* App Store Metadata for de */
 
-"description" = "Hearts-Punkte schnell und einfach im Blick behalten!
+"description" = "Verfolge Hearts-Punkte schnell und einfach!
 
-Perfekt für alle Hearts-Fans, egal ob für einen schnellen Spieleabend oder ein spannendes Match.
+Perfekt für alle, die gerne Hearts spielen – ob für einen schnellen Spieleabend oder ein Turnier.
 
 Funktionen:
 • Unterstützt 3–6 Spieler
-• Vollständige Spielhistorie zum Nachlesen jeder Runde
-• Passrichtungsanzeige: links, rechts oder festhalten!
+• Für iPhone Duo und iPad gemacht: Punktetafel und Punkteingabe nebeneinander
+• Siegerbildschirm und eine teilbare Ergebniskarte
+• Punktediagramme, Spielstatistiken und eine Spieler-Bestenliste
+• Optionale Regel: Karo 10 = −10 (Omnibus Hearts)
+• Vollständiger Spielverlauf, damit du jede Runde nachvollziehen kannst
+• Anzeige der Weitergaberichtung – links, rechts oder behalten!
+• Schnell-Hinzufügen-Taste, um die restlichen Punkte einem Spieler zuzuweisen
+• iCloud-Synchronisierung – starte ein Spiel auf dem iPhone und mach auf dem iPad weiter
+• Widerrufen und Wiederholen per Tipp oder Schütteln und Bearbeiten jeder vergangenen Runde
+• Flexible Shoot-the-Moon-Regeln – ziehe dem Schützen 26 Punkte ab oder gib allen anderen 26 Punkte
+• Klares, einfaches Design, das im Hoch- und Querformat großartig aussieht
+• Unterstützung für den Dunkelmodus
 
-Schnellzugriffstaste zum Zuweisen der verbleibenden Punkte an einen Spieler
-• iCloud-Synchronisierung: Spiel auf dem iPhone starten und auf dem iPad fortsetzen
-• Schütteln zum Rückgängigmachen der vorherigen Runde
-• Flexible „Shoot the Moon\"-Regeln: 26 Punkte vom Werfer abziehen oder 26 Punkte zum Punktestand aller anderen Spieler hinzufügen
-• Klares, schlichtes Design, das im Hoch- und Querformat gut aussieht
-• Dunkelmodus-Unterstützung
+Diese App ist kostenlos, quelloffen und wird niemals Werbung enthalten.
 
-Diese App ist kostenlos, Open Source und werbefrei.
-
-Viel Spaß beim nächsten Hearts-Spiel!";
+Ich hoffe, du hast viel Spaß bei deinem nächsten Hearts-Spiel!";
 "keywords" = "Herzen, Anzeigetafel, Punktezähler,Punkte,Spielbrett,Spur,Punktezähler,Punktezähler,Spielfeld,Karten";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hallo Welt! Unterstützung für mehr als 50 neue Sprachen hinzugefügt.";
+"whatsNew" = "Hearts Scoreboard 4.0 ist das bisher größte Update!
+
+• Für iPhone Duo gemacht: Klappe es auf, um Punktetafel und Punkteingabe nebeneinander zu sehen. Auch auf dem iPad großartig.
+• Neuer Siegerbildschirm mit Endstand, Rematch-Taste, Konfetti und einer Ergebniskarte zum Teilen.
+• Der Spielverlauf zeigt jetzt Punktediagramme, Spielstatistiken und eine Spieler-Bestenliste.
+• Stelle jedes Widerrufen wieder her und tippe auf eine vergangene Runde, um eine Punktzahl zu korrigieren.
+• Optionale Karo-10-Regel: Wer sie nimmt, erhält −10.
+• Überarbeitete Punktetafel: Weitergaberichtung, Rundennummern, hervorgehobene 26er und wer dem Ende am nächsten ist.
+• Vorschläge aus zuletzt verwendeten Spielernamen.
+• Bessere Bedienungshilfen: größere Textgrößen, VoiceOver, Bewegung reduzieren und Kontrast erhöhen sowie Tastaturkurzbefehle auf dem iPad.";

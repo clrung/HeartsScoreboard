@@ -1,6 +1,36 @@
 /* App Store Metadata for hu */
 
-"description" = "Kövesse nyomon a Hearts pontszámait gyorsan és egyszerűen!\n\nTökéletes azoknak, akik szeretik a Hearts-t játszani, akár egy gyors játékestre, akár egy küzdelmes meccsre szeretnének pontszámot tartani.\n\nJellemzők:\n• 3-6 játékost támogat\n• Teljes játéktörténet, így minden kört áttekinthet\n• Haladjon át az irányjelzőn – balra, jobbra, vagy kapaszkodjon!\n• Gyors hozzáadás gomb a fennmaradó pontok hozzárendeléséhez egy játékoshoz\n• iCloud szinkronizálás – játék indítása iPhone-on, és folytatás iPaden\n• Rázza meg az előző kör visszavonásához\n• Rugalmas Shoot the Moon szabályok – vonjon le 26 pontot a lövöldözőből, vagy adjon hozzá 26 pontot mindenki más pontszámához\n• Letisztult, egyszerű dizájn, amely jól mutat álló vagy fekvő képen\n• Sötét mód támogatása\n\nEz az alkalmazás ingyenes, nyílt forráskódú, és soha nem tartalmaz hirdetéseket.\n\nRemélem, élvezni fogja a következő Hearts játékát!";
+"description" = "Követd a Hearts pontszámait gyorsan és könnyedén!
+
+Tökéletes mindenkinek, aki szeret Hearts-ozni, akár egy gyors játékestén vezeted a pontokat, akár egy komoly versenyen.
+
+Funkciók:
+• 3–6 játékost támogat
+• iPhone Duo-ra és iPadre készült: eredménytábla és pontbevitel egymás mellett
+• Győztes képernyő és megosztható eredménykártya
+• Pontszámdiagramok, játékstatisztikák és játékos-ranglista
+• Opcionális 10 of Diamonds = −10 szabály (Omnibus Hearts)
+• Teljes játéktörténet, hogy minden kört átnézhess
+• Passzolási irány jelzése – balra, jobbra vagy tartsd meg!
+• Gyors hozzáadás gomb a fennmaradó pontok egy játékoshoz rendeléséhez
+• iCloud-szinkronizálás – kezdj egy játékot iPhone-on, és folytasd iPaden
+• Visszavonás és újra végrehajtás koppintással vagy rázással, és bármelyik korábbi kör szerkesztése
+• Rugalmas Shoot the Moon szabályok – vonj le 26 pontot a vállalótól, vagy adj hozzá 26 pontot mindenki más pontszámához
+• Letisztult, egyszerű dizájn, amely álló és fekvő tájolásban is remekül mutat
+• Sötét mód támogatása
+
+Ez az alkalmazás ingyenes, nyílt forráskódú, és soha nem lesz benne reklám.
+
+Remélem, élvezni fogod a következő Hearts-játékodat!";
 "keywords" = "szívek, eredményjelző, pontozótábla, pontszámok, pontszám, tábla, pálya, nyomkövető, pontkövető, pad, kártya, kártyák";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Helló világ! Hozzáadott támogatás több mint 50 új nyelvhez.";
+"whatsNew" = "A Hearts Scoreboard 4.0 eddigi legnagyobb frissítése!
+
+• iPhone Duo-ra készült: nyisd szét, és láthatod az eredménytáblát és a pontbevitelt egymás mellett. iPaden is remekül használható.
+• Új győztes képernyő végső sorrenddel, Visszavágó gombbal, konfettivel és megosztható eredménykártyával.
+• A játéktörténet mostantól pontszámdiagramokat, játékstatisztikákat és játékos-ranglistát mutat.
+• Hajts végre újra bármilyen visszavonást, és koppints bármelyik korábbi körre a pontszám javításához.
+• Opcionális 10 of Diamonds szabály: aki elviszi, −10 pontot kap.
+• Megújult eredménytábla: passzolási irány, körszámok, kiemelt 26-osok, és hogy ki áll legközelebb a véghez.
+• Javaslatok a legutóbbi játékosnevek alapján.
+• Jobb kisegítő lehetőségek: nagyobb szövegméretek, VoiceOver, Mozgás csökkentése és Kontraszt növelése, valamint billentyűparancsok iPaden.";

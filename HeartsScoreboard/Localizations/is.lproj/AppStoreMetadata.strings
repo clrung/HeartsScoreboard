@@ -1,6 +1,36 @@
 /* App Store Metadata for is */
 
-"description" = "Fylgstu með Hearts skorum fljótt og auðveldlega!\n\nFullkomið fyrir alla sem elska að spila Hearts, hvort sem þú ert að halda marki fyrir fljótlegt spilakvöld eða keppnisleik.\n\nEiginleikar:\n• Styður 3–6 leikmenn\n• Fullur leiksaga svo þú getir skoðað hverja umferð\n• Framhjástefnuvísir – vinstri, hægri eða haltu fast!\n• Hnappur til að bæta við flýti til að úthluta þeim stigum sem eftir eru til leikmanns\n• iCloud samstilling – byrjaðu leik á iPhone og haltu áfram á iPad\n• Hristið til að afturkalla fyrri umferð\n• Sveigjanlegar reglur um skjóta tunglið – draga 26 stig frá skotleiknum eða bæta 26 stigum við stig allra annarra\n• Hrein, einföld hönnun sem lítur vel út í andlitsmynd eða landslagi\n• Stuðningur við Dark Mode\n\nÞetta app er ókeypis, opinn uppspretta og mun aldrei innihalda auglýsingar.\n\nÉg vona að þú njótir næsta leiks Hearts!";
+"description" = "Haltu utan um Hearts-stig hratt og auðveldlega!
+
+Fullkomið fyrir alla sem hafa gaman af að spila Hearts, hvort sem þú heldur utan um stig á fljótlegu spilakvöldi eða í keppnisleik.
+
+Eiginleikar:
+• Styður 3–6 leikmenn
+• Hannað fyrir iPhone Duo og iPad: stigatafla og stigaskráning hlið við hlið
+• Sigurskjár og deilanlegt niðurstöðukort
+• Stigarit, leikjatölfræði og stigatafla leikmanna
+• Valfrjáls regla um tígultíuna = −10 (Omnibus Hearts)
+• Heildarsaga leikja svo þú getir skoðað hverja umferð
+• Vísir fyrir stefnu sendingar – til vinstri, til hægri eða halda!
+• Flýtihnappur til að gefa einum leikmanni eftirstandandi stig
+• iCloud-samstilling – byrjaðu leik á iPhone og haltu áfram á iPad
+• Afturkalla og endurgera með einum smelli eða hristingi og breyta hvaða fyrri umferð sem er
+• Sveigjanlegar Shoot the Moon reglur – dragðu 26 stig frá þeim sem nær því eða bættu 26 stigum við stig allra hinna
+• Hrein og einföld hönnun sem lítur vel út í bæði lóðréttri og láréttri stöðu
+• Stuðningur við dökkan ham
+
+Þetta forrit er ókeypis, með opnum frumkóða og mun aldrei innihalda auglýsingar.
+
+Ég vona að þú njótir næsta Hearts-leiks þíns!";
 "keywords" = "hjörtu, stigatafla, stigatafla, stig, stig, tafla, braut, rekja spor einhvers, stigamæling, blokk, spil, spil";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Halló, heimur! Bætti við stuðningi fyrir 50+ ný tungumál.";
+"whatsNew" = "Hearts Scoreboard 4.0 er stærsta uppfærslan til þessa!
+
+• Hannað fyrir iPhone Duo: opnaðu til að sjá stigatöfluna og stigaskráninguna hlið við hlið. Það er líka frábært á iPad.
+• Nýr sigurskjár með lokastöðu, hnappi fyrir annan leik, konfetti og niðurstöðukorti sem hægt er að deila.
+• Leikjasagan sýnir nú stigarit, leikjatölfræði og stigatöflu leikmanna.
+• Endurgerðu hverja afturköllun og pikkaðu á hvaða fyrri umferð sem er til að laga stig.
+• Valfrjáls regla um tígultíuna: sá sem tekur hana fær −10.
+• Endurbætt stigatafla: stefna sendingar, umferðarnúmer, 26 auðkennd og hver er næst lokum.
+• Tillögur út frá nýlegum nöfnum leikmanna.
+• Betra aðgengi: stærri textastærðir, VoiceOver, Draga úr hreyfingu og Auka birtuskil, auk flýtilykla á iPad.";

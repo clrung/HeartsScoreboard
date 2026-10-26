@@ -1,6 +1,36 @@
 /* App Store Metadata for tr */
 
-"description" = "Track Hearts puanlarını hızlı ve kolay bir şekilde takip edin!\n\nİster hızlı bir oyun gecesi için ister rekabetçi bir maç için skor tutuyor olun, Hearts oynamayı seven herkes için mükemmel.\n\nÖzellikler:\n• 3-6 oyuncuyu destekler\n• Her turu inceleyebilmeniz için tam oyun geçmişi\n• Yön göstergesini geçin – sola, sağa veya sıkı tutun!\n• Kalan puanları oyuncuya atamak için hızlı ekleme düğmesi\n• iCloud senkronizasyonu – iPhone'unuzda bir oyun başlatın ve iPad'inizde devam edin\n• Önceki turu geri almak için sallayın\n• Esnek Ayı Vur kuralları – atıcıdan 26 puan çıkarın veya diğer herkesin puanına 26 puan ekleyin\n• Portre veya manzarada harika görünen temiz, basit tasarım\n• Karanlık Mod desteği\n\nBu uygulama ücretsiz, açık kaynaktır ve hiçbir zaman reklam içermez.\n\nUmarım bir sonraki Hearts oyununuzu beğenirsiniz!";
+"description" = "Hearts skorlarını hızlı ve kolay takip edin!
+
+Hearts oynamayı seven herkes için ideal; ister hızlı bir oyun gecesinde ister rekabetçi bir maçta skor tutun.
+
+Özellikler:
+• 3–6 oyuncuyu destekler
+• iPhone Duo ve iPad için tasarlandı: skor tablosu ve skor girişi yan yana
+• Kazanan ekranı ve paylaşılabilir sonuç kartı
+• Skor grafikleri, oyun istatistikleri ve Oyuncular sıralaması
+• İsteğe bağlı kural: karo 10 = −10 (Omnibus Hearts)
+• Her eli gözden geçirebilmeniz için tam oyun geçmişi
+• Pas yönü göstergesi – sola, sağa ya da sıkı tutun!
+• Kalan puanları bir oyuncuya atayan hızlı ekle düğmesi
+• iCloud senkronizasyonu – oyuna iPhone'unuzda başlayın, iPad'inizde devam edin
+• Dokunarak veya sallayarak geri al ve yinele, geçmiş herhangi bir eli düzenle
+• Esnek Shoot the Moon kuralları – atıcıdan 26 puan çıkarın ya da diğer herkesin skoruna 26 puan ekleyin
+• Dikey ya da yatay konumda harika görünen sade ve temiz tasarım
+• Koyu Mod desteği
+
+Bu uygulama ücretsiz, açık kaynaklıdır ve asla reklam içermeyecektir.
+
+Bir sonraki Hearts oyununuzun keyfini çıkarmanızı umarım!";
 "keywords" = "kalpler, puan tablosu, puan tablosu, puanlar, puan, tahta, parça, takip cihazı, puan takibi, ped, kart, kartlar";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Selam Dünya! 50'den fazla yeni dil için destek eklendi.";
+"whatsNew" = "Hearts Scoreboard 4.0 şimdiye kadarki en büyük güncelleme!
+
+• iPhone Duo için tasarlandı: açın ve skor tablosunu ile skor girişini yan yana görün. iPad'de de harika çalışır.
+• Nihai sıralama, Rövanş düğmesi, konfeti ve paylaşabileceğiniz bir sonuç kartıyla yeni kazanan ekranı.
+• Oyun geçmişi artık skor grafiklerini, oyun istatistiklerini ve Oyuncular sıralamasını gösteriyor.
+• Her geri almayı yineleyin ve skoru düzeltmek için geçmiş herhangi bir ele dokunun.
+• İsteğe bağlı karo 10 kuralı: onu alan −10 puan alır.
+• Yenilenen skor tablosu: pas yönü, el numaraları, vurgulanan 26'lar ve bitişe en yakın oyuncu.
+• Son kullanılan oyuncu adlarından öneriler.
+• Daha iyi erişilebilirlik: daha büyük metin boyutları, VoiceOver, Hareketi Azalt ve Kontrastı Artır, ayrıca iPad'de klavye kısayolları.";

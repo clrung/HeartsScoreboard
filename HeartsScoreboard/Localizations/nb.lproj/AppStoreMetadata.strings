@@ -1,6 +1,36 @@
 /* App Store Metadata for nb */
 
-"description" = "Spor Hearts-score raskt og enkelt!\n\nPerfekt for alle som elsker å spille Hearts, enten du holder poeng for en rask spillekveld eller en konkurransekamp.\n\nFunksjoner:\n• Støtter 3–6 spillere\n• Full spillhistorikk slik at du kan se gjennom hver runde\n• Passeringsindikator – venstre, høyre, eller hold godt fast!\n• Hurtiglegg til-knapp for å tildele de resterende poengene til en spiller\n• iCloud-synkronisering – start et spill på iPhone og fortsett på iPad\n• Rist for å angre forrige runde\n• Fleksible Shoot the Moon-regler – trekk fra 26 poeng fra skytteren eller legg til 26 poeng til alle andres poengsum\n• Ren, enkel design som ser flott ut i stående eller landskap\n• Støtte for mørk modus\n\nDenne appen er gratis, åpen kildekode og vil aldri inkludere annonser.\n\nJeg håper du liker ditt neste hjertespill!";
+"description" = "Hold oversikt over Hearts-poeng raskt og enkelt!
+
+Perfekt for alle som liker å spille Hearts, enten du fører poeng på en spillkveld eller i en konkurranse.
+
+Funksjoner:
+• Støtter 3–6 spillere
+• Laget for iPhone Duo og iPad: resultattavle og poengregistrering side om side
+• Vinnerskjerm og et resultatkort du kan dele
+• Poengdiagrammer, spillstatistikk og en toppliste for spillere
+• Valgfri regel: ruter 10 = −10 (Omnibus Hearts)
+• Full spillhistorikk, slik at du kan gå gjennom hver runde
+• Indikator for sendretning – venstre, høyre eller behold!
+• Hurtigknapp som gir resten av poengene til en spiller
+• iCloud-synkronisering – start et spill på iPhone og fortsett på iPad
+• Angre og gjør om med et trykk eller et rist, og rediger en hvilken som helst tidligere runde
+• Fleksible Shoot the Moon-regler – trekk 26 poeng fra den som skyter, eller legg 26 poeng til alle andre
+• Rent og enkelt design som ser flott ut i både stående og liggende format
+• Støtte for Dark Mode
+
+Denne appen er gratis, åpen kildekode og vil aldri inneholde reklame.
+
+Jeg håper du får glede av ditt neste spill Hearts!";
 "keywords" = "hjerter, resultattavle, resultattavle, score, score, tavle, spor, sporing, resultattavle, blokk, kort, kort";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hei verden! Lagt til støtte for 50+ nye språk.";
+"whatsNew" = "Hearts Scoreboard 4.0 er den største oppdateringen hittil!
+
+• Laget for iPhone Duo: brett ut for å se resultattavlen og poengregistreringen side om side. Fungerer også godt på iPad.
+• Ny vinnerskjerm med sluttresultat, en Omkamp-knapp, konfetti og et resultatkort du kan dele.
+• Spillhistorikken viser nå poengdiagrammer, spillstatistikk og en toppliste for spillere.
+• Gjør om en hvilken som helst angring, og trykk på en tidligere runde for å rette poengsummen.
+• Valgfri regel for ruter 10: den som tar den, får −10.
+• Oppfrisket resultattavle: sendretning, rundenumre, uthevede 26-tall og hvem som er nærmest slutten.
+• Forslag basert på nylig brukte spillernavn.
+• Bedre tilgjengelighet: større tekststørrelser, VoiceOver, Reduser bevegelse og Øk kontrast, pluss hurtigtaster på iPad.";

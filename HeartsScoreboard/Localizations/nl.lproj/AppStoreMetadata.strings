@@ -1,24 +1,36 @@
 /* App Store Metadata for nl */
 
-"description" = "Houd snel en eenvoudig de Hearts-score bij!
+"description" = "Houd Hartenjagen-scores snel en eenvoudig bij!
 
-Perfect voor iedereen die van Hearts houdt, of je nu de score bijhoudt voor een snelle spelletjesavond of een competitieve wedstrijd.
+Perfect voor iedereen die graag Hartenjagen speelt, of je nu de score bijhoudt tijdens een gezellige spelavond of een competitieve partij.
 
-Kenmerken:
-• Ondersteunt 3-6 spelers
+Functies:
+• Ondersteunt 3–6 spelers
+• Gemaakt voor iPhone Duo en iPad: scorebord en score-invoer naast elkaar
+• Winnaarscherm en een deelbare resultaatkaart
+• Scoregrafieken, spelstatistieken en een ranglijst van spelers
+• Optionele regel: ruiten 10 = −10 (Omnibus Hearts)
 • Volledige spelgeschiedenis, zodat je elke ronde kunt terugkijken
-• Passrichtingindicator – links, rechts of goed vasthouden!
-
-• Snelknop om de resterende punten aan een speler toe te wijzen
-• iCloud-synchronisatie – start een spel op je iPhone en ga verder op je iPad
-• Schudden om de vorige ronde ongedaan te maken
-• Flexibele Shoot the Moon-regels – trek 26 punten af ​​van de speler die schiet of tel 26 punten op bij de score van alle andere spelers
-• Strak en eenvoudig ontwerp dat er geweldig uitziet in portret- of landschapsmodus
-• Ondersteuning voor de donkere modus
+• Indicator voor de doorgeefrichting – links, rechts of houden!
+• Snelle toevoegknop om de resterende punten aan een speler toe te wijzen
+• iCloud-synchronisatie – begin een spel op je iPhone en ga verder op je iPad
+• Maak ongedaan en herstel met een tik of een schud, en pas elke eerdere ronde aan
+• Flexibele Shoot the Moon-regels – trek 26 punten af van de schutter of tel 26 punten op bij de score van alle anderen
+• Strak, eenvoudig ontwerp dat er geweldig uitziet in staand en liggend formaat
+• Ondersteuning voor Dark Mode
 
 Deze app is gratis, open source en bevat nooit advertenties.
 
-Ik hoop dat je geniet van je volgende potje Hearts!";
+Ik hoop dat je geniet van je volgende potje Hartenjagen!";
 "keywords" = "harten, scorebord, scoreblok, scores, score, bord, spoor, tracker, scoretracker, blok, kaarten";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hallo wereld! Ondersteuning toegevoegd voor meer dan 50 nieuwe talen.";
+"whatsNew" = "Hearts Scoreboard 4.0 is de grootste update tot nu toe!
+
+• Gemaakt voor iPhone Duo: vouw open om het scorebord en de score-invoer naast elkaar te zien. Ook geweldig op iPad.
+• Nieuw winnaarscherm met eindstand, een Herkansing-knop, confetti en een deelbare resultaatkaart.
+• De spelgeschiedenis toont nu scoregrafieken, spelstatistieken en een ranglijst van spelers.
+• Herstel elke ongedaan gemaakte actie en tik op een eerdere ronde om een score te corrigeren.
+• Optionele regel voor ruiten 10: wie hem pakt, krijgt −10.
+• Vernieuwd scorebord: doorgeefrichting, rondenummers, gemarkeerde 26's en wie het dichtst bij het einde is.
+• Suggesties op basis van recent gebruikte spelersnamen.
+• Betere toegankelijkheid: grotere tekstgroottes, VoiceOver, Verminder beweging en Verhoog contrast, plus sneltoetsen op iPad.";

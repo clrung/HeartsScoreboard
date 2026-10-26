@@ -1,6 +1,36 @@
 /* App Store Metadata for lv */
 
-"description" = "Ātri un viegli izsekojiet Hearts rezultātus!\n\nLieliski piemērots ikvienam, kam patīk spēlēt Hearts, neatkarīgi no tā, vai jūs saglabājat rezultātu ātrai spēles vakaram vai sacensībām.\n\nFunkcijas:\n• Atbalsta 3–6 spēlētājus\n• Pilna spēļu vēsture, lai jūs varētu pārskatīt katru kārtu\n• Brauciet garām virzienrādītājam – pa kreisi, pa labi vai turiet cieši!\n• Ātrās pievienošanas poga, lai spēlētājam piešķirtu atlikušos punktus\n• iCloud sinhronizācija — sāciet spēli savā iPhone tālrunī un turpiniet savā iPad\n• Sakratiet, lai atsauktu iepriekšējo kārtu\n• Elastīgie Shoot the Moon noteikumi — atņemiet 26 punktus no šāvēja vai pievienojiet 26 punktus visu citu punktu rezultātam.\n• Tīrs, vienkāršs dizains, kas lieliski izskatās portretā vai ainavā\n• Tumšā režīma atbalsts\n\nŠī lietotne ir bezmaksas, atvērtā koda, un tajā nekad nebūs iekļautas reklāmas.\n\nCeru, ka jums patiks nākamā Hearts spēle!";
+"description" = "Ātri un viegli skaitiet Hearts punktus!
+
+Lieliski piemērots ikvienam, kam patīk spēlēt Hearts – gan ātrai spēļu vakara partijai, gan sacensībām.
+
+Funkcijas:
+• Atbalsta 3–6 spēlētājus
+• Radīts iPhone Duo un iPad: rezultātu tabula un punktu ievade blakus
+• Uzvarētāja ekrāns un kopīgojama rezultātu karte
+• Punktu diagrammas, spēļu statistika un spēlētāju līderu saraksts
+• Izvēles noteikums: kāravu 10 = −10 (Omnibus Hearts)
+• Pilna spēļu vēsture – pārskatiet katru kārtu
+• Nodošanas virziena indikators – pa kreisi, pa labi vai paturiet!
+• Ātrās pievienošanas poga atlikušo punktu piešķiršanai spēlētājam
+• iCloud sinhronizācija – sāciet spēli iPhone un turpiniet iPad
+• Atsaukšana un atjaunošana ar pieskārienu vai kratīšanu, kā arī jebkuras iepriekšējās kārtas labošana
+• Elastīgi Shoot the Moon noteikumi – atņemiet 26 punktus šāvējam vai pieskaitiet 26 punktus visiem pārējiem
+• Tīrs, vienkāršs dizains, kas lieliski izskatās gan portreta, gan ainavas orientācijā
+• Tumšā režīma atbalsts
+
+Šī lietotne ir bezmaksas, ar atvērto pirmkodu un nekad nesaturēs reklāmas.
+
+Ceru, ka jums patiks nākamā Hearts spēle!";
 "keywords" = "sirdis, rezultātu tablo, rādītāju tablo, rezultāti, rezultāts, dēlis, celiņš, izsekotājs, rezultātu izsekotājs, bloks, kartīte, kārtis";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Sveika, pasaule! Pievienots atbalsts vairāk nekā 50 jaunām valodām.";
+"whatsNew" = "Hearts Scoreboard 4.0 ir lielākais atjauninājums līdz šim!
+
+• Radīts iPhone Duo: izlokiet, lai redzētu rezultātu tabulu un punktu ievadi blakus. Lieliski der arī iPad.
+• Jauns uzvarētāja ekrāns ar galīgo tabulu, atkārtotas spēles pogu, konfeti un kopīgojamu rezultātu karti.
+• Spēļu vēsturē tagad ir punktu diagrammas, spēļu statistika un spēlētāju līderu saraksts.
+• Atjaunojiet jebkuru atsaukto darbību un pieskarieties jebkurai iepriekšējai kārtai, lai labotu punktus.
+• Izvēles kāravu 10 noteikums: kas to paņem, saņem −10.
+• Atjaunota rezultātu tabula: nodošanas virziens, kārtu numuri, izcelti 26 un kurš ir tuvāk beigām.
+• Ieteikumi no nesen izmantotajiem spēlētāju vārdiem.
+• Labāka pieejamība: lielāki teksta izmēri, VoiceOver, Reduce Motion un Increase Contrast, kā arī īsinājumtaustiņi iPad.";

@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
-"""Replace whatsNew in each AppStoreMetadata.strings with a translation of the English source."""
+"""Replace a key (default whatsNew) in each AppStoreMetadata.strings with a translation of the English source.
+
+Usage: scripts/.venv/bin/python scripts/translate_whatsnew_in_metadata.py [whatsNew|description]
+"""
 from __future__ import annotations
 
 import json
 import re
+import sys
 import time
 from pathlib import Path
 
+KEY = sys.argv[1] if len(sys.argv) > 1 else "whatsNew"
 ROOT = Path(__file__).resolve().parents[1]
 LOC = ROOT / "HeartsScoreboard" / "Localizations"
 CACHE_DIR = Path(__file__).resolve().parent / ".locale_cache"
@@ -38,7 +43,7 @@ def esc_strings(s: str) -> str:
 
 def read_whats_new(path: Path) -> str | None:
     text = path.read_text(encoding="utf-8")
-    m = re.search(r'"whatsNew"\s*=\s*"((?:\\.|[^"])*)"\s*;', text, re.DOTALL)
+    m = re.search(rf'"{KEY}"\s*=\s*"((?:\\.|[^"])*)"\s*;', text, re.DOTALL)
     if not m:
         return None
     raw = m.group(1)
@@ -53,8 +58,8 @@ def read_whats_new(path: Path) -> str | None:
 def replace_whats_new(content: str, new_value: str) -> str:
     esc = esc_strings(new_value)
     return re.sub(
-        r'"whatsNew"\s*=\s*"(?:\\.|[^"])*"\s*;',
-        f'"whatsNew" = "{esc}";',
+        rf'"{KEY}"\s*=\s*"(?:\\.|[^"])*"\s*;',
+        lambda _: f'"{KEY}" = "{esc}";',
         content,
         count=1,
     )
@@ -74,7 +79,7 @@ def main() -> None:
     en_path = LOC / "en.lproj" / "AppStoreMetadata.strings"
     source = read_whats_new(en_path)
     if not source or not source.strip():
-        raise SystemExit("English whatsNew missing or empty")
+        raise SystemExit(f"English {KEY} missing or empty")
 
     lprojs = sorted(p for p in LOC.glob("*.lproj") if (p / "AppStoreMetadata.strings").is_file())
     for lproj in lprojs:
@@ -83,7 +88,7 @@ def main() -> None:
         if loc == "en":
             continue
 
-        cache_file = CACHE_DIR / f"whatsnew_meta_{loc}.json"
+        cache_file = CACHE_DIR / f"{KEY.lower()}_meta_{loc}.json"
         if cache_file.exists():
             data = json.loads(cache_file.read_text(encoding="utf-8"))
             if data.get("source") == source:
@@ -96,20 +101,27 @@ def main() -> None:
         if translated is None:
             gc = google_code(loc)
             print(f"  {loc} (google={gc})…", flush=True)
-            try:
-                translated = translate(source, gc)
-            except Exception as e:
-                print(f"    FAIL {loc}: {e}", flush=True)
-                translated = source
+            translated = None
+            for attempt in range(5):
+                try:
+                    translated = translate(source, gc)
+                    break
+                except Exception as e:
+                    print(f"    retry {attempt + 1} {loc}: {e}", flush=True)
+                    time.sleep(10 * (attempt + 1))
+            if translated is None:
+                # Don't cache or write English over the existing translation.
+                print(f"    FAIL {loc}", flush=True)
+                continue
             cache_file.write_text(
                 json.dumps({"source": source, "translated": translated}, ensure_ascii=False),
                 encoding="utf-8",
             )
-            time.sleep(0.15)
+            time.sleep(1.5)
 
         body = meta.read_text(encoding="utf-8")
-        if '"whatsNew"' not in body:
-            body = body.rstrip() + f'\n"whatsNew" = "{esc_strings(translated)}";\n'
+        if f'"{KEY}"' not in body:
+            body = body.rstrip() + f'\n"{KEY}" = "{esc_strings(translated)}";\n'
         else:
             body = replace_whats_new(body, translated)
         meta.write_text(body, encoding="utf-8")

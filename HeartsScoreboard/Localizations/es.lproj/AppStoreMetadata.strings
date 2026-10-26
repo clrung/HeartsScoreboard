@@ -1,6 +1,36 @@
 /* App Store Metadata for es */
 
-"description" = "¡Sigue las puntuaciones de Hearts de forma rápida y sencilla!\n\nPerfecto para cualquiera a quien le guste jugar a Hearts, ya sea que esté llevando la puntuación para una noche de juego rápida o un partido competitivo.\n\nCaracterísticas:\n• Admite de 3 a 6 jugadores\n• Historial de juego completo para que puedas revisar cada ronda\n• Pase el indicador de dirección: izquierda, derecha o ¡agárrese fuerte!\n• Botón de adición rápida para asignar los puntos restantes a un jugador\n• Sincronización con iCloud: inicia un juego en tu iPhone y continúa en tu iPad\n• Agitar para deshacer la ronda anterior\n• Reglas flexibles de Shoot the Moon: resta 26 puntos al tirador o suma 26 puntos a la puntuación de todos los demás.\n• Diseño limpio y sencillo que luce fantástico en vertical u horizontal\n• Compatibilidad con el modo oscuro\n\nEsta aplicación es gratuita, de código abierto y nunca incluirá anuncios.\n\n¡Espero que disfrutes tu próximo juego de Hearts!";
+"description" = "¡Lleva las puntuaciones de Hearts de forma rápida y sencilla!
+
+Perfecta para todos los que disfrutan jugando a Hearts, ya sea que lleves la puntuación de una partida rápida entre amigos o de una competición.
+
+Características:
+• Admite de 3–6 jugadores
+• Diseñada para iPhone Duo y iPad: marcador y entrada de puntos lado a lado
+• Pantalla del ganador y una tarjeta de resultado para compartir
+• Gráficos de puntuación, estadísticas de la partida y una clasificación de jugadores
+• Regla opcional: el 10 de diamantes = −10 (Omnibus Hearts)
+• Historial completo de partidas para revisar cada ronda
+• Indicador de dirección del pase: izquierda, derecha o ¡te las quedas!
+• Botón de añadido rápido para asignar los puntos restantes a un jugador
+• Sincronización con iCloud: empieza una partida en el iPhone y continúa en el iPad
+• Deshacer y rehacer con un toque o una sacudida, y edita cualquier ronda anterior
+• Reglas flexibles de Shoot the Moon: resta 26 puntos a quien lo consigue o suma 26 puntos a la puntuación de todos los demás
+• Diseño limpio y sencillo que se ve genial en vertical y en horizontal
+• Compatible con el modo oscuro
+
+Esta app es gratuita, de código abierto y nunca incluirá anuncios.
+
+¡Espero que disfrutes de tu próxima partida de Hearts!";
 "keywords" = "copas, marcador, marcador, puntuaciones, puntuación, tablero, pista, rastreador, rastreador de puntuación, almohadilla, tarjeta, tarjetas";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "¡Hola Mundo! Se agregó soporte para más de 50 idiomas nuevos.";
+"whatsNew" = "¡Hearts Scoreboard 4.0 es la mayor actualización hasta ahora!
+
+• Diseñada para iPhone Duo: despliégalo para ver el marcador y la entrada de puntos lado a lado. También queda genial en el iPad.
+• Nueva pantalla del ganador con la clasificación final, un botón Rematch, confeti y una tarjeta de resultado que puedes compartir.
+• El historial de partidas ahora muestra gráficos de puntuación, estadísticas de la partida y una clasificación de jugadores.
+• Rehaz cualquier acción deshecha y toca cualquier ronda anterior para corregir una puntuación.
+• Regla opcional del 10 de diamantes: quien lo coge puntúa −10.
+• Marcador renovado: dirección del pase, números de ronda, 26 resaltados y quién está más cerca del final.
+• Sugerencias a partir de nombres de jugadores recientes.
+• Mejor accesibilidad: tamaños de texto más grandes, VoiceOver, Reducir movimiento y Aumentar contraste, además de atajos de teclado en el iPad.";

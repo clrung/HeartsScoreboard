@@ -1,6 +1,36 @@
 /* App Store Metadata for cs */
 
-"description" = "Sledujte skóre Hearts rychle a snadno!\n\nIdeální pro každého, kdo miluje hraní Hearts, ať už si udržujete skóre pro rychlý herní večer nebo soutěžní zápas.\n\nVlastnosti:\n• Podporuje 3–6 hráčů\n• Úplná herní historie, takže si můžete prohlédnout každé kolo\n• Mít ukazatel směru – vlevo, vpravo nebo se pevně držet!\n• Tlačítko rychlého přidání pro přiřazení zbývajících bodů hráči\n• iCloud synchronizace – spusťte hru na iPhonu a pokračujte na iPadu\n• Zatřesením zrušíte předchozí kolo\n• Flexibilní pravidla Shoot the Moon – odečtěte 26 bodů od střelce nebo přidejte 26 bodů ke skóre všech ostatních\n• Čistý, jednoduchý design, který vypadá skvěle na výšku nebo na šířku\n• Podpora tmavého režimu\n\nTato aplikace je zdarma, open source a nikdy nebude obsahovat reklamy.\n\nDoufám, že si svou další hru Hearts užijete!";
+"description" = "Sledujte skóre ve hře Hearts rychle a snadno!
+
+Ideální pro každého, kdo rád hraje Hearts, ať už počítáte skóre při rychlém herním večeru, nebo v soutěžním zápase.
+
+Funkce:
+• Podporuje 3–6 hráčů
+• Vytvořeno pro iPhone Duo a iPad: tabule skóre a zadávání bodů vedle sebe
+• Obrazovka vítěze a sdílitelná karta s výsledkem
+• Grafy skóre, statistiky hry a žebříček hráčů
+• Volitelné pravidlo: kárová 10 = −10 (Omnibus Hearts)
+• Kompletní historie her, abyste si mohli projít každé kolo
+• Ukazatel směru předávání – doleva, doprava, nebo držet!
+• Tlačítko rychlého přidání pro přiřazení zbývajících bodů hráči
+• Synchronizace přes iCloud – začněte hru na iPhonu a pokračujte na iPadu
+• Zpět a znovu klepnutím nebo zatřesením a úpravy kteréhokoli předchozího kola
+• Flexibilní pravidla Shoot the Moon – odečtěte 26 bodů střelci, nebo přičtěte 26 bodů všem ostatním
+• Čistý a jednoduchý design, který skvěle vypadá na výšku i na šířku
+• Podpora tmavého režimu
+
+Tato aplikace je zdarma, open source a nikdy nebude obsahovat reklamy.
+
+Doufám, že si svou příští hru Hearts užijete!";
 "keywords" = "srdce, výsledková tabule, zápisník, skóre, skóre, deska, stopa, stopař, stopař, podložka, karta, karty";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Ahoj světe! Přidána podpora pro více než 50 nových jazyků.";
+"whatsNew" = "Hearts Scoreboard 4.0 je dosud největší aktualizace!
+
+• Vytvořeno pro iPhone Duo: rozložte jej a uvidíte tabuli skóre a zadávání bodů vedle sebe. Skvěle funguje i na iPadu.
+• Nová obrazovka vítěze s konečným pořadím, tlačítkem Rematch, konfetami a kartou s výsledkem, kterou můžete sdílet.
+• Historie her nově zobrazuje grafy skóre, statistiky hry a žebříček hráčů.
+• Vraťte jakékoli zpět a klepnutím na libovolné předchozí kolo opravte skóre.
+• Volitelné pravidlo kárové 10: kdo ji vezme, získá −10.
+• Vylepšená tabule skóre: směr předávání, čísla kol, zvýrazněné 26 a kdo je nejblíž konci.
+• Návrhy z nedávných jmen hráčů.
+• Lepší přístupnost: větší velikosti textu, VoiceOver, Omezit pohyb a Zvýšit kontrast a také klávesové zkratky na iPadu.";

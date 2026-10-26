@@ -1,6 +1,36 @@
 /* App Store Metadata for az */
 
-"description" = "Hearts xallarını tez və asanlıqla izləyin!\n\nSürətli oyun gecəsi və ya rəqabətli matç üçün hesab saxlamağınızdan asılı olmayaraq, Hearts oynamağı sevən hər kəs üçün mükəmməldir.\n\nXüsusiyyətlər:\n• 3-6 oyunçu dəstəkləyir\n• Tam oyun tarixçəsi ki, hər raundu nəzərdən keçirə biləsiniz\n• İstiqamət göstəricisini ötür - sola, sağa və ya möhkəm saxlayın!\n• Qalan xalları oyunçuya təyin etmək üçün sürətli əlavə et düyməsi\n• iCloud sinxronizasiyası – iPhone-da oyuna başlayın və iPad-də davam edin\n• Əvvəlki raundu ləğv etmək üçün silkələyin\n• Çevik Ayı Atış qaydaları – atıcıdan 26 xal çıxarın və ya hər kəsin hesabına 26 xal əlavə edin\n• Portret və ya landşaftda əla görünən təmiz, sadə dizayn\n• Qaranlıq rejim dəstəyi\n\nBu proqram pulsuz, açıq mənbədir və heç vaxt reklamları ehtiva etməyəcək.\n\nÜmid edirəm ki, növbəti Hearts oyunundan zövq alacaqsınız!";
+"description" = "Hearts xallarını sürətli və asan izləyin!
+
+Hearts oynamağı sevən hər kəs üçün idealdır, istər qısa oyun axşamı, istərsə də rəqabətli oyun üçün xal hesablayın.
+
+Xüsusiyyətlər:
+• 3–6 oyunçunu dəstəkləyir
+• iPhone Duo və iPad üçün hazırlanıb: xal cədvəli və xal daxiletməsi yan-yana
+• Qalib ekranı və paylaşıla bilən nəticə kartı
+• Xal qrafikləri, oyun statistikası və Oyunçular reytinqi
+• İstəyə bağlı qayda: 10 Qaro = −10 (Omnibus Hearts)
+• Hər raundu nəzərdən keçirmək üçün tam oyun tarixçəsi
+• Ötürmə istiqaməti göstəricisi – sola, sağa və ya özünüzdə saxlayın!
+• Qalan xalları oyunçuya təyin etmək üçün sürətli əlavə düyməsi
+• iCloud sinxronizasiyası – oyuna iPhone-da başlayın, iPad-də davam edin
+• Bir toxunuşla və ya silkələməklə geri alın və təkrarlayın, istənilən keçmiş raundu redaktə edin
+• Çevik Shoot the Moon qaydaları – atıcıdan 26 xal çıxın və ya digərlərinin hesabına 26 xal əlavə edin
+• Portret və ya landşaft rejimində əla görünən sadə və səliqəli dizayn
+• Qaranlıq rejim dəstəyi
+
+Bu tətbiq pulsuz, açıq mənbəlidir və heç vaxt reklam göstərməyəcək.
+
+Növbəti Hearts oyununuzdan zövq almağınızı ümid edirəm!";
 "keywords" = "ürəklər, tablo, xallar, xallar, xal, lövhə, trek, izləyici, xal izləyicisi, pad, kart, kartlar";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Salam, dünya! 50+ yeni dil üçün əlavə dəstək.";
+"whatsNew" = "Hearts Scoreboard 4.0 indiyə qədərki ən böyük yeniləmədir!
+
+• iPhone Duo üçün hazırlanıb: xal cədvəlini və xal daxiletməsini yan-yana görmək üçün açın. iPad-də də əladır.
+• Yekun sıralama, Rematch düyməsi, konfeti və paylaşa biləcəyiniz nəticə kartı olan yeni qalib ekranı.
+• Oyun tarixçəsi artıq xal qrafiklərini, oyun statistikasını və Oyunçular reytinqini göstərir.
+• İstənilən geri almanı təkrarlayın və xalı düzəltmək üçün istənilən keçmiş raunda toxunun.
+• İstəyə bağlı 10 Qaro qaydası: onu götürən −10 xal qazanır.
+• Yenilənmiş xal cədvəli: ötürmə istiqaməti, raund nömrələri, vurğulanmış 26-lar və sona kimin daha yaxın olduğu.
+• Son oyunçu adlarından təkliflər.
+• Daha yaxşı əlçatanlıq: daha böyük mətn ölçüləri, VoiceOver, Hərəkəti azalt və Kontrastı artır, həmçinin iPad-də klaviatura qısayolları.";

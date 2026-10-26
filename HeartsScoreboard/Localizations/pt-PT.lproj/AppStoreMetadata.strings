@@ -1,6 +1,36 @@
 /* App Store Metadata for pt-PT */
 
-"description" = "Acompanhe as pontuações do Hearts com rapidez e facilidade!\n\nPerfeito para quem adora jogar Copas, seja para marcar pontos para uma noite de jogo rápida ou uma partida competitiva.\n\nRecursos:\n• Suporta de 3 a 6 jogadores\n• Histórico completo do jogo para que você possa revisar todas as rodadas\n• Indicador de direção de passagem – esquerda, direita ou segure firme!\n• Botão de adição rápida para atribuir os pontos restantes a um jogador\n• Sincronização do iCloud – inicie um jogo no seu iPhone e continue no seu iPad\n• Agite para desfazer a rodada anterior\n• Regras flexíveis do Shoot the Moon – subtraia 26 pontos do atirador ou adicione 26 pontos à pontuação de todos os outros\n• Design limpo e simples que fica ótimo em retrato ou paisagem\n• Suporte ao Modo Escuro\n\nEste aplicativo é gratuito, de código aberto e nunca incluirá anúncios.\n\nEspero que você goste do seu próximo jogo de Copas!";
+"description" = "Registe as pontuações de Copas de forma rápida e fácil!
+
+Perfeita para quem adora jogar Copas, quer esteja a registar pontos numa noite de jogos ou num jogo competitivo.
+
+Funcionalidades:
+• Suporta 3–6 jogadores
+• Feita para iPhone Duo e iPad: tabela de pontuação e registo de pontos lado a lado
+• Ecrã do vencedor e um cartão de resultado partilhável
+• Gráficos de pontuação, estatísticas de jogos e uma classificação de jogadores
+• Regra opcional do 10 de ouros = −10 (Omnibus Hearts)
+• Histórico completo de jogos para poder rever todas as rondas
+• Indicador da direção da passagem – esquerda, direita ou fica contigo!
+• Botão de adição rápida para atribuir os pontos restantes a um jogador
+• Sincronização iCloud – comece um jogo no iPhone e continue no iPad
+• Anule e refaça com um toque ou um abanão, e edite qualquer ronda anterior
+• Regras flexíveis de Shoot the Moon – subtraia 26 pontos ao atirador ou adicione 26 pontos à pontuação de todos os outros
+• Design limpo e simples, que fica ótimo na vertical ou na horizontal
+• Suporte para Modo Escuro
+
+Esta app é gratuita, de código aberto e nunca terá anúncios.
+
+Espero que goste do seu próximo jogo de Copas!";
 "keywords" = "corações, placar, placar, pontuações, pontuação, tabuleiro, faixa, rastreador, rastreador de pontuação, bloco, cartão, cartões";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Olá, mundo! Adicionado suporte para mais de 50 novos idiomas.";
+"whatsNew" = "O Hearts Scoreboard 4.0 é a maior atualização de sempre!
+
+• Feito para iPhone Duo: abra para ver a tabela de pontuação e o registo de pontos lado a lado. Também fica ótimo no iPad.
+• Novo ecrã do vencedor com classificação final, um botão Desforra, confetis e um cartão de resultado que pode partilhar.
+• O histórico de jogos mostra agora gráficos de pontuação, estatísticas de jogos e uma classificação de jogadores.
+• Refaça qualquer ação anulada e toque em qualquer ronda anterior para corrigir uma pontuação.
+• Regra opcional do 10 de ouros: quem o apanhar fica com −10.
+• Tabela de pontuação renovada: direção da passagem, números das rondas, 26 destacados e quem está mais perto do fim.
+• Sugestões a partir de nomes de jogadores recentes.
+• Melhor acessibilidade: tamanhos de texto maiores, VoiceOver, Reduzir Movimento e Aumentar Contraste, além de atalhos de teclado no iPad.";

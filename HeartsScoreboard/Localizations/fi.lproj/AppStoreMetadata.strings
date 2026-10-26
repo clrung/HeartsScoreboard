@@ -1,6 +1,36 @@
 /* App Store Metadata for fi */
 
-"description" = "Seuraa Hearts-tuloksia nopeasti ja helposti!\n\nTäydellinen kaikille, jotka rakastavat Hearts-pelaamista, olitpa sitten mielessä nopea peli-ilta tai kilpailullinen ottelu.\n\nOminaisuudet:\n• Tukee 3–6 pelaajaa\n• Täydellinen pelihistoria, jotta voit tarkistaa jokaisen kierroksen\n• Ohita suuntavilkku – vasemmalle, oikealle tai pidä kiinni!\n• Pikalisäyspainike, jolla voit määrittää jäljellä olevat pisteet pelaajalle\n• iCloud-synkronointi – aloita peli iPhonessa ja jatka iPadilla\n• Kumoa edellinen kierros ravistamalla\n• Joustavat Shoot the Moon -säännöt – vähennä ampujasta 26 pistettä tai lisää 26 pistettä kaikkien muiden pisteisiin\n• Puhdas, yksinkertainen muotoilu, joka näyttää hyvältä pysty- tai vaakakuvassa\n• Tumman tilan tuki\n\nTämä sovellus on ilmainen, avoimen lähdekoodin, eikä se koskaan sisällä mainoksia.\n\nToivottavasti nautit seuraavasta Hearts-pelistäsi!";
+"description" = "Pidä Hearts-pisteet kirjaa nopeasti ja helposti!
+
+Täydellinen kaikille, jotka rakastavat Heartsin pelaamista, olipa kyse nopeasta pelillisestä illasta tai kilpailullisesta ottelusta.
+
+Ominaisuudet:
+• Tukee 3–6 pelaajaa
+• Tehty iPhone Duolle ja iPadille: tulostaulu ja pisteiden syöttö vierekkäin
+• Voittajanäyttö ja jaettava tulossivu
+• Pistekaaviot, pelitilastot ja pelaajien tulostaulukko
+• Valinnainen sääntö: ruutu 10 = −10 (Omnibus Hearts)
+• Täydellinen pelihistoria, jotta voit tarkastella jokaista kierrosta
+• Siirtosuunnan ilmaisin – vasemmalle, oikealle tai pidä omana!
+• Pikalisäyspainike jäljellä olevien pisteiden antamiseen pelaajalle
+• iCloud-synkronointi – aloita peli iPhonella ja jatka iPadilla
+• Kumoa ja tee uudelleen napautuksella tai ravistuksella ja muokkaa mitä tahansa aiempaa kierrosta
+• Joustavat Shoot the Moon -säännöt – vähennä ampujalta 26 pistettä tai lisää kaikkien muiden pisteisiin 26 pistettä
+• Selkeä ja yksinkertainen ulkoasu, joka näyttää hyvältä pysty- ja vaaka-asennossa
+• Tumman tilan tuki
+
+Tämä sovellus on ilmainen, avoimen lähdekoodin ja se ei tule koskaan sisältämään mainoksia.
+
+Toivottavasti nautit seuraavasta Hearts-pelistäsi!";
 "keywords" = "sydämet, tulostaulu, tulostaulu, tulokset, pisteet, taulu, raita, seurantalaite, tulosseuranta, alusta, kortti, kortit";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hei maailma! Lisätty tuki yli 50 uudelle kielelle.";
+"whatsNew" = "Hearts Scoreboard 4.0 on tähän mennessä suurin päivitys!
+
+• Tehty iPhone Duolle: avaa laite nähdäksesi tulostaulun ja pisteiden syötön vierekkäin. Toimii loistavasti myös iPadilla.
+• Uusi voittajanäyttö loppusijoituksineen, Rematch-painike, konfetti ja jaettava tulossivu.
+• Pelihistoria näyttää nyt pistekaaviot, pelitilastot ja pelaajien tulostaulukon.
+• Tee mikä tahansa kumoaminen uudelleen ja napauta mitä tahansa aiempaa kierrosta korjataksesi pisteet.
+• Valinnainen ruutu 10 -sääntö: sen ottava saa −10.
+• Uudistettu tulostaulu: siirtosuunta, kierrosnumerot, korostetut 26:t ja kuka on lähimpänä loppua.
+• Ehdotuksia viimeaikaisista pelaajien nimistä.
+• Parempi saavutettavuus: suuremmat tekstikoot, VoiceOver, Vähennä liikettä ja Lisää kontrastia sekä näppäinoikotiet iPadilla.";

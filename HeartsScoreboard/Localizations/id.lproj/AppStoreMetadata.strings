@@ -1,6 +1,36 @@
 /* App Store Metadata for id */
 
-"description" = "Lacak skor Hearts dengan cepat dan mudah!\n\nSempurna untuk siapa saja yang suka bermain Hati, baik Anda mencatat skor untuk pertandingan malam singkat atau pertandingan kompetitif.\n\nFitur:\n• Mendukung 3–6 pemain\n• Riwayat permainan lengkap sehingga Anda dapat meninjau setiap putaran\n• Indikator arah oper – kiri, kanan, atau pegang erat-erat!\n• Tombol tambah cepat untuk menetapkan sisa poin ke pemain\n• Sinkronisasi iCloud – memulai permainan di iPhone Anda dan melanjutkan di iPad Anda\n• Kocok untuk membatalkan putaran sebelumnya\n• Aturan Tembak Bulan yang Fleksibel – kurangi 26 poin dari penembak atau tambahkan 26 poin ke skor orang lain\n• Desain bersih dan sederhana yang terlihat bagus dalam potret atau lanskap\n• Dukungan Mode Gelap\n\nAplikasi ini gratis, open source, dan tidak akan pernah menyertakan iklan.\n\nSaya harap Anda menikmati permainan Hati berikutnya!";
+"description" = "Catat skor Hearts dengan cepat dan mudah!
+
+Sempurna untuk siapa saja yang suka bermain Hearts, baik saat mencatat skor untuk malam bermain santai maupun pertandingan kompetitif.
+
+Fitur:
+• Mendukung 3–6 pemain
+• Dibuat untuk iPhone Duo dan iPad: papan skor dan input skor berdampingan
+• Layar pemenang dan kartu hasil yang bisa dibagikan
+• Grafik skor, statistik permainan, dan papan peringkat Pemain
+• Aturan opsional 10 of Diamonds = −10 (Omnibus Hearts)
+• Riwayat permainan lengkap untuk meninjau setiap ronde
+• Indikator arah oper kartu – kiri, kanan, atau tahan!
+• Tombol tambah cepat untuk memberikan sisa poin kepada seorang pemain
+• Sinkronisasi iCloud – mulai permainan di iPhone dan lanjutkan di iPad
+• Urungkan dan ulangi dengan sekali ketuk atau goyang, serta edit ronde mana pun yang sudah lewat
+• Aturan Shoot the Moon yang fleksibel – kurangi 26 poin dari pemain yang berhasil atau tambahkan 26 poin ke skor pemain lainnya
+• Desain bersih dan sederhana yang tampil memukau dalam mode potret maupun lanskap
+• Dukungan Mode Gelap
+
+Aplikasi ini gratis, open source, dan tidak akan pernah menampilkan iklan.
+
+Semoga Anda menikmati permainan Hearts berikutnya!";
 "keywords" = "hati, papan skor, papan skor, skor, skor, papan, trek, pelacak, pelacak skor, pad, kartu, kartu";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Halo dunia! Menambahkan dukungan untuk 50+ bahasa baru.";
+"whatsNew" = "Hearts Scoreboard 4.0 adalah pembaruan terbesar sejauh ini!
+
+• Dibuat untuk iPhone Duo: buka lipatan untuk melihat papan skor dan input skor berdampingan. Tampilannya juga bagus di iPad.
+• Layar pemenang baru dengan klasemen akhir, tombol Tanding Ulang, konfeti, dan kartu hasil yang bisa dibagikan.
+• Riwayat permainan kini menampilkan grafik skor, statistik permainan, dan papan peringkat Pemain.
+• Ulangi setiap pembatalan, dan ketuk ronde mana pun yang sudah lewat untuk memperbaiki skor.
+• Aturan opsional 10 of Diamonds: siapa pun yang mengambilnya mendapat −10.
+• Papan skor yang disegarkan: arah oper kartu, nomor ronde, angka 26 yang disorot, dan siapa yang paling dekat dengan akhir.
+• Saran dari nama pemain terbaru.
+• Aksesibilitas lebih baik: ukuran teks lebih besar, VoiceOver, Kurangi Gerakan dan Tingkatkan Kontras, serta pintasan keyboard di iPad.";

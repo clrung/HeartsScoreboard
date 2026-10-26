@@ -1,6 +1,36 @@
 /* App Store Metadata for af */
 
-"description" = "Volg Hearts-tellings vinnig en maklik!\n\nPerfek vir enigiemand wat daarvan hou om Hearts te speel, of jy nou telling hou vir 'n vinnige wedstrydaand of 'n mededingende wedstryd.\n\nKenmerke:\n• Ondersteun 3–6 spelers\n• Volledige spelgeskiedenis sodat jy elke rondte kan hersien\n• Slaag rigtingwyser – links, regs, of hou styf vas!\n• Vinnige voeg-knoppie om die oorblywende punte aan 'n speler toe te wys\n• iCloud-sinkronisering – begin 'n speletjie op jou iPhone en gaan voort op jou iPad\n• Skud om die vorige rondte ongedaan te maak\n• Buigsame Skiet die Maan-reëls – trek 26 punte van die skut af of voeg 26 punte by almal anders se telling\n• Skoon, eenvoudige ontwerp wat goed lyk in portret of landskap\n• Donkermodus-ondersteuning\n\nHierdie toepassing is gratis, oopbron en sal nooit advertensies insluit nie.\n\nEk hoop jy geniet jou volgende wedstryd van Hearts!";
+"description" = "Hou Hearts-tellings vinnig en maklik by!
+
+Perfek vir enigiemand wat Hearts graag speel, of jy nou telling hou vir 'n vinnige speelaand of 'n kompeterende wedstryd.
+
+Kenmerke:
+• Ondersteun 3–6 spelers
+• Gemaak vir iPhone Duo en iPad: telbord en puntinvoer langs mekaar
+• Wenskerm en 'n deelbare uitslagkaart
+• Puntgrafieke, spelstatistiek en 'n Spelers-ranglys
+• Opsionele reël: 10 van Ruite = −10 (Omnibus Hearts)
+• Volledige spelgeskiedenis sodat jy elke ronde kan hersien
+• Aanwyser vir aangee-rigting – links, regs, of hou vas!
+• Vinnige byvoeg-knoppie om die oorblywende punte aan 'n speler toe te ken
+• iCloud-sinkronisering – begin 'n speletjie op jou iPhone en gaan voort op jou iPad
+• Maak ongedaan en herhaal met 'n tik of 'n skud, en wysig enige vorige ronde
+• Buigsame Shoot the Moon-reëls – trek 26 punte van die skieter af of tel 26 punte by almal anders s'n by
+• Skoon, eenvoudige ontwerp wat pragtig lyk in portret of landskap
+• Donkermodus-ondersteuning
+
+Hierdie app is gratis, oopbron, en sal nooit advertensies bevat nie.
+
+Ek hoop jy geniet jou volgende speletjie Hearts!";
 "keywords" = "harte, telbord, telbord, tellings, telling, bord, spoor, spoorsnyer, telling spoorsnyer, blok, kaart, kaarte";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Hallo, wêreld! Bygevoeg ondersteuning vir 50+ nuwe tale.";
+"whatsNew" = "Hearts Scoreboard 4.0 is die grootste opdatering tot nog toe!
+
+• Gemaak vir iPhone Duo: vou oop om die telbord en puntinvoer langs mekaar te sien. Dit werk ook pragtig op iPad.
+• Nuwe wenskerm met finale ranglys, 'n Rematch-knoppie, confetti en 'n uitslagkaart wat jy kan deel.
+• Spelgeskiedenis wys nou puntgrafieke, spelstatistiek en 'n Spelers-ranglys.
+• Herhaal enige ongedaan-maak, en tik op enige vorige ronde om 'n telling reg te stel.
+• Opsionele reël vir 10 van Ruite: wie dit neem, kry −10.
+• Opgeknapte telbord: aangee-rigting, rondenommers, uitgeligte 26's, en wie die naaste aan die einde is.
+• Voorstelle uit onlangse spelernaam.
+• Beter toeganklikheid: groter teksgroottes, VoiceOver, Verminder Beweging en Verhoog Kontras, plus sleutelbordkortpaaie op iPad.";

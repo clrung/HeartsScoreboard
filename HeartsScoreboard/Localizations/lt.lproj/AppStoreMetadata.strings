@@ -1,6 +1,36 @@
 /* App Store Metadata for lt */
 
-"description" = "Stebėkite „Hearts“ rezultatus greitai ir lengvai!\n\nPuikiai tinka visiems, kurie mėgsta žaisti „Hearts“, nesvarbu, ar laikote rezultatą greitam žaidimo vakarui ar konkurencinėms rungtynėms.\n\nSavybės:\n• Palaiko 3–6 žaidėjus\n• Visa žaidimo istorija, kad galėtumėte peržiūrėti kiekvieną turą\n• Praleiskite posūkio rodiklį – kairėn, dešinėn arba tvirtai laikykite!\n• Greito pridėjimo mygtukas, skirtas priskirti žaidėjui likusius taškus\n• „iCloud“ sinchronizavimas – pradėkite žaidimą „iPhone“ ir tęskite „iPad“.\n• Pakratykite, kad atšauktumėte ankstesnį raundą\n• Lanksčios Shoot the Moon taisyklės – atimkite 26 taškus iš šaulio arba pridėkite 26 taškus prie visų kitų taškų\n• Švarus, paprastas dizainas, puikiai atrodantis vertikaliai arba gulsčiai\n• Tamsiojo režimo palaikymas\n\nŠi programa yra nemokama, atvirojo kodo ir joje niekada nebus skelbimų.\n\nTikiuosi, kad jums patiks kitas „Hearts“ žaidimas!";
+"description" = "Greitai ir lengvai skaičiuokite Hearts taškus!
+
+Puikiai tinka visiems, kurie mėgsta žaisti Hearts – ar skaičiuojate taškus per vakaro žaidimą, ar rimtose varžybose.
+
+Funkcijos:
+• Palaiko 3–6 žaidėjus
+• Sukurta „iPhone Duo“ ir „iPad“: rezultatų lentelė ir taškų įvedimas greta
+• Nugalėtojo ekranas ir bendrinama rezultato kortelė
+• Taškų diagramos, žaidimų statistika ir žaidėjų lyderių lentelė
+• Pasirenkama taisyklė: 10 kaladėlių = −10 (Omnibus Hearts)
+• Visa žaidimų istorija – peržiūrėkite kiekvieną raundą
+• Perdavimo krypties indikatorius – į kairę, į dešinę ar laikykitės!
+• Greito pridėjimo mygtukas likusiems taškams priskirti žaidėjui
+• „iCloud“ sinchronizavimas – pradėkite žaidimą „iPhone“ ir tęskite „iPad“
+• Atšaukimas ir grąžinimas bakstelėjimu ar pakratymu, galite redaguoti bet kurį ankstesnį raundą
+• Lanksčios Shoot the Moon taisyklės – atimkite 26 taškus iš šaulio arba pridėkite 26 taškus visiems kitiems
+• Švarus, paprastas dizainas, puikiai atrodantis stačiai ir gulsčiai
+• Tamsiosios išvaizdos palaikymas
+
+Ši programa nemokama, atvirojo kodo ir niekada neturės reklamos.
+
+Tikiuosi, kad jums patiks kitas Hearts žaidimas!";
 "keywords" = "širdelės, rezultatų suvestinė, rezultatų suvestinė, balai, rezultatas, lenta, takelis, sekiklis, balų sekiklis, bloknotas, kortelė, kortelės";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Sveikas, pasauli! Pridėtas daugiau nei 50 naujų kalbų palaikymas.";
+"whatsNew" = "Hearts Scoreboard 4.0 – didžiausias atnaujinimas iki šiol!
+
+• Sukurta „iPhone Duo“: išlenkite ir matykite rezultatų lentelę bei taškų įvedimą greta. Puikiai veikia ir „iPad“.
+• Naujas nugalėtojo ekranas su galutine lentele, revanšo mygtuku, konfeti ir bendrinama rezultato kortele.
+• Žaidimų istorijoje dabar rodomos taškų diagramos, žaidimų statistika ir žaidėjų lyderių lentelė.
+• Grąžinkite bet kurį atšauktą veiksmą ir bakstelėkite ankstesnį raundą, kad pataisytumėte taškus.
+• Pasirenkama 10 kaladėlių taisyklė: kas ją paima, gauna −10.
+• Atnaujinta rezultatų lentelė: perdavimo kryptis, raundų numeriai, paryškinti 26 ir kas arčiausiai pabaigos.
+• Pasiūlymai pagal neseniai naudotus žaidėjų vardus.
+• Geresnis pasiekiamumas: didesni teksto dydžiai, „VoiceOver“, Reduce Motion ir Increase Contrast, taip pat sparčiųjų klavišų palaikymas „iPad“.";

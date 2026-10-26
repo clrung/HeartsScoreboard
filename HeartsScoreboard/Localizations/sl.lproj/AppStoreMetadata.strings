@@ -1,6 +1,36 @@
 /* App Store Metadata for sl */
 
-"description" = "Track Hearts dosega rezultate hitro in enostavno!\n\nKot nalašč za vse, ki radi igrajo Hearts, ne glede na to, ali vodite rezultat za nočno hitro igro ali tekmovalno tekmo.\n\nLastnosti:\n• Podpira 3–6 igralcev\n• Celotna zgodovina iger, tako da lahko pregledate vsako rundo\n• Pelji smerokaz – levo, desno, ali drži!\n• Gumb za hitro dodajanje za dodelitev preostalih točk igralcu\n• Sinhronizacija iCloud – začnite igro na vašem iPhone in nadaljujte na vašem iPadu\n• Pretresite, da razveljavite prejšnji krog\n• Prilagodljiva pravila Shoot the Moon – strelcu odštejte 26 točk ali dodajte 26 točk rezultatom vseh ostalih\n• Čist, preprost dizajn, ki izgleda odlično v pokončnem ali ležečem položaju\n• Podpora za temni način\n\nTa aplikacija je brezplačna, odprtokodna in nikoli ne bo vsebovala oglasov.\n\nUpam, da boste uživali v naslednji igri Hearts!";
+"description" = "Hitro in preprosto beležite rezultate igre Hearts!
+
+Odlično za vse, ki radi igrate Hearts, bodisi da beležite rezultate na hitrem igralskem večeru ali na tekmovalnem srečanju.
+
+Funkcije:
+• Podpira 3–6 igralcev
+• Narejeno za iPhone Duo in iPad: lestvica in vnos rezultatov drug ob drugem
+• Zaslon zmagovalca in kartica z rezultatom, ki jo lahko delite
+• Grafikoni rezultatov, statistika iger in lestvica igralcev
+• Izbirno pravilo: karo 10 = −10 (Omnibus Hearts)
+• Celotna zgodovina iger, da lahko pregledate vsak krog
+• Kazalnik smeri podajanja – levo, desno ali držite se trdno!
+• Gumb za hitro dodajanje, ki igralcu dodeli preostale točke
+• Sinhronizacija iCloud – igro začnite na iPhonu in nadaljujte na iPadu
+• Razveljavi in uveljavi z dotikom ali stresanjem ter urejanje katerega koli preteklega kroga
+• Prilagodljiva pravila Shoot the Moon – strelcu odštejte 26 točk ali vsem ostalim prištejte 26 točk
+• Čista, preprosta zasnova, ki je videti odlično v pokončni in ležeči postavitvi
+• Podpora za temni način
+
+Ta aplikacija je brezplačna, odprtokodna in ne bo nikoli vsebovala oglasov.
+
+Upam, da boste uživali v naslednji igri Hearts!";
 "keywords" = "srca, semafor, semafor, rezultati, rezultat, tabla, steza, sledilnik, sledilnik rezultatov, blok, karta, karte";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Pozdravljen svet! Dodana podpora za več kot 50 novih jezikov.";
+"whatsNew" = "Hearts Scoreboard 4.0 je doslej največja posodobitev!
+
+• Narejeno za iPhone Duo: razgrnite ga in oglejte si lestvico ter vnos rezultatov drug ob drugem. Odlično deluje tudi na iPadu.
+• Nov zaslon zmagovalca s končno razvrstitvijo, gumbom za revanšo, konfeti in kartico z rezultatom, ki jo lahko delite.
+• Zgodovina iger zdaj prikazuje grafikone rezultatov, statistiko iger in lestvico igralcev.
+• Ponovite katero koli razveljavitev in se dotaknite katerega koli preteklega kroga, da popravite rezultat.
+• Izbirno pravilo karo 10: kdor jo vzame, dobi −10.
+• Osvežena lestvica: smer podajanja, številke krogov, označeni 26 in kdo je najbližje koncu.
+• Predlogi iz nedavnih imen igralcev.
+• Boljša dostopnost: večje velikosti besedila, VoiceOver, Zmanjšaj gibanje in Povečaj kontrast ter bližnjice na tipkovnici na iPadu.";

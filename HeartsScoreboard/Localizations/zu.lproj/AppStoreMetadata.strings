@@ -1,6 +1,36 @@
 /* App Store Metadata for zu */
 
-"description" = "Landelela amaphuzu ezinhliziyo ngokushesha futhi kalula!\n\nIlungele wonke umuntu othanda ukudlala Izinhliziyo, noma ngabe ugcina amaphuzu obusuku begeyimu esheshayo noma umdlalo wokuncintisana.\n\nIzici:\n• Isekela abadlali abangu-3–6\n• Umlando ogcwele wegeyimu ukuze ubuyekeze yonke imizuliswano\n• Inkomba yendlela yokudlula – kwesokunxele, kwesokudla, noma bambelela!\n• Inkinobho yokwengeza ngokushesha ukuze unikeze umdlali amaphuzu asele\n• Ukuvumelanisa kwe-iCloud - qala umdlalo ku-iPhone yakho futhi uqhubeke ku-iPad yakho\n• Nyakazisa ukuze uhlehlise umzuliswano odlule\n• Imithetho ye-Flexible Shoot the Moon – susa amaphuzu angu-26 kumdubuli noma wengeze amaphuzu angu-26 kumaphuzu awo wonke umuntu\n• Idizayini ehlanzekile, elula ebukeka iyinhle ngokuma ngobude noma ngokuma kwezwe\n• Usekelo lwemodi emnyama\n\nLolu hlelo lokusebenza lumahhala, umthombo ovulekile, futhi ngeke lufake phakathi izikhangiso.\n\nNgithemba ukuthi uzowujabulela umdlalo wakho olandelayo wezinhliziyo!";
+"description" = "Landelela amaphuzu e-Hearts ngokushesha nangokulula!
+
+Ilungele wonke umuntu othanda ukudlala i-Hearts, noma ugcina amaphuzu ebusuku bomdlalo osheshayo noma emqhudelwaneni onzima.
+
+Izici:
+• Isekela abadlali abangu-3–6
+• Yenzelwe i-iPhone Duo ne-iPad: ibhodi lamaphuzu nokufaka amaphuzu eceleni komunye
+• Isikrini sowinile nekhadi lomphumela elabelwanayo
+• Amashadi amaphuzu, izibalo zomdlalo, nebhodi labadlali abahamba phambili
+• Umthetho ongakhethwa: i-10 ye-Diamonds = −10 (Omnibus Hearts)
+• Umlando ogcwele womdlalo ukuze ubuyekeze umjikelezo ngamunye
+• Isikhombi sendlela yokudlulisa – kwesobunxele, kwesokudla, noma ubambe!
+• Inkinobho yokungeza ngokushesha yokunikeza umdlali amaphuzu asele
+• Ukuvumelanisa kwe-iCloud – qala umdlalo ku-iPhone yakho uqhubeke ku-iPad yakho
+• Hlehlisa futhi uphinde ngokuthinta noma ukuzamazisa, futhi uhlele noma yimuphi umjikelezo odlule
+• Imithetho evumelanayo ye-Shoot the Moon – susa amaphuzu angu-26 kumdubuli noma wengeze amaphuzu angu-26 kumaphuzu wabo bonke abanye
+• Idizayini ehlanzekile, elula ebukeka kahle ngokuma mile noma ngokulala
+• Ukwesekwa kwe-Dark Mode
+
+Lolu hlelo lokusebenza luyamahhala, lunekhodi evulekile, futhi angeke lube nezikhangiso.
+
+Ngiyethemba uzokujabulela umdlalo wakho olandelayo we-Hearts!";
 "keywords" = "izinhliziyo, ibhodi lamaphuzu, i-scorepad, amaphuzu, amaphuzu, ibhodi, ithrekhi, i-tracker, i-tracker yamaphuzu, iphedi, ikhadi, amakhadi";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Sawubona Mhlaba! Kwengezwe usekelo lwezilimi ezintsha ezingu-50+.";
+"whatsNew" = "Hearts Scoreboard 4.0 iyisibuyekezo esikhulu kunazo zonke kuze kube manje!
+
+• Yenzelwe i-iPhone Duo: yivule ukuze ubone ibhodi lamaphuzu nokufaka amaphuzu eceleni komunye. Ihamba kahle ne-iPad futhi.
+• Isikrini esisha sowinile esinezikhundla zokugcina, inkinobho ye-Rematch, i-confetti, nekhadi lomphumela ongalabelana ngalo.
+• Umlando womdlalo manje ubonisa amashadi amaphuzu, izibalo zomdlalo, nebhodi labadlali.
+• Phinda noma yikuphi ukuhlehlisa, uthinte noma yimuphi umjikelezo odlule ukuze ulungise iphuzu.
+• Umthetho ongakhethwa we-10 ye-Diamonds: noma ngubani oyithathayo uthola −10.
+• Ibhodi lamaphuzu elivuselelwe: indlela yokudlulisa, izinombolo zemijikelezo, ama-26 acashunwe, nokuthi ngubani oseduze nokuphela.
+• Iziphakamiso ezivela emagameni abadlali akamuva.
+• Ukufinyeleleka okungcono: osayizi bombhalo abakhulu, VoiceOver, Reduce Motion ne-Increase Contrast, kanye nezinqamuleli zekhibhodi ku-iPad.";

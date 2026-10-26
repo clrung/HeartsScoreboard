@@ -1,6 +1,36 @@
 /* App Store Metadata for et */
 
-"description" = "Jälgige Heartsi tulemusi kiiresti ja lihtsalt!\n\nIdeaalne kõigile, kes armastavad Heartsi mängida, olgu selleks siis kiire mänguõhtu või võistlusmatš.\n\nOmadused:\n• Toetab 3–6 mängijat\n• Täielik mänguajalugu, et saaksite iga vooru üle vaadata\n• Mööduge suunatulest – vasakule, paremale või hoidke kõvasti kinni!\n• Kiire lisamise nupp ülejäänud punktide määramiseks mängijale\n• iCloudi sünkroonimine – alustage oma iPhone'is mängu ja jätkake iPadis\n• Eelmise ringi tühistamiseks raputage\n• Paindlikud Shoot the Moon reeglid – lahutage laskjast 26 punkti või lisage kõigi teiste tulemustele 26 punkti\n• Puhas ja lihtne disain, mis näeb hea välja nii portree- kui ka maastikupildis\n• Tume režiimi tugi\n\nSee rakendus on tasuta avatud lähtekoodiga ega sisalda kunagi reklaame.\n\nLoodan, et naudite oma järgmist Heartsi mängu!";
+"description" = "Hoia Hearts'i punkte kiiresti ja lihtsalt silma peal!
+
+Ideaalne kõigile, kes armastavad Heartsi mängida – olgu see kiire mänguõhtu või võistlusmäng.
+
+Funktsioonid:
+• Toetab 3–6 mängijat
+• Loodud iPhone Duole ja iPadile: tulemustabel ja punktide sisestus kõrvuti
+• Võitjaekraan ja jagatav tulemuskaart
+• Punktidiagrammid, mängustatistika ja mängijate edetabel
+• Valikuline reegel: ruutu 10 = −10 (Omnibus Hearts)
+• Täielik mänguajalugu, et saaksid iga vooru üle vaadata
+• Üleandmise suuna näidik – vasakule, paremale või hoia alles!
+• Kiirlisamise nupp ülejäänud punktide määramiseks mängijale
+• iCloudi sünkroonimine – alusta mängu iPhone'is ja jätka iPadis
+• Võta tagasi ja tee uuesti koputuse või raputusega ning muuda mis tahes varasemat vooru
+• Paindlikud Shoot the Moon'i reeglid – lahuta laskjalt 26 punkti või lisa kõigi teiste skoorile 26 punkti
+• Puhas ja lihtne disain, mis näeb suurepärane välja nii püst- kui rõhtpaigutuses
+• Tumeda režiimi tugi
+
+See rakendus on tasuta, avatud lähtekoodiga ega sisalda kunagi reklaame.
+
+Loodan, et naudid oma järgmist Heartsi mängu!";
 "keywords" = "südamed, tulemustabel, tulemustabel, hinded, skoor, tahvel, rada, jälgija, punktide jälgija, pad, kaart, kaardid";
 "supportUrl" = "https://christopherrung.com";
-"whatsNew" = "Tere, maailm! Lisatud on tugi enam kui 50 uuele keelele.";
+"whatsNew" = "Hearts Scoreboard 4.0 on seni suurim uuendus!
+
+• Loodud iPhone Duole: ava see, et näha tulemustabelit ja punktide sisestust kõrvuti. See sobib suurepäraselt ka iPadile.
+• Uus võitjaekraan lõppseisu, Rematch-nupu, konfetti ja jagatava tulemuskaardiga.
+• Mänguajalugu näitab nüüd punktidiagramme, mängustatistikat ja mängijate edetabelit.
+• Tee mis tahes tagasivõtmine uuesti ja koputa varasemat vooru, et skoori parandada.
+• Valikuline ruutu 10 reegel: kes selle võtab, saab −10.
+• Värskendatud tulemustabel: üleandmise suund, voorude numbrid, esiletõstetud 26-d ja kes on lõpule kõige lähemal.
+• Soovitused viimati kasutatud mängijanimedest.
+• Parem juurdepääsetavus: suuremad tekstisuurused, VoiceOver, Vähenda liikumist ja Suurenda kontrasti ning klaviatuuri kiirklahvid iPadis.";
