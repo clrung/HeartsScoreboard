@@ -326,9 +326,13 @@ final class GameViewModel {
 
     /// Players with the lowest total (Hearts: lowest score leads). Empty before the first round
     /// so nobody is crowned while everyone is tied at zero.
-    var leadingPlayerIDs: Set<UUID> {
-        guard !game.hands.isEmpty else { return [] }
-        let totals = game.totals()
+    var leadingPlayerIDs: Set<UUID> { leadingPlayerIDs(excluding: nil) }
+
+    /// Leaders over every round except `handID` (the standing an edited round is being added to).
+    /// Empty when no rounds remain after the exclusion, so nobody is crowned at 0-0.
+    func leadingPlayerIDs(excluding handID: UUID?) -> Set<UUID> {
+        guard game.hands.contains(where: { $0.id != handID }) else { return [] }
+        let totals = game.totals(excluding: handID)
         guard let minTotal = totals.map(\.total).min() else { return [] }
         return Set(totals.filter { $0.total == minTotal }.map(\.player.id))
     }

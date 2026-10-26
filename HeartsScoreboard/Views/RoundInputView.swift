@@ -49,11 +49,7 @@ struct RoundInputView: View {
 
     private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
-    private var leadingPlayerIDs: Set<UUID> {
-        let totals = model.game.totals(excluding: editingHandID)
-        guard let minTotal = totals.map(\.total).min() else { return [] }
-        return Set(totals.filter { $0.total == minTotal }.map { $0.player.id })
-    }
+    private var leadingPlayerIDs: Set<UUID> { model.leadingPlayerIDs(excluding: editingHandID) }
 
     /// Edit mode right after the sheet pre-fills the round: the entry is valid but the user hasn't
     /// done anything yet, so "ready to submit" feedback would be noise.

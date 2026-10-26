@@ -26,6 +26,31 @@ final class LeaderIndicatorTests: XCTestCase {
         XCTAssertTrue(model.leadingPlayerNames.isEmpty)
     }
 
+    func testNoLeadersBeforeAnyRoundWhenExcludingNothingOrUnknownHand() {
+        let model = makeModel()
+        XCTAssertTrue(model.leadingPlayerIDs(excluding: nil).isEmpty)
+        XCTAssertTrue(model.leadingPlayerIDs(excluding: UUID()).isEmpty)
+    }
+
+    func testNoLeadersWhenExcludingTheOnlyHand() {
+        let model = makeModel()
+        addRound(model, [10, 0, 0, 16])
+        let onlyHand = model.game.hands[0].id
+        XCTAssertTrue(model.leadingPlayerIDs(excluding: onlyHand).isEmpty)
+    }
+
+    func testLeadersWhenExcludingOneOfSeveralHands() {
+        let model = makeModel()
+        let ids = model.game.players.map(\.id)
+        addRound(model, [10, 0, 0, 16])
+        addRound(model, [0, 5, 0, 0])
+        let second = model.game.hands[1].id
+        XCTAssertEqual(model.leadingPlayerIDs(excluding: second), [ids[1], ids[2]])
+        let first = model.game.hands[0].id
+        XCTAssertEqual(model.leadingPlayerIDs(excluding: first), [ids[0], ids[2], ids[3]])
+        XCTAssertEqual(model.leadingPlayerIDs(excluding: nil), [ids[2]])
+    }
+
     func testLeaderIsLowestTotalAndTiesAllLead() {
         let model = makeModel()
         let ids = model.game.players.map(\.id)

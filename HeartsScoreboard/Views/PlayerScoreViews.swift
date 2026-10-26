@@ -92,7 +92,10 @@ struct PlayerTotalBadge: View {
                         .accessibilityHidden(true)
                 }
             }
-            .padding(.vertical, 4) // room for the crown; constant so a leader doesn't shift the row
+            // Room for the crown (its top sits ~0.95*crownSize above the capsule); constant so a leader
+            // doesn't shift the row, and scales with Dynamic Type via crownSize.
+            .padding(.top, max(4, crownSize * 0.95 + 2))
+            .padding(.bottom, 4)
     }
 
     private func progressBar(_ progress: Double) -> some View {
