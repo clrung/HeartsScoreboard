@@ -96,7 +96,7 @@ struct RoundInputView: View {
                 VStack(spacing: 0) {
                     HStack {
                         Text(roundTitle)
-                            .font(.headline)
+                            .font(.title2.bold())
                             .lineLimit(1)
                             .minimumScaleFactor(0.6)
                         Spacer(minLength: 8)
@@ -129,18 +129,31 @@ struct RoundInputView: View {
         return String(format: String(localized: "Round %d"), model.game.hands.count + 1)
     }
 
+    private var isResetDisabled: Bool { isAllScoresZero && entry.tenOfDiamondsOwnerID == nil }
+
+    @ViewBuilder
     private var resetButton: some View {
-        Button {
-            reset()
-        } label: {
-            if isAccessibilitySize {
-                // Icon-only when the text would wrap; Label keeps "Reset" as the accessibility label.
+        switch presentation {
+        case .sheet:
+            Button {
+                reset()
+            } label: {
                 Label("Reset", systemImage: "arrow.counterclockwise").labelStyle(.iconOnly)
-            } else {
-                Label("Reset", systemImage: "arrow.counterclockwise")
             }
+            .disabled(isResetDisabled)
+        case .inline:
+            Button {
+                reset()
+            } label: {
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.subheadline.weight(.semibold))
+                    .panelIconButtonLook(isEnabled: !isResetDisabled)
+            }
+            .buttonStyle(.plain)
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+            .disabled(isResetDisabled)
+            .accessibilityLabel(Text("Reset"))
         }
-        .disabled(isAllScoresZero && entry.tenOfDiamondsOwnerID == nil)
     }
 
     private var content: some View {

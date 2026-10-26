@@ -57,7 +57,34 @@ struct FeltIconButtonLook: ViewModifier {
     }
 }
 
+/// Small circular icon-button look for controls on the light/dark panel (not the felt), e.g. the
+/// round-entry Reset. Uses primary-tinted fills so it reads in both appearances.
+struct PanelIconButtonLook: ViewModifier {
+    @Environment(\.colorSchemeContrast) private var contrast
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    let isEnabled: Bool
+
+    private var isSolid: Bool { contrast == .increased || reduceTransparency }
+
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(isEnabled ? Color.primary : Color.secondary)
+            .frame(minWidth: 18, minHeight: 18)
+            .padding(7)
+            .background {
+                Circle().fill(isSolid ? AnyShapeStyle(Color(.systemBackground)) : AnyShapeStyle(Color.primary.opacity(isEnabled ? 0.12 : 0.06)))
+            }
+            .overlay {
+                Circle().stroke(Color.primary.opacity(isSolid ? 0.7 : (isEnabled ? 0.4 : 0.25)), lineWidth: isSolid ? 1.5 : (isEnabled ? 1 : 0.75))
+            }
+            .contentShape(Circle())
+            .contentShape(.hoverEffect, Circle())
+            .hoverEffect()
+    }
+}
+
 extension View {
+    func panelIconButtonLook(isEnabled: Bool = true) -> some View { modifier(PanelIconButtonLook(isEnabled: isEnabled)) }
     func feltIconButtonLook() -> some View { modifier(FeltIconButtonLook()) }
 }
 
