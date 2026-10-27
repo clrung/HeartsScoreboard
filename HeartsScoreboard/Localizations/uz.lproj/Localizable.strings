@@ -1,18 +1,18 @@
 "No" = "Yo'q";
 "Yes" = "Ha";
-"Undo Round" = "Davrani bekor qilish";
+"Undo Round" = "Turni bekor qilish";
 "Shake to undo the last round!" = "Oxirgi turni bekor qilish uchun silkiting!";
 "New Game" = "Yangi O'yin";
-"Are you sure? This will clear all round scores." = "Ishonchingiz komilmi? Bu barcha davra ballarini tozalaydi.";
+"Are you sure? This will clear all round scores." = "Ishonchingiz komilmi? Bu barcha tur ballarini tozalaydi.";
 "D" = "D";
 "Hearts Scoreboard" = "Yuraklar jadvali";
-"Game to: %d" = "Oʻyin: %d";
+"Game to: %d" = "O'yin: %d ballgacha";
 "Next Round" = "Keyingi tur";
 "Game over" = "O'yin tugadi";
-"Pass to the Left" = "Chapga o'tish";
-"Pass to the Right" = "O'ngga o'ting";
-"Pass Across" = "O'tish";
-"Hold on Tight!" = "Qattiq turing!";
+"Pass to the Left" = "Chapga uzating";
+"Pass to the Right" = "O'ngga uzating";
+"Pass Across" = "Qarshisiga uzating";
+"Hold on Tight!" = "Kartalarni ushlab turing!";
 "No winner" = "G'olib yo'q";
 "%@ won!" = "%@ g'alaba qozondi!";
 "Players" = "O'yinchilar";
@@ -20,13 +20,13 @@
 "Add Player" = "O'yinchi qo'shing";
 "Hearts supports 3–6 players." = "Hearts 3-6 o'yinchini qo'llab-quvvatlaydi.";
 "Dealer" = "Diler";
-"Ending Score" = "Yakunlovchi ball";
+"Ending Score" = "Yakuniy ball";
 "Ending Score: %d" = "Yakuniy ball: %d";
 "Appearance" = "Tashqi ko'rinish";
 "Settings" = "Sozlamalar";
-"Done" = "Bajarildi";
+"Done" = "Tayyor";
 "System" = "Tizim";
-"Light" = "Nur";
+"Light" = "Yorug'";
 "Dark" = "Qorong'i";
 "Add 26" = "26 qo'shing";
 "Subtract 26" = "26 ni olib tashlang";
@@ -35,9 +35,9 @@
 "Game History" = "O'yin tarixi";
 "Game Summary" = "O'yin xulosasi";
 "Quick add" = "Tez qo'shish";
-"Shoot the Moon Preference" = "Oyni afzal ko'ring";
-"Shoot the moon" = "Oyni otib tashlang";
-"Adds 26 points to every other players' score." = "Boshqa har bir o'yinchining ochkosiga 26 ochko qo'shadi.";
+"Shoot the Moon Preference" = "Oyni otish sozlamasi";
+"Shoot the moon" = "Oyni otish";
+"Adds 26 points to every other players' score." = "Boshqa har bir o'yinchining ballariga 26 ball qo'shadi.";
 "Subtracts 26 points from the selected player's score." = "Tanlangan o'yinchining ballidan 26 ball olib tashlaydi.";
 "Back" = "Orqaga";
 "Reset" = "Qayta tiklash";
@@ -45,7 +45,7 @@
 "Submit round scores" = "Tur ballarini yuboring";
 "Round %d" = "Tur %d";
 "Developed by Christopher Rung" = "Kristofer Rung tomonidan ishlab chiqilgan";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Yuraklarni sevadigan, Oyni doim otishni o'rgatgan otamga bag'ishladim.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Yurak o'yinini sevadigan va menga doim oyni otishni o'rgatgan otamga bag'ishlayman.";
 "I would love to hear your feedback!" = "Sizning fikr-mulohazalaringizni eshitishni istardim!";
 "Send Feedback" = "Fikr-mulohaza yuborish";
 "Rate on App Store" = "App Store'da baholang";
@@ -53,11 +53,11 @@
 "App Version" = "Ilova versiyasi";
 "View Source" = "Manbani ko'rish";
 "About" = "Haqida";
-"Made with love in Denver, CO" = "Denverda sevgi bilan qilingan, CO";
+"Made with love in Denver, CO" = "Denver, Kolorado'da sevgi bilan yaratilgan";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ qiymati −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varianti: 10♦ni olgan o'yinchi shu qo'l uchun −10 ball oladi. Bu \"Oyni otib tashlang\"dan alohida.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varianti: 10♦ni olgan o'yinchi shu qo'l uchun −10 ball oladi. Bu \"Oyni otish\"dan alohida.";
 "10♦ taken by" = "10♦ni olgan";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ni kim olganini tanlang";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Tur %d, %@: %d ball";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Tur %d, %@: oyni otib tashladi";
+"Round %d, %@: shot the moon" = "Tur %d, %@: oyni otdi";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", olmos 10 ni oldi";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d tur";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Oyni otib tashladi";
+"Shot the moon" = "Oyni otdi";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ olmos 10 ni oldi";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ uchun pika malikasi";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ uchun oyni otib tashlang";
+"Shoot the moon for %@" = "%@ uchun oyni otish";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ ballini kamaytirish";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -102,11 +102,11 @@
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
 "Ready to submit" = "Yuborishga tayyor";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
-"Choose who took the 10♦" = "10♦ ni kim olganini tanlang";
+"Choose who took the 10♦" = "10♦ni kim olganini tanlang";
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Tayyor";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "Bitta o'yinchi barcha 26 ni ola olmaydi. Oydan foydalaning.";
+"One player can't take all 26. Use the moon." = "Bitta o'yinchi barcha 26 ni ola olmaydi. \"Oyni otish\"dan foydalaning.";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d ortiq";
 /* RoundInputView: progress strip under 26 */
@@ -119,23 +119,23 @@
 "Moons" = "Oylar";
 "10♦ taken" = "10♦ olindi";
 "Biggest hand" = "Eng katta qo'l";
-"Score by round" = "Tur bo'yicha hisob";
+"Score by round" = "Tur bo'yicha ball";
 "Round" = "Tur";
 "%@ won with %d" = "%@ %d bilan g‘alaba qozondi";
 "%@ tied with %d" = "%@ %d bilan tenglashdi";
 "Ends at %d" = "%d da tugaydi";
-"Moon adds 26 to others" = "Oyni otib tashlang boshqalarga 26 qo‘shadi";
-"Moon subtracts 26 from shooter" = "Oyni otib tashlang otishmachidan 26 ni ayiradi";
+"Moon adds 26 to others" = "Oyni otish boshqalarga 26 qo‘shadi";
+"Moon subtracts 26 from shooter" = "Oyni otish otgan o'yinchidan 26 ni ayiradi";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Oʻyinlar";
 "View" = "Ko'rish";
 "No Players Yet" = "Hozircha o'yinchilar yo'q";
 "Player records appear after your first finished game." = "O'yinchi yozuvlari birinchi tugagan o'yiningizdan keyin paydo bo'ladi.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "O'yinchilar ismlari bilan mos keladi. Eng past ball uchun duranglar har bir durang o'yinchi uchun g'alaba hisoblanadi.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "O'yinchilar ismi bo'yicha moslashtiriladi. Eng past ball bo'yicha duranglar har bir durang o'yinchi uchun g'alaba hisoblanadi.";
 "Played" = "O'ynagan";
 "Wins" = "G'alabalar";
 "Avg score" = "O'rtacha ball";
-"%d wins in %d games" = "%d ta oʻyinda %d gʻalaba qozonadi";
+"%d wins in %d games" = "%2$d ta oʻyinda %1$d g'alaba";
 "Rematch" = "Revansh";
 "View history" = "Tarixni ko'rish";
 "Results" = "Natijalar";
@@ -144,27 +144,27 @@
 "Final standings" = "Yakuniy holat";
 "%lld points" = "%lld ball";
 "%d. %@, %d points" = "%d. %@, %d ball";
-"%@ won with %lld points." = "%@ %lld ochko bilan g‘alaba qozondi.";
-"%@ tied for the win with %lld points." = "%@ %lld ochko bilan g‘alaba qozondi.";
-"%lld rounds" = "%lld raund";
+"%@ won with %lld points." = "%@ %lld ball bilan g‘alaba qozondi.";
+"%@ tied for the win with %lld points." = "%@ %lld ball bilan g‘alabani bo'lishdi.";
+"%lld rounds" = "%lld tur";
 "1 round" = "1 tur";
 "Hearts Scoreboard result" = "Hearts Scoreboard natijasi";
 "Share result" = "Natijani ulashish";
 "Left" = "Chap";
 "Right" = "O'ng";
-"Across" = "↔ bo'ylab";
-"Hold" = "✋ ushlab turing";
-"to %d" = "%dga";
+"Across" = "Qarshi";
+"Hold" = "Ushlash";
+"to %d" = "%dgacha";
 "No rounds yet" = "Hozircha turlar yo'q";
-"Round %d undone" = "%d-raund bekor qilindi";
+"Round %d undone" = "%d-tur bekor qilindi";
 "Redo" = "Qayta qilish";
-"Round %d restored" = "%d-raund tiklandi";
+"Round %d restored" = "%d-tur tiklandi";
 "Edit Round %d" = "%d-turni tahrirlash";
 "Save" = "Saqlash";
 "Save round scores" = "Tur ballarini saqlang";
-"Round %d updated" = "%d-raund yangilandi";
+"Round %d updated" = "%d-tur yangilandi";
 "Edit this round" = "Ushbu turni tahrirlang";
-"Redo available" = "Qayta ishlash mavjud";
+"Redo available" = "Qayta qilish mavjud";
 "Quick-add button: +%d" = "Tez qo‘shish tugmasi: +%d";
-"The +%d button in score entry adds this many points per tap." = "Hisob qaydnomasidagi +%d tugmasi bosish uchun shuncha ball qo‘shadi.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ni olgan oʻyinchiga teging. Ular bu turda 10 ochko olib tashlaydilar.";
+"The +%d button in score entry adds this many points per tap." = "Ball kiritishdagi +%d tugmasi har bir bosishda shuncha ball qo'shadi.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ni olgan o'yinchiga teging. Bu turda undan 10 ball ayriladi.";

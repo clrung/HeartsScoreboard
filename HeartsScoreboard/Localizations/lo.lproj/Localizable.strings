@@ -3,30 +3,30 @@
 "Undo Round" = "ຍົກເລີກຮອບ";
 "Shake to undo the last round!" = "ສັ່ນເພື່ອຍົກເລີກຮອບສຸດທ້າຍ!";
 "New Game" = "ເກມໃໝ່";
-"Are you sure? This will clear all round scores." = "ເຈົ້າແນ່ໃຈບໍ? ນີ້ຈະລຶບລ້າງຄະແນນຕະຫຼອດ.";
-"D" = "ງ";
+"Are you sure? This will clear all round scores." = "ເຈົ້າແນ່ໃຈບໍ? ຄະແນນທຸກຮອບຈະຖືກລຶບລ້າງ.";
+"D" = "ຈ";
 "Hearts Scoreboard" = "ກະດານຄະແນນຫົວໃຈ";
-"Game to: %d" = "ເກມຫາ: %d";
+"Game to: %d" = "ຫຼິ້ນເຖິງ: %d";
 "Next Round" = "ຮອບຕໍ່ໄປ";
 "Game over" = "ເກມຈົບແລ້ວ";
-"Pass to the Left" = "ຜ່ານໄປທາງຊ້າຍ";
-"Pass to the Right" = "ຜ່ານທາງຂວາ";
-"Pass Across" = "ຂ້າມ";
-"Hold on Tight!" = "ຍຶດ ໝັ້ນ!";
+"Pass to the Left" = "ສົ່ງໄພ່ໄປທາງຊ້າຍ";
+"Pass to the Right" = "ສົ່ງໄພ່ໄປທາງຂວາ";
+"Pass Across" = "ສົ່ງໄພ່ໄປຝັ່ງກົງກັນຂ້າມ";
+"Hold on Tight!" = "ເກັບໄພ່ໄວ້!";
 "No winner" = "ບໍ່ມີຜູ້ຊະນະ";
 "%@ won!" = "%@ ຊະນະ!";
-"Players" = "ຜູ້ນ";
-"Player" = "ຜູ້ນ";
-"Add Player" = "ເພີ່ມຜູ້ນ";
-"Hearts supports 3–6 players." = "Hearts ຮອງຮັບ 3-6 ຜູ້ນ.";
-"Dealer" = "ຕົວແທນຈໍາຫນ່າຍ";
+"Players" = "ຜູ້ຫຼິ້ນ";
+"Player" = "ຜູ້ຫຼິ້ນ";
+"Add Player" = "ເພີ່ມຜູ້ຫຼິ້ນ";
+"Hearts supports 3–6 players." = "Hearts ຮອງຮັບ 3-6 ຜູ້ຫຼິ້ນ.";
+"Dealer" = "ຄົນແຈກໄພ່";
 "Ending Score" = "ຄະແນນສິ້ນສຸດ";
-"Ending Score: %d" = "ຄະແນນຈົບ: %d";
+"Ending Score: %d" = "ຄະແນນສິ້ນສຸດ: %d";
 "Appearance" = "ຮູບລັກສະນະ";
 "Settings" = "ການຕັ້ງຄ່າ";
 "Done" = "ສຳເລັດແລ້ວ";
 "System" = "ລະບົບ";
-"Light" = "ແສງສະຫວ່າງ";
+"Light" = "ສະຫວ່າງ";
 "Dark" = "ມືດ";
 "Add 26" = "ຕື່ມ 26";
 "Subtract 26" = "ລົບ 26";
@@ -35,17 +35,17 @@
 "Game History" = "ປະຫວັດເກມ";
 "Game Summary" = "ສະຫຼຸບເກມ";
 "Quick add" = "ເພີ່ມດ່ວນ";
-"Shoot the Moon Preference" = "ຫນໍ່ໄມ້ສ່ວນຫຼາຍຕາມຄວາມມັກຂອງດວງຈັນ";
-"Shoot the moon" = "ຍິງດວງເດືອນ";
-"Adds 26 points to every other players' score." = "ເພີ່ມ 26 ຄະແນນໃຫ້ກັບທຸກໆຄະແນນຂອງຜູ້ນອື່ນໆ.";
-"Subtracts 26 points from the selected player's score." = "ລົບ 26 ຄະແນນຈາກຄະແນນຂອງຜູ້ນເລືອກ.";
-"Back" = "ກັບຄືນໄປບ່ອນ";
+"Shoot the Moon Preference" = "ການຕັ້ງຄ່າ «ເອົາໝົດ»";
+"Shoot the moon" = "ເອົາໝົດ";
+"Adds 26 points to every other players' score." = "ເພີ່ມ 26 ຄະແນນໃຫ້ກັບທຸກໆຄະແນນຂອງຜູ້ຫຼິ້ນອື່ນໆ.";
+"Subtracts 26 points from the selected player's score." = "ລົບ 26 ຄະແນນຈາກຄະແນນຂອງຜູ້ຫຼິ້ນເລືອກ.";
+"Back" = "ກັບຄືນ";
 "Reset" = "ຣີເຊັດ";
 "Submit" = "ສົ່ງ";
 "Submit round scores" = "ສົ່ງຄະແນນຮອບ";
 "Round %d" = "ຮອບ %d";
 "Developed by Christopher Rung" = "ພັດທະນາໂດຍ Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ອຸທິດຕົນເພື່ອພໍ່, ຜູ້ທີ່ຮັກຫົວໃຈ, ແລະໄດ້ສອນຂ້ອຍໃຫ້ຍິງດວງຈັນສະເຫມີ.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ອຸທິດໃຫ້ພໍ່ຂອງຂ້ອຍ, ຜູ້ທີ່ຮັກ Hearts ແລະສອນຂ້ອຍໃຫ້ພະຍາຍາມເອົາໝົດສະເໝີ.";
 "I would love to hear your feedback!" = "ຂ້ອຍຢາກໄດ້ຍິນຄໍາຄິດເຫັນຂອງເຈົ້າ!";
 "Send Feedback" = "ສົ່ງຄຳຕິຊົມ";
 "Rate on App Store" = "ໃຫ້ຄະແນນໃນ App Store";
@@ -57,7 +57,7 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ມີຄ່າ −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ແບບ Omnibus Hearts: ຜູ້ທີ່ເອົາ 10♦ ຈະໄດ້ −10 ສຳລັບມືນັ້ນ. ນີ້ແຍກຕ່າງຫາກຈາກ \"ຍິງດວງເດືອນ\".";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ແບບ Omnibus Hearts: ຜູ້ທີ່ເອົາ 10♦ ຈະໄດ້ −10 ສຳລັບມືນັ້ນ. ນີ້ແຍກຕ່າງຫາກຈາກ \"ເອົາໝົດ\".";
 "10♦ taken by" = "ຜູ້ເອົາ 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "ເລືອກຜູ້ທີ່ເອົາ 10♦";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "ຮອບ %d, %@: %d ຄະແນນ";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "ຮອບ %d, %@: ຍິງດວງເດືອນ";
+"Round %d, %@: shot the moon" = "ຮອບ %d, %@: ເອົາໝົດ";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", ເອົາ 10♦";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d ຮອບ";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "ຍິງດວງເດືອນ";
+"Shot the moon" = "ເອົາໝົດ";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ ເອົາ 10♦";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "ຂຸນສະເປດສຳລັບ %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "ຍິງດວງເດືອນສຳລັບ %@";
+"Shoot the moon for %@" = "ເອົາໝົດສຳລັບ %@";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "ຫຼຸດຄະແນນຂອງ %@";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "ພ້ອມ";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "ຜູ້ນຄົນດຽວບໍ່ສາມາດເອົາທັງ 26 ໄດ້. ໃຫ້ໃຊ້ດວງເດືອນ.";
+"One player can't take all 26. Use the moon." = "ຜູ້ຫຼິ້ນຄົນດຽວບໍ່ສາມາດເອົາທັງ 26 ໄດ້. ໃຫ້ໃຊ້ «ເອົາໝົດ».";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · ເກີນ %d";
 /* RoundInputView: progress strip under 26 */
@@ -116,27 +116,27 @@
 "Add %@" = "ເພີ່ມ %@";
 "Share App" = "ແບ່ງປັນແອັບ";
 "Rounds" = "ຮອບ";
-"Moons" = "ດວງຈັນ";
+"Moons" = "ເອົາໝົດ";
 "10♦ taken" = "ໄດ້ 10♦";
-"Biggest hand" = "ມືໃຫຍ່ທີ່ສຸດ";
-"Score by round" = "ຄະແນນໂດຍຮອບ";
+"Biggest hand" = "ຄະແນນສູງສຸດຕໍ່ຮອບ";
+"Score by round" = "ຄະແນນແຕ່ລະຮອບ";
 "Round" = "ຮອບ";
 "%@ won with %d" = "%@ ຊະນະກັບ %d";
-"%@ tied with %d" = "%@ ຜູກ​ມັດ​ກັບ %d";
-"Ends at %d" = "ສິ້ນສຸດເວລາ %d";
-"Moon adds 26 to others" = "ຍິງດວງເດືອນ ເພີ່ມ 26 ໃສ່ອັນອື່ນ";
-"Moon subtracts 26 from shooter" = "ຍິງດວງເດືອນ ລົບ 26 ອອກຈາກຕົວຍິງ";
+"%@ tied with %d" = "%@ ສະເໝີກັບ %d";
+"Ends at %d" = "ສິ້ນສຸດທີ່ %d";
+"Moon adds 26 to others" = "ເອົາໝົດ: ເພີ່ມ 26 ໃຫ້ຜູ້ຫຼິ້ນອື່ນ";
+"Moon subtracts 26 from shooter" = "ເອົາໝົດ: ລົບ 26 ຈາກຜູ້ເອົາ";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ເກມ";
 "View" = "ເບິ່ງ";
-"No Players Yet" = "ບໍ່ມີຜູ້ຫຼິ້ນເທື່ອ";
-"Player records appear after your first finished game." = "ບັນທຶກຜູ້ຫຼິ້ນປາກົດຫຼັງຈາກເກມສໍາເລັດຮູບທໍາອິດຂອງທ່ານ.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ຜູ້ນຖືກຈັບຄູ່ໂດຍຊື່. ຄູ່ສຳລັບຄະແນນຕໍ່າສຸດນັບເປັນໄຊຊະນະສຳລັບຜູ້ຫຼິ້ນແຕ່ລະຄົນ.";
+"No Players Yet" = "ຍັງບໍ່ມີຜູ້ຫຼິ້ນ";
+"Player records appear after your first finished game." = "ບັນທຶກຜູ້ຫຼິ້ນຈະປາກົດຫຼັງຈາກເກມທຳອິດຂອງທ່ານຈົບ.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ຜູ້ຫຼິ້ນຖືກລວມຕາມຊື່. ຖ້າຄະແນນຕ່ຳສຸດສະເໝີກັນ ຖືວ່າທຸກຄົນທີ່ສະເໝີກັນຊະນະ.";
 "Played" = "ຫຼິ້ນແລ້ວ";
 "Wins" = "ຊະນະ";
 "Avg score" = "ຄະແນນສະເລ່ຍ";
 "%d wins in %d games" = "%d ຊະນະໃນ %d ເກມ";
-"Rematch" = "ແຂ່ງ​ຂັນ";
+"Rematch" = "ຫຼິ້ນອີກ";
 "View history" = "ເບິ່ງປະຫວັດ";
 "Results" = "ຜົນໄດ້ຮັບ";
 "Close" = "ປິດ";
@@ -152,11 +152,11 @@
 "Share result" = "ແບ່ງປັນຜົນໄດ້ຮັບ";
 "Left" = "ຊ້າຍ";
 "Right" = "ຂວາ";
-"Across" = "ຂ້າມ";
-"Hold" = "ຖື";
+"Across" = "ກົງກັນຂ້າມ";
+"Hold" = "ເກັບໄວ້";
 "to %d" = "ເຖິງ %d";
-"No rounds yet" = "ບໍ່ມີຮອບເທື່ອ";
-"Round %d undone" = "ຍົກເລີກຮອບ %d";
+"No rounds yet" = "ຍັງບໍ່ມີຮອບ";
+"Round %d undone" = "ຍົກເລີກຮອບ %d ແລ້ວ";
 "Redo" = "ເຮັດຊ້ຳ";
 "Round %d restored" = "ຟື້ນຟູຮອບທີ %d ແລ້ວ";
 "Edit Round %d" = "ແກ້ໄຂຮອບທີ %d";
@@ -164,7 +164,7 @@
 "Save round scores" = "ບັນທຶກຄະແນນຮອບ";
 "Round %d updated" = "ອັບເດດຮອບ %d ແລ້ວ";
 "Edit this round" = "ແກ້ໄຂຮອບນີ້";
-"Redo available" = "ມີໃຫ້ເຮັດຄືນໃໝ່";
+"Redo available" = "ເຮັດຊ້ຳໄດ້";
 "Quick-add button: +%d" = "ປຸ່ມເພີ່ມດ່ວນ: +%d";
-"The +%d button in score entry adds this many points per tap." = "ປຸ່ມ +%d ໃນການປ້ອນຄະແນນຈະເພີ່ມຫຼາຍຈຸດນີ້ຕໍ່ການແຕະ.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ແຕະຜູ້ຫຼິ້ນທີ່ເອົາ 10♦. ພວກເຂົາໄດ້ຮັບ 10 ຄະແນນລົບໃນຮອບນີ້.";
+"The +%d button in score entry adds this many points per tap." = "ປຸ່ມ +%d ໃນການປ້ອນຄະແນນຈະເພີ່ມຄະແນນຕາມຈຳນວນນີ້ທຸກຄັ້ງທີ່ແຕະ.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ແຕະຜູ້ຫຼິ້ນທີ່ເອົາ 10♦. ຈະຖືກຫັກ 10 ຄະແນນໃນຮອບນີ້.";

@@ -3,22 +3,22 @@
 "Undo Round" = "फेरी पूर्ववत करा";
 "Shake to undo the last round!" = "शेवटची फेरी पूर्ववत करण्यासाठी हलवा!";
 "New Game" = "नवीन खेळ";
-"Are you sure? This will clear all round scores." = "तुम्हाला खात्री आहे का? यामुळे अष्टपैलू गुण स्पष्ट होतील.";
+"Are you sure? This will clear all round scores." = "तुम्हाला खात्री आहे का? यामुळे सर्व फेऱ्यांचे गुण पुसले जातील.";
 "D" = "डी";
-"Hearts Scoreboard" = "हार्ट स्कोअरबोर्ड";
-"Game to: %d" = "गेम ते: %d";
+"Hearts Scoreboard" = "हार्ट्स स्कोअरबोर्ड";
+"Game to: %d" = "खेळ %d पर्यंत";
 "Next Round" = "पुढील फेरी";
 "Game over" = "खेळ संपला";
 "Pass to the Left" = "डावीकडे पास";
 "Pass to the Right" = "उजवीकडे पास";
-"Pass Across" = "ओलांडून पास";
-"Hold on Tight!" = "घट्ट धरा!";
+"Pass Across" = "समोर पास";
+"Hold on Tight!" = "पत्ते धरून ठेवा!";
 "No winner" = "विजेता नाही";
 "%@ won!" = "%@ जिंकले!";
 "Players" = "खेळाडू";
 "Player" = "खेळाडू";
-"Add Player" = "प्लेअर जोडा";
-"Hearts supports 3–6 players." = "हृदय 3-6 खेळाडूंना समर्थन देते.";
+"Add Player" = "खेळाडू जोडा";
+"Hearts supports 3–6 players." = "हार्ट्स 3–6 खेळाडूंसाठी आहे.";
 "Dealer" = "डीलर";
 "Ending Score" = "शेवटचा स्कोअर";
 "Ending Score: %d" = "शेवटचा स्कोअर: %d";
@@ -26,26 +26,26 @@
 "Settings" = "सेटिंग्ज";
 "Done" = "झाले";
 "System" = "प्रणाली";
-"Light" = "प्रकाश";
+"Light" = "फिकट";
 "Dark" = "गडद";
 "Add 26" = "26 जोडा";
 "Subtract 26" = "26 वजा करा";
 "Delete" = "हटवा";
 "Winner" = "विजेता";
 "Game History" = "खेळ इतिहास";
-"Game Summary" = "गेमचा सारांश";
+"Game Summary" = "खेळाचा सारांश";
 "Quick add" = "द्रुत जोडा";
-"Shoot the Moon Preference" = "चंद्र प्राधान्य शूट करा";
-"Shoot the moon" = "चंद्र शूट करा";
+"Shoot the Moon Preference" = "चंद्र घेण्याचे प्राधान्य";
+"Shoot the moon" = "चंद्र घ्या";
 "Adds 26 points to every other players' score." = "प्रत्येक इतर खेळाडूंच्या स्कोअरमध्ये 26 गुण जोडतो.";
 "Subtracts 26 points from the selected player's score." = "निवडलेल्या खेळाडूच्या स्कोअरमधून 26 गुण वजा करतो.";
 "Back" = "मागे";
 "Reset" = "रीसेट करा";
 "Submit" = "सबमिट करा";
-"Submit round scores" = "गोल स्कोअर सबमिट करा";
+"Submit round scores" = "फेरीचे गुण सबमिट करा";
 "Round %d" = "फेरी %d";
 "Developed by Christopher Rung" = "ख्रिस्तोफर रंग यांनी विकसित केले";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "माझ्या वडिलांना समर्पित, ज्यांना हृदयावर प्रेम आहे आणि त्यांनी मला नेहमी चंद्र शूट करायला शिकवले आहे.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "माझ्या वडिलांना समर्पित, ज्यांना हार्ट्स खेळायला आवडते आणि ज्यांनी मला नेहमी चंद्र घ्यायला शिकवले.";
 "I would love to hear your feedback!" = "मला तुमचा अभिप्राय ऐकायला आवडेल!";
 "Send Feedback" = "अभिप्राय पाठवा";
 "Rate on App Store" = "App Store वर रेट करा";
@@ -53,11 +53,11 @@
 "App Version" = "ॲप आवृत्ती";
 "View Source" = "स्रोत पहा";
 "About" = "बद्दल";
-"Made with love in Denver, CO" = "डेन्व्हर, CO मध्ये प्रेमाने बनवलेले";
+"Made with love in Denver, CO" = "डेन्व्हर, कोलोरॅडो येथे प्रेमाने बनवले";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ची किंमत −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts प्रकार: जो खेळाडू 10♦ घेतो त्याला त्या हातासाठी −10 मिळतात. हे \"चंद्र शूट करा\" पासून वेगळे आहे.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts प्रकार: जो खेळाडू 10♦ घेतो त्याला त्या फेरीसाठी −10 मिळतात. हे \"चंद्र घ्या\" पासून वेगळे आहे.";
 "10♦ taken by" = "10♦ कोणी घेतला";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ कोणी घेतला ते निवडा";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "फेरी %d, %@: %d गुण";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "फेरी %d, %@: चंद्र शूट केला";
+"Round %d, %@: shot the moon" = "फेरी %d, %@: चंद्र घेतला";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", 10♦ घेतला";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d फेऱ्या";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "चंद्र शूट केला";
+"Shot the moon" = "चंद्र घेतला";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ ने 10♦ घेतला";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ साठी इस्पिकची राणी";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ साठी चंद्र शूट करा";
+"Shoot the moon for %@" = "%@ साठी चंद्र घ्या";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ चे गुण कमी करा";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -123,20 +123,20 @@
 "Round" = "फेरी";
 "%@ won with %d" = "%@ %d सह जिंकले";
 "%@ tied with %d" = "%@ %d सह बरोबरीत आहे";
-"Ends at %d" = "%d वाजता संपेल";
-"Moon adds 26 to others" = "चंद्र शूट करा इतरांना 26 जोडते";
-"Moon subtracts 26 from shooter" = "शूटरमधून चंद्र शूट करा वजा 26 करतो";
+"Ends at %d" = "%d वर संपतो";
+"Moon adds 26 to others" = "चंद्र: इतरांना +26";
+"Moon subtracts 26 from shooter" = "चंद्र: घेणाऱ्याकडून −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "खेळ";
 "View" = "पहा";
 "No Players Yet" = "अद्याप कोणतेही खेळाडू नाहीत";
 "Player records appear after your first finished game." = "तुमच्या पहिल्या पूर्ण झालेल्या गेमनंतर खेळाडूंचे रेकॉर्ड दिसतात.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "खेळाडू नावाने जुळतात. सर्वात कमी स्कोअरसाठी बरोबरी प्रत्येक टाय खेळाडूसाठी विजय म्हणून गणली जाते.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "खेळाडू नावाने जुळवले जातात. सर्वात कमी स्कोअरवर बरोबरी झाल्यास, बरोबरीतील प्रत्येक खेळाडूचा विजय गणला जातो.";
 "Played" = "खेळले";
 "Wins" = "जिंकले";
 "Avg score" = "सरासरी गुण";
-"%d wins in %d games" = "%d गेममध्ये %d जिंकले";
-"Rematch" = "पुन्हा जुळवा";
+"%d wins in %d games" = "%2$d गेममध्ये %1$d विजय";
+"Rematch" = "पुन्हा खेळा";
 "View history" = "इतिहास पहा";
 "Results" = "निकाल";
 "Close" = "बंद करा";
@@ -148,23 +148,23 @@
 "%@ tied for the win with %lld points." = "%@ %lld गुणांसह विजयासाठी बरोबरीत आहे.";
 "%lld rounds" = "%lld फेऱ्या";
 "1 round" = "1 फेरी";
-"Hearts Scoreboard result" = "हार्ट स्कोअरबोर्ड निकाल";
-"Share result" = "परिणाम शेअर करा";
+"Hearts Scoreboard result" = "हार्ट्स स्कोअरबोर्ड निकाल";
+"Share result" = "निकाल शेअर करा";
 "Left" = "डावीकडे";
 "Right" = "उजवीकडे";
-"Across" = "ओलांडून";
+"Across" = "समोर";
 "Hold" = "धरा";
-"to %d" = "ते %d";
+"to %d" = "%d पर्यंत";
 "No rounds yet" = "अजून फेऱ्या नाहीत";
 "Round %d undone" = "फेरी %d पूर्ववत केली";
 "Redo" = "पुन्हा करा";
 "Round %d restored" = "फेरी %d पुनर्संचयित केली";
 "Edit Round %d" = "फेरी %d संपादित करा";
 "Save" = "जतन करा";
-"Save round scores" = "गोल स्कोअर जतन करा";
+"Save round scores" = "फेरीचे गुण जतन करा";
 "Round %d updated" = "फेरी %d अपडेट केली";
 "Edit this round" = "ही फेरी संपादित करा";
-"Redo available" = "पुन्हा करा उपलब्ध";
+"Redo available" = "पुन्हा करणे उपलब्ध";
 "Quick-add button: +%d" = "द्रुत-जोडा बटण: +%d";
-"The +%d button in score entry adds this many points per tap." = "स्कोअर एंट्रीमधील +%d बटण प्रति टॅपमध्ये अनेक गुण जोडते.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ज्या खेळाडूने 10♦ घेतला त्याला टॅप करा. या फेरीत त्यांना 10 गुण वजा केले जातात.";
+"The +%d button in score entry adds this many points per tap." = "स्कोअर एंट्रीमधील +%d बटण प्रत्येक टॅपला इतके गुण जोडते.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ज्या खेळाडूने 10♦ घेतला त्याला टॅप करा. या फेरीत त्याच्या गुणांमधून 10 वजा केले जातात.";

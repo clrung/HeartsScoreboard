@@ -6,46 +6,46 @@
 "Are you sure? This will clear all round scores." = "நீங்கள் உறுதியாக இருக்கிறீர்களா? இது அனைத்து சுற்று மதிப்பெண்களையும் அழிக்கும்.";
 "D" = "டி";
 "Hearts Scoreboard" = "ஹார்ட்ஸ் ஸ்கோர்போர்டு";
-"Game to: %d" = "விளையாட்டு: %d";
+"Game to: %d" = "ஆட்டம் %d வரை";
 "Next Round" = "அடுத்த சுற்று";
 "Game over" = "ஆட்டம் முடிந்தது";
-"Pass to the Left" = "இடதுபுறம் செல்லவும்";
-"Pass to the Right" = "வலதுபுறம் செல்லவும்";
-"Pass Across" = "கடந்து செல்லுங்கள்";
-"Hold on Tight!" = "இறுக்கமாகப் பிடி!";
+"Pass to the Left" = "இடதுபுறம் அனுப்பவும்";
+"Pass to the Right" = "வலதுபுறம் அனுப்பவும்";
+"Pass Across" = "எதிரே அனுப்பவும்";
+"Hold on Tight!" = "அட்டைகளை வைத்திருங்கள்!";
 "No winner" = "வெற்றியாளர் இல்லை";
 "%@ won!" = "%@ வென்றார்!";
 "Players" = "வீரர்கள்";
 "Player" = "வீரர்";
-"Add Player" = "பிளேயரைச் சேர்க்கவும்";
+"Add Player" = "வீரரைச் சேர்க்கவும்";
 "Hearts supports 3–6 players." = "ஹார்ட்ஸ் 3-6 வீரர்களை ஆதரிக்கிறது.";
-"Dealer" = "வியாபாரி";
+"Dealer" = "டீலர்";
 "Ending Score" = "இறுதி மதிப்பெண்";
 "Ending Score: %d" = "இறுதி மதிப்பெண்: %d";
 "Appearance" = "தோற்றம்";
 "Settings" = "அமைப்புகள்";
 "Done" = "முடிந்தது";
 "System" = "அமைப்பு";
-"Light" = "ஒளி";
-"Dark" = "இருள்";
+"Light" = "வெளிர்";
+"Dark" = "அடர்";
 "Add 26" = "26 ஐ சேர்க்கவும்";
-"Subtract 26" = "கழித்தல் 26";
+"Subtract 26" = "26 கழிக்கவும்";
 "Delete" = "நீக்கு";
 "Winner" = "வெற்றியாளர்";
 "Game History" = "விளையாட்டு வரலாறு";
 "Game Summary" = "விளையாட்டு சுருக்கம்";
 "Quick add" = "விரைவாகச் சேர்க்கவும்";
-"Shoot the Moon Preference" = "சந்திரன் விருப்பத்தை சுடவும்";
-"Shoot the moon" = "சந்திரனை சுடவும்";
+"Shoot the Moon Preference" = "நிலவு விருப்பம்";
+"Shoot the moon" = "நிலவு எடுக்கவும்";
 "Adds 26 points to every other players' score." = "மற்ற ஒவ்வொரு வீரர்களின் ஸ்கோருக்கும் 26 புள்ளிகளைச் சேர்க்கிறது.";
 "Subtracts 26 points from the selected player's score." = "தேர்ந்தெடுக்கப்பட்ட வீரரின் ஸ்கோரில் இருந்து 26 புள்ளிகளைக் கழிக்கிறது.";
-"Back" = "மீண்டும்";
+"Back" = "பின்";
 "Reset" = "மீட்டமை";
 "Submit" = "சமர்ப்பிக்கவும்";
 "Submit round scores" = "சுற்று மதிப்பெண்களை சமர்ப்பிக்கவும்";
 "Round %d" = "சுற்று %d";
 "Developed by Christopher Rung" = "கிறிஸ்டோபர் ரங் என்பவரால் உருவாக்கப்பட்டது";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "இதயங்களை நேசிக்கும் என் தந்தைக்கு அர்ப்பணிக்கிறேன், எப்போதும் சந்திரனைச் சுடக் கற்றுக் கொடுத்தேன்.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ஹார்ட்ஸ் விளையாட்டை நேசிக்கும், எப்போதும் நிலவு எடுக்க எனக்குக் கற்றுத்தந்த என் தந்தைக்கு அர்ப்பணிக்கிறேன்.";
 "I would love to hear your feedback!" = "நான் உங்கள் கருத்தை கேட்க விரும்புகிறேன்!";
 "Send Feedback" = "கருத்தை அனுப்பவும்";
 "Rate on App Store" = "ஆப் ஸ்டோரில் மதிப்பிடவும்";
@@ -53,11 +53,11 @@
 "App Version" = "ஆப் பதிப்பு";
 "View Source" = "மூலத்தைக் காண்க";
 "About" = "பற்றி";
-"Made with love in Denver, CO" = "டென்வர், CO இல் அன்புடன் உருவாக்கப்பட்டது";
+"Made with love in Denver, CO" = "டென்வர், கொலராடோவில் அன்புடன் உருவாக்கப்பட்டது";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ மதிப்பு −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts மாறுபாடு: 10♦ எடுப்பவர் அந்தக் கைக்கு −10 பெறுவார். இது \"சந்திரனை சுடவும்\" என்பதிலிருந்து தனியானது.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts மாறுபாடு: 10♦ எடுப்பவர் அந்தச் சுற்றுக்கு −10 பெறுவார். இது \"நிலவு எடுக்கவும்\" என்பதிலிருந்து தனியானது.";
 "10♦ taken by" = "10♦ எடுத்தவர்";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ யார் எடுத்தார் எனத் தேர்ந்தெடுக்கவும்";
@@ -74,9 +74,9 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "சுற்று %d, %@: %d புள்ளிகள்";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "சுற்று %d, %@: சந்திரனை சுட்டார்";
+"Round %d, %@: shot the moon" = "சுற்று %d, %@: நிலவு எடுத்தார்";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", டைமண்ட் 10 எடுத்தார்";
+", took the 10 of diamonds" = ", 10♦ எடுத்தார்";
 /* HistoryView empty state title */
 "No Games Yet" = "இன்னும் ஆட்டங்கள் இல்லை";
 /* HistoryView empty state description */
@@ -84,9 +84,9 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d சுற்றுகள்";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "சந்திரனை சுட்டார்";
+"Shot the moon" = "நிலவு எடுத்தார்";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ டைமண்ட் 10 எடுத்தார்";
+"%@ took the 10 of diamonds" = "%@ 10♦ எடுத்தார்";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "%d புள்ளிகள்";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ க்கு ஸ்பேட் ராணி";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ க்கு சந்திரனை சுடவும்";
+"Shoot the moon for %@" = "%@ க்கு நிலவு எடுக்கவும்";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ புள்ளிகளைக் குறை";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,42 +106,42 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "தயார்";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "ஒரு வீரர் 26 அனைத்தையும் எடுக்க முடியாது. சந்திரனைப் பயன்படுத்தவும்.";
+"One player can't take all 26. Use the moon." = "ஒரு வீரர் 26 அனைத்தையும் எடுக்க முடியாது. நிலவைப் பயன்படுத்தவும்.";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d அதிகம்";
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · %d மீதம்";
 "Game Rules" = "விளையாட்டு விதிகள்";
 "Recent players" = "சமீபத்திய வீரர்கள்";
-"Add %@" = "சேர் %@";
+"Add %@" = "%@ ஐச் சேர்";
 "Share App" = "ஆப்ஸைப் பகிரவும்";
 "Rounds" = "சுற்றுகள்";
 "Moons" = "நிலவுகள்";
 "10♦ taken" = "10♦ எடுக்கப்பட்டது";
 "Biggest hand" = "மிகப் பெரிய கை";
-"Score by round" = "சுற்றுக்கு மதிப்பெண்";
+"Score by round" = "சுற்று வாரியாக மதிப்பெண்";
 "Round" = "சுற்று";
 "%@ won with %d" = "%2$d உடன் %1$@ வெற்றி பெற்றது";
 "%@ tied with %d" = "%2$d உடன் %1$@ சமன்";
-"Ends at %d" = "%dக்கு முடியும்";
-"Moon adds 26 to others" = "மற்றவற்றுடன் 26ஐ சந்திரனை சுடவும் சேர்க்கிறது";
-"Moon subtracts 26 from shooter" = "ஷூட்டரில் இருந்து 26ஐ சந்திரனை சுடவும் கழிக்கிறது";
+"Ends at %d" = "%d இல் முடியும்";
+"Moon adds 26 to others" = "நிலவு: மற்றவர்களுக்கு +26";
+"Moon subtracts 26 from shooter" = "நிலவு: எடுத்தவருக்கு −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "விளையாட்டுகள்";
-"View" = "பார்வை";
+"View" = "காண்க";
 "No Players Yet" = "இன்னும் வீரர்கள் இல்லை";
-"Player records appear after your first finished game." = "உங்கள் முதல் முடிந்த ஆட்டத்திற்குப் பிறகு பிளேயர் பதிவுகள் தோன்றும்.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "வீரர்கள் பெயரால் பொருந்துகிறார்கள். ஒவ்வொரு சமநிலையான வீரருக்கும் வெற்றியாகக் குறைந்த மதிப்பெண்ணுக்கான டைகள்.";
+"Player records appear after your first finished game." = "உங்கள் முதல் ஆட்டம் முடிந்த பிறகு வீரர் பதிவுகள் தோன்றும்.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "வீரர்கள் பெயரால் பொருத்தப்படுகிறார்கள். குறைந்த மதிப்பெண்ணில் சமநிலை ஏற்பட்டால், சமநிலையில் உள்ள ஒவ்வொரு வீரருக்கும் ஒரு வெற்றி கணக்கிடப்படும்.";
 "Played" = "விளையாடியது";
 "Wins" = "வெற்றிகள்";
 "Avg score" = "சராசரி மதிப்பெண்";
-"%d wins in %d games" = "%d ஆட்டங்களில் %d வெற்றி";
-"Rematch" = "மறு போட்டி";
+"%d wins in %d games" = "%2$d ஆட்டங்களில் %1$d வெற்றி";
+"Rematch" = "மறு ஆட்டம்";
 "View history" = "வரலாற்றைக் காண்க";
 "Results" = "முடிவுகள்";
 "Close" = "மூடு";
 "Winners" = "வெற்றியாளர்கள்";
-"Final standings" = "இறுதி நிலைகள்";
+"Final standings" = "இறுதி நிலை";
 "%lld points" = "%lld புள்ளிகள்";
 "%d. %@, %d points" = "%d. %@, %d புள்ளிகள்";
 "%@ won with %lld points." = "%2$lld புள்ளிகளுடன் %1$@ வென்றது.";
@@ -152,19 +152,19 @@
 "Share result" = "முடிவைப் பகிரவும்";
 "Left" = "இடது";
 "Right" = "வலது";
-"Across" = "முழுவதும்";
-"Hold" = "பிடி";
-"to %d" = "%dக்கு";
+"Across" = "எதிரே";
+"Hold" = "வைத்திரு";
+"to %d" = "%d வரை";
 "No rounds yet" = "இன்னும் சுற்றுகள் இல்லை";
 "Round %d undone" = "சுற்று %d செயல்தவிர்க்கப்பட்டது";
 "Redo" = "மீண்டும் செய்";
 "Round %d restored" = "சுற்று %d மீட்டெடுக்கப்பட்டது";
-"Edit Round %d" = "சுற்றைத் திருத்து %d";
+"Edit Round %d" = "சுற்று %d ஐத் திருத்து";
 "Save" = "சேமி";
 "Save round scores" = "சுற்று மதிப்பெண்களை சேமிக்கவும்";
 "Round %d updated" = "சுற்று %d புதுப்பிக்கப்பட்டது";
 "Edit this round" = "இந்தச் சுற்றைத் திருத்தவும்";
-"Redo available" = "மீண்டும் செய்யவும்";
+"Redo available" = "மீண்டும் செய்தல் கிடைக்கிறது";
 "Quick-add button: +%d" = "விரைவு-சேர் பொத்தான்: +%d";
 "The +%d button in score entry adds this many points per tap." = "ஸ்கோர் உள்ளீட்டில் உள்ள +%d பொத்தான் ஒரு தட்டலுக்கு இத்தனை புள்ளிகளைச் சேர்க்கிறது.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ எடுத்த வீரரைத் தட்டவும். இந்த சுற்றில் கழித்தால் 10 புள்ளிகள் கிடைக்கும்.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ எடுத்த வீரரைத் தட்டவும். இந்தச் சுற்றில் அவர் மதிப்பெண்ணிலிருந்து 10 புள்ளிகள் கழிக்கப்படும்.";

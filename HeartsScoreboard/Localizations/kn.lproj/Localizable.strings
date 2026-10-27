@@ -1,42 +1,42 @@
 "No" = "ಸಂ";
 "Yes" = "ಹೌದು";
-"Undo Round" = "ರೌಂಡ್ ರದ್ದುಗೊಳಿಸಿ";
+"Undo Round" = "ಸುತ್ತು ರದ್ದುಗೊಳಿಸಿ";
 "Shake to undo the last round!" = "ಕೊನೆಯ ಸುತ್ತನ್ನು ರದ್ದುಗೊಳಿಸಲು ಅಲ್ಲಾಡಿಸಿ!";
 "New Game" = "ಹೊಸ ಆಟ";
 "Are you sure? This will clear all round scores." = "ನೀವು ಖಚಿತವಾಗಿರುವಿರಾ? ಇದು ಎಲ್ಲಾ ಸುತ್ತಿನ ಅಂಕಗಳನ್ನು ತೆರವುಗೊಳಿಸುತ್ತದೆ.";
 "D" = "ಡಿ";
 "Hearts Scoreboard" = "ಹಾರ್ಟ್ಸ್ ಸ್ಕೋರ್ಬೋರ್ಡ್";
-"Game to: %d" = "ಆಟಕ್ಕೆ: %d";
+"Game to: %d" = "ಆಟ %d ವರೆಗೆ";
 "Next Round" = "ಮುಂದಿನ ಸುತ್ತು";
 "Game over" = "ಆಟ ಮುಗಿದಿದೆ";
-"Pass to the Left" = "ಎಡಕ್ಕೆ ಹಾದುಹೋಗು";
-"Pass to the Right" = "ಬಲಕ್ಕೆ ಹಾದುಹೋಗು";
-"Pass Across" = "ಅಡ್ಡಲಾಗಿ ಹಾದುಹೋಗು";
-"Hold on Tight!" = "ಬಿಗಿಯಾಗಿ ಹಿಡಿದುಕೊಳ್ಳಿ!";
+"Pass to the Left" = "ಎಡಕ್ಕೆ ಪಾಸ್ ಮಾಡಿ";
+"Pass to the Right" = "ಬಲಕ್ಕೆ ಪಾಸ್ ಮಾಡಿ";
+"Pass Across" = "ಎದುರಿಗೆ ಪಾಸ್ ಮಾಡಿ";
+"Hold on Tight!" = "ಕಾರ್ಡ್‌ಗಳನ್ನು ಇಟ್ಟುಕೊಳ್ಳಿ!";
 "No winner" = "ವಿಜೇತರು ಇಲ್ಲ";
 "%@ won!" = "%@ ಗೆದ್ದಿದ್ದಾರೆ!";
 "Players" = "ಆಟಗಾರರು";
 "Player" = "ಆಟಗಾರ";
-"Add Player" = "ಪ್ಲೇಯರ್ ಸೇರಿಸಿ";
+"Add Player" = "ಆಟಗಾರನನ್ನು ಸೇರಿಸಿ";
 "Hearts supports 3–6 players." = "ಹಾರ್ಟ್ಸ್ 3-6 ಆಟಗಾರರನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ.";
 "Dealer" = "ಡೀಲರ್";
-"Ending Score" = "ಎಂಡಿಂಗ್ ಸ್ಕೋರ್";
+"Ending Score" = "ಅಂತಿಮ ಸ್ಕೋರ್";
 "Ending Score: %d" = "ಅಂತಿಮ ಸ್ಕೋರ್: %d";
 "Appearance" = "ಗೋಚರತೆ";
 "Settings" = "ಸೆಟ್ಟಿಂಗ್‌ಗಳು";
 "Done" = "ಮುಗಿದಿದೆ";
 "System" = "ವ್ಯವಸ್ಥೆ";
-"Light" = "ಬೆಳಕು";
-"Dark" = "ಕತ್ತಲು";
+"Light" = "ತಿಳಿ";
+"Dark" = "ಗಾಢ";
 "Add 26" = "26 ಸೇರಿಸಿ";
-"Subtract 26" = "ಕಳೆಯಿರಿ 26";
+"Subtract 26" = "26 ಕಳೆಯಿರಿ";
 "Delete" = "ಅಳಿಸಿ";
 "Winner" = "ವಿಜೇತ";
 "Game History" = "ಗೇಮ್ ಇತಿಹಾಸ";
 "Game Summary" = "ಗೇಮ್ ಸಾರಾಂಶ";
 "Quick add" = "ತ್ವರಿತ ಸೇರಿಸಿ";
-"Shoot the Moon Preference" = "ಚಂದ್ರನ ಆದ್ಯತೆಯನ್ನು ಶೂಟ್ ಮಾಡಿ";
-"Shoot the moon" = "ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ";
+"Shoot the Moon Preference" = "ಚಂದ್ರನ ಆದ್ಯತೆ";
+"Shoot the moon" = "ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ";
 "Adds 26 points to every other players' score." = "ಪ್ರತಿ ಇತರ ಆಟಗಾರರ ಸ್ಕೋರ್‌ಗೆ 26 ಅಂಕಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.";
 "Subtracts 26 points from the selected player's score." = "ಆಯ್ದ ಆಟಗಾರನ ಸ್ಕೋರ್‌ನಿಂದ 26 ಅಂಕಗಳನ್ನು ಕಳೆಯಲಾಗುತ್ತದೆ.";
 "Back" = "ಹಿಂದೆ";
@@ -45,7 +45,7 @@
 "Submit round scores" = "ಸುತ್ತಿನ ಅಂಕಗಳನ್ನು ಸಲ್ಲಿಸಿ";
 "Round %d" = "ಸುತ್ತು %d";
 "Developed by Christopher Rung" = "ಕ್ರಿಸ್ಟೋಫರ್ ರಂಗ್ ಅಭಿವೃದ್ಧಿಪಡಿಸಿದ್ದಾರೆ";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ಹೃದಯಗಳನ್ನು ಪ್ರೀತಿಸುವ ನನ್ನ ತಂದೆಗೆ ಸಮರ್ಪಿಸಲಾಗಿದೆ ಮತ್ತು ಯಾವಾಗಲೂ ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಲು ನನಗೆ ಕಲಿಸಿದೆ.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ಹಾರ್ಟ್ಸ್ ಆಟವನ್ನು ಪ್ರೀತಿಸುವ ಮತ್ತು ಯಾವಾಗಲೂ ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ನನಗೆ ಕಲಿಸಿದ ನನ್ನ ತಂದೆಗೆ ಸಮರ್ಪಣೆ.";
 "I would love to hear your feedback!" = "ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಕೇಳಲು ನಾನು ಇಷ್ಟಪಡುತ್ತೇನೆ!";
 "Send Feedback" = "ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಕಳುಹಿಸಿ";
 "Rate on App Store" = "ಆಪ್ ಸ್ಟೋರ್‌ನಲ್ಲಿ ರೇಟ್ ಮಾಡಿ";
@@ -53,11 +53,11 @@
 "App Version" = "ಅಪ್ಲಿಕೇಶನ್ ಆವೃತ್ತಿ";
 "View Source" = "ಮೂಲವನ್ನು ವೀಕ್ಷಿಸಿ";
 "About" = "ಬಗ್ಗೆ";
-"Made with love in Denver, CO" = "ಡೆನ್ವರ್, CO ನಲ್ಲಿ ಪ್ರೀತಿಯಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ";
+"Made with love in Denver, CO" = "ಡೆನ್ವರ್, ಕೊಲೊರಾಡೋದಲ್ಲಿ ಪ್ರೀತಿಯಿಂದ ಮಾಡಲ್ಪಟ್ಟಿದೆ";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ಬೆಲೆ −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ರೂಪಾಂತರ: 10♦ ತೆಗೆದುಕೊಂಡವರಿಗೆ ಆ ಕೈಗೆ −10 ಸಿಗುತ್ತದೆ. ಇದು \"ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ\" ಗಿಂತ ಬೇರೆ.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ರೂಪಾಂತರ: 10♦ ತೆಗೆದುಕೊಂಡವರಿಗೆ ಆ ಸುತ್ತಿಗೆ −10 ಸಿಗುತ್ತದೆ. ಇದು \"ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ\" ಗಿಂತ ಬೇರೆ.";
 "10♦ taken by" = "10♦ ತೆಗೆದುಕೊಂಡವರು";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ಯಾರು ತೆಗೆದುಕೊಂಡರು ಎಂದು ಆರಿಸಿ";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "ಸುತ್ತು %d, %@: %d ಅಂಕಗಳು";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "ಸುತ್ತು %d, %@: ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿದರು";
+"Round %d, %@: shot the moon" = "ಸುತ್ತು %d, %@: ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಂಡರು";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", 10♦ ತೆಗೆದುಕೊಂಡರು";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d ಸುತ್ತುಗಳು";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿದರು";
+"Shot the moon" = "ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಂಡರು";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ 10♦ ತೆಗೆದುಕೊಂಡರು";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ ಗೆ ಸ್ಪೇಡ್ಸ್ ರಾಣಿ";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ ಗಾಗಿ ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ";
+"Shoot the moon for %@" = "%@ ಗಾಗಿ ಚಂದ್ರನನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ ಅವರ ಅಂಕಗಳನ್ನು ಕಡಿಮೆ ಮಾಡಿ";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -116,26 +116,26 @@
 "Add %@" = "%@ ಸೇರಿಸಿ";
 "Share App" = "ಅಪ್ಲಿಕೇಶನ್ ಹಂಚಿಕೊಳ್ಳಿ";
 "Rounds" = "ಸುತ್ತುಗಳು";
-"Moons" = "ಚಂದ್ರರು";
+"Moons" = "ಚಂದ್ರ";
 "10♦ taken" = "10♦ ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ";
 "Biggest hand" = "ಅತಿ ದೊಡ್ಡ ಕೈ";
-"Score by round" = "ಸುತ್ತಿನ ಮೂಲಕ ಸ್ಕೋರ್ ಮಾಡಿ";
+"Score by round" = "ಸುತ್ತಿನ ಪ್ರಕಾರ ಸ್ಕೋರ್";
 "Round" = "ಸುತ್ತು";
 "%@ won with %d" = "%2$d ಜೊತೆಗೆ %1$@ ಗೆದ್ದಿದೆ";
 "%@ tied with %d" = "%@ %d ಜೊತೆ ಟೈ";
 "Ends at %d" = "%d ಕ್ಕೆ ಕೊನೆಗೊಳ್ಳುತ್ತದೆ";
-"Moon adds 26 to others" = "ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ ಇತರರಿಗೆ 26 ಅನ್ನು ಸೇರಿಸುತ್ತದೆ";
-"Moon subtracts 26 from shooter" = "ಶೂಟರ್‌ನಿಂದ ಚಂದ್ರನನ್ನು ಶೂಟ್ ಮಾಡಿ 26 ಕಳೆಯುತ್ತದೆ";
+"Moon adds 26 to others" = "ಚಂದ್ರ: ಇತರರಿಗೆ +26";
+"Moon subtracts 26 from shooter" = "ಚಂದ್ರ: ತೆಗೆದುಕೊಂಡವರಿಂದ −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ಆಟಗಳು";
 "View" = "ವೀಕ್ಷಿಸಿ";
 "No Players Yet" = "ಇನ್ನೂ ಯಾವುದೇ ಆಟಗಾರರು ಇಲ್ಲ";
 "Player records appear after your first finished game." = "ನಿಮ್ಮ ಮೊದಲ ಮುಗಿದ ಆಟದ ನಂತರ ಆಟಗಾರರ ದಾಖಲೆಗಳು ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ಆಟಗಾರರು ಹೆಸರಿನಿಂದ ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಾರೆ. ಟೈಗಳು ಕಡಿಮೆ ಸ್ಕೋರ್ ಎಣಿಕೆಯ ಪ್ರತಿ ಟೈ ಆಟಗಾರನ ಗೆಲುವಿನ ಎಣಿಕೆ.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ಆಟಗಾರರನ್ನು ಹೆಸರಿನಿಂದ ಹೊಂದಿಸಲಾಗುತ್ತದೆ. ಕಡಿಮೆ ಸ್ಕೋರ್‌ನಲ್ಲಿ ಟೈ ಆದರೆ, ಟೈ ಆದ ಪ್ರತಿ ಆಟಗಾರನಿಗೂ ಒಂದು ಗೆಲುವು ಎಣಿಕೆಯಾಗುತ್ತದೆ.";
 "Played" = "ಆಡಿದ";
 "Wins" = "ಗೆಲುವುಗಳು";
 "Avg score" = "ಸರಾಸರಿ ಸ್ಕೋರ್";
-"%d wins in %d games" = "%d ಆಟಗಳಲ್ಲಿ %d ಗೆಲುವುಗಳು";
+"%d wins in %d games" = "%2$d ಆಟಗಳಲ್ಲಿ %1$d ಗೆಲುವುಗಳು";
 "Rematch" = "ಮರುಪಂದ್ಯ";
 "View history" = "ಇತಿಹಾಸವನ್ನು ವೀಕ್ಷಿಸಿ";
 "Results" = "ಫಲಿತಾಂಶಗಳು";
@@ -152,19 +152,19 @@
 "Share result" = "ಫಲಿತಾಂಶವನ್ನು ಹಂಚಿಕೊಳ್ಳಿ";
 "Left" = "ಎಡ";
 "Right" = "ಬಲ";
-"Across" = "ಅಡ್ಡಲಾಗಿ";
-"Hold" = "ಹೋಲ್ಡ್";
-"to %d" = "%d ಗೆ";
+"Across" = "ಎದುರು";
+"Hold" = "ಇರಿಸಿ";
+"to %d" = "%d ವರೆಗೆ";
 "No rounds yet" = "ಇನ್ನೂ ಯಾವುದೇ ಸುತ್ತುಗಳಿಲ್ಲ";
-"Round %d undone" = "ರೌಂಡ್ %d ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ";
+"Round %d undone" = "ಸುತ್ತು %d ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ";
 "Redo" = "ಮತ್ತೆಮಾಡು";
-"Round %d restored" = "ಸುತ್ತಿನ %d ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ";
+"Round %d restored" = "ಸುತ್ತು %d ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ";
 "Edit Round %d" = "ಸುತ್ತು %d ಸಂಪಾದಿಸಿ";
 "Save" = "ಉಳಿಸು";
 "Save round scores" = "ಸುತ್ತಿನ ಅಂಕಗಳನ್ನು ಉಳಿಸಿ";
-"Round %d updated" = "ಸುತ್ತಿನ %d ಅನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ";
+"Round %d updated" = "ಸುತ್ತು %d ನವೀಕರಿಸಲಾಗಿದೆ";
 "Edit this round" = "ಈ ಸುತ್ತನ್ನು ಸಂಪಾದಿಸಿ";
 "Redo available" = "ಮತ್ತೆಮಾಡು ಲಭ್ಯವಿದೆ";
 "Quick-add button: +%d" = "ತ್ವರಿತ-ಸೇರಿಸು ಬಟನ್: +%d";
 "The +%d button in score entry adds this many points per tap." = "ಸ್ಕೋರ್ ಪ್ರವೇಶದಲ್ಲಿರುವ +%d ಬಟನ್ ಪ್ರತಿ ಟ್ಯಾಪ್‌ಗೆ ಇಷ್ಟು ಅಂಕಗಳನ್ನು ಸೇರಿಸುತ್ತದೆ.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ತೆಗೆದುಕೊಂಡ ಆಟಗಾರನನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಅವರು ಈ ಸುತ್ತಿನಲ್ಲಿ 10 ಅಂಕಗಳನ್ನು ಕಳೆಯುತ್ತಾರೆ.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ತೆಗೆದುಕೊಂಡ ಆಟಗಾರನನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಈ ಸುತ್ತಿನಲ್ಲಿ ಅವರ ಸ್ಕೋರ್‌ನಿಂದ 10 ಅಂಕಗಳನ್ನು ಕಳೆಯಲಾಗುತ್ತದೆ.";

@@ -4,17 +4,17 @@
 "Shake to undo the last round!" = "Potrząśnij, aby cofnąć ostatnią rundę!";
 "New Game" = "Nowa gra";
 "Are you sure? This will clear all round scores." = "Wszystkie punkty rund zostaną usunięte.";
-"D" = "D";
-"Hearts Scoreboard" = "Licznik Kierów";
+"D" = "R";
+"Hearts Scoreboard" = "Kierki – licznik";
 "Game to: %d" = "Gra do: %d";
 "Next Round" = "Następna runda";
 "Game over" = "Koniec gry";
-"Pass to the Left" = "Pas w lewo";
-"Pass to the Right" = "Pas w prawo";
-"Pass Across" = "Pas naprzeciwko";
+"Pass to the Left" = "Podaj w lewo";
+"Pass to the Right" = "Podaj w prawo";
+"Pass Across" = "Podaj naprzeciwko";
 "Hold on Tight!" = "Trzymaj karty!";
 "No winner" = "Brak zwycięzcy";
-"%@ won!" = "Wygrał(a): %@!";
+"%@ won!" = "Zwycięzca: %@!";
 "Players" = "Gracze";
 "Player" = "Gracz";
 "Add Player" = "Dodaj gracza";
@@ -25,7 +25,7 @@
 "Appearance" = "Wygląd";
 "Settings" = "Ustawienia";
 "Done" = "Gotowe";
-"System" = "Systemu";
+"System" = "Systemowy";
 "Light" = "Jasny";
 "Dark" = "Ciemny";
 "Add 26" = "+26";
@@ -35,7 +35,7 @@
 "Game History" = "Historia gier";
 "Game Summary" = "Podsumowanie gry";
 "Quick add" = "Szybkie dodawanie";
-"Shoot the Moon Preference" = "Preferencja „wzięcia księżyca”";
+"Shoot the Moon Preference" = "Ustawienie „wzięcia księżyca”";
 "Shoot the moon" = "Wzięcie księżyca";
 "Adds 26 points to every other players' score." = "Dodaje 26 pkt pozostałym graczom.";
 "Subtracts 26 points from the selected player's score." = "Odejmuje 26 pkt wybranemu graczowi.";
@@ -45,7 +45,7 @@
 "Submit round scores" = "Wyślij punkty rundy";
 "Round %d" = "Runda %d";
 "Developed by Christopher Rung" = "Autor: Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedykacja dla mojego ojca, miłośnika Kierów.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedykuję mojemu ojcu, który uwielbia Kierki i nauczył mnie zawsze brać księżyc.";
 "I would love to hear your feedback!" = "Chętnie przyjmę opinie!";
 "Send Feedback" = "Wyślij opinię";
 "Rate on App Store" = "Oceń w App Store";
@@ -58,7 +58,7 @@
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ jest warte −10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Wariant Omnibus Hearts: kto weźmie 10♦, otrzymuje −10 za to rozdanie. Jest to niezależne od „Wzięcia księżyca”.";
-"10♦ taken by" = "10♦ wziął";
+"10♦ taken by" = "10♦ wzięte przez";
 "−10" = "−10";
 "Select who took the 10♦" = "Wybierz, kto wziął 10♦";
 
@@ -76,7 +76,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Runda %d, %@: wzięcie księżyca";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", wziął 10 karo";
+", took the 10 of diamonds" = ", wzięto 10 karo";
 /* HistoryView empty state title */
 "No Games Yet" = "Brak gier";
 /* HistoryView empty state description */
@@ -86,7 +86,7 @@
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Wzięcie księżyca";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ wziął 10 karo";
+"%@ took the 10 of diamonds" = "Gracz %@ wziął 10 karo";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Punkty: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -118,24 +118,24 @@
 "Rounds" = "Rundy";
 "Moons" = "Księżyce";
 "10♦ taken" = "10♦ wzięte";
-"Biggest hand" = "Największa ręka";
-"Score by round" = "Wynik po rundzie";
+"Biggest hand" = "Najwięcej w rundzie";
+"Score by round" = "Wynik wg rund";
 "Round" = "Runda";
-"%@ won with %d" = "%@ wygrał z %d";
-"%@ tied with %d" = "%@ zremisował z %d";
-"Ends at %d" = "Kończy się o %d";
-"Moon adds 26 to others" = "Wzięcie księżyca dodaje 26 do pozostałych";
-"Moon subtracts 26 from shooter" = "Wzięcie księżyca odejmuje 26 od strzelca";
+"%@ won with %d" = "Zwycięstwo: %@, %d";
+"%@ tied with %d" = "Remis: %@, %d";
+"Ends at %d" = "Koniec przy %d";
+"Moon adds 26 to others" = "Wzięcie księżyca dodaje 26 pozostałym";
+"Moon subtracts 26 from shooter" = "Wzięcie księżyca odejmuje 26 graczowi, który go bierze";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Gry";
 "View" = "Widok";
 "No Players Yet" = "Nie ma jeszcze graczy";
 "Player records appear after your first finished game." = "Rekordy graczy pojawiają się po ukończeniu pierwszej gry.";
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Gracze dobierani są według nazwy. Remisy z najniższym wynikiem liczą się jako zwycięstwo każdego remisującego gracza.";
-"Played" = "Grałem";
+"Played" = "Rozegrane";
 "Wins" = "Zwycięstwa";
 "Avg score" = "Średni wynik";
-"%d wins in %d games" = "%d wygrywa w %d grach";
+"%d wins in %d games" = "Zwycięstw: %d, gier: %d";
 "Rematch" = "Rewanż";
 "View history" = "Zobacz historię";
 "Results" = "Wyniki";
@@ -144,27 +144,27 @@
 "Final standings" = "Klasyfikacja końcowa";
 "%lld points" = "%lld punktów";
 "%d. %@, %d points" = "%d. %@, %d punktów";
-"%@ won with %lld points." = "%@ wygrał z %lld punktami.";
-"%@ tied for the win with %lld points." = "Zespół %@ zremisował zwycięstwo z %lld punktami.";
+"%@ won with %lld points." = "Zwycięstwo: %@, punktów: %lld.";
+"%@ tied for the win with %lld points." = "Zwycięstwo ex aequo: %@, punktów: %lld.";
 "%lld rounds" = "%lld rund";
 "1 round" = "1 runda";
-"Hearts Scoreboard result" = "Wynik tablicy wyników kier";
+"Hearts Scoreboard result" = "Wynik gry w Kierki";
 "Share result" = "Udostępnij wynik";
-"Left" = "w lewo";
-"Right" = "w prawo";
-"Across" = "naprzeciwko";
-"Hold" = "czekaj";
+"Left" = "W lewo";
+"Right" = "W prawo";
+"Across" = "Naprzeciwko";
+"Hold" = "Zatrzymaj";
 "to %d" = "do %d";
 "No rounds yet" = "Nie ma jeszcze rund";
-"Round %d undone" = "Runda %d zakończona";
+"Round %d undone" = "Runda %d cofnięta";
 "Redo" = "Ponów";
 "Round %d restored" = "Runda %d przywrócona";
 "Edit Round %d" = "Edytuj rundę %d";
 "Save" = "Zapisz";
-"Save round scores" = "Zapisuj wyniki rundy";
+"Save round scores" = "Zapisz wyniki rundy";
 "Round %d updated" = "Runda %d zaktualizowana";
 "Edit this round" = "Edytuj tę rundę";
-"Redo available" = "Ponów dostępne";
+"Redo available" = "Ponowienie dostępne";
 "Quick-add button: +%d" = "Przycisk szybkiego dodawania: +%d";
 "The +%d button in score entry adds this many points per tap." = "Przycisk +%d we wpisie wyniku dodaje tyle punktów za każde dotknięcie.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Kliknij gracza, który wziął 10♦. W tej rundzie otrzymują 10 punktów odjętych.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Dotknij gracza, który wziął 10♦. W tej rundzie odejmie mu się 10 punktów.";

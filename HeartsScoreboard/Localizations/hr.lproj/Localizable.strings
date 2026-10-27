@@ -1,64 +1,64 @@
-"No" = "br";
-"Yes" = "da";
-"Undo Round" = "Poništavanje kruga";
-"Shake to undo the last round!" = "Protresite da poništite zadnji krug!";
+"No" = "Ne";
+"Yes" = "Da";
+"Undo Round" = "Poništi rundu";
+"Shake to undo the last round!" = "Protresite da poništite posljednju rundu!";
 "New Game" = "Nova igra";
-"Are you sure? This will clear all round scores." = "Jeste li sigurni? Ovo će obrisati rezultate svih rundi.";
+"Are you sure? This will clear all round scores." = "Jeste li sigurni? Ovo će izbrisati rezultate svih rundi.";
 "D" = "D";
 "Hearts Scoreboard" = "Hearts semafor";
 "Game to: %d" = "Igra do: %d";
 "Next Round" = "Sljedeća runda";
-"Game over" = "Igra gotova";
-"Pass to the Left" = "Prođite ulijevo";
-"Pass to the Right" = "Prođite udesno";
-"Pass Across" = "Pass Cross";
+"Game over" = "Igra je gotova";
+"Pass to the Left" = "Proslijedi ulijevo";
+"Pass to the Right" = "Proslijedi udesno";
+"Pass Across" = "Proslijedi preko";
 "Hold on Tight!" = "Drži se čvrsto!";
 "No winner" = "Nema pobjednika";
-"%@ won!" = "%@ je pobijedio!";
+"%@ won!" = "Pobjednik: %@";
 "Players" = "Igrači";
 "Player" = "Igrač";
 "Add Player" = "Dodaj igrača";
-"Hearts supports 3–6 players." = "Hearts podržava 3–6 igrača.";
-"Dealer" = "Trgovac";
+"Hearts supports 3–6 players." = "Hearts se igra s 3–6 igrača.";
+"Dealer" = "Djelitelj";
 "Ending Score" = "Završni rezultat";
 "Ending Score: %d" = "Završni rezultat: %d";
 "Appearance" = "Izgled";
-"Settings" = "postavke";
+"Settings" = "Postavke";
 "Done" = "Gotovo";
-"System" = "sustav";
-"Light" = "svjetlo";
-"Dark" = "tamno";
-"Add 26" = "Dodajte 26";
+"System" = "Sustav";
+"Light" = "Svijetlo";
+"Dark" = "Tamno";
+"Add 26" = "Dodaj 26";
 "Subtract 26" = "Oduzmi 26";
 "Delete" = "Izbriši";
 "Winner" = "Pobjednik";
-"Game History" = "Povijest igre";
+"Game History" = "Povijest igara";
 "Game Summary" = "Sažetak igre";
 "Quick add" = "Brzo dodavanje";
-"Shoot the Moon Preference" = "Pucaj u Moon Preference";
+"Shoot the Moon Preference" = "Postavka za pucanje u mjesec";
 "Shoot the moon" = "Pucaj u mjesec";
 "Adds 26 points to every other players' score." = "Dodaje 26 bodova rezultatu svakog drugog igrača.";
 "Subtracts 26 points from the selected player's score." = "Oduzima 26 bodova od rezultata odabranog igrača.";
-"Back" = "natrag";
+"Back" = "Natrag";
 "Reset" = "Resetiraj";
-"Submit" = "Pošalji";
-"Submit round scores" = "Pošaljite okrugle rezultate";
+"Submit" = "Potvrdi";
+"Submit round scores" = "Potvrdi rezultate runde";
 "Round %d" = "Runda %d";
 "Developed by Christopher Rung" = "Razvio Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Posvećeno mom ocu, koji voli srca i naučio me da uvijek pucam u mjesec.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Posvećeno mom ocu, koji voli Hearts i naučio me da uvijek pucam u mjesec.";
 "I would love to hear your feedback!" = "Volio bih čuti vaše povratne informacije!";
 "Send Feedback" = "Pošaljite povratne informacije";
-"Rate on App Store" = "Ocijenite na App Storeu";
+"Rate on App Store" = "Ocijenite u App Storeu";
 "Donate a coffee to Christopher" = "Donirajte kavu Christopheru";
 "App Version" = "Verzija aplikacije";
-"View Source" = "Pogledaj izvor";
-"About" = "O";
+"View Source" = "Pogledaj izvorni kod";
+"About" = "O aplikaciji";
 "Made with love in Denver, CO" = "Napravljeno s ljubavlju u Denveru, CO";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vrijedi −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varijanta: tko uzme 10♦ dobiva −10 za tu ruku. Ovo je odvojeno od \"Pucaj u mjesec\".";
-"10♦ taken by" = "10♦ uzeo/la";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus varijanta Heartsa: tko uzme 10♦ dobiva −10 za tu rundu. To je odvojeno od pucanja u mjesec.";
+"10♦ taken by" = "Nosilac 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "Odaberi tko je uzeo 10♦";
 
@@ -76,17 +76,17 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Runda %d, %@: pucanje u mjesec";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", uzeo/la 10♦";
+", took the 10 of diamonds" = ", uzeto karo 10";
 /* HistoryView empty state title */
 "No Games Yet" = "Još nema igara";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Završene igre pojavit će se ovdje.";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rundi";
+"%d rounds" = "Runde: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Pucanje u mjesec";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ je uzeo/la 10♦";
+"%@ took the 10 of diamonds" = "Igrač %@ je uzeo karo 10";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "%d bodova";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -94,13 +94,13 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "Pikova dama za %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "Pucanje u mjesec za %@";
+"Shoot the moon for %@" = "Pucaj u mjesec za %@";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "Smanji bodove za %@";
 /* RoundInputView: VoiceOver label for plus stepper */
 "Increase points for %@" = "Povećaj bodove za %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Spremno za slanje";
+"Ready to submit" = "Spremno za potvrdu";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Odaberi tko je uzeo 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -108,34 +108,34 @@
 /* RoundInputView: progress strip, 26 total but all on one player */
 "One player can't take all 26. Use the moon." = "Jedan igrač ne može uzeti svih 26. Koristi mjesec.";
 /* RoundInputView: progress strip over 26 */
-"%d / 26 · %d over" = "%d / 26 · %d previše";
+"%d / 26 · %d over" = "%d / 26 · višak %d";
 /* RoundInputView: progress strip under 26 */
-"%d / 26 · %d left" = "%d / 26 · %d preostalo";
+"%d / 26 · %d left" = "%d / 26 · još %d";
 "Game Rules" = "Pravila igre";
 "Recent players" = "Nedavni igrači";
 "Add %@" = "Dodaj %@";
-"Share App" = "Dijeli aplikaciju";
-"Rounds" = "Rundi";
+"Share App" = "Podijeli aplikaciju";
+"Rounds" = "Runde";
 "Moons" = "Mjeseci";
 "10♦ taken" = "10♦ uzeto";
-"Biggest hand" = "Najveća ruka";
-"Score by round" = "Rezultat po krugu";
+"Biggest hand" = "Najviše u rundi";
+"Score by round" = "Rezultat po rundi";
 "Round" = "Runda";
-"%@ won with %d" = "%@ je pobijedio s %d";
-"%@ tied with %d" = "%@ izjednačeno s %d";
-"Ends at %d" = "Završava u %d";
-"Moon adds 26 to others" = "Pucaj u mjesec dodaje 26 ostalima";
-"Moon subtracts 26 from shooter" = "Pucaj u mjesec oduzima 26 strijelcu";
+"%@ won with %d" = "Pobjeda: %@, %d";
+"%@ tied with %d" = "Izjednačeno: %@, %d";
+"Ends at %d" = "Kraj na %d";
+"Moon adds 26 to others" = "Pucanje u mjesec dodaje 26 ostalima";
+"Moon subtracts 26 from shooter" = "Pucanje u mjesec oduzima 26 igraču koji puca";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Igre";
 "View" = "Prikaz";
 "No Players Yet" = "Još nema igrača";
 "Player records appear after your first finished game." = "Zapisi igrača pojavljuju se nakon vaše prve završene igre.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Igrači se slažu po imenima. Izjednačenja za najniži rezultat računaju se kao pobjeda za svakog izjednačenog igrača.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Igrači se povezuju prema imenu. Ako je najniži rezultat izjednačen, pobjeda se računa svakom od izjednačenih igrača.";
 "Played" = "Igrano";
 "Wins" = "Pobjede";
-"Avg score" = "Prosječna ocjena";
-"%d wins in %d games" = "%d pobjeđuje u %d igara";
+"Avg score" = "Prosječan rezultat";
+"%d wins in %d games" = "Pobjeda: %d, igara: %d";
 "Rematch" = "Revanš";
 "View history" = "Pogledaj povijest";
 "Results" = "Rezultati";
@@ -144,27 +144,27 @@
 "Final standings" = "Konačni poredak";
 "%lld points" = "%lld bodova";
 "%d. %@, %d points" = "%d. %@, %d bodova";
-"%@ won with %lld points." = "%@ je pobijedio s %lld bodova.";
-"%@ tied for the win with %lld points." = "%@ je izjednačio pobjedu s %lld bodova.";
-"%lld rounds" = "%lld rundi";
-"1 round" = "1 krug";
+"%@ won with %lld points." = "Pobjeda: %@ s %lld bodova.";
+"%@ tied for the win with %lld points." = "Podijeljena pobjeda: %@ s %lld bodova.";
+"%lld rounds" = "Runde: %lld";
+"1 round" = "1 runda";
 "Hearts Scoreboard result" = "Rezultat Hearts Scoreboard";
 "Share result" = "Podijeli rezultat";
-"Left" = "lijevo";
+"Left" = "Lijevo";
 "Right" = "Desno";
 "Across" = "Preko";
-"Hold" = "Držite";
+"Hold" = "Zadrži";
 "to %d" = "do %d";
 "No rounds yet" = "Još nema rundi";
 "Round %d undone" = "Runda %d poništena";
 "Redo" = "Ponovi";
 "Round %d restored" = "Runda %d vraćena";
-"Edit Round %d" = "Uredi krug %d";
+"Edit Round %d" = "Uredi rundu %d";
 "Save" = "Spremi";
-"Save round scores" = "Spremi rezultate rundi";
+"Save round scores" = "Spremi rezultate runde";
 "Round %d updated" = "Runda %d ažurirana";
 "Edit this round" = "Uredite ovu rundu";
-"Redo available" = "Ponovi dostupno";
+"Redo available" = "Ponavljanje je dostupno";
 "Quick-add button: +%d" = "Gumb za brzo dodavanje: +%d";
 "The +%d button in score entry adds this many points per tap." = "Gumb +%d u unosu rezultata dodaje toliko bodova po dodiru.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Dodirnite igrača koji je uzeo 10♦. Dobivaju 10 bodova oduzetih u ovoj rundi.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Dodirnite igrača koji je uzeo 10♦. Njemu se u ovoj rundi oduzima 10 bodova.";

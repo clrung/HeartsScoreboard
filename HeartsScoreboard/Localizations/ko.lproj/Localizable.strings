@@ -19,7 +19,7 @@
 "Pass to the Left" = "왼쪽으로 건네기";
 "Pass to the Right" = "오른쪽으로 건네기";
 "Pass Across" = "맞은편으로 건네기";
-"Hold on Tight!" = "홀드!";
+"Hold on Tight!" = "카드 유지!";
 "No winner" = "승자 없음";
 "%@ won!" = "%@ 승리!";
 
@@ -31,7 +31,7 @@
 "Dealer" = "딜러";
 "Ending Score" = "종료 점수";
 "Ending Score: %d" = "종료 점수: %d";
-"Appearance" = "모양";
+"Appearance" = "화면 모드";
 "Settings" = "설정";
 "Done" = "완료";
 
@@ -68,7 +68,7 @@
 "I would love to hear your feedback!" = "의견을 보내 주세요!";
 "Send Feedback" = "피드백 보내기";
 "Rate on App Store" = "App Store에서 평가";
-"Donate a coffee to Christopher" = "크리스토퍼에게 커피 사주기";
+"Donate a coffee to Christopher" = "크리스토퍼에게 커피 한 잔 사 주기";
 "App Version" = "앱 버전";
 "View Source" = "소스 보기";
 "About" = "정보";
@@ -79,7 +79,7 @@
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts 변형 규칙: ♦10을 가져간 사람은 해당 핸드에서 −10점을 받습니다. \"달 잡기\"와는 별개입니다.";
 "10♦ taken by" = "♦10을 가져간 사람";
 "−10" = "−10";
-"Select who took the 10♦" = "10♦을 가져간 사람 선택";
+"Select who took the 10♦" = "♦10을 가져간 사람 선택";
 
 /* UI/UX refresh: round progress, leader, VoiceOver, history */
 /* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
@@ -135,26 +135,26 @@
 "Add %@" = "%@ 추가";
 "Share App" = "앱 공유";
 "Rounds" = "라운드";
-"Moons" = "달";
-"10♦ taken" = "10♦ 가져옴";
-"Biggest hand" = "가장 큰 손";
+"Moons" = "달 잡기";
+"10♦ taken" = "♦10 획득";
+"Biggest hand" = "최고 라운드 점수";
 "Score by round" = "라운드별 점수";
 "Round" = "라운드";
-"%@ won with %d" = "%2$d로 %1$@ 승리";
-"%@ tied with %d" = "%@이(가) %d과(와) 동점";
-"Ends at %d" = "%d에 종료";
-"Moon adds 26 to others" = "달 잡기은 다른 항목에 26을(를) 추가합니다.";
-"Moon subtracts 26 from shooter" = "달 잡기은 범인에서 26을 뺍니다.";
+"%@ won with %d" = "%1$@ 승리 (%2$d점)";
+"%@ tied with %d" = "%@ 동점 (%d점)";
+"Ends at %d" = "%d점에 종료";
+"Moon adds 26 to others" = "달 잡기: 다른 플레이어 모두에게 26점 추가";
+"Moon subtracts 26 from shooter" = "달 잡기: 성공한 플레이어에게서 26점 차감";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "게임";
 "View" = "보기";
 "No Players Yet" = "아직 플레이어가 없습니다";
-"Player records appear after your first finished game." = "플레이어 기록은 첫 번째 게임이 끝난 후에 나타납니다.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "플레이어는 이름으로 일치됩니다. 가장 낮은 점수에 대한 동점은 동점인 각 플레이어의 승리로 간주됩니다.";
-"Played" = "플레이한";
+"Player records appear after your first finished game." = "첫 게임이 끝나면 플레이어 기록이 표시됩니다.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "같은 이름의 플레이어는 같은 사람으로 집계합니다. 최저 점수가 동점이면 동점인 모든 플레이어가 승리로 계산됩니다.";
+"Played" = "게임 수";
 "Wins" = "승리";
 "Avg score" = "평균 점수";
-"%d wins in %d games" = "%d 게임에서 %d 승리";
+"%d wins in %d games" = "%2$d게임 %1$d승";
 "Rematch" = "재대결";
 "View history" = "기록 보기";
 "Results" = "결과";
@@ -165,25 +165,25 @@
 "%d. %@, %d points" = "%d. %@, %d포인트";
 "%@ won with %lld points." = "%@이(가) %lld포인트로 승리했습니다.";
 "%@ tied for the win with %lld points." = "%@이(가) %lld점으로 공동 승리했습니다.";
-"%lld rounds" = "%lld 라운드";
+"%lld rounds" = "%lld라운드";
 "1 round" = "1라운드";
-"Hearts Scoreboard result" = "하트 스코어보드 결과";
+"Hearts Scoreboard result" = "하트 점수판 결과";
 "Share result" = "결과 공유";
 "Left" = "왼쪽";
 "Right" = "오른쪽";
 "Across" = "맞은편";
-"Hold" = "홀드";
+"Hold" = "유지";
 "to %d" = "%d까지";
-"No rounds yet" = "아직 라운드가 없습니다.";
-"Round %d undone" = "%d 라운드가 취소되었습니다";
+"No rounds yet" = "아직 라운드가 없습니다";
+"Round %d undone" = "라운드 %d 취소됨";
 "Redo" = "다시 실행";
-"Round %d restored" = "%d 라운드가 복원되었습니다.";
-"Edit Round %d" = "라운드 수정 %d";
+"Round %d restored" = "라운드 %d 복원됨";
+"Edit Round %d" = "라운드 %d 수정";
 "Save" = "저장";
 "Save round scores" = "라운드 점수 저장";
-"Round %d updated" = "라운드 %d이 업데이트되었습니다.";
+"Round %d updated" = "라운드 %d 업데이트됨";
 "Edit this round" = "이번 라운드 수정";
 "Redo available" = "다시 실행 가능";
 "Quick-add button: +%d" = "빠른 추가 버튼: +%d";
-"The +%d button in score entry adds this many points per tap." = "점수 항목의 +%d 버튼은 탭당 이만큼의 점수를 추가합니다.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦을(를) 획득한 플레이어를 탭하세요. 이번 라운드에는 10점을 뺍니다.";
+"The +%d button in score entry adds this many points per tap." = "점수 입력의 +%d 버튼은 탭할 때마다 이만큼의 점수를 더합니다.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "♦10을 가져간 플레이어를 탭하세요. 이번 라운드에서 10점이 차감됩니다.";

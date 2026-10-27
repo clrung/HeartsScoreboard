@@ -1,63 +1,63 @@
-"No" = "မရှိ";
+"No" = "မဟုတ်ပါ";
 "Yes" = "ဟုတ်ကဲ့";
-"Undo Round" = "Round လုပ်တော့";
-"Shake to undo the last round!" = "နောက်ဆုံးအချီကို ပြန်ဖျက်ရန် လှုပ်ခါပါ။";
+"Undo Round" = "အချီကို ပြန်ဖျက်ပါ";
+"Shake to undo the last round!" = "နောက်ဆုံးအချီကို ပြန်ဖျက်ရန် လှုပ်ခါပါ!";
 "New Game" = "ဂိမ်းအသစ်";
-"Are you sure? This will clear all round scores." = "သေချာသလား။ ၎င်းသည် ပတ်ပတ်လည်ရမှတ်အားလုံးကို ရှင်းလင်းပါမည်။";
-"D" = "ဃ";
+"Are you sure? This will clear all round scores." = "သေချာသလား။ ၎င်းသည် အချီရမှတ်အားလုံးကို ရှင်းလင်းပါမည်။";
+"D" = "ဝ";
 "Hearts Scoreboard" = "နှလုံးသားအမှတ်စာရင်း";
-"Game to: %d" = "ဂိမ်း- %d";
-"Next Round" = "နောက်တစ်ခု Round";
-"Game over" = "ဂိမ်းပြီးပါပြီ။";
-"Pass to the Left" = "လက်ဝဲသို့ကူးပါ။";
-"Pass to the Right" = "ညာဘက်သို့ ဖြတ်ပါ။";
-"Pass Across" = "ဖြတ်ကျော်ပါ။";
-"Hold on Tight!" = "တင်းတင်းကြပ်ကြပ်ထားပါ";
-"No winner" = "အောင်နိုင်သူမရှိ။";
-"%@ won!" = "%@ အနိုင်ရခဲ့သည်။";
+"Game to: %d" = "ရမှတ် %d အထိ";
+"Next Round" = "နောက်အချီ";
+"Game over" = "ဂိမ်းပြီးပါပြီ";
+"Pass to the Left" = "ဘယ်ဘက်သို့ ပေးပါ";
+"Pass to the Right" = "ညာဘက်သို့ ပေးပါ";
+"Pass Across" = "ဆန့်ကျင်ဘက်သို့ ပေးပါ";
+"Hold on Tight!" = "ကတ်များကို ကိုင်ထားပါ!";
+"No winner" = "အောင်နိုင်သူမရှိ";
+"%@ won!" = "%@ အနိုင်ရပါပြီ!";
 "Players" = "ကစားသမားများ";
-"Player" = "ဘာညာ";
-"Add Player" = "Player ထည့်ပါ။";
+"Player" = "ကစားသမား";
+"Add Player" = "ကစားသမား ထည့်ပါ";
 "Hearts supports 3–6 players." = "Hearts သည် ကစားသမား 3-6 ယောက်ကို ပံ့ပိုးပေးသည်။";
-"Dealer" = "အရောင်းကိုယ်စားလှယ်";
+"Dealer" = "ကတ်ဝေသူ";
 "Ending Score" = "အဆုံးသတ်ရမှတ်";
 "Ending Score: %d" = "အဆုံးသတ်ရမှတ်- %d";
 "Appearance" = "အသွင်အပြင်";
 "Settings" = "ဆက်တင်များ";
-"Done" = "ပြီးပြီ။";
+"Done" = "ပြီးပြီ";
 "System" = "စနစ်";
 "Light" = "အလင်း";
 "Dark" = "အမှောင်";
-"Add 26" = "ထည့်ပါ ၂၆";
-"Subtract 26" = "နုတ် ၂၆";
-"Delete" = "ဖျက်ပါ။";
+"Add 26" = "ထည့် 26";
+"Subtract 26" = "နုတ် 26";
+"Delete" = "ဖျက်ပါ";
 "Winner" = "အောင်နိုင်သူ";
 "Game History" = "ဂိမ်းသမိုင်း";
 "Game Summary" = "ဂိမ်းအကျဉ်းချုပ်";
-"Quick add" = "အမြန်ထည့်ပါ။";
-"Shoot the Moon Preference" = "Moon Preference ကို ရိုက်ကူးပါ။";
-"Shoot the moon" = "လကို ပစ်ပါ။";
+"Quick add" = "အမြန်ထည့်ပါ";
+"Shoot the Moon Preference" = "«အားလုံးယူ» စည်းကမ်း";
+"Shoot the moon" = "အားလုံးယူ";
 "Adds 26 points to every other players' score." = "အခြားကစားသမားတိုင်း၏ရမှတ်သို့ 26 မှတ်ထည့်ပါ။";
 "Subtracts 26 points from the selected player's score." = "ရွေးချယ်ထားသော ကစားသမား၏ရမှတ်မှ 26 မှတ်ကို နုတ်ပါ။";
-"Back" = "ကျော";
-"Reset" = "ပြန်လည်သတ်မှတ်ပါ။";
-"Submit" = "တင်ပြပါ။";
-"Submit round scores" = "ပတ်လည်ရမှတ်များ တင်သွင်းပါ။";
-"Round %d" = "အဝိုင်း %d";
+"Back" = "နောက်သို့";
+"Reset" = "ပြန်လည်သတ်မှတ်ပါ";
+"Submit" = "တင်သွင်းပါ";
+"Submit round scores" = "အချီရမှတ်များ တင်သွင်းပါ";
+"Round %d" = "အချီ %d";
 "Developed by Christopher Rung" = "Christopher Rung မှတီထွင်ခဲ့သည်။";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "နှလုံးသားကို ချစ်တဲ့ အဖေအတွက် ရည်စူးပြီး လကို အမြဲတမ်း ပစ်တတ်အောင် သင်ပေးခဲ့တယ်။";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Hearts ကို ချစ်ပြီး အမြဲတမ်း အားလုံးယူဖို့ ကြိုးစားရမယ်လို့ သင်ပေးခဲ့တဲ့ အဖေအတွက် ရည်စူးပါတယ်။";
 "I would love to hear your feedback!" = "မင်းရဲ့ အကြံပြုချက်တွေကို ကြားချင်ပါတယ်";
-"Send Feedback" = "တုံ့ပြန်ချက်ပေးပို့ပါ။";
-"Rate on App Store" = "App Store တွင် အဆင့်သတ်မှတ်ပါ။";
+"Send Feedback" = "တုံ့ပြန်ချက်ပေးပို့ပါ";
+"Rate on App Store" = "App Store တွင် အဆင့်သတ်မှတ်ပါ";
 "Donate a coffee to Christopher" = "Christopher ကို ကော်ဖီ လှူပါ။";
 "App Version" = "အက်ပ်ဗားရှင်း";
-"View Source" = "အရင်းအမြစ်ကိုကြည့်ပါ။";
+"View Source" = "အရင်းအမြစ်ကိုကြည့်ပါ";
 "About" = "အကြောင်း";
 "Made with love in Denver, CO" = "Denver, CO တွင် မေတ္တာဖြင့် ပြုလုပ်ထားသည်။";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ တန်ဖိုး −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ပုံစံ- 10♦ ယူသူသည် ထိုလက်အတွက် −10 ရမည်။ ၎င်းသည် \"လကို ပစ်ပါ။\" နှင့် သီးခြားဖြစ်သည်။";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ပုံစံ- 10♦ ယူသူသည် ထိုလက်အတွက် −10 ရမည်။ ၎င်းသည် \"အားလုံးယူ\" နှင့် သီးခြားဖြစ်သည်။";
 "10♦ taken by" = "10♦ ယူသူ";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ယူသူကို ရွေးပါ";
@@ -72,9 +72,9 @@
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
 "Round added. %@ leads" = "အချီထည့်ပြီး။ %@ ဦးဆောင်နေသည်";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "အဝိုင်း %d, %@: %d မှတ်";
+"Round %d, %@: %d points" = "အချီ %d, %@: %d မှတ်";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "အဝိုင်း %d, %@: လကို ပစ်သည်";
+"Round %d, %@: shot the moon" = "အချီ %d, %@: အားလုံးယူသည်";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", 10♦ ယူသည်";
 /* HistoryView empty state title */
@@ -82,9 +82,9 @@
 /* HistoryView empty state description */
 "Finished games will show up here." = "ပြီးဆုံးသော ဂိမ်းများ ဤနေရာတွင် ပေါ်လာမည်။";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d အဝိုင်း";
+"%d rounds" = "%d အချီ";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "လကို ပစ်သည်";
+"Shot the moon" = "အားလုံးယူသည်";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ က 10♦ ယူသည်";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ အတွက် စပိတ်ဘုရင်မ";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ အတွက် လကို ပစ်ပါ";
+"Shoot the moon for %@" = "%@ အတွက် အားလုံးယူပါ";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ ၏ မှတ်ကို လျှော့ပါ";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "အဆင်သင့်";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "ကစားသမားတစ်ဦးက 26 အားလုံး မယူနိုင်ပါ။ လကို အသုံးပြုပါ။";
+"One player can't take all 26. Use the moon." = "ကစားသမားတစ်ဦးက 26 အားလုံး မယူနိုင်ပါ။ «အားလုံးယူ» ကို အသုံးပြုပါ။";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d ပိုနေ";
 /* RoundInputView: progress strip under 26 */
@@ -114,30 +114,30 @@
 "Game Rules" = "ဂိမ်းစည်းကမ်းများ";
 "Recent players" = "မကြာသေးမီက ကစားသမားများ";
 "Add %@" = "%@ ထည့်ရန်";
-"Share App" = "အက်ပ်ကို မျှဝေပါ။";
-"Rounds" = "အဝိုင်း";
-"Moons" = "Moons";
+"Share App" = "အက်ပ်ကို မျှဝေပါ";
+"Rounds" = "အချီ";
+"Moons" = "အားလုံးယူ";
 "10♦ taken" = "10♦ ယူထားသည်";
-"Biggest hand" = "အကြီးဆုံးလက်";
-"Score by round" = "အဝိုင်းအလိုက် အမှတ်ပေးသည်။";
-"Round" = "အဝိုင်း";
+"Biggest hand" = "တစ်ချီအမြင့်ဆုံးရမှတ်";
+"Score by round" = "အချီအလိုက် ရမှတ်";
+"Round" = "အချီ";
 "%@ won with %d" = "%@ သည် %d ဖြင့် အနိုင်ရခဲ့သည်";
-"%@ tied with %d" = "%@ ကို %d နှင့် ချိတ်ထားသည်";
+"%@ tied with %d" = "%@ သည် %d ဖြင့် တူညီသည်";
 "Ends at %d" = "%d တွင် ပြီးဆုံးသည်";
-"Moon adds 26 to others" = "လကို ပစ်ပါ။ သည် အခြားသူများထံ 26 ပေါင်းထည့်သည်။";
-"Moon subtracts 26 from shooter" = "လကို ပစ်ပါ။ သည် သေနတ်သမားမှ 26 ကို နုတ်သည်။";
+"Moon adds 26 to others" = "အားလုံးယူလျှင် အခြားသူများကို 26 ပေါင်းထည့်";
+"Moon subtracts 26 from shooter" = "အားလုံးယူလျှင် ယူသူမှ 26 နုတ်";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ဂိမ်းများ";
-"View" = "ကြည့်ရှုခြင်း";
-"No Players Yet" = "ကစားသမားများ မရှိသေးပါ။";
+"View" = "ကြည့်ရန်";
+"No Players Yet" = "ကစားသမားများ မရှိသေးပါ";
 "Player records appear after your first finished game." = "သင်၏ပထမဆုံးဂိမ်းပြီးဆုံးပြီးနောက် ကစားသမားမှတ်တမ်းများပေါ်လာသည်။";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ကစားသမားတွေကို နာမည်နဲ့ လိုက်ဖက်တယ်။ တွဲထားသော ကစားသမားတစ်ဦးစီအတွက် အနိမ့်ဆုံးရမှတ်အတွက် ဆက်စပ်မှုများ။";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ကစားသမားများကို အမည်ဖြင့် တွဲစပ်သည်။ အနိမ့်ဆုံးရမှတ် တူညီပါက တူညီသူအားလုံးကို အနိုင်ရသည်ဟု သတ်မှတ်သည်။";
 "Played" = "ကစားခဲ့သည်";
-"Wins" = "Wins";
+"Wins" = "အနိုင်";
 "Avg score" = "ပျမ်းမျှရမှတ်";
-"%d wins in %d games" = "%d ဂိမ်း %d ခုတွင် အနိုင်ရသည်။";
-"Rematch" = "Rematch";
-"View history" = "သမိုင်းကိုကြည့်ပါ။";
+"%d wins in %d games" = "ဂိမ်း %2$d ပွဲတွင် %1$d အနိုင်";
+"Rematch" = "ပြန်ကစားမည်";
+"View history" = "သမိုင်းကိုကြည့်ပါ";
 "Results" = "ရလဒ်များ";
 "Close" = "ပိတ်ရန်";
 "Winners" = "အနိုင်ရသူများ";
@@ -145,26 +145,26 @@
 "%lld points" = "%lld မှတ်";
 "%d. %@, %d points" = "%d။ %@၊ %d မှတ်";
 "%@ won with %lld points." = "%@ သည် %lld မှတ်ဖြင့် အနိုင်ရခဲ့သည်။";
-"%@ tied for the win with %lld points." = "%@ သည် %lld မှတ်ဖြင့် အနိုင်ရရန်အတွက် တွဲထားသည်။";
-"%lld rounds" = "%lld ကြိမ်";
-"1 round" = "၁ ပတ်";
+"%@ tied for the win with %lld points." = "%@ သည် %lld မှတ်ဖြင့် ပူးတွဲအနိုင်ရသည်။";
+"%lld rounds" = "%lld အချီ";
+"1 round" = "1 အချီ";
 "Hearts Scoreboard result" = "Hearts အမှတ်စာရင်း ရလဒ်";
-"Share result" = "ရလဒ်ကိုမျှဝေပါ။";
+"Share result" = "ရလဒ်ကိုမျှဝေပါ";
 "Left" = "ဘယ်ဘက်";
 "Right" = "ညာဘက်";
-"Across" = "↔ တစ်ဖက်";
+"Across" = "ဆန့်ကျင်ဘက်";
 "Hold" = "ကိုင်ထားပါ";
 "to %d" = "%d သို့";
-"No rounds yet" = "အလှည့်မကျသေးဘူး။";
-"Round %d undone" = "အဝိုင်း %d ကို ပြန်ပြင်သည်။";
+"No rounds yet" = "အချီ မရှိသေးပါ";
+"Round %d undone" = "အချီ %d ကို ပြန်ဖျက်ပြီး";
 "Redo" = "ပြန်လုပ်ပါ";
-"Round %d restored" = "အဝိုင်း %d ကို ပြန်လည်ရယူခဲ့သည်။";
-"Edit Round %d" = "အဝိုင်း %d ကို တည်းဖြတ်ရန်";
-"Save" = "Save";
-"Save round scores" = "ပတ်ပတ်လည်ရမှတ်များကို သိမ်းဆည်းပါ။";
-"Round %d updated" = "အဝိုင်း %d ကို အပ်ဒိတ်လုပ်ထားသည်။";
-"Edit this round" = "ဤအဝိုင်းကို တည်းဖြတ်ပါ။";
-"Redo available" = "ပြန်လုပ်လို့ရပါပြီ။";
+"Round %d restored" = "အချီ %d ကို ပြန်လည်ရယူခဲ့သည်";
+"Edit Round %d" = "အချီ %d ကို တည်းဖြတ်ရန်";
+"Save" = "သိမ်းဆည်းပါ";
+"Save round scores" = "အချီရမှတ်များကို သိမ်းဆည်းပါ";
+"Round %d updated" = "အချီ %d ကို အပ်ဒိတ်လုပ်ထားသည်";
+"Edit this round" = "ဤအချီကို တည်းဖြတ်ပါ";
+"Redo available" = "ပြန်လုပ်လို့ရပါပြီ";
 "Quick-add button: +%d" = "အမြန်ထည့်ရန် ခလုတ်- +%d";
-"The +%d button in score entry adds this many points per tap." = "ရမှတ်ထည့်သွင်းမှုတွင် +%d ခလုတ်သည် နှိပ်လိုက်လျှင် အမှတ်များစွာကို ထည့်ပေးသည်။";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ကို ရယူခဲ့သော ကစားသမားကို တို့ပါ။ ဒီအကျော့မှာ သူတို့ ၁၀ မှတ် နုတ်တယ်။";
+"The +%d button in score entry adds this many points per tap." = "ရမှတ်ထည့်သွင်းရာရှိ +%d ခလုတ်ကို နှိပ်တိုင်း ထိုအမှတ်ကို ထည့်ပေးသည်။";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ကို ရယူခဲ့သော ကစားသမားကို တို့ပါ။ ဒီအချီမှာ သူတို့ 10 မှတ် နုတ်တယ်။";

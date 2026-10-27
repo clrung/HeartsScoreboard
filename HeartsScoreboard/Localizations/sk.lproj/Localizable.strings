@@ -1,64 +1,64 @@
 "No" = "Nie";
-"Yes" = "áno";
+"Yes" = "Áno";
 "Undo Round" = "Vrátiť späť kolo";
 "Shake to undo the last round!" = "Zatrasením zrušíte posledné kolo!";
 "New Game" = "Nová hra";
-"Are you sure? This will clear all round scores." = "si si istý? Tým sa vymažú skóre všetkých kôl.";
-"D" = "D";
-"Hearts Scoreboard" = "Tabuľka výsledkov srdca";
-"Game to: %d" = "Hra pre: %d";
+"Are you sure? This will clear all round scores." = "Ste si istí? Vymažú sa skóre všetkých kôl.";
+"D" = "R";
+"Hearts Scoreboard" = "Hearts – tabuľka";
+"Game to: %d" = "Hra do: %d";
 "Next Round" = "Ďalšie kolo";
 "Game over" = "Koniec hry";
-"Pass to the Left" = "Prejdite doľava";
-"Pass to the Right" = "Prejdite doprava";
-"Pass Across" = "Odovzdávanie kariet opačnému hráčovi v Hearts";
+"Pass to the Left" = "Odovzdať doľava";
+"Pass to the Right" = "Odovzdať doprava";
+"Pass Across" = "Odovzdať oproti";
 "Hold on Tight!" = "Držte sa pevne!";
 "No winner" = "Žiadny víťaz";
 "%@ won!" = "%@ vyhral!";
 "Players" = "Hráči";
 "Player" = "Hráč";
-"Add Player" = "Pridať prehrávač";
+"Add Player" = "Pridať hráča";
 "Hearts supports 3–6 players." = "Hearts podporuje 3–6 hráčov.";
-"Dealer" = "Obchodník";
+"Dealer" = "Rozdávajúci";
 "Ending Score" = "Konečné skóre";
 "Ending Score: %d" = "Konečné skóre: %d";
 "Appearance" = "Vzhľad";
 "Settings" = "Nastavenia";
 "Done" = "Hotovo";
 "System" = "Systém";
-"Light" = "Svetlo";
+"Light" = "Svetlý";
 "Dark" = "Tmavý";
-"Add 26" = "Pridajte 26";
+"Add 26" = "Pridať 26";
 "Subtract 26" = "Odčítať 26";
 "Delete" = "Odstrániť";
 "Winner" = "Víťaz";
 "Game History" = "História hry";
 "Game Summary" = "Súhrn hry";
 "Quick add" = "Rýchle pridanie";
-"Shoot the Moon Preference" = "Preferuje sa pravidlo bodovania strieľaním na mesiac v Hearts";
+"Shoot the Moon Preference" = "Nastavenie pre streľbu na mesiac";
 "Shoot the moon" = "Zastreľte mesiac";
 "Adds 26 points to every other players' score." = "Pripočítava 26 bodov k skóre každého ďalšieho hráča.";
 "Subtracts 26 points from the selected player's score." = "Odčíta 26 bodov od skóre vybraného hráča.";
 "Back" = "Späť";
 "Reset" = "Resetovať";
-"Submit" = "Odoslať";
-"Submit round scores" = "Odoslať skóre kola";
+"Submit" = "Potvrdiť";
+"Submit round scores" = "Potvrdiť skóre kola";
 "Round %d" = "Kolo %d";
 "Developed by Christopher Rung" = "Vyvinutý Christopherom Rungom";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Venované môjmu otcovi, ktorý miluje Hearts a naučil ma vždy strieľať na Mesiac.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Venované môjmu otcovi, ktorý miluje Hearts a naučil ma vždy strieľať na mesiac.";
 "I would love to hear your feedback!" = "Rád by som počul vašu spätnú väzbu!";
 "Send Feedback" = "Odoslať spätnú väzbu";
 "Rate on App Store" = "Ohodnoťte na App Store";
 "Donate a coffee to Christopher" = "Darujte kávu Christopherovi";
 "App Version" = "Verzia aplikácie";
-"View Source" = "Zobraziť zdroj";
-"About" = "O";
-"Made with love in Denver, CO" = "Vyrobené s láskou v Denveri, CO";
+"View Source" = "Zdrojový kód";
+"About" = "O aplikácii";
+"Made with love in Denver, CO" = "Vyrobené s láskou v Denveri, Colorado";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ má hodnotu −10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variant Omnibus Hearts: kto vezme 10♦, získa za dané rozdanie −10. Je to nezávislé od „Zastreľte mesiac“.";
-"10♦ taken by" = "10♦ vzal";
+"10♦ taken by" = "Držiteľ 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "Vyberte, kto vzal 10♦";
 
@@ -74,9 +74,9 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Kolo %d, %@: %d bodov";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Kolo %d, %@: zastrelenie mesiaca";
+"Round %d, %@: shot the moon" = "Kolo %d, %@: streľba na mesiac";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", vzal 10 károv";
+", took the 10 of diamonds" = ", vzaté káro 10";
 /* HistoryView empty state title */
 "No Games Yet" = "Zatiaľ žiadne hry";
 /* HistoryView empty state description */
@@ -84,9 +84,9 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "Kolá: %d";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Zastrelenie mesiaca";
+"Shot the moon" = "Streľba na mesiac";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ vzal 10 károv";
+"%@ took the 10 of diamonds" = "Hráč %@ vzal káro 10";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Body: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -100,7 +100,7 @@
 /* RoundInputView: VoiceOver label for plus stepper */
 "Increase points for %@" = "Zvýšiť body: %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Pripravené na odoslanie";
+"Ready to submit" = "Pripravené na potvrdenie";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Vyberte, kto vzal 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -117,54 +117,54 @@
 "Share App" = "Zdieľať aplikáciu";
 "Rounds" = "Kolá";
 "Moons" = "Mesiace";
-"10♦ taken" = "10♦ prijaté";
-"Biggest hand" = "Najväčšia ruka";
+"10♦ taken" = "10♦ vzaté";
+"Biggest hand" = "Najviac v kole";
 "Score by round" = "Skóre po kolách";
 "Round" = "Kolo";
-"%@ won with %d" = "%@ vyhral s %d";
-"%@ tied with %d" = "%@ remizovalo s %d";
-"Ends at %d" = "Končí o %d";
-"Moon adds 26 to others" = "Zastreľte mesiac pridá 26 k ostatným";
-"Moon subtracts 26 from shooter" = "Zastreľte mesiac odpočítava 26 od strelca";
+"%@ won with %d" = "Výhra: %@, %d";
+"%@ tied with %d" = "Remíza: %@, %d";
+"Ends at %d" = "Koniec pri %d";
+"Moon adds 26 to others" = "Mesiac pridá 26 ostatným";
+"Moon subtracts 26 from shooter" = "Mesiac odpočíta 26 strelcovi";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Hry";
 "View" = "Zobraziť";
 "No Players Yet" = "Zatiaľ žiadni hráči";
 "Player records appear after your first finished game." = "Záznamy hráčov sa objavia po vašej prvej dokončenej hre.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Hráči sú spárovaní podľa mien. Remízy za najnižšie skóre sa počítajú ako výhra každého hráča s nerozhodným výsledkom.";
-"Played" = "Hrané";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Hráči sa rozlišujú podľa mena. Pri remíze za najnižšie skóre sa výhra pripisuje každému z remizujúcich hráčov.";
+"Played" = "Odohrané";
 "Wins" = "Výhry";
 "Avg score" = "Priemerné skóre";
-"%d wins in %d games" = "%d víťazí v %d hrách";
-"Rematch" = "Odvetný zápas";
+"%d wins in %d games" = "Výhier: %d, hier: %d";
+"Rematch" = "Odveta";
 "View history" = "Zobraziť históriu";
 "Results" = "Výsledky";
 "Close" = "Zavrieť";
 "Winners" = "Víťazi";
 "Final standings" = "Konečné poradie";
-"%lld points" = "%lld bodov";
-"%d. %@, %d points" = "%d. %@, %d bodov";
-"%@ won with %lld points." = "%@ vyhral s %lld bodmi.";
-"%@ tied for the win with %lld points." = "%@ remizovalo za víťazstvo s %lld bodmi.";
-"%lld rounds" = "%lld kôl";
+"%lld points" = "Bodov: %lld";
+"%d. %@, %d points" = "%d. %@, bodov: %d";
+"%@ won with %lld points." = "Výhra: %@, bodov: %lld.";
+"%@ tied for the win with %lld points." = "Remíza o víťazstvo: %@, bodov: %lld.";
+"%lld rounds" = "Kôl: %lld";
 "1 round" = "1 kolo";
-"Hearts Scoreboard result" = "Výsledok v tabuľke Hearts";
-"Share result" = "Zdieľajte výsledok";
-"Left" = "vľavo";
-"Right" = "Vpravo";
-"Across" = "Cez";
-"Hold" = "Podržte";
+"Hearts Scoreboard result" = "Výsledok hry Hearts";
+"Share result" = "Zdieľať výsledok";
+"Left" = "Doľava";
+"Right" = "Doprava";
+"Across" = "Oproti";
+"Hold" = "Držať";
 "to %d" = "do %d";
 "No rounds yet" = "Zatiaľ žiadne kolá";
 "Round %d undone" = "Kolo %d bolo zrušené";
 "Redo" = "Opakovať";
-"Round %d restored" = "%d. kolo bolo obnovené";
+"Round %d restored" = "Kolo %d bolo obnovené";
 "Edit Round %d" = "Upraviť kolo %d";
 "Save" = "Uložiť";
 "Save round scores" = "Uložiť skóre kola";
-"Round %d updated" = "%d. kolo aktualizované";
+"Round %d updated" = "Kolo %d bolo aktualizované";
 "Edit this round" = "Upravte toto kolo";
-"Redo available" = "Znova k dispozícii";
+"Redo available" = "Opakovanie je dostupné";
 "Quick-add button: +%d" = "Tlačidlo rýchleho pridania: +%d";
 "The +%d button in score entry adds this many points per tap." = "Tlačidlo +%d v zadávaní skóre pridá toľko bodov za klepnutie.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Klepnite na hráča, ktorý získal 10♦. V tomto kole získajú odpočítaných 10 bodov.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Klepnite na hráča, ktorý vzal 10♦. V tomto kole sa mu odpočíta 10 bodov.";

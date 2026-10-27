@@ -1,64 +1,64 @@
-"No" = "бр";
+"No" = "Не";
 "Yes" = "Да";
-"Undo Round" = "Ундо Роунд";
+"Undo Round" = "Поништи рунду";
 "Shake to undo the last round!" = "Протресите да поништите последњу рунду!";
 "New Game" = "Нова игра";
-"Are you sure? This will clear all round scores." = "Јесте ли сигурни? Ово ће избрисати све резултате.";
+"Are you sure? This will clear all round scores." = "Јесте ли сигурни? Ово ће избрисати резултате свих рунди.";
 "D" = "Д";
-"Hearts Scoreboard" = "Хеартс Сцоребоард";
-"Game to: %d" = "Игра за: %d";
-"Next Round" = "Нект Роунд";
-"Game over" = "Игра је готова";
-"Pass to the Left" = "Прођите лево";
-"Pass to the Right" = "Прођите десно";
-"Pass Across" = "Пасс Ацросс";
+"Hearts Scoreboard" = "Срца – бројач";
+"Game to: %d" = "Игра до: %d";
+"Next Round" = "Следећа рунда";
+"Game over" = "Крај игре";
+"Pass to the Left" = "Проследи лево";
+"Pass to the Right" = "Проследи десно";
+"Pass Across" = "Проследи преко";
 "Hold on Tight!" = "Држи се чврсто!";
 "No winner" = "Нема победника";
-"%@ won!" = "%@ је победио!";
+"%@ won!" = "Победник: %@";
 "Players" = "Играчи";
-"Player" = "Плаиер";
-"Add Player" = "Додај плејер";
-"Hearts supports 3–6 players." = "Хеартс подржава 3–6 играча.";
-"Dealer" = "Дилер";
+"Player" = "Играч";
+"Add Player" = "Додај играча";
+"Hearts supports 3–6 players." = "Срца се играју са 3–6 играча.";
+"Dealer" = "Дељач";
 "Ending Score" = "Крајњи резултат";
 "Ending Score: %d" = "Крајњи резултат: %d";
 "Appearance" = "Изглед";
 "Settings" = "Подешавања";
 "Done" = "Готово";
 "System" = "Систем";
-"Light" = "Светлост";
-"Dark" = "Дарк";
-"Add 26" = "Додајте 26";
+"Light" = "Светло";
+"Dark" = "Тамно";
+"Add 26" = "Додај 26";
 "Subtract 26" = "Одузми 26";
 "Delete" = "Избриши";
 "Winner" = "Победник";
-"Game History" = "Историја игре";
-"Game Summary" = "Резиме игре";
+"Game History" = "Историја игара";
+"Game Summary" = "Сажетак игре";
 "Quick add" = "Брзо додавање";
-"Shoot the Moon Preference" = "Схоот тхе Моон Преференце";
+"Shoot the Moon Preference" = "Опција за пуцање у месец";
 "Shoot the moon" = "Пуцај у месец";
 "Adds 26 points to every other players' score." = "Додаје 26 поена резултату сваког другог играча.";
 "Subtracts 26 points from the selected player's score." = "Одузима 26 поена од резултата изабраног играча.";
 "Back" = "Назад";
 "Reset" = "Ресетуј";
-"Submit" = "Субмит";
-"Submit round scores" = "Пошаљите резултате рунди";
+"Submit" = "Потврди";
+"Submit round scores" = "Потврди резултате рунде";
 "Round %d" = "Рунда %d";
-"Developed by Christopher Rung" = "Развио Цхристопхер Рунг";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посвећено мом оцу, који воли Хеартс, и научио ме је да увек пуцам у месец.";
+"Developed by Christopher Rung" = "Развој: Christopher Rung";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посвећено мом оцу, који воли Срца и који ме је научио да увек пуцам у месец.";
 "I would love to hear your feedback!" = "Волео бих да чујем ваше повратне информације!";
 "Send Feedback" = "Пошаљите повратне информације";
-"Rate on App Store" = "Оцените на Апп Сторе-у";
+"Rate on App Store" = "Оцените у App Store-у";
 "Donate a coffee to Christopher" = "Донирајте кафу Кристоферу";
 "App Version" = "Верзија апликације";
-"View Source" = "Виев Соурце";
-"About" = "Абоут";
-"Made with love in Denver, CO" = "Направљено с љубављу у Денверу, ЦО";
+"View Source" = "Погледај изворни код";
+"About" = "О апликацији";
+"Made with love in Denver, CO" = "Направљено с љубављу у Денверу, Колорадо";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ вреди −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts варијанта: ко узме 10♦ добија −10 за ту руку. Ово је одвојено од „Пуцај у месец“.";
-"10♦ taken by" = "10♦ узео/ла";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Омнибус варијанта Срца: ко узме 10♦ добија −10 за ту рунду. То је одвојено од пуцања у месец.";
+"10♦ taken by" = "Носилац 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "Изабери ко је узео 10♦";
 
@@ -76,17 +76,17 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Рунда %d, %@: пуцање у месец";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", узео 10 каро";
+", took the 10 of diamonds" = ", узето 10 каро";
 /* HistoryView empty state title */
 "No Games Yet" = "Још нема игара";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Завршене игре ће се појавити овде.";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Рунди: %d";
+"%d rounds" = "Рунде: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Пуцање у месец";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ је узео 10 каро";
+"%@ took the 10 of diamonds" = "Играч %@ је узео 10 каро";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Поена: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -108,34 +108,34 @@
 /* RoundInputView: progress strip, 26 total but all on one player */
 "One player can't take all 26. Use the moon." = "Један играч не може узети свих 26. Користи месец.";
 /* RoundInputView: progress strip over 26 */
-"%d / 26 · %d over" = "%d / 26 · %d преко";
+"%d / 26 · %d over" = "%d / 26 · вишак %d";
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · још %d";
 "Game Rules" = "Правила игре";
 "Recent players" = "Недавни играчи";
 "Add %@" = "Додај %@";
-"Share App" = "Делите апликацију";
-"Rounds" = "Рунди";
+"Share App" = "Подели апликацију";
+"Rounds" = "Рунде";
 "Moons" = "Месеци";
-"10♦ taken" = "10♦ узети";
-"Biggest hand" = "Највећа рука";
+"10♦ taken" = "10♦ узето";
+"Biggest hand" = "Највише у рунди";
 "Score by round" = "Резултат по рунди";
-"Round" = "Округли";
-"%@ won with %d" = "%@ је победио са %d";
-"%@ tied with %d" = "%@ нерешено са %d";
-"Ends at %d" = "Завршава се у %d";
-"Moon adds 26 to others" = "Пуцај у месец додаје 26 осталима";
-"Moon subtracts 26 from shooter" = "Пуцај у месец одузима 26 од стрелца";
+"Round" = "Рунда";
+"%@ won with %d" = "Победа: %@, %d";
+"%@ tied with %d" = "Нерешено: %@, %d";
+"Ends at %d" = "Крај на %d";
+"Moon adds 26 to others" = "Пуцање у месец додаје 26 осталима";
+"Moon subtracts 26 from shooter" = "Пуцање у месец одузима 26 играчу који пуца";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Игре";
 "View" = "Приказ";
 "No Players Yet" = "Још нема играча";
 "Player records appear after your first finished game." = "Записи играча се појављују након ваше прве завршене игре.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Играчи се подударају по имену. Нерешени резултат са најнижим резултатом рачуна се као победа за сваког изједначеног играча.";
-"Played" = "Играо";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Играчи се препознају по имену. Ако је најнижи резултат нерешен, победа се рачуна сваком од изједначених играча.";
+"Played" = "Одиграно";
 "Wins" = "Победе";
-"Avg score" = "Просечна оцена";
-"%d wins in %d games" = "%d побеђује у %d утакмицама";
+"Avg score" = "Просечан резултат";
+"%d wins in %d games" = "Победа: %d, игара: %d";
 "Rematch" = "Реванш";
 "View history" = "Погледај историју";
 "Results" = "Резултати";
@@ -144,16 +144,16 @@
 "Final standings" = "Коначан пласман";
 "%lld points" = "%lld поена";
 "%d. %@, %d points" = "%d. %@, %d поена";
-"%@ won with %lld points." = "%@ је победио са %lld поена.";
-"%@ tied for the win with %lld points." = "%@ је изједначио победу са %lld поена.";
-"%lld rounds" = "%lld рунди";
+"%@ won with %lld points." = "Победа: %@ са %lld поена.";
+"%@ tied for the win with %lld points." = "Подељена победа: %@ са %lld поена.";
+"%lld rounds" = "Рунде: %lld";
 "1 round" = "1 рунда";
-"Hearts Scoreboard result" = "Хеартс Сцоребоард резултат";
-"Share result" = "Поделите резултат";
-"Left" = "лево";
+"Hearts Scoreboard result" = "Резултат игре Срца";
+"Share result" = "Подели резултат";
+"Left" = "Лево";
 "Right" = "Десно";
-"Across" = "преко";
-"Hold" = "Држите";
+"Across" = "Преко";
+"Hold" = "Задржи";
 "to %d" = "до %d";
 "No rounds yet" = "Још нема рунди";
 "Round %d undone" = "Рунда %d је поништена";
@@ -161,10 +161,10 @@
 "Round %d restored" = "Рунда %d је враћена";
 "Edit Round %d" = "Измени рунду %d";
 "Save" = "Сачувај";
-"Save round scores" = "Сачувајте резултате рунди";
+"Save round scores" = "Сачувај резултате рунде";
 "Round %d updated" = "Рунда %d је ажурирана";
 "Edit this round" = "Уредите ову рунду";
-"Redo available" = "Понови доступно";
+"Redo available" = "Понављање је доступно";
 "Quick-add button: +%d" = "Дугме за брзо додавање: +%d";
 "The +%d button in score entry adds this many points per tap." = "Дугме +%d у уносу резултата додаје оволико поена по додиру.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Додирните играча који је узео 10♦. Они добијају 10 поена одузетих у овој рунди.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Додирните играча који је узео 10♦. Њему се у овој рунди одузима 10 поена.";

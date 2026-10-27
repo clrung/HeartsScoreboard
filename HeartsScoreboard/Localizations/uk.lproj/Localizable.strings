@@ -1,64 +1,64 @@
-"No" = "немає";
-"Yes" = "так";
+"No" = "Ні";
+"Yes" = "Так";
 "Undo Round" = "Скасувати раунд";
 "Shake to undo the last round!" = "Струсіть, щоб скасувати останній раунд!";
 "New Game" = "Нова гра";
 "Are you sure? This will clear all round scores." = "Ви впевнені? Це очистить результати всіх раундів.";
-"D" = "Д";
-"Hearts Scoreboard" = "Серве табло";
+"D" = "З";
+"Hearts Scoreboard" = "Рахунок у Червах";
 "Game to: %d" = "Гра до: %d";
 "Next Round" = "Наступний раунд";
 "Game over" = "Гра закінчена";
-"Pass to the Left" = "Пройдіть ліворуч";
-"Pass to the Right" = "Пройдіть праворуч";
-"Pass Across" = "Pass Cross";
-"Hold on Tight!" = "Тримайся міцніше!";
+"Pass to the Left" = "Передати ліворуч";
+"Pass to the Right" = "Передати праворуч";
+"Pass Across" = "Передати навпроти";
+"Hold on Tight!" = "Тримайся міцно!";
 "No winner" = "Немає переможця";
-"%@ won!" = "%@ виграв!";
+"%@ won!" = "Переможець: %@!";
 "Players" = "Гравці";
-"Player" = "гравець";
+"Player" = "Гравець";
 "Add Player" = "Додати гравця";
 "Hearts supports 3–6 players." = "Hearts підтримує 3–6 гравців.";
-"Dealer" = "дилер";
+"Dealer" = "Здавач";
 "Ending Score" = "Кінцевий рахунок";
 "Ending Score: %d" = "Кінцевий рахунок: %d";
 "Appearance" = "Зовнішній вигляд";
 "Settings" = "Налаштування";
 "Done" = "Готово";
-"System" = "система";
-"Light" = "світло";
-"Dark" = "Темний";
-"Add 26" = "Додайте 26";
+"System" = "Система";
+"Light" = "Світла";
+"Dark" = "Темна";
+"Add 26" = "Додати 26";
 "Subtract 26" = "Відняти 26";
 "Delete" = "Видалити";
 "Winner" = "Переможець";
-"Game History" = "Історія гри";
+"Game History" = "Історія ігор";
 "Game Summary" = "Підсумок гри";
 "Quick add" = "Швидке додавання";
-"Shoot the Moon Preference" = "Надання переваги правилу підрахунку очок у Hearts";
-"Shoot the moon" = "Стріляйте в місяць";
+"Shoot the Moon Preference" = "Правило «взяти місяць»";
+"Shoot the moon" = "Взяти місяць";
 "Adds 26 points to every other players' score." = "Додає 26 очок до результатів усіх інших гравців.";
-"Subtracts 26 points from the selected player's score." = "Віднімає 26 балів від результату обраного гравця.";
+"Subtracts 26 points from the selected player's score." = "Віднімає 26 очок від результату обраного гравця.";
 "Back" = "Назад";
 "Reset" = "Скинути";
-"Submit" = "Надіслати";
-"Submit round scores" = "Подати круглі бали";
+"Submit" = "Підтвердити";
+"Submit round scores" = "Підтвердити результати раунду";
 "Round %d" = "Раунд %d";
 "Developed by Christopher Rung" = "Розроблено Крістофером Рунгом";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Присвячується моєму батькові, який любить Hearts і навчив мене завжди стріляти в місяць.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Присвячується моєму батькові, який любить Hearts і навчив мене завжди «брати місяць».";
 "I would love to hear your feedback!" = "Я хотів би почути ваш відгук!";
 "Send Feedback" = "Надіслати відгук";
 "Rate on App Store" = "Оцініть в App Store";
 "Donate a coffee to Christopher" = "Подаруйте каву Крістоферу";
 "App Version" = "Версія програми";
-"View Source" = "Перегляд вихідного коду";
-"About" = "про";
+"View Source" = "Вихідний код";
+"About" = "Про програму";
 "Made with love in Denver, CO" = "Зроблено з любов'ю в Денвері, Колорадо";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ коштує −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варіант Omnibus Hearts: хто бере 10♦, отримує −10 за цю роздачу. Це окремо від «Стріляйте в місяць».";
-"10♦ taken by" = "10♦ взяв(ла)";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Варіант Omnibus Hearts: хто бере 10♦, отримує −10 за цю роздачу. Це окремо від «Взяти місяць».";
+"10♦ taken by" = "10♦ узято гравцем";
 "−10" = "−10";
 "Select who took the 10♦" = "Виберіть, хто взяв 10♦";
 
@@ -74,9 +74,9 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Раунд %d, %@: %d очок";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Раунд %d, %@: постріл у місяць";
+"Round %d, %@: shot the moon" = "Раунд %d, %@: узято місяць";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", узяв(ла) 10 бубен";
+", took the 10 of diamonds" = ", узято 10 бубнів";
 /* HistoryView empty state title */
 "No Games Yet" = "Ще немає ігор";
 /* HistoryView empty state description */
@@ -84,23 +84,23 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "Раундів: %d";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Постріл у місяць";
+"Shot the moon" = "Місяць узято";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ узяв(ла) 10 бубен";
+"%@ took the 10 of diamonds" = "10 бубнів узято гравцем %@";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Очок: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
-"Add %d points to %@" = "Додати %d очок для %@";
+"Add %d points to %@" = "Додати очок: %d — %@";
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "Дама пік для %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "Стріляйте в місяць для %@";
+"Shoot the moon for %@" = "Взяти місяць: %@";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "Зменшити очки для %@";
 /* RoundInputView: VoiceOver label for plus stepper */
 "Increase points for %@" = "Збільшити очки для %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Готово до надсилання";
+"Ready to submit" = "Можна підтвердити";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Виберіть, хто взяв 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -112,48 +112,48 @@
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · залишилось %d";
 "Game Rules" = "Правила гри";
-"Recent players" = "Останні гравці";
+"Recent players" = "Нещодавні гравці";
 "Add %@" = "Додати %@";
-"Share App" = "Поділитися додатком";
+"Share App" = "Поділитися програмою";
 "Rounds" = "Раундів";
 "Moons" = "Місяці";
 "10♦ taken" = "10♦ взято";
-"Biggest hand" = "Найбільша рука";
-"Score by round" = "Раунд за раундом";
+"Biggest hand" = "Максимум за раунд";
+"Score by round" = "Очки по раундах";
 "Round" = "Раунд";
-"%@ won with %d" = "%@ виграв із %d";
-"%@ tied with %d" = "%@ нічия з %d";
-"Ends at %d" = "Закінчується о %d";
-"Moon adds 26 to others" = "Стріляйте в місяць додає 26 до інших";
-"Moon subtracts 26 from shooter" = "Стріляйте в місяць віднімає 26 від стрільця";
+"%@ won with %d" = "Перемога: %@, %d";
+"%@ tied with %d" = "Нічия: %@, %d";
+"Ends at %d" = "Кінець на %d";
+"Moon adds 26 to others" = "Місяць додає 26 іншим";
+"Moon subtracts 26 from shooter" = "Місяць віднімає 26 у гравця, який його взяв";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Ігри";
 "View" = "Перегляд";
 "No Players Yet" = "Гравців ще немає";
 "Player records appear after your first finished game." = "Записи гравців з'являються після вашої першої завершеної гри.";
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Гравці підбираються за іменами. Нічия з найменшим результатом зараховується як перемога для кожного гравця, який має нічию.";
-"Played" = "Грали";
+"Played" = "Зіграно";
 "Wins" = "Перемоги";
-"Avg score" = "Середній бал";
-"%d wins in %d games" = "%d перемагає в %d іграх";
+"Avg score" = "Середній рахунок";
+"%d wins in %d games" = "Перемог: %d, ігор: %d";
 "Rematch" = "Реванш";
 "View history" = "Переглянути історію";
 "Results" = "Результати";
 "Close" = "Закрити";
 "Winners" = "Переможці";
-"Final standings" = "Підсумкова турнірна таблиця";
-"%lld points" = "%lld балів";
-"%d. %@, %d points" = "%d. %@, %d балів";
-"%@ won with %lld points." = "%@ переміг із %lld очок.";
-"%@ tied for the win with %lld points." = "%@ перемагає внічию, набравши %lld очок.";
+"Final standings" = "Підсумкові місця";
+"%lld points" = "Очок: %lld";
+"%d. %@, %d points" = "%d. %@, очок: %d";
+"%@ won with %lld points." = "Перемога: %@, очок: %lld.";
+"%@ tied for the win with %lld points." = "Спільна перемога: %@, очок: %lld.";
 "%lld rounds" = "%lld раундів";
-"1 round" = "1 тур";
-"Hearts Scoreboard result" = "Результат Хартс Табло";
+"1 round" = "1 раунд";
+"Hearts Scoreboard result" = "Результат гри в Черви";
 "Share result" = "Поділіться результатом";
 "Left" = "Ліворуч";
 "Right" = "Праворуч";
-"Across" = "Поперек";
-"Hold" = "утримуйте";
+"Across" = "Навпроти";
+"Hold" = "Залишити";
 "to %d" = "до %d";
 "No rounds yet" = "Раундів ще немає";
 "Round %d undone" = "Раунд %d скасовано";
@@ -161,10 +161,10 @@
 "Round %d restored" = "Раунд %d відновлено";
 "Edit Round %d" = "Редагувати раунд %d";
 "Save" = "Зберегти";
-"Save round scores" = "Збережіть результати раундів";
+"Save round scores" = "Зберегти результати раунду";
 "Round %d updated" = "Раунд %d оновлено";
-"Edit this round" = "Відредагуйте цей раунд";
+"Edit this round" = "Редагувати цей раунд";
 "Redo available" = "Доступне повторення";
 "Quick-add button: +%d" = "Кнопка швидкого додавання: +%d";
 "The +%d button in score entry adds this many points per tap." = "Кнопка +%d під час введення результатів додає стільки балів за одне натискання.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Торкніться гравця, який взяв 10♦. У цьому раунді вони отримують 10 балів.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Торкніться гравця, який узяв 10♦. У цьому раунді йому віднімається 10 очок.";

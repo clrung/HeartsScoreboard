@@ -1,23 +1,23 @@
 "No" = "నం";
 "Yes" = "అవును";
-"Undo Round" = "రౌండ్ అన్డు";
+"Undo Round" = "రౌండ్‌ను రద్దు చేయండి";
 "Shake to undo the last round!" = "చివరి రౌండ్‌ను రద్దు చేయడానికి షేక్ చేయండి!";
 "New Game" = "కొత్త గేమ్";
-"Are you sure? This will clear all round scores." = "మీరు ఖచ్చితంగా ఉన్నారా? ఇది ఆల్ రౌండ్ స్కోర్‌లను క్లియర్ చేస్తుంది.";
+"Are you sure? This will clear all round scores." = "మీరు ఖచ్చితంగా ఉన్నారా? ఇది అన్ని రౌండ్ స్కోర్‌లను తొలగిస్తుంది.";
 "D" = "డి";
-"Hearts Scoreboard" = "హృదయాల స్కోర్‌బోర్డ్";
-"Game to: %d" = "వీరికి గేమ్: %d";
+"Hearts Scoreboard" = "హార్ట్స్ స్కోర్‌బోర్డ్";
+"Game to: %d" = "గేమ్ %d వరకు";
 "Next Round" = "తదుపరి రౌండ్";
 "Game over" = "ఆట ముగిసింది";
-"Pass to the Left" = "ఎడమవైపుకి పాస్ చేయండి";
-"Pass to the Right" = "కుడివైపుకి పాస్ చేయండి";
-"Pass Across" = "దాటండి";
-"Hold on Tight!" = "గట్టిగా పట్టుకోండి!";
+"Pass to the Left" = "ఎడమవైపు పాస్ చేయండి";
+"Pass to the Right" = "కుడివైపు పాస్ చేయండి";
+"Pass Across" = "ఎదురుగా పాస్ చేయండి";
+"Hold on Tight!" = "కార్డులు ఉంచుకోండి!";
 "No winner" = "విజేత లేదు";
 "%@ won!" = "%@ గెలిచారు!";
 "Players" = "ఆటగాళ్ళు";
 "Player" = "ఆటగాడు";
-"Add Player" = "ప్లేయర్‌ని జోడించండి";
+"Add Player" = "ఆటగాడిని జోడించండి";
 "Hearts supports 3–6 players." = "హార్ట్స్ 3–6 ఆటగాళ్లకు మద్దతు ఇస్తుంది.";
 "Dealer" = "డీలర్";
 "Ending Score" = "ముగింపు స్కోరు";
@@ -26,17 +26,17 @@
 "Settings" = "సెట్టింగ్‌లు";
 "Done" = "పూర్తయింది";
 "System" = "వ్యవస్థ";
-"Light" = "కాంతి";
-"Dark" = "చీకటి";
+"Light" = "లేత";
+"Dark" = "ముదురు";
 "Add 26" = "26 జోడించండి";
-"Subtract 26" = "వ్యవకలనం 26";
+"Subtract 26" = "26 తీసివేయండి";
 "Delete" = "తొలగించు";
 "Winner" = "విజేత";
 "Game History" = "గేమ్ చరిత్ర";
 "Game Summary" = "గేమ్ సారాంశం";
-"Quick add" = "త్వరిత జోడించండి";
-"Shoot the Moon Preference" = "మూన్ ప్రాధాన్యతను షూట్ చేయండి";
-"Shoot the moon" = "చంద్రుడిని కాల్చండి";
+"Quick add" = "త్వరగా జోడించండి";
+"Shoot the Moon Preference" = "చంద్రుడి ప్రాధాన్యత";
+"Shoot the moon" = "చంద్రుడిని తీసుకోండి";
 "Adds 26 points to every other players' score." = "ప్రతి ఇతర ఆటగాళ్ల స్కోర్‌కు 26 పాయింట్లను జోడిస్తుంది.";
 "Subtracts 26 points from the selected player's score." = "ఎంచుకున్న ఆటగాడి స్కోర్ నుండి 26 పాయింట్లను తీసివేస్తుంది.";
 "Back" = "వెనుకకు";
@@ -45,7 +45,7 @@
 "Submit round scores" = "రౌండ్ స్కోర్‌లను సమర్పించండి";
 "Round %d" = "రౌండ్ %d";
 "Developed by Christopher Rung" = "క్రిస్టోఫర్ రంగ్చే అభివృద్ధి చేయబడింది";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "హృదయాలను ఇష్టపడే నా తండ్రికి అంకితం, మరియు ఎల్లప్పుడూ చంద్రుడిని కాల్చడం నాకు నేర్పించారు.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "హార్ట్స్ ఆటను ఇష్టపడే, ఎల్లప్పుడూ చంద్రుడిని తీసుకోవడం నాకు నేర్పిన నా తండ్రికి అంకితం.";
 "I would love to hear your feedback!" = "నేను మీ అభిప్రాయాన్ని వినడానికి ఇష్టపడతాను!";
 "Send Feedback" = "అభిప్రాయాన్ని పంపండి";
 "Rate on App Store" = "యాప్ స్టోర్‌లో రేట్ చేయండి";
@@ -53,11 +53,11 @@
 "App Version" = "యాప్ వెర్షన్";
 "View Source" = "మూలాన్ని వీక్షించండి";
 "About" = "గురించి";
-"Made with love in Denver, CO" = "డెన్వర్, CO లో ప్రేమతో తయారు చేయబడింది";
+"Made with love in Denver, CO" = "డెన్వర్, కొలరాడోలో ప్రేమతో తయారు చేయబడింది";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ విలువ −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts వేరియంట్: 10♦ తీసుకున్నవారికి ఆ చేతికి −10 వస్తుంది. ఇది \"చంద్రుడిని కాల్చండి\" నుండి వేరుగా ఉంటుంది.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts వేరియంట్: 10♦ తీసుకున్నవారికి ఆ రౌండ్‌కు −10 వస్తుంది. ఇది \"చంద్రుడిని తీసుకోండి\" నుండి వేరుగా ఉంటుంది.";
 "10♦ taken by" = "10♦ తీసుకున్నవారు";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ఎవరు తీసుకున్నారో ఎంచుకోండి";
@@ -74,9 +74,9 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "రౌండ్ %d, %@: %d పాయింట్లు";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "రౌండ్ %d, %@: చంద్రుడిని కాల్చారు";
+"Round %d, %@: shot the moon" = "రౌండ్ %d, %@: చంద్రుడిని తీసుకున్నారు";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", డైమండ్ 10 తీసుకున్నారు";
+", took the 10 of diamonds" = ", 10♦ తీసుకున్నారు";
 /* HistoryView empty state title */
 "No Games Yet" = "ఇంకా గేమ్‌లు లేవు";
 /* HistoryView empty state description */
@@ -84,9 +84,9 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d రౌండ్లు";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "చంద్రుడిని కాల్చారు";
+"Shot the moon" = "చంద్రుడిని తీసుకున్నారు";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ డైమండ్ 10 తీసుకున్నారు";
+"%@ took the 10 of diamonds" = "%@ 10♦ తీసుకున్నారు";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "%d పాయింట్లు";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@కి స్పేడ్స్ రాణి";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ కోసం చంద్రుడిని కాల్చండి";
+"Shoot the moon for %@" = "%@ కోసం చంద్రుడిని తీసుకోండి";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ పాయింట్లు తగ్గించండి";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -119,29 +119,29 @@
 "Moons" = "చంద్రులు";
 "10♦ taken" = "10♦ తీసుకోబడింది";
 "Biggest hand" = "అతి పెద్ద చేయి";
-"Score by round" = "రౌండ్ వారీగా స్కోర్ చేయండి";
+"Score by round" = "రౌండ్ వారీగా స్కోర్";
 "Round" = "రౌండ్";
 "%@ won with %d" = "%2$dతో %1$@ గెలిచింది";
 "%@ tied with %d" = "%@ %dతో టై అయింది";
 "Ends at %d" = "%dకి ముగుస్తుంది";
-"Moon adds 26 to others" = "చంద్రుడిని కాల్చండి 26ని ఇతరులకు జోడిస్తుంది";
-"Moon subtracts 26 from shooter" = "షూటర్ నుండి చంద్రుడిని కాల్చండి 26 తీసివేస్తుంది";
+"Moon adds 26 to others" = "చంద్రుడు: ఇతరులకు +26";
+"Moon subtracts 26 from shooter" = "చంద్రుడు: తీసుకున్నవారికి −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ఆటలు";
 "View" = "వీక్షణ";
 "No Players Yet" = "ఇంకా ఆటగాళ్లు లేరు";
-"Player records appear after your first finished game." = "మీ మొదటి ఆట పూర్తయిన తర్వాత ప్లేయర్ రికార్డ్‌లు కనిపిస్తాయి.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ఆటగాళ్లు పేర్లతో సరిపోలారు. అత్యల్ప స్కోర్‌కు టైలు కట్టిన ప్రతి ఆటగాడికి విజయంగా లెక్కించబడుతుంది.";
+"Player records appear after your first finished game." = "మీ మొదటి ఆట పూర్తయిన తర్వాత ఆటగాళ్ల రికార్డులు కనిపిస్తాయి.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ఆటగాళ్లను పేరుతో సరిపోల్చడం జరుగుతుంది. అత్యల్ప స్కోరులో టై అయితే, టై అయిన ప్రతి ఆటగాడికి ఒక విజయం లెక్కించబడుతుంది.";
 "Played" = "ఆడిన";
 "Wins" = "విజయాలు";
 "Avg score" = "సగటు స్కోరు";
-"%d wins in %d games" = "%d గేమ్‌లలో %d గెలుపొందింది";
-"Rematch" = "మళ్లీ మ్యాచ్";
+"%d wins in %d games" = "%2$d గేమ్‌లలో %1$d విజయాలు";
+"Rematch" = "మళ్లీ ఆడండి";
 "View history" = "చరిత్రను వీక్షించండి";
 "Results" = "ఫలితాలు";
 "Close" = "మూసివేయి";
 "Winners" = "విజేతలు";
-"Final standings" = "తుది స్టాండింగ్‌లు";
+"Final standings" = "తుది స్థానాలు";
 "%lld points" = "%lld పాయింట్లు";
 "%d. %@, %d points" = "%d. %@, %d పాయింట్లు";
 "%@ won with %lld points." = "%@ %lld పాయింట్లతో గెలిచింది.";
@@ -152,12 +152,12 @@
 "Share result" = "ఫలితాన్ని భాగస్వామ్యం చేయండి";
 "Left" = "ఎడమ";
 "Right" = "కుడి";
-"Across" = "అంతటా";
-"Hold" = "పట్టుకోండి";
+"Across" = "ఎదురుగా";
+"Hold" = "ఉంచు";
 "to %d" = "%dకి";
 "No rounds yet" = "ఇంకా రౌండ్‌లు లేవు";
 "Round %d undone" = "రౌండ్ %d రద్దు చేయబడింది";
-"Redo" = "పునరావృతం చేయి";
+"Redo" = "మళ్లీ చేయి";
 "Round %d restored" = "రౌండ్ %d పునరుద్ధరించబడింది";
 "Edit Round %d" = "రౌండ్ %dని సవరించండి";
 "Save" = "సేవ్";
@@ -167,4 +167,4 @@
 "Redo available" = "మళ్లీ చేయి అందుబాటులో ఉంది";
 "Quick-add button: +%d" = "త్వరిత-జోడించు బటన్: +%d";
 "The +%d button in score entry adds this many points per tap." = "స్కోర్ నమోదులోని +%d బటన్ ఒక్కో ట్యాప్‌కు ఇన్ని పాయింట్లను జోడిస్తుంది.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ని తీసుకున్న ప్లేయర్‌ని ట్యాప్ చేయండి. ఈ రౌండ్‌లో తీసివేస్తే వారికి 10 పాయింట్లు లభిస్తాయి.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ని తీసుకున్న ఆటగాడిని ట్యాప్ చేయండి. ఈ రౌండ్‌లో వారి స్కోర్ నుండి 10 పాయింట్లు తీసివేయబడతాయి.";

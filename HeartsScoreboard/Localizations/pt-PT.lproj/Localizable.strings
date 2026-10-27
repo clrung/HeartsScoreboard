@@ -1,63 +1,63 @@
 "No" = "Não";
 "Yes" = "Sim";
-"Undo Round" = "Desfazer rodada";
-"Shake to undo the last round!" = "Agite para desfazer a última rodada!";
+"Undo Round" = "Desfazer ronda";
+"Shake to undo the last round!" = "Abane para desfazer a última ronda!";
 "New Game" = "Novo jogo";
-"Are you sure? This will clear all round scores." = "Você tem certeza? Isso limpará todas as pontuações da rodada.";
+"Are you sure? This will clear all round scores." = "Tem a certeza? Serão apagadas todas as pontuações das rondas.";
 "D" = "D";
-"Hearts Scoreboard" = "Placar de Copas";
-"Game to: %d" = "Jogo para: %d";
-"Next Round" = "Próxima Rodada";
+"Hearts Scoreboard" = "Marcador de Copas";
+"Game to: %d" = "Jogo até %d";
+"Next Round" = "Ronda seguinte";
 "Game over" = "Fim do jogo";
-"Pass to the Left" = "Passe para a esquerda";
-"Pass to the Right" = "Passe para a direita";
-"Pass Across" = "Atravessar";
-"Hold on Tight!" = "Segure firme!";
+"Pass to the Left" = "Passar para a esquerda";
+"Pass to the Right" = "Passar para a direita";
+"Pass Across" = "Passar em frente";
+"Hold on Tight!" = "Aguenta firme!";
 "No winner" = "Nenhum vencedor";
 "%@ won!" = "%@ ganhou!";
 "Players" = "Jogadores";
 "Player" = "Jogador";
 "Add Player" = "Adicionar jogador";
-"Hearts supports 3–6 players." = "Copas suporta 3–6 jogadores.";
-"Dealer" = "Revendedor";
+"Hearts supports 3–6 players." = "Copas joga-se com 3–6 jogadores.";
+"Dealer" = "Dador";
 "Ending Score" = "Pontuação final";
 "Ending Score: %d" = "Pontuação final: %d";
-"Appearance" = "Aparência";
-"Settings" = "Configurações";
+"Appearance" = "Aspeto";
+"Settings" = "Definições";
 "Done" = "Concluído";
 "System" = "Sistema";
-"Light" = "Luz";
+"Light" = "Claro";
 "Dark" = "Escuro";
-"Add 26" = "Adicionar 26";
-"Subtract 26" = "Subtraia 26";
-"Delete" = "Excluir";
+"Add 26" = "Somar 26";
+"Subtract 26" = "Subtrair 26";
+"Delete" = "Eliminar";
 "Winner" = "Vencedor";
-"Game History" = "História do jogo";
+"Game History" = "Histórico de jogos";
 "Game Summary" = "Resumo do jogo";
 "Quick add" = "Adição rápida";
-"Shoot the Moon Preference" = "Preferência de atirar na lua";
-"Shoot the moon" = "Atire na lua";
+"Shoot the Moon Preference" = "Preferência de «atirar à lua»";
+"Shoot the moon" = "Atirar à lua";
 "Adds 26 points to every other players' score." = "Adiciona 26 pontos à pontuação de todos os outros jogadores.";
 "Subtracts 26 points from the selected player's score." = "Subtrai 26 pontos da pontuação do jogador selecionado.";
 "Back" = "Voltar";
-"Reset" = "Redefinir";
-"Submit" = "Enviar";
-"Submit round scores" = "Enviar pontuações da rodada";
-"Round %d" = "Rodada %d";
+"Reset" = "Repor";
+"Submit" = "Submeter";
+"Submit round scores" = "Submeter pontuações da ronda";
+"Round %d" = "Ronda %d";
 "Developed by Christopher Rung" = "Desenvolvido por Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedicado ao meu pai, que adora Copas e me ensinou a sempre atirar na lua.";
-"I would love to hear your feedback!" = "Eu adoraria ouvir seu feedback!";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedicado ao meu pai, que adora Copas e me ensinou a atirar sempre à lua.";
+"I would love to hear your feedback!" = "Gostaria de ouvir a sua opinião!";
 "Send Feedback" = "Enviar comentários";
 "Rate on App Store" = "Avalie na App Store";
-"Donate a coffee to Christopher" = "Doe um café para Christopher";
-"App Version" = "Versão do aplicativo";
-"View Source" = "Ver fonte";
+"Donate a coffee to Christopher" = "Ofereça um café ao Christopher";
+"App Version" = "Versão da app";
+"View Source" = "Ver código-fonte";
 "About" = "Sobre";
 "Made with love in Denver, CO" = "Feito com amor em Denver, CO";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "O 10♦ vale −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variante Omnibus Hearts: quem levar o 10♦ marca −10 nessa mão. É independente de \"Atire na lua\".";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Variante Omnibus Hearts: quem levar o 10♦ marca −10 nessa mão. É independente de «Atirar à lua».";
 "10♦ taken by" = "10♦ levado por";
 "−10" = "−10";
 "Select who took the 10♦" = "Selecione quem ficou com o 10♦";
@@ -66,15 +66,15 @@
 /* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
 "%d to go" = "Faltam %d";
 /* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
-"Leading" = "Na frente";
+"Leading" = "Na liderança";
 /* GameView: History toolbar button VoiceOver label */
 "History" = "Histórico";
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
-"Round added. %@ leads" = "Rodada adicionada. %@ lidera";
+"Round added. %@ leads" = "Ronda adicionada. %@ lidera";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "Rodada %d, %@: %d pontos";
+"Round %d, %@: %d points" = "Ronda %d, %@: %d pontos";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Rodada %d, %@: atirou na lua";
+"Round %d, %@: shot the moon" = "Ronda %d, %@: atirou à lua";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", levou o 10 de ouros";
 /* HistoryView empty state title */
@@ -82,9 +82,9 @@
 /* HistoryView empty state description */
 "Finished games will show up here." = "Os jogos terminados aparecerão aqui.";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rodadas";
+"%d rounds" = "%d rondas";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Atirou na lua";
+"Shot the moon" = "Atirou à lua";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ levou o 10 de ouros";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "Dama de espadas para %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "Atire na lua por %@";
+"Shoot the moon for %@" = "Atirar à lua por %@";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "Diminuir pontos de %@";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -114,25 +114,25 @@
 "Game Rules" = "Regras do jogo";
 "Recent players" = "Jogadores recentes";
 "Add %@" = "Adicionar %@";
-"Share App" = "Compartilhar aplicativo";
-"Rounds" = "Rodadas";
+"Share App" = "Partilhar app";
+"Rounds" = "Rondas";
 "Moons" = "Luas";
-"10♦ taken" = "10♦ tirada";
-"Biggest hand" = "Maior mão";
-"Score by round" = "Pontuação por rodada";
-"Round" = "Rodada";
+"10♦ taken" = "10♦ levados";
+"Biggest hand" = "Maior ronda";
+"Score by round" = "Pontuação por ronda";
+"Round" = "Ronda";
 "%@ won with %d" = "%@ ganhou com %d";
-"%@ tied with %d" = "%@ empatado com %d";
-"Ends at %d" = "Termina às %d";
-"Moon adds 26 to others" = "Atire na lua adiciona 26 aos outros";
-"Moon subtracts 26 from shooter" = "Atire na lua subtrai 26 do atirador";
+"%@ tied with %d" = "%@ empatou com %d";
+"Ends at %d" = "Termina em %d";
+"Moon adds 26 to others" = "Atirar à lua adiciona 26 aos outros";
+"Moon subtracts 26 from shooter" = "Atirar à lua subtrai 26 a quem atira";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Jogos";
-"View" = "Visualizar";
+"View" = "Ver";
 "No Players Yet" = "Ainda não há jogadores";
-"Player records appear after your first finished game." = "Os registros do jogador aparecem após o término do primeiro jogo.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Os jogadores são combinados por nome. Empates com a pontuação mais baixa contam como vitória para cada jogador empatado.";
-"Played" = "Jogado";
+"Player records appear after your first finished game." = "Os registos dos jogadores aparecem depois de terminar o primeiro jogo.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Os jogadores são agrupados por nome. Empates na pontuação mais baixa contam como vitória para cada jogador empatado.";
+"Played" = "Jogados";
 "Wins" = "Vitórias";
 "Avg score" = "Pontuação média";
 "%d wins in %d games" = "%d vitórias em %d jogos";
@@ -146,25 +146,25 @@
 "%d. %@, %d points" = "%d. %@, %d pontos";
 "%@ won with %lld points." = "%@ venceu com %lld pontos.";
 "%@ tied for the win with %lld points." = "%@ empatou na vitória com %lld pontos.";
-"%lld rounds" = "%lld rodadas";
-"1 round" = "1 rodada";
-"Hearts Scoreboard result" = "Resultado do placar de copas";
-"Share result" = "Compartilhar resultado";
+"%lld rounds" = "%lld rondas";
+"1 round" = "1 ronda";
+"Hearts Scoreboard result" = "Resultado do Marcador de Copas";
+"Share result" = "Partilhar resultado";
 "Left" = "Esquerda";
 "Right" = "Direita";
-"Across" = "Através";
-"Hold" = "Segure";
+"Across" = "Em frente";
+"Hold" = "Sem passe";
 "to %d" = "para %d";
-"No rounds yet" = "Ainda não há rodadas";
-"Round %d undone" = "Rodada %d desfeita";
+"No rounds yet" = "Ainda não há rondas";
+"Round %d undone" = "Ronda %d desfeita";
 "Redo" = "Refazer";
-"Round %d restored" = "Rodada %d restaurada";
-"Edit Round %d" = "Editar rodada %d";
-"Save" = "Salvar";
-"Save round scores" = "Salvar pontuações da rodada";
-"Round %d updated" = "Rodada %d atualizada";
-"Edit this round" = "Editar esta rodada";
+"Round %d restored" = "Ronda %d restaurada";
+"Edit Round %d" = "Editar ronda %d";
+"Save" = "Guardar";
+"Save round scores" = "Guardar pontuações da ronda";
+"Round %d updated" = "Ronda %d atualizada";
+"Edit this round" = "Editar esta ronda";
 "Redo available" = "Refazer disponível";
 "Quick-add button: +%d" = "Botão de adição rápida: +%d";
 "The +%d button in score entry adds this many points per tap." = "O botão +%d na entrada de pontuação adiciona esta quantidade de pontos por toque.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toque no jogador que pegou o 10♦. Eles recebem 10 pontos subtraídos nesta rodada.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toque no jogador que levou o 10♦. Ao jogador são subtraídos 10 pontos nesta ronda.";

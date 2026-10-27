@@ -18,7 +18,7 @@
 "Players" = "Spieler";
 "Player" = "Spieler";
 "Add Player" = "Spieler hinzufügen";
-"Hearts supports 3–6 players." = "Herz wird mit 3–6 Spielern gespielt.";
+"Hearts supports 3–6 players." = "Hearts wird mit 3–6 Spielern gespielt.";
 "Dealer" = "Geber";
 "Ending Score" = "Endpunktzahl";
 "Ending Score: %d" = "Endpunktzahl: %d";
@@ -45,7 +45,7 @@
 "Submit round scores" = "Rundenpunkte absenden";
 "Round %d" = "Runde %d";
 "Developed by Christopher Rung" = "Entwickelt von Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Meinem Vater gewidmet, der Herz liebt und mir beigebracht hat, immer den Mond zu schießen.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Meinem Vater gewidmet, der Hearts liebt und mir beigebracht hat, immer den Mond zu schießen.";
 "I would love to hear your feedback!" = "Über dein Feedback würde ich mich freuen!";
 "Send Feedback" = "Feedback senden";
 "Rate on App Store" = "Im App Store bewerten";
@@ -92,7 +92,7 @@
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
 "Add %d points to %@" = "%d Punkte zu %@ hinzufügen";
 /* RoundInputView: VoiceOver label for Q spades chip */
-"Queen of spades to %@" = "Pik Dame an %@";
+"Queen of spades to %@" = "Pik-Dame an %@";
 /* RoundInputView: VoiceOver label for moon chip */
 "Shoot the moon for %@" = "Mond schießen für %@";
 /* RoundInputView: VoiceOver label for minus stepper */
@@ -130,12 +130,12 @@
 "Games" = "Spiele";
 "View" = "Ansicht";
 "No Players Yet" = "Noch keine Spieler";
-"Player records appear after your first finished game." = "Spielerdatensätze erscheinen nach Ihrem ersten abgeschlossenen Spiel.";
+"Player records appear after your first finished game." = "Spielerdatensätze erscheinen nach deinem ersten abgeschlossenen Spiel.";
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Die Spieler werden namentlich zugeordnet. Unentschieden für die niedrigste Punktzahl zählen als Sieg für jeden Spieler mit Gleichstand.";
 "Played" = "Gespielt";
 "Wins" = "Siege";
-"Avg score" = "Durchschnittliche Punktzahl";
-"%d wins in %d games" = "%d gewinnt in %d Spielen";
+"Avg score" = "Ø Punkte";
+"%d wins in %d games" = "%d Siege in %d Spielen";
 "Rematch" = "Rückkampf";
 "View history" = "Verlauf anzeigen";
 "Results" = "Ergebnisse";
@@ -145,10 +145,10 @@
 "%lld points" = "%lld Punkte";
 "%d. %@, %d points" = "%d. %@, %d Punkte";
 "%@ won with %lld points." = "%@ hat mit %lld Punkten gewonnen.";
-"%@ tied for the win with %lld points." = "%@ sicherte sich den Sieg mit %lld Punkten.";
+"%@ tied for the win with %lld points." = "%@ teilt sich den Sieg mit %lld Punkten.";
 "%lld rounds" = "%lld Runden";
 "1 round" = "1 Runde";
-"Hearts Scoreboard result" = "Ergebnis der Herz-Anzeigetafel";
+"Hearts Scoreboard result" = "Ergebnis aus Herz-Zähler";
 "Share result" = "Ergebnis teilen";
 "Left" = "Links";
 "Right" = "Rechts";
@@ -157,14 +157,14 @@
 "to %d" = "bis %d";
 "No rounds yet" = "Noch keine Runden";
 "Round %d undone" = "Runde %d rückgängig gemacht";
-"Redo" = "Wiederherstellen";
+"Redo" = "Wiederholen";
 "Round %d restored" = "Runde %d wiederhergestellt";
 "Edit Round %d" = "Runde %d bearbeiten";
 "Save" = "Speichern";
 "Save round scores" = "Rundenergebnisse speichern";
 "Round %d updated" = "Runde %d aktualisiert";
-"Edit this round" = "Bearbeiten Sie diese Runde";
-"Redo available" = "Wiederherstellung verfügbar";
-"Quick-add button: +%d" = "Schaltfläche „Schnell hinzufügen“: +%d";
-"The +%d button in score entry adds this many points per tap." = "Die +%d-Schaltfläche in der Punkteeingabe fügt pro Tippen diese Anzahl an Punkten hinzu.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tippen Sie auf den Spieler, der die 10♦ genommen hat. In dieser Runde werden ihnen 10 Punkte abgezogen.";
+"Edit this round" = "Diese Runde bearbeiten";
+"Redo available" = "Wiederholen verfügbar";
+"Quick-add button: +%d" = "Schaltfläche „Schnell addieren“: +%d";
+"The +%d button in score entry adds this many points per tap." = "Die +%d-Schaltfläche in der Punkteeingabe fügt pro Tipp diese Anzahl an Punkten hinzu.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tippe auf den Spieler, der die 10♦ genommen hat. Diesem werden in dieser Runde 10 Punkte abgezogen.";

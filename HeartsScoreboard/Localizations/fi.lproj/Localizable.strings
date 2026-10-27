@@ -2,24 +2,24 @@
 "Yes" = "Kyllä";
 "Undo Round" = "Kumoa kierros";
 "Shake to undo the last round!" = "Kumoa viimeinen kierros ravistamalla!";
-"New Game" = "Uusi Peli";
+"New Game" = "Uusi peli";
 "Are you sure? This will clear all round scores." = "Oletko varma? Tämä poistaa kaikkien kierrosten tulokset.";
-"D" = "D";
+"D" = "J";
 "Hearts Scoreboard" = "Sydämien tulostaulu";
-"Game to: %d" = "Peli: %d";
+"Game to: %d" = "Peli pisteeseen %d";
 "Next Round" = "Seuraava kierros";
 "Game over" = "Peli ohi";
-"Pass to the Left" = "Ohita vasemmalle";
-"Pass to the Right" = "Ohita oikealle";
-"Pass Across" = "Korttien jakaminen vastakkaiselle pelaajalle Heartsissa";
-"Hold on Tight!" = "Pidä tiukasti kiinni!";
+"Pass to the Left" = "Anna vasemmalle";
+"Pass to the Right" = "Anna oikealle";
+"Pass Across" = "Anna vastapäätä";
+"Hold on Tight!" = "Pidä kortit!";
 "No winner" = "Ei voittajaa";
 "%@ won!" = "%@ voitti!";
 "Players" = "Pelaajat";
 "Player" = "Pelaaja";
 "Add Player" = "Lisää pelaaja";
-"Hearts supports 3–6 players." = "Hearts tukee 3-6 pelaajaa.";
-"Dealer" = "Jälleenmyyjä";
+"Hearts supports 3–6 players." = "Hearts tukee 3–6 pelaajaa.";
+"Dealer" = "Jakaja";
 "Ending Score" = "Lopputulos";
 "Ending Score: %d" = "Lopputulos: %d";
 "Appearance" = "Ulkonäkö";
@@ -35,7 +35,7 @@
 "Game History" = "Pelihistoria";
 "Game Summary" = "Pelin yhteenveto";
 "Quick add" = "Nopea lisäys";
-"Shoot the Moon Preference" = "Ammu Moon Preference";
+"Shoot the Moon Preference" = "Asetus: Ammu kuu";
 "Shoot the moon" = "Ammu kuu";
 "Adds 26 points to every other players' score." = "Lisää 26 pistettä kaikkien muiden pelaajien pisteisiin.";
 "Subtracts 26 points from the selected player's score." = "Vähentää 26 pistettä valitun pelaajan tuloksesta.";
@@ -45,7 +45,7 @@
 "Submit round scores" = "Lähetä kierroksen tulokset";
 "Round %d" = "Kierros %d";
 "Developed by Christopher Rung" = "Kehittäjä Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Omistettu isälleni, joka rakastaa sydämiä ja on opettanut minut aina ampumaan kuuta.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Omistettu isälleni, joka rakastaa Heartsia ja on opettanut minut aina ampumaan kuuta.";
 "I would love to hear your feedback!" = "Haluaisin kuulla palautettasi!";
 "Send Feedback" = "Lähetä palautetta";
 "Rate on App Store" = "Arvioi App Storessa";
@@ -76,7 +76,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Kierros %d, %@: ampui kuun";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", otti ruutu 10:n";
+", took the 10 of diamonds" = ", otti ruutukympin";
 /* HistoryView empty state title */
 "No Games Yet" = "Ei vielä pelejä";
 /* HistoryView empty state description */
@@ -86,7 +86,7 @@
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ampui kuun";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ otti ruutu 10:n";
+"%@ took the 10 of diamonds" = "%@ otti ruutukympin";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "%d pistettä";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -115,17 +115,17 @@
 "Recent players" = "Viimeaikaiset pelaajat";
 "Add %@" = "Lisää %@";
 "Share App" = "Jaa sovellus";
-"Rounds" = "Kierrosta";
+"Rounds" = "Kierrokset";
 "Moons" = "Kuut";
 "10♦ taken" = "10♦ otettu";
 "Biggest hand" = "Suurin käsi";
 "Score by round" = "Pisteet kierroksittain";
 "Round" = "Kierros";
-"%@ won with %d" = "%@ voitti rahalla %d";
-"%@ tied with %d" = "%@ tasapeliin %d";
-"Ends at %d" = "Päättyy %d";
-"Moon adds 26 to others" = "Ammu kuu lisää 26 muihin";
-"Moon subtracts 26 from shooter" = "Ammu kuu vähentää 26 ampujasta";
+"%@ won with %d" = "%@ voitti pisteillä %d";
+"%@ tied with %d" = "%@ tasapisteissä: %d";
+"Ends at %d" = "Päättyy: %d";
+"Moon adds 26 to others" = "Kuuhun ampuminen lisää 26 muille";
+"Moon subtracts 26 from shooter" = "Kuuhun ampuminen vähentää 26 ampujalta";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Pelit";
 "View" = "Näytä";
@@ -134,27 +134,27 @@
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Pelaajat yhdistetään nimillä. Alimman pistemäärän tasapelit lasketaan jokaisen tasatilanteen pelaajan voitoksi.";
 "Played" = "Pelattu";
 "Wins" = "Voitot";
-"Avg score" = "Keskimääräinen pistemäärä";
+"Avg score" = "Keskipisteet";
 "%d wins in %d games" = "%d voittoa %d pelissä";
-"Rematch" = "Uusintaottelu";
+"Rematch" = "Revanssi";
 "View history" = "Näytä historia";
 "Results" = "Tulokset";
 "Close" = "Sulje";
 "Winners" = "Voittajat";
-"Final standings" = "Lopullinen sijoitukset";
+"Final standings" = "Lopulliset sijoitukset";
 "%lld points" = "%lld pistettä";
 "%d. %@, %d points" = "%d. %@, %d pistettä";
 "%@ won with %lld points." = "%@ voitti %lld pisteellä.";
 "%@ tied for the win with %lld points." = "%@ jakaa voiton %lld pisteellä.";
 "%lld rounds" = "%lld kierrosta";
 "1 round" = "1 kierros";
-"Hearts Scoreboard result" = "Hearts Scoreboard tulos";
+"Hearts Scoreboard result" = "Hearts Scoreboardin tulos";
 "Share result" = "Jaa tulos";
 "Left" = "Vasen";
 "Right" = "Oikea";
-"Across" = "poikki";
+"Across" = "Vastapäätä";
 "Hold" = "Pidä";
-"to %d" = "vastaanottajalle %d";
+"to %d" = "%d:ään";
 "No rounds yet" = "Ei vielä kierroksia";
 "Round %d undone" = "Kierros %d kumottu";
 "Redo" = "Tee uudelleen";
@@ -164,7 +164,7 @@
 "Save round scores" = "Tallenna kierroksen tulokset";
 "Round %d updated" = "Kierros %d päivitetty";
 "Edit this round" = "Muokkaa tätä kierrosta";
-"Redo available" = "Uusinta saatavilla";
+"Redo available" = "Tee uudelleen saatavilla";
 "Quick-add button: +%d" = "Pikalisäyspainike: +%d";
 "The +%d button in score entry adds this many points per tap." = "Tulosmerkinnän +%d-painike lisää näin monta pistettä napautusta kohti.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Napauta pelaajaa, joka voitti 10♦. He saavat 10 pistettä vähennettynä tällä kierroksella.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Napauta pelaajaa, joka otti 10♦:n. Hänelle vähennetään tällä kierroksella 10 pistettä.";

@@ -4,40 +4,40 @@
 "Shake to undo the last round!" = "טלטל כדי לבטל את הסיבוב האחרון!";
 "New Game" = "משחק חדש";
 "Are you sure? This will clear all round scores." = "אתה בטוח? זה ימחק את כל התוצאות.";
-"D" = "ד";
+"D" = "מ";
 "Hearts Scoreboard" = "לוח תוצאות לבבות";
 "Game to: %d" = "משחק ל: %d";
 "Next Round" = "הסיבוב הבא";
 "Game over" = "המשחק נגמר";
 "Pass to the Left" = "עוברים שמאלה";
 "Pass to the Right" = "עוברים ימינה";
-"Pass Across" = "לעבור מעבר";
-"Hold on Tight!" = "תחזיק חזק!";
-"No winner" = "אין מנצח";
+"Pass Across" = "עוברים למול";
+"Hold on Tight!" = "מחזיקים את הקלפים!";
+"No winner" = "אין זוכה";
 "%@ won!" = "%@ זכה!";
 "Players" = "שחקנים";
 "Player" = "שחקן";
 "Add Player" = "הוסף שחקן";
 "Hearts supports 3–6 players." = "Hearts תומך ב-3-6 שחקנים.";
-"Dealer" = "סוחר";
+"Dealer" = "מחלק";
 "Ending Score" = "ציון סיום";
 "Ending Score: %d" = "ציון סיום: %d";
 "Appearance" = "מראה";
 "Settings" = "הגדרות";
-"Done" = "בוצע";
+"Done" = "סיום";
 "System" = "מערכת";
-"Light" = "אור";
+"Light" = "בהיר";
 "Dark" = "כהה";
 "Add 26" = "הוסף 26";
-"Subtract 26" = "הורידו 26";
+"Subtract 26" = "הפחת 26";
 "Delete" = "מחק";
 "Winner" = "זוכה";
 "Game History" = "היסטוריית המשחקים";
 "Game Summary" = "תקציר המשחק";
 "Quick add" = "תוספת מהירה";
-"Shoot the Moon Preference" = "צילום העדפת הירח";
+"Shoot the Moon Preference" = "העדפת ירי בירח";
 "Shoot the moon" = "לירות בירח";
-"Adds 26 points to every other players' score." = "מוסיף 26 נקודות לכל ניקוד של שחקנים אחרים.";
+"Adds 26 points to every other players' score." = "מוסיף 26 נקודות לכל אחד מהשחקנים האחרים.";
 "Subtracts 26 points from the selected player's score." = "מוריד 26 נקודות מהניקוד של השחקן הנבחר.";
 "Back" = "חזרה";
 "Reset" = "אפס";
@@ -45,14 +45,14 @@
 "Submit round scores" = "שלח ציוני סיבוב";
 "Round %d" = "סיבוב %d";
 "Developed by Christopher Rung" = "פותח על ידי כריסטופר רונג";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "מוקדש לאבי, שאוהב לבבות, ולימד אותי לצלם תמיד בירח.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "מוקדש לאבי, שאוהב לבבות, ולימד אותי תמיד לירות בירח.";
 "I would love to hear your feedback!" = "אשמח לשמוע את תגובתך!";
 "Send Feedback" = "שלח משוב";
 "Rate on App Store" = "דרג ב-App Store";
 "Donate a coffee to Christopher" = "תרום קפה לכריסטופר";
 "App Version" = "גרסת האפליקציה";
 "View Source" = "הצג מקור";
-"About" = "בערך";
+"About" = "אודות";
 "Made with love in Denver, CO" = "מיוצר באהבה בדנוור, קולורדו";
 
 /* Rules (Omnibus Hearts variant) */
@@ -76,7 +76,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "סיבוב %d, %@: ירה בירח";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", לקח את 10 יהלום";
+", took the 10 of diamonds" = ", לקח את 10 היהלומים";
 /* HistoryView empty state title */
 "No Games Yet" = "עדיין אין משחקים";
 /* HistoryView empty state description */
@@ -86,7 +86,7 @@
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "ירה בירח";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ לקח את 10 יהלום";
+"%@ took the 10 of diamonds" = "%@ לקח את 10 היהלומים";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "%d נקודות";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -98,7 +98,7 @@
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "הפחת נקודות עבור %@";
 /* RoundInputView: VoiceOver label for plus stepper */
-"Increase points for %@" = "הוסף נקודות עבור %@";
+"Increase points for %@" = "הגדל נקודות עבור %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
 "Ready to submit" = "מוכן לשליחה";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
@@ -108,7 +108,7 @@
 /* RoundInputView: progress strip, 26 total but all on one player */
 "One player can't take all 26. Use the moon." = "שחקן אחד לא יכול לקחת את כל 26. השתמשו בירח.";
 /* RoundInputView: progress strip over 26 */
-"%d / 26 · %d over" = "%d / 26 · %d יותר";
+"%d / 26 · %d over" = "%d / 26 · עודף %d";
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · נותרו %d";
 "Game Rules" = "כללי משחק";
@@ -124,14 +124,14 @@
 "%@ won with %d" = "%@ זכה עם %d";
 "%@ tied with %d" = "%@ בשוויון עם %d";
 "Ends at %d" = "מסתיים ב-%d";
-"Moon adds 26 to others" = "לירות בירח מוסיף את 26 לאחרים";
-"Moon subtracts 26 from shooter" = "לירות בירח מפחית את 26 מהיורה";
+"Moon adds 26 to others" = "ירי בירח מוסיף 26 לאחרים";
+"Moon subtracts 26 from shooter" = "ירי בירח מפחית 26 מהיורה";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "משחקים";
 "View" = "תצוגה";
 "No Players Yet" = "עדיין אין שחקנים";
 "Player records appear after your first finished game." = "רשומות השחקנים מופיעות לאחר המשחק הראשון שסיימת.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "שחקנים מותאמים לפי שם. קשרים עבור הניקוד הנמוך ביותר נחשבים כניצחון עבור כל שחקן בשוויון.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "שחקנים מותאמים לפי שם. שוויון בניקוד הנמוך ביותר נחשב לניצחון לכל אחד מהשחקנים השווים.";
 "Played" = "שיחק";
 "Wins" = "ניצחונות";
 "Avg score" = "ציון ממוצע";
@@ -145,16 +145,16 @@
 "%lld points" = "%lld נקודות";
 "%d. %@, %d points" = "%d. %@, %d נקודות";
 "%@ won with %lld points." = "%@ זכה עם %lld נקודות.";
-"%@ tied for the win with %lld points." = "%@ שווים לניצחון עם %lld נקודות.";
+"%@ tied for the win with %lld points." = "%@ חולקים ניצחון עם %lld נקודות.";
 "%lld rounds" = "%lld סיבובים";
-"1 round" = "סיבוב 1";
+"1 round" = "סיבוב אחד";
 "Hearts Scoreboard result" = "תוצאת לוח התוצאות של הלבבות";
 "Share result" = "שתף את התוצאה";
 "Left" = "שמאלה";
 "Right" = "ימינה";
-"Across" = "מעבר";
-"Hold" = "החזק";
-"to %d" = "אל %d";
+"Across" = "למול";
+"Hold" = "החזקה";
+"to %d" = "עד %d";
 "No rounds yet" = "עדיין אין סיבובים";
 "Round %d undone" = "סיבוב %d בוטל";
 "Redo" = "בצע שוב";
@@ -167,4 +167,4 @@
 "Redo available" = "ביצוע מחדש זמין";
 "Quick-add button: +%d" = "לחצן הוספה מהירה: +%d";
 "The +%d button in score entry adds this many points per tap." = "הלחצן +%d בהזנת ניקוד מוסיף כל כך הרבה נקודות בכל הקשה.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "הקש על הנגן שלקח את ה-10♦. הם מקבלים 10 נקודות בהפחתת הסיבוב הזה.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "הקש על השחקן שלקח את ה-10♦. יופחתו לו 10 נקודות בסיבוב הזה.";

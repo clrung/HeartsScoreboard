@@ -1,63 +1,63 @@
 "No" = "Жоқ";
 "Yes" = "Иә";
-"Undo Round" = "Айналуды болдырмау";
-"Shake to undo the last round!" = "Соңғы айналымды қайтару үшін шайқаңыз!";
+"Undo Round" = "Раундты болдырмау";
+"Shake to undo the last round!" = "Соңғы раундты болдырмау үшін шайқаңыз!";
 "New Game" = "Жаңа ойын";
 "Are you sure? This will clear all round scores." = "Сіз сенімдісіз бе? Бұл барлық раундтық ұпайларды тазартады.";
-"D" = "D";
-"Hearts Scoreboard" = "Жүректердің таблосы";
-"Game to: %d" = "Ойын: %d";
-"Next Round" = "Келесі тур";
+"D" = "Т";
+"Hearts Scoreboard" = "Hearts – есеп тақтасы";
+"Game to: %d" = "Ойын %d ұпайға дейін";
+"Next Round" = "Келесі раунд";
 "Game over" = "Ойын аяқталды";
-"Pass to the Left" = "Солға өту";
-"Pass to the Right" = "Оңға өту";
-"Pass Across" = "Артынан өту";
-"Hold on Tight!" = "Қатты ұстаңыз!";
+"Pass to the Left" = "Солға беру";
+"Pass to the Right" = "Оңға беру";
+"Pass Across" = "Қарсы жаққа беру";
+"Hold on Tight!" = "Карталарды ұстаңыз!";
 "No winner" = "Жеңімпаз жоқ";
 "%@ won!" = "%@ жеңді!";
 "Players" = "Ойыншылар";
 "Player" = "Ойыншы";
 "Add Player" = "Ойыншы қосу";
 "Hearts supports 3–6 players." = "Hearts 3–6 ойыншыны қолдайды.";
-"Dealer" = "Дилер";
+"Dealer" = "Таратушы";
 "Ending Score" = "Аяқтау ұпайы";
-"Ending Score: %d" = "Соңғы ұпай: %d";
+"Ending Score: %d" = "Аяқтау ұпайы: %d";
 "Appearance" = "Сыртқы түрі";
 "Settings" = "Параметрлер";
 "Done" = "Дайын";
 "System" = "Жүйе";
-"Light" = "Жарық";
+"Light" = "Ашық";
 "Dark" = "Қараңғы";
-"Add 26" = "26 қосыңыз";
-"Subtract 26" = "26-ны шегеріңіз";
+"Add 26" = "26 қосу";
+"Subtract 26" = "26 шегеру";
 "Delete" = "Жою";
 "Winner" = "Жеңімпаз";
 "Game History" = "Ойын тарихы";
 "Game Summary" = "Ойынның қорытындысы";
 "Quick add" = "Жылдам қосу";
-"Shoot the Moon Preference" = "Ай артықшылығын түсіріңіз";
-"Shoot the moon" = "Айды түсір";
+"Shoot the Moon Preference" = "«Айды ату» параметрі";
+"Shoot the moon" = "Айды ату";
 "Adds 26 points to every other players' score." = "Басқа ойыншылардың ұпайларына 26 ұпай қосады.";
 "Subtracts 26 points from the selected player's score." = "Таңдалған ойыншының ұпайынан 26 ұпайды шегереді.";
 "Back" = "Артқа";
 "Reset" = "Қалпына келтіру";
-"Submit" = "Жіберу";
-"Submit round scores" = "Турдың ұпайларын жіберіңіз";
+"Submit" = "Растау";
+"Submit round scores" = "Раунд ұпайларын растау";
 "Round %d" = "%d раунд";
 "Developed by Christopher Rung" = "Кристофер Рунг әзірлеген";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Жүректерді жақсы көретін, Әрқашан айды түсіруді үйреткен әкеме арнадым.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Hearts ойынын жақсы көретін және маған әрқашан айды атуды үйреткен әкеме арнаймын.";
 "I would love to hear your feedback!" = "Мен сіздің пікіріңізді тыңдағым келеді!";
 "Send Feedback" = "Кері байланыс жіберу";
 "Rate on App Store" = "App Store дүкенінде бағалаңыз";
 "Donate a coffee to Christopher" = "Кристоферге кофе сыйлаңыз";
 "App Version" = "Қолданба нұсқасы";
-"View Source" = "Дереккөзді көру";
-"About" = "туралы";
-"Made with love in Denver, CO" = "Денверде сүйіспеншілікпен жасалған, CO";
+"View Source" = "Бастапқы кодты көру";
+"About" = "Қолданба туралы";
+"Made with love in Denver, CO" = "Денверде сүйіспеншілікпен жасалған, Колорадо";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ құны −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts нұсқасы: 10♦ алған ойыншы сол қол үшін −10 ұпай алады. Бұл «Айды түсір» ережесінен бөлек.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts нұсқасы: 10♦ алған ойыншы осы раунд үшін −10 ұпай алады. Бұл «Айды ату» ережесінен бөлек.";
 "10♦ taken by" = "10♦ алған";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ кім алғанын таңдаңыз";
@@ -66,7 +66,7 @@
 /* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
 "%d to go" = "%d қалды";
 /* PlayerTotalBadge: VoiceOver value for the leader's total (also reused by HistoryDetailView) */
-"Leading" = "Көшбасшы";
+"Leading" = "Алда";
 /* GameView: History toolbar button VoiceOver label */
 "History" = "Тарих";
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "%d раунд, %@: %d ұпай";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "%d раунд, %@: айды түсірді";
+"Round %d, %@: shot the moon" = "%d раунд, %@: айды атты";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", 10♦ алды";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d раунд";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Айды түсірді";
+"Shot the moon" = "Айды атты";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ 10♦ алды";
 /* RoundInputView: VoiceOver value on a player row */
@@ -92,9 +92,9 @@
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
 "Add %d points to %@" = "%2$@ ойыншысына %1$d ұпай қосу";
 /* RoundInputView: VoiceOver label for Q spades chip */
-"Queen of spades to %@" = "%@ ойыншысына қарға дамасы";
+"Queen of spades to %@" = "%@ ойыншысына пика дамасы";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ үшін айды түсіру";
+"Shoot the moon for %@" = "%@ үшін айды ату";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ ұпайын азайту";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Дайын";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "Бір ойыншы барлық 26-ны ала алмайды. Айды қолданыңыз.";
+"One player can't take all 26. Use the moon." = "Бір ойыншы барлық 26-ны ала алмайды. Айды атыңыз.";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d артық";
 /* RoundInputView: progress strip under 26 */
@@ -115,56 +115,56 @@
 "Recent players" = "Соңғы ойыншылар";
 "Add %@" = "%@ қосу";
 "Share App" = "Қолданбаны бөлісу";
-"Rounds" = "Раунд";
+"Rounds" = "Раундтар";
 "Moons" = "Айлар";
 "10♦ taken" = "10♦ алынды";
-"Biggest hand" = "Ең үлкен қол";
+"Biggest hand" = "Раундтағы ең көбі";
 "Score by round" = "Раунд бойынша ұпай";
 "Round" = "Раунд";
-"%@ won with %d" = "%@ %d жеңді";
-"%@ tied with %d" = "%@ %d командасымен тең";
-"Ends at %d" = "Аяқталу уақыты: %d";
-"Moon adds 26 to others" = "Айды түсір басқаларға 26 қосады";
-"Moon subtracts 26 from shooter" = "Айды түсір атқыштан 26 шегереді";
+"%@ won with %d" = "Жеңіс: %@, %d";
+"%@ tied with %d" = "Тең: %@, %d";
+"Ends at %d" = "%d ұпайда аяқталады";
+"Moon adds 26 to others" = "Айды ату басқаларға 26 қосады";
+"Moon subtracts 26 from shooter" = "Айды ату атушыдан 26 шегереді";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Ойындар";
 "View" = "Көру";
 "No Players Yet" = "Әлі ойыншылар жоқ";
 "Player records appear after your first finished game." = "Ойыншы жазбалары бірінші аяқталған ойыннан кейін пайда болады.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Ойыншылар аты бойынша сәйкестендіріледі. Ең төменгі ұпай үшін тең ойын тең түскен әрбір ойыншы үшін жеңіс болып есептеледі.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Ойыншылар аты бойынша сәйкестендіріледі. Ең төмен ұпайдағы тең нәтиже әр тең ойыншыға жеңіс болып есептеледі.";
 "Played" = "Ойналған";
 "Wins" = "Жеңіс";
-"Avg score" = "Орташа балл";
-"%d wins in %d games" = "%d ойында %d жеңіске жетті";
+"Avg score" = "Орташа ұпай";
+"%d wins in %d games" = "Жеңіс: %d, ойын: %d";
 "Rematch" = "Реванш";
 "View history" = "Тарихты көру";
 "Results" = "Нәтижелер";
 "Close" = "Жабу";
 "Winners" = "Жеңімпаздар";
-"Final standings" = "Қорытынды кестелер";
+"Final standings" = "Қорытынды орындар";
 "%lld points" = "%lld ұпай";
 "%d. %@, %d points" = "%d. %@, %d ұпай";
 "%@ won with %lld points." = "%@ %lld ұпаймен жеңді.";
-"%@ tied for the win with %lld points." = "%@ %lld ұпаймен жеңіске жетті.";
+"%@ tied for the win with %lld points." = "Тең жеңіс: %@, %lld ұпай.";
 "%lld rounds" = "%lld раунд";
-"1 round" = "1 айналым";
-"Hearts Scoreboard result" = "Hearts таблосының нәтижесі";
+"1 round" = "1 раунд";
+"Hearts Scoreboard result" = "Hearts нәтижесі";
 "Share result" = "Нәтижені бөлісу";
-"Left" = "солға";
-"Right" = "оңға";
-"Across" = "↔ арқылы";
-"Hold" = "✋ басып тұрыңыз";
-"to %d" = "%d";
+"Left" = "Солға";
+"Right" = "Оңға";
+"Across" = "Қарсы";
+"Hold" = "Ұстау";
+"to %d" = "дейін: %d";
 "No rounds yet" = "Әзірге раундтар жоқ";
-"Round %d undone" = "%d раунд кері қайтарылды";
+"Round %d undone" = "%d раунд болдырылмады";
 "Redo" = "Қайталау";
 "Round %d restored" = "%d раунд қалпына келтірілді";
 "Edit Round %d" = "%d раундты өңдеу";
 "Save" = "Сақтау";
-"Save round scores" = "Турдағы ұпайларды сақтаңыз";
+"Save round scores" = "Раунд ұпайларын сақтау";
 "Round %d updated" = "%d раунд жаңартылды";
-"Edit this round" = "Осы айналымды өңдеңіз";
+"Edit this round" = "Осы раундты өңдеу";
 "Redo available" = "Қайталау қолжетімді";
 "Quick-add button: +%d" = "Жылдам қосу түймесі: +%d";
 "The +%d button in score entry adds this many points per tap." = "Ұпай жазбасындағы +%d түймесі әр түртуге осынша көп ұпай қосады.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ алған ойыншыны түртіңіз. Олар осы турда 10 ұпайды шегереді.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ алған ойыншыны түртіңіз. Осы раундта оның ұпайынан 10 ұпай шегеріледі.";

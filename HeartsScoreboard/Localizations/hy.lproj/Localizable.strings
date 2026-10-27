@@ -1,24 +1,24 @@
 "No" = "Ոչ";
 "Yes" = "Այո՛";
-"Undo Round" = "Հետարկել կլորը";
-"Shake to undo the last round!" = "Թափահարեք՝ վերջին փուլը չեղարկելու համար:";
+"Undo Round" = "Հետարկել փուլը";
+"Shake to undo the last round!" = "Թափահարեք՝ վերջին փուլը չեղարկելու համար։";
 "New Game" = "Նոր Խաղ";
-"Are you sure? This will clear all round scores." = "Համոզվա՞ծ ես։ Սա կջնջի բոլոր փուլերի միավորները:";
+"Are you sure? This will clear all round scores." = "Համոզվա՞ծ եք։ Սա կջնջի բոլոր փուլերի միավորները։";
 "D" = "Դ";
-"Hearts Scoreboard" = "Ցուցատախտակ Hearts քարտային խաղի համար";
-"Game to: %d" = "Խաղ՝ %d";
+"Hearts Scoreboard" = "Hearts ցուցատախտակ";
+"Game to: %d" = "Խաղ մինչև՝ %d";
 "Next Round" = "Հաջորդ փուլ";
 "Game over" = "Խաղն ավարտվեց";
-"Pass to the Left" = "Անցում դեպի ձախ";
-"Pass to the Right" = "Անցում դեպի աջ";
-"Pass Across" = "Անցում ամբողջ";
-"Hold on Tight!" = "Ամուր պահիր:";
+"Pass to the Left" = "Փոխանցել ձախ";
+"Pass to the Right" = "Փոխանցել աջ";
+"Pass Across" = "Փոխանցել դիմացինին";
+"Hold on Tight!" = "Պահեք քարտերը։";
 "No winner" = "Հաղթող չկա";
-"%@ won!" = "%@ հաղթեց:";
+"%@ won!" = "%@ հաղթեց։";
 "Players" = "Խաղացողներ";
 "Player" = "Խաղացող";
-"Add Player" = "Ավելացնել նվագարկիչ";
-"Hearts supports 3–6 players." = "Hearts-ն աջակցում է 3-6 խաղացողների:";
+"Add Player" = "Ավելացնել խաղացող";
+"Hearts supports 3–6 players." = "Hearts-ն աջակցում է 3-6 խաղացողների։";
 "Dealer" = "Դիլեր";
 "Ending Score" = "Վերջնական միավոր";
 "Ending Score: %d" = "Վերջնական միավոր՝ %d";
@@ -26,38 +26,38 @@
 "Settings" = "Կարգավորումներ";
 "Done" = "Կատարված է";
 "System" = "Համակարգ";
-"Light" = "Լույս";
+"Light" = "Բաց";
 "Dark" = "Մութ";
 "Add 26" = "Ավելացնել 26";
-"Subtract 26" = "հանել 26";
+"Subtract 26" = "Հանել 26";
 "Delete" = "Ջնջել";
 "Winner" = "Հաղթող";
 "Game History" = "Խաղի պատմություն";
 "Game Summary" = "Խաղի ամփոփում";
 "Quick add" = "Արագ ավելացում";
-"Shoot the Moon Preference" = "Նախապատվությունը նկարահանել լուսնի միավորների կանոնին Hearts-ում";
-"Shoot the moon" = "Կրակեք լուսինը";
-"Adds 26 points to every other players' score." = "Յուրաքանչյուր այլ խաղացողի միավորին ավելացնում է 26 միավոր:";
-"Subtracts 26 points from the selected player's score." = "Ընտրված խաղացողի միավորից հանում է 26 միավոր:";
+"Shoot the Moon Preference" = "Լուսնին կրակելու կանոն";
+"Shoot the moon" = "Կրակել լուսնին";
+"Adds 26 points to every other players' score." = "Յուրաքանչյուր այլ խաղացողի միավորին ավելացնում է 26 միավոր։";
+"Subtracts 26 points from the selected player's score." = "Ընտրված խաղացողի միավորից հանում է 26 միավոր։";
 "Back" = "Ետ";
 "Reset" = "Վերականգնել";
-"Submit" = "Ներկայացրե՛ք";
-"Submit round scores" = "Ներկայացրե՛ք տուրի միավորները";
-"Round %d" = "Կլոր %d";
+"Submit" = "Ուղարկել";
+"Submit round scores" = "Ուղարկել փուլի միավորները";
+"Round %d" = "Փուլ %d";
 "Developed by Christopher Rung" = "Մշակված է Քրիստոֆեր Ռունգի կողմից";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Նվիրվում է հորս, ով սիրում է Սրտերը և ինձ սովորեցրել է միշտ կրակել լուսինը:";
-"I would love to hear your feedback!" = "Ես կցանկանայի լսել ձեր կարծիքը:";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Նվիրվում է հորս, ով սիրում է Սրտերը և ինձ սովորեցրել է միշտ կրակել լուսնին։";
+"I would love to hear your feedback!" = "Ես կցանկանայի լսել ձեր կարծիքը։";
 "Send Feedback" = "Ուղարկել կարծիք";
 "Rate on App Store" = "Գնահատեք App Store-ում";
-"Donate a coffee to Christopher" = "Սուրճ նվիրիր Քրիստոֆերին";
+"Donate a coffee to Christopher" = "Սուրճ նվիրեք Քրիստոֆերին";
 "App Version" = "Հավելվածի տարբերակը";
 "View Source" = "Դիտել աղբյուրը";
-"About" = "Մոտ";
-"Made with love in Denver, CO" = "Պատրաստված է սիրով Դենվերում, CO";
+"About" = "Հավելվածի մասին";
+"Made with love in Denver, CO" = "Պատրաստված է սիրով Դենվերում, Կոլորադո";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦-ը արժե −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts տարբերակ. 10♦ վերցնողը այդ խաղաբաժնի համար ստանում է −10: Սա առանձին է «Կրակեք լուսինը»-ից:";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts տարբերակ. 10♦ վերցնողը այդ խաղաբաժնի համար ստանում է −10։ Սա առանձին է «Կրակել լուսնին»-ից։";
 "10♦ taken by" = "10♦-ը վերցրեց";
 "−10" = "−10";
 "Select who took the 10♦" = "Ընտրեք՝ ով վերցրեց 10♦-ը";
@@ -70,11 +70,11 @@
 /* GameView: History toolbar button VoiceOver label */
 "History" = "Պատմություն";
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
-"Round added. %@ leads" = "Կլորը ավելացվեց։ Առաջատարը՝ %@";
+"Round added. %@ leads" = "Փուլը ավելացվեց։ Առաջատարը՝ %@";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "Կլոր %d, %@՝ %d միավոր";
+"Round %d, %@: %d points" = "Փուլ %d, %@՝ %d միավոր";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Կլոր %d, %@՝ կրակեց լուսնին";
+"Round %d, %@: shot the moon" = "Փուլ %d, %@՝ կրակեց լուսնին";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", վերցրեց 10♦-ը";
 /* HistoryView empty state title */
@@ -82,7 +82,7 @@
 /* HistoryView empty state description */
 "Finished games will show up here." = "Ավարտված խաղերը կհայտնվեն այստեղ։";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d կլոր";
+"%d rounds" = "%d փուլ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Կրակեց լուսնին";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Պատրաստ է";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "Մեկ խաղացող չի կարող վերցնել բոլոր 26-ը։ Օգտագործեք լուսինը։";
+"One player can't take all 26. Use the moon." = "Մեկ խաղացող չի կարող վերցնել բոլոր 26-ը։ Օգտագործեք «Կրակել լուսնին»։";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d ավել";
 /* RoundInputView: progress strip under 26 */
@@ -115,27 +115,27 @@
 "Recent players" = "Վերջին խաղացողներ";
 "Add %@" = "Ավելացնել %@";
 "Share App" = "Համօգտագործել հավելվածը";
-"Rounds" = "Կլոր";
+"Rounds" = "Փուլեր";
 "Moons" = "Լուսիններ";
 "10♦ taken" = "10♦ վերցված";
 "Biggest hand" = "Ամենամեծ ձեռքը";
 "Score by round" = "Միավորներ ըստ փուլերի";
-"Round" = "Կլոր";
-"%@ won with %d" = "%@-ը հաղթեց %d-ի հետ";
+"Round" = "Փուլ";
+"%@ won with %d" = "%@-ը հաղթեց %d միավորով";
 "%@ tied with %d" = "%@ ոչ-ոքի է %d-ի հետ";
 "Ends at %d" = "Ավարտվում է %d-ին";
-"Moon adds 26 to others" = "Կրակեք լուսինը-ն ավելացնում է 26-ը մյուսներին";
-"Moon subtracts 26 from shooter" = "Կրակեք լուսինը-ը հանում է 26-ը կրակողից";
+"Moon adds 26 to others" = "Լուսնին կրակելը մյուսներին ավելացնում է 26";
+"Moon subtracts 26 from shooter" = "Լուսնին կրակելը հանում է 26-ը կրակողից";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Խաղեր";
 "View" = "Դիտել";
 "No Players Yet" = "Դեռ խաղացողներ չկան";
-"Player records appear after your first finished game." = "Խաղացողի գրառումները հայտնվում են ձեր առաջին ավարտված խաղից հետո:";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Խաղացողները համընկնում են անուններով: Նվազագույն միավորների համար ոչ-ոքիները համարվում են հաղթանակ յուրաքանչյուր ոչ-ոքի խաղացողի համար:";
+"Player records appear after your first finished game." = "Խաղացողի գրառումները հայտնվում են ձեր առաջին ավարտված խաղից հետո։";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Խաղացողները համընկնում են անուններով։ Նվազագույն միավորների համար ոչ-ոքիները համարվում են հաղթանակ յուրաքանչյուր ոչ-ոքի խաղացողի համար։";
 "Played" = "Խաղացել";
 "Wins" = "Հաղթանակներ";
 "Avg score" = "Միջին միավոր";
-"%d wins in %d games" = "%d հաղթում է %d խաղում";
+"%d wins in %d games" = "%d հաղթանակ %d խաղում";
 "Rematch" = "Պատասխան խաղ";
 "View history" = "Դիտել պատմությունը";
 "Results" = "Արդյունքներ";
@@ -143,28 +143,28 @@
 "Winners" = "Հաղթողներ";
 "Final standings" = "Վերջնական աղյուսակը";
 "%lld points" = "%lld միավոր";
-"%d. %@, %d points" = "%d: %@, %d միավոր";
-"%@ won with %lld points." = "%@-ը հաղթեց %lld միավորով:";
-"%@ tied for the win with %lld points." = "%@-ը %lld միավորով հավասարվեց հաղթանակի:";
-"%lld rounds" = "%lld տուր";
-"1 round" = "1 շրջան";
+"%d. %@, %d points" = "%d. %@, %d միավոր";
+"%@ won with %lld points." = "%@-ը հաղթեց %lld միավորով։";
+"%@ tied for the win with %lld points." = "%@-ը %lld միավորով հավասարվեց հաղթանակի։";
+"%lld rounds" = "%lld փուլ";
+"1 round" = "1 փուլ";
 "Hearts Scoreboard result" = "Hearts Scoreboard-ի արդյունքը";
 "Share result" = "Կիսվեք արդյունքով";
 "Left" = "Ձախ";
 "Right" = "Աջ";
-"Across" = "↔ դիմաց";
+"Across" = "Դիմաց";
 "Hold" = "Պահել";
-"to %d" = "դեպի %d";
-"No rounds yet" = "Տուրեր դեռ չկան";
-"Round %d undone" = "%d կլորը հետարկված է";
+"to %d" = "մինչև %d";
+"No rounds yet" = "Փուլեր դեռ չկան";
+"Round %d undone" = "Փուլ %d-ը հետարկվեց";
 "Redo" = "Կրկնել";
-"Round %d restored" = "Կլոր %d-ը վերականգնվեց";
-"Edit Round %d" = "Խմբագրել շրջան %d";
+"Round %d restored" = "Փուլ %d-ը վերականգնվեց";
+"Edit Round %d" = "Խմբագրել փուլ %d";
 "Save" = "Պահպանել";
-"Save round scores" = "Պահպանեք տուրի միավորները";
-"Round %d updated" = "Կլոր %d թարմացվել է";
+"Save round scores" = "Պահպանել փուլի միավորները";
+"Round %d updated" = "Փուլ %d-ը թարմացվեց";
 "Edit this round" = "Խմբագրել այս փուլը";
-"Redo available" = "Կրկնել հասանելի է";
+"Redo available" = "Կրկնելը հասանելի է";
 "Quick-add button: +%d" = "Արագ ավելացման կոճակ՝ +%d";
-"The +%d button in score entry adds this many points per tap." = "Միավորների մուտքագրման +%d կոճակը այսքան միավոր է ավելացնում յուրաքանչյուր հպումով:";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Հպեք խաղացողին, ով վերցրել է 10♦-ը: Նրանք այս տուրից հանած 10 միավոր են ստանում։";
+"The +%d button in score entry adds this many points per tap." = "Միավորների մուտքագրման +%d կոճակը այսքան միավոր է ավելացնում յուրաքանչյուր հպումով։";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Հպեք այն խաղացողին, ով վերցրել է 10♦-ը։ Այս փուլում նրանից կհանվի 10 միավոր։";

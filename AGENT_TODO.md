@@ -7,7 +7,7 @@ Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip repl
 2. [ ] **Verify round entry at the edges** (S–M): iPhone SE width, 6 players, and AX Dynamic Type with the 10♦ chip. These are the open items from the build-8 work, and that layout code is the newest.
 3. [ ] **Device checks** (M, needs hardware): shake-to-undo after closing each sheet (the 0.5s refocus is a guess), VoiceOver flow, edit-round sheet, keyboard shortcuts and hover on iPad, partial fold on Duo.
 4. [x] **Unused-string cleanup** (done 2026-10-26): removed 10 unused keys from all 75 locales ("Time", "No completed games yet.", 4× "Pass: … ←", "Undo last round" + its message, "10 of Diamonds", "More"). `scripts/fix_ctx_keys.py` (already applied) is still untracked: commit or delete it.
-5. [ ] **Translation quality** (M): re-translate sr-Latn (actually Cyrillic). "Moon adds 26 to others" reads clumsily in some locales, e.g. ja "月を取る は 26 を他のものに追加します". Native review of the locale lists below.
+5. [x] **Translation quality** (done 2026-10-26, LLM review; no native speakers yet): six Sonnet reviewers went through every Localizable/InfoPlist value in 73 locales against a domain glossary (~2,400 values changed). They fixed wrong-sense "Pass" (walk past), "Dealer" (merchant), "Player" (media player), "Round" (circle shape), "photograph the moon", reversed "%d wins in %d games" (ja, ko, my, kk, mn, az, uz, ur, am, sw, tr), phonetic English, leftover Simplified Chinese in zh-Hant, and Brazilian Portuguese in pt-PT. `sr` was rewritten; sr-Latn is now generated from it by transliteration (`scripts/sr_latn_from_sr.py`; rerun after editing sr). Regression tests: `testSerbianLatinHasNoCyrillic`, `testTurkishWinsInGamesKeepsArgumentOrder`. Per-batch logs with an "uncertain" list each: scratchpad `l10n-review-*.md` (not in the repo). Still worth a native check: the "shoot the moon" idiom (mostly literal), the new dealer words and one-letter D badges, and "Hold" phrasing.
 6. [ ] Small polish (S each): dark-mode More/Undo chips near-black; pass-direction pill truncates at XXXL on iPhone Air; bottom-bar chip height magic number; `%d rounds` stringsdict; delete throwaway simulators.
 7. [ ] Deferred: localized App Store screenshots; Widget / Live Activity.
 
@@ -72,7 +72,7 @@ Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip repl
 - New strings translated into all 75 locales.
 
 ### Findings / follow-ups
-- [ ] `sr-Latn.lproj` existing strings are Cyrillic (transliterated, e.g. "Хеартс Сцоребоард"), not Latin; new 10♦ entries are Latin, so the file is mixed. Re-translate sr-Latn.
+- [x] (Fixed 2026-10-26.) `sr-Latn.lproj` existing strings are Cyrillic (transliterated, e.g. "Хеартс Сцоребоард"), not Latin; new 10♦ entries are Latin, so the file is mixed. Re-translate sr-Latn.
 - [ ] Existing "shoot the moon" translations look literal/machine-made in az, am, my, km, lo, mk, uz, ka, hy, kn, ml, si, zu — native review.
 - [ ] Gendered "taken by" phrasing (ru, uk, bs, hr, sr) uses "взял(а)"/"uzeo/la" forms — native review.
 - [x] (Done: moon cell shows a small −10; HeartsGame.moonCellTenOfDiamondsBonus.) Moon cells show only the moon icon, so a shooter's −10 (10♦) isn't visible as a number — only the ♦ marker shows it (totals are correct).
@@ -146,7 +146,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: gated on GameViewModel.localRoundToken; regression test in UndoTests.) Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
 - [x] (Done 2026-10-26.) Unused keys left in all locales: "Time", "No completed games yet."; "Winner" is still used.
 - [ ] `%d rounds` isn't pluralized (stringsdict); harmless today (finished games always have >1 round).
-- [ ] sr-Latn Localizable.strings is actually Cyrillic (pre-existing); new keys were added in Latin.
+- [x] (Fixed 2026-10-26.) sr-Latn Localizable.strings was actually Cyrillic.
 - [x] (Done: extracted into private ViewModifiers in GameView.swift.) GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
 - [x] (Done: header dropped.) Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
 - [x] (Done: AX3/xxxL snapshot cases in DuoLayoutSnapshotTests; no crown/dealer overlap.) Not tested at accessibility Dynamic Type sizes, or with 6 players in the split layout (crown vs dealer badge overlap).

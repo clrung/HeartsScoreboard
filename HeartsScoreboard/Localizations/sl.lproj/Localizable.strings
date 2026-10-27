@@ -1,48 +1,48 @@
-"No" = "št";
-"Yes" = "ja";
+"No" = "Ne";
+"Yes" = "Da";
 "Undo Round" = "Razveljavi krog";
 "Shake to undo the last round!" = "Stresite, da razveljavite zadnji krog!";
 "New Game" = "Nova igra";
 "Are you sure? This will clear all round scores." = "Ste prepričani? To bo izbrisalo vse rezultate krogov.";
 "D" = "D";
-"Hearts Scoreboard" = "Semafor za igro s kartami Hearts";
+"Hearts Scoreboard" = "Hearts – semafor";
 "Game to: %d" = "Igra do: %d";
 "Next Round" = "Naslednji krog";
 "Game over" = "Igra je končana";
-"Pass to the Left" = "Podajte se na levo";
-"Pass to the Right" = "Prestop v desno";
-"Pass Across" = "Pass Cross";
+"Pass to the Left" = "Podajte levo";
+"Pass to the Right" = "Podajte desno";
+"Pass Across" = "Podajte čez";
 "Hold on Tight!" = "Drži se!";
 "No winner" = "Brez zmagovalca";
-"%@ won!" = "%@ je zmagal!";
+"%@ won!" = "Zmagovalec: %@!";
 "Players" = "Igralci";
 "Player" = "Igralec";
 "Add Player" = "Dodaj igralca";
 "Hearts supports 3–6 players." = "Hearts podpira 3–6 igralcev.";
-"Dealer" = "Trgovec";
+"Dealer" = "Delilec";
 "Ending Score" = "Končni rezultat";
 "Ending Score: %d" = "Končni rezultat: %d";
 "Appearance" = "Videz";
-"Settings" = "nastavitve";
+"Settings" = "Nastavitve";
 "Done" = "Končano";
 "System" = "Sistem";
-"Light" = "Svetloba";
+"Light" = "Svetlo";
 "Dark" = "Temno";
-"Add 26" = "Dodajte 26";
+"Add 26" = "Dodaj 26";
 "Subtract 26" = "Odštej 26";
 "Delete" = "Izbriši";
 "Winner" = "Zmagovalec";
-"Game History" = "Zgodovina igre";
+"Game History" = "Zgodovina iger";
 "Game Summary" = "Povzetek igre";
 "Quick add" = "Hitro dodajanje";
-"Shoot the Moon Preference" = "Prednost pravilo točkovanja streljaj na luno v Hearts";
+"Shoot the Moon Preference" = "Nastavitev za streljanje na luno";
 "Shoot the moon" = "Ustreli luno";
 "Adds 26 points to every other players' score." = "Dodaja 26 točk rezultatom vseh drugih igralcev.";
 "Subtracts 26 points from the selected player's score." = "Odšteje 26 točk od rezultata izbranega igralca.";
 "Back" = "Nazaj";
 "Reset" = "Ponastavi";
-"Submit" = "Predloži";
-"Submit round scores" = "Predložite okrogle rezultate";
+"Submit" = "Potrdi";
+"Submit round scores" = "Potrdi rezultate kroga";
 "Round %d" = "Krog %d";
 "Developed by Christopher Rung" = "Razvil Christopher Rung";
 "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Posvečeno očetu, ki obožuje Hearts in me je naučil vedno streljati na luno.";
@@ -52,13 +52,13 @@
 "Donate a coffee to Christopher" = "Podari kavo Christopherju";
 "App Version" = "Različica aplikacije";
 "View Source" = "Ogled vira";
-"About" = "O tem";
-"Made with love in Denver, CO" = "Izdelano z ljubeznijo v Denverju, CO";
+"About" = "O aplikaciji";
+"Made with love in Denver, CO" = "Izdelano z ljubeznijo v Denverju, Kolorado";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ je vredna −10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Različica Omnibus Hearts: kdor vzame 10♦, dobi −10 za to delitev. To je ločeno od „Ustreli luno“.";
-"10♦ taken by" = "10♦ je vzel";
+"10♦ taken by" = "Nosilec 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "Izberite, kdo je vzel 10♦";
 
@@ -76,7 +76,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Krog %d, %@: ustrelitev lune";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", vzel 10 kara";
+", took the 10 of diamonds" = ", vzeta karo 10";
 /* HistoryView empty state title */
 "No Games Yet" = "Še ni iger";
 /* HistoryView empty state description */
@@ -86,7 +86,7 @@
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ustrelitev lune";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ je vzel 10 kara";
+"%@ took the 10 of diamonds" = "Igralec %@ je vzel karo 10";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Točk: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -100,7 +100,7 @@
 /* RoundInputView: VoiceOver label for plus stepper */
 "Increase points for %@" = "Povečaj točke za %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Pripravljeno za oddajo";
+"Ready to submit" = "Pripravljeno za potrditev";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Izberite, kdo je vzel 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -115,17 +115,17 @@
 "Recent players" = "Nedavni igralci";
 "Add %@" = "Dodaj %@";
 "Share App" = "Deli aplikacijo";
-"Rounds" = "Krogov";
+"Rounds" = "Krogi";
 "Moons" = "Lune";
-"10♦ taken" = "10♦ prevzeto";
-"Biggest hand" = "Največja roka";
+"10♦ taken" = "10♦ vzeto";
+"Biggest hand" = "Največ v krogu";
 "Score by round" = "Rezultat po krogu";
 "Round" = "Krog";
-"%@ won with %d" = "%@ je zmagal z %d";
-"%@ tied with %d" = "%@ izenačeno z %d";
-"Ends at %d" = "Konča se ob %d";
-"Moon adds 26 to others" = "Ustreli luno doda 26 drugim";
-"Moon subtracts 26 from shooter" = "Ustreli luno strelcu odšteje 26";
+"%@ won with %d" = "Zmaga: %@, %d";
+"%@ tied with %d" = "Izenačenje: %@, %d";
+"Ends at %d" = "Konec pri %d";
+"Moon adds 26 to others" = "Luna drugim doda 26";
+"Moon subtracts 26 from shooter" = "Luna strelcu odšteje 26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Igre";
 "View" = "Pogled";
@@ -134,8 +134,8 @@
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Igralci se ujemajo po imenu. Izenačenje z najnižjim rezultatom se šteje kot zmaga za vsakega izenačenega igralca.";
 "Played" = "Igrano";
 "Wins" = "Zmage";
-"Avg score" = "Povprečna ocena";
-"%d wins in %d games" = "%d zmaga v %d igrah";
+"Avg score" = "Povprečni rezultat";
+"%d wins in %d games" = "Zmag: %d, iger: %d";
 "Rematch" = "Povratna tekma";
 "View history" = "Ogled zgodovine";
 "Results" = "Rezultati";
@@ -144,16 +144,16 @@
 "Final standings" = "Končni vrstni red";
 "%lld points" = "%lld točk";
 "%d. %@, %d points" = "%d. %@, %d točk";
-"%@ won with %lld points." = "%@ je zmagal s %lld točkami.";
-"%@ tied for the win with %lld points." = "%@ je izenačil zmago s %lld točkami.";
+"%@ won with %lld points." = "Zmaga: %@, točk: %lld.";
+"%@ tied for the win with %lld points." = "Delitev zmage: %@, točk: %lld.";
 "%lld rounds" = "%lld krogov";
 "1 round" = "1 krog";
 "Hearts Scoreboard result" = "Rezultat Hearts Scoreboard";
 "Share result" = "Delite rezultat";
-"Left" = "levo";
-"Right" = "desno";
+"Left" = "Levo";
+"Right" = "Desno";
 "Across" = "Čez";
-"Hold" = "Drži";
+"Hold" = "Zadrži";
 "to %d" = "do %d";
 "No rounds yet" = "Ni še krogov";
 "Round %d undone" = "Krog %d razveljavljen";
@@ -161,10 +161,10 @@
 "Round %d restored" = "Krog %d je obnovljen";
 "Edit Round %d" = "Uredi krog %d";
 "Save" = "Shrani";
-"Save round scores" = "Shranite rezultate krogov";
+"Save round scores" = "Shrani rezultate kroga";
 "Round %d updated" = "Krog %d posodobljen";
 "Edit this round" = "Uredite ta krog";
 "Redo available" = "Na voljo je ponovitev";
 "Quick-add button: +%d" = "Gumb za hitro dodajanje: +%d";
 "The +%d button in score entry adds this many points per tap." = "Gumb +%d pri vnosu rezultata doda toliko točk na dotik.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tapnite igralca, ki je vzel 10♦. V tem krogu dobijo 10 točk odštetih.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tapnite igralca, ki je vzel 10♦. V tem krogu se mu odšteje 10 točk.";

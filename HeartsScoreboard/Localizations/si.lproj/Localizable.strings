@@ -6,28 +6,28 @@
 "Are you sure? This will clear all round scores." = "ඔබට විශ්වාසද? මෙය සියලු වටයේ ලකුණු ඉවත් කරනු ඇත.";
 "D" = "ඩී";
 "Hearts Scoreboard" = "හාර්ට්ස් ලකුණු පුවරුව";
-"Game to: %d" = "ක්‍රීඩාව වෙත: %d";
+"Game to: %d" = "ක්‍රීඩාව %d දක්වා";
 "Next Round" = "ඊළඟ වටය";
 "Game over" = "ක්‍රීඩාව අවසන්";
-"Pass to the Left" = "වම් පැත්තට යන්න";
-"Pass to the Right" = "දකුණට යන්න";
-"Pass Across" = "හරහා ගමන් කරන්න";
-"Hold on Tight!" = "තදින් අල්ලා ගන්න!";
+"Pass to the Left" = "වමට පාස් කරන්න";
+"Pass to the Right" = "දකුණට පාස් කරන්න";
+"Pass Across" = "හරහා පාස් කරන්න";
+"Hold on Tight!" = "කාඩ් තබාගන්න!";
 "No winner" = "ජයග්‍රාහකයෙක් නැත";
 "%@ won!" = "%@ දිනුවා!";
 "Players" = "ක්රීඩකයන්";
 "Player" = "ක්රීඩකයා";
-"Add Player" = "Player එක් කරන්න";
+"Add Player" = "ක්‍රීඩකයා එක් කරන්න";
 "Hearts supports 3–6 players." = "හාර්ට්ස් ක්‍රීඩකයින් 3-6 දෙනෙකුට සහය දක්වයි.";
 "Dealer" = "බෙදාහරින්නා";
 "Ending Score" = "අවසන් ලකුණු";
 "Ending Score: %d" = "අවසන් ලකුණු: %d";
 "Appearance" = "පෙනුම";
 "Settings" = "සැකසීම්";
-"Done" = "කළා";
+"Done" = "අවසන්";
 "System" = "පද්ධතිය";
-"Light" = "ආලෝකය";
-"Dark" = "අඳුරු";
+"Light" = "ලා";
+"Dark" = "තද";
 "Add 26" = "26 එකතු කරන්න";
 "Subtract 26" = "26 අඩු කරන්න";
 "Delete" = "මකන්න";
@@ -35,8 +35,8 @@
 "Game History" = "ක්රීඩා ඉතිහාසය";
 "Game Summary" = "ක්‍රීඩා සාරාංශය";
 "Quick add" = "ඉක්මන් එකතු කරන්න";
-"Shoot the Moon Preference" = "සඳ මනාප වෙඩි තියන්න";
-"Shoot the moon" = "සඳට වෙඩි තියන්න";
+"Shoot the Moon Preference" = "සඳ මනාපය";
+"Shoot the moon" = "සඳ ගන්න";
 "Adds 26 points to every other players' score." = "අනෙක් සෑම ක්‍රීඩකයෙකුගේම ලකුණු වලට ලකුණු 26ක් එක් කරයි.";
 "Subtracts 26 points from the selected player's score." = "තෝරාගත් ක්‍රීඩකයාගේ ලකුණු වලින් ලකුණු 26ක් අඩු කරයි.";
 "Back" = "ආපසු";
@@ -44,8 +44,8 @@
 "Submit" = "ඉදිරිපත් කරන්න";
 "Submit round scores" = "වටයේ ලකුණු ඉදිරිපත් කරන්න";
 "Round %d" = "වට %d";
-"Developed by Christopher Rung" = "Christopher Rung විසින් වැඩි දියුණු කරන ලදී";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "හදවතට ආදරය කරන මගේ පියා වෙනුවෙන් කැපවී, සඳට වෙඩි තැබීමට මට උගන්වා ඇත.";
+"Developed by Christopher Rung" = "Christopher Rung විසින් නිර්මාණය කරන ලදී";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "හාර්ට්ස් වලට ආදරය කරන, සැමවිටම සඳ ගන්නා ආකාරය මට ඉගැන්වූ මගේ පියාට කැපවූවකි.";
 "I would love to hear your feedback!" = "මම ඔබේ ප්‍රතිපෝෂණය ඇසීමට කැමතියි!";
 "Send Feedback" = "ප්‍රතිපෝෂණ යවන්න";
 "Rate on App Store" = "App Store මත අගයන්න";
@@ -53,11 +53,11 @@
 "App Version" = "යෙදුම් අනුවාදය";
 "View Source" = "මූලාශ්රය බලන්න";
 "About" = "ගැන";
-"Made with love in Denver, CO" = "CO ඩෙන්වර් හි ආදරයෙන් සාදන ලදී";
+"Made with love in Denver, CO" = "ඩෙන්වර්, කොලරාඩෝහි ආදරයෙන් සාදන ලදී";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ හි අගය −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ප්‍රභේදය: 10♦ ගන්නා අයට එම අතට −10 ලැබේ. මෙය \"සඳට වෙඩි තියන්න\" වෙතින් වෙන්ව පවතී.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts ප්‍රභේදය: 10♦ ගන්නා අයට එම වටයට −10 ලැබේ. මෙය \"සඳ ගන්න\" වෙතින් වෙන්ව පවතී.";
 "10♦ taken by" = "10♦ ගත්තේ";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ ගත්තේ කවුදැයි තෝරන්න";
@@ -74,9 +74,9 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "වට %d, %@: ලකුණු %d";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "වට %d, %@: සඳට වෙඩි තැබුවා";
+"Round %d, %@: shot the moon" = "වට %d, %@: සඳ ගත්තා";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", දියමන්ති 10 ගත්තා";
+", took the 10 of diamonds" = ", 10♦ ගත්තා";
 /* HistoryView empty state title */
 "No Games Yet" = "තවම ක්‍රීඩා නැත";
 /* HistoryView empty state description */
@@ -84,9 +84,9 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "වට %d";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "සඳට වෙඩි තැබුවා";
+"Shot the moon" = "සඳ ගත්තා";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ දියමන්ති 10 ගත්තා";
+"%@ took the 10 of diamonds" = "%@ 10♦ ගත්තා";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "ලකුණු %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ ට ස්පේඩ් රැජින";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ සඳට වෙඩි තියන්න";
+"Shoot the moon for %@" = "%@ සඳහා සඳ ගන්න";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ ගේ ලකුණු අඩු කරන්න";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -119,31 +119,31 @@
 "Moons" = "සඳ";
 "10♦ taken" = "10♦ ගන්නා ලදී";
 "Biggest hand" = "ලොකුම අත";
-"Score by round" = "වටයෙන් ලකුණු";
+"Score by round" = "වටය අනුව ලකුණු";
 "Round" = "වට";
 "%@ won with %d" = "%2$d සමඟ %1$@ දිනුවා";
 "%@ tied with %d" = "%@ %d සමඟ බැඳී ඇත";
-"Ends at %d" = "%dට අවසන් වේ";
-"Moon adds 26 to others" = "සඳට වෙඩි තියන්න අනෙක් ඒවාට 26 එකතු කරයි";
-"Moon subtracts 26 from shooter" = "වෙඩික්කරුගෙන් සඳට වෙඩි තියන්න 26 අඩු කරයි";
+"Ends at %d" = "%d දී අවසන් වේ";
+"Moon adds 26 to others" = "සඳ: අනෙක් අයට +26";
+"Moon subtracts 26 from shooter" = "සඳ: ගත් අයගෙන් −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ක්‍රීඩා";
 "View" = "බලන්න";
 "No Players Yet" = "තවම ක්‍රීඩකයන් නැත";
-"Player records appear after your first finished game." = "ක්‍රීඩකයාගේ වාර්තා ඔබගේ පළමු නිමි ක්‍රීඩාවෙන් පසුව දිස්වේ.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ක්රීඩකයන් නම් අනුව ගැලපේ. අඩුම ලකුණු සඳහා සබඳතා සම වූ සෑම ක්‍රීඩකයෙකුටම ජයග්‍රහණයක් ලෙස සැලකේ.";
+"Player records appear after your first finished game." = "ඔබගේ පළමු ක්‍රීඩාව අවසන් වූ පසු ක්‍රීඩක වාර්තා දිස්වේ.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ක්‍රීඩකයන් නමින් ගැලපේ. අඩුම ලකුණු සඳහා සමාන වූ විට, සමාන වූ සෑම ක්‍රීඩකයෙකුටම එක් ජයග්‍රහණයක් ගණනය කෙරේ.";
 "Played" = "ක්‍රීඩා කළ";
 "Wins" = "ජයග්‍රහණ";
 "Avg score" = "සාමාන්ය ලකුණු";
-"%d wins in %d games" = "%d ක්‍රීඩා %d කදී ජයග්‍රහණ";
-"Rematch" = "නැවත තරගය";
+"%d wins in %d games" = "ක්‍රීඩා %2$d කදී ජයග්‍රහණ %1$d";
+"Rematch" = "නැවත ක්‍රීඩා කරන්න";
 "View history" = "ඉතිහාසය බලන්න";
 "Results" = "ප්‍රතිඵල";
 "Close" = "වසන්න";
 "Winners" = "ජයග්රාහකයින්";
 "Final standings" = "අවසාන ස්ථාවරය";
 "%lld points" = "ලකුණු %lldක්";
-"%d. %@, %d points" = "%d. ලකුණු %@, %d";
+"%d. %@, %d points" = "%d. %@, ලකුණු %d";
 "%@ won with %lld points." = "%@ ලකුණු %lldක් සමඟින් දිනුවා.";
 "%@ tied for the win with %lld points." = "%@ ලකුණු %lldක් සමඟ ජයග්‍රහණය සඳහා සම විය.";
 "%lld rounds" = "වට %lldක්";
@@ -153,10 +153,10 @@
 "Left" = "වම";
 "Right" = "දකුණ";
 "Across" = "හරහා";
-"Hold" = "අල්ලාගෙන සිටින්න";
-"to %d" = "%d වෙත";
+"Hold" = "තබාගන්න";
+"to %d" = "%d දක්වා";
 "No rounds yet" = "තවම වටයක් නැත";
-"Round %d undone" = "%d වටය පසුගමනය කරන ලදී";
+"Round %d undone" = "%d වටය අහෝසි කරන ලදී";
 "Redo" = "නැවත කරන්න";
 "Round %d restored" = "%d වටය ප්‍රතිසාධනය කරන ලදී";
 "Edit Round %d" = "%d වටය සංස්කරණය කරන්න";
@@ -167,4 +167,4 @@
 "Redo available" = "නැවත කරන්න තිබේ";
 "Quick-add button: +%d" = "ඉක්මන් එකතු කිරීමේ බොත්තම: +%d";
 "The +%d button in score entry adds this many points per tap." = "ලකුණු ඇතුළත් කිරීමේ +%d බොත්තම තට්ටු කිරීමකට මෙතරම් ලකුණු එකතු කරයි.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ගත් ක්‍රීඩකයා තට්ටු කරන්න. ඔවුන් මෙම වටයේ ලකුණු 10 ක් අඩු කරයි.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ගත් ක්‍රීඩකයා තට්ටු කරන්න. මෙම වටයේදී ඔවුන්ගේ ලකුණුවලින් 10ක් අඩු වේ.";

@@ -89,11 +89,11 @@
 /* GameView: History toolbar button VoiceOver label */
 "History" = "Historique";
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
-"Round added. %@ leads" = "Manche ajoutée. %@ mène";
+"Round added. %@ leads" = "Donne ajoutée. %@ mène";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "Manche %d, %@ : %d points";
+"Round %d, %@: %d points" = "Donne %d, %@ : %d points";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Manche %d, %@ : a pris la lune";
+"Round %d, %@: shot the moon" = "Donne %d, %@ : a pris la lune";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", a pris le 10 de carreau";
 /* HistoryView empty state title */
@@ -101,7 +101,7 @@
 /* HistoryView empty state description */
 "Finished games will show up here." = "Les parties terminées apparaîtront ici.";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d manches";
+"%d rounds" = "%d donnes";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "A pris la lune";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -134,28 +134,28 @@
 "Recent players" = "Joueurs récents";
 "Add %@" = "Ajouter %@";
 "Share App" = "Partager l'application";
-"Rounds" = "Manches";
+"Rounds" = "Donnes";
 "Moons" = "Lunes";
 "10♦ taken" = "10♦ pris";
-"Biggest hand" = "La plus grosse main";
-"Score by round" = "Score par tour";
+"Biggest hand" = "Plus grosse donne";
+"Score by round" = "Score par donne";
 "Round" = "Donne";
 "%@ won with %d" = "%@ a gagné avec %d";
 "%@ tied with %d" = "%@ à égalité avec %d";
 "Ends at %d" = "Se termine à %d";
 "Moon adds 26 to others" = "Prendre la lune ajoute 26 aux autres";
-"Moon subtracts 26 from shooter" = "Prendre la lune soustrait 26 au tireur";
+"Moon subtracts 26 from shooter" = "Prendre la lune soustrait 26 au preneur";
 "10♦ = −10" = "10♦ = −10";
-"Games" = "Jeux";
+"Games" = "Parties";
 "View" = "Vue";
 "No Players Yet" = "Aucun joueur pour l'instant";
-"Player records appear after your first finished game." = "Les enregistrements des joueurs apparaissent après votre première partie terminée.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Les joueurs sont jumelés par nom. Les égalités pour le score le plus bas comptent comme une victoire pour chaque joueur à égalité.";
-"Played" = "Joué";
+"Player records appear after your first finished game." = "Les statistiques des joueurs apparaissent après votre première partie terminée.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Les joueurs sont regroupés par nom. En cas d'égalité pour le score le plus bas, chaque joueur à égalité compte une victoire.";
+"Played" = "Jouées";
 "Wins" = "Victoires";
-"Avg score" = "Note moyenne";
-"%d wins in %d games" = "%d victoires dans %d jeux";
-"Rematch" = "Rematch";
+"Avg score" = "Score moyen";
+"%d wins in %d games" = "%d victoires en %d parties";
+"Rematch" = "Revanche";
 "View history" = "Afficher l'historique";
 "Results" = "Résultats";
 "Close" = "Fermer";
@@ -165,25 +165,25 @@
 "%d. %@, %d points" = "%d. %@, %d points";
 "%@ won with %lld points." = "%@ a gagné avec %lld points.";
 "%@ tied for the win with %lld points." = "%@ à égalité pour la victoire avec %lld points.";
-"%lld rounds" = "%lld tours";
-"1 round" = "1 tour";
-"Hearts Scoreboard result" = "Résultat du tableau de bord des cœurs";
+"%lld rounds" = "%lld donnes";
+"1 round" = "1 donne";
+"Hearts Scoreboard result" = "Résultat du Compteur de Cœurs";
 "Share result" = "Partager le résultat";
 "Left" = "Gauche";
 "Right" = "Droite";
 "Across" = "En face";
 "Hold" = "Garder";
 "to %d" = "à %d";
-"No rounds yet" = "Pas encore de tours";
-"Round %d undone" = "Tour %d annulé";
-"Redo" = "Refaire";
-"Round %d restored" = "Tour %d restauré";
-"Edit Round %d" = "Modifier le tour %d";
+"No rounds yet" = "Pas encore de donne";
+"Round %d undone" = "Donne %d annulée";
+"Redo" = "Rétablir";
+"Round %d restored" = "Donne %d rétablie";
+"Edit Round %d" = "Modifier la donne %d";
 "Save" = "Enregistrer";
-"Save round scores" = "Enregistrer les scores des tours";
-"Round %d updated" = "Tour %d mis à jour";
-"Edit this round" = "Modifier ce tour";
-"Redo available" = "Refaire disponible";
+"Save round scores" = "Enregistrer les scores de la donne";
+"Round %d updated" = "Donne %d mise à jour";
+"Edit this round" = "Modifier cette donne";
+"Redo available" = "Rétablissement disponible";
 "Quick-add button: +%d" = "Bouton d'ajout rapide : +%d";
-"The +%d button in score entry adds this many points per tap." = "Le bouton + %d dans la saisie du score ajoute autant de points par pression.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Appuyez sur le joueur qui a pris le 10♦. Ils obtiennent 10 points soustraits ce tour.";
+"The +%d button in score entry adds this many points per tap." = "Le bouton +%d dans la saisie des scores ajoute autant de points à chaque appui.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Appuyez sur le joueur qui a pris le 10♦. Il se voit retirer 10 points pour cette donne.";

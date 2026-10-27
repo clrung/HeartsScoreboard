@@ -3,15 +3,15 @@
 "Undo Round" = "Отмяна на кръг";
 "Shake to undo the last round!" = "Разклатете, за да отмените последния кръг!";
 "New Game" = "Нова игра";
-"Are you sure? This will clear all round scores." = "сигурен ли си Това ще изчисти резултатите от всички кръгове.";
-"D" = "г";
-"Hearts Scoreboard" = "Табло за сърцата";
+"Are you sure? This will clear all round scores." = "Сигурни ли сте? Това ще изчисти резултатите от всички кръгове.";
+"D" = "Р";
+"Hearts Scoreboard" = "Hearts – табло";
 "Game to: %d" = "Игра до: %d";
 "Next Round" = "Следващ кръг";
 "Game over" = "Играта приключи";
-"Pass to the Left" = "Преминете наляво";
-"Pass to the Right" = "Преминете надясно";
-"Pass Across" = "Преминаване";
+"Pass to the Left" = "Подайте наляво";
+"Pass to the Right" = "Подайте надясно";
+"Pass Across" = "Подайте отсреща";
 "Hold on Tight!" = "Дръж се здраво!";
 "No winner" = "Без победител";
 "%@ won!" = "%@ спечели!";
@@ -19,15 +19,15 @@
 "Player" = "Играч";
 "Add Player" = "Добавяне на играч";
 "Hearts supports 3–6 players." = "Hearts поддържа 3–6 играчи.";
-"Dealer" = "Дилър";
+"Dealer" = "Раздаващ";
 "Ending Score" = "Краен резултат";
 "Ending Score: %d" = "Краен резултат: %d";
 "Appearance" = "Външен вид";
 "Settings" = "Настройки";
 "Done" = "Готово";
-"System" = "система";
-"Light" = "светлина";
-"Dark" = "Тъмно";
+"System" = "Система";
+"Light" = "Светъл";
+"Dark" = "Тъмен";
 "Add 26" = "Добавете 26";
 "Subtract 26" = "Извадете 26";
 "Delete" = "Изтриване";
@@ -35,29 +35,29 @@
 "Game History" = "История на играта";
 "Game Summary" = "Резюме на играта";
 "Quick add" = "Бързо добавяне";
-"Shoot the Moon Preference" = "Предпочитание за правилото за стреляне по луната в Hearts";
-"Shoot the moon" = "Застреляй луната";
+"Shoot the Moon Preference" = "Настройка за стреляне по луната";
+"Shoot the moon" = "Стреляй по луната";
 "Adds 26 points to every other players' score." = "Добавя 26 точки към резултата на всеки друг играч.";
 "Subtracts 26 points from the selected player's score." = "Изважда 26 точки от резултата на избрания играч.";
 "Back" = "Назад";
 "Reset" = "Нулиране";
-"Submit" = "Изпратете";
-"Submit round scores" = "Изпратете кръгли резултати";
+"Submit" = "Потвърдете";
+"Submit round scores" = "Потвърдете резултатите от кръга";
 "Round %d" = "Кръг %d";
 "Developed by Christopher Rung" = "Разработено от Кристофър Рунг";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посветен на баща ми, който обича Hearts и ме е научил винаги да стрелям по луната.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посветено на баща ми, който обича Hearts и ме е научил винаги да стрелям по луната.";
 "I would love to hear your feedback!" = "Ще се радвам да чуя вашите отзиви!";
 "Send Feedback" = "Изпратете обратна връзка";
 "Rate on App Store" = "Оценете в App Store";
 "Donate a coffee to Christopher" = "Дарете кафе на Кристофър";
 "App Version" = "Версия на приложението";
-"View Source" = "Вижте източника";
-"About" = "За";
+"View Source" = "Вижте изходния код";
+"About" = "За приложението";
 "Made with love in Denver, CO" = "Направено с любов в Денвър, Колорадо";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ струва −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: който вземе 10♦, получава −10 за тази ръка. Това е отделно от «Застреляй луната».";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: който вземе 10♦, получава −10 за този кръг. Това е отделно от стрелянето по луната.";
 "10♦ taken by" = "10♦ взета от";
 "−10" = "−10";
 "Select who took the 10♦" = "Изберете кой взе 10♦";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Кръг %d, %@: %d точки";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Кръг %d, %@: застреля луната";
+"Round %d, %@: shot the moon" = "Кръг %d, %@: стреля по луната";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", взе 10 каро";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d кръга";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Застреля луната";
+"Shot the moon" = "Стреляне по луната";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ взе 10 каро";
 /* RoundInputView: VoiceOver value on a player row */
@@ -92,15 +92,15 @@
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
 "Add %d points to %@" = "Добави %d точки на %@";
 /* RoundInputView: VoiceOver label for Q spades chip */
-"Queen of spades to %@" = "Пика дама за %@";
+"Queen of spades to %@" = "Дама пика за %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "Застреляй луната за %@";
+"Shoot the moon for %@" = "Стреляй по луната за %@";
 /* RoundInputView: VoiceOver label for minus stepper */
-"Decrease points for %@" = "Намали точките на %@";
+"Decrease points for %@" = "Намали точките за %@";
 /* RoundInputView: VoiceOver label for plus stepper */
-"Increase points for %@" = "Увеличи точките на %@";
+"Increase points for %@" = "Увеличи точките за %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Готово за изпращане";
+"Ready to submit" = "Готово за потвърждение";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Изберете кой взе 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -108,24 +108,24 @@
 /* RoundInputView: progress strip, 26 total but all on one player */
 "One player can't take all 26. Use the moon." = "Един играч не може да вземе всичките 26. Използвайте луната.";
 /* RoundInputView: progress strip over 26 */
-"%d / 26 · %d over" = "%d / 26 · %d над";
+"%d / 26 · %d over" = "%d / 26 · %d излишни";
 /* RoundInputView: progress strip under 26 */
 "%d / 26 · %d left" = "%d / 26 · остават %d";
 "Game Rules" = "Правила на играта";
 "Recent players" = "Скорошни играчи";
 "Add %@" = "Добавяне на %@";
-"Share App" = "Приложение за споделяне";
+"Share App" = "Споделяне на приложението";
 "Rounds" = "Кръга";
 "Moons" = "Луни";
 "10♦ taken" = "10♦ взети";
-"Biggest hand" = "Най-голямата ръка";
-"Score by round" = "Резултат по рунд";
+"Biggest hand" = "Най-много в кръг";
+"Score by round" = "Резултат по кръг";
 "Round" = "Кръг";
 "%@ won with %d" = "%@ спечели с %d";
-"%@ tied with %d" = "%@ равен с %d";
+"%@ tied with %d" = "Равенство: %@, %d";
 "Ends at %d" = "Завършва в %d";
-"Moon adds 26 to others" = "Застреляй луната добавя 26 към останалите";
-"Moon subtracts 26 from shooter" = "Застреляй луната изважда 26 от стрелеца";
+"Moon adds 26 to others" = "Стреляне по луната добавя 26 към останалите";
+"Moon subtracts 26 from shooter" = "Стреляне по луната изважда 26 от стрелеца";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Игри";
 "View" = "Преглед";
@@ -134,10 +134,10 @@
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Играчите се сравняват по имена. Равенствата за най-нисък резултат се броят за победа за всеки равен играч.";
 "Played" = "Играни";
 "Wins" = "Победи";
-"Avg score" = "Средна оценка";
-"%d wins in %d games" = "%d печели в %d игри";
+"Avg score" = "Среден резултат";
+"%d wins in %d games" = "%d победи в %d игри";
 "Rematch" = "Реванш";
-"View history" = "Преглед на хронологията";
+"View history" = "Вижте историята";
 "Results" = "Резултати";
 "Close" = "Затвори";
 "Winners" = "Победители";
@@ -145,26 +145,26 @@
 "%lld points" = "%lld точки";
 "%d. %@, %d points" = "%d. %@, %d точки";
 "%@ won with %lld points." = "%@ спечели с %lld точки.";
-"%@ tied for the win with %lld points." = "%@ изравни победата с %lld точки.";
+"%@ tied for the win with %lld points." = "Равенство за победа: %@ с %lld точки.";
 "%lld rounds" = "%lld кръга";
 "1 round" = "1 кръг";
 "Hearts Scoreboard result" = "Резултат от таблото на Hearts";
 "Share result" = "Споделете резултата";
-"Left" = "Ляво";
+"Left" = "Наляво";
 "Right" = "Надясно";
-"Across" = "Напречно";
+"Across" = "Отсреща";
 "Hold" = "Задръжте";
 "to %d" = "до %d";
 "No rounds yet" = "Все още няма кръгове";
-"Round %d undone" = "Рунд %d е отменен";
+"Round %d undone" = "Кръг %d е отменен";
 "Redo" = "Повтори";
 "Round %d restored" = "Кръг %d възстановен";
 "Edit Round %d" = "Редактиране на кръг %d";
 "Save" = "Запазване";
-"Save round scores" = "Запазване на кръгли резултати";
-"Round %d updated" = "Рунд %d е актуализиран";
+"Save round scores" = "Запазване на резултатите от кръга";
+"Round %d updated" = "Кръг %d е актуализиран";
 "Edit this round" = "Редактирайте този кръг";
-"Redo available" = "Налично повторение";
+"Redo available" = "Повторението е налично";
 "Quick-add button: +%d" = "Бутон за бързо добавяне: +%d";
-"The +%d button in score entry adds this many points per tap." = "Бутонът +%d при въвеждане на резултат добавя толкова много точки на докосване.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Докоснете играча, който е взел 10♦. Те получават 10 точки, извадени от този кръг.";
+"The +%d button in score entry adds this many points per tap." = "Бутонът +%d при въвеждане на резултат добавя толкова точки при всяко докосване.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Докоснете играча, който е взел 10♦. От резултата му се изваждат 10 точки в този кръг.";

@@ -10,7 +10,7 @@
 
 /* Game view */
 "D" = "D";
-"Hearts Scoreboard" = "ハートのスコアボード";
+"Hearts Scoreboard" = "ハーツ スコアボード";
 "Game to: %d" = "目標得点: %d";
 "Next Round" = "次のラウンド";
 
@@ -27,7 +27,7 @@
 "Players" = "プレイヤー";
 "Player" = "プレイヤー";
 "Add Player" = "プレイヤーを追加";
-"Hearts supports 3–6 players." = "ハートは3〜6人用です。";
+"Hearts supports 3–6 players." = "ハーツは3〜6人用です。";
 "Dealer" = "親";
 "Ending Score" = "終了得点";
 "Ending Score: %d" = "終了得点: %d";
@@ -64,7 +64,7 @@
 
 /* About */
 "Developed by Christopher Rung" = "Christopher Rung 作";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ハートを愛し、いつも月を狙うよう教えてくれた父に捧げる。";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ハーツを愛し、いつも月を狙うよう教えてくれた父に捧げる。";
 "I would love to hear your feedback!" = "ご意見・ご感想をお聞かせください！";
 "Send Feedback" = "フィードバックを送信";
 "Rate on App Store" = "App Storeで評価";
@@ -79,7 +79,7 @@
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts方式：♦10を取ったプレイヤーはそのハンドで−10点になります。「月を取る」とは別のルールです。";
 "10♦ taken by" = "♦10を取った人";
 "−10" = "−10";
-"Select who took the 10♦" = "10♦を取った人を選択";
+"Select who took the 10♦" = "♦10を取った人を選択";
 
 /* UI/UX refresh: round progress, leader, VoiceOver, history */
 /* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
@@ -133,42 +133,42 @@
 "Game Rules" = "ゲームルール";
 "Recent players" = "最近のプレイヤー";
 "Add %@" = "%@を追加";
-"Share App" = "アプリを共有する";
+"Share App" = "アプリを共有";
 "Rounds" = "ラウンド";
-"Moons" = "ムーンズ";
-"10♦ taken" = "10♦ が取られました";
-"Biggest hand" = "最大の手";
-"Score by round" = "ラウンドごとのスコア";
+"Moons" = "月";
+"10♦ taken" = "♦10を取った回数";
+"Biggest hand" = "最大ラウンド得点";
+"Score by round" = "ラウンドごとの得点";
 "Round" = "ラウンド";
-"%@ won with %d" = "%@ が %d で勝ちました";
-"%@ tied with %d" = "%@ は %d と同点";
-"Ends at %d" = "%d に終了します";
-"Moon adds 26 to others" = "月を取る は 26 を他のものに追加します";
-"Moon subtracts 26 from shooter" = "月を取る は射手から 26 を減算します";
+"%@ won with %d" = "%@が%d点で勝利";
+"%@ tied with %d" = "%@が%d点で同点";
+"Ends at %d" = "%dで終了";
+"Moon adds 26 to others" = "月を取ると他の全員に26点加算";
+"Moon subtracts 26 from shooter" = "月を取ると本人から26点減算";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ゲーム";
-"View" = "ビュー";
+"View" = "表示";
 "No Players Yet" = "まだプレイヤーがいません";
-"Player records appear after your first finished game." = "最初に終了したゲームの後にプレイヤーの記録が表示されます。";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "プレイヤーは名前で照合されます。最低スコアの同点は、同点の各プレイヤーの勝利としてカウントされます。";
-"Played" = "プレイした";
+"Player records appear after your first finished game." = "最初のゲームが終了すると、プレイヤーの記録が表示されます。";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "プレイヤーは名前で同一人物として集計されます。最低得点が同点の場合は、同点の全員を勝利として数えます。";
+"Played" = "プレイ数";
 "Wins" = "勝利数";
 "Avg score" = "平均点";
-"%d wins in %d games" = "%d 試合で %d が勝利";
+"%d wins in %d games" = "%2$d試合中%1$d勝";
 "Rematch" = "再戦";
 "View history" = "履歴を見る";
 "Results" = "結果";
 "Close" = "閉じる";
 "Winners" = "勝者";
 "Final standings" = "最終順位";
-"%lld points" = "%lld ポイント";
-"%d. %@, %d points" = "%d。 %@、%d ポイント";
-"%@ won with %lld points." = "%@ が %lld ポイントで勝利しました。";
-"%@ tied for the win with %lld points." = "%@ が勝ち点 %lld で同点となりました。";
-"%lld rounds" = "%lld ラウンド";
+"%lld points" = "%lld点";
+"%d. %@, %d points" = "%d位 %@、%d点";
+"%@ won with %lld points." = "%@が%lld点で勝利しました。";
+"%@ tied for the win with %lld points." = "%@が%lld点で同率首位です。";
+"%lld rounds" = "%lldラウンド";
 "1 round" = "1ラウンド";
 "Hearts Scoreboard result" = "ハーツ スコアボードの結果";
-"Share result" = "結果を共有する";
+"Share result" = "結果を共有";
 "Left" = "左";
 "Right" = "右";
 "Across" = "向かい";
@@ -180,10 +180,10 @@
 "Round %d restored" = "ラウンド %d が復元されました";
 "Edit Round %d" = "ラウンド %d を編集";
 "Save" = "保存";
-"Save round scores" = "ラウンドスコアを保存する";
+"Save round scores" = "ラウンドの得点を保存";
 "Round %d updated" = "ラウンド %d が更新されました";
-"Edit this round" = "このラウンドを編集する";
+"Edit this round" = "このラウンドを編集";
 "Redo available" = "やり直し可能";
 "Quick-add button: +%d" = "クイック追加ボタン: +%d";
-"The +%d button in score entry adds this many points per tap." = "スコア入力の +%d ボタンは、タップごとにこの数のポイントを追加します。";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦を獲得したプレイヤーをタップします。このラウンドでは 10 ポイントが減点されます。";
+"The +%d button in score entry adds this many points per tap." = "スコア入力の +%d ボタンは、タップするたびにこの点数を加算します。";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "♦10を取ったプレイヤーをタップします。このラウンドで10点が引かれます。";

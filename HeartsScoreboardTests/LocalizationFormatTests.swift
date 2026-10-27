@@ -37,6 +37,18 @@ final class LocalizationFormatTests: XCTestCase {
         XCTAssertEqual(problems, [], problems.joined(separator: "\n"))
     }
 
+    /// sr-Latn was once a copy of the Cyrillic sr file; it is now generated from sr by transliteration.
+    func testSerbianLatinHasNoCyrillic() throws {
+        let cyrillic = try table("sr-Latn").filter { $0.value.unicodeScalars.contains { (0x0400...0x04FF).contains($0.value) } }
+        XCTAssertEqual(cyrillic.map(\.key).sorted(), [])
+    }
+
+    /// Word order differs by language; Turkish once put the wins count where the games count goes.
+    func testTurkishWinsInGamesKeepsArgumentOrder() throws {
+        let format = try XCTUnwrap(table("tr")["%d wins in %d games"])
+        XCTAssertEqual(String(format: format, 3, 10), "10 oyunda 3 galibiyet")
+    }
+
     /// The quick-add settings label and caption must exist in every locale, with their "%d" intact.
     func testQuickAddSettingsKeysExistInEveryLocale() throws {
         let keys = ["Quick-add button: +%d",

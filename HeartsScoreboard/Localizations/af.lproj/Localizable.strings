@@ -1,17 +1,17 @@
 "No" = "Nee";
 "Yes" = "Ja";
-"Undo Round" = "Ontdoen rondte";
+"Undo Round" = "Maak rondte ongedaan";
 "Shake to undo the last round!" = "Skud om die laaste rondte ongedaan te maak!";
 "New Game" = "Nuwe speletjie";
 "Are you sure? This will clear all round scores." = "Is jy seker? Dit sal alle tellings uitvee.";
-"D" = "D";
+"D" = "U";
 "Hearts Scoreboard" = "Harte telbord";
-"Game to: %d" = "Speletjie aan: %d";
+"Game to: %d" = "Speletjie tot: %d";
 "Next Round" = "Volgende rondte";
-"Game over" = "Wedstryd verby";
-"Pass to the Left" = "Gaan na links";
-"Pass to the Right" = "Gaan na regs";
-"Pass Across" = "Gaan oor";
+"Game over" = "Speletjie verby";
+"Pass to the Left" = "Gee na links";
+"Pass to the Right" = "Gee na regs";
+"Pass Across" = "Gee oorkant";
 "Hold on Tight!" = "Hou styf vas!";
 "No winner" = "Geen wenner nie";
 "%@ won!" = "%@ gewen!";
@@ -19,7 +19,7 @@
 "Player" = "Speler";
 "Add Player" = "Voeg speler by";
 "Hearts supports 3–6 players." = "Hearts ondersteun 3–6 spelers.";
-"Dealer" = "Handelaar";
+"Dealer" = "Uitdeler";
 "Ending Score" = "Eindtelling";
 "Ending Score: %d" = "Eindtelling: %d";
 "Appearance" = "Voorkoms";
@@ -35,14 +35,14 @@
 "Game History" = "Spelgeskiedenis";
 "Game Summary" = "Speletjieopsomming";
 "Quick add" = "Vinnige byvoeging";
-"Shoot the Moon Preference" = "Skiet die maanvoorkeur";
+"Shoot the Moon Preference" = "Skiet-die-maan-voorkeur";
 "Shoot the moon" = "Skiet die maan";
 "Adds 26 points to every other players' score." = "Voeg 26 punte by elke ander speler se telling.";
 "Subtracts 26 points from the selected player's score." = "Trek 26 punte van die geselekteerde speler se telling af.";
 "Back" = "Terug";
 "Reset" = "Stel terug";
 "Submit" = "Dien in";
-"Submit round scores" = "Dien rondte tellings in";
+"Submit round scores" = "Dien rondetellings in";
 "Round %d" = "Rondte %d";
 "Developed by Christopher Rung" = "Ontwikkel deur Christopher Rung";
 "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Opgedra aan my pa, wat lief is vir Hearts, en my geleer het om altyd die maan te skiet.";
@@ -50,8 +50,8 @@
 "Send Feedback" = "Stuur terugvoer";
 "Rate on App Store" = "Beoordeel op App Store";
 "Donate a coffee to Christopher" = "Skenk 'n koffie vir Christopher";
-"App Version" = "App weergawe";
-"View Source" = "Bekyk Bron";
+"App Version" = "App-weergawe";
+"View Source" = "Bekyk bron";
 "About" = "Oor";
 "Made with love in Denver, CO" = "Met liefde gemaak in Denver, CO";
 
@@ -78,7 +78,7 @@
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", het die ruit 10 geneem";
 /* HistoryView empty state title */
-"No Games Yet" = "Nog Geen Speletjies";
+"No Games Yet" = "Nog geen speletjies";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Voltooide speletjies verskyn hier.";
 /* HistoryView row badge (round count) and accessibility label */
@@ -119,7 +119,7 @@
 "Moons" = "Mane";
 "10♦ taken" = "10♦ geneem";
 "Biggest hand" = "Grootste hand";
-"Score by round" = "Telling vir rondte";
+"Score by round" = "Telling per rondte";
 "Round" = "Rondte";
 "%@ won with %d" = "%@ het gewen met %d";
 "%@ tied with %d" = "%@ gelykop met %d";
@@ -133,22 +133,22 @@
 "Player records appear after your first finished game." = "Spelerrekords verskyn na jou eerste voltooide speletjie.";
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Spelers word op naam gepas. Bande vir die laagste telling tel as 'n oorwinning vir elke gelyke speler.";
 "Played" = "Gespeel";
-"Wins" = "Wen";
+"Wins" = "Wenne";
 "Avg score" = "Gemiddelde telling";
-"%d wins in %d games" = "%d wen in %d wedstryde";
-"Rematch" = "Rematch";
+"%d wins in %d games" = "%d oorwinnings in %d speletjies";
+"Rematch" = "Herspeel";
 "View history" = "Bekyk geskiedenis";
 "Results" = "Resultate";
 "Close" = "Maak toe";
 "Winners" = "Wenners";
-"Final standings" = "Finale puntestand";
+"Final standings" = "Eindstand";
 "%lld points" = "%lld punte";
 "%d. %@, %d points" = "%d. %@, %d punte";
 "%@ won with %lld points." = "%@ het gewen met %lld punte.";
 "%@ tied for the win with %lld points." = "%@ gelykop vir die oorwinning met %lld punte.";
 "%lld rounds" = "%lld rondtes";
 "1 round" = "1 rondte";
-"Hearts Scoreboard result" = "Hearts Telbord resultaat";
+"Hearts Scoreboard result" = "Harte telbord-resultaat";
 "Share result" = "Deel resultaat";
 "Left" = "Links";
 "Right" = "Regs";
@@ -161,7 +161,7 @@
 "Round %d restored" = "Rondte %d is herstel";
 "Edit Round %d" = "Wysig rondte %d";
 "Save" = "Stoor";
-"Save round scores" = "Stoor ronde tellings";
+"Save round scores" = "Stoor rondetellings";
 "Round %d updated" = "Rondte %d opgedateer";
 "Edit this round" = "Wysig hierdie rondte";
 "Redo available" = "Herdoen beskikbaar";

@@ -1,27 +1,27 @@
 "No" = "Hapana";
 "Yes" = "Ndiyo";
-"Undo Round" = "Tendua Mzunguko";
+"Undo Round" = "Tendua Raundi";
 "Shake to undo the last round!" = "Tikisa ili kutendua raundi ya mwisho!";
 "New Game" = "Mchezo Mpya";
 "Are you sure? This will clear all round scores." = "Je, una uhakika? Hii itafuta alama zote za raundi.";
-"D" = "D";
+"D" = "M";
 "Hearts Scoreboard" = "Ubao wa alama za mioyo";
-"Game to: %d" = "Mchezo kwa: %d";
+"Game to: %d" = "Mchezo hadi: %d";
 "Next Round" = "Raundi Inayofuata";
 "Game over" = "Mchezo umekwisha";
-"Pass to the Left" = "Pitia kwa Kushoto";
-"Pass to the Right" = "Pitia Kulia";
-"Pass Across" = "Pitia";
-"Hold on Tight!" = "Shikilia sana!";
+"Pass to the Left" = "Pitisha Kushoto";
+"Pass to the Right" = "Pitisha Kulia";
+"Pass Across" = "Pitisha Mkabala";
+"Hold on Tight!" = "Shikilia kadi zako!";
 "No winner" = "Hakuna mshindi";
 "%@ won!" = "%@ ameshinda!";
 "Players" = "Wachezaji";
 "Player" = "Mchezaji";
 "Add Player" = "Ongeza Mchezaji";
 "Hearts supports 3–6 players." = "Hearts inasaidia wachezaji 3-6.";
-"Dealer" = "Muuzaji";
-"Ending Score" = "Alama ya Kumalizia";
-"Ending Score: %d" = "Alama ya Kuhitimisha: %d";
+"Dealer" = "Mgawaji";
+"Ending Score" = "Alama ya Mwisho";
+"Ending Score: %d" = "Alama ya Mwisho: %d";
 "Appearance" = "Muonekano";
 "Settings" = "Mipangilio";
 "Done" = "Imekamilika";
@@ -35,20 +35,20 @@
 "Game History" = "Historia ya Mchezo";
 "Game Summary" = "Muhtasari wa Mchezo";
 "Quick add" = "Ongeza haraka";
-"Shoot the Moon Preference" = "Piga Upendeleo wa Mwezi";
-"Shoot the moon" = "Risasi mwezi";
-"Adds 26 points to every other players' score." = "Huongeza pointi 26 kwa kila alama ya wachezaji wengine.";
+"Shoot the Moon Preference" = "Chaguo la kupiga risasi mwezini";
+"Shoot the moon" = "Piga risasi mwezini";
+"Adds 26 points to every other players' score." = "Huongeza pointi 26 kwa alama ya kila mchezaji mwingine.";
 "Subtracts 26 points from the selected player's score." = "Huondoa pointi 26 kutoka kwa alama za mchezaji aliyechaguliwa.";
 "Back" = "Nyuma";
 "Reset" = "Weka upya";
 "Submit" = "Wasilisha";
-"Submit round scores" = "Peana alama za pande zote";
+"Submit round scores" = "Wasilisha alama za raundi";
 "Round %d" = "Raundi ya %d";
 "Developed by Christopher Rung" = "Imeandaliwa na Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Imejitolea kwa baba yangu, ambaye anapenda Mioyo, na amenifundisha kupiga risasi mwezi kila wakati.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Imetolewa kwa baba yangu, anayependa Hearts na ambaye amenifundisha kupiga risasi mwezini kila wakati.";
 "I would love to hear your feedback!" = "Ningependa kusikia maoni yako!";
 "Send Feedback" = "Tuma Maoni";
-"Rate on App Store" = "Bei kwenye App Store";
+"Rate on App Store" = "Kadiria kwenye App Store";
 "Donate a coffee to Christopher" = "Changia kahawa kwa Christopher";
 "App Version" = "Toleo la Programu";
 "View Source" = "Tazama Chanzo";
@@ -57,8 +57,8 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ina thamani ya −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Toleo la Omnibus Hearts: anayechukua 10♦ anapata −10 kwa mkono huo. Hii ni tofauti na \"Risasi mwezi\".";
-"10♦ taken by" = "10♦ amechukua";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Toleo la Omnibus Hearts: anayechukua 10♦ anapata −10 kwa mkono huo. Hii ni tofauti na \"Piga risasi mwezini\".";
+"10♦ taken by" = "10♦ alichukuliwa na";
 "−10" = "−10";
 "Select who took the 10♦" = "Chagua aliyechukua 10♦";
 
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Raundi ya %d, %@: pointi %d";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Raundi ya %d, %@: risasi mwezi";
+"Round %d, %@: shot the moon" = "Raundi ya %d, %@: alipiga risasi mwezini";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", alichukua 10 ya almasi";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "Raundi %d";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Risasi mwezi";
+"Shot the moon" = "Alipiga risasi mwezini";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ alichukua 10 ya almasi";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "Malkia wa jembe kwa %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "Risasi mwezi kwa %@";
+"Shoot the moon for %@" = "Piga risasi mwezini kwa %@";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "Punguza pointi za %@";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Tayari";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "Mchezaji mmoja hawezi kuchukua zote 26. Tumia mwezi.";
+"One player can't take all 26. Use the moon." = "Mchezaji mmoja hawezi kuchukua zote 26. Tumia \"Piga risasi mwezini\".";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d zaidi";
 /* RoundInputView: progress strip under 26 */
@@ -120,23 +120,23 @@
 "10♦ taken" = "10♦ imechukuliwa";
 "Biggest hand" = "Mkono mkubwa zaidi";
 "Score by round" = "Alama kwa raundi";
-"Round" = "Raundi ya";
+"Round" = "Raundi";
 "%@ won with %d" = "%@ alishinda kwa %d";
-"%@ tied with %d" = "%@ amefungwa na %d";
-"Ends at %d" = "Inaisha saa %d";
-"Moon adds 26 to others" = "Risasi mwezi anaongeza 26 kwa wengine";
-"Moon subtracts 26 from shooter" = "Risasi mwezi huondoa 26 kutoka kwa mpiga risasi";
+"%@ tied with %d" = "%@ ametoka sare na %d";
+"Ends at %d" = "Inaisha kwa %d";
+"Moon adds 26 to others" = "Kupiga risasi mwezini huongeza 26 kwa wengine";
+"Moon subtracts 26 from shooter" = "Kupiga risasi mwezini huondoa 26 kutoka kwa mpigaji";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Michezo";
 "View" = "Tazama";
 "No Players Yet" = "Bado Hakuna Wachezaji";
-"Player records appear after your first finished game." = "Rekodi za wachezaji huonekana baada ya mchezo wako wa kwanza kumaliza.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Wachezaji wanalinganishwa kwa majina. Sare za alama za chini kabisa huhesabiwa kama ushindi kwa kila mchezaji aliyefungwa.";
+"Player records appear after your first finished game." = "Rekodi za wachezaji huonekana baada ya mchezo wako wa kwanza uliokamilika.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Wachezaji wanalinganishwa kwa majina. Sare za alama za chini kabisa huhesabiwa kama ushindi kwa kila mchezaji aliyetoka sare.";
 "Played" = "Imechezwa";
 "Wins" = "Ushindi";
 "Avg score" = "Alama ya wastani";
-"%d wins in %d games" = "%d imeshinda katika michezo %d";
-"Rematch" = "Kurudiana";
+"%d wins in %d games" = "Ushindi %1$d katika michezo %2$d";
+"Rematch" = "Cheza tena";
 "View history" = "Tazama historia";
 "Results" = "Matokeo";
 "Close" = "Funga";
@@ -145,26 +145,26 @@
 "%lld points" = "pointi %lld";
 "%d. %@, %d points" = "%d. %@, pointi %d";
 "%@ won with %lld points." = "%@ alishinda kwa pointi %lld.";
-"%@ tied for the win with %lld points." = "%@ imefungwa kwa ushindi kwa pointi %lld.";
+"%@ tied for the win with %lld points." = "%@ ametoka sare katika ushindi kwa pointi %lld.";
 "%lld rounds" = "%lld raundi";
 "1 round" = "1 raundi";
 "Hearts Scoreboard result" = "Matokeo ya Ubao wa alama za Hearts";
 "Share result" = "Shiriki matokeo";
 "Left" = "Kushoto";
 "Right" = "Kulia";
-"Across" = "Kuvuka";
+"Across" = "Mkabala";
 "Hold" = "Shikilia";
 "to %d" = "hadi %d";
 "No rounds yet" = "Bado hakuna raundi";
 "Round %d undone" = "Raundi ya %d imetenguliwa";
-"Redo" = "Rudia";
-"Round %d restored" = "Mzunguko wa %d umerejeshwa";
+"Redo" = "Fanya tena";
+"Round %d restored" = "Raundi ya %d imerejeshwa";
 "Edit Round %d" = "Hariri Raundi ya %d";
 "Save" = "Hifadhi";
-"Save round scores" = "Okoa alama za raundi";
+"Save round scores" = "Hifadhi alama za raundi";
 "Round %d updated" = "Raundi ya %d imesasishwa";
 "Edit this round" = "Hariri raundi hii";
-"Redo available" = "Rudia inapatikana";
+"Redo available" = "Fanya tena inapatikana";
 "Quick-add button: +%d" = "Kitufe cha kuongeza haraka: +%d";
 "The +%d button in score entry adds this many points per tap." = "Kitufe cha +%d katika kuweka alama huongeza pointi nyingi kwa kila mguso.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Gusa mchezaji aliyechukua 10♦. Wanapata pointi 10 chini ya mzunguko huu.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Gusa mchezaji aliyechukua 10♦. Atapunguziwa pointi 10 katika raundi hii.";

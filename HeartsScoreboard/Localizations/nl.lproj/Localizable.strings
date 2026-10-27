@@ -6,11 +6,11 @@
 "Undo Round" = "Ronde ongedaan maken";
 "Shake to undo the last round!" = "Schud om de laatste ronde ongedaan te maken!";
 "New Game" = "Nieuw spel";
-"Are you sure? This will clear all round scores." = "Weet je het zeker? Alle ronde-scores worden gewist.";
+"Are you sure? This will clear all round scores." = "Weet je het zeker? Alle rondescores worden gewist.";
 
 /* Game view */
-"D" = "D";
-"Hearts Scoreboard" = "Harten Scorebord";
+"D" = "G";
+"Hearts Scoreboard" = "Hartenjagen Scorebord";
 "Game to: %d" = "Spel tot: %d";
 "Next Round" = "Volgende ronde";
 
@@ -18,7 +18,7 @@
 "Game over" = "Spel afgelopen";
 "Pass to the Left" = "Doorgeven naar links";
 "Pass to the Right" = "Doorgeven naar rechts";
-"Pass Across" = "Doorgeven naar tegenover";
+"Pass Across" = "Doorgeven naar de overkant";
 "Hold on Tight!" = "Houden!";
 "No winner" = "Geen winnaar";
 "%@ won!" = "%@ heeft gewonnen!";
@@ -27,8 +27,8 @@
 "Players" = "Spelers";
 "Player" = "Speler";
 "Add Player" = "Speler toevoegen";
-"Hearts supports 3–6 players." = "Harten is voor 3–6 spelers.";
-"Dealer" = "Deler";
+"Hearts supports 3–6 players." = "Hartenjagen is voor 3–6 spelers.";
+"Dealer" = "Gever";
 "Ending Score" = "Eindscore";
 "Ending Score: %d" = "Eindscore: %d";
 "Appearance" = "Weergave";
@@ -64,7 +64,7 @@
 
 /* About */
 "Developed by Christopher Rung" = "Ontwikkeld door Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Opgedragen aan mijn vader, die van Harten houdt en me leerde altijd de maan te pakken.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Opgedragen aan mijn vader, die van Hartenjagen houdt en me leerde altijd de maan te pakken.";
 "I would love to hear your feedback!" = "Ik hoor graag je mening!";
 "Send Feedback" = "Feedback sturen";
 "Rate on App Store" = "Beoordeel in de App Store";
@@ -76,7 +76,7 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ is −10 waard";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts-variant: wie de 10♦ pakt, krijgt −10 voor die hand. Dit staat los van „Pak de maan”.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hartenjagen-variant: wie de 10♦ pakt, krijgt −10 voor die hand. Dit staat los van „Pak de maan”.";
 "10♦ taken by" = "10♦ gepakt door";
 "−10" = "−10";
 "Select who took the 10♦" = "Kies wie de 10♦ pakte";
@@ -95,7 +95,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: shot the moon" = "Ronde %d, %@: pakte de maan";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", pakte de ruiten 10 (10♦)";
+", took the 10 of diamonds" = ", pakte de ruiten tien";
 /* HistoryView empty state title */
 "No Games Yet" = "Nog geen spellen";
 /* HistoryView empty state description */
@@ -121,7 +121,7 @@
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
 "Ready to submit" = "Klaar om te verzenden";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
-"Choose who took the 10♦" = "Kies wie 10♦ pakte";
+"Choose who took the 10♦" = "Kies wie de 10♦ pakte";
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Klaar";
 /* RoundInputView: progress strip, 26 total but all on one player */
@@ -136,7 +136,7 @@
 "Share App" = "Deel app";
 "Rounds" = "Rondes";
 "Moons" = "Manen";
-"10♦ taken" = "10♦ genomen";
+"10♦ taken" = "10♦ gepakt";
 "Biggest hand" = "Grootste hand";
 "Score by round" = "Score per ronde";
 "Round" = "Ronde";
@@ -152,9 +152,9 @@
 "Player records appear after your first finished game." = "Spelersrecords verschijnen na je eerste voltooide spel.";
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Spelers worden op naam gematcht. Een gelijkspel voor de laagste score telt als een overwinning voor elke speler met een gelijk resultaat.";
 "Played" = "Gespeeld";
-"Wins" = "Overwinningen";
+"Wins" = "Gewonnen";
 "Avg score" = "Gemiddelde score";
-"%d wins in %d games" = "%d overwinningen in %d wedstrijden";
+"%d wins in %d games" = "%d overwinningen in %d spellen";
 "Rematch" = "Opnieuw spelen";
 "View history" = "Geschiedenis bekijken";
 "Results" = "Resultaten";
@@ -167,11 +167,11 @@
 "%@ tied for the win with %lld points." = "%@ was gelijk voor de overwinning met %lld punten.";
 "%lld rounds" = "%lld rondes";
 "1 round" = "1 ronde";
-"Hearts Scoreboard result" = "Hartenscorebord resultaat";
+"Hearts Scoreboard result" = "Hartenjagen Scorebord-resultaat";
 "Share result" = "Resultaat delen";
 "Left" = "Links";
 "Right" = "Rechts";
-"Across" = "Tegenover";
+"Across" = "Overkant";
 "Hold" = "Houden";
 "to %d" = "naar %d";
 "No rounds yet" = "Nog geen rondes";
@@ -186,4 +186,4 @@
 "Redo available" = "Opnieuw beschikbaar";
 "Quick-add button: +%d" = "Knop voor snel toevoegen: +%d";
 "The +%d button in score entry adds this many points per tap." = "De knop +%d bij het invoeren van de score voegt zoveel punten toe per tik.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tik op de speler die de 10♦ heeft gepakt. Zij krijgen deze ronde 10 punten afgetrokken.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tik op de speler die de 10♦ heeft gepakt. Die speler krijgt deze ronde 10 punten afgetrokken.";

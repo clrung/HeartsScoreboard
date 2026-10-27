@@ -15,10 +15,10 @@
 "Next Round" = "Próxima rodada";
 
 /* Game status (ViewModel) */
-"Game over" = "Fim de jogo";
+"Game over" = "Fim da partida";
 "Pass to the Left" = "Passar para a esquerda";
 "Pass to the Right" = "Passar para a direita";
-"Pass Across" = "Passar em frente";
+"Pass Across" = "Passar para a frente";
 "Hold on Tight!" = "Segura aí!";
 "No winner" = "Sem vencedor";
 "%@ won!" = "%@ venceu!";
@@ -32,7 +32,7 @@
 "Ending Score" = "Pontuação final";
 "Ending Score: %d" = "Pontuação final: %d";
 "Appearance" = "Aparência";
-"Settings" = "Configurações";
+"Settings" = "Ajustes";
 "Done" = "Concluído";
 
 /* Appearance options */
@@ -133,28 +133,28 @@
 "Game Rules" = "Regras do jogo";
 "Recent players" = "Jogadores recentes";
 "Add %@" = "Adicionar %@";
-"Share App" = "Compartilhar aplicativo";
+"Share App" = "Compartilhar app";
 "Rounds" = "Rodadas";
 "Moons" = "Luas";
-"10♦ taken" = "10♦ tirada";
-"Biggest hand" = "Maior mão";
+"10♦ taken" = "10♦ pegos";
+"Biggest hand" = "Maior rodada";
 "Score by round" = "Pontuação por rodada";
 "Round" = "Rodada";
 "%@ won with %d" = "%@ ganhou com %d";
-"%@ tied with %d" = "%@ empatado com %d";
-"Ends at %d" = "Termina às %d";
+"%@ tied with %d" = "%@ empatou com %d";
+"Ends at %d" = "Termina em %d";
 "Moon adds 26 to others" = "Pegar a lua adiciona 26 aos outros";
-"Moon subtracts 26 from shooter" = "Pegar a lua subtrai 26 do atirador";
+"Moon subtracts 26 from shooter" = "Pegar a lua subtrai 26 de quem a pegou";
 "10♦ = −10" = "10♦ = −10";
-"Games" = "Jogos";
+"Games" = "Partidas";
 "View" = "Visualizar";
 "No Players Yet" = "Ainda não há jogadores";
-"Player records appear after your first finished game." = "Os registros do jogador aparecem após o término do primeiro jogo.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Os jogadores são combinados por nome. Empates com a pontuação mais baixa contam como vitória para cada jogador empatado.";
-"Played" = "Jogado";
+"Player records appear after your first finished game." = "Os registros dos jogadores aparecem após a primeira partida concluída.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Os jogadores são agrupados por nome. Empates na menor pontuação contam como vitória para cada jogador empatado.";
+"Played" = "Jogadas";
 "Wins" = "Vitórias";
 "Avg score" = "Pontuação média";
-"%d wins in %d games" = "%d vitórias em %d jogos";
+"%d wins in %d games" = "%d vitórias em %d partidas";
 "Rematch" = "Revanche";
 "View history" = "Ver histórico";
 "Results" = "Resultados";
@@ -167,12 +167,12 @@
 "%@ tied for the win with %lld points." = "%@ empatou na vitória com %lld pontos.";
 "%lld rounds" = "%lld rodadas";
 "1 round" = "1 rodada";
-"Hearts Scoreboard result" = "Resultado do placar de copas";
+"Hearts Scoreboard result" = "Resultado do Placar de Copas";
 "Share result" = "Compartilhar resultado";
 "Left" = "Esq.";
 "Right" = "Dir.";
-"Across" = "Em frente";
-"Hold" = "Manter";
+"Across" = "Frente";
+"Hold" = "Sem passe";
 "to %d" = "para %d";
 "No rounds yet" = "Ainda não há rodadas";
 "Round %d undone" = "Rodada %d desfeita";
@@ -186,4 +186,4 @@
 "Redo available" = "Refazer disponível";
 "Quick-add button: +%d" = "Botão de adição rápida: +%d";
 "The +%d button in score entry adds this many points per tap." = "O botão +%d na entrada de pontuação adiciona esta quantidade de pontos por toque.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toque no jogador que pegou o 10♦. Eles recebem 10 pontos subtraídos nesta rodada.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toque no jogador que pegou o 10♦. Ele tem 10 pontos subtraídos nesta rodada.";

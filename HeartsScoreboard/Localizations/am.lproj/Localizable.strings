@@ -3,16 +3,16 @@
 "Undo Round" = "ዙር ቀልብስ";
 "Shake to undo the last round!" = "የመጨረሻውን ዙር ለመቀልበስ ይንቀጠቀጡ!";
 "New Game" = "አዲስ ጨዋታ";
-"Are you sure? This will clear all round scores." = "እርግጠኛ ነህ? ይህ ሁሉንም የክብ ነጥቦችን ያስወግዳል።";
+"Are you sure? This will clear all round scores." = "እርግጠኛ ነዎት? ይህ ሁሉንም የዙር ነጥቦች ያስወግዳል።";
 "D" = "ዲ";
 "Hearts Scoreboard" = "ልቦች የውጤት ሰሌዳ";
-"Game to: %d" = "ጨዋታ ወደ፡%d";
+"Game to: %d" = "ጨዋታ እስከ፦ %d";
 "Next Round" = "ቀጣይ ዙር";
 "Game over" = "ጨዋታው አልቋል";
-"Pass to the Left" = "ወደ ግራ ይለፉ";
-"Pass to the Right" = "ወደ ቀኝ እለፍ";
-"Pass Across" = "ማለፍ";
-"Hold on Tight!" = "አጥብቀው ይያዙ!";
+"Pass to the Left" = "ወደ ግራ ያስተላልፉ";
+"Pass to the Right" = "ወደ ቀኝ ያስተላልፉ";
+"Pass Across" = "ወደ ማዶ ያስተላልፉ";
+"Hold on Tight!" = "ካርዶችዎን ይያዙ!";
 "No winner" = "አሸናፊ የለም።";
 "%@ won!" = "%@ አሸነፈ!";
 "Players" = "ተጫዋቾች";
@@ -29,30 +29,30 @@
 "Light" = "ብርሃን";
 "Dark" = "ጨለማ";
 "Add 26" = "26 ጨምር";
-"Subtract 26" = "መቀነስ 26";
+"Subtract 26" = "26 ቀንስ";
 "Delete" = "ሰርዝ";
 "Winner" = "አሸናፊ";
 "Game History" = "የጨዋታ ታሪክ";
 "Game Summary" = "የጨዋታ ማጠቃለያ";
 "Quick add" = "በፍጥነት ይጨምሩ";
-"Shoot the Moon Preference" = "የጨረቃ ምርጫን ያንሱ";
+"Shoot the Moon Preference" = "ጨረቃን የመተኮስ ምርጫ";
 "Shoot the moon" = "ጨረቃን ተኩሱ";
-"Adds 26 points to every other players' score." = "ለእያንዳንዱ ሌሎች ተጫዋቾች ነጥብ 26 ነጥቦችን ይጨምራል።";
+"Adds 26 points to every other players' score." = "ለእያንዳንዱ ሌላ ተጫዋች 26 ነጥብ ይጨምራል።";
 "Subtracts 26 points from the selected player's score." = "ከተመረጠው ተጫዋች ነጥብ 26 ነጥብ ይቀንሳል።";
 "Back" = "ተመለስ";
 "Reset" = "ዳግም አስጀምር";
 "Submit" = "አስገባ";
 "Submit round scores" = "ዙር ውጤቶችን አስገባ";
 "Round %d" = "ዙር %d";
-"Developed by Christopher Rung" = "በ ክሪስቶፈር Rung የተሰራ";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ልብን ለሚወደው ለአባቴ የተሰጠ እና ሁልጊዜ ጨረቃን እንድተኩስ አስተምሮኛል።";
+"Developed by Christopher Rung" = "በክሪስቶፈር ሩንግ የተሰራ";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ልቦችን ለሚወድ እና ሁልጊዜ ጨረቃን እንድተኩስ ላስተማረኝ አባቴ የተሰጠ።";
 "I would love to hear your feedback!" = "የእርስዎን አስተያየት መስማት እፈልጋለሁ!";
 "Send Feedback" = "ግብረ መልስ ላክ";
 "Rate on App Store" = "በመተግበሪያ መደብር ላይ ደረጃ ይስጡ";
 "Donate a coffee to Christopher" = "ለክርስቶፈር አንድ ቡና ይለግሱ";
 "App Version" = "የመተግበሪያ ሥሪት";
 "View Source" = "ምንጭ ይመልከቱ";
-"About" = "ስለ";
+"About" = "ስለ መተግበሪያ";
 "Made with love in Denver, CO" = "በፍቅር የተሰራ በዴንቨር፣ CO";
 
 /* Rules (Omnibus Hearts variant) */
@@ -92,7 +92,7 @@
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
 "Add %d points to %@" = "ለ%2$@ %1$d ነጥብ ጨምር";
 /* RoundInputView: VoiceOver label for Q spades chip */
-"Queen of spades to %@" = "የጦር ንግሥት ለ%@";
+"Queen of spades to %@" = "የስፔድ ንግሥት ለ%@";
 /* RoundInputView: VoiceOver label for moon chip */
 "Shoot the moon for %@" = "ለ%@ ጨረቃን ተኩሱ";
 /* RoundInputView: VoiceOver label for minus stepper */
@@ -113,29 +113,29 @@
 "%d / 26 · %d left" = "%d / 26 · %d ይቀራል";
 "Game Rules" = "የጨዋታ ህጎች";
 "Recent players" = "የቅርብ ጊዜ ተጫዋቾች";
-"Add %@" = "አክል %@";
+"Add %@" = "%@ አክል";
 "Share App" = "መተግበሪያ አጋራ";
 "Rounds" = "ዙሮች";
 "Moons" = "ጨረቃዎች";
 "10♦ taken" = "10♦ ተወሰደ";
 "Biggest hand" = "ትልቁ እጅ";
-"Score by round" = "ነጥብ በክብ";
+"Score by round" = "ነጥብ በዙር";
 "Round" = "ዙር";
 "%@ won with %d" = "%@ በ%d አሸንፏል";
-"%@ tied with %d" = "%@ ከ%d ጋር የተሳሰረ";
+"%@ tied with %d" = "%@ ከ%d ጋር እኩል ሆነ";
 "Ends at %d" = "በ%d ላይ ያበቃል";
-"Moon adds 26 to others" = "ጨረቃን ተኩሱ 26ን ወደ ሌሎች ያክላል";
-"Moon subtracts 26 from shooter" = "ከተኳሹ ጨረቃን ተኩሱ ይቀንሳል 26";
+"Moon adds 26 to others" = "ጨረቃን መተኮስ ለሌሎች 26 ይጨምራል";
+"Moon subtracts 26 from shooter" = "ጨረቃን መተኮስ ከተኳሹ 26 ይቀንሳል";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ጨዋታዎች";
 "View" = "እይታ";
 "No Players Yet" = "እስካሁን ምንም ተጫዋቾች የሉም";
 "Player records appear after your first finished game." = "የተጫዋች መዝገቦች ከመጀመሪያው የጨረሰ ጨዋታዎ በኋላ ይታያሉ።";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ተጫዋቾች በስም ይመሳሰላሉ። ለእያንዳንዳቸው የተቆራኘ ተጫዋች ለዝቅተኛው ነጥብ እኩልነት ይቆጠራል።";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ተጫዋቾች በስም ይመሳሰላሉ። ዝቅተኛው ነጥብ ላይ እኩል የወጡ ተጫዋቾች እያንዳንዳቸው እንደ አሸናፊ ይቆጠራሉ።";
 "Played" = "ተጫውቷል";
 "Wins" = "አሸነፈ";
 "Avg score" = "አማካይ ነጥብ";
-"%d wins in %d games" = "%d በ%d ጨዋታዎች አሸንፏል";
+"%d wins in %d games" = "%2$d ጨዋታዎች ውስጥ %1$d ድሎች";
 "Rematch" = "እንደገና ይጫወቱ";
 "View history" = "ታሪክ ይመልከቱ";
 "Results" = "ውጤቶች";
@@ -145,7 +145,7 @@
 "%lld points" = "%lld ነጥቦች";
 "%d. %@, %d points" = "%d %@፣ %d ነጥቦች";
 "%@ won with %lld points." = "%@ በ%lld ነጥብ አሸንፏል።";
-"%@ tied for the win with %lld points." = "ለአሸናፊነቱ %@ በ%lld ነጥብ እኩል ነው።";
+"%@ tied for the win with %lld points." = "%@ በ%lld ነጥብ በአሸናፊነት እኩል ወጣ።";
 "%lld rounds" = "%lld ዙሮች";
 "1 round" = "1 ዙር";
 "Hearts Scoreboard result" = "የልቦች የውጤት ሰሌዳ ውጤት";
@@ -161,10 +161,10 @@
 "Round %d restored" = "ዙር %d ተመልሷል";
 "Edit Round %d" = "ዙር %dን አርትዕ";
 "Save" = "አስቀምጥ";
-"Save round scores" = "ክብ ነጥቦችን ያስቀምጡ";
+"Save round scores" = "የዙር ነጥቦችን ያስቀምጡ";
 "Round %d updated" = "ዙር %d ተዘምኗል";
 "Edit this round" = "ይህንን ዙር ያርትዑ";
 "Redo available" = "ድገም ይገኛል።";
 "Quick-add button: +%d" = "ፈጣን አክል አዝራር፡ +%d";
 "The +%d button in score entry adds this many points per tap." = "በውጤት ግቤት ውስጥ ያለው የ+%d አዝራር በአንድ መታ በማድረግ ብዙ ነጥቦችን ይጨምራል።";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ን የወሰደውን ተጫዋች ነካ ያድርጉ። በዚህ ዙር 10 ነጥብ ተቀንሰዋል።";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ን የወሰደውን ተጫዋች ነካ ያድርጉ። በዚህ ዙር 10 ነጥብ ይቀነስበታል።";

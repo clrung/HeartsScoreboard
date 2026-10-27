@@ -6,28 +6,28 @@
 "Are you sure? This will clear all round scores." = "શું તમને ખાતરી છે? આ તમામ રાઉન્ડ સ્કોર સાફ કરશે.";
 "D" = "ડી";
 "Hearts Scoreboard" = "હાર્ટ્સ સ્કોરબોર્ડ";
-"Game to: %d" = "આ માટે રમત: %d";
+"Game to: %d" = "રમત %d સુધી";
 "Next Round" = "આગામી રાઉન્ડ";
 "Game over" = "રમત સમાપ્ત";
-"Pass to the Left" = "ડાબી તરફ પસાર કરો";
-"Pass to the Right" = "જમણી તરફ પસાર કરો";
-"Pass Across" = "પસાર કરો";
-"Hold on Tight!" = "ચુસ્ત પકડી રાખો!";
+"Pass to the Left" = "ડાબે પાસ કરો";
+"Pass to the Right" = "જમણે પાસ કરો";
+"Pass Across" = "સામે પાસ કરો";
+"Hold on Tight!" = "પત્તાં પકડી રાખો!";
 "No winner" = "કોઈ વિજેતા નથી";
 "%@ won!" = "%@ જીત્યું!";
 "Players" = "ખેલાડીઓ";
-"Player" = "પ્લેયર";
-"Add Player" = "પ્લેયર ઉમેરો";
-"Hearts supports 3–6 players." = "હાર્ટ્સ 3-6 ખેલાડીઓને સપોર્ટ કરે છે.";
-"Dealer" = "વેપારી";
+"Player" = "ખેલાડી";
+"Add Player" = "ખેલાડી ઉમેરો";
+"Hearts supports 3–6 players." = "હાર્ટ્સ 3–6 ખેલાડીઓ માટે છે.";
+"Dealer" = "ડીલર";
 "Ending Score" = "અંતિમ સ્કોર";
 "Ending Score: %d" = "અંતિમ સ્કોર: %d";
 "Appearance" = "દેખાવ";
 "Settings" = "સેટિંગ્સ";
 "Done" = "થઈ ગયું";
 "System" = "સિસ્ટમ";
-"Light" = "પ્રકાશ";
-"Dark" = "શ્યામ";
+"Light" = "આછો";
+"Dark" = "ઘેરો";
 "Add 26" = "26 ઉમેરો";
 "Subtract 26" = "26 બાદ કરો";
 "Delete" = "કાઢી નાખો";
@@ -35,8 +35,8 @@
 "Game History" = "રમત ઇતિહાસ";
 "Game Summary" = "રમત સારાંશ";
 "Quick add" = "ઝડપી ઉમેરો";
-"Shoot the Moon Preference" = "ચંદ્ર પસંદગી શૂટ";
-"Shoot the moon" = "ચંદ્રને શૂટ કરો";
+"Shoot the Moon Preference" = "ચંદ્ર લેવાની પસંદગી";
+"Shoot the moon" = "ચંદ્ર લો";
 "Adds 26 points to every other players' score." = "દરેક અન્ય ખેલાડીઓના સ્કોરમાં 26 પોઈન્ટ ઉમેરે છે.";
 "Subtracts 26 points from the selected player's score." = "પસંદ કરેલ ખેલાડીના સ્કોરમાંથી 26 પોઈન્ટ બાદ કરે છે.";
 "Back" = "પાછળ";
@@ -45,7 +45,7 @@
 "Submit round scores" = "રાઉન્ડ સ્કોર્સ સબમિટ કરો";
 "Round %d" = "રાઉન્ડ %d";
 "Developed by Christopher Rung" = "ક્રિસ્ટોફર રંગ દ્વારા વિકસિત";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "મારા પિતાને સમર્પિત, જે હૃદયને પ્રેમ કરે છે, અને મને હંમેશા ચંદ્રને શૂટ કરવાનું શીખવ્યું છે.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "મારા પિતાને સમર્પિત, જેમને હાર્ટ્સ ગમે છે અને જેમણે મને હંમેશા ચંદ્ર લેવાનું શીખવ્યું છે.";
 "I would love to hear your feedback!" = "મને તમારો પ્રતિસાદ સાંભળવો ગમશે!";
 "Send Feedback" = "પ્રતિસાદ મોકલો";
 "Rate on App Store" = "એપ સ્ટોર પર રેટ કરો";
@@ -53,11 +53,11 @@
 "App Version" = "એપ્લિકેશન સંસ્કરણ";
 "View Source" = "સ્ત્રોત જુઓ";
 "About" = "વિશે";
-"Made with love in Denver, CO" = "ડેનવર, CO માં પ્રેમથી બનાવેલ";
+"Made with love in Denver, CO" = "ડેનવર, કોલોરાડોમાં પ્રેમથી બનાવેલ";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ ની કિંમત −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts વેરિએન્ટ: જે 10♦ લે છે તેને તે હાથ માટે −10 મળે છે. આ \"ચંદ્રને શૂટ કરો\" થી અલગ છે.";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts વેરિએન્ટ: જે 10♦ લે છે તેને તે રાઉન્ડ માટે −10 મળે છે. આ \"ચંદ્ર લો\" થી અલગ છે.";
 "10♦ taken by" = "10♦ લેનાર";
 "−10" = "−10";
 "Select who took the 10♦" = "10♦ કોણે લીધો તે પસંદ કરો";
@@ -72,11 +72,11 @@
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
 "Round added. %@ leads" = "રાઉન્ડ ઉમેરાયો. %@ આગળ છે";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "રાઉન્ડ %d, %@: %d પૉઇન્ટ";
+"Round %d, %@: %d points" = "રાઉન્ડ %d, %@: %d પોઈન્ટ";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "રાઉન્ડ %d, %@: ચંદ્રને શૂટ કર્યો";
+"Round %d, %@: shot the moon" = "રાઉન્ડ %d, %@: ચંદ્ર લીધો";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", ચોકટ 10 લીધો";
+", took the 10 of diamonds" = ", 10♦ લીધો";
 /* HistoryView empty state title */
 "No Games Yet" = "હજુ સુધી કોઈ રમત નથી";
 /* HistoryView empty state description */
@@ -84,21 +84,21 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d રાઉન્ડ";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "ચંદ્રને શૂટ કર્યો";
+"Shot the moon" = "ચંદ્ર લીધો";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ એ ચોકટ 10 લીધો";
+"%@ took the 10 of diamonds" = "%@ એ 10♦ લીધો";
 /* RoundInputView: VoiceOver value on a player row */
-"%d points" = "%d પૉઇન્ટ";
+"%d points" = "%d પોઈન્ટ";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
-"Add %d points to %@" = "%2$@ ને %1$d પૉઇન્ટ ઉમેરો";
+"Add %d points to %@" = "%2$@ ને %1$d પોઈન્ટ ઉમેરો";
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ ને ઇસ્પેટની રાણી";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ માટે ચંદ્રને શૂટ કરો";
+"Shoot the moon for %@" = "%@ માટે ચંદ્ર લો";
 /* RoundInputView: VoiceOver label for minus stepper */
-"Decrease points for %@" = "%@ ના પૉઇન્ટ ઘટાડો";
+"Decrease points for %@" = "%@ ના પોઈન્ટ ઘટાડો";
 /* RoundInputView: VoiceOver label for plus stepper */
-"Increase points for %@" = "%@ ના પૉઇન્ટ વધારો";
+"Increase points for %@" = "%@ ના પોઈન્ટ વધારો";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
 "Ready to submit" = "સબમિટ કરવા માટે તૈયાર";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
@@ -116,27 +116,27 @@
 "Add %@" = "%@ ઉમેરો";
 "Share App" = "એપ શેર કરો";
 "Rounds" = "રાઉન્ડ";
-"Moons" = "મૂન્સ";
+"Moons" = "ચંદ્ર";
 "10♦ taken" = "10♦ લેવાયું";
 "Biggest hand" = "સૌથી મોટો હાથ";
-"Score by round" = "રાઉન્ડ દ્વારા સ્કોર";
+"Score by round" = "રાઉન્ડ મુજબ સ્કોર";
 "Round" = "રાઉન્ડ";
 "%@ won with %d" = "%@ %d સાથે જીત્યું";
 "%@ tied with %d" = "%@ %d સાથે ટાઈ";
-"Ends at %d" = "%d વાગ્યે સમાપ્ત થાય છે";
-"Moon adds 26 to others" = "ચંદ્રને શૂટ કરો અન્યમાં 26 ઉમેરે છે";
-"Moon subtracts 26 from shooter" = "ચંદ્રને શૂટ કરો શૂટરમાંથી 26 બાદ કરે છે";
+"Ends at %d" = "%d પર સમાપ્ત થાય છે";
+"Moon adds 26 to others" = "ચંદ્ર: અન્યને +26";
+"Moon subtracts 26 from shooter" = "ચંદ્ર: લેનારમાંથી −26";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "રમતો";
 "View" = "જુઓ";
 "No Players Yet" = "હજુ સુધી કોઈ ખેલાડી નથી";
-"Player records appear after your first finished game." = "તમારી પ્રથમ સમાપ્ત થયેલ રમત પછી પ્લેયર રેકોર્ડ્સ દેખાય છે.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ખેલાડીઓ નામથી મેળ ખાતા હોય છે. સૌથી ઓછા સ્કોર માટે ટાઈ દરેક ટાઈ ખેલાડી માટે જીત તરીકે ગણાય છે.";
+"Player records appear after your first finished game." = "તમારી પહેલી પૂર્ણ થયેલી રમત પછી ખેલાડીઓના રેકોર્ડ દેખાશે.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "ખેલાડીઓને નામથી મેળવવામાં આવે છે. સૌથી ઓછા સ્કોર પર ટાઈ થાય તો ટાઈ થયેલા દરેક ખેલાડીની જીત ગણાય છે.";
 "Played" = "રમ્યા";
 "Wins" = "જીત";
 "Avg score" = "સરેરાશ સ્કોર";
-"%d wins in %d games" = "%d ગેમમાં %d જીત્યા";
-"Rematch" = "ફરીથી મેચ કરો";
+"%d wins in %d games" = "%2$d ગેમમાં %1$d જીત";
+"Rematch" = "ફરી રમો";
 "View history" = "ઇતિહાસ જુઓ";
 "Results" = "પરિણામો";
 "Close" = "બંધ કરો";
@@ -152,8 +152,8 @@
 "Share result" = "પરિણામ શેર કરો";
 "Left" = "ડાબે";
 "Right" = "જમણે";
-"Across" = "સમગ્ર";
-"Hold" = "હોલ્ડ";
+"Across" = "સામે";
+"Hold" = "રાખો";
 "to %d" = "%d સુધી";
 "No rounds yet" = "હજુ સુધી કોઈ રાઉન્ડ નથી";
 "Round %d undone" = "રાઉન્ડ %d પૂર્વવત્";
@@ -163,8 +163,8 @@
 "Save" = "સાચવો";
 "Save round scores" = "રાઉન્ડ સ્કોર્સ સાચવો";
 "Round %d updated" = "રાઉન્ડ %d અપડેટ કર્યો";
-"Edit this round" = "આ રાઉન્ડમાં ફેરફાર કરો";
-"Redo available" = "ઉપલબ્ધ ફરીથી કરો";
+"Edit this round" = "આ રાઉન્ડ સંપાદિત કરો";
+"Redo available" = "ફરી કરવું ઉપલબ્ધ છે";
 "Quick-add button: +%d" = "ઝડપી ઉમેરો બટન: +%d";
-"The +%d button in score entry adds this many points per tap." = "સ્કોર એન્ટ્રીમાં +%d બટન ટેપ દીઠ આ ઘણા બધા પોઇન્ટ્સ ઉમેરે છે.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ લેનાર ખેલાડીને ટેપ કરો. તેમને આ રાઉન્ડ બાદ 10 પોઈન્ટ મળે છે.";
+"The +%d button in score entry adds this many points per tap." = "સ્કોર એન્ટ્રીમાં +%d બટન દરેક ટેપ પર આટલા પોઈન્ટ ઉમેરે છે.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ લેનાર ખેલાડીને ટેપ કરો. આ રાઉન્ડમાં તેમના સ્કોરમાંથી 10 પોઈન્ટ બાદ થાય છે.";

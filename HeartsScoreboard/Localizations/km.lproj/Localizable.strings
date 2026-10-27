@@ -1,51 +1,51 @@
 "No" = "ទេ";
-"Yes" = "បាទ";
+"Yes" = "បាទ/ចាស";
 "Undo Round" = "មិនធ្វើវិញជុំ";
 "Shake to undo the last round!" = "អ្រងួនដើម្បីមិនធ្វើជុំចុងក្រោយ!";
-"New Game" = "ហ្គេមថ្មី។";
+"New Game" = "ហ្គេមថ្មី";
 "Are you sure? This will clear all round scores." = "តើអ្នកប្រាកដទេ? វានឹងជម្រះពិន្ទុជុំទាំងអស់។";
-"D" = "ឃ";
+"D" = "ច";
 "Hearts Scoreboard" = "តារាងពិន្ទុបេះដូង";
-"Game to: %d" = "ហ្គេមទៅ៖ %d";
+"Game to: %d" = "ហ្គេមដល់៖ %d";
 "Next Round" = "ជុំបន្ទាប់";
-"Game over" = "ហ្គេមចប់ហើយ។";
-"Pass to the Left" = "ឆ្លងទៅខាងឆ្វេង";
-"Pass to the Right" = "ឆ្លងទៅខាងស្តាំ";
-"Pass Across" = "ឆ្លងកាត់";
-"Hold on Tight!" = "សង្កត់​ខ្លាំង​!";
-"No winner" = "គ្មានអ្នកឈ្នះទេ។";
+"Game over" = "ហ្គេមចប់ហើយ";
+"Pass to the Left" = "ប្រគល់បៀទៅឆ្វេង";
+"Pass to the Right" = "ប្រគល់បៀទៅស្តាំ";
+"Pass Across" = "ប្រគល់បៀទៅទល់មុខ";
+"Hold on Tight!" = "ទុកបៀ!";
+"No winner" = "គ្មានអ្នកឈ្នះ";
 "%@ won!" = "%@ ឈ្នះ!";
 "Players" = "អ្នកលេង";
 "Player" = "អ្នកលេង";
 "Add Player" = "បន្ថែមអ្នកលេង";
 "Hearts supports 3–6 players." = "Hearts គាំទ្រអ្នកលេង 3-6 ។";
-"Dealer" = "ឈ្មួញ";
+"Dealer" = "អ្នកចែកបៀ";
 "Ending Score" = "ពិន្ទុបញ្ចប់";
 "Ending Score: %d" = "ពិន្ទុបញ្ចប់៖ %d";
 "Appearance" = "រូបរាង";
 "Settings" = "ការកំណត់";
 "Done" = "រួចរាល់";
 "System" = "ប្រព័ន្ធ";
-"Light" = "ពន្លឺ";
+"Light" = "ភ្លឺ";
 "Dark" = "ងងឹត";
 "Add 26" = "បន្ថែម 26";
-"Subtract 26" = "ដក ២៦";
+"Subtract 26" = "ដក 26";
 "Delete" = "លុប";
 "Winner" = "អ្នកឈ្នះ";
 "Game History" = "ប្រវត្តិហ្គេម";
 "Game Summary" = "សង្ខេបហ្គេម";
 "Quick add" = "បន្ថែមរហ័ស";
-"Shoot the Moon Preference" = "បាញ់ចំណង់ចំណូលចិត្តព្រះច័ន្ទ";
-"Shoot the moon" = "បាញ់ព្រះច័ន្ទ";
+"Shoot the Moon Preference" = "ជម្រើស «យកទាំងអស់»";
+"Shoot the moon" = "យកទាំងអស់";
 "Adds 26 points to every other players' score." = "បន្ថែម 26 ពិន្ទុទៅគ្រប់ពិន្ទុរបស់អ្នកលេងផ្សេងទៀត។";
 "Subtracts 26 points from the selected player's score." = "ដក 26 ពិន្ទុពីពិន្ទុរបស់អ្នកលេងដែលបានជ្រើសរើស។";
-"Back" = "ត្រឡប់មកវិញ";
+"Back" = "ថយក្រោយ";
 "Reset" = "កំណត់ឡើងវិញ";
 "Submit" = "ដាក់ស្នើ";
 "Submit round scores" = "បញ្ជូនពិន្ទុជុំ";
 "Round %d" = "ជុំ %d";
 "Developed by Christopher Rung" = "បង្កើតឡើងដោយ Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ឧទ្ទិសដល់ឪពុកខ្ញុំដែលស្រលាញ់បេះដូង ហើយបានបង្រៀនខ្ញុំឱ្យបាញ់ព្រះច័ន្ទជានិច្ច។";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "ឧទ្ទិសដល់ឪពុកខ្ញុំដែលស្រលាញ់ Hearts ហើយបានបង្រៀនខ្ញុំឱ្យព្យាយាមយកទាំងអស់ជានិច្ច។";
 "I would love to hear your feedback!" = "ខ្ញុំចង់ស្តាប់មតិរបស់អ្នក!";
 "Send Feedback" = "ផ្ញើមតិកែលម្អ";
 "Rate on App Store" = "វាយតម្លៃនៅលើ App Store";
@@ -57,7 +57,7 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ មានតម្លៃ −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ជំនាន់ Omnibus Hearts៖ អ្នកដែលយក 10♦ ទទួលបាន −10 សម្រាប់ដៃនោះ។ វាដាច់ដោយឡែកពី «បាញ់ព្រះច័ន្ទ»។";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "ជំនាន់ Omnibus Hearts៖ អ្នកដែលយក 10♦ ទទួលបាន −10 សម្រាប់ដៃនោះ។ វាដាច់ដោយឡែកពី «យកទាំងអស់»។";
 "10♦ taken by" = "អ្នកយក 10♦";
 "−10" = "−10";
 "Select who took the 10♦" = "ជ្រើសអ្នកដែលយក 10♦";
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "ជុំ %d, %@៖ %d ពិន្ទុ";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "ជុំ %d, %@៖ បាញ់ព្រះច័ន្ទ";
+"Round %d, %@: shot the moon" = "ជុំ %d, %@៖ យកទាំងអស់";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", បានយក 10♦";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d ជុំ";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "បាញ់ព្រះច័ន្ទ";
+"Shot the moon" = "យកទាំងអស់";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ បានយក 10♦";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "ព្រះមហាក្សត្រិយ៍ស្ពែដសម្រាប់ %@";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "បាញ់ព្រះច័ន្ទសម្រាប់ %@";
+"Shoot the moon for %@" = "%@ យកទាំងអស់";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "បន្ថយពិន្ទុសម្រាប់ %@";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -106,7 +106,7 @@
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "រួចរាល់";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "អ្នកលេងម្នាក់មិនអាចយកទាំង 26 បានទេ។ សូមប្រើព្រះច័ន្ទ។";
+"One player can't take all 26. Use the moon." = "អ្នកលេងម្នាក់មិនអាចយកទាំង 26 បានទេ។ សូមប្រើ «យកទាំងអស់»។";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · លើស %d";
 /* RoundInputView: progress strip under 26 */
@@ -116,16 +116,16 @@
 "Add %@" = "បន្ថែម %@";
 "Share App" = "ចែករំលែកកម្មវិធី";
 "Rounds" = "ជុំ";
-"Moons" = "ព្រះច័ន្ទ";
+"Moons" = "យកទាំងអស់";
 "10♦ taken" = "បានយក 10♦";
-"Biggest hand" = "ដៃធំបំផុត";
+"Biggest hand" = "ពិន្ទុខ្ពស់បំផុតក្នុងមួយជុំ";
 "Score by round" = "ពិន្ទុ​ដោយ​ជុំ";
 "Round" = "ជុំ";
 "%@ won with %d" = "%@ បានឈ្នះជាមួយ %d";
-"%@ tied with %d" = "%@ ភ្ជាប់​ជាមួយ %d";
-"Ends at %d" = "បញ្ចប់នៅម៉ោង %d";
-"Moon adds 26 to others" = "បាញ់ព្រះច័ន្ទ បន្ថែម 26 ទៅអ្នកដទៃ";
-"Moon subtracts 26 from shooter" = "បាញ់ព្រះច័ន្ទ ដក 26 ចេញពីអ្នកបាញ់";
+"%@ tied with %d" = "%@ ស្មើ %d";
+"Ends at %d" = "បញ្ចប់ពេលដល់ %d";
+"Moon adds 26 to others" = "យកទាំងអស់៖ បន្ថែម 26 ទៅអ្នកលេងដទៃ";
+"Moon subtracts 26 from shooter" = "យកទាំងអស់៖ ដក 26 ពីអ្នកយក";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "ហ្គេម";
 "View" = "មើល";
@@ -150,21 +150,21 @@
 "1 round" = "1 ជុំ";
 "Hearts Scoreboard result" = "លទ្ធផលតារាងពិន្ទុបេះដូង";
 "Share result" = "ចែករំលែកលទ្ធផល";
-"Left" = "ខាងឆ្វេង";
+"Left" = "ឆ្វេង";
 "Right" = "ស្តាំ";
-"Across" = "ឆ្លងកាត់";
-"Hold" = "សង្កត់";
-"to %d" = "ទៅ %d";
-"No rounds yet" = "មិនទាន់មានជុំទេ។";
-"Round %d undone" = "ជុំទី %d មិនធ្វើវិញទេ។";
+"Across" = "ទល់មុខ";
+"Hold" = "ទុក";
+"to %d" = "ដល់ %d";
+"No rounds yet" = "មិនទាន់មានជុំទេ";
+"Round %d undone" = "បានមិនធ្វើវិញជុំទី %d";
 "Redo" = "ធ្វើវិញ";
 "Round %d restored" = "បាន​ស្ដារ​ជុំទី %d";
 "Edit Round %d" = "កែសម្រួលជុំទី %d";
 "Save" = "រក្សាទុក";
 "Save round scores" = "រក្សាទុកពិន្ទុជុំ";
 "Round %d updated" = "ជុំទី %d បានធ្វើបច្ចុប្បន្នភាព";
-"Edit this round" = "កែសម្រួលជុំនេះ។";
-"Redo available" = "អាចធ្វើឡើងវិញបាន។";
+"Edit this round" = "កែសម្រួលជុំនេះ";
+"Redo available" = "អាចធ្វើវិញបាន";
 "Quick-add button: +%d" = "ប៊ូតុងបន្ថែមរហ័ស៖ +%d";
-"The +%d button in score entry adds this many points per tap." = "ប៊ូតុង +%d ក្នុងការបញ្ចូលពិន្ទុបន្ថែមពិន្ទុជាច្រើននេះក្នុងមួយចុច";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ប៉ះអ្នកលេងដែលបានយក 10♦ ។ ពួកគេទទួលបាន 10 ពិន្ទុដកក្នុងជុំនេះ។";
+"The +%d button in score entry adds this many points per tap." = "ប៊ូតុង +%d ក្នុងការបញ្ចូលពិន្ទុនឹងបន្ថែមពិន្ទុតាមចំនួននេះរាល់ពេលចុចម្តង។";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "ប៉ះអ្នកលេងដែលបានយក 10♦។ គេនឹងត្រូវដក 10 ពិន្ទុក្នុងជុំនេះ។";

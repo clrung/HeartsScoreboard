@@ -1,17 +1,17 @@
-"No" = "Nr";
-"Yes" = "po";
-"Undo Round" = "Zhbër Round";
+"No" = "Jo";
+"Yes" = "Po";
+"Undo Round" = "Zhbëj raundin";
 "Shake to undo the last round!" = "Shkundni për të zhbërë raundin e fundit!";
 "New Game" = "Lojë e re";
-"Are you sure? This will clear all round scores." = "je i sigurt? Kjo do të pastrojë të gjitha rezultatet e raundit.";
-"D" = "D";
-"Hearts Scoreboard" = "Tabela e rezultateve të zemrave";
-"Game to: %d" = "Lojë për: %d";
+"Are you sure? This will clear all round scores." = "Je i sigurt? Kjo do të pastrojë të gjitha rezultatet e raundeve.";
+"D" = "Sh";
+"Hearts Scoreboard" = "Tabela e rezultateve Hearts";
+"Game to: %d" = "Loja deri në %d";
 "Next Round" = "Raundi tjetër";
 "Game over" = "Loja ka mbaruar";
 "Pass to the Left" = "Kaloni në të majtë";
 "Pass to the Right" = "Kaloni në të djathtë";
-"Pass Across" = "Kaloni nëpër";
+"Pass Across" = "Kaloni përballë";
 "Hold on Tight!" = "Mbajeni fort!";
 "No winner" = "Asnjë fitues";
 "%@ won!" = "%@ fitoi!";
@@ -19,14 +19,14 @@
 "Player" = "Lojtar";
 "Add Player" = "Shto lojtar";
 "Hearts supports 3–6 players." = "Hearts mbështet 3–6 lojtarë.";
-"Dealer" = "Tregtar";
+"Dealer" = "Shpërndarësi";
 "Ending Score" = "Rezultati përfundimtar";
 "Ending Score: %d" = "Rezultati përfundimtar: %d";
-"Appearance" = "Pamja e jashtme";
+"Appearance" = "Pamja";
 "Settings" = "Cilësimet";
 "Done" = "U krye";
 "System" = "Sistemi";
-"Light" = "Drita";
+"Light" = "E çelët";
 "Dark" = "E errët";
 "Add 26" = "Shtoni 26";
 "Subtract 26" = "Zbrit 26";
@@ -35,29 +35,29 @@
 "Game History" = "Historia e lojës";
 "Game Summary" = "Përmbledhja e lojës";
 "Quick add" = "Shtim i shpejtë";
-"Shoot the Moon Preference" = "Xhironi Preferencën e Hënës";
+"Shoot the Moon Preference" = "Preferenca për «Gjuaj hënën»";
 "Shoot the moon" = "Gjuaj hënën";
 "Adds 26 points to every other players' score." = "Shton 26 pikë në rezultatin e çdo lojtari tjetër.";
 "Subtracts 26 points from the selected player's score." = "Zbret 26 pikë nga rezultati i lojtarit të përzgjedhur.";
-"Back" = "Mbrapa";
+"Back" = "Prapa";
 "Reset" = "Rivendos";
-"Submit" = "Paraqisni";
-"Submit round scores" = "Paraqisni rezultatet e raundit";
-"Round %d" = "Rreth %d";
+"Submit" = "Dërgo";
+"Submit round scores" = "Dërgo rezultatet e raundit";
+"Round %d" = "Raundi %d";
 "Developed by Christopher Rung" = "Zhvilluar nga Christopher Rung";
 "Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Dedikuar babait tim, i cili i do zemrat, dhe më ka mësuar të gjuaj gjithmonë hënën.";
 "I would love to hear your feedback!" = "Do të doja të dëgjoja komentet tuaja!";
-"Send Feedback" = "Dërgo koment";
+"Send Feedback" = "Dërgo komente";
 "Rate on App Store" = "Vlerësoni në App Store";
 "Donate a coffee to Christopher" = "Dhurojini një kafe Christopher-it";
 "App Version" = "Versioni i aplikacionit";
-"View Source" = "Shiko Burimin";
+"View Source" = "Shiko kodin burimor";
 "About" = "Rreth";
 "Made with love in Denver, CO" = "Bërë me dashuri në Denver, CO";
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ vlen −10";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianti Omnibus Hearts: kush merr 10♦ fiton −10 për atë dorë. Kjo është e ndarë nga \"Gjuaj hënën\".";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Varianti Omnibus Hearts: kush merr 10♦ fiton −10 për atë dorë. Kjo është e ndarë nga «Gjuaj hënën».";
 "10♦ taken by" = "10♦ e mori";
 "−10" = "−10";
 "Select who took the 10♦" = "Zgjidh kush e mori 10♦";
@@ -72,9 +72,9 @@
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
 "Round added. %@ leads" = "Raundi u shtua. %@ udhëheq";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "Rreth %d, %@: %d pikë";
+"Round %d, %@: %d points" = "Raundi %d, %@: %d pikë";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Rreth %d, %@: gjuajti hënën";
+"Round %d, %@: shot the moon" = "Raundi %d, %@: gjuajti hënën";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", mori dhjetën e karos";
 /* HistoryView empty state title */
@@ -82,7 +82,7 @@
 /* HistoryView empty state description */
 "Finished games will show up here." = "Lojërat e përfunduara do të shfaqen këtu.";
 /* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rrethe";
+"%d rounds" = "%d raunde";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Gjuajti hënën";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -115,12 +115,12 @@
 "Recent players" = "Lojtarët e fundit";
 "Add %@" = "Shto %@";
 "Share App" = "Ndani aplikacionin";
-"Rounds" = "Rrethe";
+"Rounds" = "Raunde";
 "Moons" = "Hëna";
 "10♦ taken" = "10♦ u mor";
-"Biggest hand" = "Dora më e madhe";
+"Biggest hand" = "Raundi më i lartë";
 "Score by round" = "Rezultati sipas raundit";
-"Round" = "Rreth";
+"Round" = "Raund";
 "%@ won with %d" = "%@ fitoi me %d";
 "%@ tied with %d" = "%@ barazohet me %d";
 "Ends at %d" = "Përfundon në %d";
@@ -130,14 +130,14 @@
 "Games" = "Lojëra";
 "View" = "Shiko";
 "No Players Yet" = "Ende nuk ka lojtarë";
-"Player records appear after your first finished game." = "Të dhënat e lojtarëve shfaqen pas ndeshjes së parë të përfunduar.";
-"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Lojtarët përputhen me emra. Barazimet për rezultatin më të ulët llogariten si fitore për çdo lojtar të barabartë.";
+"Player records appear after your first finished game." = "Të dhënat e lojtarëve shfaqen pas lojës së parë të përfunduar.";
+"Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Lojtarët grupohen sipas emrit. Barazimet për rezultatin më të ulët llogariten si fitore për çdo lojtar të barazuar.";
 "Played" = "Luajtur";
 "Wins" = "Fitoret";
 "Avg score" = "Rezultati mesatar";
-"%d wins in %d games" = "%d fiton në %d lojëra";
-"Rematch" = "Rematch";
-"View history" = "Shikoni historinë";
+"%d wins in %d games" = "%d fitore në %d lojëra";
+"Rematch" = "Revanshi";
+"View history" = "Shiko historikun";
 "Results" = "Rezultatet";
 "Close" = "Mbyll";
 "Winners" = "Fituesit";
@@ -148,13 +148,13 @@
 "%@ tied for the win with %lld points." = "%@ barazoi për fitoren me %lld pikë.";
 "%lld rounds" = "%lld raunde";
 "1 round" = "1 raund";
-"Hearts Scoreboard result" = "Rezultati i tabelës së rezultateve të Zemrave";
+"Hearts Scoreboard result" = "Rezultati i tabelës Hearts";
 "Share result" = "Ndani rezultatin";
 "Left" = "Majtas";
 "Right" = "Djathtas";
-"Across" = "Përtej";
-"Hold" = "Mbajeni";
-"to %d" = "te %d";
+"Across" = "Përballë";
+"Hold" = "Pa kalim";
+"to %d" = "deri në %d";
 "No rounds yet" = "Nuk ka ende raunde";
 "Round %d undone" = "Raundi %d u zhbë";
 "Redo" = "Ribëj";
@@ -167,4 +167,4 @@
 "Redo available" = "Ribërje në dispozicion";
 "Quick-add button: +%d" = "Butoni i shtimit të shpejtë: +%d";
 "The +%d button in score entry adds this many points per tap." = "Butoni +%d në hyrjen e rezultatit shton kaq shumë pikë për çdo trokitje.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Prekni lojtarin që mori 10♦. Ata marrin 10 pikë të zbritura këtë raund.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Prekni lojtarin që mori 10♦. Atij i zbriten 10 pikë këtë raund.";

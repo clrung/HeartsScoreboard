@@ -3,9 +3,9 @@
 "Undo Round" = "Son turu geri al";
 "Shake to undo the last round!" = "Son turu geri almak için sallayın!";
 "New Game" = "Yeni oyun";
-"Are you sure? This will clear all round scores." = "Tüm tur puanları silinecek.";
+"Are you sure? This will clear all round scores." = "Emin misiniz? Tüm tur puanları silinecek.";
 "D" = "D";
-"Hearts Scoreboard" = "İskambil Skoru";
+"Hearts Scoreboard" = "Kalpler Skor Tablosu";
 "Game to: %d" = "Oyun: %d puana kadar";
 "Next Round" = "Sonraki tur";
 "Game over" = "Oyun bitti";
@@ -18,7 +18,7 @@
 "Players" = "Oyuncular";
 "Player" = "Oyuncu";
 "Add Player" = "Oyuncu ekle";
-"Hearts supports 3–6 players." = "3–6 oyuncu desteklenir.";
+"Hearts supports 3–6 players." = "Kalpler 3–6 oyuncuyu destekler.";
 "Dealer" = "Dağıtıcı";
 "Ending Score" = "Bitiş puanı";
 "Ending Score: %d" = "Bitiş puanı: %d";
@@ -35,8 +35,8 @@
 "Game History" = "Oyun geçmişi";
 "Game Summary" = "Oyun özeti";
 "Quick add" = "Hızlı ekleme";
-"Shoot the Moon Preference" = "Ay tercihi";
-"Shoot the moon" = "Ayı al";
+"Shoot the Moon Preference" = "Ay'ı alma tercihi";
+"Shoot the moon" = "Ay'ı al";
 "Adds 26 points to every other players' score." = "Diğer her oyuncuya 26 puan ekler.";
 "Subtracts 26 points from the selected player's score." = "Seçilen oyuncudan 26 puan düşer.";
 "Back" = "Geri";
@@ -45,7 +45,7 @@
 "Submit round scores" = "Tur puanlarını gönder";
 "Round %d" = "Tur %d";
 "Developed by Christopher Rung" = "Geliştiren: Christopher Rung";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Kalpler oyununu seven babama.";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Kalpler oyununu seven ve bana hep Ay'ı almayı öğreten babama.";
 "I would love to hear your feedback!" = "Geri bildiriminizi bekliyorum!";
 "Send Feedback" = "Geri bildirim";
 "Rate on App Store" = "App Store’da değerlendir";
@@ -57,10 +57,10 @@
 
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ −10 değerinde";
-"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varyantı: 10♦'yı alan oyuncu o el için −10 puan alır. Bu, \"Ayı al\" kuralından bağımsızdır.";
-"10♦ taken by" = "10♦'yı alan";
+"Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Omnibus Hearts varyantı: 10♦'yu alan oyuncu o el için −10 puan alır. Bu, \"Ay'ı al\" kuralından bağımsızdır.";
+"10♦ taken by" = "10♦'yu alan";
 "−10" = "−10";
-"Select who took the 10♦" = "10♦'yı kimin aldığını seçin";
+"Select who took the 10♦" = "10♦'yu kimin aldığını seçin";
 
 /* UI/UX refresh: round progress, leader, VoiceOver, history */
 /* GameView/PlayerTotalBadge: caption under the highest scorer, e.g. "25 to go"; also VoiceOver value */
@@ -74,7 +74,7 @@
 /* HistoryDetailView score cell accessibility (shared with GameView) */
 "Round %d, %@: %d points" = "Tur %d, %@: %d puan";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Tur %d, %@: ayı aldı";
+"Round %d, %@: shot the moon" = "Tur %d, %@: Ay'ı aldı";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
 ", took the 10 of diamonds" = ", karo 10'u aldı";
 /* HistoryView empty state title */
@@ -84,7 +84,7 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "%d tur";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Ayı aldı";
+"Shot the moon" = "Ay'ı aldı";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
 "%@ took the 10 of diamonds" = "%@ karo 10'u aldı";
 /* RoundInputView: VoiceOver value on a player row */
@@ -94,7 +94,7 @@
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "%@ için maça kızı";
 /* RoundInputView: VoiceOver label for moon chip */
-"Shoot the moon for %@" = "%@ için ayı al";
+"Shoot the moon for %@" = "%@ için Ay'ı al";
 /* RoundInputView: VoiceOver label for minus stepper */
 "Decrease points for %@" = "%@ için puanı azalt";
 /* RoundInputView: VoiceOver label for plus stepper */
@@ -102,11 +102,11 @@
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
 "Ready to submit" = "Göndermeye hazır";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
-"Choose who took the 10♦" = "10♦'yı kimin aldığını seçin";
+"Choose who took the 10♦" = "10♦'yu kimin aldığını seçin";
 /* RoundInputView: progress strip, valid normal round */
 "Ready" = "Hazır";
 /* RoundInputView: progress strip, 26 total but all on one player */
-"One player can't take all 26. Use the moon." = "Bir oyuncu 26'nın hepsini alamaz. Ayı al'ı kullanın.";
+"One player can't take all 26. Use the moon." = "Bir oyuncu 26'nın hepsini alamaz. \"Ay'ı al\" seçeneğini kullanın.";
 /* RoundInputView: progress strip over 26 */
 "%d / 26 · %d over" = "%d / 26 · %d fazla";
 /* RoundInputView: progress strip under 26 */
@@ -123,9 +123,9 @@
 "Round" = "Tur";
 "%@ won with %d" = "%@, %d ile kazandı";
 "%@ tied with %d" = "%@, %d ile berabere kaldı";
-"Ends at %d" = "%d itibarıyla bitiyor";
-"Moon adds 26 to others" = "Ayı al diğerlerine 26 ekler";
-"Moon subtracts 26 from shooter" = "Ayı al, atıcıdan 26 çıkarır";
+"Ends at %d" = "%d puanda biter";
+"Moon adds 26 to others" = "Ay'ı almak diğerlerine 26 ekler";
+"Moon subtracts 26 from shooter" = "Ay'ı almak, alan oyuncudan 26 çıkarır";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Oyunlar";
 "View" = "Görünüm";
@@ -135,7 +135,7 @@
 "Played" = "Oynanan";
 "Wins" = "Galibiyet";
 "Avg score" = "Ortalama puan";
-"%d wins in %d games" = "%d oyunda %d galibiyet";
+"%d wins in %d games" = "%2$d oyunda %1$d galibiyet";
 "Rematch" = "Rövanş";
 "View history" = "Geçmişi görüntüle";
 "Results" = "Sonuçlar";
@@ -150,11 +150,11 @@
 "1 round" = "1 tur";
 "Hearts Scoreboard result" = "Kalpler Skor Tablosu sonucu";
 "Share result" = "Sonucu paylaş";
-"Left" = "sola";
-"Right" = "sağa";
-"Across" = "karşıya";
-"Hold" = "tut";
-"to %d" = "%d'a";
+"Left" = "Sola";
+"Right" = "Sağa";
+"Across" = "Karşıya";
+"Hold" = "Tut";
+"to %d" = "Hedef %d";
 "No rounds yet" = "Henüz tur yok";
 "Round %d undone" = "%d. tur geri alındı";
 "Redo" = "Yinele";
@@ -167,4 +167,4 @@
 "Redo available" = "Yineleme mevcut";
 "Quick-add button: +%d" = "Hızlı ekleme düğmesi: +%d";
 "The +%d button in score entry adds this many points per tap." = "Puan girişindeki +%d düğmesi, dokunma başına şu kadar puan ekler.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦'ı alan oyuncuya dokunun. Bu turda 10 puan çıkarılıyor.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦'yu alan oyuncuya dokunun. Bu turda ondan 10 puan düşülür.";

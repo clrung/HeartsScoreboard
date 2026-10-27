@@ -4,22 +4,22 @@
 "Shake to undo the last round!" = "Встряхните, чтобы отменить последний раунд!";
 "New Game" = "Новая игра";
 "Are you sure? This will clear all round scores." = "Все очки раундов будут сброшены.";
-"D" = "Д";
+"D" = "С";
 "Hearts Scoreboard" = "Счёт в Червях";
 "Game to: %d" = "Игра до: %d";
 "Next Round" = "Следующий раунд";
 "Game over" = "Игра окончена";
-"Pass to the Left" = "Пас влево";
-"Pass to the Right" = "Пас вправо";
-"Pass Across" = "Пас напротив";
+"Pass to the Left" = "Передача влево";
+"Pass to the Right" = "Передача вправо";
+"Pass Across" = "Передача напротив";
 "Hold on Tight!" = "Удержать карты!";
 "No winner" = "Нет победителя";
-"%@ won!" = "Победил(а): %@!";
+"%@ won!" = "Победитель: %@!";
 "Players" = "Игроки";
 "Player" = "Игрок";
 "Add Player" = "Добавить игрока";
 "Hearts supports 3–6 players." = "Поддерживается 3–6 игроков.";
-"Dealer" = "Дилер";
+"Dealer" = "Сдающий";
 "Ending Score" = "Финальный счёт";
 "Ending Score: %d" = "Финальный счёт: %d";
 "Appearance" = "Оформление";
@@ -41,11 +41,11 @@
 "Subtracts 26 points from the selected player's score." = "Вычитает 26 очков у выбранного игрока.";
 "Back" = "Назад";
 "Reset" = "Сброс";
-"Submit" = "Отправить";
-"Submit round scores" = "Отправить очки раунда";
+"Submit" = "Подтвердить";
+"Submit round scores" = "Подтвердить очки раунда";
 "Round %d" = "Раунд %d";
 "Developed by Christopher Rung" = "Разработчик: Кристофер Рунг";
-"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посвящается моему отцу, который любит Червей и научил меня «брать луну».";
+"Dedicated to my father, who loves Hearts, and has taught me to always shoot the moon." = "Посвящается моему отцу, который любит Червы и научил меня «брать луну».";
 "I would love to hear your feedback!" = "Буду рад отзывам!";
 "Send Feedback" = "Отзыв";
 "Rate on App Store" = "Оценить в App Store";
@@ -58,7 +58,7 @@
 /* Rules (Omnibus Hearts variant) */
 "10♦ worth −10" = "10♦ стоит −10";
 "Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon." = "Вариант Omnibus Hearts: кто берёт 10♦, получает −10 за эту раздачу. Это отдельно от «Взять луну».";
-"10♦ taken by" = "10♦ взял(а)";
+"10♦ taken by" = "10♦ взят игроком";
 "−10" = "−10";
 "Select who took the 10♦" = "Выберите, кто взял 10♦";
 
@@ -72,11 +72,11 @@
 /* GameView: VoiceOver announcement after a round is added; %@ = leader name(s) */
 "Round added. %@ leads" = "Раунд добавлен. Лидирует: %@";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: %d points" = "Раунд %d, %@: %d очков";
+"Round %d, %@: %d points" = "Раунд %d, %@: очков %d";
 /* HistoryDetailView score cell accessibility (shared with GameView) */
-"Round %d, %@: shot the moon" = "Раунд %d, %@: взял(а) луну";
+"Round %d, %@: shot the moon" = "Раунд %d, %@: взята луна";
 /* Appended to cell accessibility label when the 10 of diamonds applies (shared with GameView) */
-", took the 10 of diamonds" = ", взял(а) 10 бубен";
+", took the 10 of diamonds" = ", взяты 10 бубен";
 /* HistoryView empty state title */
 "No Games Yet" = "Пока нет игр";
 /* HistoryView empty state description */
@@ -84,13 +84,13 @@
 /* HistoryView row badge (round count) and accessibility label */
 "%d rounds" = "Раундов: %d";
 /* HistoryView row accessibility label when a moon was shot */
-"Shot the moon" = "Взял(а) луну";
+"Shot the moon" = "Взята луна";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
-"%@ took the 10 of diamonds" = "%@ взял(а) 10 бубен";
+"%@ took the 10 of diamonds" = "10 бубен взяты игроком %@";
 /* RoundInputView: VoiceOver value on a player row */
 "%d points" = "Очков: %d";
 /* RoundInputView: VoiceOver label for +N quick chip and remaining chip (points, player) */
-"Add %d points to %@" = "Добавить %d очков для %@";
+"Add %d points to %@" = "Добавить очков: %d — %@";
 /* RoundInputView: VoiceOver label for Q spades chip */
 "Queen of spades to %@" = "Дама пик для %@";
 /* RoundInputView: VoiceOver label for moon chip */
@@ -100,7 +100,7 @@
 /* RoundInputView: VoiceOver label for plus stepper */
 "Increase points for %@" = "Увеличить очки: %@";
 /* RoundInputView: VoiceOver announcement when round becomes submittable */
-"Ready to submit" = "Готово к отправке";
+"Ready to submit" = "Можно подтвердить";
 /* RoundInputView: progress strip, valid round awaiting 10 of diamonds holder */
 "Choose who took the 10♦" = "Выберите, кто взял 10♦";
 /* RoundInputView: progress strip, valid normal round */
@@ -118,14 +118,14 @@
 "Rounds" = "Раундов";
 "Moons" = "Луны";
 "10♦ taken" = "Взято 10♦";
-"Biggest hand" = "Самая большая рука";
+"Biggest hand" = "Максимум за раунд";
 "Score by round" = "Счет по раундам";
 "Round" = "Раунд";
-"%@ won with %d" = "%@ выиграл с %d";
-"%@ tied with %d" = "%@ связан с %d";
-"Ends at %d" = "Заканчивается в %d";
-"Moon adds 26 to others" = "Взять луну добавляет 26 к остальным";
-"Moon subtracts 26 from shooter" = "Взять луну вычитает 26 у стрелка.";
+"%@ won with %d" = "Победа: %@, %d";
+"%@ tied with %d" = "Ничья: %@, %d";
+"Ends at %d" = "Конец на %d";
+"Moon adds 26 to others" = "Луна добавляет 26 остальным";
+"Moon subtracts 26 from shooter" = "Луна вычитает 26 у взявшего её";
 "10♦ = −10" = "10♦ = −10";
 "Games" = "Игры";
 "View" = "Просмотр";
@@ -134,37 +134,37 @@
 "Players are matched by name. Ties for the lowest score count as a win for each tied player." = "Игроки сопоставляются по имени. Ничья с наименьшим количеством очков засчитывается как победа для каждого игрока с равным результатом.";
 "Played" = "Сыграно";
 "Wins" = "Победы";
-"Avg score" = "Средний балл";
-"%d wins in %d games" = "%d побед в %d играх";
-"Rematch" = "Матч-реванш";
+"Avg score" = "Средний счёт";
+"%d wins in %d games" = "Побед: %d, игр: %d";
+"Rematch" = "Реванш";
 "View history" = "Посмотреть историю";
 "Results" = "Результаты";
 "Close" = "Закрыть";
 "Winners" = "Победители";
 "Final standings" = "Итоговое положение";
-"%lld points" = "%lld баллов";
-"%d. %@, %d points" = "%d. %@, %d баллов";
-"%@ won with %lld points." = "%@ выиграл, набрав %lld очков.";
-"%@ tied for the win with %lld points." = "%@ имеет равное количество очков с %lld очками.";
-"%lld rounds" = "%lld раундов";
+"%lld points" = "Очков: %lld";
+"%d. %@, %d points" = "%d. %@, очков: %d";
+"%@ won with %lld points." = "Победа: %@, очков: %lld.";
+"%@ tied for the win with %lld points." = "Ничья за первое место: %@, очков: %lld.";
+"%lld rounds" = "Раундов: %lld";
 "1 round" = "1 раунд";
-"Hearts Scoreboard result" = "Результаты на табло червей";
+"Hearts Scoreboard result" = "Результат игры в Червы";
 "Share result" = "Поделиться результатом";
-"Left" = "влево";
-"Right" = "вправо";
-"Across" = "напротив";
-"Hold" = "удержать";
+"Left" = "Влево";
+"Right" = "Вправо";
+"Across" = "Напротив";
+"Hold" = "Удержать";
 "to %d" = "до %d";
 "No rounds yet" = "Пока нет раундов";
-"Round %d undone" = "Раунд %d отменен";
+"Round %d undone" = "Раунд %d отменён";
 "Redo" = "Повторить";
-"Round %d restored" = "Раунд %d восстановлен.";
+"Round %d restored" = "Раунд %d восстановлен";
 "Edit Round %d" = "Изменить раунд %d";
 "Save" = "Сохранить";
-"Save round scores" = "Сохраняйте результаты раундов";
-"Round %d updated" = "Раунд %d обновлен.";
+"Save round scores" = "Сохранить результаты раунда";
+"Round %d updated" = "Раунд %d обновлён";
 "Edit this round" = "Изменить этот раунд";
 "Redo available" = "Повтор доступен";
 "Quick-add button: +%d" = "Кнопка быстрого добавления: +%d";
 "The +%d button in score entry adds this many points per tap." = "Кнопка +%d при вводе результатов добавляет указанное количество баллов за одно нажатие.";
-"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Нажмите на игрока, который взял 10♦. В этом раунде им вычитают 10 очков.";
+"Tap the player who took the 10♦. They get 10 points subtracted this round." = "Нажмите на игрока, взявшего 10♦. В этом раунде у него вычитается 10 очков.";
