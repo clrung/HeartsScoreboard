@@ -894,7 +894,15 @@ struct PointsGridPicker: View {
                 .accessibilityIdentifier("roundInput.valueOption.\(value)")
             }
         }
-        .padding(Theme.Spacing.m)
+        // LazyVGrid can report a compressed ideal width to popover presentation even with fixed columns.
+        // Preserve the full six-column width so the side insets are included in the popover's size.
+        .fixedSize(horizontal: true, vertical: true)
+        // Keep the outer cells clear of the popover's rounded corners. The grid itself is fixed-width,
+        // so side padding matters more than the uniform inset used by ordinary content.
+        .padding(.horizontal, Theme.Spacing.xl)
+        .padding(.vertical, Theme.Spacing.m)
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("roundInput.valuePicker")
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
     }
 }

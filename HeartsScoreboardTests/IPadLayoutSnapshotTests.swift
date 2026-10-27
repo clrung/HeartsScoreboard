@@ -401,5 +401,12 @@ final class IPadLayoutSnapshotTests: XCTestCase {
             }
         }
     }
+
+    func testValuePickerKeepsItsWidthWhenPopoverOffersOnlyGridWidth() {
+        let host = UIHostingController(rootView: PointsGridPicker(current: 0) { _ in })
+        let size = host.sizeThatFits(in: CGSize(width: 294, height: 600))
+        XCTAssertGreaterThanOrEqual(size.width, 342,
+                                    "six 44pt cells, five 6pt gaps, and 24pt side insets must retain their full width")
+    }
 }
 #endif

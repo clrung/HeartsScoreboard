@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B9243A83640BF7B92F458D /* ValuePickerLayoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB129E5AD2C5D3EFAA6941 /* ValuePickerLayoutUITests.swift */; };
 		075B63164F5FED7FA8165696 /* PluralRoundsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F08F7CA1AB4D1B4B8289F /* PluralRoundsTests.swift */; };
 		0B80E95C955AE5B12FA58010 /* LocalizationFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F777F2F8CCCA4904E7DAB37F /* LocalizationFormatTests.swift */; };
 		0CF049815752ED9911A61A95 /* PassDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880CFCFA5C5684135BCE8410 /* PassDirectionTests.swift */; };
@@ -327,6 +328,7 @@
 		9BC554F26C86DF78CBB157DC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = uk; path = uk.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		9C5FB20F783179F7EAE8DB84 /* zu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = zu; path = zu.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		9CC8E951770FD70F9FC3F1F7 /* ca */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9CEB129E5AD2C5D3EFAA6941 /* ValuePickerLayoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePickerLayoutUITests.swift; sourceTree = "<group>"; };
 		9CFC694DA88D9FA2F8FDDBAB /* PlayerScoreViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScoreViews.swift; sourceTree = "<group>"; };
 		9E5315EEA8100F2C661D2D23 /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		9EDBD613338AF0729EED28BA /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				59A495CA3384C8BD69B016DB /* OrientationLiveUITests.swift */,
 				4895B119E0949C712555CD8A /* ScreenshotTests.swift */,
 				F4E2D68DFE9045F25E0E508B /* TenBadgeUITests.swift */,
+				9CEB129E5AD2C5D3EFAA6941 /* ValuePickerLayoutUITests.swift */,
 			);
 			path = HeartsScoreboardUITests;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				E322F1A078D835959C5414F7 /* OrientationLiveUITests.swift in Sources */,
 				DC27D479FE723FF93EE6FBAC /* ScreenshotTests.swift in Sources */,
 				9EC32961DF673E60D37C95C6 /* TenBadgeUITests.swift in Sources */,
+				00B9243A83640BF7B92F458D /* ValuePickerLayoutUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
