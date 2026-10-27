@@ -167,3 +167,6 @@
 "Total %d" = "Puntuazio osoa: %d";
 "Set points for %@" = "Ezarri puntuak %@rentzat";
 "Enter round 1 scores" = "Sartu 1. txandako puntuazioak";
+"Round %d, in progress" = "%d txanda, abian";
+"Previous Player" = "Aurreko jokalaria";
+"Next Player" = "Hurrengo jokalaria";

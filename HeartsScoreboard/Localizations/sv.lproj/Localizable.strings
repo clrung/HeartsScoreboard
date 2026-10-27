@@ -167,3 +167,6 @@
 "Total %d" = "Totalpoäng: %d";
 "Set points for %@" = "Inställningspunkter för %@";
 "Enter round 1 scores" = "Ange poäng för omgång 1";
+"Round %d, in progress" = "Omgång %d, pågår";
+"Previous Player" = "Föregående spelare";
+"Next Player" = "Nästa spelare";

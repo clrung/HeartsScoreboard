@@ -167,3 +167,6 @@
 "Total %d" = "Összpontszám: %d";
 "Set points for %@" = "Pontok beállítása ehhez: %@";
 "Enter round 1 scores" = "Írja be az 1. forduló pontszámait";
+"Round %d, in progress" = "%d. forduló, folyamatban";
+"Previous Player" = "Előző játékos";
+"Next Player" = "Következő játékos";

@@ -167,3 +167,6 @@
 "Total %d" = "మొత్తం స్కోర్: %d";
 "Set points for %@" = "%@ కోసం పాయింట్లను సెట్ చేయండి";
 "Enter round 1 scores" = "రౌండ్ 1 స్కోర్‌లను నమోదు చేయండి";
+"Round %d, in progress" = "రౌండ్ %d, పురోగతిలో ఉంది";
+"Previous Player" = "మునుపటి ఆటగాడు";
+"Next Player" = "తదుపరి ప్లేయర్";

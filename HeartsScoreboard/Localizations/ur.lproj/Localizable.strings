@@ -167,3 +167,6 @@
 "Total %d" = "کل سکور: %d";
 "Set points for %@" = "%@ کے لیے پوائنٹس سیٹ کریں";
 "Enter round 1 scores" = "راؤنڈ 1 سکور درج کریں۔";
+"Round %d, in progress" = "راؤنڈ %d، جاری ہے۔";
+"Previous Player" = "پچھلا کھلاڑی";
+"Next Player" = "اگلا کھلاڑی";

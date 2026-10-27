@@ -167,3 +167,6 @@
 "Total %d" = "මුළු ලකුණු: %d";
 "Set points for %@" = "%@ සඳහා ලකුණු සකසන්න";
 "Enter round 1 scores" = "1 වටයේ ලකුණු ඇතුළත් කරන්න";
+"Round %d, in progress" = "%d වටය, ක්‍රියාත්මක වෙමින් පවතී";
+"Previous Player" = "පෙර ක්‍රීඩකයා";
+"Next Player" = "ඊළඟ ක්රීඩකයා";

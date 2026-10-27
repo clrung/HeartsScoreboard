@@ -44,6 +44,29 @@ struct RoundEntryState: Equatable {
         points[playerID] = max(0, min(Self.maxPoints, value))
     }
 
+    /// Q♠ chip: +13 and remembers the holder (once per round).
+    mutating func addQueenOfSpades(for playerID: UUID) {
+        adjustPoints(for: playerID, delta: 13)
+        if queenOwnerID == nil { queenOwnerID = playerID }
+    }
+
+    /// Rest chip: the points still missing from 26 (nothing when already at or over 26).
+    mutating func addRemainingPoints(for playerID: UUID, players: [HeartsGame.Player]) {
+        let delta = max(0, Self.maxPoints - total(players: players))
+        guard delta > 0 else { return }
+        adjustPoints(for: playerID, delta: delta)
+    }
+
+    /// Shoot the moon: add26 = shooter 0, everyone else 26. subtract26 = shooter -26, everyone else 0.
+    mutating func applyShootMoon(shooterID: UUID, players: [HeartsGame.Player], preference: ShootMoonPreference) {
+        for p in players {
+            switch preference {
+            case .add26: points[p.id] = p.id == shooterID ? 0 : 26
+            case .subtract26: points[p.id] = p.id == shooterID ? -26 : 0
+            }
+        }
+    }
+
     func total(players: [HeartsGame.Player]) -> Int {
         players.reduce(0) { $0 + (points[$1.id] ?? 0) }
     }

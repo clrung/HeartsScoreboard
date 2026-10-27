@@ -167,3 +167,6 @@
 "Total %d" = "Tổng số điểm: %d";
 "Set points for %@" = "Đặt điểm cho %@";
 "Enter round 1 scores" = "Nhập điểm vòng 1";
+"Round %d, in progress" = "Đang diễn ra vòng %d";
+"Previous Player" = "Người chơi trước đó";
+"Next Player" = "Người chơi tiếp theo";

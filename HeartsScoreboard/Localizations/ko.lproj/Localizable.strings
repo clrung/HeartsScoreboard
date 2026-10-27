@@ -186,3 +186,6 @@
 "Total %d" = "총점: %d";
 "Set points for %@" = "%@에 대한 설정 포인트";
 "Enter round 1 scores" = "1라운드 점수를 입력하세요";
+"Round %d, in progress" = "라운드 %d 진행 중";
+"Previous Player" = "이전 플레이어";
+"Next Player" = "다음 플레이어";

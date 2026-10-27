@@ -167,3 +167,6 @@
 "Total %d" = "Rezultati total: %d";
 "Set points for %@" = "Cakto pikë për %@";
 "Enter round 1 scores" = "Vendosni rezultatet e raundit 1";
+"Round %d, in progress" = "Raundi %d, në vazhdim";
+"Previous Player" = "Lojtari i mëparshëm";
+"Next Player" = "Lojtari i radhës";

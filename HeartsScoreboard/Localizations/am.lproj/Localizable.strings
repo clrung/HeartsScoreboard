@@ -167,3 +167,6 @@
 "Total %d" = "ጠቅላላ ነጥብ፡ %d";
 "Set points for %@" = "ለ%@ ነጥቦችን አዘጋጅ";
 "Enter round 1 scores" = "ዙር 1 ነጥብ አስገባ";
+"Round %d, in progress" = "ዙር %d፣ በሂደት ላይ";
+"Previous Player" = "የቀድሞ ተጫዋች";
+"Next Player" = "ቀጣይ ተጫዋች";

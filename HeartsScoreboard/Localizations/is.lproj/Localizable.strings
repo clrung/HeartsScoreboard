@@ -167,3 +167,6 @@
 "Total %d" = "Heildarstig: %d";
 "Set points for %@" = "Setja punkta fyrir %@";
 "Enter round 1 scores" = "Sláðu inn stig 1. umferðar";
+"Round %d, in progress" = "Umferð %d, í gangi";
+"Previous Player" = "Fyrri leikmaður";
+"Next Player" = "Næsti leikmaður";

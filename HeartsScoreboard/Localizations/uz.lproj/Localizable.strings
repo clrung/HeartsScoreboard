@@ -167,3 +167,6 @@
 "Total %d" = "Umumiy ball: %d";
 "Set points for %@" = "%@ uchun nuqtalarni belgilash";
 "Enter round 1 scores" = "1-tur ballarini kiriting";
+"Round %d, in progress" = "%d-raund davom etmoqda";
+"Previous Player" = "Oldingi o'yinchi";
+"Next Player" = "Keyingi o'yinchi";

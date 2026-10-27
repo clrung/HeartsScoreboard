@@ -167,3 +167,6 @@
 "Total %d" = "कुल स्कोर: %d";
 "Set points for %@" = "%@ के लिए अंक निर्धारित करें";
 "Enter round 1 scores" = "राउंड 1 स्कोर दर्ज करें";
+"Round %d, in progress" = "राउंड %d, प्रगति पर है";
+"Previous Player" = "पिछला खिलाड़ी";
+"Next Player" = "अगला खिलाड़ी";

@@ -167,3 +167,6 @@
 "Total %d" = "Puntuació total: %d";
 "Set points for %@" = "Punts de consigna per a %@";
 "Enter round 1 scores" = "Introduïu les puntuacions de la ronda 1";
+"Round %d, in progress" = "Ronda %d, en curs";
+"Previous Player" = "Jugador anterior";
+"Next Player" = "Següent jugador";

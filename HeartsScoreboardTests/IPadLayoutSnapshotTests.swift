@@ -206,6 +206,38 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         }
     }
 
+    /// Phase 3: the scoreboard's pending row mirrors the entry panel; a keyboard-selected row shows a ring.
+    func testPendingRowAndKeyboardSelectionRender() throws {
+        let sizes: [(String, CGSize)] = [("13land", CGSize(width: 1376, height: 1032)), ("11port", CGSize(width: 834, height: 1210))]
+        for (sizeName, size) in sizes {
+            for dark in [false, true] {
+                let tag = dark ? "dark" : "light"
+                for (name, count, rounds) in [("4p", 4, 3), ("6p-early", 6, 1)] {
+                    let m: GameViewModel = count == 6
+                        ? ScreenshotDemo.makeModel(playerCount: 6, scenario: "early")
+                        : model(names: Array(six.prefix(4)), rounds: rounds)
+                    let ps = m.game.players
+                    var partial = RoundEntryState()
+                    partial.reset(players: ps)
+                    partial.setPoints(for: ps[0].id, to: 5)
+                    partial.addQueenOfSpades(for: ps[1].id)
+                    _ = try renderView("pending-partial-\(name)-\(sizeName)-\(tag)", size: size, regular: true, dark: dark,
+                                       view: GameView(model: m, initialPending: partial))
+
+                    var moon = RoundEntryState()
+                    moon.reset(players: ps)
+                    moon.applyShootMoon(shooterID: ps[2].id, players: ps, preference: m.settings.shootMoonPreference)
+                    _ = try renderView("pending-moon-\(name)-\(sizeName)-\(tag)", size: size, regular: true, dark: dark,
+                                       view: GameView(model: m, initialPending: moon))
+
+                    _ = try renderView("pending-keyboard-\(name)-\(sizeName)-\(tag)", size: size, regular: true, dark: dark,
+                                       view: GameView(model: m, initialPending: partial,
+                                                      initialKeyboard: RoundEntryKeyboard(selectedIndex: 1, isActive: true)))
+                }
+            }
+        }
+    }
+
     func testPhoneWidthStillRenders() throws {
         for dark in [false, true] {
             for (scenario, model) in scenarios() {

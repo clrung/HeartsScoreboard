@@ -167,3 +167,6 @@
 "Total %d" = "Kopējais rezultāts: %d";
 "Set points for %@" = "Iestatīt punktus %@";
 "Enter round 1 scores" = "Ievadiet 1. kārtas rezultātus";
+"Round %d, in progress" = "Notiek %d. kārta";
+"Previous Player" = "Iepriekšējais spēlētājs";
+"Next Player" = "Nākamais spēlētājs";

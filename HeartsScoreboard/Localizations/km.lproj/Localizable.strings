@@ -167,3 +167,6 @@
 "Total %d" = "ពិន្ទុសរុប៖ %d";
 "Set points for %@" = "កំណត់ពិន្ទុសម្រាប់ %@";
 "Enter round 1 scores" = "បញ្ចូលពិន្ទុជុំទី 1";
+"Round %d, in progress" = "ជុំទី %d កំពុងដំណើរការ";
+"Previous Player" = "អ្នកលេងពីមុន";
+"Next Player" = "អ្នកលេងបន្ទាប់";

@@ -167,3 +167,6 @@
 "Total %d" = "Kabuuang marka: %d";
 "Set points for %@" = "Magtakda ng mga puntos para sa %@";
 "Enter round 1 scores" = "Ipasok ang round 1 score";
+"Round %d, in progress" = "Round %d, kasalukuyang isinasagawa";
+"Previous Player" = "Nakaraang Manlalaro";
+"Next Player" = "Susunod na Manlalaro";

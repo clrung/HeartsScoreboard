@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Identifies the round whose edit sheet is open.
 struct EditTarget: Identifiable, Equatable {
@@ -17,6 +18,9 @@ struct GameView: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var model: GameViewModel
+    /// The inline panel's pending round, lifted here so the scoreboard's pending row can show it live.
+    @State private var inlineEntry = RoundEntryState()
+    @State private var inlineKeyboard: RoundEntryKeyboard
     @State private var showingRoundInput = false
     @State private var showingSettings = false
     @State private var showingHistory = false
@@ -38,7 +42,11 @@ struct GameView: View {
 
     /// - Parameter model: injectable for tests/previews; defaults to the iCloud-synced state.
     /// - Parameter initialUndoToast: test hook that shows the undo toast from the first frame.
-    init(model: GameViewModel? = nil, initialUndoToast: String? = nil) {
+    /// - Parameter initialPending / initialKeyboard: test hooks for snapshots (a half-entered round, a selected row).
+    init(model: GameViewModel? = nil, initialUndoToast: String? = nil,
+         initialPending: RoundEntryState? = nil, initialKeyboard: RoundEntryKeyboard = RoundEntryKeyboard()) {
+        _inlineEntry = State(initialValue: initialPending ?? RoundEntryState())
+        _inlineKeyboard = State(initialValue: initialKeyboard)
         _undoToast = State(initialValue: initialUndoToast.map { UndoToast(message: $0) })
         _model = State(initialValue: model ?? GameViewModel(initialState: CloudSyncManager.shared.load()))
         // Injected models (tests, screenshot demo) must never see or set the first-run shake hint.
@@ -100,7 +108,7 @@ struct GameView: View {
         .background(
             ShakeDetectorView(onShake: {
                 performUndo()
-            }, refocusToken: shakeRefocusToken)
+            }, onKey: { handleInlineKey($0) }, refocusToken: shakeRefocusToken)
                 .frame(width: 1, height: 1)
                 .allowsHitTesting(false)
         )
@@ -144,6 +152,10 @@ struct GameView: View {
             // A new game (rematch, undo of the final round) re-arms the card for the next finish.
             resultsDismissed = false
             confettiPlaying = isOver
+        }
+        .onChange(of: model.entryResetKey) {
+            // Submit, undo/redo, new game and iCloud sync all change the rounds or players: drop the pending values.
+            inlineEntry.reset(players: model.game.players)
         }
         .onChange(of: usesSplitLayout) { _, isSplit in
             // The inline panel replaces the round-input sheet.
@@ -189,7 +201,7 @@ struct GameView: View {
     }
 
     private func splitScoreboardPane(width: CGFloat) -> some View {
-        ScoreboardCard(model: model, width: width, isSplit: true, onEdit: { editTarget = EditTarget(id: $0) })
+        ScoreboardCard(model: model, width: width, isSplit: true, pendingEntry: inlineEntry, onEdit: { editTarget = EditTarget(id: $0) })
             .frame(maxHeight: .infinity, alignment: .top)
             .padding(.top, Theme.Spacing.s)
             .padding(.bottom, Theme.Spacing.l)
@@ -266,7 +278,8 @@ struct GameView: View {
     private var entryCard: some View {
         let shape = RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous)
         let shadow = Theme.Elevation.card(for: colorScheme)
-        return RoundInputView(model: model, presentation: .inline)
+        return RoundInputView(model: model, presentation: .inline, inlineEntry: $inlineEntry,
+                              inlineKeyboard: $inlineKeyboard, keyboardEnabled: !anySheetPresented)
             .background(Theme.cardSurface)
             .clipShape(shape)
             .overlay(
@@ -514,6 +527,16 @@ struct GameView: View {
         withAnimation(reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.85)) {
             undoToast = UndoToast(message: GameViewModel.undoneMessage(round: round))
         }
+    }
+
+    /// Hardware keys for the inline round-entry panel (the shake detector is first responder, so keys land here).
+    /// Ignored in the compact layout, over any sheet/alert, and once the game is over.
+    private func handleInlineKey(_ key: UIKey) -> Bool {
+        guard usesSplitLayout, !anySheetPresented, !model.isGameOver,
+              let command = RoundEntryKeyboard.command(for: key) else { return false }
+        inlineKeyboard.apply(command, to: &inlineEntry, players: model.game.players,
+                             preference: model.settings.shootMoonPreference)
+        return true
     }
 
     /// True while a sheet or alert covers the board; keyboard shortcuts must not undo/redo rounds then

@@ -167,3 +167,6 @@
 "Total %d" = "Toplam puan: %d";
 "Set points for %@" = "%@ için noktaları ayarlayın";
 "Enter round 1 scores" = "1. tur puanlarını girin";
+"Round %d, in progress" = "%d. tur devam ediyor";
+"Previous Player" = "Önceki Oyuncu";
+"Next Player" = "Sonraki Oyuncu";

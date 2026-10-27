@@ -189,3 +189,6 @@
 "Round %d updated" = "Round %d updated";
 "Edit this round" = "Edit this round";
 "Redo available" = "Redo available";
+"Round %d, in progress" = "Round %d, in progress";
+"Previous Player" = "Previous Player";
+"Next Player" = "Next Player";

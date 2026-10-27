@@ -167,3 +167,6 @@
 "Total %d" = "Totale telling: %d";
 "Set points for %@" = "Stel punte vir %@";
 "Enter round 1 scores" = "Voer rondte 1-tellings in";
+"Round %d, in progress" = "Rondte %d, aan die gang";
+"Previous Player" = "Vorige speler";
+"Next Player" = "Volgende speler";

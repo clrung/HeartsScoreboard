@@ -167,3 +167,6 @@
 "Total %d" = "總分：%d";
 "Set points for %@" = "為%@設定點";
 "Enter round 1 scores" = "輸入第一輪得分";
+"Round %d, in progress" = "第 %d 輪，正在進行中";
+"Previous Player" = "上一個玩家";
+"Next Player" = "下一個玩家";

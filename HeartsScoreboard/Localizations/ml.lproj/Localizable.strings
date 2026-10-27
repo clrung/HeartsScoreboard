@@ -167,3 +167,6 @@
 "Total %d" = "ആകെ സ്കോർ: %d";
 "Set points for %@" = "%@ എന്നതിനായി പോയിൻ്റുകൾ സജ്ജമാക്കുക";
 "Enter round 1 scores" = "റൗണ്ട് 1 സ്കോറുകൾ നൽകുക";
+"Round %d, in progress" = "റൗണ്ട് %d, പുരോഗമിക്കുന്നു";
+"Previous Player" = "മുൻ കളിക്കാരൻ";
+"Next Player" = "അടുത്ത കളിക്കാരൻ";

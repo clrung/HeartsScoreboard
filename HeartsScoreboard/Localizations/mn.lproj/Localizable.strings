@@ -167,3 +167,6 @@
 "Total %d" = "Нийт оноо: %d";
 "Set points for %@" = "%@-д оноо тавих";
 "Enter round 1 scores" = "1-р тойргийн оноог оруулна уу";
+"Round %d, in progress" = "%d-р тойрог явагдаж байна";
+"Previous Player" = "Өмнөх тоглогч";
+"Next Player" = "Дараагийн тоглогч";

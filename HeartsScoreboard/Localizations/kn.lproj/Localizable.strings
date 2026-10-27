@@ -167,3 +167,6 @@
 "Total %d" = "ಒಟ್ಟು ಸ್ಕೋರ್: %d";
 "Set points for %@" = "%@ ಗೆ ಅಂಕಗಳನ್ನು ಹೊಂದಿಸಿ";
 "Enter round 1 scores" = "ಸುತ್ತು 1 ಅಂಕಗಳನ್ನು ನಮೂದಿಸಿ";
+"Round %d, in progress" = "ಸುತ್ತು %d, ಪ್ರಗತಿಯಲ್ಲಿದೆ";
+"Previous Player" = "ಹಿಂದಿನ ಆಟಗಾರ";
+"Next Player" = "ಮುಂದಿನ ಆಟಗಾರ";

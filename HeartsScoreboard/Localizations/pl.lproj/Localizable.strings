@@ -167,3 +167,6 @@
 "Total %d" = "Łączny wynik: %d";
 "Set points for %@" = "Ustaw punkty dla %@";
 "Enter round 1 scores" = "Wprowadź wyniki rundy 1";
+"Round %d, in progress" = "Runda %d, w toku";
+"Previous Player" = "Poprzedni gracz";
+"Next Player" = "Następny gracz";

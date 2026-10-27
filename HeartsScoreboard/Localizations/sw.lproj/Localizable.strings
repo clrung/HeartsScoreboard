@@ -167,3 +167,6 @@
 "Total %d" = "Jumla ya alama: %d";
 "Set points for %@" = "Weka pointi za %@";
 "Enter round 1 scores" = "Ingiza alama za raundi ya 1";
+"Round %d, in progress" = "Raundi ya %d, inaendelea";
+"Previous Player" = "Mchezaji Aliyetangulia";
+"Next Player" = "Mchezaji Ajaye";

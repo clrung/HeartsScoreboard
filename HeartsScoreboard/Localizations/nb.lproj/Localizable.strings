@@ -167,3 +167,6 @@
 "Total %d" = "Total poengsum: %d";
 "Set points for %@" = "Sett poeng for %@";
 "Enter round 1 scores" = "Skriv inn runde 1-poeng";
+"Round %d, in progress" = "Runde %d pågår";
+"Previous Player" = "Forrige spiller";
+"Next Player" = "Neste spiller";

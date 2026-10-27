@@ -167,3 +167,6 @@
 "Total %d" = "Jumlah markah: %d";
 "Set points for %@" = "Tetapkan mata untuk %@";
 "Enter round 1 scores" = "Masukkan markah pusingan 1";
+"Round %d, in progress" = "Pusingan %d, sedang berjalan";
+"Previous Player" = "Pemain Sebelumnya";
+"Next Player" = "Pemain Seterusnya";

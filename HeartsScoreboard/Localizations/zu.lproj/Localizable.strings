@@ -167,3 +167,6 @@
 "Total %d" = "Inani lamaphuzu: %d";
 "Set points for %@" = "Setha amaphoyinti e-%@";
 "Enter round 1 scores" = "Ngena umjikelezo woku-1 wamaphuzu";
+"Round %d, in progress" = "Umjikelezo %d, uyaqhubeka";
+"Previous Player" = "Umdlali Odlule";
+"Next Player" = "Umdlali Olandelayo";

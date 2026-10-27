@@ -167,3 +167,6 @@
 "Total %d" = "Ümumi xal: %d";
 "Set points for %@" = "%@ üçün xal təyin edin";
 "Enter round 1 scores" = "1-ci turun xallarını daxil edin";
+"Round %d, in progress" = "%d raund, davam edir";
+"Previous Player" = "Əvvəlki Oyunçu";
+"Next Player" = "Növbəti Oyunçu";

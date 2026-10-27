@@ -167,3 +167,6 @@
 "Total %d" = "ჯამური ქულა: %d";
 "Set points for %@" = "დააყენეთ ქულები %@-ისთვის";
 "Enter round 1 scores" = "შეიყვანეთ 1 რაუნდის ქულები";
+"Round %d, in progress" = "რაუნდი %d, მიმდინარეობს";
+"Previous Player" = "წინა მოთამაშე";
+"Next Player" = "შემდეგი მოთამაშე";

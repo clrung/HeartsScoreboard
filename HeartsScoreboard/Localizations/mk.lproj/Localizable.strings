@@ -167,3 +167,6 @@
 "Total %d" = "Вкупен резултат: %d";
 "Set points for %@" = "Поставете поени за %@";
 "Enter round 1 scores" = "Внесете резултати од првиот круг";
+"Round %d, in progress" = "Круг %d, во тек";
+"Previous Player" = "Претходен играч";
+"Next Player" = "Следен играч";

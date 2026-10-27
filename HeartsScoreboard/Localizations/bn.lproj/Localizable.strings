@@ -167,3 +167,6 @@
 "Total %d" = "মোট স্কোর: %d";
 "Set points for %@" = "%@ এর জন্য পয়েন্ট সেট করুন";
 "Enter round 1 scores" = "রাউন্ড 1 স্কোর লিখুন";
+"Round %d, in progress" = "রাউন্ড %d, প্রগতিতে";
+"Previous Player" = "আগের খেলোয়াড়";
+"Next Player" = "পরবর্তী খেলোয়াড়";

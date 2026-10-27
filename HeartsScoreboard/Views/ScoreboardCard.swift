@@ -11,6 +11,8 @@ struct ScoreboardCard: View {
     let width: CGFloat
     /// Regular-width layout: shows the pending row for the round being entered and hugs its content.
     let isSplit: Bool
+    /// Live values from the inline round-entry panel, shown in the pending row (split layout only).
+    var pendingEntry = RoundEntryState()
     let onEdit: (UUID) -> Void
 
     @Environment(\.colorScheme) private var colorScheme
@@ -309,22 +311,66 @@ struct ScoreboardCard: View {
         .accessibilityHint(Text("Edit this round"))
     }
 
+    /// The round being entered: dashed outline spanning the cells, live values from the entry panel in a subdued
+    /// accent (untouched = a faint dash, moon shooter = the moon). Not a button: it never opens Edit.
     private func pendingRow(index: Int) -> some View {
-        HStack(spacing: 0) {
-            Text("\(index + 1)")
+        let round = index + 1
+        let shooter = pendingEntry.moonShooterID(players: players)
+        let touched = players.contains { (pendingEntry.points[$0.id] ?? 0) != 0 }
+        let shape = RoundedRectangle(cornerRadius: Theme.Radius.cell, style: .continuous)
+        return HStack(spacing: 0) {
+            Text("\(round)")
                 .font(.caption.weight(.semibold))
                 .monospacedDigit()
                 .foregroundStyle(Color.secondary)
                 .frame(width: railWidth)
-            RoundedRectangle(cornerRadius: Theme.Radius.cell, style: .continuous)
-                .strokeBorder(Color.secondary.opacity(hasContrast ? 0.9 : 0.5), style: StrokeStyle(lineWidth: 1.5, dash: [5, 4]))
-                .padding(.vertical, 3)
+                .accessibilityHidden(true)
+            HStack(spacing: 0) {
+                ForEach(players) { player in
+                    pendingCell(round: round, player: player, isShooter: shooter == player.id)
+                }
+            }
+            .background(shape.fill(touched ? Theme.accent.opacity(hasContrast ? 0.16 : 0.08) : Color.clear))
+            .overlay(
+                shape.strokeBorder(
+                    touched ? Theme.accent.opacity(hasContrast ? 1 : 0.7) : Color.secondary.opacity(hasContrast ? 0.9 : 0.5),
+                    style: StrokeStyle(lineWidth: 1.5, dash: [5, 4])
+                )
+            )
+            .padding(.vertical, 3)
         }
-        .frame(height: rowHeight)
+        .frame(minHeight: rowHeight)
         .padding(.horizontal, gutter)
         .background(zebra(index))
         .id("pending")
-        .accessibilityHidden(true)
+        .animation(reduceMotion ? nil : .easeOut(duration: 0.15), value: pendingEntry.points)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(Text(String(format: String(localized: "Round %d, in progress"), round)))
+        .accessibilityIdentifier("pendingRow")
+    }
+
+    private func pendingCell(round: Int, player: HeartsGame.Player, isShooter: Bool) -> some View {
+        let value = pendingEntry.points[player.id] ?? 0
+        return Group {
+            if isShooter {
+                Image(systemName: "moon.fill").foregroundStyle(Theme.moon)
+            } else if value == 0 {
+                Text("\u{2013}").foregroundStyle(Color.secondary.opacity(0.6))
+            } else {
+                Text("\(value)").foregroundStyle(Theme.pendingValue)
+                    .contentTransition(reduceMotion ? .identity : .numericText(value: Double(value)))
+            }
+        }
+        .font(.system(.body, design: .rounded).weight(.semibold))
+        .monospacedDigit()
+        .lineLimit(1)
+        .minimumScaleFactor(0.6)
+        .frame(maxWidth: .infinity, minHeight: rowHeight - 6)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(isShooter
+            ? String(format: String(localized: "Round %d, %@: shot the moon"), round, player.name)
+            : String(format: String(localized: "Round %d, %@: %d points"), round, player.name, value)))
+        .accessibilityIdentifier("pendingCell.\(player.name)")
     }
 
     @ViewBuilder

@@ -167,3 +167,6 @@
 "Total %d" = "Kokonaispisteet: %d";
 "Set points for %@" = "Aseta pisteet kohteelle %@";
 "Enter round 1 scores" = "Anna kierroksen 1 tulokset";
+"Round %d, in progress" = "Kierros %d, käynnissä";
+"Previous Player" = "Edellinen pelaaja";
+"Next Player" = "Seuraava pelaaja";

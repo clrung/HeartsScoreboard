@@ -167,3 +167,6 @@
 "Total %d" = "Жалпы ұпай: %d";
 "Set points for %@" = "%@ ұпайларын орнату";
 "Enter round 1 scores" = "1 раунд ұпайларын енгізіңіз";
+"Round %d, in progress" = "%d раунд орындалуда";
+"Previous Player" = "Алдыңғы ойыншы";
+"Next Player" = "Келесі ойыншы";

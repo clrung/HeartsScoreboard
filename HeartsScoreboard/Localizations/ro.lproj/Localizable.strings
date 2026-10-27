@@ -167,3 +167,6 @@
 "Total %d" = "Scorul total: %d";
 "Set points for %@" = "Puncte de referință pentru %@";
 "Enter round 1 scores" = "Introduceți scorurile rundei 1";
+"Round %d, in progress" = "Runda %d, în curs";
+"Previous Player" = "Jucător anterior";
+"Next Player" = "Următorul jucător";

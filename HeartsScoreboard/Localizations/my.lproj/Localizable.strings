@@ -167,3 +167,6 @@
 "Total %d" = "စုစုပေါင်းရမှတ်- %d";
 "Set points for %@" = "%@ အတွက် အမှတ်များ သတ်မှတ်ပါ";
 "Enter round 1 scores" = "အဆင့် 1 ရမှတ်များ ထည့်ပါ။";
+"Round %d, in progress" = "အဝိုင်း %d၊ လုပ်ဆောင်နေသည်။";
+"Previous Player" = "ယခင်ကစားသမား";
+"Next Player" = "နောက် Player";

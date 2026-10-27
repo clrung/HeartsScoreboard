@@ -186,3 +186,6 @@
 "Total %d" = "Note totale : %d";
 "Set points for %@" = "Définir des points pour %@";
 "Enter round 1 scores" = "Entrez les scores du premier tour";
+"Round %d, in progress" = "Tour %d, en cours";
+"Previous Player" = "Joueur précédent";
+"Next Player" = "Joueur suivant";

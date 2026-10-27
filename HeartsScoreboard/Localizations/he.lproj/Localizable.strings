@@ -167,3 +167,6 @@
 "Total %d" = "ציון כולל: %d";
 "Set points for %@" = "קבע נקודות עבור %@";
 "Enter round 1 scores" = "הזן את ציוני הסיבוב הראשון";
+"Round %d, in progress" = "סיבוב %d, בתהליך";
+"Previous Player" = "שחקן קודם";
+"Next Player" = "השחקן הבא";

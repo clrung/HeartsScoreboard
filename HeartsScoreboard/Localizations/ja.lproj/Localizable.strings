@@ -186,3 +186,6 @@
 "Total %d" = "合計スコア: %d";
 "Set points for %@" = "%@ のポイントを設定します";
 "Enter round 1 scores" = "ラウンド 1 のスコアを入力します";
+"Round %d, in progress" = "ラウンド %d、進行中";
+"Previous Player" = "前のプレイヤー";
+"Next Player" = "次のプレイヤー";

@@ -186,3 +186,6 @@
 "Total %d" = "Totaalscore: %d";
 "Set points for %@" = "Punten instellen voor %@";
 "Enter round 1 scores" = "Voer ronde 1-scores in";
+"Round %d, in progress" = "Ronde %d, bezig";
+"Previous Player" = "Vorige speler";
+"Next Player" = "Volgende speler";

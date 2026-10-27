@@ -167,3 +167,6 @@
 "Total %d" = "Общ резултат: %d";
 "Set points for %@" = "Задайте точки за %@";
 "Enter round 1 scores" = "Въведете резултати от кръг 1";
+"Round %d, in progress" = "Рунд %d, в ход";
+"Previous Player" = "Предишен играч";
+"Next Player" = "Следващ играч";

@@ -167,3 +167,6 @@
 "Total %d" = "Bendras balas: %d";
 "Set points for %@" = "Nustatyti taškus už %@";
 "Enter round 1 scores" = "Įveskite 1 turo rezultatus";
+"Round %d, in progress" = "%d turas, vyksta";
+"Previous Player" = "Ankstesnis žaidėjas";
+"Next Player" = "Kitas žaidėjas";

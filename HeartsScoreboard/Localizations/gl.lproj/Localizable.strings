@@ -167,3 +167,6 @@
 "Total %d" = "Puntuación total: %d";
 "Set points for %@" = "Puntos de referencia para %@";
 "Enter round 1 scores" = "Introduce as puntuacións da rolda 1";
+"Round %d, in progress" = "Rolda %d, en curso";
+"Previous Player" = "Xogador anterior";
+"Next Player" = "Seguinte xogador";

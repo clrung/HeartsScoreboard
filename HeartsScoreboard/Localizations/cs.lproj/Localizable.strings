@@ -167,3 +167,6 @@
 "Total %d" = "Celkové skóre: %d";
 "Set points for %@" = "Nastavit body pro %@";
 "Enter round 1 scores" = "Zadejte skóre 1. kola";
+"Round %d, in progress" = "Probíhá %d. kolo";
+"Previous Player" = "Předchozí hráč";
+"Next Player" = "Další hráč";

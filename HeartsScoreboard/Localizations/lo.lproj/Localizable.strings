@@ -167,3 +167,6 @@
 "Total %d" = "ຄະແນນທັງໝົດ: %d";
 "Set points for %@" = "ກຳນົດຈຸດສຳລັບ %@";
 "Enter round 1 scores" = "ເຂົ້າຮອບ 1 ຄະແນນ";
+"Round %d, in progress" = "ຮອບທີ %d, ກຳລັງດຳເນີນຢູ່";
+"Previous Player" = "ຜູ້ນທີ່ຜ່ານມາ";
+"Next Player" = "ຜູ້ນຕໍ່ໄປ";

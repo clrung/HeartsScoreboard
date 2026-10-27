@@ -25,10 +25,24 @@ struct RoundInputView: View {
     /// Min chip width: wide enough for "+26" (the widest chip text), scaling with Dynamic Type.
     @ScaledMetric(relativeTo: .subheadline) private var chipWidth: CGFloat = ChipMetrics.baseMinWidth
 
-    init(model: GameViewModel, presentation: Presentation = .sheet, editingHandID: UUID? = nil) {
+    /// Inline only: the entry lives in `GameView` so the scoreboard's pending row can show it live.
+    /// Sheet and edit presentations keep their own private state.
+    private let externalEntry: Binding<RoundEntryState>?
+    /// False while a sheet/alert covers the board: the hardware keys and their menu items stand down.
+    private let keyboardEnabled: Bool
+    /// Inline only: selection state lives in `GameView`, which receives the keys through the shake detector.
+    private let externalKeyboard: Binding<RoundEntryKeyboard>?
+
+    init(model: GameViewModel, presentation: Presentation = .sheet, editingHandID: UUID? = nil,
+         inlineEntry: Binding<RoundEntryState>? = nil, inlineKeyboard: Binding<RoundEntryKeyboard>? = nil,
+         keyboardEnabled: Bool = true) {
         self.model = model
         self.presentation = presentation
         self.editingHandID = editingHandID
+        self.externalEntry = presentation == .inline ? inlineEntry : nil
+        self.keyboardEnabled = keyboardEnabled
+        self.externalKeyboard = presentation == .inline ? inlineKeyboard : nil
+        _localKeyboard = State(initialValue: RoundEntryKeyboard())
     }
 
     private var isEditing: Bool { editingHandID != nil }
@@ -39,7 +53,22 @@ struct RoundInputView: View {
         return model.game.hands.firstIndex(where: { $0.id == id })
     }
 
-    @State private var entry = RoundEntryState()
+    @State private var localEntry = RoundEntryState()
+    @State private var localKeyboard: RoundEntryKeyboard
+    private var keyboard: RoundEntryKeyboard {
+        get { externalKeyboard?.wrappedValue ?? localKeyboard }
+        nonmutating set {
+            if let externalKeyboard { externalKeyboard.wrappedValue = newValue } else { localKeyboard = newValue }
+        }
+    }
+    @FocusState private var keyboardFocused: Bool
+
+    private var entry: RoundEntryState {
+        get { externalEntry?.wrappedValue ?? localEntry }
+        nonmutating set {
+            if let externalEntry { externalEntry.wrappedValue = newValue } else { localEntry = newValue }
+        }
+    }
     /// The player whose value-picker popover is open.
     @State private var valuePickerPlayerID: UUID?
 
@@ -98,6 +127,13 @@ struct RoundInputView: View {
                 }
             }
         }
+        .modifier(RoundEntryKeyHandling(
+            isEnabled: keyboardEnabled,
+            handlesPlainKeys: presentation != .inline,
+            focus: $keyboardFocused,
+            onCommand: { applyKey($0) },
+            onReset: { if !isResetDisabled { reset() } }
+        ))
         .sensoryFeedback(.selection, trigger: entry.points) { old, new in
             // Skip the initial fill and resets (all zeros); only real edits tick.
             !old.isEmpty && old != new && new.values.contains { $0 != 0 }
@@ -114,6 +150,7 @@ struct RoundInputView: View {
             }
         }
         .onAppear {
+            if keyboardEnabled && presentation != .inline { DispatchQueue.main.async { keyboardFocused = true } }
             if entry.points.isEmpty {
                 if let index = editedHandIndex {
                     entry = RoundEntryState(hand: model.game.hands[index], players: model.game.players)
@@ -128,6 +165,9 @@ struct RoundInputView: View {
                     #endif
                 }
             }
+        }
+        .onChange(of: keyboardEnabled) { _, enabled in
+            if enabled && presentation != .inline { DispatchQueue.main.async { keyboardFocused = true } }
         }
         .onChange(of: editedHandIndex == nil) { _, missing in
             if isEditing && missing { dismiss() }
@@ -208,14 +248,33 @@ struct RoundInputView: View {
         }
     }
 
-    private func tile<Content: View>(@ViewBuilder _ content: () -> Content) -> some View {
+    private func tile<Content: View>(selected: Bool = false, @ViewBuilder _ content: () -> Content) -> some View {
         let shape = RoundedRectangle(cornerRadius: Theme.Radius.card - 8, style: .continuous)
         return content()
             .padding(.horizontal, Theme.Spacing.m + 2)
             .padding(.vertical, Theme.Spacing.s)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(shape.fill(Theme.cardInset))
+            .background(shape.fill(selected ? Theme.selectionWash : Color.clear))
             .overlay(shape.strokeBorder(Color.primary.opacity(contrast == .increased ? 0.45 : 0.06), lineWidth: contrast == .increased ? 1.5 : 1))
+            .overlay {
+                if selected {
+                    shape.strokeBorder(Theme.selectionRing, lineWidth: contrast == .increased ? 3 : 2.5)
+                }
+            }
+    }
+
+    /// The keyboard-selected row, once a key has been used (never for touch-only use).
+    private func isKeyboardSelected(_ index: Int) -> Bool {
+        keyboard.isActive && keyboardEnabled && min(keyboard.selectedIndex, max(0, model.game.players.count - 1)) == index
+    }
+
+    private func applyKey(_ command: RoundEntryKeyboard.Command) {
+        var e = entry
+        var k = keyboard
+        k.apply(command, to: &e, players: model.game.players, preference: model.settings.shootMoonPreference)
+        if e != entry { entry = e }
+        keyboard = k
     }
 
     // MARK: Header controls
@@ -375,7 +434,7 @@ struct RoundInputView: View {
     private func playerRow(_ player: HeartsGame.Player, index: Int) -> some View {
         let quick = model.settings.quickIncrementPoints
         let remaining = remainingPoints(for: player.id)
-        tile {
+        tile(selected: isKeyboardSelected(index)) {
             // The chips' 44pt hit areas carry ~5pt of padding each, so the row needs no extra spacing.
             VStack(alignment: .leading, spacing: 0) {
                 if isAccessibilitySize {
@@ -396,6 +455,7 @@ struct RoundInputView: View {
         .accessibilityElement(children: .contain)
         .accessibilityLabel(player.name)
         .accessibilityValue(String(format: String(localized: "%d points"), entry.points[player.id] ?? 0))
+        .accessibilityAddTraits(isKeyboardSelected(index) ? .isSelected : [])
         .accessibilityIdentifier("roundInput.row.\(index)")
     }
 
@@ -513,7 +573,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), quick, player.name))
         .accessibilityIdentifier("roundInput.quick.\(player.name)")
-        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, text: Theme.accentText, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid || remaining < quick)
     }
 
@@ -525,7 +585,7 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), remaining, player.name))
         .accessibilityIdentifier("roundInput.remaining.\(player.name)")
-        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, text: Theme.accentText, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
         .disabled(remaining == 0 || isRoundValid)
     }
 
@@ -536,7 +596,7 @@ struct RoundInputView: View {
         .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
         .accessibilityAddTraits(isSelected ? .isSelected : [])
-        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, text: Theme.accentText, selectedForeground: .white, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid || entry.queenOwnerID != nil)
     }
 
@@ -549,7 +609,7 @@ struct RoundInputView: View {
         .accessibilityLabel(String(format: String(localized: "Shoot the moon for %@"), player.name))
         .accessibilityIdentifier("roundInput.moon.\(player.name)")
         .accessibilityAddTraits(isSelected ? .isSelected : [])
-        .buttonStyle(ActionChipStyle(tint: Theme.moon, selectedForeground: Theme.moonOnFill, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
+        .buttonStyle(ActionChipStyle(tint: Theme.moon, text: Theme.moonText, selectedForeground: Theme.moonOnFill, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid)
     }
 
@@ -667,10 +727,7 @@ struct RoundInputView: View {
     }
 
     private func addQueenOfSpades(for playerID: UUID) {
-        adjustPoints(for: playerID, delta: 13)
-        if entry.queenOwnerID == nil {
-            entry.queenOwnerID = playerID
-        }
+        entry.addQueenOfSpades(for: playerID)
     }
 
     private func remainingPoints(for playerID: UUID) -> Int {
@@ -680,23 +737,12 @@ struct RoundInputView: View {
     }
 
     private func addRemainingPoints(for playerID: UUID) {
-        let delta = remainingPoints(for: playerID)
-        guard delta > 0 else { return }
-        adjustPoints(for: playerID, delta: delta)
+        entry.addRemainingPoints(for: playerID, players: model.game.players)
     }
 
     /// Shoot the moon: Add 26 = shooter gets 0, everyone else gets 26. Subtract 26 = shooter gets -26, everyone else gets 0.
     private func applyShootMoonValue(for shooterID: UUID) {
-        switch model.settings.shootMoonPreference {
-        case .add26:
-            for p in model.game.players {
-                entry.points[p.id] = p.id == shooterID ? 0 : 26
-            }
-        case .subtract26:
-            for p in model.game.players {
-                entry.points[p.id] = p.id == shooterID ? -26 : 0
-            }
-        }
+        entry.applyShootMoon(shooterID: shooterID, players: model.game.players, preference: model.settings.shootMoonPreference)
     }
 
     /// Valid Hearts round, judged on hearts/Q♠ points only (the 10♦ bonus is applied on submit).
@@ -711,6 +757,7 @@ struct RoundInputView: View {
 
     private func reset() {
         entry.reset(players: model.game.players)
+        keyboard.clearBuffer()
     }
 
     private func submit() {
@@ -735,6 +782,64 @@ extension ShootMoonPreference {
         case .add26: return String(localized: "Moon adds 26 to others")
         case .subtract26: return String(localized: "Moon subtracts 26 from shooter")
         }
+    }
+}
+
+/// Hardware-keyboard input for the round-entry panel: a focusable container that maps key presses to
+/// `RoundEntryKeyboard` commands, plus hidden shortcut buttons so the iPad ⌘-hold menu lists the
+/// non-letter commands. Plain keys never fire while a sheet is up (`isEnabled`), and ⌘-combinations are
+/// left to the app's shortcuts (⌘Z, ⌘N, ⌘, , ⌘↩).
+private struct RoundEntryKeyHandling: ViewModifier {
+    let isEnabled: Bool
+    /// Inline: plain keys arrive through `GameView` (the shake detector holds first responder); sheets use focus.
+    let handlesPlainKeys: Bool
+    var focus: FocusState<Bool>.Binding
+    let onCommand: (RoundEntryKeyboard.Command) -> Void
+    let onReset: () -> Void
+
+    func body(content: Content) -> some View {
+        content
+            .focusable(isEnabled && handlesPlainKeys)
+            .focused(focus)
+            .focusEffectDisabled()
+            .onKeyPress(phases: [.down, .repeat]) { press in
+                guard isEnabled, handlesPlainKeys, let command = Self.command(for: press) else { return .ignored }
+                onCommand(command)
+                return .handled
+            }
+            .background {
+                if isEnabled { menuShortcuts }
+            }
+    }
+
+    /// Hidden buttons only so the system shortcut list shows them; the same commands are also on plain keys.
+    private var menuShortcuts: some View {
+        Group {
+            Button("Previous Player") { onCommand(.move(-1)) }
+                .keyboardShortcut(.upArrow, modifiers: .command)
+            Button("Next Player") { onCommand(.move(1)) }
+                .keyboardShortcut(.downArrow, modifiers: .command)
+            Button("Reset") { onReset() }
+                .keyboardShortcut(.delete, modifiers: .command)
+        }
+        .frame(width: 0, height: 0)
+        .opacity(0)
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+
+    static func command(for press: KeyPress) -> RoundEntryKeyboard.Command? {
+        let special: RoundEntryKeyboard.Special?
+        switch press.key {
+        case .upArrow: special = .up
+        case .downArrow: special = .down
+        case .tab: special = .tab
+        case .delete, .deleteForward: special = .delete
+        default: special = nil
+        }
+        return RoundEntryKeyboard.command(
+            characters: press.characters, special: special, shift: press.modifiers.contains(.shift),
+            hasShortcutModifier: !press.modifiers.isDisjoint(with: [.command, .control, .option]))
     }
 }
 
@@ -778,15 +883,21 @@ struct PointsGridPicker: View {
 /// 34pt tall visually inside a 44pt hit area so rows stay compact.
 private struct ActionChipStyle: ButtonStyle {
     let tint: Color
+    /// Label color on the tint (deeper/lighter than `tint` so it holds 4.5:1 on its own wash).
+    let text: Color
     let selectedForeground: Color
     let isSelected: Bool
     let minWidth: CGFloat
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.colorSchemeContrast) private var contrast
+    @Environment(\.colorScheme) private var colorScheme
 
     func makeBody(configuration: Configuration) -> some View {
-        let foreground: Color = isSelected ? selectedForeground : (isEnabled ? tint : Color.secondary.opacity(0.6))
-        let fill: Color = isSelected ? tint : (isEnabled ? tint.opacity(contrast == .increased ? 0.24 : 0.14) : Color.secondary.opacity(0.10))
+        let foreground: Color = isSelected ? selectedForeground : (isEnabled ? text : Color.secondary.opacity(0.6))
+        // The moon tint reads grayish at 14% on the light inset, so it gets a stronger wash (and a hairline) there.
+        let isMoonTint = tint == Theme.moon
+        let wash: Double = contrast == .increased ? 0.24 : (isMoonTint && colorScheme == .light ? 0.22 : 0.14)
+        let fill: Color = isSelected ? tint : (isEnabled ? tint.opacity(wash) : Color.secondary.opacity(0.10))
         return configuration.label
             .font(.subheadline.weight(.semibold))
             .lineLimit(1)
@@ -799,6 +910,8 @@ private struct ActionChipStyle: ButtonStyle {
             .overlay {
                 if contrast == .increased && (isEnabled || isSelected) {
                     Capsule(style: .continuous).strokeBorder(tint, lineWidth: 1.5)
+                } else if isMoonTint && isEnabled && !isSelected {
+                    Capsule(style: .continuous).strokeBorder(tint.opacity(0.35), lineWidth: 1)
                 }
             }
             .opacity(configuration.isPressed ? 0.7 : 1)

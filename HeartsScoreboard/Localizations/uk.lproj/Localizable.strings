@@ -167,3 +167,6 @@
 "Total %d" = "Загальний бал: %d";
 "Set points for %@" = "Встановити точки для %@";
 "Enter round 1 scores" = "Введіть бали 1 раунду";
+"Round %d, in progress" = "Раунд %d триває";
+"Previous Player" = "Попередній гравець";
+"Next Player" = "Наступний гравець";

@@ -167,3 +167,6 @@
 "Total %d" = "مجموع النقاط: %d";
 "Set points for %@" = "تعيين نقاط لـ %@";
 "Enter round 1 scores" = "أدخل نتائج الجولة 1";
+"Round %d, in progress" = "الجولة %d، قيد التقدم";
+"Previous Player" = "اللاعب السابق";
+"Next Player" = "اللاعب التالي";

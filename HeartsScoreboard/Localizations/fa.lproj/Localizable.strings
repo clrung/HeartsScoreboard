@@ -167,3 +167,6 @@
 "Total %d" = "امتیاز کل: %d";
 "Set points for %@" = "تعیین امتیاز برای %@";
 "Enter round 1 scores" = "نمرات دور 1 را وارد کنید";
+"Round %d, in progress" = "دور %d، در حال انجام است";
+"Previous Player" = "بازیکن قبلی";
+"Next Player" = "بازیکن بعدی";

@@ -167,3 +167,6 @@
 "Total %d" = "एकूण स्कोअर: %d";
 "Set points for %@" = "%@ साठी गुण सेट करा";
 "Enter round 1 scores" = "फेरी 1 स्कोअर प्रविष्ट करा";
+"Round %d, in progress" = "फेरी %d, प्रगतीपथावर आहे";
+"Previous Player" = "मागील खेळाडू";
+"Next Player" = "पुढील खेळाडू";

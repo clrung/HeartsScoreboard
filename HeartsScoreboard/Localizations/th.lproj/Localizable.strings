@@ -167,3 +167,6 @@
 "Total %d" = "คะแนนรวม: %d";
 "Set points for %@" = "กำหนดคะแนนสำหรับ %@";
 "Enter round 1 scores" = "เข้ารอบ 1 คะแนน";
+"Round %d, in progress" = "รอบที่ %d กำลังดำเนินการ";
+"Previous Player" = "ผู้เล่นคนก่อนหน้า";
+"Next Player" = "ผู้เล่นคนถัดไป";

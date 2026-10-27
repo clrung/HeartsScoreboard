@@ -75,9 +75,23 @@ enum Theme {
     /// Shoot-the-moon symbol. >= 4.5:1 on the card in both appearances.
     static let moon = dynamic(light: (0.30, 0.27, 0.72, 1), dark: (0.66, 0.64, 1.0, 1),
                               lightHC: (0.22, 0.19, 0.60, 1), darkHC: (0.76, 0.75, 1.0, 1))
+    /// Moon-tinted chip label: a touch deeper than `moon` in light so it holds >= 4.5:1 on the stronger chip tint.
+    static let moonText = dynamic(light: (0.24, 0.21, 0.62, 1), dark: (0.66, 0.64, 1.0, 1),
+                                  lightHC: (0.18, 0.15, 0.52, 1), darkHC: (0.80, 0.79, 1.0, 1))
+    /// Accent-tinted chip label. The plain accent is ~3.8:1 (light) / ~4.3:1 (dark) on its own 14% tint, so chip
+    /// text uses this deeper (light) / lighter (dark) green: >= 5:1 / >= 7:1 on the tint.
+    static let accentText = dynamic(light: (0.09, 0.40, 0.19, 1), dark: (0.36, 0.80, 0.49, 1),
+                                    lightHC: (0.05, 0.30, 0.12, 1), darkHC: (0.55, 0.90, 0.65, 1))
     /// Label color on a solid `moon` fill (selected moon chip).
     static let moonOnFill = dynamic(light: (1, 1, 1, 1), dark: (0.10, 0.09, 0.25, 1),
                                     lightHC: (1, 1, 1, 1), darkHC: (0.05, 0.04, 0.18, 1))
+    /// Keyboard-selected player row in the round-entry panel (ring + faint wash). Hidden until a key is pressed.
+    static let selectionRing = dynamic(light: (0.12, 0.48, 0.23, 1), dark: (0.42, 0.84, 0.55, 1),
+                                       lightHC: (0.05, 0.32, 0.13, 1), darkHC: (0.60, 0.95, 0.70, 1))
+    static let selectionWash = dynamic(light: (0.12, 0.48, 0.23, 0.08), dark: (0.42, 0.84, 0.55, 0.10),
+                                       lightHC: (0.05, 0.32, 0.13, 0.12), darkHC: (0.60, 0.95, 0.70, 0.16))
+    /// Live values in the scoreboard's pending row (subdued accent; >= 4.5:1 on the card).
+    static let pendingValue = accentText
     /// "Took all 26" emphasis (cell tint) and near-the-end progress.
     static let allPointsWarning = Color.orange
     /// Fill behind a "took all 26" cell. Dark is a saturated burnt orange (a translucent orange over the dark

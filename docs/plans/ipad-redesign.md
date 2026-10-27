@@ -104,7 +104,25 @@ rounds until it reaches the available height, then its round grid scrolls under 
     `scripts/translate_new_en_keys.py` (added a SOURCE_OVERRIDE "Total score: %d" so Google doesn't return "totals").
   - Open: 6 players on iPad landscape only just fit; below ~1000pt height the rows scroll. Moon chip in sheet at AX sizes is icon-only
     (menu text hidden). Popover itself only verified as a standalone grid snapshot, not live. Phase 3 still owns keyboard + live pending row.
-- [ ] **Phase 3 — Keyboard + live pending row + value popover polish.**
+- [x] **Phase 3 — Keyboard + live pending row + chip polish.**
+  Phase 3 notes (2026-10-27):
+  - Live pending row: `GameView` owns `inlineEntry` (+ `inlineKeyboard`) and passes bindings to `RoundInputView(.inline)`; sheet/edit keep private state.
+    `ScoreboardCard.pendingEntry` renders values in `Theme.pendingValue` (accent text), untouched = faint en dash, moon shooter = moon symbol,
+    dashed outline turns accent + faint wash once touched. VoiceOver: row "Round N, in progress" (`pendingRow`) containing per-cell labels (`pendingCell.<name>`), not buttons.
+    Reset: `GameViewModel.entryResetKey` (hand ids + player ids) changes on submit/undo/redo/new game/iCloud sync, `GameView` then resets `inlineEntry`;
+    settings changes do not. Rules moved from the view into `RoundEntryState` (`addQueenOfSpades`, `addRemainingPoints`, `applyShootMoon`).
+  - Keyboard (`RoundEntryKeyboard`, pure + unit tested): up/down/Tab(Shift-Tab) select row (wraps), digits type the value (two-digit buffer, new number after 1s or a third digit
+    or a row change, clamped 0...26), + / = and - adjust by 1, Q = Q♠, M = moon, R = rest, Delete/Backspace = 0, Cmd-Return submit (existing), Cmd-Delete reset.
+    Each key follows the disabled rules of its on-screen control. Selection ring (`Theme.selectionRing/Wash`) appears only after a key was used.
+    Cmd-Up/Down (Previous/Next Player) and Cmd-Delete (Reset) are hidden keyboardShortcut buttons so they show in the Cmd-hold menu; plain keys are not listed.
+  - Finding: while `ShakeDetectorViewController` is first responder SwiftUI focus / `onKeyPress` never receives plain keys (verified by disabling it). So the inline panel gets keys via
+    `ShakeDetectorView.onKey` (`pressesBegan` on the detector, which only consumes keys it maps; Cmd/Ctrl/Opt combos pass through), handled in `GameView.handleInlineKey` (split layout, no sheet, game not over).
+    First-responder behaviour is otherwise unchanged. Sheets/edit use SwiftUI focus + `onKeyPress` (not covered by a UI test).
+  - Polish: chip text was 3.8:1 (light) / 4.3:1 (dark) on its own tint; new `Theme.accentText` (>= 5:1 / >= 7:1) and `moonText`. Light moon chip gets a 22% indigo wash + hairline.
+    Split layout after 1 round: left as is (hugging card, short next to the tall entry card); the pending row with its dashes now gives the early state presence, no filler added.
+  - Tests: `RoundEntryKeyboardTests` (key map, rules, buffer, reset key), snapshot `testPendingRowAndKeyboardSelectionRender`, UI `IPadKeyboardUITests` (chips -> pending row; typeKey digits/Q/+/=/M/Tab, submit by tap).
+  - Open: XCUITest cannot drive Cmd shortcuts (even the existing Cmd-, fails at baseline) or Delete/Backspace key presses in the simulator, so Cmd-Return/Cmd-Delete/Delete are verified by unit tests/code only; check on a real iPad with keyboard.
+    New strings "Round %d, in progress", "Previous Player", "Next Player" translated to all locales.
 - [ ] **Phase 4 — Visual QA matrix + fixes** (iPad 13/11/mini, landscape/portrait, Split View narrow,
       iPhone, Duo sizes; light/dark; AX sizes; 3–6 players; long names; ties; game over; moon; 10♦).
 - [ ] **Phase 5 — Final design critique, screenshots regen, ledger update.**

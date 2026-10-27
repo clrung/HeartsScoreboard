@@ -167,3 +167,6 @@
 "Total %d" = "Cyfanswm y sgôr: %d";
 "Set points for %@" = "Gosod pwyntiau ar gyfer %@";
 "Enter round 1 scores" = "Rhowch sgorau rownd 1";
+"Round %d, in progress" = "Rownd %d, ar y gweill";
+"Previous Player" = "Chwaraewr Blaenorol";
+"Next Player" = "Chwaraewr Nesaf";

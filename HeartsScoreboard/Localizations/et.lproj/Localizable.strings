@@ -167,3 +167,6 @@
 "Total %d" = "Koguskoor: %d";
 "Set points for %@" = "Määra punktid %@ jaoks";
 "Enter round 1 scores" = "Sisestage 1. vooru tulemused";
+"Round %d, in progress" = "Ring %d, pooleli";
+"Previous Player" = "Eelmine mängija";
+"Next Player" = "Järgmine mängija";
