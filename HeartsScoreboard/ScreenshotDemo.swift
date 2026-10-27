@@ -18,6 +18,10 @@ enum ScreenshotDemo {
         return .light
     }
 
+    /// UI tests only: `-screenshotFollowAppearance` starts at System and lets the in-app Appearance
+    /// picker drive the scheme (instead of forcing one), so the live switch can be tested.
+    static var followsAppearancePreference: Bool { CommandLine.arguments.contains("-screenshotFollowAppearance") }
+
     @MainActor
     static func makeModel(playerCount: Int? = nil) -> GameViewModel {
         // UI tests only: `-screenshotPlayerCount 5|6` adds players (long names stress narrow layouts).
@@ -65,7 +69,10 @@ enum ScreenshotDemo {
         )
 
         var settings = GameSettings(quickIncrementPoints: 5)
-        if forcedColorScheme == .dark { settings.appearance = .dark }
+        if followsAppearancePreference {
+            // Start from System regardless of what an earlier run left in UserDefaults.
+            UserDefaults.standard.removeObject(forKey: "HeartsScoreboardAppearancePreference")
+        } else if forcedColorScheme == .dark { settings.appearance = .dark }
         // UI tests only: `-screenshotTenRule` turns on the 10♦ −10 rule.
         if CommandLine.arguments.contains("-screenshotTenRule") { settings.tenOfDiamondsMinus10 = true }
         let model = GameViewModel(game: game, settings: settings, firstDealerIndex: 0, history: [completed])

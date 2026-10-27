@@ -104,6 +104,10 @@ struct GameView: View {
                 .frame(width: 1, height: 1)
                 .allowsHitTesting(false)
         )
+        .background(WindowAppearanceApplier(style: model.settings.appearance.userInterfaceStyle).frame(width: 1, height: 1).allowsHitTesting(false))
+        #if DEBUG
+        .overlay(BoardStyleProbe().frame(width: 1, height: 1).allowsHitTesting(false))
+        #endif
         .modifier(GamePresentationsModifier(
             model: model,
             showingRoundInput: $showingRoundInput,

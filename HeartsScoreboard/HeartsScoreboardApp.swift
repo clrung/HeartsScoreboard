@@ -2,30 +2,24 @@ import SwiftUI
 
 @main
 struct HeartsScoreboardApp: App {
-    @AppStorage("HeartsScoreboardAppearancePreference") private var appearanceRaw: String = AppearancePreference.system.rawValue
-
-    private var preferredScheme: ColorScheme? {
-        guard let pref = AppearancePreference(rawValue: appearanceRaw) else { return nil }
-        switch pref {
-        case .system: return nil
-        case .light: return .light
-        case .dark: return .dark
-        }
-    }
-
     var body: some Scene {
         WindowGroup {
+            // The Appearance preference is applied to the window by `GameView` (`WindowAppearanceApplier`),
+            // so the board and every sheet switch together.
             #if DEBUG
             if ScreenshotDemo.isEnabled {
-                GameView(model: ScreenshotDemo.makeModel())
-                    .preferredColorScheme(ScreenshotDemo.forcedColorScheme)
+                // `-screenshotFollowAppearance` (UI tests) honors the in-app picker instead of forcing a scheme.
+                if ScreenshotDemo.followsAppearancePreference {
+                    GameView(model: ScreenshotDemo.makeModel())
+                } else {
+                    GameView(model: ScreenshotDemo.makeModel())
+                        .preferredColorScheme(ScreenshotDemo.forcedColorScheme)
+                }
             } else {
                 GameView()
-                    .preferredColorScheme(preferredScheme)
             }
             #else
             GameView()
-                .preferredColorScheme(preferredScheme)
             #endif
         }
     }

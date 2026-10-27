@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import Observation
 
 enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
@@ -21,6 +22,15 @@ enum AppearancePreference: String, CaseIterable, Identifiable, Codable {
     case dark
 
     var id: String { rawValue }
+
+    /// Window style this preference applies; `.unspecified` follows the device setting.
+    var userInterfaceStyle: UIUserInterfaceStyle {
+        switch self {
+        case .system: return .unspecified
+        case .light: return .light
+        case .dark: return .dark
+        }
+    }
 
     var label: String {
         switch self {

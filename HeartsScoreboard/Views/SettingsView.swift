@@ -6,15 +6,6 @@ struct SettingsView: View {
     @Bindable var model: GameViewModel
     @State private var showingAbout = false
 
-    /// Scheme the in-app preference forces; nil follows the system.
-    private var preferredScheme: ColorScheme? {
-        switch model.settings.appearance {
-        case .system: return nil
-        case .light: return .light
-        case .dark: return .dark
-        }
-    }
-
     var body: some View {
         NavigationStack {
             Form {
@@ -43,10 +34,6 @@ struct SettingsView: View {
                 }
             }
         }
-        // The app root applies the stored preference to the window, but a presented sheet doesn't
-        // reliably pick up a mid-presentation change; applying it here updates Settings immediately
-        // (and nil falls back to the system scheme).
-        .preferredColorScheme(preferredScheme)
     }
 
     // MARK: Players
