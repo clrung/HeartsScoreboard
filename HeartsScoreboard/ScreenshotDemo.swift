@@ -20,12 +20,19 @@ enum ScreenshotDemo {
 
     @MainActor
     static func makeModel() -> GameViewModel {
-        let names = ["Ava", "Ben", "Cleo", "Drew"]
+        // UI tests only: `-screenshotPlayerCount 5|6` adds players (long names stress narrow layouts).
+        var names = ["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"]
+        if let i = CommandLine.arguments.firstIndex(of: "-screenshotPlayerCount"),
+           CommandLine.arguments.indices.contains(i + 1), let n = Int(CommandLine.arguments[i + 1]), (3...6).contains(n) {
+            names = Array(names.prefix(n))
+        } else {
+            names = Array(names.prefix(4))
+        }
         let players = names.map { HeartsGame.Player(id: UUID(), name: $0) }
 
         func hand(_ points: [Int], at date: Date) -> HeartsGame.Hand {
             var map: [UUID: Int] = [:]
-            for (p, v) in zip(players, points) { map[p.id] = v }
+            for (i, p) in players.enumerated() { map[p.id] = points[i % points.count] }
             return .init(id: UUID(), pointsByPlayerID: map, notes: "", createdAt: date)
         }
 
@@ -46,7 +53,7 @@ enum ScreenshotDemo {
         var doneHands: [HeartsGame.Hand] = []
         for row in done {
             var map: [UUID: Int] = [:]
-            for (p, v) in zip(donePlayers, row) { map[p.id] = v }
+            for (i, p) in donePlayers.enumerated() { map[p.id] = row[i % row.count] }
             doneHands.append(.init(id: UUID(), pointsByPlayerID: map, notes: "", createdAt: date(2026, 10, 17, 20, 0)))
         }
         let completed = CompletedGame(

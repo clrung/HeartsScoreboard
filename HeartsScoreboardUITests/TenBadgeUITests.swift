@@ -11,10 +11,15 @@ final class TenBadgeUITests: XCTestCase {
             app.buttons["nextRoundButton"].tap()
         }
         let ten = app.buttons["roundInput.ten.Cleo"]
-        XCTAssertTrue(ten.waitForExistence(timeout: 10) || scrollToReveal(ten, in: app))
+        // Wait for the sheet itself, then scroll: the picker may be below the fold (lazy, not yet created),
+        // so waiting on it directly just burns the timeout first.
+        XCTAssertTrue(app.buttons["roundInput.decrease.Ava"].waitForExistence(timeout: 10))
+        XCTAssertTrue(scrollToReveal(ten, in: app), "10♦ picker never became tappable")
         ten.tap()
         // Back to the top so the player rows (and the holder's chip) are on screen.
-        for _ in 0..<3 where app.buttons["roundInput.decrease.Ava"].isHittable == false { app.swipeDown() }
+        let firstRow = app.buttons["roundInput.decrease.Ava"]
+        for _ in 0..<12 where !firstRow.isHittable { app.collectionViews.firstMatch.swipeDown(velocity: .slow) }
+        XCTAssertTrue(firstRow.isHittable, "could not scroll back to the player rows")
 
         let badge = app.descendants(matching: .any)["roundInput.tenBadge.Cleo"]
         XCTAssertTrue(badge.waitForExistence(timeout: 5))
@@ -32,7 +37,8 @@ final class TenBadgeUITests: XCTestCase {
 
     /// On iPhone the "10♦ taken by" section is below the fold of the lazy Form.
     private func scrollToReveal(_ element: XCUIElement, in app: XCUIApplication) -> Bool {
-        for _ in 0..<4 where !element.isHittable { app.swipeUp() }
+        // Swipe the sheet's own list (a bare app.swipeUp() doesn't scroll it on narrow phones like the SE).
+        for _ in 0..<12 where !element.isHittable { app.collectionViews.firstMatch.swipeUp(velocity: .slow) }
         return element.isHittable
     }
 }

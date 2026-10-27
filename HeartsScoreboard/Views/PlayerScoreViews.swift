@@ -134,18 +134,48 @@ struct PlayerNameWithTotalView: View {
     let colorScheme: ColorScheme
     /// See `PlayerTotalBadge.reservesCrownSpace`.
     var reservesCrownSpace: Bool = true
+    /// Name above the total (instead of beside it), for rows too narrow to show both on one line
+    /// without squeezing the name to "Al…". `badgeAccessory` (e.g. the 10♦ chip) then sits next to the total.
+    var stacked: Bool = false
+    var badgeAccessory: AnyView? = nil
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
-    var body: some View {
-        HStack(spacing: 8) {
-            Text(name)
-                .font(.headline.weight(.semibold))
-                .lineLimit(1)
-                .truncationMode(.tail)
-                // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
-                .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.5 : 1)
+    private var nameText: some View {
+        Text(name)
+            .font(.headline.weight(.semibold))
+            .lineLimit(1)
+            .truncationMode(.tail)
+            // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
+            .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.5 : 1)
+    }
 
-            PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme, reservesCrownSpace: reservesCrownSpace)
+    private var badge: some View {
+        PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme, reservesCrownSpace: reservesCrownSpace)
+            .accessibilityIdentifier("playerTotal.\(name)")
+    }
+
+    func stackedLayout(accessory: AnyView? = nil) -> PlayerNameWithTotalView {
+        var copy = self
+        copy.stacked = true
+        copy.badgeAccessory = accessory
+        return copy
+    }
+
+    var body: some View {
+        if stacked {
+            // The leader's crown overlays the top of the total, so leave room for it under the name.
+            VStack(alignment: .leading, spacing: isLeader ? 10 : 2) {
+                nameText
+                HStack(spacing: 6) {
+                    badge
+                    badgeAccessory
+                }
+            }
+        } else {
+            HStack(spacing: 8) {
+                nameText
+                badge
+            }
         }
     }
 }

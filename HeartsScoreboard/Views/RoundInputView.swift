@@ -114,6 +114,13 @@ struct RoundInputView: View {
                     entry = RoundEntryState(hand: model.game.hands[index], players: model.game.players)
                 } else {
                     reset()
+                    #if DEBUG
+                    // UI tests only: `-screenshotTenHolder <name>` pre-selects the 10♦ holder.
+                    if isTenRuleOn, let i = CommandLine.arguments.firstIndex(of: "-screenshotTenHolder"),
+                       CommandLine.arguments.indices.contains(i + 1) {
+                        entry.tenOfDiamondsOwnerID = model.game.players.first { $0.name == CommandLine.arguments[i + 1] }?.id
+                    }
+                    #endif
                 }
             }
         }
@@ -301,19 +308,23 @@ struct RoundInputView: View {
         .accessibilityIdentifier("roundInput.progress")
     }
 
-    @ViewBuilder
-    private func playerRow(_ player: HeartsGame.Player, index: Int) -> some View {
-        let quick = model.settings.quickIncrementPoints
-        let remaining = remainingPoints(for: player.id)
-        let nameView = PlayerNameWithTotalView(
+    /// Name + total. Symmetric badge padding so the capsule is centered with the name and stepper; the
+    /// crown overlay gets its headroom from the row (see the insets in `playerRow`) instead of the badge's box.
+    private func nameBlock(for player: HeartsGame.Player) -> PlayerNameWithTotalView {
+        PlayerNameWithTotalView(
             name: player.name,
             total: model.game.totalPoints(for: player.id, excluding: editingHandID),
             isLeader: leadingPlayerIDs.contains(player.id),
             colorScheme: colorScheme,
-            // Symmetric badge padding so the capsule is centered with the name and stepper; the crown
-            // overlay gets its headroom from the row (see the insets below) instead of the badge's box.
             reservesCrownSpace: false
         )
+    }
+
+    @ViewBuilder
+    private func playerRow(_ player: HeartsGame.Player, index: Int) -> some View {
+        let quick = model.settings.quickIncrementPoints
+        let remaining = remainingPoints(for: player.id)
+        let nameView = nameBlock(for: player)
         Group {
             if isAccessibilitySize {
                 // Accessibility sizes: name + total, then the stepper, then the chips in a 2x2 grid.
@@ -335,7 +346,9 @@ struct RoundInputView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 2, trailing: 16))
+                // Extra top inset: at accessibility sizes the leader's crown (an overlay on the total) is
+                // taller than the default inset and was clipped by the cell.
+                .listRowInsets(EdgeInsets(top: 20, leading: 16, bottom: 2, trailing: 16))
             } else if presentation == .inline {
                 // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
                 // so long names never collapse to "…".
@@ -384,17 +397,24 @@ struct RoundInputView: View {
                 }
             }
         }
-        let plain = HStack(alignment: .center, spacing: 8) {
+        // The name block never gets squeezed below its full name while a stacked layout (name over total)
+        // would fit it; only then may the name truncate. The controls are fixed-size and trailing, so the
+        // stepper column is identical in every row whichever candidate wins.
+        let stacked = nameView.stackedLayout()
+        // One-line candidate sized to the WIDEST player's name+total (invisible, unread copies behind the
+        // real one), so every row's one-line layout fits exactly when the widest one does and all rows
+        // switch to the stacked layout together instead of mixing the two.
+        let oneLine = ZStack(alignment: .leading) {
+            ForEach(model.game.players) { other in
+                nameBlock(for: other).hidden().accessibilityHidden(true)
+            }
             nameView
-                .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
-                .layoutPriority(1)
-            Spacer(minLength: 0)
-            controls
         }
+        .fixedSize(horizontal: true, vertical: false)
         if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
             ViewThatFits(in: .horizontal) {
                 HStack(alignment: .center, spacing: 8) {
-                    nameView.fixedSize(horizontal: true, vertical: false)
+                    oneLine
                     Spacer(minLength: 0)
                     tenChip(for: player)
                     controls
@@ -404,14 +424,31 @@ struct RoundInputView: View {
                         nameView
                         tenChip(for: player)
                     }
-                    .frame(minWidth: 60, maxWidth: 160, alignment: .leading)
-                    .layoutPriority(1)
+                    .fixedSize(horizontal: true, vertical: false)
                     Spacer(minLength: 0)
+                    controls
+                }
+                HStack(alignment: .center, spacing: 8) {
+                    nameView.stackedLayout(accessory: AnyView(tenChip(for: player)))
+                        .frame(minWidth: 60, maxWidth: .infinity, alignment: .leading)
+                        .layoutPriority(1)
                     controls
                 }
             }
         } else {
-            plain
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .center, spacing: 8) {
+                    oneLine
+                    Spacer(minLength: 0)
+                    controls
+                }
+                HStack(alignment: .center, spacing: 8) {
+                    stacked
+                        .frame(minWidth: 60, maxWidth: .infinity, alignment: .leading)
+                        .layoutPriority(1)
+                    controls
+                }
+            }
         }
     }
 
