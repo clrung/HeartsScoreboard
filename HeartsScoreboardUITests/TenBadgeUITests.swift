@@ -3,6 +3,106 @@ import XCTest
 /// Regression: the 10♦ holder indicator (formerly a "−10" badge overlaid above the score, which was
 /// clipped by the list cell on iPad Pro 11") must stay inside its row, left of the stepper.
 final class TenBadgeUITests: XCTestCase {
+    private struct NormalizedFrame {
+        let x: CGFloat
+        let y: CGFloat
+        let width: CGFloat
+        let height: CGFloat
+    }
+
+    func testMovingTenBadgeDoesNotChangePlayerRowLayout() throws {
+        let players = ["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"]
+        let app = XCUIApplication()
+        let appearance = ProcessInfo.processInfo.environment["CHIP_APPEARANCE"] ?? "light"
+        app.launchArguments = ["-screenshotDemo", "-screenshotTenRule", "-screenshotPlayerCount", "6",
+                               "-screenshotAppearance", appearance]
+        app.launch()
+        if app.buttons["nextRoundButton"].waitForExistence(timeout: 15), app.buttons["nextRoundButton"].isHittable {
+            app.buttons["nextRoundButton"].tap()
+        }
+        XCTAssertTrue(app.buttons["roundInput.decrease.Ava"].waitForExistence(timeout: 10))
+
+        func captureLayout(_ state: String) throws -> [String: [String: NormalizedFrame]] {
+            var measurements: [String: [String: NormalizedFrame]] = [:]
+            let firstRow = app.descendants(matching: .any)["roundInput.row.0"]
+            XCTAssertTrue(firstRow.waitForExistence(timeout: 5), "missing first player row")
+            let origin = firstRow.frame.origin
+            func normalized(_ frame: CGRect) -> NormalizedFrame {
+                NormalizedFrame(x: frame.minX - origin.x, y: frame.minY - origin.y,
+                                width: frame.width, height: frame.height)
+            }
+            for (index, name) in players.enumerated() {
+                let row = app.descendants(matching: .any)["roundInput.row.\(index)"]
+                let playerName = row.staticTexts.matching(NSPredicate(format: "label == %@", name)).firstMatch
+                let total = app.descendants(matching: .any)["playerTotal.\(name)"]
+                let minus = app.buttons["roundInput.decrease.\(name)"]
+                let quick = app.buttons["roundInput.quick.\(name)"]
+                XCTAssertTrue(row.waitForExistence(timeout: 5), "missing row for \(name)")
+                XCTAssertTrue(playerName.waitForExistence(timeout: 5), "missing name for \(name)")
+                XCTAssertTrue(total.exists, "missing total for \(name)")
+                XCTAssertTrue(minus.exists, "missing stepper for \(name)")
+                XCTAssertTrue(quick.exists, "missing quick chip for \(name)")
+                measurements[name] = [
+                    "row": normalized(row.frame),
+                    "name": normalized(playerName.frame),
+                    "total": normalized(total.frame),
+                    "stepper": normalized(minus.frame),
+                    "quick": normalized(quick.frame)
+                ]
+            }
+
+            if let directory = ProcessInfo.processInfo.environment["SHOT_DIR"], !directory.isEmpty {
+                try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true)
+                try app.screenshot().pngRepresentation.write(to: URL(fileURLWithPath: directory).appendingPathComponent("ten-badge-\(state)-\(appearance).png"))
+            }
+            return measurements
+        }
+
+        func choose(_ name: String) {
+            let pickerButton = app.buttons["roundInput.ten.\(name)"]
+            XCTAssertTrue(scrollToReveal(pickerButton, in: app), "10♦ picker never became tappable")
+            pickerButton.tap()
+            let firstRow = app.buttons["roundInput.decrease.Ava"]
+            for _ in 0..<12 where !firstRow.isHittable && entryScroll(app).exists {
+                entryScroll(app).swipeDown(velocity: .slow)
+            }
+            XCTAssertTrue(firstRow.isHittable, "could not return to the player rows")
+        }
+
+        let noHolder = try captureLayout("none")
+        choose("Alexandra")
+        let alexandraHolder = try captureLayout("alexandra")
+        XCTAssertTrue(app.descendants(matching: .any)["roundInput.tenBadge.Alexandra"].exists)
+        choose("Ava")
+        let avaHolder = try captureLayout("ava")
+        XCTAssertTrue(app.descendants(matching: .any)["roundInput.tenBadge.Ava"].exists)
+        choose("Ava")
+        let deselected = try captureLayout("deselected")
+        XCTAssertFalse(app.descendants(matching: .any)["roundInput.tenBadge.Ava"].exists)
+
+        for name in players {
+            for part in ["row", "name", "total", "stepper", "quick"] {
+                let reference = noHolder[name]![part]!
+                for (state, layout) in [("Alexandra holder", alexandraHolder), ("Ava holder", avaHolder), ("deselected", deselected)] {
+                    let actual = layout[name]![part]!
+                    XCTAssertEqual(actual.x, reference.x, accuracy: 1,
+                                   "\(part) moved horizontally for \(name) when 10♦ was \(state)")
+                    XCTAssertEqual(actual.y, reference.y, accuracy: 1,
+                                   "\(part) moved vertically for \(name) when 10♦ was \(state)")
+                    XCTAssertEqual(actual.width, reference.width, accuracy: 1,
+                                   "\(part) width changed for \(name) when 10♦ was \(state)")
+                    XCTAssertEqual(actual.height, reference.height, accuracy: 1,
+                                   "\(part) height changed for \(name) when 10♦ was \(state)")
+                }
+            }
+        }
+
+        if let hold = ProcessInfo.processInfo.environment["HOLD_BADGE_SECONDS"],
+           let seconds = TimeInterval(hold), seconds > 0 {
+            Thread.sleep(forTimeInterval: seconds)
+        }
+    }
+
     func testTenBadgeStaysInsideItsRow() {
         let app = XCUIApplication()
         app.launchArguments = ["-screenshotDemo", "-screenshotTenRule", "-screenshotAppearance", ProcessInfo.processInfo.environment["CHIP_APPEARANCE"] ?? "dark"]

@@ -485,7 +485,7 @@ struct RoundInputView: View {
                     .truncationMode(.tail)
                     // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
                     .minimumScaleFactor(isAccessibilitySize ? 0.5 : 0.75)
-                tenChip(for: player)
+                tenChipSlot(for: player)
             }
             HStack(spacing: 4) {
                 if isLeader {
@@ -627,15 +627,21 @@ struct RoundInputView: View {
         .disabled(isRoundValid)
     }
 
-    /// Display-only "10♦" indicator beside the holder's name.
+    /// An intrinsic-size slot beside every name keeps text sizing and row height stable while the holder changes.
+    /// The selected holder's display-only "10♦" badge is placed over the hidden placeholder in that slot.
     @ViewBuilder
-    private func tenChip(for player: HeartsGame.Player) -> some View {
+    private func tenChipSlot(for player: HeartsGame.Player) -> some View {
         if isTenRuleOn {
-            if entry.tenOfDiamondsOwnerID == player.id {
+            ZStack(alignment: .leading) {
                 tenChipLabel
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
-                    .accessibilityIdentifier("roundInput.tenBadge.\(player.name)")
+                    .hidden()
+                    .accessibilityHidden(true)
+                if entry.tenOfDiamondsOwnerID == player.id {
+                    tenChipLabel
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(String(format: String(localized: "%@ took the 10 of diamonds"), player.name))
+                        .accessibilityIdentifier("roundInput.tenBadge.\(player.name)")
+                }
             }
         }
     }
