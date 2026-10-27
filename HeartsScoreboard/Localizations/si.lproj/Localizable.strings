@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "ඉක්මන් එකතු කිරීමේ බොත්තම: +%d";
 "The +%d button in score entry adds this many points per tap." = "ලකුණු ඇතුළත් කිරීමේ +%d බොත්තම තට්ටු කිරීමකට මෙතරම් ලකුණු එකතු කරයි.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ගත් ක්‍රීඩකයා තට්ටු කරන්න. මෙම වටයේදී ඔවුන්ගේ ලකුණුවලින් 10ක් අඩු වේ.";
+"Total %d" = "මුළු ලකුණු: %d";
+"Set points for %@" = "%@ සඳහා ලකුණු සකසන්න";
+"Enter round 1 scores" = "1 වටයේ ලකුණු ඇතුළත් කරන්න";

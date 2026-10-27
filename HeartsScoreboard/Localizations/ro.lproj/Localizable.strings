@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Buton de adăugare rapidă: +%d";
 "The +%d button in score entry adds this many points per tap." = "Butonul +%d din introducerea scorului adaugă atât de multe puncte la fiecare atingere.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Atingeți jucătorul care a luat 10♦. I se scad 10 puncte în această rundă.";
+"Total %d" = "Scorul total: %d";
+"Set points for %@" = "Puncte de referință pentru %@";
+"Enter round 1 scores" = "Introduceți scorurile rundei 1";

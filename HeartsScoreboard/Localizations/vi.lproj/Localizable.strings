@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Nút thêm nhanh: +%d";
 "The +%d button in score entry adds this many points per tap." = "Nút +%d trong mục nhập điểm sẽ thêm số điểm này cho mỗi lần nhấn.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Nhấn vào người chơi đã lấy 10♦. Họ bị trừ 10 điểm ở vòng này.";
+"Total %d" = "Tổng số điểm: %d";
+"Set points for %@" = "Đặt điểm cho %@";
+"Enter round 1 scores" = "Nhập điểm vòng 1";

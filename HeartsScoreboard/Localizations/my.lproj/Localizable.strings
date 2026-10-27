@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "အမြန်ထည့်ရန် ခလုတ်- +%d";
 "The +%d button in score entry adds this many points per tap." = "ရမှတ်ထည့်သွင်းရာရှိ +%d ခလုတ်ကို နှိပ်တိုင်း ထိုအမှတ်ကို ထည့်ပေးသည်။";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ ကို ရယူခဲ့သော ကစားသမားကို တို့ပါ။ ဒီအချီမှာ သူတို့ 10 မှတ် နုတ်တယ်။";
+"Total %d" = "စုစုပေါင်းရမှတ်- %d";
+"Set points for %@" = "%@ အတွက် အမှတ်များ သတ်မှတ်ပါ";
+"Enter round 1 scores" = "အဆင့် 1 ရမှတ်များ ထည့်ပါ။";

@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Kiirlisamise nupp: +%d";
 "The +%d button in score entry adds this many points per tap." = "Nupp +%d skoori sisestamisel lisab ühe puudutuse kohta nii palju punkte.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Puuduta mängijat, kes võttis 10♦. Sellest ringist lahutatakse 10 punkti.";
+"Total %d" = "Koguskoor: %d";
+"Set points for %@" = "Määra punktid %@ jaoks";
+"Enter round 1 scores" = "Sisestage 1. vooru tulemused";

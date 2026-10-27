@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Kitufe cha kuongeza haraka: +%d";
 "The +%d button in score entry adds this many points per tap." = "Kitufe cha +%d katika kuweka alama huongeza pointi nyingi kwa kila mguso.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Gusa mchezaji aliyechukua 10♦. Atapunguziwa pointi 10 katika raundi hii.";
+"Total %d" = "Jumla ya alama: %d";
+"Set points for %@" = "Weka pointi za %@";
+"Enter round 1 scores" = "Ingiza alama za raundi ya 1";

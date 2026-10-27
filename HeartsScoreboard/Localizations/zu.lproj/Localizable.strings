@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Inkinobho yokwengeza ngokushesha: +%d";
 "The +%d button in score entry adds this many points per tap." = "Inkinobho ethi +%d ekufakweni kwemiphumela yengeza lawa maphuzu amaningi ngokuthepha ngakunye.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Thepha umdlali othathe i-10♦. Uzokhishelwa amaphuzu angu-10 kulo mjikelezo.";
+"Total %d" = "Inani lamaphuzu: %d";
+"Set points for %@" = "Setha amaphoyinti e-%@";
+"Enter round 1 scores" = "Ngena umjikelezo woku-1 wamaphuzu";

@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "ប៊ូតុងបន្ថែមរហ័ស៖ +%d";
 "The +%d button in score entry adds this many points per tap." = "ប៊ូតុង +%d ក្នុងការបញ្ចូលពិន្ទុនឹងបន្ថែមពិន្ទុតាមចំនួននេះរាល់ពេលចុចម្តង។";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "ប៉ះអ្នកលេងដែលបានយក 10♦។ គេនឹងត្រូវដក 10 ពិន្ទុក្នុងជុំនេះ។";
+"Total %d" = "ពិន្ទុសរុប៖ %d";
+"Set points for %@" = "កំណត់ពិន្ទុសម្រាប់ %@";
+"Enter round 1 scores" = "បញ្ចូលពិន្ទុជុំទី 1";

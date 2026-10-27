@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Butoni i shtimit të shpejtë: +%d";
 "The +%d button in score entry adds this many points per tap." = "Butoni +%d në hyrjen e rezultatit shton kaq shumë pikë për çdo trokitje.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Prekni lojtarin që mori 10♦. Atij i zbriten 10 pikë këtë raund.";
+"Total %d" = "Rezultati total: %d";
+"Set points for %@" = "Cakto pikë për %@";
+"Enter round 1 scores" = "Vendosni rezultatet e raundit 1";

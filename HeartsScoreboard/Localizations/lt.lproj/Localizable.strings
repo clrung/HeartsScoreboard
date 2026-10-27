@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Greito pridėjimo mygtukas: +%d";
 "The +%d button in score entry adds this many points per tap." = "Balų įvedimo mygtukas +%d prideda tiek taškų už paspaudimą.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Palieskite žaidėją, kuris paėmė 10♦. Iš šio turo atimama 10 taškų.";
+"Total %d" = "Bendras balas: %d";
+"Set points for %@" = "Nustatyti taškus už %@";
+"Enter round 1 scores" = "Įveskite 1 turo rezultatus";

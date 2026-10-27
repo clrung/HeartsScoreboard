@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Արագ ավելացման կոճակ՝ +%d";
 "The +%d button in score entry adds this many points per tap." = "Միավորների մուտքագրման +%d կոճակը այսքան միավոր է ավելացնում յուրաքանչյուր հպումով։";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Հպեք այն խաղացողին, ով վերցրել է 10♦-ը։ Այս փուլում նրանից կհանվի 10 միավոր։";
+"Total %d" = "Ընդհանուր միավորը՝ %d";
+"Set points for %@" = "Սահմանեք միավորներ %@-ի համար";
+"Enter round 1 scores" = "Մուտքագրեք 1-ին փուլի միավորները";

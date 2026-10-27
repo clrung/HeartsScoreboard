@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Ātrās pievienošanas poga: +%d";
 "The +%d button in score entry adds this many points per tap." = "Poga +%d rezultāta ierakstā pievieno tik daudz punktu par vienu pieskārienu.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Pieskarieties spēlētājam, kurš paņēma 10♦. Viņiem šajā kārtā tiek atņemti 10 punkti.";
+"Total %d" = "Kopējais rezultāts: %d";
+"Set points for %@" = "Iestatīt punktus %@";
+"Enter round 1 scores" = "Ievadiet 1. kārtas rezultātus";

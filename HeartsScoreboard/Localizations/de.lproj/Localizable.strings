@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Schaltfläche „Schnell addieren“: +%d";
 "The +%d button in score entry adds this many points per tap." = "Die +%d-Schaltfläche in der Punkteeingabe fügt pro Tipp diese Anzahl an Punkten hinzu.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tippe auf den Spieler, der die 10♦ genommen hat. Diesem werden in dieser Runde 10 Punkte abgezogen.";
+"Total %d" = "Gesamtpunktzahl: %d";
+"Set points for %@" = "Punkte für %@ festlegen";
+"Enter round 1 scores" = "Geben Sie die Ergebnisse der ersten Runde ein";

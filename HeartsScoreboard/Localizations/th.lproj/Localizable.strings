@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "ปุ่มเพิ่มด่วน: +%d";
 "The +%d button in score entry adds this many points per tap." = "ปุ่ม +%d ในหน้ากรอกคะแนนจะเพิ่มคะแนนตามจำนวนนี้ต่อการแตะหนึ่งครั้ง";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "แตะผู้เล่นที่เก็บ 10♦ รอบนี้โดนหัก 10 แต้ม";
+"Total %d" = "คะแนนรวม: %d";
+"Set points for %@" = "กำหนดคะแนนสำหรับ %@";
+"Enter round 1 scores" = "เข้ารอบ 1 คะแนน";

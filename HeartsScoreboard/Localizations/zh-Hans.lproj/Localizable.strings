@@ -183,3 +183,6 @@
 "Quick-add button: +%d" = "快捷加分按钮：+%d";
 "The +%d button in score entry adds this many points per tap." = "录入分数时，+%d 按钮每点一次加这么多分。";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "点击拿到 ♦10 的玩家。该玩家本轮减 10 分。";
+"Total %d" = "总分：%d";
+"Set points for %@" = "为%@设置点";
+"Enter round 1 scores" = "输入第一轮得分";

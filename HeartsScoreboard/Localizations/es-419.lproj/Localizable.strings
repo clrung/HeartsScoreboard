@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Botón de suma rápida: +%d";
 "The +%d button in score entry adds this many points per tap." = "El botón +%d en la entrada de puntuación suma esta cantidad de puntos por toque.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Toca al jugador que tomó el 10♦. Se le restan 10 puntos en esta ronda.";
+"Total %d" = "Puntuación total: %d";
+"Set points for %@" = "Establecer puntos para %@";
+"Enter round 1 scores" = "Ingrese las puntuaciones de la ronda 1";

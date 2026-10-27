@@ -183,3 +183,6 @@
 "Quick-add button: +%d" = "빠른 추가 버튼: +%d";
 "The +%d button in score entry adds this many points per tap." = "점수 입력의 +%d 버튼은 탭할 때마다 이만큼의 점수를 더합니다.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "♦10을 가져간 플레이어를 탭하세요. 이번 라운드에서 10점이 차감됩니다.";
+"Total %d" = "총점: %d";
+"Set points for %@" = "%@에 대한 설정 포인트";
+"Enter round 1 scores" = "1라운드 점수를 입력하세요";

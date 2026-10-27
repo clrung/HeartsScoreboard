@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "לחצן הוספה מהירה: +%d";
 "The +%d button in score entry adds this many points per tap." = "הלחצן +%d בהזנת ניקוד מוסיף כל כך הרבה נקודות בכל הקשה.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "הקש על השחקן שלקח את ה-10♦. יופחתו לו 10 נקודות בסיבוב הזה.";
+"Total %d" = "ציון כולל: %d";
+"Set points for %@" = "קבע נקודות עבור %@";
+"Enter round 1 scores" = "הזן את ציוני הסיבוב הראשון";

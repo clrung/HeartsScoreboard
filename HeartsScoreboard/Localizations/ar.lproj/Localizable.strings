@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "زر الإضافة السريعة: +%d";
 "The +%d button in score entry adds this many points per tap." = "يضيف الزر +%d في إدخال النتيجة هذا العدد من النقاط لكل نقرة.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "اضغط على اللاعب الذي أخذ الـ10♦. تُخصم منه 10 نقاط في هذه الجولة.";
+"Total %d" = "مجموع النقاط: %d";
+"Set points for %@" = "تعيين نقاط لـ %@";
+"Enter round 1 scores" = "أدخل نتائج الجولة 1";

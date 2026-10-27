@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Жылдам қосу түймесі: +%d";
 "The +%d button in score entry adds this many points per tap." = "Ұпай жазбасындағы +%d түймесі әр түртуге осынша көп ұпай қосады.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ алған ойыншыны түртіңіз. Осы раундта оның ұпайынан 10 ұпай шегеріледі.";
+"Total %d" = "Жалпы ұпай: %d";
+"Set points for %@" = "%@ ұпайларын орнату";
+"Enter round 1 scores" = "1 раунд ұпайларын енгізіңіз";

@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Hnappur til að bæta við fljótt: +%d";
 "The +%d button in score entry adds this many points per tap." = "+%d hnappurinn í stigafærslu bætir við þessum mörgum stigum fyrir hvert pikk.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Pikkaðu á spilarann sem tók 10♦. Hann fær 10 stig dregin frá í þessari umferð.";
+"Total %d" = "Heildarstig: %d";
+"Set points for %@" = "Setja punkta fyrir %@";
+"Enter round 1 scores" = "Sláðu inn stig 1. umferðar";

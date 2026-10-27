@@ -183,3 +183,6 @@
 "Quick-add button: +%d" = "クイック追加ボタン: +%d";
 "The +%d button in score entry adds this many points per tap." = "スコア入力の +%d ボタンは、タップするたびにこの点数を加算します。";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "♦10を取ったプレイヤーをタップします。このラウンドで10点が引かれます。";
+"Total %d" = "合計スコア: %d";
+"Set points for %@" = "%@ のポイントを設定します";
+"Enter round 1 scores" = "ラウンド 1 のスコアを入力します";

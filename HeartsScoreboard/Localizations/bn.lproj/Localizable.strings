@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "দ্রুত যোগ করার বোতাম: +%d";
 "The +%d button in score entry adds this many points per tap." = "স্কোর এন্ট্রিতে +%d বোতামে প্রতিবার ট্যাপ করলে এতগুলো পয়েন্ট যোগ হয়।";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "যে খেলোয়াড় 10♦ নিয়েছে তাকে ট্যাপ করুন। এই রাউন্ডে তার স্কোর থেকে 10 পয়েন্ট বাদ যাবে।";
+"Total %d" = "মোট স্কোর: %d";
+"Set points for %@" = "%@ এর জন্য পয়েন্ট সেট করুন";
+"Enter round 1 scores" = "রাউন্ড 1 স্কোর লিখুন";

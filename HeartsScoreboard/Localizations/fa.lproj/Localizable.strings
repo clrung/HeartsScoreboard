@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "دکمه افزودن سریع: +%d";
 "The +%d button in score entry adds this many points per tap." = "دکمه +%d در ورودی امتیاز این تعداد امتیاز را در هر ضربه اضافه می کند.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "روی بازیکنی که ۱۰♦ را گرفته ضربه بزنید. ۱۰ امتیاز از او در این دور کم می‌شود.";
+"Total %d" = "امتیاز کل: %d";
+"Set points for %@" = "تعیین امتیاز برای %@";
+"Enter round 1 scores" = "نمرات دور 1 را وارد کنید";

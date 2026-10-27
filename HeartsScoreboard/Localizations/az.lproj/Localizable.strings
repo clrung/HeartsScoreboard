@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Tez əlavə et düyməsi: +%d";
 "The +%d button in score entry adds this many points per tap." = "Hesab girişindəki +%d düyməsi hər toxunuşa bu qədər xal əlavə edir.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦-u götürən oyunçuya toxunun. Bu raundda ondan 10 xal çıxılacaq.";
+"Total %d" = "Ümumi xal: %d";
+"Set points for %@" = "%@ üçün xal təyin edin";
+"Enter round 1 scores" = "1-ci turun xallarını daxil edin";

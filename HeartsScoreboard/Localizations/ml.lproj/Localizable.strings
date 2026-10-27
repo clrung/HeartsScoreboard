@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "വേഗം ചേർക്കുക ബട്ടൺ: +%d";
 "The +%d button in score entry adds this many points per tap." = "സ്കോർ എൻട്രിയിലെ +%d ബട്ടൺ ഓരോ ടാപ്പിലും ഇത്രയും പോയിൻ്റുകൾ ചേർക്കുന്നു.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ എടുത്ത കളിക്കാരനെ ടാപ്പ് ചെയ്യുക. ഈ റൗണ്ടിൽ അവരുടെ സ്കോറിൽ നിന്ന് 10 പോയിൻ്റ് കുറയ്ക്കും.";
+"Total %d" = "ആകെ സ്കോർ: %d";
+"Set points for %@" = "%@ എന്നതിനായി പോയിൻ്റുകൾ സജ്ജമാക്കുക";
+"Enter round 1 scores" = "റൗണ്ട് 1 സ്കോറുകൾ നൽകുക";

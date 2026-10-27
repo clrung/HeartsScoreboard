@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Knap til hurtig tilføjelse: +%d";
 "The +%d button in score entry adds this many points per tap." = "Knappen +%d i scoreindtastning tilføjer så mange point pr. tryk.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tryk på den spiller, der tog 10♦. De får 10 point fratrukket denne runde.";
+"Total %d" = "Samlet score: %d";
+"Set points for %@" = "Sæt punkter for %@";
+"Enter round 1 scores" = "Indtast runde 1 scoringer";

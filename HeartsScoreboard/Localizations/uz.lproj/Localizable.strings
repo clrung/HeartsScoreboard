@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Tez qo‘shish tugmasi: +%d";
 "The +%d button in score entry adds this many points per tap." = "Ball kiritishdagi +%d tugmasi har bir bosishda shuncha ball qo'shadi.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ni olgan o'yinchiga teging. Bu turda undan 10 ball ayriladi.";
+"Total %d" = "Umumiy ball: %d";
+"Set points for %@" = "%@ uchun nuqtalarni belgilash";
+"Enter round 1 scores" = "1-tur ballarini kiriting";

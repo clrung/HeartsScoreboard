@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Tlačítko rychlého přidání: +%d";
 "The +%d button in score entry adds this many points per tap." = "Tlačítko +%d v zadávání skóre přidá tolik bodů za klepnutí.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Klepněte na hráče, který vzal 10♦. V tomto kole se mu odečte 10 bodů.";
+"Total %d" = "Celkové skóre: %d";
+"Set points for %@" = "Nastavit body pro %@";
+"Enter round 1 scores" = "Zadejte skóre 1. kola";

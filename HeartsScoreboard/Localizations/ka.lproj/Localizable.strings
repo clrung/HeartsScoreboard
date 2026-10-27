@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "სწრაფი დამატების ღილაკი: +%d";
 "The +%d button in score entry adds this many points per tap." = "ქულების ჩანაწერში +%d ღილაკი ამდენ ქულას ამატებს თითო შეხებაზე.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "შეეხეთ მოთამაშეს, რომელმაც აიღო 10♦. ამ რაუნდში მას 10 ქულა გამოაკლდება.";
+"Total %d" = "ჯამური ქულა: %d";
+"Set points for %@" = "დააყენეთ ქულები %@-ისთვის";
+"Enter round 1 scores" = "შეიყვანეთ 1 რაუნდის ქულები";

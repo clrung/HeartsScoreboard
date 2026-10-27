@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Gyors hozzáadás gomb: +%d";
 "The +%d button in score entry adds this many points per tap." = "A +%d gomb a pontszámbevitelnél ennyi pontot ad hozzá érintésenként.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Koppintson arra a játékosra, aki megszerezte a 10♦-t. Ebben a körben 10 pontot levonunk neki.";
+"Total %d" = "Összpontszám: %d";
+"Set points for %@" = "Pontok beállítása ehhez: %@";
+"Enter round 1 scores" = "Írja be az 1. forduló pontszámait";

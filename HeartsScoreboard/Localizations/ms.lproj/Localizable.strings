@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Butang tambah cepat: +%d";
 "The +%d button in score entry adds this many points per tap." = "Butang +%d dalam kemasukan markah menambah bilangan mata ini setiap ketikan.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Ketik pemain yang mengambil 10♦. 10 mata akan ditolak daripada mereka pusingan ini.";
+"Total %d" = "Jumlah markah: %d";
+"Set points for %@" = "Tetapkan mata untuk %@";
+"Enter round 1 scores" = "Masukkan markah pusingan 1";

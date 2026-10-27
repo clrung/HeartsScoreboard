@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "త్వరిత-జోడించు బటన్: +%d";
 "The +%d button in score entry adds this many points per tap." = "స్కోర్ నమోదులోని +%d బటన్ ఒక్కో ట్యాప్‌కు ఇన్ని పాయింట్లను జోడిస్తుంది.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "10♦ని తీసుకున్న ఆటగాడిని ట్యాప్ చేయండి. ఈ రౌండ్‌లో వారి స్కోర్ నుండి 10 పాయింట్లు తీసివేయబడతాయి.";
+"Total %d" = "మొత్తం స్కోర్: %d";
+"Set points for %@" = "%@ కోసం పాయింట్లను సెట్ చేయండి";
+"Enter round 1 scores" = "రౌండ్ 1 స్కోర్‌లను నమోదు చేయండి";

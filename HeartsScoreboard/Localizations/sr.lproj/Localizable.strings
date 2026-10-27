@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Дугме за брзо додавање: +%d";
 "The +%d button in score entry adds this many points per tap." = "Дугме +%d у уносу резултата додаје оволико поена по додиру.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Додирните играча који је узео 10♦. Њему се у овој рунди одузима 10 поена.";
+"Total %d" = "Укупан резултат: %d";
+"Set points for %@" = "Поставите тачке за %@";
+"Enter round 1 scores" = "Унесите резултате 1. рунде";

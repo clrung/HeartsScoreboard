@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Button ng mabilis na dagdag: +%d";
 "The +%d button in score entry adds this many points per tap." = "Ang button na +%d sa pagpasok ng iskor ay nagdaragdag ng ganitong dami ng puntos sa bawat tap.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "I-tap ang manlalarong kumuha ng 10♦. Babawasan sila ng 10 puntos sa round na ito.";
+"Total %d" = "Kabuuang marka: %d";
+"Set points for %@" = "Magtakda ng mga puntos para sa %@";
+"Enter round 1 scores" = "Ipasok ang round 1 score";

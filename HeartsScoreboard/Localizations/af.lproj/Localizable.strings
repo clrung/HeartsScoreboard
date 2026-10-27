@@ -164,3 +164,6 @@
 "Quick-add button: +%d" = "Vinnigvoeg-knoppie: +%d";
 "The +%d button in score entry adds this many points per tap." = "Die +%d-knoppie in tellinginskrywing voeg soveel punte per tik by.";
 "Tap the player who took the 10♦. They get 10 points subtracted this round." = "Tik op die speler wat die 10♦ geneem het. Hulle kry 10 punte afgetrek hierdie rondte.";
+"Total %d" = "Totale telling: %d";
+"Set points for %@" = "Stel punte vir %@";
+"Enter round 1 scores" = "Voer rondte 1-tellings in";
