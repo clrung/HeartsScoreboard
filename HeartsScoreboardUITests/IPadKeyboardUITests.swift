@@ -62,4 +62,20 @@ final class IPadKeyboardUITests: XCTestCase {
         app.typeKey(XCUIKeyboardKey.tab.rawValue, modifierFlags: [])
         XCTAssertTrue(pendingValue(app, "Cleo").contains("26 points"), pendingValue(app, "Cleo"))
     }
+
+    /// The value well opens the 0...26 popover; picking 13 sets the row and the scoreboard's pending row (live, not a snapshot).
+    func testValuePickerPopoverSetsExactValue() throws {
+        let app = launch()
+        try skipUnlessIPad(app)
+        let well = app.buttons["roundInput.value.Cleo"]
+        XCTAssertTrue(well.waitForExistence(timeout: 5))
+        well.tap()
+        let option = app.buttons["roundInput.valueOption.13"]
+        XCTAssertTrue(option.waitForExistence(timeout: 5), "popover grid did not appear")
+        let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "value-popover"; shot.lifetime = .keepAlways; add(shot)
+        option.tap()
+        XCTAssertFalse(option.waitForExistence(timeout: 1), "popover should dismiss after a pick")
+        XCTAssertTrue(pendingValue(app, "Cleo").contains("13 points"), pendingValue(app, "Cleo"))
+        XCTAssertTrue(well.label.contains("13") || well.value as? String == "13" || well.staticTexts["13"].exists, "well shows 13: \(well.label)")
+    }
 }

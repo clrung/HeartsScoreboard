@@ -316,7 +316,6 @@ struct GameView: View {
         VStack(spacing: 0) {
             if model.isGameOver {
                 gameOverCard(dismissible: false)
-                    .frame(maxWidth: wideRows ? 560 : .infinity)
                     .frame(maxHeight: .infinity, alignment: .top)
             } else {
                 entryCard(wideRows: wideRows)
@@ -396,6 +395,7 @@ struct GameView: View {
         }
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("History"))
+        .help(Text("History"))
         .accessibilityIdentifier("historyButton")
     }
 
@@ -410,6 +410,7 @@ struct GameView: View {
         .keyboardShortcut(",", modifiers: .command)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("Settings"))
+        .help(Text("Settings"))
         .accessibilityIdentifier("settingsButton")
     }
 
@@ -427,6 +428,7 @@ struct GameView: View {
         .opacity(model.canUndo ? 1 : 0.45)
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("Undo Round"))
+        .help(Text("Undo Round"))
         .accessibilityIdentifier("undoButton")
     }
 
@@ -444,6 +446,7 @@ struct GameView: View {
         .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .accessibilityLabel(Text("New Game"))
         .accessibilityHint(Text("Starts a new game with the same players"))
+        .help(Text("New Game"))
         .accessibilityIdentifier("newGameButton")
     }
 
@@ -550,6 +553,7 @@ struct GameView: View {
                     newGameButton
                     undoButton
                 }
+                .fixedSize(horizontal: false, vertical: true)
             }
         }
         .font(.callout)

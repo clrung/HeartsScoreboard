@@ -196,9 +196,9 @@ struct ScoreboardCard: View {
             .monospacedDigit()
             .contentTransition(.numericText(value: Double(total)))
             .lineLimit(1)
-            .minimumScaleFactor(0.6)
+            .minimumScaleFactor(0.5)
             .foregroundStyle(Color.primary)
-            .padding(.horizontal, Theme.Spacing.s)
+            .padding(.horizontal, columnWidth < 70 ? 2 : Theme.Spacing.s)
             .padding(.vertical, CrownGeometry.wellInset)
             .frame(maxWidth: .infinity)
             .background(well.fill(isLeader ? Theme.leaderWell : Color.clear))
@@ -311,7 +311,7 @@ struct ScoreboardCard: View {
                 }
             } else {
                 Text("\(score)")
-                    .foregroundStyle(tookAll ? Color.primary : (score == 0 ? Color.secondary : Color.primary))
+                    .foregroundStyle(tookAll ? Theme.allPointsText : (score == 0 ? Color.secondary : Color.primary))
             }
         }
         .font(.system(.body, design: .rounded).weight(tookAll ? .bold : .medium))

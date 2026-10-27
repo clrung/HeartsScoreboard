@@ -94,10 +94,13 @@ enum Theme {
     static let pendingValue = accentText
     /// "Took all 26" emphasis (cell tint) and near-the-end progress.
     static let allPointsWarning = Color.orange
-    /// Fill behind a "took all 26" cell. Dark is a saturated burnt orange (a translucent orange over the dark
-    /// card read as brown); text on it stays >= 4.5:1 (white on dark, primary on the light peach).
-    static let allPointsFill = dynamic(light: (1.0, 0.62, 0.18, 0.34), dark: (0.80, 0.31, 0.04, 0.96),
-                                       lightHC: (1.0, 0.58, 0.12, 0.55), darkHC: (0.72, 0.26, 0.02, 1))
+    /// Fill behind a "took all 26" cell: a soft warm wash (peach in light, a low-opacity orange over the dark
+    /// card), so a moon-less 26 reads as an event rather than an alarm. Pair with `allPointsText`.
+    static let allPointsFill = dynamic(light: (1.0, 0.62, 0.18, 0.34), dark: (0.95, 0.50, 0.15, 0.24),
+                                       lightHC: (1.0, 0.58, 0.12, 0.55), darkHC: (0.95, 0.50, 0.15, 0.34))
+    /// Number on an `allPointsFill` cell (>= 7:1 in every variant).
+    static let allPointsText = dynamic(light: (0.16, 0.08, 0.0, 1), dark: (1.0, 0.80, 0.56, 1),
+                                       lightHC: (0.10, 0.05, 0.0, 1), darkHC: (1.0, 0.88, 0.70, 1))
     /// Positive / progress accent.
     static let positive = Color.accentColor
 

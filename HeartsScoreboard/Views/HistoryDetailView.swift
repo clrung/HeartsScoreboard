@@ -254,7 +254,7 @@ private struct ScoreCellView: View {
 
     var body: some View {
         ScoreCellContent(score: score, isMoon: isMoon, moonBonus: moonBonus, emphasize: tookAll)
-            .foregroundStyle(score == 0 && !isMoon ? Color.secondary : Color.primary)
+            .foregroundStyle(tookAll ? Theme.allPointsText : (score == 0 && !isMoon ? Color.secondary : Color.primary))
             .padding(.horizontal, hasTenOfDiamonds ? 10 : 0)
             .overlay(alignment: .topTrailing) {
                 if hasTenOfDiamonds {

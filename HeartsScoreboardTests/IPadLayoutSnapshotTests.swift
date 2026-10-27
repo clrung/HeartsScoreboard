@@ -368,7 +368,8 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         }
         let filter = ProcessInfo.processInfo.environment["QA_FILTER"]
         guard let filter, !filter.isEmpty else { return } // opt-in: the matrix is large
-        for c in cases where c.name.contains(filter) { try renderQA(c) }
+        let filters = filter.split(separator: ",").map(String.init) // comma-separated substrings
+        for c in cases where filters.contains(where: { c.name.contains($0) }) { try renderQA(c) }
     }
 
 
