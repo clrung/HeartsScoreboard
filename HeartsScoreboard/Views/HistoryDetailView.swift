@@ -137,6 +137,8 @@ struct HistoryDetailView: View {
                             .foregroundStyle(.red)
                     }
             }
+            // Numeric time axis: always read rounds 1→N left to right, with y labels on the left, in RTL too.
+            .environment(\.layoutDirection, DirectionalUI.chartLayoutDirection)
             .chartYScale(domain: lo...(hi + max(4, (hi - lo) / 10)))
             .chartXAxis {
                 AxisMarks(values: .automatic(desiredCount: 6)) { value in

@@ -2,6 +2,22 @@ import SwiftUI
 
 // MARK: - Player total badge (shared by GameView, HistoryDetailView, RoundInputView)
 
+/// Direction-sensitive UI helpers (RTL audit 2026-10-26), kept as pure functions so tests can cover them.
+enum DirectionalUI {
+    /// Mirrors in RTL (unlike the fixed-direction `chevron.left`).
+    static let backSymbol = "chevron.backward"
+    static let nextRoundSymbol = "arrow.forward.circle.fill"
+    /// The history chart is numeric: always left to right.
+    static let chartLayoutDirection: LayoutDirection = .leftToRight
+
+    /// "Quick-add button: +5" with the "+5" isolated as an LTR run so RTL bidi keeps the plus first.
+    static func quickAddTitle(points: Int) -> String {
+        let title = String(format: String(localized: "Quick-add button: +%d"), points)
+        let token = "+\(points)"
+        return title.replacingOccurrences(of: token, with: "\u{2066}\(token)\u{2069}")
+    }
+}
+
 /// Displays a player's total score in a capsule. A leader gets a crown (so it isn't color-only),
 /// and the optional `progress` / `pointsToGo` add a progress bar and caption under the total.
 /// Existing call sites that pass only `total`, `isLeader` and `colorScheme` keep working.
@@ -92,7 +108,8 @@ struct PlayerTotalBadge: View {
                         .foregroundStyle(Theme.leader)
                         .padding(2.5)
                         .background(Circle().fill(leaderFill))
-                        // Sits on the capsule's top-right corner, above the digits (scales with the crown).
+                        // Sits on the capsule's top-trailing corner (SwiftUI mirrors `.offset(x:)` in RTL, verified; see
+                        // DirectionalUITests.testCrownOverhangMirrorsInRTL), above the digits (scales with the crown).
                         .offset(x: crownSize * 0.6, y: -crownSize * 0.95)
                         .accessibilityHidden(true)
                 }

@@ -85,7 +85,7 @@ struct RoundInputView: View {
                                 Button {
                                     dismiss()
                                 } label: {
-                                    Label("Back", systemImage: "chevron.left")
+                                    Label("Back", systemImage: DirectionalUI.backSymbol)
                                 }
                             }
                             ToolbarItem(placement: .topBarTrailing) { resetButton }

@@ -718,7 +718,7 @@ struct GameView: View {
         Button {
             showingRoundInput = true
         } label: {
-            Label("Next Round", systemImage: "arrow.right.circle.fill")
+            Label("Next Round", systemImage: DirectionalUI.nextRoundSymbol)
                 .frame(maxWidth: .infinity)
         }
         .buttonStyle(.borderedProminent)

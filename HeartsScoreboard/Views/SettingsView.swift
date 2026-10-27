@@ -147,7 +147,7 @@ struct SettingsView: View {
             }
 
             VStack(alignment: .leading, spacing: 8) {
-                Text(String(format: String(localized: "Quick-add button: +%d"), model.settings.quickIncrementPoints))
+                Text(DirectionalUI.quickAddTitle(points: model.settings.quickIncrementPoints))
                 Slider(
                     value: Binding(
                         get: { Double(model.settings.quickIncrementPoints) },
