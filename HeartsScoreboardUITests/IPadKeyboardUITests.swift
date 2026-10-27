@@ -76,6 +76,6 @@ final class IPadKeyboardUITests: XCTestCase {
         option.tap()
         XCTAssertFalse(option.waitForExistence(timeout: 1), "popover should dismiss after a pick")
         XCTAssertTrue(pendingValue(app, "Cleo").contains("13 points"), pendingValue(app, "Cleo"))
-        XCTAssertTrue(well.label.contains("13") || well.value as? String == "13" || well.staticTexts["13"].exists, "well shows 13: \(well.label)")
+        XCTAssertEqual(well.value as? String, "13 points", "well value: \(String(describing: well.value))")
     }
 }
