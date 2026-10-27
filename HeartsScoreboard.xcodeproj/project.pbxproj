@@ -46,6 +46,7 @@
 		AA1E5F322318DEA871F55C68 /* ScreenshotDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584735561896C5DF950F30E /* ScreenshotDemoTests.swift */; };
 		ABA5BF94F3C64DD024480E6B /* AccessibilitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EF3E9D5C1954F9559B2783 /* AccessibilitySupport.swift */; };
 		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
+		AFEF2951788859DD70E37C23 /* HistoryShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2955C047FD36F7A7C79162A0 /* HistoryShareUITests.swift */; };
 		B07253BD33A50425CD5036F9 /* RoundEntryKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7933DEB90888EBAF391CBCC7 /* RoundEntryKeyboard.swift */; };
 		B0BA7A8631171852401AC255 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55B141DDC24244AEFAB437 /* GameOverView.swift */; };
 		B333AB77AEA22C861E2A952B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04CB6EE229925EA17F605B75 /* InfoPlist.strings */; };
@@ -155,6 +156,7 @@
 		26FB55F25A3AFE67836BBCE9 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Localizable.strings; sourceTree = "<group>"; };
 		28245402A569530EF2E258B0 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		28A658D6A530393EB4A6ABF6 /* uz */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uz; path = uz.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2955C047FD36F7A7C79162A0 /* HistoryShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryShareUITests.swift; sourceTree = "<group>"; };
 		29C5A935EBBB4403AF140C2D /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		29D9427948E5F2B63E6BD385 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = cs; path = cs.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		2B8A72074C83549E6FCF7DE4 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "es-419"; path = "es-419.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 			children = (
 				F05EEFE7C53272A555C4203D /* AppearanceLiveSwitchUITests.swift */,
 				0F8455E3F1ED71C035C18B35 /* ChipLayoutUITests.swift */,
+				2955C047FD36F7A7C79162A0 /* HistoryShareUITests.swift */,
 				F90DD878E0D55655CB2C8C99 /* IPadKeyboardUITests.swift */,
 				6CC082940781B4C51B95030E /* NarrowRoundEntryUITests.swift */,
 				59A495CA3384C8BD69B016DB /* OrientationLiveUITests.swift */,
@@ -866,6 +869,7 @@
 			files = (
 				678ADD591FFD317220B498B8 /* AppearanceLiveSwitchUITests.swift in Sources */,
 				C62DE335293050084AB99235 /* ChipLayoutUITests.swift in Sources */,
+				AFEF2951788859DD70E37C23 /* HistoryShareUITests.swift in Sources */,
 				A8F0418F859460174356C5CA /* IPadKeyboardUITests.swift in Sources */,
 				34C44D3933C1F4C11E6BB2A2 /* NarrowRoundEntryUITests.swift in Sources */,
 				E322F1A078D835959C5414F7 /* OrientationLiveUITests.swift in Sources */,

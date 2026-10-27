@@ -1,11 +1,43 @@
 import SwiftUI
 import Charts
+import UIKit
 
 struct HistoryDetailView: View {
     let completedGame: CompletedGame
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.colorSchemeContrast) private var contrast
+
+    var body: some View {
+        ZStack {
+            Theme.feltGradient(for: colorScheme, contrast: contrast).ignoresSafeArea()
+            ScrollView {
+                HistoryDetailContent(completedGame: completedGame)
+                    .frame(maxWidth: 900)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+                    .padding(.vertical, 16)
+            }
+        }
+        .environment(\.colorScheme, colorScheme)
+        .navigationTitle("Game Summary")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                HistoryShareButton(completedGame: completedGame)
+                    .accessibilityIdentifier("historyDetail.share")
+            }
+        }
+    }
+}
+
+/// Shared presentation for the on-screen history detail and its full-size share image.
+struct HistoryDetailContent: View {
+    let completedGame: CompletedGame
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.colorSchemeContrast) private var contrast
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     private var leadingPlayerIDs: Set<UUID> {
         let totals = completedGame.game.totals()
@@ -13,34 +45,14 @@ struct HistoryDetailView: View {
         return Set(totals.filter { $0.total == minTotal }.map { $0.player.id })
     }
 
-    @Environment(\.horizontalSizeClass) private var sizeClass
-
     var body: some View {
-        ZStack {
-            Theme.feltGradient(for: colorScheme, contrast: contrast).ignoresSafeArea()
-
-            ScrollView {
-                VStack(spacing: 16) {
-                    summaryHeader
-                    statsRow
-                    chartCard
-                    scoreboard
-                }
-                .frame(maxWidth: 900)
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal)
-                .padding(.vertical, 16)
-            }
+        VStack(spacing: 16) {
+            summaryHeader
+            statsRow
+            chartCard
+            scoreboard
         }
-        .navigationTitle("Game Summary")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar) // title/back sit on the dark felt in both appearances
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                ResultShareButton(data: ResultCardData(completed: completedGame))
-                    .accessibilityIdentifier("historyDetail.share")
-            }
-        }
+        .environment(\.colorScheme, colorScheme)
     }
 
     // MARK: Summary
@@ -235,6 +247,7 @@ struct HistoryDetailView: View {
     }
 }
 
+
 private struct ScoreCellView: View {
     let round: Int
     let playerName: String
@@ -276,5 +289,66 @@ private struct ScoreCellView: View {
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(accessibilityText)
+    }
+}
+
+/// Full history-detail image with a fixed wide canvas and enough height for every round.
+private struct HistoryDetailShareImage: View {
+    let completedGame: CompletedGame
+
+    var body: some View {
+        HistoryDetailContent(completedGame: completedGame)
+            .frame(width: HistoryShareRenderer.contentWidth(playerCount: completedGame.game.players.count))
+            .padding(24)
+            .background(Theme.feltGradient(for: .light))
+            .fixedSize(horizontal: false, vertical: true)
+            .environment(\.colorScheme, .light)
+                .environment(\.horizontalSizeClass, .regular)
+            .environment(\.dynamicTypeSize, .large)
+    }
+}
+
+struct HistoryShareButton: View {
+    let completedGame: CompletedGame
+    @State private var shareFile: NamedPNGFile?
+    @State private var preview: Image?
+
+    var body: some View {
+        Group {
+            if let shareFile, let preview {
+                ShareLink(item: shareFile, preview: SharePreview(ResultCardData(completed: completedGame).shareTitle, image: preview)) {
+                    Image(systemName: "square.and.arrow.up")
+                }
+            } else {
+                Image(systemName: "square.and.arrow.up").opacity(0.3)
+            }
+        }
+        .accessibilityLabel(Text("Share result"))
+        .task(id: completedGame.id) {
+            guard let image = await HistoryShareRenderer.image(for: completedGame),
+                  let file = try? NamedPNGFile.make(image: image, date: completedGame.finishedAt) else { return }
+            shareFile = file
+            preview = Image(uiImage: image)
+        }
+    }
+}
+
+enum HistoryShareRenderer {
+    static func contentWidth(playerCount: Int) -> CGFloat {
+        max(480, CGFloat(playerCount) * 110)
+    }
+
+    @MainActor
+    static func image(for game: CompletedGame) async -> UIImage? {
+        let content = HistoryDetailShareImage(completedGame: game)
+        let measurement = ImageRenderer(content: content)
+        var canvasSize = CGSize.zero
+        measurement.render { size, _ in canvasSize = size }
+        guard canvasSize.width > 0, canvasSize.height > 0 else { return nil }
+        let pixelBudget: CGFloat = 32_000_000
+        let scale = min(2, sqrt(pixelBudget / (canvasSize.width * canvasSize.height)))
+        let renderer = ImageRenderer(content: content)
+        renderer.scale = scale
+        return renderer.uiImage
     }
 }

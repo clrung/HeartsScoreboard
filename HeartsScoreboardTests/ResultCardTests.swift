@@ -53,4 +53,54 @@ final class ResultCardTests: XCTestCase {
         try FileManager.default.createDirectory(atPath: dir, withIntermediateDirectories: true)
         try XCTUnwrap(image.pngData()).write(to: URL(fileURLWithPath: dir).appendingPathComponent("result-card.png"))
     }
+
+    func testSharePNGUsesStableDescriptiveFilenameAndValidPNGData() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone.current
+        let date = calendar.date(from: DateComponents(year: 2026, month: 10, day: 27, hour: 9, minute: 5))!
+        let filename = NamedPNGFile.filename(for: date)
+        XCTAssertEqual(filename, "Hearts-Scoreboard-2026-10-27-0905.png")
+        XCTAssertFalse(filename.hasPrefix("."))
+
+        let image = try XCTUnwrap(ResultCardRenderer.image(for: ResultCardData(completed: completed(["A", "B"], totals: [2, 1]))))
+        let dir = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString, isDirectory: true)
+        try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: dir) }
+        let file = try NamedPNGFile.make(image: image, date: date, directory: dir)
+        XCTAssertEqual(file.url.lastPathComponent, filename)
+        let bytes = try Data(contentsOf: file.url)
+        XCTAssertEqual(Array(bytes.prefix(8)), [137, 80, 78, 71, 13, 10, 26, 10])
+    }
+
+
+    func testFullHistoryShareRendersSixLongNamesAndOneHundredRoundsWithinPixelBudget() async throws {
+        let names = ["Alexandra Longname", "Bartholomew", "Christopher", "Demetrius", "Elizabeth", "Francesca"]
+        let players = names.map { HeartsGame.Player(id: UUID(), name: $0) }
+        let hands = (0..<100).map { round in
+            HeartsGame.Hand(
+                id: UUID(),
+                pointsByPlayerID: Dictionary(uniqueKeysWithValues: players.enumerated().map { ($0.element.id, ($0.offset + round) % 5) }),
+                notes: "",
+                createdAt: Date()
+            )
+        }
+        let game = CompletedGame(game: HeartsGame(players: players, hands: hands), settings: GameSettings())
+        let rendered = await HistoryShareRenderer.image(for: game)
+        let image = try XCTUnwrap(rendered)
+        XCTAssertEqual(image.size.width, 708, accuracy: 1)
+        XCTAssertLessThanOrEqual(image.size.width * image.size.height * image.scale * image.scale, 32_100_000)
+        if let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] {
+            try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true)
+            try XCTUnwrap(image.pngData()).write(to: URL(fileURLWithPath: directory).appendingPathComponent("history-share-100-rounds.png"))
+        }
+
+        let shortGame = CompletedGame(game: HeartsGame(players: players, hands: Array(hands.prefix(10))), settings: GameSettings())
+        let shortResult = await HistoryShareRenderer.image(for: shortGame)
+        let shortImage = try XCTUnwrap(shortResult)
+        if let directory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"] {
+            try XCTUnwrap(shortImage.pngData()).write(to: URL(fileURLWithPath: directory).appendingPathComponent("history-share-10-rounds.png"))
+        }
+    }
+
+
 }

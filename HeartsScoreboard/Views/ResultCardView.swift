@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 /// Everything the shareable result card shows, derived from either a finished `CompletedGame`
 /// (history) or the live `Standing`s (game-over card). Pure data so it can be unit tested.
@@ -204,12 +205,13 @@ enum ResultCardRenderer {
 /// Share button: renders the card once (re-rendering if the data changes) and hands it to `ShareLink`.
 struct ResultShareButton: View {
     let data: ResultCardData
-    @State private var image: Image?
+    @State private var shareFile: NamedPNGFile?
+    @State private var preview: Image?
 
     var body: some View {
         Group {
-            if let image {
-                ShareLink(item: image, preview: SharePreview(data.shareTitle, image: image)) {
+            if let shareFile, let preview {
+                ShareLink(item: shareFile, preview: SharePreview(data.shareTitle, image: preview)) {
                     Image(systemName: "square.and.arrow.up")
                 }
             } else {
@@ -218,7 +220,40 @@ struct ResultShareButton: View {
         }
         .accessibilityLabel(Text("Share result"))
         .task(id: data) {
-            if let ui = ResultCardRenderer.image(for: data) { image = Image(uiImage: ui) }
+            guard let image = ResultCardRenderer.image(for: data),
+                  let file = try? NamedPNGFile.make(image: image, date: data.date) else { return }
+            shareFile = file
+            preview = Image(uiImage: image)
+        }
+    }
+}
+
+/// A PNG file item gives the share sheet a stable, human-readable exported filename.
+struct NamedPNGFile: Transferable {
+    let url: URL
+
+    static func filename(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.dateFormat = "yyyy-MM-dd-HHmm"
+        return "Hearts-Scoreboard-\(formatter.string(from: date)).png"
+    }
+
+    static func make(image: UIImage, date: Date, directory: URL = FileManager.default.temporaryDirectory) throws -> Self {
+        let exportDirectory = directory == FileManager.default.temporaryDirectory
+            ? directory.appendingPathComponent("HeartsScoreboardShare-\(UUID().uuidString)", isDirectory: true)
+            : directory
+        try FileManager.default.createDirectory(at: exportDirectory, withIntermediateDirectories: true)
+        let url = exportDirectory.appendingPathComponent(filename(for: date), conformingTo: .png)
+        guard let png = image.pngData() else { throw CocoaError(.fileWriteUnknown) }
+        try png.write(to: url, options: .atomic)
+        return Self(url: url)
+    }
+
+    static var transferRepresentation: some TransferRepresentation {
+        FileRepresentation(exportedContentType: .png) { file in
+            SentTransferredFile(file.url)
         }
     }
 }
