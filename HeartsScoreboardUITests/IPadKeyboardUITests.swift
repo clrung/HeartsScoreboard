@@ -34,13 +34,17 @@ final class IPadKeyboardUITests: XCTestCase {
     func testHardwareKeyboardEntersARoundAndSubmits() throws {
         let app = launch()
         try skipUnlessIPad(app)
-        // Row 0 (Ava): type 13, then down to Ben and give the Q♠, down to Cleo and take the rest.
-        app.typeKey("1", modifierFlags: [])
-        app.typeKey("3", modifierFlags: [])
-        XCTAssertTrue(pendingValue(app, "Ava").contains("13"), pendingValue(app, "Ava"))
+        // Row 0 (Ava): type 7, down to Ben and give the Q♠, down to Cleo and take the rest (6).
+        // Single digits only: typeKey calls can be >1s apart on a loaded simulator, past the two-digit buffer
+        // window, so "1","3" may land as 3. The buffer itself is unit-tested (RoundEntryKeyboardTests).
+        app.typeKey("7", modifierFlags: [])
+        XCTAssertTrue(pendingValue(app, "Ava").contains("7"), pendingValue(app, "Ava"))
         app.typeKey(XCUIKeyboardKey.downArrow.rawValue, modifierFlags: [])
         app.typeKey("q", modifierFlags: [])
         XCTAssertTrue(pendingValue(app, "Ben").contains("13"), pendingValue(app, "Ben"))
+        app.typeKey(XCUIKeyboardKey.downArrow.rawValue, modifierFlags: [])
+        app.typeKey("r", modifierFlags: [])
+        XCTAssertTrue(pendingValue(app, "Cleo").contains("6 points"), pendingValue(app, "Cleo"))
         XCTAssertTrue(app.buttons["roundInput.submit"].isEnabled)
         let shot = XCTAttachment(screenshot: app.screenshot()); shot.name = "keyboard-ready"; shot.lifetime = .keepAlways; add(shot)
 
@@ -49,18 +53,15 @@ final class IPadKeyboardUITests: XCTestCase {
         XCTAssertFalse(app.buttons["roundInput.submit"].isEnabled, "entry reset after submit")
         XCTAssertTrue(app.descendants(matching: .any)["pendingRow"].label.contains("3"), "pending row is round 3 now")
 
-        // Selection stays on Ben: 5, + -> 6, 0 -> 0, M -> moon.
+        // Selection stays on Cleo: 5, + -> 6, M -> moon (everyone else gets 26).
         app.typeKey("5", modifierFlags: [])
         app.typeKey("+", modifierFlags: [])
-        XCTAssertTrue(pendingValue(app, "Ben").contains("6 points"), pendingValue(app, "Ben"))
-        app.typeKey("0", modifierFlags: []) // Delete/Backspace is not delivered as a key press by XCUITest; unit-tested instead
-        XCTAssertTrue(pendingValue(app, "Ben").contains("0 points"), pendingValue(app, "Ben"))
+        XCTAssertTrue(pendingValue(app, "Cleo").contains("6 points"), pendingValue(app, "Cleo"))
         app.typeKey("m", modifierFlags: [])
-        XCTAssertTrue(pendingValue(app, "Ben").lowercased().contains("moon"), pendingValue(app, "Ben"))
+        XCTAssertTrue(pendingValue(app, "Cleo").lowercased().contains("moon"), pendingValue(app, "Cleo"))
+        XCTAssertTrue(pendingValue(app, "Drew").contains("26 points"), pendingValue(app, "Drew"))
         let shot2 = XCTAttachment(screenshot: app.screenshot()); shot2.name = "keyboard-moon"; shot2.lifetime = .keepAlways; add(shot2)
-        // Tab moves the selection, R takes the rest on Cleo? (round already valid as a moon: ignored).
-        app.typeKey(XCUIKeyboardKey.tab.rawValue, modifierFlags: [])
-        XCTAssertTrue(pendingValue(app, "Cleo").contains("26 points"), pendingValue(app, "Cleo"))
+        // Delete/Backspace is not delivered as a key press by XCUITest; unit-tested instead.
     }
 
     /// The value well opens the 0...26 popover; picking 13 sets the row and the scoreboard's pending row (live, not a snapshot).

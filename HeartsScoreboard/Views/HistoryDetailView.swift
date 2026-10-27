@@ -34,6 +34,7 @@ struct HistoryDetailView: View {
         }
         .navigationTitle("Game Summary")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar) // title/back sit on the dark felt in both appearances
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 ResultShareButton(data: ResultCardData(completed: completedGame))
@@ -48,7 +49,7 @@ struct HistoryDetailView: View {
         VStack(spacing: 4) {
             Text(completedGame.finishedAt, format: .dateTime.month().day().year().hour().minute())
                 .font(.subheadline)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.white.opacity(0.78)) // on the felt, never the adaptive secondary (dark gray in light mode)
                 .accessibilityIdentifier("historyDetail.date")
             HStack(spacing: 8) {
                 Image(systemName: "trophy.fill")
@@ -56,12 +57,13 @@ struct HistoryDetailView: View {
                     .accessibilityHidden(true)
                 Text(completedGame.heroText)
                     .font(.title2.weight(.bold))
+                    .foregroundStyle(Color.white)
                     .multilineTextAlignment(.center)
             }
             .accessibilityElement(children: .combine)
             Text(completedGame.ruleSummary)
                 .font(.footnote)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.white.opacity(0.78))
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)

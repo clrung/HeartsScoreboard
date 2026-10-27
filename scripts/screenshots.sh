@@ -162,7 +162,7 @@ capture() {
   make_xctestrun "$run" "$env_locale" "$env_largest"
   # The env vars are set both in the xctestrun copy and as TEST_RUNNER_* (belt and braces).
   TEST_RUNNER_SCREENSHOT_LOCALE="$env_locale" TEST_RUNNER_SCREENSHOT_LARGEST_SCREEN="$env_largest" \
-  xcodebuild test-without-building -xctestrun "$run" \
+  xcodebuild test-without-building -xctestrun "$run" -only-testing:HeartsScoreboardUITests/ScreenshotTests \
     -destination "platform=iOS Simulator,id=$udid" \
     -resultBundlePath "$bundle" -quiet >"$WORK/$key-$locale.log" 2>&1 \
     || { tail -40 "$WORK/$key-$locale.log" >&2; die "xcodebuild failed for $key (log: $WORK/$key-$locale.log)"; }

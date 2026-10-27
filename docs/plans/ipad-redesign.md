@@ -140,7 +140,22 @@ rounds until it reaches the available height, then its round grid scrolls under 
   - Deferred: (a) 6 players on landscape mini (744pt high) and 13in landscape with the 10♦ rule: entry rows scroll under the pinned footer (physical limit; footer never overlaps);
     (b) AX3 on iPad portrait: entry gets ~1.5 rows visible (rows are 2-3 lines tall), scrolls; (c) phone 6p initials are "Av/Al" style (HeartsGame.headerLabels) - ambiguous but unchanged;
     (d) compact width with 1 round leaves a tall empty card (existing Phase 1 behaviour); (e) value popover verified only as a standalone grid, not live; (f) Cmd shortcuts need a hardware keyboard check.
-- [ ] **Phase 5 — Final design critique, screenshots regen, ledger update.**
+- [x] **Phase 5 — Final design critique, screenshots regen, ledger update.**
+  Phase 5 notes (2026-10-27):
+  - Fixed: dark "took all 26" fill is now a muted wash (orange 24% over the card) with warm `Theme.allPointsText` (amber in dark), >= 4.5:1 in all four variants (`ThemeContrastTests`); used by scoreboard and HistoryDetail.
+    Game over in stacked portrait: the card now spans the scoreboard's width (the 560pt cap is gone).
+  - Critique, fixed: header icon buttons (History, Settings, Undo, New Game) had accessibility labels but no pointer/keyboard tooltip -> `.help`;
+    bottom bar at AX sizes stretched New Game/Undo into tall pills (inner HStack now `fixedSize` vertically); 3-digit totals truncated to "1..." on a 320pt column (tighter padding, scale 0.5).
+  - Also fixed (found in the regenerated iPad Game Summary screenshot): HistoryDetail date/hero/rule text and nav title were dark-on-felt in light mode (adaptive secondary); now white on felt, nav bar forced dark.
+  - Live value-picker popover verified by `IPadKeyboardUITests.testValuePickerPopoverSetsExactValue` (tap well, pick 13, well value and pending row read "13 points").
+  - Reviewed fresh: iPad 13 landscape (6p early, long dark, moon), 13/11 portrait incl. game over, SE 375x667, Duo outer 466x678, 320pt, phone AX3, iPhone moon dark. Winner/leader reads at a glance (gold well + crown + gold row in standings); entry is chips + one tap.
+  - Deferred (minor): after 1-3 rounds the hugging scoreboard leaves a large empty felt area under it on iPad landscape (intentional, but the least premium-feeling state); 6p on mini landscape and AX3 portrait scroll entry rows;
+    phone 6p initials stay ambiguous; AX3 phone header wraps the pass chip above the title line; compact width with 1 round has a tall empty card; shadows/radii are tokenized on the two main cards but GameOverView still uses its own 24/18-radius shadow;
+    HistoryDetailView's standings still use the old pill total badges (54 with crown overlay) instead of the new standings header.
+  - Orchestrator wrap-up: the Phase 5 agent stopped on an auth error before its final suite run; the orchestrator re-ran both suites. Unit 217/217 green. UI: `IPadKeyboardUITests.testHardwareKeyboardEntersARoundAndSubmits` failed because separate `typeKey` calls were >1s apart (past the two-digit buffer window), so "1","3" became 3. The test now uses single digits + R; the buffer stays unit-tested. Re-ran twice green; the other 11 UI tests passed in the full run.
+  - `scripts/screenshots.sh` now runs only `ScreenshotTests` (the appearance live test fails on the iPhone sim: XCUIDevice.appearance doesn't flip the board there; passes on iPad).
+  - Remaining device-only checks: hardware keyboard Cmd shortcuts + Delete on a real iPad, sheet keyboard path, partial-fold Duo; duo-open screenshots need DeviceHub.
+  - Final summary: new design system (felt/card tokens), hugging scoreboard card with pinned standings + zebra grid + live pending row, tinted-chip round entry with value picker and keyboard control, stacked layout for portrait iPad, Moon rule in Settings. 217 unit tests, 14 UI tests.
 
 ## Verification recipe
 - Build/test: `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild -project HeartsScoreboard.xcodeproj -scheme HeartsScoreboard -destination 'platform=iOS Simulator,id=<ipad udid>' test`
