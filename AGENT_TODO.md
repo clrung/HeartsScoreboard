@@ -1,7 +1,7 @@
 # Agent TODO
 
 ## Next up (ranked, /next 2026-10-26)
-0. [ ] **Real-device verification of the iPad redesign + new TestFlight build** (M): hardware keyboard shortcuts, sheet keyboard path, partial-fold Duo; then bump the build in `project.yml` and upload.
+0. [ ] **Real-device verification of the iPad redesign** (M): build 11 (iPad redesign) uploaded to TestFlight 2026-10-27 (5ddba0a). Verify on device: hardware keyboard shortcuts, sheet keyboard path, shake-to-undo, partial-fold Duo. If it holds up, attach build 11 to 4.0.0 instead of build 10 (item 1).
 Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip replaces −10 badge, build 8). Working tree clean except `scripts/fix_ctx_keys.py`.
 
 1. [ ] **Ship 4.0.0 build 10** (S): build 10 uploaded to TestFlight 2026-10-26 (3e4ff83); attach it to the 4.0.0 version in App Store Connect, submit for review (the user submits). Everything since build 4 is unreleased.
@@ -235,6 +235,6 @@ Looked correct:
 ## iPad UI/UX redesign (2026-10-26/27) — implemented, needs real-device verification
 Plan, decisions, per-phase notes: `docs/plans/ipad-redesign.md`. All five phases are committed on main; unit + UI suites green on the iPad Pro 13" (M5) simulator; App Store screenshots regenerated (duo-open untouched).
 - [ ] Open: real-device verification (iPad with keyboard: Cmd shortcuts, Delete/Backspace, hold-Cmd menu; sheet keyboard path; partial-fold Duo).
-- [ ] Open: new TestFlight build needed (version/build bump in `project.yml`) before any of this reaches testers.
+- [x] Build 11 uploaded to TestFlight 2026-10-27 (5ddba0a).
 - [ ] Open: regenerate `duo-open` screenshots by hand in DeviceHub (script skips them with --non-interactive).
 - [ ] Deferred polish (see plan, Phase 5): few-rounds state leaves empty felt under the scoreboard on iPad landscape; 6p on mini landscape / AX3 portrait scroll the entry rows; phone 6p initials ambiguity; compact width with 1 round leaves a tall empty card; `AppearanceLiveSwitchUITests` fails on the iPhone 17 Pro Max sim (XCUIDevice.appearance does not flip the board there; passes on iPad) so `screenshots.sh` now runs only `ScreenshotTests`.
