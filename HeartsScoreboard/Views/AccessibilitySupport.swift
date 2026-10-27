@@ -10,27 +10,20 @@ enum Announcer {
     }
 }
 
-/// Card surface for the scoreboard on the felt: a translucent material over the card color, or the
-/// solid card color when Reduce Transparency is on.
+/// Card surface for the scoreboard on the felt: the solid `Theme.cardSurface` (a translucent material
+/// over the felt tinted the card green and muddied the numbers).
 struct FeltCardSurface: View {
     let cornerRadius: CGFloat
     let colorScheme: ColorScheme
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     var body: some View {
-        let shape = RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-        if reduceTransparency {
-            shape.fill(Theme.scoreboardCard(for: colorScheme))
-        } else {
-            shape
-                .fill(.ultraThinMaterial)
-                .background(shape.fill(Theme.scoreboardCard(for: colorScheme).opacity(colorScheme == .dark ? 0.9 : 0.85)))
-        }
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+            .fill(Theme.scoreboardCard(for: colorScheme))
     }
 }
 
-/// Look for the round icon buttons on the felt (History, Settings): a translucent white capsule, or a
-/// solid system-background capsule with a strong outline under Increase Contrast / Reduce Transparency.
+/// Look for the round icon buttons on the felt (History, Settings): a translucent white circle, or a
+/// solid system-background circle with a strong outline under Increase Contrast / Reduce Transparency.
 struct FeltIconButtonLook: ViewModifier {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.colorSchemeContrast) private var contrast
@@ -40,19 +33,22 @@ struct FeltIconButtonLook: ViewModifier {
 
     func body(content: Content) -> some View {
         content
+            .foregroundStyle(isSolid ? Color.primary : Color.white)
+            .frame(minWidth: 28, minHeight: 28)
             .padding(8)
             .background {
-                Capsule(style: .continuous)
-                    .fill(isSolid ? AnyShapeStyle(Color(.systemBackground)) : AnyShapeStyle(Color.white.opacity(colorScheme == .dark ? 0.18 : 0.3)))
+                Circle()
+                    .fill(isSolid ? AnyShapeStyle(Color(.systemBackground)) : AnyShapeStyle(Color.white.opacity(colorScheme == .dark ? 0.14 : 0.16)))
             }
             .overlay {
-                Capsule(style: .continuous)
+                Circle()
                     .stroke(
-                        isSolid ? Color.primary.opacity(0.7) : Color.white.opacity(colorScheme == .dark ? 0.4 : 0.6),
+                        isSolid ? Color.primary.opacity(0.7) : Color.white.opacity(colorScheme == .dark ? 0.3 : 0.4),
                         lineWidth: isSolid ? 1.5 : 0.5
                     )
             }
-            .contentShape(.hoverEffect, Capsule(style: .continuous))
+            .contentShape(Circle())
+            .contentShape(.hoverEffect, Circle())
             .hoverEffect()
     }
 }

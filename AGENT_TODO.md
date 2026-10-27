@@ -230,3 +230,6 @@ Looked correct:
 - Game-over card: close left / share right, rank medals on the right, scores on the left, Rematch and History button icons next to labels all correct. The main screen after game over also looks right.
 - Settings: player rows (handle left, delete right), the Add player row, dealer menu, sliders (min on the right, as the system mirrors them), toggle, appearance picker order all correct. "10♦ equals −10" renders as −10.
 
+
+## iPad UI/UX redesign (started 2026-10-26)
+Plan, decisions and phase checklist: `docs/plans/ipad-redesign.md` (source of truth while in progress).

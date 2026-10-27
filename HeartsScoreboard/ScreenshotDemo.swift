@@ -22,16 +22,39 @@ enum ScreenshotDemo {
     /// picker drive the scheme (instead of forcing one), so the live switch can be tested.
     static var followsAppearancePreference: Bool { CommandLine.arguments.contains("-screenshotFollowAppearance") }
 
+    /// Verification fixtures (not used for App Store shots): `-screenshotScenario early|long|tied|over|longnames`.
+    /// Absent, the default demo data below is unchanged.
+    static var scenario: String? {
+        let args = CommandLine.arguments
+        guard let i = args.firstIndex(of: "-screenshotScenario"), args.indices.contains(i + 1) else { return nil }
+        return args[i + 1]
+    }
+
+    /// Rows (points per seat, 4-player legal rounds, adapted with `fit`) for a scenario.
+    private static func scenarioRows(_ scenario: String, live: [[Int]], done: [[Int]]) -> [[Int]]? {
+        switch scenario {
+        case "early": return [live[0]]
+        case "long": return (0..<20).map { live[$0 % live.count] }
+        case "tied": return [[13, 0, 13, 0], [5, 8, 5, 8], [10, 3, 10, 3]] // Ben and Drew tie for the lead (11)
+        case "over": return done
+        case "longnames": return Array(live.prefix(8))
+        default: return nil
+        }
+    }
+
     @MainActor
-    static func makeModel(playerCount: Int? = nil) -> GameViewModel {
+    static func makeModel(playerCount: Int? = nil, scenario: String? = ScreenshotDemo.scenario) -> GameViewModel {
         // UI tests only: `-screenshotPlayerCount 5|6` adds players (long names stress narrow layouts).
-        var count = playerCount ?? 4
+        var count = playerCount ?? ((scenario == "early" || scenario == "longnames") ? 6 : 4)
         if playerCount == nil, let i = CommandLine.arguments.firstIndex(of: "-screenshotPlayerCount"),
            CommandLine.arguments.indices.contains(i + 1), let n = Int(CommandLine.arguments[i + 1]) {
             count = n
         }
         if !(3...6).contains(count) { count = 4 }
-        let names = Array(["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"].prefix(count))
+        let allNames = scenario == "longnames"
+            ? ["Alexandria", "Bartholomew", "Christopher", "Genevieve", "Maximilian", "Wilhelmina"]
+            : ["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"]
+        let names = Array(allNames.prefix(count))
         let players = names.map { HeartsGame.Player(id: UUID(), name: $0) }
 
         func hand(_ points: [Int], at date: Date) -> HeartsGame.Hand {
@@ -41,19 +64,25 @@ enum ScreenshotDemo {
             return .init(id: UUID(), pointsByPlayerID: map, notes: "", createdAt: date)
         }
 
+        let done0: [[Int]] = [
+            [2, 7, 13, 4], [6, 5, 2, 13], [0, 18, 2, 6], [14, 6, 0, 6], [13, 0, 5, 8],
+            [26, 0, 26, 26], [17, 0, 5, 4], [13, 1, 10, 2], [5, 15, 0, 6], [5, 2, 13, 6]
+        ]
         let base = date(2026, 10, 24, 19, 0)
         // In-progress game: includes a moon shot by Ben (round 6, "add 26"). Nobody is near 100.
         let live: [[Int]] = [
             [5, 8, 6, 7], [0, 13, 2, 11], [14, 3, 0, 9], [7, 0, 11, 8],
             [4, 9, 6, 7], [26, 0, 26, 26], [2, 12, 1, 11], [8, 5, 9, 4]
         ]
-        let game = HeartsGame(players: players, hands: live.map { hand($0, at: base) })
+        var game = HeartsGame(players: players, hands: live.map { hand($0, at: base) })
+        var scenarioSettings = GameSettings(quickIncrementPoints: 5)
+        if let scenario, let rows = scenarioRows(scenario, live: live, done: done0) {
+            game = HeartsGame(players: players, hands: rows.map { hand($0, at: base) })
+            if scenario == "long" { scenarioSettings.endingScore = 500 }
+        }
 
         // Completed game for the history / Game Summary shot (Ben wins with 54).
-        let done: [[Int]] = [
-            [2, 7, 13, 4], [6, 5, 2, 13], [0, 18, 2, 6], [14, 6, 0, 6], [13, 0, 5, 8],
-            [26, 0, 26, 26], [17, 0, 5, 4], [13, 1, 10, 2], [5, 15, 0, 6], [5, 2, 13, 6]
-        ]
+        let done = done0
         let donePlayers = names.map { HeartsGame.Player(id: UUID(), name: $0) }
         var doneHands: [HeartsGame.Hand] = []
         for row in done {
@@ -68,7 +97,7 @@ enum ScreenshotDemo {
             settings: GameSettings()
         )
 
-        var settings = GameSettings(quickIncrementPoints: 5)
+        var settings = scenarioSettings
         if followsAppearancePreference {
             // Start from System regardless of what an earlier run left in UserDefaults.
             UserDefaults.standard.removeObject(forKey: "HeartsScoreboardAppearancePreference")

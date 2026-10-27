@@ -82,30 +82,3 @@ struct PassDirectionChip: View {
         .accessibilityIdentifier("passDirectionChip")
     }
 }
-
-/// Leading-edge round numbers for the scoreboard; rows line up with the score cells.
-struct RoundRailColumn: View {
-    let count: Int
-    /// Tapping a round number selects that round (0-based index), e.g. to edit it.
-    var onSelect: ((Int) -> Void)? = nil
-    @ScaledMetric(relativeTo: .footnote) private var cellHeight: CGFloat = 26
-
-    var body: some View {
-        VStack(spacing: 8) {
-            ForEach(0..<count, id: \.self) { index in
-                Text("\(index + 1)")
-                    .font(.caption2.weight(.semibold))
-                    .monospacedDigit()
-                    .foregroundStyle(Color.secondary)
-                    .frame(width: RoundRail.width, height: cellHeight)
-                    .contentShape(Rectangle())
-                    .onTapGesture { onSelect?(index) }
-                    .accessibilityHidden(true) // the score cells carry the "edit round" action
-            }
-        }
-    }
-}
-
-enum RoundRail {
-    static let width: CGFloat = 20
-}
