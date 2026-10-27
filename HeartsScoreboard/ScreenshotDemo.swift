@@ -19,20 +19,21 @@ enum ScreenshotDemo {
     }
 
     @MainActor
-    static func makeModel() -> GameViewModel {
+    static func makeModel(playerCount: Int? = nil) -> GameViewModel {
         // UI tests only: `-screenshotPlayerCount 5|6` adds players (long names stress narrow layouts).
-        var names = ["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"]
-        if let i = CommandLine.arguments.firstIndex(of: "-screenshotPlayerCount"),
-           CommandLine.arguments.indices.contains(i + 1), let n = Int(CommandLine.arguments[i + 1]), (3...6).contains(n) {
-            names = Array(names.prefix(n))
-        } else {
-            names = Array(names.prefix(4))
+        var count = playerCount ?? 4
+        if playerCount == nil, let i = CommandLine.arguments.firstIndex(of: "-screenshotPlayerCount"),
+           CommandLine.arguments.indices.contains(i + 1), let n = Int(CommandLine.arguments[i + 1]) {
+            count = n
         }
+        if !(3...6).contains(count) { count = 4 }
+        let names = Array(["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"].prefix(count))
         let players = names.map { HeartsGame.Player(id: UUID(), name: $0) }
 
         func hand(_ points: [Int], at date: Date) -> HeartsGame.Hand {
             var map: [UUID: Int] = [:]
-            for (i, p) in players.enumerated() { map[p.id] = points[i % points.count] }
+            let row = fit(points, to: players.count)
+            for (i, p) in players.enumerated() { map[p.id] = row[i] }
             return .init(id: UUID(), pointsByPlayerID: map, notes: "", createdAt: date)
         }
 
@@ -53,7 +54,8 @@ enum ScreenshotDemo {
         var doneHands: [HeartsGame.Hand] = []
         for row in done {
             var map: [UUID: Int] = [:]
-            for (i, p) in donePlayers.enumerated() { map[p.id] = row[i % row.count] }
+            let row = fit(row, to: donePlayers.count)
+            for (i, p) in donePlayers.enumerated() { map[p.id] = row[i] }
             doneHands.append(.init(id: UUID(), pointsByPlayerID: map, notes: "", createdAt: date(2026, 10, 17, 20, 0)))
         }
         let completed = CompletedGame(
@@ -70,6 +72,26 @@ enum ScreenshotDemo {
         model.persistsToCloud = false
         model.settings.appearance = settings.appearance // undo anything read from UserDefaults
         return model
+    }
+
+    /// Adapts a 4-player demo round to `count` players so it is still a legal round: a moon shot stays
+    /// "shooter 0, everyone else 26"; otherwise the 26 points are kept by folding dropped players' points
+    /// into the remaining ones (3 players) or splitting an existing player's points with each extra player
+    /// (5–6). 4 players returns the row unchanged, so the App Store screenshots don't move.
+    static func fit(_ row: [Int], to count: Int) -> [Int] {
+        guard count != row.count else { return row }
+        if row.filter({ $0 == 0 }).count == 1, row.allSatisfy({ $0 == 0 || $0 == 26 }) {
+            let shooter = row.firstIndex(of: 0)!
+            return (0..<count).map { $0 == shooter % count ? 0 : 26 }
+        }
+        var out = Array(row.prefix(count)) + Array(repeating: 0, count: max(0, count - row.count))
+        for k in count..<max(count, row.count) { out[k % count] += row[k] }
+        for k in row.count..<max(row.count, count) {
+            let half = out[k - row.count] / 2
+            out[k - row.count] -= half
+            out[k] = half
+        }
+        return out
     }
 
     private static func date(_ y: Int, _ m: Int, _ d: Int, _ h: Int, _ min: Int) -> Date {

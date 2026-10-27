@@ -34,6 +34,7 @@
 		994CB6299657E9C7392F744A /* PassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83838366FBE38C84A1398D31 /* PassDirection.swift */; };
 		9EC32961DF673E60D37C95C6 /* TenBadgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E2D68DFE9045F25E0E508B /* TenBadgeUITests.swift */; };
 		A6B7488FB5B98944261CC3C2 /* ResultCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */; };
+		AA1E5F322318DEA871F55C68 /* ScreenshotDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6584735561896C5DF950F30E /* ScreenshotDemoTests.swift */; };
 		ABA5BF94F3C64DD024480E6B /* AccessibilitySupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EF3E9D5C1954F9559B2783 /* AccessibilitySupport.swift */; };
 		AF34A89AB0D7F15F25DF465C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93A0F33BDD7ACD7FE5CF8FB8 /* GameView.swift */; };
 		B0BA7A8631171852401AC255 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55B141DDC24244AEFAB437 /* GameOverView.swift */; };
@@ -207,6 +208,7 @@
 		64F5ABA1D55305E853923C27 /* gl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gl; path = gl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6538E005AF67021C51BD32A6 /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		6550C66C88FA08E703A7347E /* ml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ml; path = ml.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6584735561896C5DF950F30E /* ScreenshotDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDemoTests.swift; sourceTree = "<group>"; };
 		66714C31DA7C39EDCE1E8427 /* zu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zu; path = zu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6716432E8F49822D9605583A /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		67422B7626B415DBE5B2DB03 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 				EDB4702FBDA55A4895BE201E /* RedoAndEditTests.swift */,
 				0ED5C1443E7D6EAE1CD4ABC1 /* ResultCardTests.swift */,
 				B5AC7C02606E5278B43FCAB5 /* RoundEntryStateTests.swift */,
+				6584735561896C5DF950F30E /* ScreenshotDemoTests.swift */,
 				6DCA38CF2F4BD97D2C797459 /* SettingsSnapshotTests.swift */,
 				9256CB693923DF86AA504A90 /* TenOfDiamondsTests.swift */,
 				2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */,
@@ -724,6 +727,7 @@
 				334C055EDD760649B1C8B813 /* RedoAndEditTests.swift in Sources */,
 				A6B7488FB5B98944261CC3C2 /* ResultCardTests.swift in Sources */,
 				6DC1DB981055ACB7148B9ACF /* RoundEntryStateTests.swift in Sources */,
+				AA1E5F322318DEA871F55C68 /* ScreenshotDemoTests.swift in Sources */,
 				C12335BF769B7438890E8D57 /* SettingsSnapshotTests.swift in Sources */,
 				9255F1979CFB1D831B5ACD65 /* TenOfDiamondsTests.swift in Sources */,
 				7DFEFC76353825CF4A6BD907 /* UndoTests.swift in Sources */,
