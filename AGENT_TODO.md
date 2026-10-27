@@ -3,7 +3,7 @@
 ## Next up (ranked, /next 2026-10-26)
 Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip replaces −10 badge, build 8). Working tree clean except `scripts/fix_ctx_keys.py`.
 
-1. [ ] **Ship 4.0.0 build 9** (S): build 9 uploaded to TestFlight 2026-10-26 (57610ed); attach it to the 4.0.0 version in App Store Connect, submit for review (the user submits). Everything since build 4 is unreleased.
+1. [ ] **Ship 4.0.0 build 10** (S): build 10 uploaded to TestFlight 2026-10-26 (3e4ff83); attach it to the 4.0.0 version in App Store Connect, submit for review (the user submits). Everything since build 4 is unreleased.
 2. [x] **Verify round entry at the edges** (done 2026-10-26: SE 375pt, 6 players, AX sizes, light/dark; iPhone 18 Pro 402pt rechecked): iPhone SE width, 6 players, and AX Dynamic Type with the 10♦ chip. These are the open items from the build-8 work, and that layout code is the newest.
 3. [ ] **Device checks** (M, needs hardware): shake-to-undo after closing each sheet (the 0.5s refocus is a guess), VoiceOver flow, edit-round sheet, keyboard shortcuts and hover on iPad, partial fold on Duo.
 4. [x] **Unused-string cleanup** (done 2026-10-26): removed 10 unused keys from all 75 locales ("Time", "No completed games yet.", 4× "Pass: … ←", "Undo last round" + its message, "10 of Diamonds", "More"). `scripts/fix_ctx_keys.py` (already applied) is still untracked: commit or delete it.
