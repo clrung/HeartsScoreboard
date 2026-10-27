@@ -585,6 +585,8 @@ struct RoundInputView: View {
             .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.accentColor)
             .disabled(isRoundValid)
         }
+        // "− N +" in every language: the numbers run left to right, like the native Stepper.
+        .pointsStepperLayout()
     }
 
     private func adjustPoints(for playerID: UUID, delta: Int) {

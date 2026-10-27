@@ -9,12 +9,21 @@ enum DirectionalUI {
     static let nextRoundSymbol = "arrow.forward.circle.fill"
     /// The history chart is numeric: always left to right.
     static let chartLayoutDirection: LayoutDirection = .leftToRight
+    /// The points stepper always reads "− N +" (minus left, plus right), also in RTL.
+    static let stepperLayoutDirection: LayoutDirection = .leftToRight
 
     /// "Quick-add button: +5" with the "+5" isolated as an LTR run so RTL bidi keeps the plus first.
     static func quickAddTitle(points: Int) -> String {
         let title = String(format: String(localized: "Quick-add button: +%d"), points)
         let token = "+\(points)"
         return title.replacingOccurrences(of: token, with: "\u{2066}\(token)\u{2069}")
+    }
+}
+
+extension View {
+    /// Pins a −/+ points cluster to left-to-right so it reads "− N +" in every language.
+    func pointsStepperLayout() -> some View {
+        environment(\.layoutDirection, DirectionalUI.stepperLayoutDirection)
     }
 }
 

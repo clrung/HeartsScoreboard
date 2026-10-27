@@ -76,4 +76,33 @@ final class DirectionalUITests: XCTestCase {
         XCTAssertEqual(t.replacingOccurrences(of: "\u{2066}", with: "").replacingOccurrences(of: "\u{2069}", with: ""),
                        String(format: String(localized: "Quick-add button: +%d"), 5))
     }
+
+    func testStepperLayoutDirectionIsLeftToRight() {
+        XCTAssertEqual(DirectionalUI.stepperLayoutDirection, .leftToRight)
+    }
+
+    /// In an RTL environment the stepper cluster must still put the first child (minus) on the left.
+    @MainActor
+    func testStepperRendersMinusLeftOfPlusInRTL() throws {
+        let view = HStack(spacing: 0) {
+            Color.red.frame(width: 40, height: 40)
+            Color.clear.frame(width: 40, height: 40)
+            Color.blue.frame(width: 40, height: 40)
+        }
+        .pointsStepperLayout()
+        .environment(\.layoutDirection, .rightToLeft)
+        let r = ImageRenderer(content: view)
+        r.scale = 1
+        let cg = try XCTUnwrap(r.uiImage?.cgImage)
+        let w = cg.width, h = cg.height
+        var px = [UInt8](repeating: 0, count: w * h * 4)
+        let ctx = try XCTUnwrap(CGContext(data: &px, width: w, height: h, bitsPerComponent: 8, bytesPerRow: w * 4,
+                                          space: CGColorSpaceCreateDeviceRGB(),
+                                          bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue))
+        ctx.draw(cg, in: CGRect(x: 0, y: 0, width: w, height: h))
+        func rgb(_ x: Int) -> (UInt8, UInt8, UInt8) { let i = (h / 2 * w + x) * 4; return (px[i], px[i + 1], px[i + 2]) }
+        let left = rgb(10), right = rgb(w - 10)
+        XCTAssertGreaterThan(left.0, 200); XCTAssertLessThan(left.2, 100)    // red on the left
+        XCTAssertGreaterThan(right.2, 200); XCTAssertLessThan(right.0, 100)  // blue on the right
+    }
 }
