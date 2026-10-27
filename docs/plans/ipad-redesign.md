@@ -123,8 +123,23 @@ rounds until it reaches the available height, then its round grid scrolls under 
   - Tests: `RoundEntryKeyboardTests` (key map, rules, buffer, reset key), snapshot `testPendingRowAndKeyboardSelectionRender`, UI `IPadKeyboardUITests` (chips -> pending row; typeKey digits/Q/+/=/M/Tab, submit by tap).
   - Open: XCUITest cannot drive Cmd shortcuts (even the existing Cmd-, fails at baseline) or Delete/Backspace key presses in the simulator, so Cmd-Return/Cmd-Delete/Delete are verified by unit tests/code only; check on a real iPad with keyboard.
     New strings "Round %d, in progress", "Previous Player", "Next Player" translated to all locales.
-- [ ] **Phase 4 — Visual QA matrix + fixes** (iPad 13/11/mini, landscape/portrait, Split View narrow,
+- [x] **Phase 4 — Visual QA matrix + fixes** (iPad 13/11/mini, landscape/portrait, Split View narrow,
       iPhone, Duo sizes; light/dark; AX sizes; 3–6 players; long names; ties; game over; moon; 10♦).
+  Phase 4 notes (2026-10-27):
+  - Stacked portrait layout: regular width, height > width, width >= 744pt (`GameView.usesStackedPanes`) stacks a full-width scoreboard over a
+    full-width entry card. Board height is capped (`stackedBoardMaxHeight`: min(52% of height, height - estimated entry height), floor 30%) via a
+    `CappedHeight` layout (plain `.frame(maxHeight:)` stretched the card's slot and left a gap). Entry rows use one line (name | chips | stepper) via
+    `RoundInputView(wideRows:)`; accessibility sizes keep the two-line row. Duo 669x951 / 951x669 and landscape unchanged.
+  - Crown: `CrownGeometry` (badge reaches 2pt into the 4pt well inset, headroom reserved above every well); never touches digits.
+  - Initials only when the longest name cannot fit its column (`ScoreboardCard.nameFits`, measured with the capped Dynamic Type size), still only for >= 5 players.
+  - Matrix: `IPadLayoutSnapshotTests.testVisualQAMatrix` (opt-in: `TEST_RUNNER_QA_FILTER=<substring>`, ~300 PNGs: 14 sizes x states x light/dark/HC/RTL/xs/xxxL/AX3),
+    `testSheetsRenderOnIPadAndPhone` (Settings, History, History detail, Edit round). Live: `OrientationLiveUITests` (both orientations, early/long, light/dark; asserts stacked Submit spans the card).
+  - Defects. Found + fixed: (1) portrait 6p squeezed to initials + 60% empty felt -> stacked layout; (2) crown over the digit in narrow columns; (3) initials rule too eager;
+    (4) Duo-width entry rows truncated "Alexa...", "Total..." and the moon menu label to "Add..." -> shrink-to-fit on name/total/menu label, menu gets layout priority over the title.
+    Found + not a defect: edit-sheet progress strip overlapping the bar was a mid-animation snapshot (re-rendered after 1s settle).
+  - Deferred: (a) 6 players on landscape mini (744pt high) and 13in landscape with the 10♦ rule: entry rows scroll under the pinned footer (physical limit; footer never overlaps);
+    (b) AX3 on iPad portrait: entry gets ~1.5 rows visible (rows are 2-3 lines tall), scrolls; (c) phone 6p initials are "Av/Al" style (HeartsGame.headerLabels) - ambiguous but unchanged;
+    (d) compact width with 1 round leaves a tall empty card (existing Phase 1 behaviour); (e) value popover verified only as a standalone grid, not live; (f) Cmd shortcuts need a hardware keyboard check.
 - [ ] **Phase 5 — Final design critique, screenshots regen, ledger update.**
 
 ## Verification recipe
