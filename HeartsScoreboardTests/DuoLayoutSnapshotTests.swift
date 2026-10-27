@@ -150,6 +150,18 @@ final class DuoLayoutSnapshotTests: XCTestCase {
 
     // MARK: Tests
 
+    func testInlineSplitRequiresRegularWidthAndHeight() {
+        XCTAssertTrue(GameView.usesSplitLayout(horizontal: .regular, vertical: .regular, idiom: .phone),
+                      "unfolded Duo retains inline round entry")
+        XCTAssertFalse(GameView.usesSplitLayout(horizontal: .regular, vertical: .compact, idiom: .phone),
+                       "landscape phone uses the full-width scoreboard and round sheet")
+        XCTAssertTrue(GameView.usesSplitLayout(horizontal: .regular, vertical: .compact, idiom: .pad),
+                      "iPad keeps its split layout in landscape")
+        XCTAssertFalse(GameView.usesSplitLayout(horizontal: .compact, vertical: .regular, idiom: .phone))
+        XCTAssertFalse(GameView.usesSplitLayout(horizontal: .compact, vertical: .regular, idiom: .pad))
+        XCTAssertFalse(GameView.usesSplitLayout(horizontal: .compact, vertical: .compact, idiom: .phone))
+    }
+
     func testInner4Players5RoundsPortrait() throws {
         let r = try render("inner-4p-5r-portrait", size: Self.innerPortrait, regular: true,
                            model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5))

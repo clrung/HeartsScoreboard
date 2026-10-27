@@ -17,6 +17,7 @@ struct GameView: View {
     @Environment(\.colorSchemeContrast) private var contrast
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @State private var model: GameViewModel
     /// The inline panel's pending round, lifted here so the scoreboard's pending row can show it live.
     @State private var inlineEntry = RoundEntryState()
@@ -163,8 +164,16 @@ struct GameView: View {
         }
     }
 
-    /// Regular width (unfolded iPhone Duo, iPad): scoreboard and inline round entry side by side.
-    private var usesSplitLayout: Bool { horizontalSizeClass == .regular }
+    /// Regular-width iPad windows and regular/regular unfolded Duo use inline entry.
+    /// Compact-height iPhones keep the full-width scoreboard and open round entry as a sheet.
+    private var usesSplitLayout: Bool {
+        Self.usesSplitLayout(horizontal: horizontalSizeClass, vertical: verticalSizeClass)
+    }
+
+    static func usesSplitLayout(horizontal: UserInterfaceSizeClass?, vertical: UserInterfaceSizeClass?,
+                                idiom: UIUserInterfaceIdiom = UIDevice.current.userInterfaceIdiom) -> Bool {
+        horizontal == .regular && (idiom == .pad || vertical == .regular)
+    }
 
     /// Available width (pt) from which the scoreboard gets the larger share (iPad landscape).
     private static let wideSplitThreshold: CGFloat = 1100
@@ -268,7 +277,10 @@ struct GameView: View {
     /// iPhone-width board: the card fills the height between the header and the bottom bar.
     private var compactScoreboard: some View {
         GeometryReader { geo in
-            ScoreboardCard(model: model, width: geo.size.width, isSplit: false, onEdit: { editTarget = EditTarget(id: $0) })
+            ScoreboardCard(model: model, width: geo.size.width, isSplit: false,
+                           wrapsPlayerNames: verticalSizeClass == .compact
+                               && UIDevice.current.userInterfaceIdiom == .phone,
+                           onEdit: { editTarget = EditTarget(id: $0) })
                 .frame(maxHeight: .infinity)
         }
         .padding(.top, Theme.Spacing.s)

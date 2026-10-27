@@ -1,5 +1,15 @@
 # Agent TODO
 
+## iPhone landscape scoreboard (2026-10-27)
+
+- [x] iPhone compact-height layouts now keep the full-width scoreboard, bottom Next Round button, and round-entry sheet used in portrait. The inline entry panel remains available on regular/regular unfolded Duo. iPad layout selection is unchanged, including shorter regular-width windows.
+- [x] Landscape iPhone player headers show full names with up to two reserved lines instead of initials; the dealer badge shares the first text baseline and totals remain aligned. Portrait and iPad name treatment is unchanged.
+- [x] Regression coverage: explicit phone/iPad layout-policy cases in `DuoLayoutSnapshotTests`, phone portrait-to-landscape sheet flow with six long names in `OrientationLiveUITests`, and stronger iPad inline-pane assertions. Screenshot identifiers remain valid.
+- [x] Final layout-policy unit test passed against the current app source (`/private/tmp/hs-phone-landscape-final-unit.log`); simulator build and `git diff --check` pass.
+- [x] iPhone portrait/landscape sheet-flow regression passed in light and dark on iPhone 18 Pro Max (six long names); dark-mode board and sheet screenshots reviewed after the final dealer-baseline fix. Captures: `/private/tmp/hs-phone-landscape-shots`, `/private/tmp/hs-phone-landscape-final`; logs/results under `/private/tmp/hs-phone-landscape-*`. Screenshot identifiers check passes.
+- [x] iPad Pro 13-inch (M5) light/dark screenshots reviewed: existing inline landscape and stacked portrait layouts preserved. Captures: `/private/tmp/hs-ipad-layout-shots`.
+- [ ] Simulator-only verification follow-up: `OrientationLiveUITests.testOrientationsAndScenarios` passed its layout assertions for early light/dark and long light, then failed in `app.terminate()` (no layout assertion failure), before the last long/dark case. Log: `/private/tmp/hs-phone-landscape-ipad.log`. Several phone test preparations also stalled; the final dark phone retry passed after startup completed and idle simulators were closed.
+
 ## Next up (ranked, /next 2026-10-26)
 0. [ ] **Real-device verification of the iPad redesign** (M): build 11 (iPad redesign) uploaded to TestFlight 2026-10-27 (5ddba0a). Verify on device: hardware keyboard shortcuts, sheet keyboard path, shake-to-undo, partial-fold Duo. If it holds up, attach build 11 to 4.0.0 instead of build 10 (item 1).
 Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip replaces −10 badge, build 8). Working tree clean except `scripts/fix_ctx_keys.py`.

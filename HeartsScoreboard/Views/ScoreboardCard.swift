@@ -11,6 +11,8 @@ struct ScoreboardCard: View {
     let width: CGFloat
     /// Regular-width layout: shows the pending row for the round being entered and hugs its content.
     let isSplit: Bool
+    /// Compact-height scoreboard uses its full width to show complete names, wrapping only when needed.
+    var wrapsPlayerNames = false
     /// Live values from the inline round-entry panel, shown in the pending row (split layout only).
     var pendingEntry = RoundEntryState()
     let onEdit: (UUID) -> Void
@@ -31,6 +33,7 @@ struct ScoreboardCard: View {
     }
     /// Crowded boards (5-6 players) fall back to initials only when a full name can't fit its column.
     private var showsInitials: Bool {
+        guard !wrapsPlayerNames else { return false }
         guard players.count >= 5 else { return false }
         let category = Self.contentSizeCategory(min(dynamicTypeSize, maxTypeSize))
         let base = columnWidth < 100 ? UIFont.TextStyle.subheadline : .headline
@@ -153,11 +156,11 @@ struct ScoreboardCard: View {
     private func column(player: HeartsGame.Player, label: String, isDealer: Bool, isLeader: Bool) -> some View {
         let total = model.game.totalPoints(for: player.id)
         return VStack(spacing: Theme.Spacing.s) {
-            HStack(spacing: Theme.Spacing.xs) {
+            HStack(alignment: wrapsPlayerNames ? .firstTextBaseline : .center, spacing: Theme.Spacing.xs) {
                 if isDealer { dealerBadge }
                 Text(label)
                     .font((columnWidth < 100 ? Font.subheadline : Font.headline).weight(.semibold))
-                    .lineLimit(1)
+                    .lineLimit(wrapsPlayerNames ? 2 : 1, reservesSpace: wrapsPlayerNames)
                     .minimumScaleFactor(0.7)
                     .truncationMode(.tail)
                     .accessibilityLabel(player.name)
