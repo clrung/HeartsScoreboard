@@ -32,6 +32,7 @@
 		678ADD591FFD317220B498B8 /* AppearanceLiveSwitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05EEFE7C53272A555C4203D /* AppearanceLiveSwitchUITests.swift */; };
 		6DBDC082946113E5579CC968 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD19947D819B9036C020016 /* AboutView.swift */; };
 		6DC1DB981055ACB7148B9ACF /* RoundEntryStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC7C02606E5278B43FCAB5 /* RoundEntryStateTests.swift */; };
+		71E3E5D1FF952D13710212AB /* QueenEntryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5D3975058F3D94BC6784B1 /* QueenEntryUITests.swift */; };
 		7D133ED54F2B94100D1CFEAB /* ScreenshotDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1DBAB6CDB6D0A60BB39426 /* ScreenshotDemo.swift */; };
 		7D2F3623C59E33E781A67A46 /* RoundEntryKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EAB1B46BC3238FA7019436 /* RoundEntryKeyboardTests.swift */; };
 		7DFEFC76353825CF4A6BD907 /* UndoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D752AEC0947BEC4FBFCC2AA /* UndoTests.swift */; };
@@ -394,6 +395,7 @@
 		C993BFAD4CF920129A447DA9 /* mk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = mk; path = mk.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		CAD1014F9FF9C9F9BDA33BEF /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = th; path = th.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		CAE502C4058FEE657FEDA99B /* lo */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lo; path = lo.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
+		CB5D3975058F3D94BC6784B1 /* QueenEntryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueenEntryUITests.swift; sourceTree = "<group>"; };
 		CC1F2A6BABBD2529969006BC /* ShakeDetectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeDetectorView.swift; sourceTree = "<group>"; };
 		CCDA54A49A5F425F8067BD2B /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		CD91284C8E3CE8C0D3229559 /* CompletedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGame.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				F90DD878E0D55655CB2C8C99 /* IPadKeyboardUITests.swift */,
 				6CC082940781B4C51B95030E /* NarrowRoundEntryUITests.swift */,
 				59A495CA3384C8BD69B016DB /* OrientationLiveUITests.swift */,
+				CB5D3975058F3D94BC6784B1 /* QueenEntryUITests.swift */,
 				4895B119E0949C712555CD8A /* ScreenshotTests.swift */,
 				F4E2D68DFE9045F25E0E508B /* TenBadgeUITests.swift */,
 				9CEB129E5AD2C5D3EFAA6941 /* ValuePickerLayoutUITests.swift */,
@@ -873,6 +876,7 @@
 				A8F0418F859460174356C5CA /* IPadKeyboardUITests.swift in Sources */,
 				34C44D3933C1F4C11E6BB2A2 /* NarrowRoundEntryUITests.swift in Sources */,
 				E322F1A078D835959C5414F7 /* OrientationLiveUITests.swift in Sources */,
+				71E3E5D1FF952D13710212AB /* QueenEntryUITests.swift in Sources */,
 				DC27D479FE723FF93EE6FBAC /* ScreenshotTests.swift in Sources */,
 				9EC32961DF673E60D37C95C6 /* TenBadgeUITests.swift in Sources */,
 				00B9243A83640BF7B92F458D /* ValuePickerLayoutUITests.swift in Sources */,

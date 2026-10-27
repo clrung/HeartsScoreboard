@@ -116,11 +116,45 @@ final class TenOfDiamondsTests: XCTestCase {
 
     func testRoundValidity() {
         XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: [13, 13, 0, 0]))
+        XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: [25, 1, 0, 0]))
         XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [26, 0, 0, 0]))
         XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: [0, 26, 26, 26]))
         XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: [-26, 0, 0, 0]))
         XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [10, 0, 0, 0]))
         XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: []))
+    }
+
+    func testExactMoonDistributionsAreValidForThreeThroughSixPlayers() {
+        for playerCount in 3...6 {
+            let add26Moon = [0] + Array(repeating: 26, count: playerCount - 1)
+            let subtract26Moon = [-26] + Array(repeating: 0, count: playerCount - 1)
+            XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: add26Moon), "add-26 moon with \(playerCount) players")
+            XCTAssertTrue(HeartsGame.isValidRound(penaltyScores: subtract26Moon), "subtract-26 moon with \(playerCount) players")
+        }
+    }
+
+    func testRejectsInvalidDistributionsThatMatchMoonSums() {
+        XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [39, 39, 0, 0]), "sum 78 is not an add-26 moon")
+        XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [-13, -13, 0, 0]), "sum -26 is not a subtract-26 moon")
+    }
+
+    func testNormalRoundCannotContainNegativeOrOverLimitScores() {
+        XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [-1, 27, 0, 0]), "negative/over-limit scores cannot form a normal round")
+        XCTAssertFalse(HeartsGame.isValidRound(penaltyScores: [0, 0, 0, 26]), "one player cannot take all 26")
+    }
+
+    func testUpdateHandRejectsImpossibleMoonSumAndPreservesOriginalHand() {
+        let model = GameViewModel(game: game)
+        model.persistsToCloud = false
+        model.addHand(pointsByPlayerID: [a.id: 13, b.id: 13, c.id: 0, d.id: 0])
+        let originalGame = model.game
+        let handID = model.game.hands[0].id
+
+        XCTAssertFalse(model.updateHand(
+            id: handID,
+            pointsByPlayerID: [a.id: 39, b.id: 39, c.id: 0, d.id: 0]
+        ))
+        XCTAssertEqual(model.game, originalGame, "rejected update leaves the original hand unchanged")
     }
 
     // MARK: Moon cell display

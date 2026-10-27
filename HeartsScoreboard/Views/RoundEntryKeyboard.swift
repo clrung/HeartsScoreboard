@@ -124,7 +124,7 @@ struct RoundEntryKeyboard: Equatable {
         case .adjust(let delta):
             if delta > 0 ? !valid : !moonRound { entry.adjustPoints(for: id, delta: delta) }
         case .queen:
-            if !valid && entry.queenOwnerID == nil { entry.addQueenOfSpades(for: id) }
+            if !moonRound { entry.addQueenOfSpades(for: id) }
         case .moon:
             if !valid { entry.applyShootMoon(shooterID: id, players: players, preference: preference) }
         case .rest:

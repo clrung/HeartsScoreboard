@@ -611,7 +611,7 @@ struct RoundInputView: View {
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
         .accessibilityAddTraits(isSelected ? .isSelected : [])
         .buttonStyle(ActionChipStyle(tint: Theme.accent, text: Theme.accentText, selectedForeground: .white, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
-        .disabled(isRoundValid || entry.queenOwnerID != nil)
+        .disabled(isShootTheMoonRound)
     }
 
     private func moonChip(for player: HeartsGame.Player, isSelected: Bool) -> some View {
@@ -662,7 +662,8 @@ struct RoundInputView: View {
 
     private func stepper(for player: HeartsGame.Player) -> some View {
         let value = entry.points[player.id] ?? 0
-        let minusDisabled = isShootTheMoonRound || value == 0
+        let minusDisabled = isShootTheMoonRound || value <= entry.minimumPoints(for: player.id)
+        let plusDisabled = isRoundValid || value >= RoundEntryState.maxPoints
         return HStack(spacing: 6) {
             HoldRepeatButton {
                 adjustPoints(for: player.id, delta: -1)
@@ -679,12 +680,12 @@ struct RoundInputView: View {
             HoldRepeatButton {
                 adjustPoints(for: player.id, delta: 1)
             } label: {
-                stepperGlyph("plus", tint: Theme.accent, isEnabled: !isRoundValid)
+                stepperGlyph("plus", tint: Theme.accent, isEnabled: !plusDisabled)
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Increase points for %@"), player.name))
             .accessibilityIdentifier("roundInput.increase.\(player.name)")
-            .disabled(isRoundValid)
+            .disabled(plusDisabled)
         }
         // "− N +" in every language: the numbers run left to right, like the native Stepper.
         .pointsStepperLayout()
@@ -728,7 +729,7 @@ struct RoundInputView: View {
             get: { valuePickerPlayerID == player.id },
             set: { if !$0 && valuePickerPlayerID == player.id { valuePickerPlayerID = nil } }
         )) {
-            PointsGridPicker(current: value) { picked in
+            PointsGridPicker(current: value, minimum: entry.minimumPoints(for: player.id)) { picked in
                 setPoints(for: player.id, to: picked)
                 valuePickerPlayerID = nil
             }
@@ -866,6 +867,7 @@ private struct RoundEntryKeyHandling: ViewModifier {
 /// 0...26 grid shown from the value well: one tap sets the exact number.
 struct PointsGridPicker: View {
     let current: Int
+    var minimum: Int = 0
     let onPick: (Int) -> Void
     @Environment(\.colorSchemeContrast) private var contrast
 
@@ -875,6 +877,7 @@ struct PointsGridPicker: View {
         LazyVGrid(columns: columns, spacing: 6) {
             ForEach(0...RoundEntryState.maxPoints, id: \.self) { value in
                 let isCurrent = value == current
+                let isAllowed = value >= minimum
                 Button {
                     onPick(value)
                 } label: {
@@ -890,6 +893,8 @@ struct PointsGridPicker: View {
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .disabled(!isAllowed)
+                .opacity(isAllowed ? 1 : 0.35)
                 .accessibilityAddTraits(isCurrent ? .isSelected : [])
                 .accessibilityIdentifier("roundInput.valueOption.\(value)")
             }

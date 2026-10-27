@@ -76,19 +76,46 @@ final class RoundEntryKeyboardTests: XCTestCase {
         XCTAssertEqual(e.points[players[0].id], 0)
     }
 
-    func testQueenOnceThenRestAndSelectionFollowsRows() {
+    func testQueenTransfersThenRestAndSelectionFollowsRows() {
         var (e, k) = fresh()
         press(.queen, &e, &k)
         XCTAssertEqual(e.points[players[0].id], 13)
         XCTAssertEqual(e.queenOwnerID, players[0].id)
         press(.move(1), &e, &k)
         press(.queen, &e, &k)
-        XCTAssertEqual(e.points[players[1].id], 0, "only one Q♠ per round")
+        XCTAssertEqual(e.points[players[0].id], 0)
+        XCTAssertEqual(e.points[players[1].id], 13, "Q♠ follows the selected player")
+        XCTAssertEqual(e.queenOwnerID, players[1].id)
+        press(.move(1), &e, &k)
         press(.rest, &e, &k)
-        XCTAssertEqual(e.points[players[1].id], 13)
+        XCTAssertEqual(e.points[players[2].id], 13)
         XCTAssertTrue(e.isRoundValid(players: players))
         press(.adjust(1), &e, &k)
-        XCTAssertEqual(e.points[players[1].id], 13, "+ is disabled once the round is valid, like the chip")
+        XCTAssertEqual(e.points[players[2].id], 13, "+ is disabled once the round is valid, like the chip")
+        press(.queen, &e, &k)
+        XCTAssertEqual(e.queenOwnerID, players[2].id, "queen can move after a normal round reaches 26")
+        XCTAssertEqual(e.points[players[1].id], 0)
+        XCTAssertEqual(e.points[players[2].id], 26)
+        press(.queen, &e, &k)
+        XCTAssertNil(e.queenOwnerID)
+        XCTAssertEqual(e.points[players[2].id], 13, "tapping the selected queen removes only its 13 points")
+    }
+
+    func testQueenFloorAppliesToMinusDigitsAndDelete() {
+        var (e, k) = fresh()
+        press(.queen, &e, &k)
+        press(.adjust(-1), &e, &k)
+        XCTAssertEqual(e.points[players[0].id], 13)
+        press(.digit(5), &e, &k)
+        XCTAssertEqual(e.points[players[0].id], 13)
+        press(.clear, &e, &k)
+        XCTAssertEqual(e.points[players[0].id], 13)
+        press(.digit(1), &e, &k)
+        press(.digit(8), &e, &k, at: t0.addingTimeInterval(0.2))
+        XCTAssertEqual(e.points[players[0].id], 18, "the digit buffer can still enter a value above the floor")
+        press(.queen, &e, &k)
+        press(.clear, &e, &k)
+        XCTAssertEqual(e.points[players[0].id], 0, "clearing is allowed after removing the queen")
     }
 
     func testMoonFollowsPreferenceAndLocksTheValueKeys() {
@@ -100,6 +127,8 @@ final class RoundEntryKeyboardTests: XCTestCase {
         press(.digit(5), &e, &k)
         press(.adjust(-1), &e, &k)
         press(.clear, &e, &k)
+        press(.queen, &e, &k)
+        XCTAssertNil(e.queenOwnerID)
         XCTAssertEqual(e.points[players[2].id], 0)
         XCTAssertEqual(e.points[players[0].id], 26, "moon round ignores value keys, like the disabled controls")
 

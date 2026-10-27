@@ -69,16 +69,24 @@ struct HeartsGame: Equatable, Codable {
         return result
     }
 
-    /// Valid Hearts round (hearts/Q♠ points only, 10♦ excluded): total is 26 (split among ≥2 players),
-    /// -26, or (players - 1) * 26 (shoot the moon). One player having 26 and the rest 0 is invalid.
+    /// Valid Hearts round (hearts/Q♠ points only, 10♦ excluded): 26 points split among players,
+    /// or one of the two exact shoot-the-moon distributions.
     static func isValidRound(penaltyScores: [Int]) -> Bool {
         let n = penaltyScores.count
         guard n > 0 else { return false }
         let sum = penaltyScores.reduce(0, +)
         if sum == 26 {
-            return !penaltyScores.contains(26)
+            return penaltyScores.allSatisfy { (0...25).contains($0) }
         }
-        return sum == -26 || sum == (n - 1) * 26
+        if sum == -26 {
+            return penaltyScores.filter { $0 == -26 }.count == 1
+                && penaltyScores.allSatisfy { $0 == 0 || $0 == -26 }
+        }
+        if sum == (n - 1) * 26 {
+            return penaltyScores.filter { $0 == 0 }.count == 1
+                && penaltyScores.allSatisfy { $0 == 0 || $0 == 26 }
+        }
+        return false
     }
 
     /// Returns true if the given hand represents a "shoot the moon" outcome for the specified player,

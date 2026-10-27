@@ -1,5 +1,13 @@
 # Agent TODO
 
+## Queen entry transfer and score floor (2026-10-27)
+
+- [x] Q♠ chips transfer the queen and its 13 points between players, preserving entered hearts. Tapping the selected Q♠ removes it and exactly 13 points (user decision). Q♠ remains available after a normal round reaches 26; moon score controls keep their existing lock.
+- [x] The selected queen owner's minimum is 13 for steppers, exact-value selection, keyboard digits and Delete. The picker disables 0–12, and the minus button disables at 13. Over-26 entries preserve points during transfers and decrement one point at a time instead of silently dropping an overage.
+- [x] Moon entry clears the old queen selection; round validation requires exact moon distributions rather than accepting any scores with a moon's total. Regression coverage includes transfer/removal, keyboard parity, the score floor, overages, and the 10♦ bonus.
+- [x] Verification: 48 unit regressions passed (`/private/tmp/hs-queen-unit-final.xcresult`); 10 UI checks passed across iPhone 18 Pro and iPad Pro 13-inch (M5), iOS 27.0, light/dark. Picker and transfer screenshots reviewed in all four combinations; `simctl` captures saved too. Results/logs under `/private/tmp/hs-queen-*`, screenshots in `/private/tmp/hs-queen-shots/`. Screenshot identifiers and `git diff --check` pass. Initial simulator accessibility startup/service interruptions occurred before assertions; successful retries are `hs-queen-iphone-light-retry` and `hs-queen-ipad-light-retry`.
+- [ ] Existing-history limitation: saved hands do not record the Q♠ owner, so edit mode cannot reconstruct an ambiguous queen assignment from scores alone. Recording it would require a separate persistence change; this fix preserves the current edit prefill behavior.
+
 ## iPhone landscape scoreboard (2026-10-27)
 
 - [x] iPhone compact-height layouts now keep the full-width scoreboard, bottom Next Round button, and round-entry sheet used in portrait. The inline entry panel remains available on regular/regular unfolded Duo. iPad layout selection is unchanged, including shorter regular-width windows.

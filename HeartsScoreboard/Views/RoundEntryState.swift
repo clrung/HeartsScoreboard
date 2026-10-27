@@ -34,20 +34,59 @@ struct RoundEntryState: Equatable {
     /// Most points one player can take in a round (the whole deck's hearts + Q♠).
     static let maxPoints = 26
 
-    /// Adds `delta` to a player's points, clamped to 0...26 (the stepper and the quick/Q♠/rest chips).
+    /// The Q♠ is included in the selected player's total, so manual edits cannot take them below 13.
+    func minimumPoints(for playerID: UUID) -> Int {
+        queenOwnerID == playerID ? 13 : 0
+    }
+
+    /// Adds `delta`, clamped between that player's minimum and 26 unless an exact queen transfer
+    /// temporarily put the entry above 26; then only negative steps reduce it.
     mutating func adjustPoints(for playerID: UUID, delta: Int) {
-        setPoints(for: playerID, to: (points[playerID] ?? 0) + delta)
+        guard delta != 0 else { return }
+        let current = points[playerID] ?? 0
+        if delta < 0 {
+            points[playerID] = max(minimumPoints(for: playerID), current + delta)
+        } else {
+            let upperBound = max(current, Self.maxPoints)
+            points[playerID] = max(minimumPoints(for: playerID), min(upperBound, current + delta))
+        }
+        clearQueenOwnerIfExactAdd26Moon()
     }
 
-    /// Sets a player's points exactly (the value picker), clamped to 0...26.
+    /// Sets a player's points exactly, clamped between that player's current minimum and 26.
     mutating func setPoints(for playerID: UUID, to value: Int) {
-        points[playerID] = max(0, min(Self.maxPoints, value))
+        points[playerID] = max(minimumPoints(for: playerID), min(Self.maxPoints, value))
+        clearQueenOwnerIfExactAdd26Moon()
     }
 
-    /// Q♠ chip: +13 and remembers the holder (once per round).
+    /// Selects, transfers, or removes the Q♠ while keeping each player's heart points unchanged.
+    /// The exact +13 can temporarily take an entry above 26 so no entered points are lost.
     mutating func addQueenOfSpades(for playerID: UUID) {
-        adjustPoints(for: playerID, delta: 13)
-        if queenOwnerID == nil { queenOwnerID = playerID }
+        if queenOwnerID == playerID {
+            points[playerID] = max(0, (points[playerID] ?? 0) - 13)
+            queenOwnerID = nil
+            return
+        }
+
+        if let previousOwnerID = queenOwnerID {
+            points[previousOwnerID] = max(0, (points[previousOwnerID] ?? 0) - 13)
+        }
+
+        // Keep the transfer exact even if the current entry is already over 26. The user can then
+        // correct the other entered points without this action silently discarding any hearts.
+        points[playerID] = (points[playerID] ?? 0) + 13
+        queenOwnerID = playerID
+        clearQueenOwnerIfExactAdd26Moon()
+    }
+
+    /// Q♠ ownership is incompatible with the add-26 moon distribution. Entry reset/edit paths
+    /// populate a score for every player, so the full dictionary identifies that exact pattern.
+    private mutating func clearQueenOwnerIfExactAdd26Moon() {
+        let scores = Array(points.values)
+        guard scores.count >= 3,
+              scores.filter({ $0 == 0 }).count == 1,
+              scores.allSatisfy({ $0 == 0 || $0 == Self.maxPoints }) else { return }
+        queenOwnerID = nil
     }
 
     /// Rest chip: the points still missing from 26 (nothing when already at or over 26).
@@ -59,6 +98,7 @@ struct RoundEntryState: Equatable {
 
     /// Shoot the moon: add26 = shooter 0, everyone else 26. subtract26 = shooter -26, everyone else 0.
     mutating func applyShootMoon(shooterID: UUID, players: [HeartsGame.Player], preference: ShootMoonPreference) {
+        queenOwnerID = nil
         for p in players {
             switch preference {
             case .add26: points[p.id] = p.id == shooterID ? 0 : 26

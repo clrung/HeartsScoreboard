@@ -92,4 +92,128 @@ final class RoundEntryStateTests: XCTestCase {
         XCTAssertTrue(e.submit(to: m))
         XCTAssertEqual(m.game.hands.count, 2)
     }
+
+    func testQueenChipTransfersAndTogglesWithoutChangingHearts() {
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.setPoints(for: players[0].id, to: 5)
+        e.setPoints(for: players[1].id, to: 8)
+
+        e.addQueenOfSpades(for: players[0].id)
+        XCTAssertEqual(e.points[players[0].id], 18)
+        XCTAssertEqual(e.queenOwnerID, players[0].id)
+
+        e.addQueenOfSpades(for: players[1].id)
+        XCTAssertEqual(e.points[players[0].id], 5, "transferring removes only the queen from the former owner")
+        XCTAssertEqual(e.points[players[1].id], 21, "transferring adds the queen to the new owner's hearts")
+        XCTAssertEqual(e.queenOwnerID, players[1].id)
+
+        e.addQueenOfSpades(for: players[1].id)
+        XCTAssertEqual(e.points[players[1].id], 8, "tapping the selected owner removes only the queen")
+        XCTAssertNil(e.queenOwnerID)
+    }
+
+    func testQueenTransferPreservesPointsWhenItTakesTheEntryOver26() {
+        let m = model()
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.setPoints(for: players[0].id, to: 5)
+        e.setPoints(for: players[1].id, to: 20)
+        e.addQueenOfSpades(for: players[0].id)
+        let totalBeforeTransfer = e.total(players: players)
+
+        e.addQueenOfSpades(for: players[1].id)
+
+        XCTAssertEqual(e.points[players[0].id], 5)
+        XCTAssertEqual(e.points[players[1].id], 33)
+        XCTAssertEqual(e.total(players: players), totalBeforeTransfer, "the transfer must not clamp away entered hearts")
+        XCTAssertFalse(e.canSubmit(players: players, tenRuleOn: false))
+        XCTAssertFalse(e.submit(to: m))
+        XCTAssertTrue(m.game.hands.isEmpty)
+
+        e.adjustPoints(for: players[1].id, delta: -1)
+        XCTAssertEqual(e.points[players[1].id], 32, "a decrement corrects an overage by one step")
+        e.addQueenOfSpades(for: players[1].id)
+        XCTAssertEqual(e.points[players[1].id], 19, "toggling off the queen removes exactly 13")
+        XCTAssertNil(e.queenOwnerID)
+    }
+
+    func testQueenTransferAndTenOfDiamondsSubmitUseAdjustedScores() {
+        let m = model(tenRule: true)
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.setPoints(for: players[0].id, to: 5)
+        e.setPoints(for: players[1].id, to: 8)
+        e.addQueenOfSpades(for: players[0].id)
+        e.addQueenOfSpades(for: players[1].id)
+        e.tenOfDiamondsOwnerID = players[0].id
+
+        XCTAssertEqual(e.points[players[0].id], 5)
+        XCTAssertEqual(e.points[players[1].id], 21)
+        XCTAssertTrue(e.submit(to: m))
+        XCTAssertEqual(m.game.hands[0].pointsByPlayerID[players[0].id], -5)
+        XCTAssertEqual(m.game.hands[0].pointsByPlayerID[players[1].id], 21)
+        XCTAssertEqual(m.game.hands[0].pointsByPlayerID.values.reduce(0, +), 16)
+        XCTAssertEqual(m.game.hands[0].tenOfDiamondsPlayerID, players[0].id)
+    }
+
+    func testManualChangesKeepQueenOwnerAtOrAbove13() {
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.addQueenOfSpades(for: players[0].id)
+
+        XCTAssertEqual(e.minimumPoints(for: players[0].id), 13)
+        XCTAssertEqual(e.minimumPoints(for: players[1].id), 0)
+        e.setPoints(for: players[0].id, to: 0)
+        XCTAssertEqual(e.points[players[0].id], 13)
+        e.adjustPoints(for: players[0].id, delta: -30)
+        XCTAssertEqual(e.points[players[0].id], 13)
+
+        e.addQueenOfSpades(for: players[0].id)
+        XCTAssertEqual(e.minimumPoints(for: players[0].id), 0)
+        XCTAssertEqual(e.points[players[0].id], 0)
+    }
+
+    func testShootingTheMoonClearsQueenOwnership() {
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.addQueenOfSpades(for: players[0].id)
+
+        e.applyShootMoon(shooterID: players[2].id, players: players, preference: .add26)
+
+        XCTAssertNil(e.queenOwnerID)
+        XCTAssertEqual(e.points[players[2].id], 0)
+        XCTAssertEqual(e.points[players[0].id], 26)
+    }
+
+    func testManualEntryClearsQueenOnlyForExactAdd26MoonPattern() {
+        var e = RoundEntryState()
+        e.reset(players: players)
+        e.addQueenOfSpades(for: players[0].id)
+        e.setPoints(for: players[0].id, to: 26)
+        e.setPoints(for: players[1].id, to: 26)
+        e.setPoints(for: players[3].id, to: 10)
+        XCTAssertEqual(e.queenOwnerID, players[0].id)
+        e.setPoints(for: players[2].id, to: 26)
+        XCTAssertEqual(e.queenOwnerID, players[0].id, "the pattern is not a moon while one score is 10")
+        e.adjustPoints(for: players[3].id, delta: -10)
+        XCTAssertEqual(e.points, [players[0].id: 26, players[1].id: 26, players[2].id: 26, players[3].id: 0])
+        XCTAssertNil(e.queenOwnerID, "the final manual adjustment completed the add-26 moon pattern")
+
+        e.reset(players: players)
+        e.addQueenOfSpades(for: players[0].id)
+        e.setPoints(for: players[0].id, to: 26)
+        e.setPoints(for: players[1].id, to: 26)
+        e.setPoints(for: players[2].id, to: 13)
+        e.setPoints(for: players[3].id, to: 13)
+        XCTAssertEqual(e.total(players: players), 78)
+        XCTAssertEqual(e.queenOwnerID, players[0].id, "a sum of 78 without the exact moon pattern keeps ownership")
+
+        e.reset(players: players)
+        e.addQueenOfSpades(for: players[0].id)
+        e.setPoints(for: players[0].id, to: 13)
+        e.setPoints(for: players[1].id, to: 13)
+        XCTAssertEqual(e.total(players: players), 26)
+        XCTAssertEqual(e.queenOwnerID, players[0].id, "a normal 26-point round is not a moon")
+    }
 }
