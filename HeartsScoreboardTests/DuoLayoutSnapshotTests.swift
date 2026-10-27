@@ -271,6 +271,61 @@ final class DuoLayoutSnapshotTests: XCTestCase {
                        category: .extraExtraExtraLarge)
     }
 
+    // MARK: Main-screen polish (chips, pass-direction pill, bottom-bar heights)
+
+    // The pass-direction pill never truncates by construction (ViewThatFits: word, else arrow only);
+    // that is checked visually in the polish-*.png snapshots.
+    private static let iPhoneAir = CGSize(width: 420, height: 912)
+    private static let iPad11 = CGSize(width: 834, height: 1210)
+
+    /// Vertical extent (top, bottom, in points) of the non-felt content at
+    /// column `x`: compares each pixel with the felt at the screen's left edge on the same row. (Accessibility
+    /// frames aren't available in a unit-test host, so this measures the rendered pixels.)
+    private func extent(_ image: UIImage, x: CGFloat) -> (top: CGFloat, bottom: CGFloat)? {
+        func differs(_ y: CGFloat) -> Bool {
+            let p = pixel(image, x, y), f = pixel(image, 2, y)
+            return abs(p.r - f.r) + abs(p.g - f.g) + abs(p.b - f.b) > 0.12
+        }
+        // Walk up from the home-indicator inset to the first button pixel, then up to its top edge (the
+        // scoreboard card above is separated from the bar by a felt gap, so the block stays contiguous).
+        var y = image.size.height - 22
+        while y > image.size.height * 0.6 && !differs(y) { y -= 0.5 }
+        guard y > image.size.height * 0.6 else { return nil }
+        let bottom = y
+        while y > image.size.height * 0.6 && differs(y) { y -= 0.5 }
+        return (y, bottom)
+    }
+
+    private func luminance(_ c: (r: CGFloat, g: CGFloat, b: CGFloat)) -> CGFloat { 0.2126 * c.r + 0.7152 * c.g + 0.0722 * c.b }
+
+    private func polish(_ name: String, size: CGSize, regular: Bool, dark: Bool, category: UIContentSizeCategory?) throws {
+        let r = try render("polish-\(name)", size: size, regular: regular,
+                           model: model(names: ["Ace", "Deuce", "Trey", "Queen"], rounds: 5),
+                           dark: dark, category: category)
+        let w = size.width
+        // The iPad split layout has no Next Round button, so only the phone layout compares heights.
+        if !regular {
+            let next = try XCTUnwrap(extent(r.image, x: w * 0.7), "Next Round not found (\(name))")
+            let newGame = try XCTUnwrap(extent(r.image, x: w * 0.095), "New Game chip not found (\(name))")
+            XCTAssertEqual(newGame.top, next.top, accuracy: 1.5, "New Game chip top must match Next Round (\(name))")
+            XCTAssertEqual(newGame.bottom, next.bottom, accuracy: 1.5, "New Game chip bottom must match Next Round (\(name))")
+            if dark {
+                // Just inside the chip's top edge (above its icon): the lifted felt fill, not the old near-black one.
+                let chip = pixel(r.image, w * 0.095, newGame.top + 6)
+                XCTAssertGreaterThan(luminance(chip), 0.3, "dark-mode chip too dark against the felt (\(name))")
+            }
+        }
+    }
+
+    func testPolishAirDefaultLight() throws { try polish("air-default-light", size: Self.iPhoneAir, regular: false, dark: false, category: nil) }
+    func testPolishAirDefaultDark() throws { try polish("air-default-dark", size: Self.iPhoneAir, regular: false, dark: true, category: nil) }
+    func testPolishAirXXXLLight() throws { try polish("air-xxxl-light", size: Self.iPhoneAir, regular: false, dark: false, category: .extraExtraExtraLarge) }
+    func testPolishAirXXXLDark() throws { try polish("air-xxxl-dark", size: Self.iPhoneAir, regular: false, dark: true, category: .extraExtraExtraLarge) }
+    func testPolishIPadDefaultLight() throws { try polish("ipad-default-light", size: Self.iPad11, regular: true, dark: false, category: nil) }
+    func testPolishIPadDefaultDark() throws { try polish("ipad-default-dark", size: Self.iPad11, regular: true, dark: true, category: nil) }
+    func testPolishIPadXXXLLight() throws { try polish("ipad-xxxl-light", size: Self.iPad11, regular: true, dark: false, category: .extraExtraExtraLarge) }
+    func testPolishIPadXXXLDark() throws { try polish("ipad-xxxl-dark", size: Self.iPad11, regular: true, dark: true, category: .extraExtraExtraLarge) }
+
     func testInner6PlayersTenRuleMoonDefaultSize() throws {
         _ = try render("outer-compact-6p-10d-default", size: Self.outer, regular: false,
                        model: model(names: ["Alexandra", "Bartholomew", "Christopher", "Dominique", "Evangeline", "Fitzgerald"], rounds: 6, tenRule: true))

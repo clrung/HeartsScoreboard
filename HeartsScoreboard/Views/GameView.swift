@@ -574,10 +574,6 @@ struct GameView: View {
         return label
     }
 
-    /// Content height shared by the three bottom-bar buttons so they render at one height; scales with
-    /// the bar's callout text so the chips keep matching Next Round at every Dynamic Type size.
-    @ScaledMetric(relativeTo: .callout) private var barContentHeight: CGFloat = 35
-
     /// Deep green for the primary button: white text on it is ~5.9:1 in both appearances
     /// (the dark-mode accent is too light for white text).
     private static let feltButtonGreen = Color(red: 0.10, green: 0.45, blue: 0.20)
@@ -587,6 +583,8 @@ struct GameView: View {
     /// round-entry pane is inline), so it just shows the secondary controls.
     private var bottomBar: some View {
         ViewThatFits(in: .horizontal) {
+            // The chips stretch (maxHeight: .infinity inside FeltChipLook) to the row's ideal height, which
+            // Next Round sets, so all three always share one height at any Dynamic Type size.
             HStack(spacing: 10) {
                 newGameButton
                 undoButton
@@ -597,6 +595,7 @@ struct GameView: View {
                     Spacer(minLength: 0)
                 }
             }
+            .fixedSize(horizontal: false, vertical: true)
             VStack(spacing: 8) {
                 if !usesSplitLayout {
                     nextRoundButton
@@ -619,7 +618,7 @@ struct GameView: View {
             showNewGameAlert = true
         } label: {
             Image(systemName: "plus.circle")
-                .frame(minWidth: 20, minHeight: barContentHeight)
+                .frame(minWidth: 20)
         }
         .buttonStyle(FeltChipButtonStyle())
         .disabled(model.game.hands.isEmpty)
@@ -687,7 +686,6 @@ struct GameView: View {
             performUndo()
         } label: {
             Image(systemName: "arrow.uturn.backward")
-                .frame(minHeight: barContentHeight)
         }
         .buttonStyle(FeltChipButtonStyle())
         .keyboardShortcut("z", modifiers: .command)
@@ -866,9 +864,10 @@ private struct GameRoundEventsModifier: ViewModifier {
     }
 }
 
-/// Secondary button on the green felt: opaque system-background chip with an accent label
-/// (about 5.6:1 in light, 6.5:1 in dark), so it stays legible where a translucent green
-/// `.bordered` button would wash out. Disabled state dims the whole chip.
+/// Secondary button on the green felt: opaque chip, so it stays legible where a translucent green
+/// `.bordered` button would wash out. Light: system-background fill with an accent label (about 5.6:1).
+/// Dark: a lifted felt green with a white label (about 6:1), because a near-black fill vanished on the
+/// dark felt. Disabled state dims the whole chip.
 private struct FeltChipButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled
 
@@ -883,16 +882,20 @@ private struct FeltChipLook: ViewModifier {
     let isEnabled: Bool
     var isPressed = false
     @Environment(\.colorSchemeContrast) private var contrast
+    @Environment(\.colorScheme) private var colorScheme
 
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(Theme.accent)
+            .foregroundStyle(Theme.feltChipLabel(for: colorScheme))
             .padding(.horizontal, 12)
             .padding(.vertical, 7)
-            .background(Capsule(style: .continuous).fill(Color(.systemBackground)))
+            // 44pt tap target; stretches to a sibling's height when the parent fixes the row height.
+            .frame(minHeight: 44, maxHeight: .infinity)
+            .background(Capsule(style: .continuous).fill(Theme.feltChipFill(for: colorScheme)))
             .overlay(
                 Capsule(style: .continuous)
-                    .strokeBorder(Theme.accent.opacity(contrast == .increased ? 1 : 0.35), lineWidth: contrast == .increased ? 2 : 1)
+                    .strokeBorder(Theme.feltChipBorder(for: colorScheme, increasedContrast: contrast == .increased),
+                                  lineWidth: contrast == .increased ? 2 : 1)
             )
             .opacity(isEnabled ? (isPressed ? 0.7 : 1) : 0.45)
             .contentShape(.hoverEffect, Capsule(style: .continuous))

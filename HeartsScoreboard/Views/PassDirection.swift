@@ -58,12 +58,18 @@ struct PassDirectionChip: View {
     @Environment(\.colorSchemeContrast) private var contrast
 
     var body: some View {
-        Label {
-            Text(direction.title)
-        } icon: {
+        // Full word when it fits; otherwise the arrow alone (the spoken title stays the accessibility label)
+        // rather than a truncated "L…".
+        ViewThatFits(in: .horizontal) {
+            Label {
+                Text(direction.title)
+            } icon: {
+                Image(systemName: direction.symbolName)
+            }
+            .labelStyle(.titleAndIcon)
+            .fixedSize(horizontal: true, vertical: false)
             Image(systemName: direction.symbolName)
         }
-        .labelStyle(.titleAndIcon)
         .font(.subheadline.weight(.semibold))
         .foregroundStyle(Color.white)
         .lineLimit(1)

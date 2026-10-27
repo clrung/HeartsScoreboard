@@ -67,6 +67,22 @@ enum Theme {
         }
     }
 
+    /// Secondary chips (New Game, Undo) on the felt. Light keeps the system-background chip with an accent
+    /// label; dark uses a lifted felt green (~2.4:1 against the felt, plus a light border) with a white
+    /// label (~6:1) because a near-black chip all but disappeared.
+    static func feltChipFill(for colorScheme: ColorScheme) -> Color {
+        colorScheme == .dark ? Color(red: 0.20, green: 0.38, blue: 0.27) : Color(.systemBackground)
+    }
+
+    static func feltChipLabel(for colorScheme: ColorScheme) -> Color {
+        colorScheme == .dark ? Color.white : accent
+    }
+
+    static func feltChipBorder(for colorScheme: ColorScheme, increasedContrast: Bool) -> Color {
+        if colorScheme == .dark { return Color.white.opacity(increasedContrast ? 1 : 0.45) }
+        return accent.opacity(increasedContrast ? 1 : 0.35)
+    }
+
     /// Leader highlight. Gold rather than green so it doesn't blend into the felt;
     /// always paired with a crown symbol so it's never conveyed by color alone.
     static let leader = Color(red: 0.96, green: 0.76, blue: 0.20)
