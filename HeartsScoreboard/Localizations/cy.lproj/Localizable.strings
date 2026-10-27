@@ -81,8 +81,6 @@
 "No Games Yet" = "Dim Gemau Eto";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Bydd gemau gorffenedig yn ymddangos yma.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rownd";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Saethu'r lleuad";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d pwynt";
 "%@ won with %lld points." = "Enillodd %@ gyda %lld pwynt.";
 "%@ tied for the win with %lld points." = "Daeth %@ yn gyfartal am y fuddugoliaeth gyda %lld pwynt.";
-"%lld rounds" = "%lld rownd";
-"1 round" = "1 rownd";
 "Hearts Scoreboard result" = "Canlyniad Sgorfwrdd Hearts";
 "Share result" = "Rhannu canlyniad";
 "Left" = "Chwith";

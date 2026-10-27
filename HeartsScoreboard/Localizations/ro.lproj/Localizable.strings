@@ -81,8 +81,6 @@
 "No Games Yet" = "Niciun joc încă";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Jocurile terminate vor apărea aici.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d runde";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "A tras luna";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d puncte";
 "%@ won with %lld points." = "%@ a câștigat cu %lld puncte.";
 "%@ tied for the win with %lld points." = "%@ a egalat la victorie cu %lld puncte.";
-"%lld rounds" = "%lld runde";
-"1 round" = "1 rundă";
 "Hearts Scoreboard result" = "Rezultat Scor Hearts";
 "Share result" = "Partajați rezultatul";
 "Left" = "Stânga";

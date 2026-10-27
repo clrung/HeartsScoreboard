@@ -81,8 +81,6 @@
 "No Games Yet" = "Brak gier";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Zakończone gry pojawią się tutaj.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Rundy: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Wzięcie księżyca";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d punktów";
 "%@ won with %lld points." = "Zwycięstwo: %@, punktów: %lld.";
 "%@ tied for the win with %lld points." = "Zwycięstwo ex aequo: %@, punktów: %lld.";
-"%lld rounds" = "%lld rund";
-"1 round" = "1 runda";
 "Hearts Scoreboard result" = "Wynik gry w Kierki";
 "Share result" = "Udostępnij wynik";
 "Left" = "W lewo";

@@ -81,8 +81,6 @@
 "No Games Yet" = "ຍັງບໍ່ມີເກມ";
 /* HistoryView empty state description */
 "Finished games will show up here." = "ເກມທີ່ຈົບແລ້ວຈະສະແດງຢູ່ນີ້.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d ຮອບ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "ເອົາໝົດ";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d ຄະແນນ";
 "%@ won with %lld points." = "%@ ຊະນະດ້ວຍ %lld ຄະແນນ.";
 "%@ tied for the win with %lld points." = "%@ ສະເໝີກັນເພື່ອຊະນະດ້ວຍ %lld ຄະແນນ.";
-"%lld rounds" = "%lld ຮອບ";
-"1 round" = "1 ຮອບ";
 "Hearts Scoreboard result" = "ຜົນໄດ້ຮັບຂອງກະດານຄະແນນຫົວໃຈ";
 "Share result" = "ແບ່ງປັນຜົນໄດ້ຮັບ";
 "Left" = "ຊ້າຍ";

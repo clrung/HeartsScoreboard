@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>%lld rounds</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@count@</string>
+		<key>count</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>few</key>
+			<string>%lld جولات</string>
+			<key>many</key>
+			<string>%lld جولة</string>
+			<key>one</key>
+			<string>جولة واحدة</string>
+			<key>other</key>
+			<string>%lld جولة</string>
+			<key>two</key>
+			<string>جولتان</string>
+			<key>zero</key>
+			<string>%lld جولة</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

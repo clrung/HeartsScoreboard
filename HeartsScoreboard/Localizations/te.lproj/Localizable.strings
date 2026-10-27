@@ -81,8 +81,6 @@
 "No Games Yet" = "ఇంకా గేమ్‌లు లేవు";
 /* HistoryView empty state description */
 "Finished games will show up here." = "పూర్తైన గేమ్‌లు ఇక్కడ కనిపిస్తాయి.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d రౌండ్లు";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "చంద్రుడిని తీసుకున్నారు";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d పాయింట్లు";
 "%@ won with %lld points." = "%@ %lld పాయింట్లతో గెలిచింది.";
 "%@ tied for the win with %lld points." = "%@ %lld పాయింట్లతో విజయానికి టై అయింది.";
-"%lld rounds" = "%lld రౌండ్లు";
-"1 round" = "1 రౌండ్";
 "Hearts Scoreboard result" = "హార్ట్స్ స్కోర్‌బోర్డ్ ఫలితం";
 "Share result" = "ఫలితాన్ని భాగస్వామ్యం చేయండి";
 "Left" = "ఎడమ";

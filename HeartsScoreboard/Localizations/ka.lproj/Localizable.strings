@@ -81,8 +81,6 @@
 "No Games Yet" = "ჯერ თამაშები არ არის";
 /* HistoryView empty state description */
 "Finished games will show up here." = "დასრულებული თამაშები აქ გამოჩნდება.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d რაუნდი";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "მთვარეს ესროლა";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d ქულა";
 "%@ won with %lld points." = "%@ მოიგო %lld ქულით.";
 "%@ tied for the win with %lld points." = "%@ გამარჯვებისთვის თანაბარი იყო %lld ქულით.";
-"%lld rounds" = "%lld რაუნდი";
-"1 round" = "1 რაუნდი";
 "Hearts Scoreboard result" = "გულების ანგარიშის შედეგი";
 "Share result" = "გააზიარეთ შედეგი";
 "Left" = "მარცხნივ";

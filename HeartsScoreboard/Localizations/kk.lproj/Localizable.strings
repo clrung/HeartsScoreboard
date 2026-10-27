@@ -81,8 +81,6 @@
 "No Games Yet" = "Әлі ойын жоқ";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Аяқталған ойындар осында көрінеді.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d раунд";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Айды атты";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d ұпай";
 "%@ won with %lld points." = "%@ %lld ұпаймен жеңді.";
 "%@ tied for the win with %lld points." = "Тең жеңіс: %@, %lld ұпай.";
-"%lld rounds" = "%lld раунд";
-"1 round" = "1 раунд";
 "Hearts Scoreboard result" = "Hearts нәтижесі";
 "Share result" = "Нәтижені бөлісу";
 "Left" = "Солға";

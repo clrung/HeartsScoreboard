@@ -81,8 +81,6 @@
 "No Games Yet" = "Vēl nav spēļu";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Pabeigtās spēles parādīsies šeit.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Kārtu skaits: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Izšāva mēnesi";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d punkti";
 "%@ won with %lld points." = "%@ uzvarēja ar %lld punktiem.";
 "%@ tied for the win with %lld points." = "%@ ir neizšķirts par uzvaru ar %lld punktiem.";
-"%lld rounds" = "%lld kārtas";
-"1 round" = "1 kārta";
 "Hearts Scoreboard result" = "Hearts Scoreboard rezultāts";
 "Share result" = "Dalieties ar rezultātu";
 "Left" = "Pa kreisi";

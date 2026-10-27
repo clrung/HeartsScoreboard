@@ -81,8 +81,6 @@
 "No Games Yet" = "Ingen spil endnu";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Afsluttede spil vises her.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d runder";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Skød månen";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d point";
 "%@ won with %lld points." = "%@ vandt med %lld point.";
 "%@ tied for the win with %lld points." = "%@ uafgjort til sejren med %lld point.";
-"%lld rounds" = "%lld runder";
-"1 round" = "1 runde";
 "Hearts Scoreboard result" = "Resultat fra Hjerter resultattavle";
 "Share result" = "Del resultat";
 "Left" = "Venstre";

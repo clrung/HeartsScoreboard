@@ -81,8 +81,6 @@
 "No Games Yet" = "ဂိမ်း မရှိသေးပါ";
 /* HistoryView empty state description */
 "Finished games will show up here." = "ပြီးဆုံးသော ဂိမ်းများ ဤနေရာတွင် ပေါ်လာမည်။";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d အချီ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "အားလုံးယူသည်";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d။ %@၊ %d မှတ်";
 "%@ won with %lld points." = "%@ သည် %lld မှတ်ဖြင့် အနိုင်ရခဲ့သည်။";
 "%@ tied for the win with %lld points." = "%@ သည် %lld မှတ်ဖြင့် ပူးတွဲအနိုင်ရသည်။";
-"%lld rounds" = "%lld အချီ";
-"1 round" = "1 အချီ";
 "Hearts Scoreboard result" = "Hearts အမှတ်စာရင်း ရလဒ်";
 "Share result" = "ရလဒ်ကိုမျှဝေပါ";
 "Left" = "ဘယ်ဘက်";

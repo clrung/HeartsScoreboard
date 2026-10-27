@@ -81,8 +81,6 @@
 "No Games Yet" = "Тоглоом алга";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Дууссан тоглоомууд энд харагдана.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d тойрог";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Сарыг буудсан";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d оноо";
 "%@ won with %lld points." = "%@ %lld оноогоор хожсон.";
 "%@ tied for the win with %lld points." = "Тэнцсэн ялалт: %@, %lld оноо.";
-"%lld rounds" = "%lld тойрог";
-"1 round" = "1 тойрог";
 "Hearts Scoreboard result" = "Hearts-ийн үр дүн";
 "Share result" = "Үр дүнг хуваалцах";
 "Left" = "Зүүн";

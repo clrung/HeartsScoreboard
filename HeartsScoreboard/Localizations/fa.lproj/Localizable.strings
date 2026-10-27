@@ -81,8 +81,6 @@
 "No Games Yet" = "هنوز بازی‌ای نیست";
 /* HistoryView empty state description */
 "Finished games will show up here." = "بازی‌های تمام‌شده اینجا نمایش داده می‌شوند.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d دور";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "به ماه شلیک کرد";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@، %d امتیاز";
 "%@ won with %lld points." = "%@ با %lld امتیاز برنده شد.";
 "%@ tied for the win with %lld points." = "%@ با %lld امتیاز برای برد مساوی شد.";
-"%lld rounds" = "%lld دور";
-"1 round" = "1 دور";
 "Hearts Scoreboard result" = "نتیجه جدول امتیازات قلب‌ها";
 "Share result" = "نتیجه را به اشتراک بگذارید";
 "Left" = "چپ";

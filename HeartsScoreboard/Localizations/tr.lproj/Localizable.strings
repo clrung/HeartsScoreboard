@@ -81,8 +81,6 @@
 "No Games Yet" = "Henüz Oyun Yok";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Biten oyunlar burada görünecek.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d tur";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ay'ı aldı";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d puan";
 "%@ won with %lld points." = "%@, %lld puanla kazandı.";
 "%@ tied for the win with %lld points." = "%@, %lld puanla galibiyette berabere kaldı.";
-"%lld rounds" = "%lld tur";
-"1 round" = "1 tur";
 "Hearts Scoreboard result" = "Kalpler Skor Tablosu sonucu";
 "Share result" = "Sonucu paylaş";
 "Left" = "Sola";

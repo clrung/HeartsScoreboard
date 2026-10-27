@@ -81,8 +81,6 @@
 "No Games Yet" = "Դեռ խաղեր չկան";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Ավարտված խաղերը կհայտնվեն այստեղ։";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d փուլ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Կրակեց լուսնին";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d միավոր";
 "%@ won with %lld points." = "%@-ը հաղթեց %lld միավորով։";
 "%@ tied for the win with %lld points." = "%@-ը %lld միավորով հավասարվեց հաղթանակի։";
-"%lld rounds" = "%lld փուլ";
-"1 round" = "1 փուլ";
 "Hearts Scoreboard result" = "Hearts Scoreboard-ի արդյունքը";
 "Share result" = "Կիսվեք արդյունքով";
 "Left" = "Ձախ";

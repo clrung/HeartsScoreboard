@@ -81,8 +81,6 @@
 "No Games Yet" = "尚無遊戲";
 /* HistoryView empty state description */
 "Finished games will show up here." = "已結束的遊戲會顯示在這裡。";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d 輪";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "全收";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "第 %d 名，%@，%d 分";
 "%@ won with %lld points." = "%@ 以 %lld 分獲勝。";
 "%@ tied for the win with %lld points." = "%@ 以 %lld 分並列獲勝。";
-"%lld rounds" = "%lld 輪";
-"1 round" = "1輪";
 "Hearts Scoreboard result" = "紅心大戰計分結果";
 "Share result" = "分享結果";
 "Left" = "左";

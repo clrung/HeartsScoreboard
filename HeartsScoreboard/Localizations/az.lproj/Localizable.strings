@@ -81,8 +81,6 @@
 "No Games Yet" = "Hələ oyun yoxdur";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Bitmiş oyunlar burada görünəcək.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d raund";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ayı vurdu";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d xal";
 "%@ won with %lld points." = "%@ %lld xalla qalib gəldi.";
 "%@ tied for the win with %lld points." = "%@ %lld xalla qələbəni bölüşdü.";
-"%lld rounds" = "%lld raund";
-"1 round" = "1 raund";
 "Hearts Scoreboard result" = "Hearts Scoreboard nəticəsi";
 "Share result" = "Nəticəni paylaşın";
 "Left" = "Sol";

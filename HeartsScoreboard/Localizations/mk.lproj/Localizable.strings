@@ -81,8 +81,6 @@
 "No Games Yet" = "Сè уште нема игри";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Завршените игри ќе се појават овде.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d круга";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Пукање во месечината";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d поени";
 "%@ won with %lld points." = "%@ победи со %lld поени.";
 "%@ tied for the win with %lld points." = "%@: заедничка победа со %lld поени.";
-"%lld rounds" = "%lld круга";
-"1 round" = "1 круг";
 "Hearts Scoreboard result" = "Резултат од Hearts";
 "Share result" = "Споделете го резултатот";
 "Left" = "Лево";

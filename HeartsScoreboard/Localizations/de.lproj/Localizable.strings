@@ -81,8 +81,6 @@
 "No Games Yet" = "Noch keine Spiele";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Beendete Spiele erscheinen hier.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d Runden";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Mond geschossen";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d Punkte";
 "%@ won with %lld points." = "%@ hat mit %lld Punkten gewonnen.";
 "%@ tied for the win with %lld points." = "%@ teilt sich den Sieg mit %lld Punkten.";
-"%lld rounds" = "%lld Runden";
-"1 round" = "1 Runde";
 "Hearts Scoreboard result" = "Ergebnis aus Herz-Zähler";
 "Share result" = "Ergebnis teilen";
 "Left" = "Links";

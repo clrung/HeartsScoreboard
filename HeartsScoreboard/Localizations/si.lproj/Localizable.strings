@@ -81,8 +81,6 @@
 "No Games Yet" = "තවම ක්‍රීඩා නැත";
 /* HistoryView empty state description */
 "Finished games will show up here." = "අවසන් වූ ක්‍රීඩා මෙහි පෙන්වයි.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "වට %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "සඳ ගත්තා";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, ලකුණු %d";
 "%@ won with %lld points." = "%@ ලකුණු %lldක් සමඟින් දිනුවා.";
 "%@ tied for the win with %lld points." = "%@ ලකුණු %lldක් සමඟ ජයග්‍රහණය සඳහා සම විය.";
-"%lld rounds" = "වට %lldක්";
-"1 round" = "1 වටයක්";
 "Hearts Scoreboard result" = "හාර්ට්ස් ලකුණු පුවරුවේ ප්‍රතිඵලය";
 "Share result" = "ප්රතිඵල බෙදාගන්න";
 "Left" = "වම";

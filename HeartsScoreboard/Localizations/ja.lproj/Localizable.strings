@@ -100,8 +100,6 @@
 "No Games Yet" = "ゲームはまだありません";
 /* HistoryView empty state description */
 "Finished games will show up here." = "終了したゲームはここに表示されます。";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%dラウンド";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "月を取った";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -165,8 +163,6 @@
 "%d. %@, %d points" = "%d位 %@、%d点";
 "%@ won with %lld points." = "%@が%lld点で勝利しました。";
 "%@ tied for the win with %lld points." = "%@が%lld点で同率首位です。";
-"%lld rounds" = "%lldラウンド";
-"1 round" = "1ラウンド";
 "Hearts Scoreboard result" = "ハーツ スコアボードの結果";
 "Share result" = "結果を共有";
 "Left" = "左";

@@ -81,8 +81,6 @@
 "No Games Yet" = "Ende pa lojëra";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Lojërat e përfunduara do të shfaqen këtu.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d raunde";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Gjuajti hënën";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d pikë";
 "%@ won with %lld points." = "%@ fitoi me %lld pikë.";
 "%@ tied for the win with %lld points." = "%@ barazoi për fitoren me %lld pikë.";
-"%lld rounds" = "%lld raunde";
-"1 round" = "1 raund";
 "Hearts Scoreboard result" = "Rezultati i tabelës Hearts";
 "Share result" = "Ndani rezultatin";
 "Left" = "Majtas";

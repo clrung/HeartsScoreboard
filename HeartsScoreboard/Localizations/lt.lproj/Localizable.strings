@@ -81,8 +81,6 @@
 "No Games Yet" = "Žaidimų dar nėra";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Baigti žaidimai bus rodomi čia.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Turų: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Šovė į mėnulį";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, taškų: %d";
 "%@ won with %lld points." = "%@ laimėjo su %lld taškais.";
 "%@ tied for the win with %lld points." = "%@ pasidalijo pergalę (%lld taškų).";
-"%lld rounds" = "Turų: %lld";
-"1 round" = "1 turas";
 "Hearts Scoreboard result" = "Širdelių rezultatų suvestinės rezultatas";
 "Share result" = "Pasidalinkite rezultatu";
 "Left" = "Kairėn";

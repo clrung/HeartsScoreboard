@@ -81,8 +81,6 @@
 "No Games Yet" = "Engir leikir enn";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Kláraðir leikir birtast hér.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d umferðir";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Skaut tunglið";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d stig";
 "%@ won with %lld points." = "%@ vann með %lld stigum.";
 "%@ tied for the win with %lld points." = "%@ deildi sigrinum með %lld stigum.";
-"%lld rounds" = "%lld umferðir";
-"1 round" = "1 umferð";
 "Hearts Scoreboard result" = "Niðurstaða úr Hearts stigatöflu";
 "Share result" = "Deila niðurstöðu";
 "Left" = "Vinstri";

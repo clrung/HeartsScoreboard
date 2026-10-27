@@ -100,8 +100,6 @@
 "No Games Yet" = "Nog geen spellen";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Afgeronde spellen verschijnen hier.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rondes";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Pakte de maan";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -165,8 +163,6 @@
 "%d. %@, %d points" = "%d. %@, %d punten";
 "%@ won with %lld points." = "%@ heeft gewonnen met %lld punten.";
 "%@ tied for the win with %lld points." = "%@ was gelijk voor de overwinning met %lld punten.";
-"%lld rounds" = "%lld rondes";
-"1 round" = "1 ronde";
 "Hearts Scoreboard result" = "Hartenjagen Scorebord-resultaat";
 "Share result" = "Resultaat delen";
 "Left" = "Links";

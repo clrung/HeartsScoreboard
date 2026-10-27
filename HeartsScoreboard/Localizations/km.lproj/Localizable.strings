@@ -81,8 +81,6 @@
 "No Games Yet" = "មិនទាន់មានហ្គេមទេ";
 /* HistoryView empty state description */
 "Finished games will show up here." = "ហ្គេមដែលបានបញ្ចប់នឹងបង្ហាញនៅទីនេះ។";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d ជុំ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "យកទាំងអស់";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d។ %@, %d ពិន្ទុ";
 "%@ won with %lld points." = "%@ បានឈ្នះដោយ %lld ពិន្ទុ។";
 "%@ tied for the win with %lld points." = "%@ បាន​ស្មើ​សម្រាប់​ការ​ឈ្នះ​ដោយ​មាន %lld ពិន្ទុ។";
-"%lld rounds" = "%lld ជុំ";
-"1 round" = "1 ជុំ";
 "Hearts Scoreboard result" = "លទ្ធផលតារាងពិន្ទុបេះដូង";
 "Share result" = "ចែករំលែកលទ្ធផល";
 "Left" = "ឆ្វេង";

@@ -81,8 +81,6 @@
 "No Games Yet" = "Awukho Umdlalo Okwamanje";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Imidlalo eqediwe izovela lapha.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Imijikelezo engu-%d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Wadubula inyanga";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d amaphuzu";
 "%@ won with %lld points." = "%@ uwine ngamaphuzu angu-%lld.";
 "%@ tied for the win with %lld points." = "%@ ulingene ekuwineni ngamaphuzu angu-%lld.";
-"%lld rounds" = "%lld imijikelezo";
-"1 round" = "1 umjikelezo";
 "Hearts Scoreboard result" = "Umphumela we-Hearts Scoreboard";
 "Share result" = "Yabelana ngomphumela";
 "Left" = "Kwesobunxele";

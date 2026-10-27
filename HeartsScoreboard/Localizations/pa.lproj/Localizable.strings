@@ -81,8 +81,6 @@
 "No Games Yet" = "ਹਾਲੇ ਕੋਈ ਗੇਮ ਨਹੀਂ";
 /* HistoryView empty state description */
 "Finished games will show up here." = "ਮੁਕੰਮਲ ਹੋਈਆਂ ਗੇਮਾਂ ਇੱਥੇ ਦਿਖਾਈਆਂ ਜਾਣਗੀਆਂ।";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d ਦੌਰ";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "ਚੰਦ ਲਿਆ";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d। %@, %d ਅੰਕ";
 "%@ won with %lld points." = "%@ %lld ਅੰਕਾਂ ਨਾਲ ਜਿੱਤਿਆ।";
 "%@ tied for the win with %lld points." = "%@ %lld ਅੰਕਾਂ ਨਾਲ ਜਿੱਤ ਲਈ ਬਰਾਬਰੀ ਕੀਤੀ।";
-"%lld rounds" = "%lld ਦੌਰ";
-"1 round" = "1 ਦੌਰ";
 "Hearts Scoreboard result" = "ਹਾਰਟਸ ਸਕੋਰਬੋਰਡ ਨਤੀਜਾ";
 "Share result" = "ਨਤੀਜਾ ਸਾਂਝਾ ਕਰੋ";
 "Left" = "ਖੱਬੇ";

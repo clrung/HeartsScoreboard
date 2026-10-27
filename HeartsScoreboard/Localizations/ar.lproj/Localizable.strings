@@ -81,8 +81,6 @@
 "No Games Yet" = "لا توجد ألعاب بعد";
 /* HistoryView empty state description */
 "Finished games will show up here." = "ستظهر الألعاب المنتهية هنا.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d جولات";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "أخذ القمر";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@، %d نقطة";
 "%@ won with %lld points." = "فاز %@ برصيد %lld نقطة.";
 "%@ tied for the win with %lld points." = "%@ تعادل في الفوز برصيد %lld نقطة.";
-"%lld rounds" = "%lld جولات";
-"1 round" = "1 جولة";
 "Hearts Scoreboard result" = "نتيجة لوحة قلوب";
 "Share result" = "مشاركة النتيجة";
 "Left" = "يسار";

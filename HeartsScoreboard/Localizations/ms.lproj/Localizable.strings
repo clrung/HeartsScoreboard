@@ -81,8 +81,6 @@
 "No Games Yet" = "Belum Ada Permainan";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Permainan yang tamat akan muncul di sini.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d pusingan";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Tembak bulan";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d mata";
 "%@ won with %lld points." = "%@ menang dengan %lld mata.";
 "%@ tied for the win with %lld points." = "%@ seri sebagai pemenang dengan %lld mata.";
-"%lld rounds" = "%lld pusingan";
-"1 round" = "1 pusingan";
 "Hearts Scoreboard result" = "Keputusan Papan Markah Hati";
 "Share result" = "Kongsi hasil";
 "Left" = "Kiri";

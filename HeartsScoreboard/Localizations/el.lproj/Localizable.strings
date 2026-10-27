@@ -81,8 +81,6 @@
 "No Games Yet" = "Κανένα παιχνίδι ακόμη";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Τα ολοκληρωμένα παιχνίδια θα εμφανίζονται εδώ.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d γύροι";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Πυροβόλησε το φεγγάρι";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d πόντοι";
 "%@ won with %lld points." = "Ο παίκτης %@ κέρδισε με %lld πόντους.";
 "%@ tied for the win with %lld points." = "Ισοπαλία για τη νίκη: %@ με %lld πόντους.";
-"%lld rounds" = "%lld γύροι";
-"1 round" = "1 γύρος";
 "Hearts Scoreboard result" = "Αποτέλεσμα του πίνακα αποτελεσμάτων Hearts";
 "Share result" = "Κοινή χρήση αποτελέσματος";
 "Left" = "Αριστερά";

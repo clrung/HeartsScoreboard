@@ -81,8 +81,6 @@
 "No Games Yet" = "Még nincs játék";
 /* HistoryView empty state description */
 "Finished games will show up here." = "A befejezett játékok itt jelennek meg.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d kör";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Lelőtte a holdat";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d pont";
 "%@ won with %lld points." = "%@ nyert %lld ponttal.";
 "%@ tied for the win with %lld points." = "%@ döntetlen a győzelemért, %lld ponttal.";
-"%lld rounds" = "%lld kör";
-"1 round" = "1 kör";
 "Hearts Scoreboard result" = "Szívek eredménytábla eredménye";
 "Share result" = "Eredmény megosztása";
 "Left" = "Balra";

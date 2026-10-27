@@ -81,8 +81,6 @@
 "No Games Yet" = "עדיין אין משחקים";
 /* HistoryView empty state description */
 "Finished games will show up here." = "משחקים שהסתיימו יופיעו כאן.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d סיבובים";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "ירה בירח";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d נקודות";
 "%@ won with %lld points." = "%@ זכה עם %lld נקודות.";
 "%@ tied for the win with %lld points." = "%@ חולקים ניצחון עם %lld נקודות.";
-"%lld rounds" = "%lld סיבובים";
-"1 round" = "סיבוב אחד";
 "Hearts Scoreboard result" = "תוצאת לוח התוצאות של הלבבות";
 "Share result" = "שתף את התוצאה";
 "Left" = "שמאלה";

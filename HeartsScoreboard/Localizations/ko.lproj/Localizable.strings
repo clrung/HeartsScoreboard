@@ -100,8 +100,6 @@
 "No Games Yet" = "아직 게임이 없습니다";
 /* HistoryView empty state description */
 "Finished games will show up here." = "끝난 게임이 여기에 표시됩니다.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d라운드";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "달 잡기";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -165,8 +163,6 @@
 "%d. %@, %d points" = "%d. %@, %d포인트";
 "%@ won with %lld points." = "%@이(가) %lld포인트로 승리했습니다.";
 "%@ tied for the win with %lld points." = "%@이(가) %lld점으로 공동 승리했습니다.";
-"%lld rounds" = "%lld라운드";
-"1 round" = "1라운드";
 "Hearts Scoreboard result" = "하트 점수판 결과";
 "Share result" = "결과 공유";
 "Left" = "왼쪽";

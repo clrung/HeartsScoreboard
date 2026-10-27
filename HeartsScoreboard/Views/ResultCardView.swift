@@ -48,7 +48,7 @@ struct ResultCardData: Equatable {
 
     var roundsText: String? {
         guard let n = roundCount else { return nil }
-        return n == 1 ? String(localized: "1 round") : String(localized: "\(n) rounds")
+        return String(localized: "\(n) rounds")  // plural rules: Localizable.stringsdict
     }
 
     var shareTitle: String {

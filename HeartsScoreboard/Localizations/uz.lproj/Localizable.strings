@@ -81,8 +81,6 @@
 "No Games Yet" = "Hozircha o'yinlar yo'q";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Tugagan o'yinlar shu yerda ko'rinadi.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d tur";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Oyni otdi";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d ball";
 "%@ won with %lld points." = "%@ %lld ball bilan g‘alaba qozondi.";
 "%@ tied for the win with %lld points." = "%@ %lld ball bilan g‘alabani bo'lishdi.";
-"%lld rounds" = "%lld tur";
-"1 round" = "1 tur";
 "Hearts Scoreboard result" = "Hearts Scoreboard natijasi";
 "Share result" = "Natijani ulashish";
 "Left" = "Chap";

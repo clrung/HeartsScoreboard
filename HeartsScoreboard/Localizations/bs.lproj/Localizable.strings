@@ -81,8 +81,6 @@
 "No Games Yet" = "Još nema igara";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Završene igre će se pojaviti ovdje.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Runde: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Pucanje u mjesec";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d bodova";
 "%@ won with %lld points." = "Pobjeda: %@ s %lld bodova.";
 "%@ tied for the win with %lld points." = "Podijeljena pobjeda: %@ s %lld bodova.";
-"%lld rounds" = "Runde: %lld";
-"1 round" = "1 runda";
 "Hearts Scoreboard result" = "Rezultat Hearts Scoreboard";
 "Share result" = "Podijeli rezultat";
 "Left" = "Lijevo";

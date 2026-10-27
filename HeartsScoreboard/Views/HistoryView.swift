@@ -90,7 +90,7 @@ private struct HistoryRow: View {
     }
 
     private var roundsText: String {
-        String(format: String(localized: "%d rounds"), game.roundCount)
+        String(localized: "\(game.roundCount) rounds")  // plural rules: Localizable.stringsdict
     }
 
     private var accessibilitySummary: String {

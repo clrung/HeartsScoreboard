@@ -81,8 +81,6 @@
 "No Games Yet" = "Ще немає ігор";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Завершені ігри з’являться тут.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Раундів: %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Місяць узято";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, очок: %d";
 "%@ won with %lld points." = "Перемога: %@, очок: %lld.";
 "%@ tied for the win with %lld points." = "Спільна перемога: %@, очок: %lld.";
-"%lld rounds" = "%lld раундів";
-"1 round" = "1 раунд";
 "Hearts Scoreboard result" = "Результат гри в Черви";
 "Share result" = "Поділіться результатом";
 "Left" = "Ліворуч";

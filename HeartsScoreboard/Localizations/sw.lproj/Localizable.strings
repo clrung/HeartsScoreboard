@@ -81,8 +81,6 @@
 "No Games Yet" = "Hakuna Michezo Bado";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Michezo iliyokamilika itaonekana hapa.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "Raundi %d";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Alipiga risasi mwezini";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, pointi %d";
 "%@ won with %lld points." = "%@ alishinda kwa pointi %lld.";
 "%@ tied for the win with %lld points." = "%@ ametoka sare katika ushindi kwa pointi %lld.";
-"%lld rounds" = "%lld raundi";
-"1 round" = "1 raundi";
 "Hearts Scoreboard result" = "Matokeo ya Ubao wa alama za Hearts";
 "Share result" = "Shiriki matokeo";
 "Left" = "Kushoto";

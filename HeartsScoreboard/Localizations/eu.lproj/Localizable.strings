@@ -81,8 +81,6 @@
 "No Games Yet" = "Oraindik ez dago jokorik";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Amaitutako jokoak hemen agertuko dira.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d txanda";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ilargiari tiro egin dio";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d puntu";
 "%@ won with %lld points." = "%@k irabazi zuen %lld punturekin.";
 "%@ tied for the win with %lld points." = "%@ berdinduta irabazi zuen %lld punturekin.";
-"%lld rounds" = "%lld txanda";
-"1 round" = "1 txanda";
 "Hearts Scoreboard result" = "Bihotzen markagailuaren emaitza";
 "Share result" = "Partekatu emaitza";
 "Left" = "Ezkerra";

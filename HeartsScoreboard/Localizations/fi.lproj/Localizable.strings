@@ -81,8 +81,6 @@
 "No Games Yet" = "Ei vielä pelejä";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Päättyneet pelit näkyvät tässä.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d kierrosta";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ampui kuun";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d pistettä";
 "%@ won with %lld points." = "%@ voitti %lld pisteellä.";
 "%@ tied for the win with %lld points." = "%@ jakaa voiton %lld pisteellä.";
-"%lld rounds" = "%lld kierrosta";
-"1 round" = "1 kierros";
 "Hearts Scoreboard result" = "Hearts Scoreboardin tulos";
 "Share result" = "Jaa tulos";
 "Left" = "Vasen";

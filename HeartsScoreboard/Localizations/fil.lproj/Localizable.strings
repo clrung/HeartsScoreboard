@@ -81,8 +81,6 @@
 "No Games Yet" = "Wala Pang Laro";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Lalabas dito ang mga natapos na laro.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d round";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Inabot ang buwan";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d puntos";
 "%@ won with %lld points." = "Nanalo ang %@ na may %lld puntos.";
 "%@ tied for the win with %lld points." = "Tumabla ang %@ para sa panalo na may %lld puntos.";
-"%lld rounds" = "%lld round";
-"1 round" = "1 round";
 "Hearts Scoreboard result" = "Resulta ng Hearts Scoreboard";
 "Share result" = "Ibahagi ang resulta";
 "Left" = "Kaliwa";

@@ -81,8 +81,6 @@
 "No Games Yet" = "Mänge veel pole";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Lõpetatud mängud ilmuvad siia.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d ringi";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Tulistas kuu";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d punkti";
 "%@ won with %lld points." = "%@ võitis %lld punktiga.";
 "%@ tied for the win with %lld points." = "%@ viigistas %lld punktiga.";
-"%lld rounds" = "%lld ringi";
-"1 round" = "1 ring";
 "Hearts Scoreboard result" = "Hearts Scoreboard tulemus";
 "Share result" = "Jaga tulemust";
 "Left" = "Vasakule";

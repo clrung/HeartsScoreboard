@@ -81,8 +81,6 @@
 "No Games Yet" = "Chưa có ván nào";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Các ván đã kết thúc sẽ hiện ở đây.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d vòng";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Lấy trăng";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d điểm";
 "%@ won with %lld points." = "%@ đã thắng với %lld điểm.";
 "%@ tied for the win with %lld points." = "%@ hòa ngôi đầu với %lld điểm.";
-"%lld rounds" = "%lld vòng";
-"1 round" = "1 vòng";
 "Hearts Scoreboard result" = "Kết quả bảng điểm Hearts";
 "Share result" = "Chia sẻ kết quả";
 "Left" = "trái";

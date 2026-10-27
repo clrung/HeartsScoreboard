@@ -81,8 +81,6 @@
 "No Games Yet" = "Encara no hi ha partides";
 /* HistoryView empty state description */
 "Finished games will show up here." = "Les partides acabades apareixeran aquí.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d rondes";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "Ha disparat a la lluna";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d punts";
 "%@ won with %lld points." = "%@ va guanyar amb %lld punts.";
 "%@ tied for the win with %lld points." = "%@ va empatar a la victòria amb %lld punts.";
-"%lld rounds" = "%lld rondes";
-"1 round" = "1 ronda";
 "Hearts Scoreboard result" = "Resultat del Marcador de Cors";
 "Share result" = "Comparteix el resultat";
 "Left" = "Esquerra";

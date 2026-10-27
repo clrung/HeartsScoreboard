@@ -81,8 +81,6 @@
 "No Games Yet" = "இன்னும் ஆட்டங்கள் இல்லை";
 /* HistoryView empty state description */
 "Finished games will show up here." = "முடிந்த ஆட்டங்கள் இங்கே தோன்றும்.";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d சுற்றுகள்";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "நிலவு எடுத்தார்";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d. %@, %d புள்ளிகள்";
 "%@ won with %lld points." = "%2$lld புள்ளிகளுடன் %1$@ வென்றது.";
 "%@ tied for the win with %lld points." = "%2$lld புள்ளிகளுடன் %1$@ வெற்றிக்கு சமன்.";
-"%lld rounds" = "%lld சுற்றுகள்";
-"1 round" = "1 சுற்று";
 "Hearts Scoreboard result" = "ஹார்ட்ஸ் ஸ்கோர்போர்டு முடிவு";
 "Share result" = "முடிவைப் பகிரவும்";
 "Left" = "இடது";

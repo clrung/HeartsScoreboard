@@ -81,8 +81,6 @@
 "No Games Yet" = "እስካሁን ጨዋታ የለም";
 /* HistoryView empty state description */
 "Finished games will show up here." = "የተጠናቀቁ ጨዋታዎች እዚህ ይታያሉ።";
-/* HistoryView row badge (round count) and accessibility label */
-"%d rounds" = "%d ዙሮች";
 /* HistoryView row accessibility label when a moon was shot */
 "Shot the moon" = "ጨረቃን ተኮሰ";
 /* RoundInputView: VoiceOver label for a 10 of diamonds holder chip */
@@ -146,8 +144,6 @@
 "%d. %@, %d points" = "%d %@፣ %d ነጥቦች";
 "%@ won with %lld points." = "%@ በ%lld ነጥብ አሸንፏል።";
 "%@ tied for the win with %lld points." = "%@ በ%lld ነጥብ በአሸናፊነት እኩል ወጣ።";
-"%lld rounds" = "%lld ዙሮች";
-"1 round" = "1 ዙር";
 "Hearts Scoreboard result" = "የልቦች የውጤት ሰሌዳ ውጤት";
 "Share result" = "ውጤቱን አጋራ";
 "Left" = "ግራ";
