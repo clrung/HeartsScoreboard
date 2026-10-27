@@ -295,7 +295,7 @@ struct ScoreboardCard: View {
         .background {
             if tookAll {
                 RoundedRectangle(cornerRadius: Theme.Radius.cell, style: .continuous)
-                    .fill(Theme.allPointsWarning.opacity(colorScheme == .dark ? 0.35 : 0.28))
+                    .fill(Theme.allPointsFill)
                     .padding(.vertical, 3)
                     .padding(.horizontal, 3)
             }

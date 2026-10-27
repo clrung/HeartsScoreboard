@@ -80,8 +80,30 @@ rounds until it reaches the available height, then its round grid scrolls under 
   - Entry pane still fills the height (RoundInputView's Form doesn't hug): Phase 2.
   - New string key: "Enter round 1 scores" (needs translations).
   - Open: HistoryDetailView cell overlays (white on the new near-white card) are faint; orange "26" cells look brown in dark mode.
-- [ ] **Phase 2 — Round-entry panel** (RoundInputView, PlayerScoreViews name/total, SettingsView moon rule,
+- [x] **Phase 2 — Round-entry panel** (RoundInputView, PlayerScoreViews name/total, SettingsView moon rule,
       strings + translations).
+  Phase 2 notes (2026-10-27):
+  - Moon preference: Settings gets its own "Shoot the Moon Preference" section right after Game Rules (segmented + per-choice footer);
+    the entry header has a moon Menu (icon + "Add 26"/"Subtract 26", menu items use the longer existing "Moon adds 26 to others" strings).
+    Inline: in the header next to Reset. Sheet: a trailing row above the list (a toolbar item collapsed into an unreadable glass pill).
+    Same `model.settings.shootMoonPreference`, already in the iCloud `SyncableState` (new unit test pins it).
+  - RoundInputView no longer uses a Form: ScrollView + VStack of inset tiles (`Theme.cardInset`) on `Theme.cardSurface`.
+    Inline is `ViewThatFits(.vertical)` (hug, else header + scrolling rows + pinned footer); the entry card chrome lives in
+    `GameView.entryCard` (same surface/radius/hairline/elevation as the scoreboard). Scroll view id: `roundInput.scroll`
+    (UI tests TenBadge/NarrowRoundEntry now use it instead of `collectionViews`).
+  - Row: name (headline) over "Total N" (secondary, crown for leader); trailing 44pt `-`/`+` circles around a rounded monospaced value well;
+    tinted capsules +5 / +rest / Q♠ / moon (Q♠ and moon are solid when selected via `RoundEntryState.queenOwnerID` / `moonShooterID`).
+    Deviation: the name block is always name-over-total (not one line) so all rows lay out alike and the 44pt stepper height absorbs it.
+  - Value well opens a 6-column 0...26 popover (`PointsGridPicker`, `presentationCompactAdaptation(.popover)`); disabled in a moon round like -/+.
+    Clamp logic extracted to `RoundEntryState.adjustPoints/setPoints` (unit tested). New ids: `roundInput.value.<name>`, `.valueOption.<n>`,
+    `.moon.<name>`, `.increase.<name>`, `.moonMenu`.
+  - Footer: leading progress text + thin gauge (red over, accent when ready, moon tint on a moon round before a 10♦ holder) + prominent Submit.
+  - `allPointsFill` token: saturated burnt orange in dark (was brown), used by the scoreboard and HistoryDetail; HistoryDetail scoreboard
+    now uses card surface + inset header + zebra rows. `PlayerNameWithTotalView` removed.
+  - New strings: "Total %d", "Set points for %@" (+ Phase 1's "Enter round 1 scores") translated into all locales via
+    `scripts/translate_new_en_keys.py` (added a SOURCE_OVERRIDE "Total score: %d" so Google doesn't return "totals").
+  - Open: 6 players on iPad landscape only just fit; below ~1000pt height the rows scroll. Moon chip in sheet at AX sizes is icon-only
+    (menu text hidden). Popover itself only verified as a standalone grid snapshot, not live. Phase 3 still owns keyboard + live pending row.
 - [ ] **Phase 3 — Keyboard + live pending row + value popover polish.**
 - [ ] **Phase 4 — Visual QA matrix + fixes** (iPad 13/11/mini, landscape/portrait, Split View narrow,
       iPhone, Duo sizes; light/dark; AX sizes; 3–6 players; long names; ties; game over; moon; 10♦).

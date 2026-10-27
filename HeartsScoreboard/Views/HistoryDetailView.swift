@@ -162,45 +162,46 @@ struct HistoryDetailView: View {
         completedGame.sortedResults.map { "\($0.name) \($0.total)" }.joined(separator: ", ")
     }
 
+    /// Same family as the main scoreboard card: card surface, inset standings header, zebra round rows.
     private var scoreboard: some View {
-        VStack(spacing: 12) {
-            headerRows
-            HStack(alignment: .top, spacing: 0) {
-                ForEach(completedGame.game.players) { player in
-                    ScoreColumnView(
-                        game: completedGame.game,
-                        playerID: player.id,
-                        colorScheme: colorScheme,
-                        flexible: sizeClass == .regular
-                    )
-                    .frame(maxWidth: .infinity, alignment: .top)
+        let shape = RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous)
+        let shadow = Theme.Elevation.card(for: colorScheme)
+        let game = completedGame.game
+        return VStack(spacing: 0) {
+            VStack(spacing: Theme.Spacing.s) {
+                headerNameRow
+                headerTotalsRow
+            }
+            .padding(.horizontal, Theme.Spacing.s)
+            .padding(.vertical, Theme.Spacing.m)
+            .background(Theme.cardInset)
+
+            VStack(spacing: 0) {
+                ForEach(Array(game.hands.enumerated()), id: \.element.id) { index, hand in
+                    HStack(spacing: 0) {
+                        ForEach(game.players) { player in
+                            ScoreCellView(
+                                round: index + 1,
+                                playerName: player.name,
+                                score: hand.pointsByPlayerID[player.id] ?? 0,
+                                isMoon: game.isMoonHand(hand, for: player.id),
+                                hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == player.id,
+                                moonBonus: game.moonCellTenOfDiamondsBonus(hand, for: player.id)
+                            )
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .padding(.horizontal, Theme.Spacing.s)
+                    .background(index.isMultiple(of: 2) ? Color.clear : Theme.rowZebra)
                 }
             }
+            .padding(.vertical, Theme.Spacing.xs)
         }
-        .padding(6)
-        .padding(.bottom, 4)
         .frame(maxWidth: .infinity)
-        .background(
-            FeltCardSurface(cornerRadius: 24, colorScheme: colorScheme)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                .stroke(Color.white.opacity(colorScheme == .dark ? 0.20 : 0.35), lineWidth: 1)
-        )
-        .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.45 : 0.20), radius: 18, x: 0, y: 10)
-    }
-
-    private var headerRows: some View {
-        VStack(spacing: 8) {
-            headerNameRow
-            headerTotalsRow
-        }
-        .padding(.horizontal, 6)
-        .padding(.vertical, 6)
-        .background(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .fill(Color.black.opacity(colorScheme == .dark ? 0.14 : 0.06))
-        )
+        .background(Theme.cardSurface)
+        .clipShape(shape)
+        .overlay(shape.strokeBorder(Color.primary.opacity(colorScheme == .dark ? 0.14 : 0.07), lineWidth: 1))
+        .shadow(color: shadow.color, radius: shadow.radius, x: 0, y: shadow.y)
     }
 
     private var headerNameRow: some View {
@@ -210,13 +211,9 @@ struct HistoryDetailView: View {
                     .font(.headline.weight(.semibold))
                     .lineLimit(1)
                     .truncationMode(.tail)
+                    .minimumScaleFactor(0.7)
                     .accessibilityAddTraits(.isHeader)
-                    .padding(.vertical, 4)
-                    .padding(.horizontal, 8)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(Color.white.opacity(colorScheme == .dark ? 0.10 : 0.26))
-                    )
+                    .padding(.horizontal, 4)
                     .frame(maxWidth: .infinity)
             }
         }
@@ -236,33 +233,6 @@ struct HistoryDetailView: View {
     }
 }
 
-// MARK: - Helper views (break up type-checker complexity)
-
-private struct ScoreColumnView: View {
-    let game: HeartsGame
-    let playerID: UUID
-    let colorScheme: ColorScheme
-    var flexible = false
-
-    var body: some View {
-        VStack(spacing: 8) {
-            ForEach(Array(game.hands.enumerated()), id: \.element.id) { index, hand in
-                ScoreCellView(
-                    round: index + 1,
-                    playerName: game.players.first { $0.id == playerID }?.name ?? "",
-                    score: hand.pointsByPlayerID[playerID] ?? 0,
-                    isMoon: game.isMoonHand(hand, for: playerID),
-                    hasTenOfDiamonds: hand.tenOfDiamondsPlayerID == playerID,
-                    moonBonus: game.moonCellTenOfDiamondsBonus(hand, for: playerID),
-                    isEvenRow: index.isMultiple(of: 2),
-                    colorScheme: colorScheme,
-                    flexible: flexible
-                )
-            }
-        }
-    }
-}
-
 private struct ScoreCellView: View {
     let round: Int
     let playerName: String
@@ -270,9 +240,9 @@ private struct ScoreCellView: View {
     let isMoon: Bool
     let hasTenOfDiamonds: Bool
     let moonBonus: Int?
-    let isEvenRow: Bool
-    let colorScheme: ColorScheme
-    var flexible = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    private var tookAll: Bool { score == 26 && !isMoon }
 
     private var accessibilityText: String {
         var text = isMoon
@@ -283,41 +253,26 @@ private struct ScoreCellView: View {
     }
 
     var body: some View {
-        ScoreCellContent(score: score, isMoon: isMoon, moonBonus: moonBonus)
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel(accessibilityText)
-        .modifier(HistoryCellFrame(hasTenOfDiamonds: hasTenOfDiamonds, flexible: flexible))
-        .background(
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(
-                    isEvenRow
-                    ? Color.white.opacity(colorScheme == .dark ? 0.18 : 0.30)
-                    : Color.white.opacity(colorScheme == .dark ? 0.26 : 0.42)
-                )
-        )
-    }
-}
-
-/// History-detail cell sizing: like `ScoreCellFrame` (56pt cap) on compact width, but cells grow with
-/// their column (up to 140pt) at regular width so wide screens don't leave tiny cells in huge columns.
-private struct HistoryCellFrame: ViewModifier {
-    let hasTenOfDiamonds: Bool
-    let flexible: Bool
-    @ScaledMetric(relativeTo: .footnote) private var cellHeight: CGFloat = 26
-    @ScaledMetric(relativeTo: .footnote) private var compactWidth: CGFloat = 56
-    @ScaledMetric(relativeTo: .caption2) private var diamondSize: CGFloat = 9
-
-    func body(content: Content) -> some View {
-        content
-            .padding(.horizontal, hasTenOfDiamonds ? diamondSize * 0.9 : 0)
-            .frame(maxWidth: flexible ? 140 : compactWidth, minHeight: cellHeight)
+        ScoreCellContent(score: score, isMoon: isMoon, moonBonus: moonBonus, emphasize: tookAll)
+            .foregroundStyle(score == 0 && !isMoon ? Color.secondary : Color.primary)
+            .padding(.horizontal, hasTenOfDiamonds ? 10 : 0)
             .overlay(alignment: .topTrailing) {
                 if hasTenOfDiamonds {
                     Text("♦")
-                        .font(.system(size: diamondSize, weight: .semibold))
+                        .font(.system(size: 10, weight: .semibold))
                         .foregroundStyle(Color.red)
-                        .padding(.trailing, 2)
+                        .offset(y: -3)
                 }
             }
+            .frame(maxWidth: .infinity, minHeight: 32)
+            .background {
+                if tookAll {
+                    RoundedRectangle(cornerRadius: Theme.Radius.cell, style: .continuous)
+                        .fill(Theme.allPointsFill)
+                        .padding(3)
+                }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(accessibilityText)
     }
 }

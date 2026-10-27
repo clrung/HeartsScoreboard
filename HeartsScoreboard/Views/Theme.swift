@@ -75,8 +75,15 @@ enum Theme {
     /// Shoot-the-moon symbol. >= 4.5:1 on the card in both appearances.
     static let moon = dynamic(light: (0.30, 0.27, 0.72, 1), dark: (0.66, 0.64, 1.0, 1),
                               lightHC: (0.22, 0.19, 0.60, 1), darkHC: (0.76, 0.75, 1.0, 1))
+    /// Label color on a solid `moon` fill (selected moon chip).
+    static let moonOnFill = dynamic(light: (1, 1, 1, 1), dark: (0.10, 0.09, 0.25, 1),
+                                    lightHC: (1, 1, 1, 1), darkHC: (0.05, 0.04, 0.18, 1))
     /// "Took all 26" emphasis (cell tint) and near-the-end progress.
     static let allPointsWarning = Color.orange
+    /// Fill behind a "took all 26" cell. Dark is a saturated burnt orange (a translucent orange over the dark
+    /// card read as brown); text on it stays >= 4.5:1 (white on dark, primary on the light peach).
+    static let allPointsFill = dynamic(light: (1.0, 0.62, 0.18, 0.34), dark: (0.80, 0.31, 0.04, 0.96),
+                                       lightHC: (1.0, 0.58, 0.12, 0.55), darkHC: (0.72, 0.26, 0.02, 1))
     /// Positive / progress accent.
     static let positive = Color.accentColor
 

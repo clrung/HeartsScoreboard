@@ -31,6 +31,7 @@ CONTEXT = {
     "Rounds": "Rounds (hands of cards)",
 }
 SOURCE_OVERRIDE = {
+    "Total %d": "Total score: %d",
     "Moon adds 26 to others": "Shooting the moon adds 26 to the others",
     "Moon subtracts 26 from shooter": "Shooting the moon subtracts 26 from the shooter",
 }

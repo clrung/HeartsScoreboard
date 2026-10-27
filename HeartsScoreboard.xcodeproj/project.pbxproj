@@ -56,6 +56,7 @@
 		CF935772FE398475553CC67D /* RoundInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038D972ED22A697EDA8313A6 /* RoundInputView.swift */; };
 		D4BD2EBFD5A9CEEE6B2CDD2A /* PlayerNameSuggestionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBF553DF99319D8FBF88C5 /* PlayerNameSuggestionsTests.swift */; };
 		D9D5FBB1A145028BAFD3ECD4 /* UndoToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8691A0494C38095FD5D5E5 /* UndoToastView.swift */; };
+		DC0C2695835800F1996E8C7C /* MoonPreferenceAndEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48036C851C6D63CF8643DAF /* MoonPreferenceAndEntryTests.swift */; };
 		DC27D479FE723FF93EE6FBAC /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4895B119E0949C712555CD8A /* ScreenshotTests.swift */; };
 		DC5BB38633DD3A501D65C639 /* ResultCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72099C0C32F6E9893FEB9BA1 /* ResultCardView.swift */; };
 		DF9C3FB1E65EFCAE1C86FB4D /* AppearancePreferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB9B32045C411F0D607F360 /* AppearancePreferenceTests.swift */; };
@@ -405,6 +406,7 @@
 		E18D86BC23D0EC8CFFB6322E /* ne */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ne; path = ne.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E322FCF622815EFF9E2AF7B7 /* cy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cy; path = cy.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E3B7D24AB30CB71337C9A72C /* bg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = bg; path = bg.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		E48036C851C6D63CF8643DAF /* MoonPreferenceAndEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPreferenceAndEntryTests.swift; sourceTree = "<group>"; };
 		E49299F23365EB47514BA022 /* is */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		E7CBBC38E1649ADECF795737 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
 		E89EE84EE139B27C12A2F717 /* ka */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ka; path = ka.lproj/AppStoreMetadata.strings; sourceTree = "<group>"; };
@@ -571,6 +573,7 @@
 				42B989EC5D00C88A9A5A7907 /* IPadLayoutSnapshotTests.swift */,
 				D0F08569F62A9BB54AFED28F /* LeaderIndicatorTests.swift */,
 				F777F2F8CCCA4904E7DAB37F /* LocalizationFormatTests.swift */,
+				E48036C851C6D63CF8643DAF /* MoonPreferenceAndEntryTests.swift */,
 				880CFCFA5C5684135BCE8410 /* PassDirectionTests.swift */,
 				87CBF553DF99319D8FBF88C5 /* PlayerNameSuggestionsTests.swift */,
 				AA9F08F7CA1AB4D1B4B8289F /* PluralRoundsTests.swift */,
@@ -822,6 +825,7 @@
 				65226EAE3D6070C2321E5C18 /* IPadLayoutSnapshotTests.swift in Sources */,
 				C6F4F0977DA157C10B93EC82 /* LeaderIndicatorTests.swift in Sources */,
 				0B80E95C955AE5B12FA58010 /* LocalizationFormatTests.swift in Sources */,
+				DC0C2695835800F1996E8C7C /* MoonPreferenceAndEntryTests.swift in Sources */,
 				0CF049815752ED9911A61A95 /* PassDirectionTests.swift in Sources */,
 				D4BD2EBFD5A9CEEE6B2CDD2A /* PlayerNameSuggestionsTests.swift in Sources */,
 				075B63164F5FED7FA8165696 /* PluralRoundsTests.swift in Sources */,

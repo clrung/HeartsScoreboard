@@ -18,7 +18,7 @@ final class TenBadgeUITests: XCTestCase {
         ten.tap()
         // Back to the top so the player rows (and the holder's chip) are on screen.
         let firstRow = app.buttons["roundInput.decrease.Ava"]
-        for _ in 0..<12 where !firstRow.isHittable { app.collectionViews.firstMatch.swipeDown(velocity: .slow) }
+        for _ in 0..<12 where !firstRow.isHittable && entryScroll(app).exists { entryScroll(app).swipeDown(velocity: .slow) }
         XCTAssertTrue(firstRow.isHittable, "could not scroll back to the player rows")
 
         let badge = app.descendants(matching: .any)["roundInput.tenBadge.Cleo"]
@@ -35,10 +35,13 @@ final class TenBadgeUITests: XCTestCase {
         add(shot)
     }
 
+    /// The entry list's scroll view (sheet, or the inline card once it outgrows the pane); absent when the inline card hugs.
+    private func entryScroll(_ app: XCUIApplication) -> XCUIElement { app.scrollViews["roundInput.scroll"] }
+
     /// On iPhone the "10♦ taken by" section is below the fold of the lazy Form.
     private func scrollToReveal(_ element: XCUIElement, in app: XCUIApplication) -> Bool {
         // Swipe the sheet's own list (a bare app.swipeUp() doesn't scroll it on narrow phones like the SE).
-        for _ in 0..<12 where !element.isHittable { app.collectionViews.firstMatch.swipeUp(velocity: .slow) }
+        for _ in 0..<12 where !element.isHittable && entryScroll(app).exists { entryScroll(app).swipeUp(velocity: .slow) }
         return element.isHittable
     }
 }

@@ -60,6 +60,10 @@
 "Subtracts 26 points from the selected player's score." = "Subtracts 26 points from the selected player's score.";
 "Back" = "Back";
 "Reset" = "Reset";
+/* RoundInputView: cumulative total under the player name */
+"Total %d" = "Total %d";
+/* RoundInputView: VoiceOver label of the tappable points value (opens a 0-26 picker) */
+"Set points for %@" = "Set points for %@";
 "Submit" = "Submit";
 "Submit round scores" = "Submit round scores";
 "Round %d" = "Round %d";

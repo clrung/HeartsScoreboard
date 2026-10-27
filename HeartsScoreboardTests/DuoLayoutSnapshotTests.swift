@@ -129,9 +129,10 @@ final class DuoLayoutSnapshotTests: XCTestCase {
         return (CGFloat(px[0]) / 255, CGFloat(px[1]) / 255, CGFloat(px[2]) / 255)
     }
 
-    /// The inline panel is a light, neutral (systemGroupedBackground) card on the green table.
+    /// The inline panel is a light, near-white (Theme.cardSurface) card on the green table.
     private func isPanelColor(_ c: (r: CGFloat, g: CGFloat, b: CGFloat), dark: Bool = false) -> Bool {
-        if dark { return c.r < 0.15 && c.g < 0.15 && c.b < 0.15 && abs(c.g - c.r) < 0.03 }
+        // Theme.cardSurface dark is (0.11, 0.15, 0.13); the felt is darker in red (< 0.07).
+        if dark { return c.r > 0.09 && c.r < 0.14 && c.g < 0.18 && c.b < 0.16 }
         return min(c.r, c.g, c.b) > 0.9 && max(c.r, c.g, c.b) - min(c.r, c.g, c.b) < 0.04
     }
 
@@ -139,7 +140,7 @@ final class DuoLayoutSnapshotTests: XCTestCase {
     /// nothing but table background across the vertical center line.
     private func assertSplit(_ r: Rendered, dark: Bool = false, line: UInt = #line) {
         let size = r.image.size
-        let panel = pixel(r.image, size.width * 0.75, 125) // "Round N" title row, inside the right card, below the header
+        let panel = pixel(r.image, size.width / 2 + 28, 125) // "Round N" title row, in the right card's left padding (the moon menu sits further right)
         XCTAssertTrue(isPanelColor(panel, dark: dark), "inline panel expected in right pane, got \(panel)", line: line)
         for y in stride(from: CGFloat(160), to: size.height - 60, by: 40) {
             let c = pixel(r.image, size.width / 2, y)

@@ -11,6 +11,7 @@ struct SettingsView: View {
             Form {
                 playersSection
                 rulesSection
+                moonSection
                 appearanceSection
             }
             .navigationTitle("Settings")
@@ -156,6 +157,26 @@ struct SettingsView: View {
             Text("Game Rules")
         } footer: {
             Text("Omnibus Hearts variant: whoever takes the 10♦ scores −10 for that hand. It is separate from shooting the moon.")
+        }
+    }
+
+    /// Also reachable mid-game from the round-entry header; same binding, synced via iCloud.
+    private var moonSection: some View {
+        Section {
+            Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
+                ForEach(ShootMoonPreference.allCases) { pref in
+                    Text(pref.label).tag(pref)
+                }
+            }
+            .pickerStyle(.segmented)
+            .accessibilityIdentifier("settings.shootMoonPreference")
+        } header: {
+            Text("Shoot the Moon Preference")
+        } footer: {
+            switch model.settings.shootMoonPreference {
+            case .add26: Text("Adds 26 points to every other players' score.")
+            case .subtract26: Text("Subtracts 26 points from the selected player's score.")
+            }
         }
     }
 

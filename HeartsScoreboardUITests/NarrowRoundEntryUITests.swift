@@ -33,7 +33,7 @@ final class NarrowRoundEntryUITests: XCTestCase {
         // The drag may have scrolled the form too: tap the status bar to return to the first row.
         win.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.012)).tap()
         sleep(1)
-        for _ in 0..<40 where !inView() { scrollSurface(app).swipeUp(velocity: .slow) }
+        for _ in 0..<40 where !inView() && scrollSurface(app).exists { scrollSurface(app).swipeUp(velocity: .slow) }
         snap("0c-found")
         let badge = app.descendants(matching: .any)["roundInput.tenBadge.\(holder)"]
         XCTAssertTrue(badge.waitForExistence(timeout: 10))
@@ -88,7 +88,7 @@ final class NarrowRoundEntryUITests: XCTestCase {
         checkNames()
         // Walk down the list so the later rows (6 players) are captured and checked too.
         for i in 0..<3 {
-            scrollSurface(app).swipeUp(velocity: .slow)
+            if scrollSurface(app).exists { scrollSurface(app).swipeUp(velocity: .slow) }
             snap("2-scroll\(i)")
             checkNames()
         }
@@ -104,7 +104,6 @@ final class NarrowRoundEntryUITests: XCTestCase {
     }
 
     private func scrollSurface(_ app: XCUIApplication) -> XCUIElement {
-        let form = app.collectionViews.firstMatch
-        return form.exists ? form : app.tables.firstMatch
+        app.scrollViews["roundInput.scroll"]
     }
 }

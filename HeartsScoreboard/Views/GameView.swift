@@ -249,25 +249,33 @@ struct GameView: View {
 
     @ViewBuilder
     private var roundEntryPane: some View {
-        // TODO(phase 2): the entry pane still fills the height (RoundInputView's Form doesn't hug).
-        let shadow = Theme.Elevation.card(for: colorScheme)
         VStack(spacing: 0) {
             if model.isGameOver {
                 gameOverCard(dismissible: false)
                     .frame(maxHeight: .infinity, alignment: .top)
             } else {
-                RoundInputView(model: model, presentation: .inline)
-                    .background(
-                        RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous)
-                            .fill(Color(.systemGroupedBackground))
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous))
-                    .shadow(color: shadow.color, radius: shadow.radius, x: 0, y: shadow.y)
-                    .frame(maxHeight: .infinity)
+                entryCard
+                    .frame(maxHeight: .infinity, alignment: .top)
             }
         }
         .padding(.top, Theme.Spacing.s) // matches the scoreboard card's top inset
         .padding(.bottom, Theme.Spacing.l)
+    }
+
+    /// Same card family as the scoreboard (surface, radius, hairline, elevation); hugs its content.
+    private var entryCard: some View {
+        let shape = RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous)
+        let shadow = Theme.Elevation.card(for: colorScheme)
+        return RoundInputView(model: model, presentation: .inline)
+            .background(Theme.cardSurface)
+            .clipShape(shape)
+            .overlay(
+                shape.strokeBorder(
+                    contrast == .increased ? Color.primary.opacity(0.6) : Color.primary.opacity(colorScheme == .dark ? 0.14 : 0.07),
+                    lineWidth: contrast == .increased ? 2 : 1
+                )
+            )
+            .shadow(color: shadow.color, radius: shadow.radius, x: 0, y: shadow.y)
     }
 
     /// The hint's blurred material is unreadable over the felt without transparency; use a solid card then.

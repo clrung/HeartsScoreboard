@@ -31,6 +31,19 @@ struct RoundEntryState: Equatable {
         tenOfDiamondsOwnerID = nil
     }
 
+    /// Most points one player can take in a round (the whole deck's hearts + Q♠).
+    static let maxPoints = 26
+
+    /// Adds `delta` to a player's points, clamped to 0...26 (the stepper and the quick/Q♠/rest chips).
+    mutating func adjustPoints(for playerID: UUID, delta: Int) {
+        setPoints(for: playerID, to: (points[playerID] ?? 0) + delta)
+    }
+
+    /// Sets a player's points exactly (the value picker), clamped to 0...26.
+    mutating func setPoints(for playerID: UUID, to value: Int) {
+        points[playerID] = max(0, min(Self.maxPoints, value))
+    }
+
     func total(players: [HeartsGame.Player]) -> Int {
         players.reduce(0) { $0 + (points[$1.id] ?? 0) }
     }
@@ -38,6 +51,24 @@ struct RoundEntryState: Equatable {
     /// Valid Hearts round, judged on hearts/Q♠ points only (the 10♦ bonus is applied on submit).
     func isRoundValid(players: [HeartsGame.Player]) -> Bool {
         HeartsGame.isValidRound(penaltyScores: players.map { points[$0.id] ?? 0 })
+    }
+
+    /// True when the round is valid and is a shoot-the-moon outcome (not a normal 26 split).
+    func isShootTheMoon(players: [HeartsGame.Player]) -> Bool {
+        let n = players.count
+        guard n > 0, isRoundValid(players: players) else { return false }
+        let sum = total(players: players)
+        return sum == -26 || sum == (n - 1) * 26
+    }
+
+    /// The shooter of a moon round: the player at -26 (subtract preference) or the one at 0 while the
+    /// others took 26 (add preference). nil when the entry isn't a moon round.
+    func moonShooterID(players: [HeartsGame.Player]) -> UUID? {
+        guard isShootTheMoon(players: players) else { return nil }
+        if total(players: players) == -26 {
+            return players.first { (points[$0.id] ?? 0) == -26 }?.id
+        }
+        return players.first { (points[$0.id] ?? 0) == 0 }?.id
     }
 
     /// Submit needs a valid 26-point round and, when the 10♦ rule is on, a chosen 10♦ holder.

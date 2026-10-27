@@ -72,13 +72,19 @@ final class IPadLayoutSnapshotTests: XCTestCase {
     // MARK: Harness
 
     private func render(_ name: String, size: CGSize, regular: Bool, model: GameViewModel, dark: Bool) throws -> UIImage {
+        try renderView(name, size: size, regular: regular, dark: dark, view: GameView(model: model))
+    }
+
+    private func renderView<V: View>(_ name: String, size: CGSize, regular: Bool, dark: Bool,
+                                     category: UIContentSizeCategory? = nil, view: V) throws -> UIImage {
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
         window.frame = CGRect(origin: .zero, size: size)
         window.traitOverrides.horizontalSizeClass = regular ? .regular : .compact
         window.traitOverrides.verticalSizeClass = .regular
         window.overrideUserInterfaceStyle = dark ? .dark : .light
-        let host = UIHostingController(rootView: GameView(model: model))
+        if let category { window.traitOverrides.preferredContentSizeCategory = category }
+        let host = UIHostingController(rootView: view)
         window.rootViewController = host
         window.makeKeyAndVisible()
         host.view.frame = window.bounds
@@ -157,6 +163,47 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         XCTAssertTrue(isCalmFelt(pixel(image, 300, 900)), "felt below the short scoreboard card")
         let card = pixel(image, 300, 200) // inside the card, under the header row
         XCTAssertGreaterThan(card.r, 0.8)
+    }
+
+    /// The round-entry sheet as shown on iPhone (393x852, SE 375x667), light/dark, 3 and 6 players, long names,
+    /// 10♦ rule and accessibility3 text. The sheet is NavigationStack content, so it renders full height here.
+    func testRoundEntrySheetRendersOnPhones() throws {
+        let phones: [(String, CGSize)] = [("15", CGSize(width: 393, height: 852)), ("se", CGSize(width: 375, height: 667))]
+        for (phone, size) in phones {
+            for dark in [false, true] {
+                let cases: [(String, GameViewModel, UIContentSizeCategory?)] = [
+                    ("4p", model(names: Array(six.prefix(4)), rounds: 3), nil),
+                    ("3p", model(names: Array(six.prefix(3)), rounds: 2), nil),
+                    ("6p-ten", model(names: six, rounds: 4, tenRule: true), nil),
+                    ("longnames", ScreenshotDemo.makeModel(playerCount: 6, scenario: "longnames"), nil),
+                    ("ax3", model(names: Array(six.prefix(4)), rounds: 3), .accessibilityLarge),
+                ]
+                for (tag, m, category) in cases {
+                    if phone == "se" && !["4p", "6p-ten", "ax3"].contains(tag) { continue }
+                    let image = try renderView("sheet-\(phone)-\(tag)-\(dark ? "dark" : "light")", size: size, regular: false,
+                                               dark: dark, category: category, view: RoundInputView(model: m))
+                    XCTAssertEqual(image.size.width, size.width)
+                }
+            }
+        }
+    }
+
+    /// The 0...26 value picker, as in the popover.
+    func testPointsGridPickerRenders() throws {
+        for dark in [false, true] {
+            _ = try renderView("valuegrid-\(dark ? "dark" : "light")", size: CGSize(width: 340, height: 260), regular: false, dark: dark,
+                               view: PointsGridPicker(current: 13) { _ in }.background(Theme.cardSurface))
+        }
+    }
+
+    func testHistoryDetailRendersOnTheCardTokens() throws {
+        let ps = players(Array(six.prefix(4)))
+        let completed = CompletedGame(finishedAt: Date(), game: HeartsGame(players: ps, hands: hands(for: ps, rounds: 8, tenRule: true)),
+                                      settings: GameSettings(endingScore: 100, tenOfDiamondsMinus10: true))
+        for dark in [false, true] {
+            _ = try renderView("history-detail-\(dark ? "dark" : "light")", size: CGSize(width: 834, height: 1210), regular: true, dark: dark,
+                               view: NavigationStack { HistoryDetailView(completedGame: completed) })
+        }
     }
 
     func testPhoneWidthStillRenders() throws {

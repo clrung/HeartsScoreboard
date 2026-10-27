@@ -1,6 +1,6 @@
 import SwiftUI
 
-// MARK: - Player total badge (shared by GameView, HistoryDetailView, RoundInputView)
+// MARK: - Player total badge (shared by HistoryDetailView)
 
 /// Direction-sensitive UI helpers (RTL audit 2026-10-26), kept as pure functions so tests can cover them.
 enum DirectionalUI {
@@ -150,62 +150,6 @@ struct PlayerTotalBadge: View {
     }
 }
 
-// MARK: - Player name + total row (for RoundInputView and any single-row name+score display)
-
-/// Displays a player name with their current total in the same badge style as the game scoreboard.
-struct PlayerNameWithTotalView: View {
-    let name: String
-    let total: Int
-    let isLeader: Bool
-    let colorScheme: ColorScheme
-    /// See `PlayerTotalBadge.reservesCrownSpace`.
-    var reservesCrownSpace: Bool = true
-    /// Name above the total (instead of beside it), for rows too narrow to show both on one line
-    /// without squeezing the name to "Al…". `badgeAccessory` (e.g. the 10♦ chip) then sits next to the total.
-    var stacked: Bool = false
-    var badgeAccessory: AnyView? = nil
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-
-    private var nameText: some View {
-        Text(name)
-            .font(.headline.weight(.semibold))
-            .lineLimit(1)
-            .truncationMode(.tail)
-            // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
-            .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.5 : 1)
-    }
-
-    private var badge: some View {
-        PlayerTotalBadge(total: total, isLeader: isLeader, colorScheme: colorScheme, reservesCrownSpace: reservesCrownSpace)
-            .accessibilityIdentifier("playerTotal.\(name)")
-    }
-
-    func stackedLayout(accessory: AnyView? = nil) -> PlayerNameWithTotalView {
-        var copy = self
-        copy.stacked = true
-        copy.badgeAccessory = accessory
-        return copy
-    }
-
-    var body: some View {
-        if stacked {
-            // The leader's crown overlays the top of the total, so leave room for it under the name.
-            VStack(alignment: .leading, spacing: isLeader ? 10 : 2) {
-                nameText
-                HStack(spacing: 6) {
-                    badge
-                    badgeAccessory
-                }
-            }
-        } else {
-            HStack(spacing: 8) {
-                nameText
-                badge
-            }
-        }
-    }
-}
-
 // MARK: - Score cell pieces (shared by GameView and HistoryDetailView)
 
 /// The text/icon inside a round-score cell: the number, or a moon for a shooter. A shooter who also
@@ -222,7 +166,7 @@ struct ScoreCellContent: View {
         Group {
             if isMoon {
                 HStack(spacing: 3) {
-                    Image(systemName: "moon.fill")
+                    Image(systemName: "moon.fill").foregroundStyle(Theme.moon)
                     if let moonBonus {
                         Text("\u{2212}\(abs(moonBonus))")
                             .font(.caption2.weight(.semibold))
@@ -234,8 +178,8 @@ struct ScoreCellContent: View {
                 Text("\(score)")
             }
         }
-        .font(.footnote.weight(emphasize ? .bold : .medium))
-        .foregroundStyle(Color.primary)
+        .font(.system(.body, design: .rounded).weight(emphasize ? .bold : .medium))
+        .monospacedDigit()
         .lineLimit(1)
         .minimumScaleFactor(0.6)
     }

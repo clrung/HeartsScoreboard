@@ -6,22 +6,22 @@ struct RoundInputView: View {
     enum Presentation {
         /// Own NavigationStack with Back/Reset toolbar; dismisses after submit.
         case sheet
-        /// Embedded panel (no NavigationStack); resets for the next round after submit.
+        /// Embedded card (no NavigationStack) that hugs its content; resets for the next round after submit.
         case inline
     }
 
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.colorScheme) private var colorScheme
-    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.colorSchemeContrast) private var contrast
     @Bindable var model: GameViewModel
     let presentation: Presentation
     /// When set, the sheet edits this existing round (pre-filled, "Save" instead of "Submit").
     let editingHandID: UUID?
 
     @ScaledMetric(relativeTo: .body) private var tapSize: CGFloat = 44
-    @ScaledMetric(relativeTo: .body) private var stepperSize: CGFloat = 34
+    @ScaledMetric(relativeTo: .title) private var wellWidth: CGFloat = 62
+    @ScaledMetric(relativeTo: .title) private var wellFontSize: CGFloat = 26
     /// Min chip width: wide enough for "+26" (the widest chip text), scaling with Dynamic Type.
     @ScaledMetric(relativeTo: .subheadline) private var chipWidth: CGFloat = ChipMetrics.baseMinWidth
 
@@ -40,12 +40,10 @@ struct RoundInputView: View {
     }
 
     @State private var entry = RoundEntryState()
+    /// The player whose value-picker popover is open.
+    @State private var valuePickerPlayerID: UUID?
 
     private var isAccessibilitySize: Bool { dynamicTypeSize.isAccessibilitySize }
-
-    /// Inline is always stacked (narrow pane); the sheet stacks only at accessibility sizes, where
-    /// the one-line sheet row can't hold the name, stepper and chips.
-    private var stacksRow: Bool { presentation == .inline || isAccessibilitySize }
 
     private var isTenRuleOn: Bool { model.settings.tenOfDiamondsMinus10 }
 
@@ -77,7 +75,7 @@ struct RoundInputView: View {
             switch presentation {
             case .sheet:
                 NavigationStack {
-                    content
+                    sheetContent
                         .navigationTitle(roundTitle)
                         .navigationBarTitleDisplayMode(.inline)
                         .toolbar {
@@ -93,19 +91,26 @@ struct RoundInputView: View {
                 }
                 .modifier(FormPresentationSizing())
             case .inline:
-                VStack(spacing: 0) {
-                    HStack {
-                        Text(roundTitle)
-                            .font(.title2.bold())
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.6)
-                        Spacer(minLength: 8)
-                        resetButton
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical, 10)
-                    content
+                // Hugs its content; only when rows + header + footer exceed the height does it scroll.
+                ViewThatFits(in: .vertical) {
+                    inlineContent(scrolling: false)
+                    inlineContent(scrolling: true)
                 }
+            }
+        }
+        .sensoryFeedback(.selection, trigger: entry.points) { old, new in
+            // Skip the initial fill and resets (all zeros); only real edits tick.
+            !old.isEmpty && old != new && new.values.contains { $0 != 0 }
+        }
+        .sensoryFeedback(.selection, trigger: entry.tenOfDiamondsOwnerID) { old, new in
+            old != new && new != nil
+        }
+        .sensoryFeedback(.success, trigger: canSubmit) { old, new in
+            !old && new && !isUntouchedEdit
+        }
+        .onChange(of: canSubmit) { old, new in
+            if !old && new && !isUntouchedEdit {
+                Announcer.post(String(localized: "Ready to submit"))
             }
         }
         .onAppear {
@@ -136,6 +141,85 @@ struct RoundInputView: View {
         return String(format: String(localized: "Round %d"), model.game.hands.count + 1)
     }
 
+    // MARK: Layout
+
+    private var sheetContent: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Spacer(minLength: 0)
+                moonMenu
+            }
+            .padding(.horizontal, Theme.Spacing.l)
+            ScrollView {
+                entryRows
+                    .padding(.horizontal, Theme.Spacing.l)
+                    .padding(.bottom, Theme.Spacing.m)
+            }
+            .scrollBounceBehavior(.basedOnSize)
+            .accessibilityIdentifier("roundInput.scroll")
+            footer
+        }
+        .background(Theme.cardSurface.ignoresSafeArea())
+    }
+
+    private func inlineContent(scrolling: Bool) -> some View {
+        VStack(spacing: 0) {
+            HStack(spacing: Theme.Spacing.s) {
+                Text(roundTitle)
+                    .font(.title2.bold())
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.6)
+                Spacer(minLength: Theme.Spacing.s)
+                moonMenu
+                resetButton
+            }
+            .padding(.horizontal, Theme.Spacing.l)
+            .padding(.top, Theme.Spacing.l)
+            .padding(.bottom, Theme.Spacing.s)
+
+            if scrolling {
+                ScrollView {
+                    entryRows
+                        .padding(.horizontal, Theme.Spacing.l)
+                        .padding(.vertical, Theme.Spacing.s)
+                }
+                .scrollBounceBehavior(.basedOnSize)
+                .accessibilityIdentifier("roundInput.scroll")
+                .frame(maxHeight: .infinity)
+            } else {
+                entryRows
+                    .padding(.horizontal, Theme.Spacing.l)
+                    .padding(.vertical, Theme.Spacing.s)
+            }
+            footer
+        }
+        .background(Theme.cardSurface)
+    }
+
+    /// The player rows plus, when the 10♦ rule is on, the "taken by" picker; shared by sheet and inline.
+    private var entryRows: some View {
+        VStack(spacing: Theme.Spacing.s) {
+            ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+                playerRow(player, index: index)
+            }
+            if isTenRuleOn {
+                tenOfDiamondsSection
+            }
+        }
+    }
+
+    private func tile<Content: View>(@ViewBuilder _ content: () -> Content) -> some View {
+        let shape = RoundedRectangle(cornerRadius: Theme.Radius.card - 8, style: .continuous)
+        return content()
+            .padding(.horizontal, Theme.Spacing.m + 2)
+            .padding(.vertical, Theme.Spacing.s)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(shape.fill(Theme.cardInset))
+            .overlay(shape.strokeBorder(Color.primary.opacity(contrast == .increased ? 0.45 : 0.06), lineWidth: contrast == .increased ? 1.5 : 1))
+    }
+
+    // MARK: Header controls
+
     private var isResetDisabled: Bool { isAllScoresZero && entry.tenOfDiamondsOwnerID == nil }
 
     @ViewBuilder
@@ -163,110 +247,69 @@ struct RoundInputView: View {
         }
     }
 
-    private var content: some View {
-            submitLayout {
-                Form {
-                    Section {
-                        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                            playerRow(player, index: index)
-                        }
-                    }
-
-                    if isTenRuleOn {
-                        Section {
-                            FlowLayout(spacing: 8) {
-                                ForEach(model.game.players) { player in
-                                    tenOfDiamondsButton(for: player)
-                                }
-                            }
-                        } header: {
-                            Text("10♦ taken by")
-                        } footer: {
-                            Text("Tap the player who took the 10♦. They get 10 points subtracted this round.")
-                        }
-                    }
-
-                    Section("Shoot the Moon Preference") {
-                        Picker("Shoot the moon", selection: $model.settings.shootMoonPreference) {
-                            ForEach(ShootMoonPreference.allCases) { pref in
-                                Text(pref.label).tag(pref)
-                            }
-                        }
-                        .pickerStyle(.segmented)
-
-                        VStack(alignment: .leading, spacing: 4) {
-                            if model.settings.shootMoonPreference == .add26 {
-                                Text("Adds 26 points to every other players' score.")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-
-                            if model.settings.shootMoonPreference == .subtract26 {
-                                Text("Subtracts 26 points from the selected player's score.")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                        .padding(.top, 4)
-                    }
-                }
-                .modifier(InlineFormMargins(isInline: presentation == .inline))
-
-            } bar: {
-                VStack(spacing: 10) {
-                    progressStrip
-
-                    Button {
-                        submit()
-                    } label: {
-                        Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : (isEditing ? "Save" : "Submit"))
-                            .font(.headline.weight(.semibold))
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.large)
-                    .keyboardShortcut(.return, modifiers: .command)
-                    .accessibilityLabel(isEditing ? Text("Save round scores") : Text("Submit round scores"))
-                    .accessibilityIdentifier("roundInput.submit")
-                    .disabled(!canSubmit)
-                }
-                .padding(.horizontal)
-                .padding(.vertical)
-            }
-            .sensoryFeedback(.selection, trigger: entry.points) { old, new in
-                // Skip the initial fill and resets (all zeros); only real edits tick.
-                !old.isEmpty && old != new && new.values.contains { $0 != 0 }
-            }
-            .sensoryFeedback(.selection, trigger: entry.tenOfDiamondsOwnerID) { old, new in
-                old != new && new != nil
-            }
-            .sensoryFeedback(.success, trigger: canSubmit) { old, new in
-                !old && new && !isUntouchedEdit
-            }
-            .onChange(of: canSubmit) { old, new in
-                if !old && new && !isUntouchedEdit {
-                    Announcer.post(String(localized: "Ready to submit"))
+    /// Mid-game switch for the shoot-the-moon rule (also in Settings › Game Rules).
+    private var moonMenu: some View {
+        let pref = model.settings.shootMoonPreference
+        return Menu {
+            Picker("Shoot the Moon Preference", selection: $model.settings.shootMoonPreference) {
+                ForEach(ShootMoonPreference.allCases) { option in
+                    Text(option.detailLabel).tag(option)
                 }
             }
+        } label: {
+            HStack(spacing: 5) {
+                Image(systemName: "moon.fill")
+                if !isAccessibilitySize {
+                    Text(pref.label).lineLimit(1)
+                }
+            }
+            .font(.subheadline.weight(.semibold))
+            .foregroundStyle(Theme.moon)
+            .padding(.horizontal, 12)
+            .frame(minHeight: 34)
+            .background(Capsule(style: .continuous).fill(Theme.moon.opacity(contrast == .increased ? 0.24 : 0.14)))
+            .frame(minHeight: 44)
+            .contentShape(Rectangle())
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        }
+        .menuOrder(.fixed)
+        .accessibilityLabel(Text("Shoot the Moon Preference"))
+        .accessibilityValue(Text(pref.label))
+        .accessibilityIdentifier("roundInput.moonMenu")
     }
 
-    /// Lays out the form and the pinned progress/Submit bar. Inline uses a bottom safe-area inset so the
-    /// form's scroll content is inset clear of the bar (the last rows can always be scrolled fully into view);
-    /// the sheet keeps its plain stacked layout.
-    @ViewBuilder
-    private func submitLayout<Body: View, Bar: View>(
-        @ViewBuilder _ body: () -> Body,
-        @ViewBuilder bar: () -> Bar
-    ) -> some View {
-        if presentation == .inline {
-            body().safeAreaInset(edge: .bottom, spacing: 0) {
-                bar().background(Color(.systemGroupedBackground))
+    // MARK: Footer
+
+    private var footer: some View {
+        VStack(spacing: Theme.Spacing.m) {
+            progressStrip
+
+            Button {
+                submit()
+            } label: {
+                Text(needsTenOfDiamondsHolder ? "Select who took the 10♦" : (isEditing ? "Save" : "Submit"))
+                    .font(.headline.weight(.semibold))
+                    .frame(maxWidth: .infinity)
             }
-        } else {
-            VStack {
-                body()
-                bar()
-            }
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle(radius: Theme.Radius.well + 2))
+            .tint(Theme.accent)
+            .controlSize(.large)
+            .keyboardShortcut(.return, modifiers: .command)
+            .accessibilityLabel(isEditing ? Text("Save round scores") : Text("Submit round scores"))
+            .accessibilityIdentifier("roundInput.submit")
+            .disabled(!canSubmit)
+        }
+        .padding(.horizontal, Theme.Spacing.l)
+        .padding(.top, Theme.Spacing.m)
+        .padding(.bottom, Theme.Spacing.l)
+        .frame(maxWidth: .infinity)
+        .background(Theme.cardSurface.ignoresSafeArea(edges: .bottom))
+        .overlay(alignment: .top) {
+            Rectangle()
+                .fill(Color.primary.opacity(contrast == .increased ? 0.5 : 0.10))
+                .frame(height: 1)
+                .accessibilityHidden(true)
         }
     }
 
@@ -293,83 +336,61 @@ struct RoundInputView: View {
     private var progressStrip: some View {
         let isOver = !isRoundValid && totalPoints > 26
         let isDone = canSubmit
-        return HStack(spacing: 6) {
-            Image(systemName: isDone ? "checkmark.circle.fill" : (isOver ? "exclamationmark.triangle.fill" : "circle.dashed"))
-            Text(progressText)
-                .contentTransition(reduceMotion ? .identity : .numericText())
+        let tint: Color = isOver ? .red : (isDone ? Theme.accent : (isRoundValid ? Theme.moon : Color.secondary))
+        let fraction: Double = isRoundValid ? 1 : min(1, max(0, Double(totalPoints) / 26))
+        return VStack(spacing: 6) {
+            HStack(spacing: 6) {
+                Image(systemName: isDone ? "checkmark.circle.fill" : (isOver ? "exclamationmark.triangle.fill" : "circle.dashed"))
+                Text(progressText)
+                    .contentTransition(reduceMotion ? .identity : .numericText())
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 0)
+            }
+            .font(.subheadline.weight(.medium))
+            .monospacedDigit()
+            .foregroundStyle(tint)
+
+            Capsule()
+                .fill(Color.primary.opacity(contrast == .increased ? 0.35 : 0.12))
+                .frame(height: contrast == .increased ? 8 : 6)
+                .overlay(alignment: .leading) {
+                    GeometryReader { geo in
+                        Capsule()
+                            .fill(isOver ? Color.red : (isDone || isRoundValid ? Theme.accent : Theme.accent.opacity(0.75)))
+                            .frame(width: max(0, geo.size.width * (isOver ? 1 : fraction)))
+                    }
+                }
         }
-        .font(.subheadline.weight(.medium))
-        .monospacedDigit()
-        .foregroundStyle(isOver ? Color.red : (isDone ? Color.accentColor : Color.secondary))
-        .frame(maxWidth: .infinity)
         .animation(reduceMotion ? nil : .default, value: progressText)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(progressText)
         .accessibilityIdentifier("roundInput.progress")
     }
 
-    /// Name + total. Symmetric badge padding so the capsule is centered with the name and stepper; the
-    /// crown overlay gets its headroom from the row (see the insets in `playerRow`) instead of the badge's box.
-    private func nameBlock(for player: HeartsGame.Player) -> PlayerNameWithTotalView {
-        PlayerNameWithTotalView(
-            name: player.name,
-            total: model.game.totalPoints(for: player.id, excluding: editingHandID),
-            isLeader: leadingPlayerIDs.contains(player.id),
-            colorScheme: colorScheme,
-            reservesCrownSpace: false
-        )
-    }
+    // MARK: Player row
 
+    /// One design for sheet and inline: [name + total | − value +] over a row of tinted quick actions.
+    /// The name block is always name-over-total, so every row lays out alike and the stepper column lines up.
     @ViewBuilder
     private func playerRow(_ player: HeartsGame.Player, index: Int) -> some View {
         let quick = model.settings.quickIncrementPoints
         let remaining = remainingPoints(for: player.id)
-        let nameView = nameBlock(for: player)
-        Group {
-            if isAccessibilitySize {
-                // Accessibility sizes: name + total, then the stepper, then the chips in a 2x2 grid.
-                VStack(alignment: .leading, spacing: 0) {
-                    nameView
-                    HStack(spacing: 8) {
-                        tenChip(for: player)
+        tile {
+            // The chips' 44pt hit areas carry ~5pt of padding each, so the row needs no extra spacing.
+            VStack(alignment: .leading, spacing: 0) {
+                if isAccessibilitySize {
+                    VStack(alignment: .leading, spacing: Theme.Spacing.s) {
+                        identity(for: player)
                         stepper(for: player)
                     }
-                    Grid(horizontalSpacing: 6, verticalSpacing: 0) {
-                        GridRow {
-                            quickChip(for: player, quick: quick, remaining: remaining)
-                            remainingChip(for: player, remaining: remaining)
-                        }
-                        GridRow {
-                            queenChip(for: player)
-                            moonChip(for: player)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                // Extra top inset: at accessibility sizes the leader's crown (an overlay on the total) is
-                // taller than the default inset and was clipped by the cell.
-                .listRowInsets(EdgeInsets(top: 20, leading: 16, bottom: 2, trailing: 16))
-            } else if presentation == .inline {
-                // Narrow pane (~300pt): name + stepper on one line, the four chips on a second line,
-                // so long names never collapse to "…".
-                VStack(spacing: 0) {
-                    HStack(spacing: 8) {
-                        nameView
+                } else {
+                    HStack(spacing: Theme.Spacing.s) {
+                        identity(for: player)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        tenChip(for: player)
                         stepper(for: player)
                     }
-                    HStack(spacing: 6) {
-                        quickChip(for: player, quick: quick, remaining: remaining)
-                        remainingChip(for: player, remaining: remaining)
-                        queenChip(for: player)
-                        moonChip(for: player)
-                    }
-                    .frame(maxWidth: .infinity)
                 }
-                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 2, trailing: 16))
-            } else {
-                sheetRow(player, nameView: nameView, quick: quick, remaining: remaining)
+                actions(for: player, quick: quick, remaining: remaining)
             }
         }
         .accessibilityElement(children: .contain)
@@ -378,78 +399,64 @@ struct RoundInputView: View {
         .accessibilityIdentifier("roundInput.row.\(index)")
     }
 
-    /// One-line sheet row: name + total, [10♦ chip], stepper, chip grid. The stepper/grid are trailing and
-    /// fixed-size, so the holder's row never shifts them. The chip goes left of the stepper only if the
-    /// whole name + total + chip fit; otherwise (long name, 3-digit total, narrow phone) it falls back to
-    /// sitting under the name, so nothing overlaps and the name isn't squeezed to a letter.
-    @ViewBuilder
-    private func sheetRow(_ player: HeartsGame.Player, nameView: PlayerNameWithTotalView, quick: Int, remaining: Int) -> some View {
-        let controls = HStack(alignment: .center, spacing: 8) {
-            stepper(for: player)
-            Grid(horizontalSpacing: 4, verticalSpacing: 4) {
-                GridRow {
-                    quickChip(for: player, quick: quick, remaining: remaining)
-                    remainingChip(for: player, remaining: remaining)
+    /// Name (headline) with the cumulative total as quiet secondary text and a crown for the leader(s).
+    private func identity(for player: HeartsGame.Player) -> some View {
+        let total = model.game.totalPoints(for: player.id, excluding: editingHandID)
+        let isLeader = leadingPlayerIDs.contains(player.id)
+        return VStack(alignment: .leading, spacing: 2) {
+            HStack(spacing: 6) {
+                Text(player.name)
+                    .font(.headline.weight(.semibold))
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
+                    .minimumScaleFactor(isAccessibilitySize ? 0.5 : 1)
+                tenChip(for: player)
+            }
+            HStack(spacing: 4) {
+                if isLeader {
+                    Image(systemName: "crown.fill")
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(Theme.leader)
+                        .accessibilityHidden(true)
                 }
-                GridRow {
-                    queenChip(for: player)
-                    moonChip(for: player)
+                Text(String(format: String(localized: "Total %d"), total))
+                    .font(.subheadline)
+                    .monospacedDigit()
+                    .foregroundStyle(Color.secondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(String(format: String(localized: "Total %d"), total)))
+            .accessibilityValue(Text(isLeader ? String(localized: "Leading") : ""))
+            .accessibilityIdentifier("playerTotal.\(player.name)")
+        }
+    }
+
+    private func actions(for player: HeartsGame.Player, quick: Int, remaining: Int) -> some View {
+        let isShooter = entry.moonShooterID(players: model.game.players) == player.id
+        let isQueenOwner = entry.queenOwnerID == player.id
+        let quickChip = quickChip(for: player, quick: quick, remaining: remaining)
+        let remainingChip = remainingChip(for: player, remaining: remaining)
+        let queenChip = queenChip(for: player, isSelected: isQueenOwner)
+        let moonChip = moonChip(for: player, isSelected: isShooter)
+        return Group {
+            if isAccessibilitySize {
+                Grid(horizontalSpacing: 6, verticalSpacing: 0) {
+                    GridRow { quickChip; remainingChip }
+                    GridRow { queenChip; moonChip }
+                }
+            } else {
+                HStack(spacing: Theme.Spacing.s) {
+                    quickChip
+                    remainingChip
+                    queenChip
+                    moonChip
                 }
             }
         }
-        // The name block never gets squeezed below its full name while a stacked layout (name over total)
-        // would fit it; only then may the name truncate. The controls are fixed-size and trailing, so the
-        // stepper column is identical in every row whichever candidate wins.
-        let stacked = nameView.stackedLayout()
-        // One-line candidate sized to the WIDEST player's name+total (invisible, unread copies behind the
-        // real one), so every row's one-line layout fits exactly when the widest one does and all rows
-        // switch to the stacked layout together instead of mixing the two.
-        let oneLine = ZStack(alignment: .leading) {
-            ForEach(model.game.players) { other in
-                nameBlock(for: other).hidden().accessibilityHidden(true)
-            }
-            nameView
-        }
-        .fixedSize(horizontal: true, vertical: false)
-        if isTenRuleOn && entry.tenOfDiamondsOwnerID == player.id {
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .center, spacing: 8) {
-                    oneLine
-                    Spacer(minLength: 0)
-                    tenChip(for: player)
-                    controls
-                }
-                HStack(alignment: .center, spacing: 8) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        nameView
-                        tenChip(for: player)
-                    }
-                    .fixedSize(horizontal: true, vertical: false)
-                    Spacer(minLength: 0)
-                    controls
-                }
-                HStack(alignment: .center, spacing: 8) {
-                    nameView.stackedLayout(accessory: AnyView(tenChip(for: player)))
-                        .frame(minWidth: 60, maxWidth: .infinity, alignment: .leading)
-                        .layoutPriority(1)
-                    controls
-                }
-            }
-        } else {
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .center, spacing: 8) {
-                    oneLine
-                    Spacer(minLength: 0)
-                    controls
-                }
-                HStack(alignment: .center, spacing: 8) {
-                    stacked
-                        .frame(minWidth: 60, maxWidth: .infinity, alignment: .leading)
-                        .layoutPriority(1)
-                    controls
-                }
-            }
-        }
+        .frame(maxWidth: .infinity)
     }
 
     private func tenOfDiamondsButton(for player: HeartsGame.Player) -> some View {
@@ -479,13 +486,34 @@ struct RoundInputView: View {
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 
+    private var tenOfDiamondsSection: some View {
+        tile {
+            VStack(alignment: .leading, spacing: Theme.Spacing.xs) {
+                Text("10♦ taken by")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(Color.secondary)
+                    .accessibilityAddTraits(.isHeader)
+                FlowLayout(spacing: 8) {
+                    ForEach(model.game.players) { player in
+                        tenOfDiamondsButton(for: player)
+                    }
+                }
+                Text("Tap the player who took the 10♦. They get 10 points subtracted this round.")
+                    .font(.footnote)
+                    .foregroundStyle(Color.secondary)
+            }
+        }
+    }
+
+    // MARK: Chips
+
     private func quickChip(for player: HeartsGame.Player, quick: Int, remaining: Int) -> some View {
         Button("+\(quick)") {
             adjustPoints(for: player.id, delta: quick)
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), quick, player.name))
         .accessibilityIdentifier("roundInput.quick.\(player.name)")
-        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid || remaining < quick)
     }
 
@@ -497,32 +525,35 @@ struct RoundInputView: View {
         }
         .accessibilityLabel(String(format: String(localized: "Add %d points to %@"), remaining, player.name))
         .accessibilityIdentifier("roundInput.remaining.\(player.name)")
-        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: false, minWidth: max(tapSize, chipWidth)))
         .disabled(remaining == 0 || isRoundValid)
     }
 
-    private func queenChip(for player: HeartsGame.Player) -> some View {
+    private func queenChip(for player: HeartsGame.Player, isSelected: Bool) -> some View {
         Button("Q♠") {
             addQueenOfSpades(for: player.id)
         }
         .accessibilityLabel(String(format: String(localized: "Queen of spades to %@"), player.name))
         .accessibilityIdentifier("roundInput.queen.\(player.name)")
-        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .buttonStyle(ActionChipStyle(tint: Theme.accent, selectedForeground: .white, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid || entry.queenOwnerID != nil)
     }
 
-    private func moonChip(for player: HeartsGame.Player) -> some View {
+    private func moonChip(for player: HeartsGame.Player, isSelected: Bool) -> some View {
         Button {
             applyShootMoonValue(for: player.id)
         } label: {
             Image(systemName: "moon.fill")
         }
         .accessibilityLabel(String(format: String(localized: "Shoot the moon for %@"), player.name))
-        .chipStyle(minWidth: max(tapSize, chipWidth), fill: stacksRow)
+        .accessibilityIdentifier("roundInput.moon.\(player.name)")
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .buttonStyle(ActionChipStyle(tint: Theme.moon, selectedForeground: Theme.moonOnFill, isSelected: isSelected, minWidth: max(tapSize, chipWidth)))
         .disabled(isRoundValid)
     }
 
-    /// Display-only "10♦" indicator shown left of the stepper in the holder's row only.
+    /// Display-only "10♦" indicator beside the holder's name.
     @ViewBuilder
     private func tenChip(for player: HeartsGame.Player) -> some View {
         if isTenRuleOn {
@@ -542,62 +573,97 @@ struct RoundInputView: View {
             .lineLimit(1)
             .fixedSize()
             .padding(.horizontal, 6)
-            .frame(minHeight: 28)
+            .frame(minHeight: 24)
             .background(Capsule(style: .continuous).fill(Color.accentColor.opacity(0.18)))
             .overlay(Capsule(style: .continuous).strokeBorder(Color.accentColor, lineWidth: 1.5))
     }
 
+    // MARK: Stepper
+
     private func stepper(for player: HeartsGame.Player) -> some View {
-        HStack(spacing: 0) {
+        let value = entry.points[player.id] ?? 0
+        let minusDisabled = isShootTheMoonRound || value == 0
+        return HStack(spacing: 6) {
             HoldRepeatButton {
                 adjustPoints(for: player.id, delta: -1)
             } label: {
-                Image(systemName: "minus.circle.fill")
-                    .font(.title3.weight(.semibold))
-                    .frame(width: stepperSize, height: tapSize)
-                    .contentShape(Rectangle())
-                    .hoverEffect()
+                stepperGlyph("minus", tint: Color.primary, isEnabled: !minusDisabled)
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Decrease points for %@"), player.name))
             .accessibilityIdentifier("roundInput.decrease.\(player.name)")
-            .foregroundStyle(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0 ? Color.secondary.opacity(0.5) : Color.red)
-            .disabled(isShootTheMoonRound || (entry.points[player.id] ?? 0) == 0)
+            .disabled(minusDisabled)
 
-            Text("\(entry.points[player.id] ?? 0)")
-                .font(.title3.weight(.semibold))
-                .monospacedDigit()
-                .lineLimit(1)
-                .minimumScaleFactor(0.6)
-                .frame(minWidth: 30, minHeight: tapSize)
+            valueWell(for: player, value: value)
 
             HoldRepeatButton {
                 adjustPoints(for: player.id, delta: 1)
             } label: {
-                Image(systemName: "plus.circle.fill")
-                    .font(.title3.weight(.semibold))
-                    .frame(width: stepperSize, height: tapSize)
-                    .contentShape(Rectangle())
-                    .hoverEffect()
+                stepperGlyph("plus", tint: Theme.accent, isEnabled: !isRoundValid)
             }
             .buttonStyle(.borderless)
             .accessibilityLabel(String(format: String(localized: "Increase points for %@"), player.name))
-            .foregroundStyle(isRoundValid ? Color.secondary.opacity(0.5) : Color.accentColor)
+            .accessibilityIdentifier("roundInput.increase.\(player.name)")
             .disabled(isRoundValid)
         }
         // "− N +" in every language: the numbers run left to right, like the native Stepper.
         .pointsStepperLayout()
     }
 
+    private func stepperGlyph(_ symbol: String, tint: Color, isEnabled: Bool) -> some View {
+        Image(systemName: symbol)
+            .font(.body.weight(.bold))
+            .foregroundStyle(isEnabled ? tint : Color.secondary.opacity(0.5))
+            .frame(width: tapSize, height: tapSize)
+            .background(Circle().fill(isEnabled ? tint.opacity(0.12) : Color.secondary.opacity(0.08)))
+            .contentShape(Circle())
+            .hoverEffect()
+    }
+
+    /// The value in a rounded well; tapping it opens a 0...26 grid to set the exact number in one tap.
+    private func valueWell(for player: HeartsGame.Player, value: Int) -> some View {
+        let shape = RoundedRectangle(cornerRadius: Theme.Radius.well, style: .continuous)
+        return Button {
+            valuePickerPlayerID = player.id
+        } label: {
+            Text("\(value)")
+                .font(.system(size: wellFontSize, weight: .bold, design: .rounded))
+                .monospacedDigit()
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
+                .foregroundStyle(Color.primary)
+                .contentTransition(reduceMotion ? .identity : .numericText(value: Double(value)))
+                .frame(width: wellWidth, height: tapSize)
+                .background(shape.fill(Theme.cardSurface))
+                .overlay(shape.strokeBorder(Color.primary.opacity(contrast == .increased ? 0.6 : 0.14), lineWidth: 1))
+                .contentShape(shape)
+                .hoverEffect()
+        }
+        .buttonStyle(.plain)
+        .disabled(isShootTheMoonRound)
+        .accessibilityLabel(String(format: String(localized: "Set points for %@"), player.name))
+        .accessibilityValue(String(format: String(localized: "%d points"), value))
+        .accessibilityIdentifier("roundInput.value.\(player.name)")
+        .popover(isPresented: Binding(
+            get: { valuePickerPlayerID == player.id },
+            set: { if !$0 && valuePickerPlayerID == player.id { valuePickerPlayerID = nil } }
+        )) {
+            PointsGridPicker(current: value) { picked in
+                setPoints(for: player.id, to: picked)
+                valuePickerPlayerID = nil
+            }
+            .presentationCompactAdaptation(.popover)
+        }
+    }
+
+    // MARK: Entry actions (rules live in RoundEntryState / GameViewModel)
+
     private func adjustPoints(for playerID: UUID, delta: Int) {
-        let current = entry.points[playerID] ?? 0
-        let newValue = max(0, min(26, current + delta))
-        entry.points[playerID] = newValue
+        entry.adjustPoints(for: playerID, delta: delta)
     }
 
     private func setPoints(for playerID: UUID, to value: Int) {
-        let newValue = max(0, min(26, value))
-        entry.points[playerID] = newValue
+        entry.setPoints(for: playerID, to: value)
     }
 
     private func addQueenOfSpades(for playerID: UUID) {
@@ -640,10 +706,7 @@ struct RoundInputView: View {
 
     /// True when the round is valid and is a shoot-the-moon outcome (not a normal 26 split). Subtract buttons should be disabled in this case.
     private var isShootTheMoonRound: Bool {
-        let n = model.game.players.count
-        guard n > 0, isRoundValid else { return false }
-        let sum = model.game.players.reduce(0) { $0 + (entry.points[$1.id] ?? 0) }
-        return sum == -26 || sum == (n - 1) * 26
+        entry.isShootTheMoon(players: model.game.players)
     }
 
     private func reset() {
@@ -665,6 +728,87 @@ struct RoundInputView: View {
     }
 }
 
+extension ShootMoonPreference {
+    /// Longer menu wording (existing strings, also used by the history summary).
+    var detailLabel: String {
+        switch self {
+        case .add26: return String(localized: "Moon adds 26 to others")
+        case .subtract26: return String(localized: "Moon subtracts 26 from shooter")
+        }
+    }
+}
+
+/// 0...26 grid shown from the value well: one tap sets the exact number.
+struct PointsGridPicker: View {
+    let current: Int
+    let onPick: (Int) -> Void
+    @Environment(\.colorSchemeContrast) private var contrast
+
+    private let columns = Array(repeating: GridItem(.fixed(44), spacing: 6), count: 6)
+
+    var body: some View {
+        LazyVGrid(columns: columns, spacing: 6) {
+            ForEach(0...RoundEntryState.maxPoints, id: \.self) { value in
+                let isCurrent = value == current
+                Button {
+                    onPick(value)
+                } label: {
+                    Text("\(value)")
+                        .font(.system(.body, design: .rounded).weight(.semibold))
+                        .monospacedDigit()
+                        .foregroundStyle(isCurrent ? Color.white : Theme.accent)
+                        .frame(width: 44, height: 44)
+                        .background(
+                            RoundedRectangle(cornerRadius: Theme.Radius.well, style: .continuous)
+                                .fill(isCurrent ? Theme.accent : Theme.accent.opacity(contrast == .increased ? 0.24 : 0.12))
+                        )
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isCurrent ? .isSelected : [])
+                .accessibilityIdentifier("roundInput.valueOption.\(value)")
+            }
+        }
+        .padding(Theme.Spacing.m)
+        .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+    }
+}
+
+/// Tinted capsule (not filled): accent/moon label on a 14% tint, solid when selected, dimmed when disabled.
+/// 34pt tall visually inside a 44pt hit area so rows stay compact.
+private struct ActionChipStyle: ButtonStyle {
+    let tint: Color
+    let selectedForeground: Color
+    let isSelected: Bool
+    let minWidth: CGFloat
+    @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.colorSchemeContrast) private var contrast
+
+    func makeBody(configuration: Configuration) -> some View {
+        let foreground: Color = isSelected ? selectedForeground : (isEnabled ? tint : Color.secondary.opacity(0.6))
+        let fill: Color = isSelected ? tint : (isEnabled ? tint.opacity(contrast == .increased ? 0.24 : 0.14) : Color.secondary.opacity(0.10))
+        return configuration.label
+            .font(.subheadline.weight(.semibold))
+            .lineLimit(1)
+            .minimumScaleFactor(0.6)
+            .allowsTightening(true)
+            .foregroundStyle(foreground)
+            .padding(.horizontal, ChipMetrics.horizontalPadding)
+            .frame(minWidth: minWidth, maxWidth: .infinity, minHeight: 34)
+            .background(Capsule(style: .continuous).fill(fill))
+            .overlay {
+                if contrast == .increased && (isEnabled || isSelected) {
+                    Capsule(style: .continuous).strokeBorder(tint, lineWidth: 1.5)
+                }
+            }
+            .opacity(configuration.isPressed ? 0.7 : 1)
+            .frame(minHeight: 44)
+            .contentShape(Rectangle())
+            .contentShape(.hoverEffect, Capsule(style: .continuous))
+            .hoverEffect()
+    }
+}
+
 /// Sizing for the score chips. The width is derived from the widest chip text ("+26") so it is never truncated.
 enum ChipMetrics {
     static let horizontalPadding: CGFloat = 10
@@ -680,52 +824,6 @@ enum ChipMetrics {
     }
 
     static var baseMinWidth: CGFloat { minWidth() }
-}
-
-private extension View {
-    /// Compact capsule chip that grows with Dynamic Type but keeps a minimum tap width, with a full 44pt hit area.
-    func chipStyle(minWidth: CGFloat, fill: Bool = false) -> some View {
-        self.buttonStyle(ChipButtonStyle(minWidth: minWidth, fill: fill))
-    }
-}
-
-/// Filled capsule (32pt tall) inside a 44pt-tall hit area, so rows stay compact without a small tap target.
-private struct ChipButtonStyle: ButtonStyle {
-    let minWidth: CGFloat
-    let fill: Bool
-    @Environment(\.isEnabled) private var isEnabled
-
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.subheadline.weight(.semibold))
-            .lineLimit(1)
-            .minimumScaleFactor(0.6)
-            .allowsTightening(true)
-            .foregroundStyle(isEnabled ? Color.white : Color.secondary)
-            .padding(.horizontal, ChipMetrics.horizontalPadding)
-            .frame(minWidth: minWidth, maxWidth: fill ? .infinity : nil, minHeight: 32)
-            .background(
-                Capsule(style: .continuous)
-                    .fill(isEnabled ? Color.accentColor : Color.secondary.opacity(0.25))
-            )
-            .opacity(configuration.isPressed ? 0.7 : 1)
-            .frame(minHeight: 44)
-            .contentShape(Rectangle())
-            .contentShape(.hoverEffect, Capsule(style: .continuous))
-            .hoverEffect()
-    }
-}
-
-/// Inline panel has its own title row, so drop the Form's default top inset.
-private struct InlineFormMargins: ViewModifier {
-    let isInline: Bool
-    func body(content: Content) -> some View {
-        if isInline {
-            content.contentMargins(.top, 0, for: .scrollContent)
-        } else {
-            content
-        }
-    }
 }
 
 /// Applies `.presentationSizing(.form)` on iOS 18+; no-op on iOS 17.
