@@ -16,6 +16,7 @@ struct ScoreboardCard: View {
     let onEdit: (UUID) -> Void
 
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.colorSchemeContrast) private var contrast
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @ScaledMetric(relativeTo: .title) private var totalSize: CGFloat = 34
@@ -28,7 +29,40 @@ struct ScoreboardCard: View {
     private var columnWidth: CGFloat {
         max(40, (width - 2 * gutter - railWidth) / CGFloat(max(1, players.count)))
     }
-    private var showsInitials: Bool { columnWidth < 74 && players.count >= 5 }
+    /// Crowded boards (5-6 players) fall back to initials only when a full name can't fit its column.
+    private var showsInitials: Bool {
+        guard players.count >= 5 else { return false }
+        let category = Self.contentSizeCategory(min(dynamicTypeSize, maxTypeSize))
+        let base = columnWidth < 100 ? UIFont.TextStyle.subheadline : .headline
+        let font = UIFont.preferredFont(forTextStyle: base, compatibleWith: UITraitCollection(preferredContentSizeCategory: category))
+        let semibold = UIFont.systemFont(ofSize: font.pointSize, weight: .semibold)
+        let widest = players.map { ($0.name as NSString).size(withAttributes: [.font: semibold]).width }.max() ?? 0
+        return !Self.nameFits(textWidth: widest, columnWidth: columnWidth, hasDealerBadge: true)
+    }
+
+    static func contentSizeCategory(_ size: DynamicTypeSize) -> UIContentSizeCategory {
+        switch size {
+        case .xSmall: return .extraSmall
+        case .small: return .small
+        case .medium: return .medium
+        case .large: return .large
+        case .xLarge: return .extraLarge
+        case .xxLarge: return .extraExtraLarge
+        case .xxxLarge: return .extraExtraExtraLarge
+        case .accessibility1: return .accessibilityMedium
+        case .accessibility2: return .accessibilityLarge
+        case .accessibility3: return .accessibilityExtraLarge
+        case .accessibility4: return .accessibilityExtraExtraLarge
+        case .accessibility5: return .accessibilityExtraExtraExtraLarge
+        @unknown default: return .large
+        }
+    }
+
+    /// A name fits when it fits the column (minus padding and the dealer badge) after the 0.8x shrink the label allows.
+    static func nameFits(textWidth: CGFloat, columnWidth: CGFloat, hasDealerBadge: Bool) -> Bool {
+        let available = columnWidth - 6 - (hasDealerBadge ? 26 : 0)
+        return textWidth * 0.8 <= available
+    }
     private var labels: [String] { HeartsGame.headerLabels(for: players.map(\.name)) }
     private var hasContrast: Bool { contrast == .increased }
     private var showsPendingRow: Bool { isSplit && !model.isGameOver }
@@ -165,7 +199,7 @@ struct ScoreboardCard: View {
             .minimumScaleFactor(0.6)
             .foregroundStyle(Color.primary)
             .padding(.horizontal, Theme.Spacing.s)
-            .padding(.vertical, Theme.Spacing.xs)
+            .padding(.vertical, CrownGeometry.wellInset)
             .frame(maxWidth: .infinity)
             .background(well.fill(isLeader ? Theme.leaderWell : Color.clear))
             .overlay(well.strokeBorder(isLeader ? Theme.leader : Color.clear, lineWidth: hasContrast ? 2 : 1.5))
@@ -174,13 +208,13 @@ struct ScoreboardCard: View {
                     Image(systemName: "crown.fill")
                         .font(.system(size: crownSize, weight: .bold))
                         .foregroundStyle(Theme.leader)
-                        .padding(3)
+                        .padding(CrownGeometry.badgePadding)
                         .background(Circle().fill(Color(red: 0.10, green: 0.16, blue: 0.12)))
-                        .offset(y: -crownSize * 0.95)
+                        .offset(y: -CrownGeometry.lift(crownSize: crownSize))
                         .accessibilityHidden(true)
                 }
             }
-            .padding(.top, crownSize * 0.9)
+            .padding(.top, CrownGeometry.headroom(crownSize: crownSize))
             .animation(reduceMotion ? nil : .spring(response: 0.4, dampingFraction: 0.85), value: total)
     }
 
@@ -404,4 +438,22 @@ struct ScoreboardCard: View {
         if tookTenOfDiamonds { label += String(localized: ", took the 10 of diamonds") }
         return label
     }
+}
+
+/// The leader's crown badge sits on the top edge of the total well; it may dip a few points into the well's
+/// inset but must stay clear of the digits (which start `wellInset` below the edge).
+enum CrownGeometry {
+    static let badgePadding: CGFloat = 3
+    /// Vertical padding between the well's edge and its digits.
+    static let wellInset: CGFloat = Theme.Spacing.xs
+    /// How far the badge reaches below the well's top edge (into the inset, never into the digits).
+    static let intrusion: CGFloat = 2
+
+    static func badgeHeight(crownSize: CGFloat) -> CGFloat { crownSize * 1.2 + 2 * badgePadding }
+    /// Offset that lifts the badge so only `intrusion` of it is below the well's top edge.
+    static func lift(crownSize: CGFloat) -> CGFloat { badgeHeight(crownSize: crownSize) - intrusion }
+    /// Space reserved above every well (leader or not) so columns stay aligned.
+    static func headroom(crownSize: CGFloat) -> CGFloat { lift(crownSize: crownSize) + 2 }
+    /// Depth of the badge below the well's top edge, which must stay under `wellInset`.
+    static func reachIntoWell() -> CGFloat { intrusion }
 }

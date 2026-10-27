@@ -176,28 +176,79 @@ struct GameView: View {
     private var splitLayout: some View {
         GeometryReader { geo in
             let side = Theme.Spacing.xl
-            let wide = geo.size.width >= Self.wideSplitThreshold
             let container = min(geo.size.width, Self.maxSplitWidth)
-            let gap: CGFloat = wide ? Theme.Spacing.xl : 40
-            let inner = container - 2 * side - gap
-            let leftWidth = wide ? inner * 0.56 : inner / 2
-            let rightWidth = inner - leftWidth
             VStack(spacing: 0) {
                 // Full-width header so both panes start at the same y.
                 header
                     .padding(.horizontal, side)
 
-                HStack(alignment: .top, spacing: gap) {
-                    splitScoreboardPane(width: leftWidth)
-                        .frame(width: leftWidth)
-                    roundEntryPane
-                        .frame(width: rightWidth)
+                if Self.usesStackedPanes(width: geo.size.width, height: geo.size.height) {
+                    stackedPanes(container: container, height: geo.size.height, side: side)
+                } else {
+                    let wide = geo.size.width >= Self.wideSplitThreshold
+                    let gap: CGFloat = wide ? Theme.Spacing.xl : 40
+                    let inner = container - 2 * side - gap
+                    let leftWidth = wide ? inner * 0.56 : inner / 2
+                    let rightWidth = inner - leftWidth
+                    HStack(alignment: .top, spacing: gap) {
+                        splitScoreboardPane(width: leftWidth)
+                            .frame(width: leftWidth)
+                        roundEntryPane(wideRows: false)
+                            .frame(width: rightWidth)
+                    }
+                    .padding(.horizontal, side)
                 }
-                .padding(.horizontal, side)
             }
             .frame(width: container)
             .frame(maxWidth: .infinity)
         }
+    }
+
+    /// Narrowest window (pt) that stacks the panes. Duo's inner sizes (669 x 951 and 951 x 669) stay side by
+    /// side with the centered fold gap: portrait Duo is narrower than this, landscape Duo is not portrait.
+    static let stackedMinWidth: CGFloat = 744
+
+    /// Portrait-shaped regular-width windows (iPad portrait) stack the panes: equal side-by-side panes would
+    /// squeeze six player columns and leave most of the height empty.
+    static func usesStackedPanes(width: CGFloat, height: CGFloat) -> Bool {
+        width >= stackedMinWidth && height > width
+    }
+
+    /// Share of the height the scoreboard may take before its round grid scrolls: whatever the entry card
+    /// needs to stay unscrolled (estimated), capped so the board never takes more than about half.
+    static func stackedBoardMaxHeight(available: CGFloat, entryEstimate: CGFloat, gap: CGFloat) -> CGFloat {
+        max(available * 0.3, min(available * 0.52, available - entryEstimate - gap))
+    }
+
+    @ScaledMetric(relativeTo: .body) private var entryRowEstimate: CGFloat = 72
+    @ScaledMetric(relativeTo: .body) private var entryChromeEstimate: CGFloat = 190
+
+    /// Full-width scoreboard over a full-width entry card; both hug their content.
+    private func stackedPanes(container: CGFloat, height: CGFloat, side: CGFloat) -> some View {
+        let width = container - 2 * side
+        let gap = Theme.Spacing.l
+        let players = CGFloat(model.game.players.count)
+        let tenSection: CGFloat = model.settings.tenOfDiamondsMinus10 ? 110 : 0
+        let available = height - 110
+        let boardMax = Self.stackedBoardMaxHeight(
+            available: available, entryEstimate: entryChromeEstimate + players * entryRowEstimate + tenSection, gap: gap)
+        return VStack(spacing: gap) {
+            ScoreboardCard(model: model, width: width, isSplit: true, pendingEntry: inlineEntry,
+                           onEdit: { editTarget = EditTarget(id: $0) })
+                .modifier(CappedHeight(max: boardMax))
+                .layoutPriority(1)
+                .overlay(alignment: .bottom) {
+                    if let toast = undoToast {
+                        UndoToastView(message: toast.message, onRedo: performRedo)
+                            .padding(.bottom, Theme.Spacing.m)
+                            .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
+                    }
+                }
+            roundEntryPane(wideRows: true)
+        }
+        .padding(.horizontal, side)
+        .padding(.top, Theme.Spacing.s)
+        .frame(maxHeight: .infinity, alignment: .top)
     }
 
     private func splitScoreboardPane(width: CGFloat) -> some View {
@@ -259,27 +310,29 @@ struct GameView: View {
         .accessibilityAddTraits(.isModal)
     }
 
+    /// Side by side the pane sits under the same top inset as the scoreboard card; stacked it follows the board directly.
     @ViewBuilder
-    private var roundEntryPane: some View {
+    private func roundEntryPane(wideRows: Bool) -> some View {
         VStack(spacing: 0) {
             if model.isGameOver {
                 gameOverCard(dismissible: false)
+                    .frame(maxWidth: wideRows ? 560 : .infinity)
                     .frame(maxHeight: .infinity, alignment: .top)
             } else {
-                entryCard
+                entryCard(wideRows: wideRows)
                     .frame(maxHeight: .infinity, alignment: .top)
             }
         }
-        .padding(.top, Theme.Spacing.s) // matches the scoreboard card's top inset
+        .padding(.top, wideRows ? 0 : Theme.Spacing.s)
         .padding(.bottom, Theme.Spacing.l)
     }
 
     /// Same card family as the scoreboard (surface, radius, hairline, elevation); hugs its content.
-    private var entryCard: some View {
+    private func entryCard(wideRows: Bool) -> some View {
         let shape = RoundedRectangle(cornerRadius: Theme.Radius.card, style: .continuous)
         let shadow = Theme.Elevation.card(for: colorScheme)
         return RoundInputView(model: model, presentation: .inline, inlineEntry: $inlineEntry,
-                              inlineKeyboard: $inlineKeyboard, keyboardEnabled: !anySheetPresented)
+                              inlineKeyboard: $inlineKeyboard, keyboardEnabled: !anySheetPresented, wideRows: wideRows)
             .background(Theme.cardSurface)
             .clipShape(shape)
             .overlay(
@@ -627,6 +680,25 @@ struct GameView: View {
         if contrast == .increased {
             Capsule().strokeBorder(.white, lineWidth: 2).allowsHitTesting(false)
         }
+    }
+}
+
+/// Hugs its child but never grows past `max` (a plain `.frame(maxHeight:)` stretches flexible children to it).
+private struct CappedHeight: ViewModifier {
+    let max: CGFloat
+    func body(content: Content) -> some View { CappedHeightLayout(max: max) { content } }
+}
+
+private struct CappedHeightLayout: Layout {
+    let max: CGFloat
+    private func proposal(_ p: ProposedViewSize) -> ProposedViewSize {
+        ProposedViewSize(width: p.width, height: Swift.min(p.height ?? max, max))
+    }
+    func sizeThatFits(proposal p: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        subviews.first?.sizeThatFits(proposal(p)) ?? .zero
+    }
+    func placeSubviews(in bounds: CGRect, proposal p: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        subviews.first?.place(at: bounds.origin, anchor: .topLeading, proposal: ProposedViewSize(width: bounds.width, height: bounds.height))
     }
 }
 

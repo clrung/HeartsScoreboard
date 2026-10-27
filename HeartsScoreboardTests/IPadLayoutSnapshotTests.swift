@@ -15,10 +15,12 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         Size(name: "13land", size: CGSize(width: 1376, height: 1032), regular: true),
         Size(name: "13port", size: CGSize(width: 1032, height: 1376), regular: true),
         Size(name: "11land", size: CGSize(width: 1210, height: 834), regular: true),
-        Size(name: "11port", size: CGSize(width: 834, height: 1210), regular: true),
+        Size(name: "11port", size: CGSize(width: 834, height: 1194), regular: true),
         Size(name: "miniland", size: CGSize(width: 1133, height: 744), regular: true),
         Size(name: "miniport", size: CGSize(width: 744, height: 1133), regular: true),
         Size(name: "third", size: CGSize(width: 507, height: 1032), regular: false),
+        Size(name: "duoP", size: CGSize(width: 669, height: 951), regular: true),
+        Size(name: "duoL", size: CGSize(width: 951, height: 669), regular: true),
     ]
 
     // MARK: Fixtures
@@ -76,7 +78,8 @@ final class IPadLayoutSnapshotTests: XCTestCase {
     }
 
     private func renderView<V: View>(_ name: String, size: CGSize, regular: Bool, dark: Bool,
-                                     category: UIContentSizeCategory? = nil, view: V) throws -> UIImage {
+                                     category: UIContentSizeCategory? = nil, highContrast: Bool = false, settle: TimeInterval = 0.15,
+                                     view: V) throws -> UIImage {
         let scene = try XCTUnwrap(UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.first)
         let window = UIWindow(windowScene: scene)
         window.frame = CGRect(origin: .zero, size: size)
@@ -84,6 +87,7 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         window.traitOverrides.verticalSizeClass = .regular
         window.overrideUserInterfaceStyle = dark ? .dark : .light
         if let category { window.traitOverrides.preferredContentSizeCategory = category }
+        if highContrast { window.traitOverrides.accessibilityContrast = .high }
         let host = UIHostingController(rootView: view)
         window.rootViewController = host
         window.makeKeyAndVisible()
@@ -99,7 +103,7 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         host.view.layoutIfNeeded()
         RunLoop.main.run(until: Date().addingTimeInterval(0.35))
         host.view.layoutIfNeeded()
-        RunLoop.main.run(until: Date().addingTimeInterval(0.15))
+        RunLoop.main.run(until: Date().addingTimeInterval(settle))
 
         let image = UIGraphicsImageRenderer(bounds: window.bounds).image { _ in
             window.drawHierarchy(in: window.bounds, afterScreenUpdates: true)
@@ -145,9 +149,10 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         }
     }
 
-    /// Equal panes (below 1100pt) keep the Duo fold rule: only felt across the vertical center line below the header.
+    /// Equal panes (below 1100pt, not stacked) keep the Duo fold rule: only felt across the vertical center line below the header.
     func testEqualPanesLeaveTheCenterGapClear() throws {
-        for size in Self.sizes where size.regular && size.size.width < 1100 {
+        for size in Self.sizes where size.regular && size.size.width < 1100
+            && !GameView.usesStackedPanes(width: size.size.width, height: size.size.height) {
             let image = try render("ipad-center-\(size.name)", size: size.size, regular: true,
                                    model: ScreenshotDemo.makeModel(playerCount: 4, scenario: "long"), dark: false)
             for y in stride(from: size.size.height * 0.3, to: size.size.height * 0.9, by: 40) {
@@ -234,6 +239,154 @@ final class IPadLayoutSnapshotTests: XCTestCase {
                                        view: GameView(model: m, initialPending: partial,
                                                       initialKeyboard: RoundEntryKeyboard(selectedIndex: 1, isActive: true)))
                 }
+            }
+        }
+    }
+
+
+    // MARK: Phase 4
+
+    /// Portrait iPad stacks the panes; narrower windows (Duo 669x951) and landscape do not.
+    func testStackedPaneDecision() {
+        XCTAssertTrue(GameView.usesStackedPanes(width: 834, height: 1194), "11in portrait")
+        XCTAssertTrue(GameView.usesStackedPanes(width: 1032, height: 1376), "13in portrait")
+        XCTAssertTrue(GameView.usesStackedPanes(width: 744, height: 1133), "mini portrait")
+        XCTAssertFalse(GameView.usesStackedPanes(width: 669, height: 951), "Duo inner portrait keeps the fold gap")
+        XCTAssertFalse(GameView.usesStackedPanes(width: 951, height: 669), "Duo inner landscape")
+        XCTAssertFalse(GameView.usesStackedPanes(width: 1210, height: 834), "landscape")
+        XCTAssertFalse(GameView.usesStackedPanes(width: 743, height: 1133), "below 744pt")
+    }
+
+    /// The entry card gets room first (up to ~half the height goes to the board).
+    func testStackedBoardHeightLeavesRoomForTheEntryCard() {
+        let avail: CGFloat = 1084
+        XCTAssertEqual(GameView.stackedBoardMaxHeight(available: avail, entryEstimate: 480, gap: 16), avail * 0.52, accuracy: 0.5)
+        XCTAssertEqual(GameView.stackedBoardMaxHeight(available: avail, entryEstimate: 700, gap: 16), avail - 716, accuracy: 0.5)
+        XCTAssertGreaterThanOrEqual(GameView.stackedBoardMaxHeight(available: avail, entryEstimate: 2000, gap: 16), avail * 0.3)
+    }
+
+    /// 11in portrait, six players: names show in full (the earlier side-by-side layout squeezed them to initials)
+    /// and the entry card fills the width.
+    func testPortraitSixPlayersShowFullNames() throws {
+        let names = ["Ava", "Ben", "Cleo", "Drew", "Alexandra", "Frankie"]
+        let m = ScreenshotDemo.makeModel(playerCount: 6, scenario: "early")
+        XCTAssertEqual(m.game.players.map(\.name), names)
+        _ = try render("p4-11port-6p", size: CGSize(width: 834, height: 1194), regular: true, model: m, dark: false)
+        // Shown names fit: column = (786 - 32 - 30) / 6 = 120pt; "Frankie" fits with the dealer badge.
+        XCTAssertTrue(ScoreboardCard.nameFits(textWidth: 62, columnWidth: 120, hasDealerBadge: true))
+        XCTAssertFalse(ScoreboardCard.nameFits(textWidth: 62, columnWidth: 61, hasDealerBadge: true), "Duo 6p columns use initials")
+    }
+
+    /// The crown badge reaches only into the well's inset, never the digits, at every Dynamic Type scale.
+    func testCrownStaysClearOfDigits() {
+        for crown in stride(from: CGFloat(11), through: 40, by: 1) {
+            XCTAssertLessThan(CrownGeometry.reachIntoWell(), CrownGeometry.wellInset, "crown \(crown)")
+            XCTAssertGreaterThanOrEqual(CrownGeometry.headroom(crownSize: crown), CrownGeometry.lift(crownSize: crown) , "headroom \(crown)")
+        }
+    }
+
+    private struct QACase {
+        var name: String
+        var size: CGSize
+        var regular = true
+        var scenario = "4p-3"
+        var dark = false
+        var contrast = false
+        var category: UIContentSizeCategory?
+        var pending = false
+        var keyboard = false
+        var rtl = false
+    }
+
+    private func qaModel(_ key: String) -> GameViewModel {
+        switch key {
+        case "3p": return model(names: Array(six.prefix(3)), rounds: 5)
+        case "4p-3": return model(names: Array(six.prefix(4)), rounds: 3)
+        case "4p-0": return model(names: Array(six.prefix(4)), rounds: 0)
+        case "6p-0": return model(names: six, rounds: 0)
+        case "6p-1": return ScreenshotDemo.makeModel(playerCount: 6, scenario: "early")
+        case "6p-22": return model(names: six, rounds: 22, endingScore: 500)
+        case "4p-long": return ScreenshotDemo.makeModel(playerCount: 4, scenario: "long")
+        case "tenrule": return model(names: Array(six.prefix(4)), rounds: 6, tenRule: true)
+        case "6p-ten": return model(names: six, rounds: 5, tenRule: true)
+        case "moon": return model(names: Array(six.prefix(4)), rounds: 5)
+        case "tied", "over", "longnames": return ScreenshotDemo.makeModel(playerCount: key == "longnames" ? 6 : 4, scenario: key)
+        default: fatalError(key)
+        }
+    }
+
+    private func renderQA(_ c: QACase) throws {
+        let m = qaModel(c.scenario)
+        var pending: RoundEntryState?
+        if c.pending {
+            var p = RoundEntryState()
+            p.reset(players: m.game.players)
+            p.setPoints(for: m.game.players[0].id, to: 5)
+            p.addQueenOfSpades(for: m.game.players[1].id)
+            pending = p
+        }
+        let game = GameView(model: m, initialPending: pending,
+                            initialKeyboard: c.keyboard ? RoundEntryKeyboard(selectedIndex: 1, isActive: true) : RoundEntryKeyboard())
+        if c.rtl {
+            _ = try renderView("qa-\(c.name)", size: c.size, regular: c.regular, dark: c.dark, category: c.category,
+                               highContrast: c.contrast, view: game.environment(\.layoutDirection, .rightToLeft))
+        } else {
+            _ = try renderView("qa-\(c.name)", size: c.size, regular: c.regular, dark: c.dark, category: c.category,
+                               highContrast: c.contrast, view: game)
+        }
+    }
+
+    /// Visual QA matrix (Phase 4). Set QA_FILTER to a substring to render a subset.
+    func testVisualQAMatrix() throws {
+        let sizes: [(String, CGSize, Bool)] = [
+            ("13land", CGSize(width: 1376, height: 1032), true), ("13port", CGSize(width: 1032, height: 1376), true),
+            ("11land", CGSize(width: 1210, height: 834), true), ("11port", CGSize(width: 834, height: 1194), true),
+            ("miniland", CGSize(width: 1133, height: 744), true), ("miniport", CGSize(width: 744, height: 1133), true),
+            ("third507", CGSize(width: 507, height: 1032), false), ("third375", CGSize(width: 375, height: 1032), false),
+            ("slide320", CGSize(width: 320, height: 1024), false),
+            ("iphone", CGSize(width: 393, height: 852), false), ("se", CGSize(width: 375, height: 667), false),
+            ("duoP", CGSize(width: 669, height: 951), true), ("duoL", CGSize(width: 951, height: 669), true),
+            ("duoOuter", CGSize(width: 466, height: 678), false),
+        ]
+        var cases: [QACase] = []
+        for (n, sz, reg) in sizes {
+            for scen in ["3p", "4p-3", "6p-1", "6p-22", "longnames", "4p-0", "over"] {
+                cases.append(QACase(name: "\(n)-\(scen)-light", size: sz, regular: reg, scenario: scen))
+            }
+            for scen in ["6p-22", "tied", "tenrule", "moon"] {
+                cases.append(QACase(name: "\(n)-\(scen)-dark", size: sz, regular: reg, scenario: scen, dark: true))
+            }
+            cases.append(QACase(name: "\(n)-6p-1-pending-light", size: sz, regular: reg, scenario: "6p-1", pending: true, keyboard: true))
+            cases.append(QACase(name: "\(n)-4p-3-pending-dark", size: sz, regular: reg, scenario: "4p-3", dark: true, pending: true))
+            cases.append(QACase(name: "\(n)-4p-long-hc-light", size: sz, regular: reg, scenario: "4p-long", contrast: true))
+            cases.append(QACase(name: "\(n)-6p-ten-hc-dark", size: sz, regular: reg, scenario: "6p-ten", dark: true, contrast: true))
+            cases.append(QACase(name: "\(n)-4p-3-rtl", size: sz, regular: reg, scenario: "4p-3", rtl: true))
+            for (cn, cat) in [("xs", UIContentSizeCategory.extraSmall), ("xxxl", .extraExtraExtraLarge), ("ax3", .accessibilityExtraLarge)] {
+                cases.append(QACase(name: "\(n)-4p-3-\(cn)-light", size: sz, regular: reg, scenario: "4p-3", category: cat))
+                cases.append(QACase(name: "\(n)-6p-22-\(cn)-dark", size: sz, regular: reg, scenario: "6p-22", dark: true, category: cat))
+            }
+        }
+        let filter = ProcessInfo.processInfo.environment["QA_FILTER"]
+        guard let filter, !filter.isEmpty else { return } // opt-in: the matrix is large
+        for c in cases where c.name.contains(filter) { try renderQA(c) }
+    }
+
+
+    /// Phase 4: Settings (moon rule), History list/detail and the edit-round sheet as presented on iPad and iPhone.
+    func testSheetsRenderOnIPadAndPhone() throws {
+        let sizes: [(String, CGSize, Bool)] = [("ipad", CGSize(width: 834, height: 1194), true), ("iphone", CGSize(width: 393, height: 852), false)]
+        for (tag, size, regular) in sizes {
+            for dark in [false, true] {
+                let scheme = dark ? "dark" : "light"
+                let m = model(names: Array(six.prefix(4)), rounds: 6, tenRule: true)
+                m.persistsToCloud = false
+                m.history = [CompletedGame(finishedAt: Date(), game: m.game, settings: m.settings),
+                             CompletedGame(finishedAt: Date().addingTimeInterval(-86400), game: m.game, settings: m.settings)]
+                _ = try renderView("sheet-settings-\(tag)-\(scheme)", size: size, regular: regular, dark: dark, view: SettingsView(model: m))
+                _ = try renderView("sheet-history-\(tag)-\(scheme)", size: size, regular: regular, dark: dark, view: HistoryView(model: m))
+                _ = try renderView("sheet-edit-\(tag)-\(scheme)", size: size, regular: regular, dark: dark, settle: 1.0, view: RoundInputView(model: m, editingHandID: m.game.hands[2].id))
+                _ = try renderView("sheet-historydetail-\(tag)-\(scheme)", size: size, regular: regular, dark: dark,
+                                   view: NavigationStack { HistoryDetailView(completedGame: m.history[0]) })
             }
         }
     }

@@ -32,10 +32,13 @@ struct RoundInputView: View {
     private let keyboardEnabled: Bool
     /// Inline only: selection state lives in `GameView`, which receives the keys through the shake detector.
     private let externalKeyboard: Binding<RoundEntryKeyboard>?
+    /// Inline in a full-width card (stacked iPad portrait): name, chips and stepper share one line per player.
+    private let wideRows: Bool
 
     init(model: GameViewModel, presentation: Presentation = .sheet, editingHandID: UUID? = nil,
          inlineEntry: Binding<RoundEntryState>? = nil, inlineKeyboard: Binding<RoundEntryKeyboard>? = nil,
-         keyboardEnabled: Bool = true) {
+         keyboardEnabled: Bool = true, wideRows: Bool = false) {
+        self.wideRows = wideRows
         self.model = model
         self.presentation = presentation
         self.editingHandID = editingHandID
@@ -211,6 +214,7 @@ struct RoundInputView: View {
                     .minimumScaleFactor(0.6)
                 Spacer(minLength: Theme.Spacing.s)
                 moonMenu
+                    .layoutPriority(1)
                 resetButton
             }
             .padding(.horizontal, Theme.Spacing.l)
@@ -319,7 +323,7 @@ struct RoundInputView: View {
             HStack(spacing: 5) {
                 Image(systemName: "moon.fill")
                 if !isAccessibilitySize {
-                    Text(pref.label).lineLimit(1)
+                    Text(pref.label).lineLimit(1).minimumScaleFactor(0.7)
                 }
             }
             .font(.subheadline.weight(.semibold))
@@ -442,6 +446,14 @@ struct RoundInputView: View {
                         identity(for: player)
                         stepper(for: player)
                     }
+                } else if wideRows {
+                    HStack(spacing: Theme.Spacing.l) {
+                        identity(for: player)
+                            .frame(minWidth: 120, maxWidth: .infinity, alignment: .leading)
+                        actions(for: player, quick: quick, remaining: remaining)
+                            .frame(maxWidth: 300)
+                        stepper(for: player)
+                    }
                 } else {
                     HStack(spacing: Theme.Spacing.s) {
                         identity(for: player)
@@ -449,7 +461,9 @@ struct RoundInputView: View {
                         stepper(for: player)
                     }
                 }
-                actions(for: player, quick: quick, remaining: remaining)
+                if !wideRows || isAccessibilitySize {
+                    actions(for: player, quick: quick, remaining: remaining)
+                }
             }
         }
         .accessibilityElement(children: .contain)
@@ -470,7 +484,7 @@ struct RoundInputView: View {
                     .lineLimit(1)
                     .truncationMode(.tail)
                     // At accessibility sizes shrink instead of truncating to "x…" in a narrow pane.
-                    .minimumScaleFactor(isAccessibilitySize ? 0.5 : 1)
+                    .minimumScaleFactor(isAccessibilitySize ? 0.5 : 0.75)
                 tenChip(for: player)
             }
             HStack(spacing: 4) {
@@ -485,7 +499,7 @@ struct RoundInputView: View {
                     .monospacedDigit()
                     .foregroundStyle(Color.secondary)
                     .lineLimit(1)
-                    .minimumScaleFactor(0.8)
+                    .minimumScaleFactor(0.6)
             }
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(Text(String(format: String(localized: "Total %d"), total)))
