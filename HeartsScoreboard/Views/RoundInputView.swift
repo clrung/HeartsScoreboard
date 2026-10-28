@@ -11,6 +11,7 @@ struct RoundInputView: View {
     }
 
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.colorSchemeContrast) private var contrast
@@ -118,7 +119,12 @@ struct RoundInputView: View {
                                     Label("Back", systemImage: DirectionalUI.backSymbol)
                                 }
                             }
-                            ToolbarItem(placement: .topBarTrailing) { resetButton }
+                            ToolbarItem(placement: .topBarTrailing) {
+                                HStack(spacing: Theme.Spacing.s) {
+                                    if verticalSizeClass == .compact && !isAccessibilitySize { moonMenu }
+                                    resetButton
+                                }
+                            }
                         }
                 }
                 .modifier(FormPresentationSizing())
@@ -187,20 +193,29 @@ struct RoundInputView: View {
     // MARK: Layout
 
     private var sheetContent: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Spacer(minLength: 0)
-                moonMenu
-            }
-            .padding(.horizontal, Theme.Spacing.l)
-            ScrollView {
-                entryRows
+        GeometryReader { geometry in
+            // Size from the sheet's usable width, including Split View and larger text.
+            let availableWidth = geometry.size.width - 2 * Theme.Spacing.l
+            let minimumCardWidth = max(320, 4 * max(tapSize, chipWidth) + 3 * Theme.Spacing.s + 2 * (Theme.Spacing.m + 2))
+            let columns = isAccessibilitySize ? 1 : min(3, max(1, Int((availableWidth + Theme.Spacing.s) / (minimumCardWidth + Theme.Spacing.s))))
+            let compactFooter = columns > 1 && geometry.size.width > geometry.size.height
+            VStack(spacing: 0) {
+                if verticalSizeClass != .compact || isAccessibilitySize {
+                    HStack {
+                        Spacer(minLength: 0)
+                        moonMenu
+                    }
                     .padding(.horizontal, Theme.Spacing.l)
-                    .padding(.bottom, Theme.Spacing.m)
+                }
+                ScrollView {
+                    entryRows(columns: columns)
+                        .padding(.horizontal, Theme.Spacing.l)
+                        .padding(.bottom, Theme.Spacing.m)
+                }
+                .scrollBounceBehavior(.basedOnSize)
+                .accessibilityIdentifier("roundInput.scroll")
+                footer(compact: compactFooter)
             }
-            .scrollBounceBehavior(.basedOnSize)
-            .accessibilityIdentifier("roundInput.scroll")
-            footer
         }
         .background(Theme.cardSurface.ignoresSafeArea())
     }
@@ -223,7 +238,7 @@ struct RoundInputView: View {
 
             if scrolling {
                 ScrollView {
-                    entryRows
+                    entryRows()
                         .padding(.horizontal, Theme.Spacing.l)
                         .padding(.vertical, Theme.Spacing.s)
                 }
@@ -231,24 +246,34 @@ struct RoundInputView: View {
                 .accessibilityIdentifier("roundInput.scroll")
                 .frame(maxHeight: .infinity)
             } else {
-                entryRows
+                entryRows()
                     .padding(.horizontal, Theme.Spacing.l)
                     .padding(.vertical, Theme.Spacing.s)
             }
-            footer
+            footer()
         }
         .background(Theme.cardSurface)
     }
 
     /// The player rows plus, when the 10♦ rule is on, the "taken by" picker; shared by sheet and inline.
-    private var entryRows: some View {
+    private func entryRows(columns: Int = 1) -> some View {
         VStack(spacing: Theme.Spacing.s) {
-            ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
-                playerRow(player, index: index)
+            if columns == 1 {
+                playerRows
+            } else {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: Theme.Spacing.s, alignment: .top), count: columns), spacing: Theme.Spacing.s) {
+                    playerRows
+                }
             }
             if isTenRuleOn {
                 tenOfDiamondsSection
             }
+        }
+    }
+
+    private var playerRows: some View {
+        ForEach(Array(model.game.players.enumerated()), id: \.element.id) { index, player in
+            playerRow(player, index: index)
         }
     }
 
@@ -343,9 +368,11 @@ struct RoundInputView: View {
 
     // MARK: Footer
 
-    private var footer: some View {
-        VStack(spacing: Theme.Spacing.m) {
+    private func footer(compact: Bool = false) -> some View {
+        let layout = compact ? AnyLayout(HStackLayout(spacing: Theme.Spacing.l)) : AnyLayout(VStackLayout(spacing: Theme.Spacing.m))
+        return layout {
             progressStrip
+                .frame(maxWidth: .infinity)
 
             Button {
                 submit()
@@ -362,7 +389,9 @@ struct RoundInputView: View {
             .accessibilityLabel(isEditing ? Text("Save round scores") : Text("Submit round scores"))
             .accessibilityIdentifier("roundInput.submit")
             .disabled(!canSubmit)
+            .frame(maxWidth: compact ? 240 : .infinity)
         }
+        .frame(maxWidth: compact ? 680 : .infinity)
         .padding(.horizontal, Theme.Spacing.l)
         .padding(.top, Theme.Spacing.m)
         .padding(.bottom, Theme.Spacing.l)

@@ -40,6 +40,9 @@ final class OrientationLiveUITests: XCTestCase {
         device.orientation = .landscapeLeft
         Thread.sleep(forTimeInterval: 1)
         shot("live-ipad-landscape-\(tag)")
+        if let hold = ProcessInfo.processInfo.environment["HOLD_SHEET_SECONDS"], let seconds = Double(hold) {
+            Thread.sleep(forTimeInterval: seconds)
+        }
         let landscapeScoreboard = app.otherElements["pendingRow"].exists || app.staticTexts["emptyRoundsLabel"].exists
         XCTAssertTrue(landscapeScoreboard, "pending row visible in landscape")
         XCTAssertFalse(app.buttons["nextRoundButton"].exists, "iPad keeps round entry inline in landscape")
@@ -106,9 +109,23 @@ final class OrientationLiveUITests: XCTestCase {
                           "round-entry sheet opens in \(orientation)")
             let submit = app.buttons["roundInput.submit"]
             XCTAssertTrue(submit.waitForExistence(timeout: 5), "sheet Submit is available in \(orientation)")
-            XCTAssertGreaterThan(submit.frame.width, window.frame.width * 0.5,
-                                 "sheet Submit remains comfortably wide in \(orientation)")
+            if orientation == "landscape" {
+                let first = app.otherElements["roundInput.row.0"]
+                let second = app.otherElements["roundInput.row.1"]
+                XCTAssertEqual(first.frame.minY, second.frame.minY, accuracy: 2, "players share a landscape row")
+                XCTAssertLessThan(first.frame.maxX, second.frame.minX, "cards have a clear gap")
+                XCTAssertLessThan(submit.frame.width, window.frame.width * 0.4, "landscape Submit is compact")
+                let progress = app.otherElements["roundInput.progress"]
+                XCTAssertEqual(progress.frame.midY, submit.frame.midY, accuracy: 15, "progress sits beside Submit")
+                app.buttons["roundInput.quick.Alexandria"].tap()
+                XCTAssertEqual(app.buttons["roundInput.value.Alexandria"].value as? String, "5 points")
+            } else {
+                XCTAssertGreaterThan(submit.frame.width, window.frame.width * 0.5)
+            }
             capture("phone-\(orientation)-sheet-\(appearance)")
+            if orientation == "landscape", let hold = env["HOLD_SHEET_SECONDS"], let seconds = Double(hold) {
+                Thread.sleep(forTimeInterval: seconds)
+            }
             let back = app.buttons["Back"]
             XCTAssertTrue(back.waitForExistence(timeout: 5), "sheet has its standard Back control")
             back.tap()

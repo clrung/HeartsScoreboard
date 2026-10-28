@@ -1,5 +1,12 @@
 # Agent TODO
 
+## Landscape score-entry cards (2026-10-27)
+
+- [x] Sheet entry uses a width-aware player grid (up to three columns, at least 320pt per card, wider when chip text scales); accessibility text sizes retain one column. Existing inline iPad rows remain unchanged.
+- [x] Wide landscape sheets center a compact footer with progress beside Submit, keeping it pinned below the scrollable cards. Compact-height sheets move the moon preference into the toolbar so two complete card rows fit on iPhone Air.
+- [x] Extended phone orientation UI regression to check adjacent cards, compact Submit, progress alignment and score entry with six long player names.
+- [x] Final simulator verification: four UI runs passed on iPhone Air and iPad Pro 13-inch (M5), covering portrait/landscape in light/dark; screenshots visually reviewed, including simctl captures in all four device/appearance combinations. Build, screenshot identifiers and diff whitespace checks pass. Final results: `/private/tmp/hs-entry-final-{light,dark,ipad}.xcresult`; phone captures `/private/tmp/hs-entry-final/`, iPad captures `/private/tmp/hs-entry-shots/`. Initial cold-start test connections stalled before assertions; restarting the task simulators and running sequentially resolved it.
+
 ## Queen entry transfer and score floor (2026-10-27)
 
 - [x] Q♠ chips transfer the queen and its 13 points between players, preserving entered hearts. Tapping the selected Q♠ removes it and exactly 13 points (user decision). Q♠ remains available after a normal round reaches 26; moon score controls keep their existing lock.
