@@ -48,7 +48,16 @@ struct GameOverView: View {
                 .fill(Color(.systemBackground))
         )
         .overlay(alignment: .topLeading) {
-            ResultShareButton(data: cardData)
+            Group {
+                if let completedGame {
+                    // Keep the game-over export identical to the full history detail share.
+                    HistoryShareButton(completedGame: completedGame)
+                } else {
+                    // Snapshot previews and callers without an archived game still get a branded
+                    // standings card instead of a disabled share control.
+                    ResultShareButton(data: cardData)
+                }
+            }
                 .font(.title2)
                 .frame(minWidth: 44, minHeight: 44)
                 .padding(4)

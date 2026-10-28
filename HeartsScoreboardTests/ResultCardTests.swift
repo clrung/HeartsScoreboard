@@ -42,6 +42,35 @@ final class ResultCardTests: XCTestCase {
         XCTAssertNil(d.roundsText)
         XCTAssertEqual(d.rows.map(\.name), ["Y", "X"])
         XCTAssertTrue(d.shareTitle.hasPrefix("Y"))
+        XCTAssertTrue(d.shareTitle.contains(String(localized: "Hearts Scoreboard")))
+    }
+
+    func testCompletedGameSharePayloadRetainsHistoryDetails() {
+        let finishedAt = Date(timeIntervalSince1970: 1_800_000_000)
+        let game = completed(["Ace", "Deuce", "Trey"], totals: [40, 8, 24], rounds: 5)
+        let historical = CompletedGame(id: UUID(), finishedAt: finishedAt, game: game.game, settings: game.settings)
+
+        let payload = ResultCardData(completed: historical)
+        XCTAssertEqual(payload.date, finishedAt)
+        XCTAssertEqual(payload.roundCount, 5)
+        XCTAssertEqual(payload.rows.map(\.name), ["Deuce", "Trey", "Ace"])
+        XCTAssertEqual(payload.series.map(\.count), [6, 6, 6])
+        XCTAssertTrue(payload.shareTitle.contains("Deuce"))
+    }
+
+    func testEditingArchivedGameWithSameIdentityChangesShareTaskValue() {
+        let original = completed(["Ace", "Deuce"], totals: [24, 8], rounds: 2)
+        let archived = CompletedGame(id: UUID(), finishedAt: Date(timeIntervalSince1970: 1_800_000_000),
+                                     game: original.game, settings: original.settings)
+        var editedGame = archived.game
+        editedGame.hands[0].pointsByPlayerID[editedGame.players[0].id] = 12
+        let edited = CompletedGame(id: archived.id, finishedAt: archived.finishedAt,
+                                   game: editedGame, settings: archived.settings)
+
+        XCTAssertNotEqual(archived, edited)
+        XCTAssertEqual(archived.id, edited.id)
+        XCTAssertEqual(archived.finishedAt, edited.finishedAt)
+        XCTAssertNotEqual(ResultCardData(completed: archived), ResultCardData(completed: edited))
     }
 
     func testRenderedCardIsThreeTimesAndWritesPNG() throws {
@@ -70,6 +99,22 @@ final class ResultCardTests: XCTestCase {
         XCTAssertEqual(file.url.lastPathComponent, filename)
         let bytes = try Data(contentsOf: file.url)
         XCTAssertEqual(Array(bytes.prefix(8)), [137, 80, 78, 71, 13, 10, 26, 10])
+    }
+
+    func testRepeatedDefaultExportsUseDistinctFoldersAndDescriptiveNames() throws {
+        let date = Date(timeIntervalSince1970: 1_800_000_000)
+        let image = try XCTUnwrap(ResultCardRenderer.image(for: ResultCardData(
+            standings: [], date: date
+        )))
+        let first = try NamedPNGFile.make(image: image, date: date)
+        let second = try NamedPNGFile.make(image: image, date: date)
+        defer {
+            try? FileManager.default.removeItem(at: first.url.deletingLastPathComponent())
+            try? FileManager.default.removeItem(at: second.url.deletingLastPathComponent())
+        }
+        XCTAssertEqual(first.url.lastPathComponent, NamedPNGFile.filename(for: date))
+        XCTAssertEqual(second.url.lastPathComponent, NamedPNGFile.filename(for: date))
+        XCTAssertNotEqual(first.url.deletingLastPathComponent(), second.url.deletingLastPathComponent())
     }
 
 

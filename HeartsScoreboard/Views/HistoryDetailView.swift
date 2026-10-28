@@ -324,7 +324,7 @@ struct HistoryShareButton: View {
             }
         }
         .accessibilityLabel(Text("Share result"))
-        .task(id: completedGame.id) {
+        .task(id: completedGame) {
             guard let image = await HistoryShareRenderer.image(for: completedGame),
                   let file = try? NamedPNGFile.make(image: image, date: completedGame.finishedAt) else { return }
             shareFile = file

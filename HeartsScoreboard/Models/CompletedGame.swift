@@ -1,6 +1,6 @@
 import Foundation
 
-struct CompletedGame: Identifiable, Codable {
+struct CompletedGame: Identifiable, Equatable, Codable {
     let id: UUID
     let finishedAt: Date
     let game: HeartsGame

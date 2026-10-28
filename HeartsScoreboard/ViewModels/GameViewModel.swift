@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 import Observation
 
-enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
+enum ShootMoonPreference: String, CaseIterable, Identifiable, Equatable, Codable {
     case add26
     case subtract26
 
@@ -16,7 +16,7 @@ enum ShootMoonPreference: String, CaseIterable, Identifiable, Codable {
     }
 }
 
-enum AppearancePreference: String, CaseIterable, Identifiable, Codable {
+enum AppearancePreference: String, CaseIterable, Identifiable, Equatable, Codable {
     case system
     case light
     case dark
@@ -41,7 +41,7 @@ enum AppearancePreference: String, CaseIterable, Identifiable, Codable {
     }
 }
 
-struct GameSettings: Codable {
+struct GameSettings: Equatable, Codable {
     var endingScore: Int = 100
     var shootMoonPreference: ShootMoonPreference = .add26
     var appearance: AppearancePreference = .system

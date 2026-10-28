@@ -5,28 +5,35 @@ final class HistoryShareUITests: XCTestCase {
     func testHistoryShareLight() throws { try checkShare(appearance: "light") }
     func testHistoryShareDark() throws { try checkShare(appearance: "dark") }
 
-    private func checkShare(appearance: String) throws {
+    func testGameOverShareLight() throws { try checkShare(appearance: "light", gameOver: true) }
+    func testGameOverShareDark() throws { try checkShare(appearance: "dark", gameOver: true) }
+
+    private func checkShare(appearance: String, gameOver: Bool = false) throws {
         continueAfterFailure = false
         let app = XCUIApplication()
         app.launchArguments = ["-screenshotDemo", "-screenshotAppearance", appearance]
+        if gameOver { app.launchArguments += ["-screenshotScenario", "over"] }
         app.launch()
-        XCTAssertTrue(app.buttons["historyButton"].waitForExistence(timeout: 20))
-        app.buttons["historyButton"].tap()
-        let row = app.descendants(matching: .any)["history.row"].firstMatch
-        XCTAssertTrue(row.waitForExistence(timeout: 10))
-        Thread.sleep(forTimeInterval: 1)
-        row.tap()
-        let share = app.buttons["historyDetail.share"]
-        XCTAssertTrue(share.waitForExistence(timeout: 10))
+        if !gameOver {
+            XCTAssertTrue(app.buttons["historyButton"].waitForExistence(timeout: 20))
+            app.buttons["historyButton"].tap()
+            let row = app.descendants(matching: .any)["history.row"].firstMatch
+            XCTAssertTrue(row.waitForExistence(timeout: 10))
+            Thread.sleep(forTimeInterval: 1)
+            row.tap()
+        }
+        let share = app.buttons[gameOver ? "gameOver.share" : "historyDetail.share"]
+        let context = gameOver ? "game-over" : "history"
+        XCTAssertTrue(share.waitForExistence(timeout: 20))
         let enabled = NSPredicate(format: "enabled == true")
         expectation(for: enabled, evaluatedWith: share)
         waitForExpectations(timeout: 20)
-        try capture("history-\(appearance)")
+        try capture("\(context)-\(appearance)")
         share.tap()
         let viewMore = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@", "View More")).firstMatch
         if viewMore.waitForExistence(timeout: 5) { viewMore.tap() }
         // Save Image is absent on the test simulator; use Save to Files to check the exported PNG filename.
-        try capture("share-\(appearance)")
+        try capture("\(context)-share-\(appearance)")
         let saveToFiles = app.descendants(matching: .any).matching(NSPredicate(format: "label == %@", "Save to Files")).firstMatch
         XCTAssertTrue(saveToFiles.waitForExistence(timeout: 10))
         saveToFiles.tap()
@@ -36,7 +43,7 @@ final class HistoryShareUITests: XCTestCase {
             NSPredicate(format: "label BEGINSWITH %@ OR value BEGINSWITH %@", "Hearts-Scoreboard-", "Hearts-Scoreboard-")
         ).firstMatch
         XCTAssertTrue(namedFile.waitForExistence(timeout: 10), app.debugDescription)
-        try capture("filename-\(appearance)")
+        try capture("\(context)-filename-\(appearance)")
     }
 
     private func capture(_ name: String) throws {
@@ -47,7 +54,7 @@ final class HistoryShareUITests: XCTestCase {
         add(attachment)
         if let directory = ProcessInfo.processInfo.environment["SHOT_DIR"] {
             try FileManager.default.createDirectory(atPath: directory, withIntermediateDirectories: true)
-            try screenshot.pngRepresentation.write(to: URL(fileURLWithPath: directory).appendingPathComponent("\(name).png"))
+            try screenshot.pngRepresentation.write(to: URL(fileURLWithPath: directory).appendingPathComponent("\(Int(screenshot.image.size.width))-\(name).png"))
         }
     }
 }

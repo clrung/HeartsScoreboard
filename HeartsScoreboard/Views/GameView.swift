@@ -304,7 +304,12 @@ struct GameView: View {
                 showingHistory = true
             },
             onClose: dismissible ? { resultsDismissed = true } : nil,
-            completedGame: CompletedGame(game: model.game, settings: model.settings)
+            completedGame: model.history.first(where: { $0.game.id == model.game.id })
+                ?? CompletedGame(
+                    id: model.game.id,
+                    finishedAt: model.game.hands.last?.createdAt ?? .distantPast,
+                    game: model.game, settings: model.settings
+                )
         )
     }
 
