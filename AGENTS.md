@@ -32,7 +32,7 @@ Gotchas:
 
 ## Tests
 
-There is currently **no test target**. When fixing a bug or changing scoring logic, add a unit test target (via `project.yml`) covering `GameViewModel` rather than skipping tests. Every bug fix ships with a regression test.
+Use the existing `HeartsScoreboardTests` unit target in the `HeartsScoreboard` scheme for scoring and persistence regressions. UI tests live in `HeartsScoreboardUITests` and run through the `HeartsScoreboardScreenshots` scheme. Every bug fix ships with a regression test; add targets or files through `project.yml` and regenerate when needed.
 
 ## Conventions
 

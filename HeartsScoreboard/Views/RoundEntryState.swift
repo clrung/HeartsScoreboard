@@ -11,7 +11,7 @@ struct RoundEntryState: Equatable {
 
     /// Pre-fills the entry from an existing round, for editing. `Hand.pointsByPlayerID` holds final points,
     /// so the 10♦ holder's -10 is backed out to get the hearts/Q♠ points the entry works with. The Q♠ pick
-    /// isn't recorded on a hand, so it stays unset.
+    /// is recorded when explicitly selected; legacy or manually scored hands may have no assignment.
     init(hand: HeartsGame.Hand, players: [HeartsGame.Player]) {
         var dict: [UUID: Int] = [:]
         for p in players {
@@ -19,6 +19,7 @@ struct RoundEntryState: Equatable {
             dict[p.id] = p.id == hand.tenOfDiamondsPlayerID ? final - HeartsGame.tenOfDiamondsPoints : final
         }
         points = dict
+        queenOwnerID = hand.queenOfSpadesPlayerID
         tenOfDiamondsOwnerID = hand.tenOfDiamondsPlayerID
     }
 
@@ -146,7 +147,8 @@ struct RoundEntryState: Equatable {
         guard canSubmit(players: model.game.players, tenRuleOn: tenRuleOn) else { return false }
         model.addHand(
             pointsByPlayerID: points,
-            tenOfDiamondsPlayerID: tenRuleOn ? tenOfDiamondsOwnerID : nil
+            tenOfDiamondsPlayerID: tenRuleOn ? tenOfDiamondsOwnerID : nil,
+            queenOfSpadesPlayerID: queenOwnerID
         )
         return true
     }
@@ -160,6 +162,6 @@ extension RoundEntryState {
     func save(over handID: UUID, in model: GameViewModel) -> Bool {
         let tenRuleOn = model.settings.tenOfDiamondsMinus10
         guard canSubmit(players: model.game.players, tenRuleOn: tenRuleOn) else { return false }
-        return model.updateHand(id: handID, pointsByPlayerID: points, tenOfDiamondsPlayerID: tenOfDiamondsOwnerID)
+        return model.updateHand(id: handID, pointsByPlayerID: points, tenOfDiamondsPlayerID: tenOfDiamondsOwnerID, queenOfSpadesPlayerID: queenOwnerID)
     }
 }

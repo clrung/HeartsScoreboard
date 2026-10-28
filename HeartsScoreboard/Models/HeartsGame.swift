@@ -20,6 +20,9 @@ struct HeartsGame: Equatable, Codable {
         var createdAt: Date
         /// Player who took the 10♦ (Omnibus Hearts variant). Nil when the rule was off.
         var tenOfDiamondsPlayerID: UUID? = nil
+        /// Player explicitly selected as the Q♠ holder during entry. Optional because manual-score
+        /// rounds may not assign the card; legacy ownership also cannot be inferred reliably.
+        var queenOfSpadesPlayerID: UUID? = nil
     }
 
     /// Points awarded to whoever takes the 10♦ when the optional rule is on.

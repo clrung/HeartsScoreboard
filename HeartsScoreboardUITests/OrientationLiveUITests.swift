@@ -26,39 +26,39 @@ final class OrientationLiveUITests: XCTestCase {
         return app
     }
 
-    func testOrientationsAndScenarios() throws {
+    func testIPadEarlyLightOrientations() throws { try checkIPadScenario("early", dark: false) }
+    func testIPadEarlyDarkOrientations() throws { try checkIPadScenario("early", dark: true) }
+    func testIPadLongLightOrientations() throws { try checkIPadScenario("long", dark: false) }
+    func testIPadLongDarkOrientations() throws { try checkIPadScenario("long", dark: true) }
+
+    private func checkIPadScenario(_ scenario: String, dark: Bool) throws {
         guard UIDevice.current.userInterfaceIdiom == .pad else { return }
         let device = XCUIDevice.shared
         defer { device.orientation = .portrait }
-        for scenario in ["early", "long"] {
-            for dark in [false, true] {
-                let app = launch(scenario, dark: dark)
-                let tag = "\(scenario)-\(dark ? "dark" : "light")"
-                device.orientation = .landscapeLeft
-                Thread.sleep(forTimeInterval: 1)
-                shot("live-ipad-landscape-\(tag)")
-                let landscapeScoreboard = app.otherElements["pendingRow"].exists || app.staticTexts["emptyRoundsLabel"].exists
-                XCTAssertTrue(landscapeScoreboard, "pending row visible in landscape")
-                XCTAssertFalse(app.buttons["nextRoundButton"].exists, "iPad keeps round entry inline in landscape")
-                let landscapeSubmit = app.buttons["roundInput.submit"]
-                XCTAssertTrue(landscapeSubmit.waitForExistence(timeout: 5), "inline Submit stays visible in landscape")
-                XCTAssertLessThan(landscapeSubmit.frame.width, app.windows.firstMatch.frame.width * 0.6,
-                                  "landscape Submit belongs to the right-hand pane")
-                device.orientation = .portrait
-                Thread.sleep(forTimeInterval: 1)
-                shot("live-ipad-portrait-\(tag)")
-                // Stacked: the entry card sits below the scoreboard and spans (nearly) the full width.
-                let submit = app.buttons["roundInput.submit"]
-                XCTAssertTrue(submit.waitForExistence(timeout: 5))
-                let window = app.windows.firstMatch.frame
-                XCTAssertGreaterThan(submit.frame.width, window.width * 0.8, "Submit spans the stacked card")
-                let firstRow = app.otherElements["roundInput.row.0"]
-                if firstRow.exists { XCTAssertGreaterThan(firstRow.frame.width, window.width * 0.8) }
-                // Portrait: Submit is on screen (pinned footer) and not under the keyboard/overflowing.
-                XCTAssertLessThanOrEqual(submit.frame.maxY, window.maxY)
-                app.terminate()
-            }
-        }
+        let app = launch(scenario, dark: dark)
+        let tag = "\(scenario)-\(dark ? "dark" : "light")"
+        device.orientation = .landscapeLeft
+        Thread.sleep(forTimeInterval: 1)
+        shot("live-ipad-landscape-\(tag)")
+        let landscapeScoreboard = app.otherElements["pendingRow"].exists || app.staticTexts["emptyRoundsLabel"].exists
+        XCTAssertTrue(landscapeScoreboard, "pending row visible in landscape")
+        XCTAssertFalse(app.buttons["nextRoundButton"].exists, "iPad keeps round entry inline in landscape")
+        let landscapeSubmit = app.buttons["roundInput.submit"]
+        XCTAssertTrue(landscapeSubmit.waitForExistence(timeout: 5), "inline Submit stays visible in landscape")
+        XCTAssertLessThan(landscapeSubmit.frame.width, app.windows.firstMatch.frame.width * 0.6,
+                          "landscape Submit belongs to the right-hand pane")
+        device.orientation = .portrait
+        Thread.sleep(forTimeInterval: 1)
+        shot("live-ipad-portrait-\(tag)")
+        // Stacked: the entry card sits below the scoreboard and spans (nearly) the full width.
+        let submit = app.buttons["roundInput.submit"]
+        XCTAssertTrue(submit.waitForExistence(timeout: 5))
+        let window = app.windows.firstMatch.frame
+        XCTAssertGreaterThan(submit.frame.width, window.width * 0.8, "Submit spans the stacked card")
+        let firstRow = app.otherElements["roundInput.row.0"]
+        if firstRow.exists { XCTAssertGreaterThan(firstRow.frame.width, window.width * 0.8) }
+        // Portrait: Submit is on screen (pinned footer) and not under the keyboard/overflowing.
+        XCTAssertLessThanOrEqual(submit.frame.maxY, window.maxY)
     }
 
     func testPhoneLandscapeUsesFullWidthBoardAndRoundSheet() throws {

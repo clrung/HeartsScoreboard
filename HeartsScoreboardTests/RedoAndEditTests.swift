@@ -44,6 +44,59 @@ final class RedoAndEditTests: XCTestCase {
         XCTAssertNil(m.redo())
     }
 
+    func testQueenOwnerPersistsThroughAddEditUndoRedoAndSync() throws {
+        let m = makeModel(tenRule: true)
+        let p = ids(m)
+        var entry = RoundEntryState()
+        entry.points = pts(m, [13, 13, 0, 0])
+        entry.queenOwnerID = p[1]
+        entry.tenOfDiamondsOwnerID = p[2]
+        XCTAssertTrue(entry.submit(to: m))
+        let saved = try XCTUnwrap(m.game.hands.last)
+        XCTAssertEqual(saved.queenOfSpadesPlayerID, p[1])
+        XCTAssertEqual(saved.tenOfDiamondsPlayerID, p[2])
+
+        // Encode to a file and load it back, covering the persisted Codable payload used for iCloud.
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent("queen-hand-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+        let payload = SyncableState(game: m.game, settings: m.settings, firstDealerIndex: m.firstDealerIndex)
+        try JSONEncoder().encode(payload).write(to: fileURL)
+        let restoredState = try JSONDecoder().decode(SyncableState.self, from: Data(contentsOf: fileURL))
+        let restored = GameViewModel(initialState: restoredState)
+        restored.persistsToCloud = false
+        let restoredHand = try XCTUnwrap(restored.game.hands.last)
+        XCTAssertEqual(restoredHand.queenOfSpadesPlayerID, p[1])
+        XCTAssertEqual(restoredHand.tenOfDiamondsPlayerID, p[2])
+
+        var editing = RoundEntryState(hand: restoredHand, players: restored.game.players)
+        XCTAssertEqual(editing.queenOwnerID, p[1])
+        XCTAssertEqual(editing.tenOfDiamondsOwnerID, p[2])
+        editing.addQueenOfSpades(for: p[3])
+        XCTAssertTrue(editing.save(over: restoredHand.id, in: restored))
+        XCTAssertEqual(restored.game.hands.last?.queenOfSpadesPlayerID, p[3], "editing transfers the explicitly saved queen owner")
+        XCTAssertEqual(restored.game.hands.last?.tenOfDiamondsPlayerID, p[2])
+
+        XCTAssertEqual(restored.undoLastHand()?.queenOfSpadesPlayerID, p[3])
+        XCTAssertEqual(restored.redo()?.queenOfSpadesPlayerID, p[3])
+        let syncedData = try JSONEncoder().encode(SyncableState(game: restored.game, settings: restored.settings, firstDealerIndex: 0))
+        let synced = try JSONDecoder().decode(SyncableState.self, from: syncedData)
+        restored.applySyncedState(synced)
+        XCTAssertEqual(restored.game.hands.last?.queenOfSpadesPlayerID, p[3])
+        XCTAssertEqual(restored.game.hands.last?.tenOfDiamondsPlayerID, p[2])
+    }
+
+    func testLegacyHandWithoutQueenOwnerDecodesAsUnknown() throws {
+        let id = UUID()
+        let playerID = UUID()
+        let legacyJSON = """
+        {"id":"\(id.uuidString)","pointsByPlayerID":{"\(playerID.uuidString)":13},"notes":"","createdAt":0}
+        """.data(using: .utf8)!
+        let hand = try JSONDecoder().decode(HeartsGame.Hand.self, from: legacyJSON)
+        XCTAssertNil(hand.queenOfSpadesPlayerID)
+        let entry = RoundEntryState(hand: hand, players: [.init(id: playerID, name: "A")])
+        XCTAssertNil(entry.queenOwnerID, "legacy score data cannot identify which 13 points came from Q♠")
+    }
+
     func testUndoWithNothingReturnsNilAndRedoEmpty() {
         let m = makeModel()
         XCTAssertNil(m.undoLastHand())

@@ -572,9 +572,14 @@ struct RoundInputView: View {
                         tenOfDiamondsButton(for: player)
                     }
                 }
+                // A flow layout needs its final width while measuring. Without an explicit
+                // width, VStack can measure it at its ideal (single-row) size, then place it
+                // narrower and wrap the last chip without reserving the extra row height.
+                .frame(maxWidth: .infinity, alignment: .leading)
                 Text("Tap the player who took the 10♦. They get 10 points subtracted this round.")
                     .font(.footnote)
                     .foregroundStyle(Color.secondary)
+                    .accessibilityIdentifier("roundInput.ten.help")
             }
         }
     }
@@ -984,11 +989,15 @@ private struct FormPresentationSizing: ViewModifier {
 }
 
 /// Wraps children onto multiple lines; each child is proposed at most the container width so long names truncate.
-private struct FlowLayout: Layout {
+struct FlowLayout: Layout {
     var spacing: CGFloat = 8
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        arrange(width: proposal.width ?? .infinity, subviews: subviews).size
+        let result = arrange(width: proposal.width ?? .infinity, subviews: subviews)
+        // Keep the width the parent offered. Returning only the chips' used width can make
+        // SwiftUI place this layout in a narrower bounds than the width used to measure it;
+        // placement then wraps another chip row without the parent reserving its height.
+        return CGSize(width: proposal.width ?? result.size.width, height: result.size.height)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {

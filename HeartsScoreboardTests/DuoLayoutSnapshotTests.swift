@@ -47,7 +47,19 @@ final class DuoLayoutSnapshotTests: XCTestCase {
             pts[ps[0].id] = 26
             pts[ps[1].id] = 26 // sum is not required to be valid for display
             hs.append(.init(id: UUID(), pointsByPlayerID: pts, notes: "", createdAt: Date()))
-            for _ in 0..<4 { hs.append(hs[hs.count - 1]) }
+            // Repeat the scores to extend the visual history, but each rendered hand needs a stable,
+            // unique identity for the scorecard's ForEach.
+            for _ in 0..<4 {
+                let last = hs[hs.count - 1]
+                hs.append(.init(
+                    id: UUID(),
+                    pointsByPlayerID: last.pointsByPlayerID,
+                    notes: last.notes,
+                    createdAt: last.createdAt,
+                    tenOfDiamondsPlayerID: last.tenOfDiamondsPlayerID,
+                    queenOfSpadesPlayerID: last.queenOfSpadesPlayerID
+                ))
+            }
         }
         let game = HeartsGame(players: ps, hands: hs)
         return GameViewModel(initialState: SyncableState(

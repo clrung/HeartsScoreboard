@@ -135,6 +135,34 @@ final class TenBadgeUITests: XCTestCase {
         add(shot)
     }
 
+    func testWrappedTenPickerChipDoesNotOverlapHelpText() {
+        let locale = ProcessInfo.processInfo.environment["PICKER_LOCALE"]
+        for appearance in ["light", "dark"] {
+            let app = XCUIApplication()
+            app.launchArguments = ["-screenshotDemo", "-screenshotTenRule", "-screenshotPlayerCount", "4",
+                                  "-screenshotAppearance", appearance]
+            if let locale {
+                app.launchArguments += ["-AppleLanguages", "(\(locale))", "-AppleLocale", locale]
+            }
+            app.launch()
+            if app.buttons["nextRoundButton"].waitForExistence(timeout: 15), app.buttons["nextRoundButton"].isHittable {
+                app.buttons["nextRoundButton"].tap()
+            }
+
+            let lastPickerChip = app.buttons["roundInput.ten.Drew"]
+            let help = app.descendants(matching: .any)["roundInput.ten.help"]
+            XCTAssertTrue(scrollToReveal(lastPickerChip, in: app), "10♦ picker never became tappable (\(appearance))")
+            XCTAssertTrue(help.waitForExistence(timeout: 5), "10♦ picker help text is missing")
+            XCTAssertLessThanOrEqual(lastPickerChip.frame.maxY, help.frame.minY + 0.5,
+                                     "wrapped last chip overlaps the 10♦ picker help text (\(appearance))")
+            let shot = XCTAttachment(screenshot: app.screenshot())
+            shot.name = "ten-picker-\(appearance)-\(locale ?? "en")"
+            shot.lifetime = .keepAlways
+            add(shot)
+            app.terminate()
+        }
+    }
+
     /// The entry list's scroll view (sheet, or the inline card once it outgrows the pane); absent when the inline card hugs.
     private func entryScroll(_ app: XCUIApplication) -> XCUIElement { app.scrollViews["roundInput.scroll"] }
 

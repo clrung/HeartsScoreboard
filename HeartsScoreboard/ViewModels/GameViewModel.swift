@@ -186,7 +186,7 @@ final class GameViewModel {
 
     /// - Parameter pointsByPlayerID: hearts/Q♠ points per player (without the 10♦ bonus).
     /// - Parameter tenOfDiamondsPlayerID: player who took the 10♦ when the rule is on; their -10 is folded into the stored points.
-    func addHand(pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) {
+    func addHand(pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil, queenOfSpadesPlayerID: UUID? = nil) {
         localRoundToken += 1
         redoStack.removeAll()
         game.hands.append(
@@ -198,7 +198,8 @@ final class GameViewModel {
                 ),
                 notes: "",
                 createdAt: Date(),
-                tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
+                tenOfDiamondsPlayerID: tenOfDiamondsPlayerID,
+                queenOfSpadesPlayerID: queenOfSpadesPlayerID
             )
         )
         reconcileArchivedGame()
@@ -211,11 +212,12 @@ final class GameViewModel {
     /// the archived history entry is kept in step. Returns false (changing nothing) when rejected.
     /// - Parameter pointsByPlayerID: hearts/Q♠ points per player (without the 10♦ bonus), as for `addHand`.
     @discardableResult
-    func updateHand(id: UUID, pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil) -> Bool {
+    func updateHand(id: UUID, pointsByPlayerID: [UUID: Int], tenOfDiamondsPlayerID: UUID? = nil, queenOfSpadesPlayerID: UUID? = nil) -> Bool {
         guard let index = game.hands.firstIndex(where: { $0.id == id }) else { return false }
         let playerIDs = game.players.map(\.id)
         guard HeartsGame.isValidRound(penaltyScores: playerIDs.map { pointsByPlayerID[$0] ?? 0 }) else { return false }
         if let holder = tenOfDiamondsPlayerID, !playerIDs.contains(holder) { return false }
+        if let holder = queenOfSpadesPlayerID, !playerIDs.contains(holder) { return false }
         if settings.tenOfDiamondsMinus10 && tenOfDiamondsPlayerID == nil { return false }
 
         var penalty: [UUID: Int] = [:]
@@ -225,6 +227,7 @@ final class GameViewModel {
             tenOfDiamondsPlayerID: tenOfDiamondsPlayerID
         )
         game.hands[index].tenOfDiamondsPlayerID = tenOfDiamondsPlayerID
+        game.hands[index].queenOfSpadesPlayerID = queenOfSpadesPlayerID
         redoStack.removeAll()
         reconcileArchivedGame()
         persistToCloud()

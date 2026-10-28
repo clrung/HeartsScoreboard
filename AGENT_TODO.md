@@ -6,7 +6,7 @@
 - [x] The selected queen owner's minimum is 13 for steppers, exact-value selection, keyboard digits and Delete. The picker disables 0–12, and the minus button disables at 13. Over-26 entries preserve points during transfers and decrement one point at a time instead of silently dropping an overage.
 - [x] Moon entry clears the old queen selection; round validation requires exact moon distributions rather than accepting any scores with a moon's total. Regression coverage includes transfer/removal, keyboard parity, the score floor, overages, and the 10♦ bonus.
 - [x] Verification: 48 unit regressions passed (`/private/tmp/hs-queen-unit-final.xcresult`); 10 UI checks passed across iPhone 18 Pro and iPad Pro 13-inch (M5), iOS 27.0, light/dark. Picker and transfer screenshots reviewed in all four combinations; `simctl` captures saved too. Results/logs under `/private/tmp/hs-queen-*`, screenshots in `/private/tmp/hs-queen-shots/`. Screenshot identifiers and `git diff --check` pass. Initial simulator accessibility startup/service interruptions occurred before assertions; successful retries are `hs-queen-iphone-light-retry` and `hs-queen-ipad-light-retry`.
-- [ ] Existing-history limitation: saved hands do not record the Q♠ owner, so edit mode cannot reconstruct an ambiguous queen assignment from scores alone. Recording it would require a separate persistence change; this fix preserves the current edit prefill behavior.
+- [x] Added optional `Hand.queenOfSpadesPlayerID` (2026-10-27). New rounds preserve explicitly selected ownership across saved-file loading, edit/transfer, undo/redo and sync. Older hands and manually entered scores without a Q♠ selection remain unknown; ownership cannot be reconstructed from scores alone. Regression coverage in `RedoAndEditTests`. Verification is recorded in the orchestration pass below.
 
 ## iPhone landscape scoreboard (2026-10-27)
 
@@ -18,16 +18,28 @@
 - [x] iPad Pro 13-inch (M5) light/dark screenshots reviewed: existing inline landscape and stacked portrait layouts preserved. Captures: `/private/tmp/hs-ipad-layout-shots`.
 - [ ] Simulator-only verification follow-up: `OrientationLiveUITests.testOrientationsAndScenarios` passed its layout assertions for early light/dark and long light, then failed in `app.terminate()` (no layout assertion failure), before the last long/dark case. Log: `/private/tmp/hs-phone-landscape-ipad.log`. Several phone test preparations also stalled; the final dark phone retry passed after startup completed and idle simulators were closed.
 
-## Next up (ranked, /next 2026-10-26)
-0. [ ] **Real-device verification of the iPad redesign** (M): build 11 (iPad redesign) uploaded to TestFlight 2026-10-27 (5ddba0a). Verify on device: hardware keyboard shortcuts, sheet keyboard path, shake-to-undo, partial-fold Duo. If it holds up, attach build 11 to 4.0.0 instead of build 10 (item 1).
+## Current priorities (orchestrated 2026-10-27)
+
+Scope confirmed by user: fix bugs, complete verification and clean up this ledger; keep Widget / Live Activity and localized App Store screenshots deferred. GPT-6 Luna subagents own picker layout, queen metadata, and share/orientation verification.
+
+1. Fix and verify the reported wrapped 10♦ picker/help overlap (see stability follow-up below).
+2. Preserve Q♠ ownership for new saved rounds, retaining backward compatibility with old saves.
+3. Finish share/export and orientation simulator checks; distinguish automation failures from app failures.
+4. Physical-device release checks: user offered to help. Pending results for iPad keyboard, sheet dismissal/shake, VoiceOver, and Duo partial fold. Native-language review still needs speakers; automated translation review cannot close it.
+5. Release decision: build 13 is the latest confirmed TestFlight upload. After device checks, choose the release build and refresh Duo-open screenshots in DeviceHub. App Store submission remains the user's action. Changes in this pass require a new build before release.
+
+Completed housekeeping: removed the two remaining explicitly named throwaway simulators (`chips-se` and `bar-ipad`); the other named chips simulators were already absent. Preserved screenshot and general-purpose simulators.
+
+## Previous ranking (2026-10-26; superseded by current priorities)
+0. [ ] **Real-device verification of the iPad redesign** (M): use the latest confirmed TestFlight upload, build 13. Verify hardware keyboard shortcuts, sheet keyboard path, shake-to-undo, VoiceOver and partial-fold Duo. User offered to perform checks; results pending.
 Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip replaces −10 badge, build 8). Working tree clean except `scripts/fix_ctx_keys.py`.
 
-1. [ ] **Ship 4.0.0 build 10** (S): build 10 uploaded to TestFlight 2026-10-26 (3e4ff83); attach it to the 4.0.0 version in App Store Connect, submit for review (the user submits). Everything since build 4 is unreleased.
+1. [ ] **Ship 4.0.0 after device verification**: build 13 supersedes builds 10/11. This pass adds changes that need a new tested upload before release. Confirm the selected build in App Store Connect; the user submits for review.
 2. [x] **Verify round entry at the edges** (done 2026-10-26: SE 375pt, 6 players, AX sizes, light/dark; iPhone 18 Pro 402pt rechecked): iPhone SE width, 6 players, and AX Dynamic Type with the 10♦ chip. These are the open items from the build-8 work, and that layout code is the newest.
 3. [ ] **Device checks** (M, needs hardware; also verify the iPad redesign, see section at the bottom): shake-to-undo after closing each sheet (the 0.5s refocus is a guess), VoiceOver flow, edit-round sheet, keyboard shortcuts and hover on iPad, partial fold on Duo.
 4. [x] **Unused-string cleanup** (done 2026-10-26): removed 10 unused keys from all 75 locales ("Time", "No completed games yet.", 4× "Pass: … ←", "Undo last round" + its message, "10 of Diamonds", "More"). `scripts/fix_ctx_keys.py` (already applied) is still untracked: commit or delete it.
 5. [x] **Translation quality** (done 2026-10-26, LLM review; no native speakers yet): six Sonnet reviewers went through every Localizable/InfoPlist value in 73 locales against a domain glossary (~2,400 values changed). They fixed wrong-sense "Pass" (walk past), "Dealer" (merchant), "Player" (media player), "Round" (circle shape), "photograph the moon", reversed "%d wins in %d games" (ja, ko, my, kk, mn, az, uz, ur, am, sw, tr), phonetic English, leftover Simplified Chinese in zh-Hant, and Brazilian Portuguese in pt-PT. `sr` was rewritten; sr-Latn is now generated from it by transliteration (`scripts/sr_latn_from_sr.py`; rerun after editing sr). Regression tests: `testSerbianLatinHasNoCyrillic`, `testTurkishWinsInGamesKeepsArgumentOrder`. Per-batch logs with an "uncertain" list each: scratchpad `l10n-review-*.md` (not in the repo). Still worth a native check: the "shoot the moon" idiom (mostly literal), the new dealer words and one-letter D badges, and "Hold" phrasing.
-6. [ ] Small polish (S each): dark-mode More/Undo chips near-black; pass-direction pill truncates at XXXL on iPhone Air; bottom-bar chip height magic number; [x] `%d rounds` isn't pluralized (stringsdict) (Done 2026-10-26: one key `%lld rounds` with CLDR plural forms in `Localizable.stringsdict` for all 75 locales, generated by `scripts/generate_plural_stringsdict.py`; old `%d rounds`/`%lld rounds`/`1 round` .strings keys removed; tests in `PluralRoundsTests`; forms are LLM-generated, native check pending); delete throwaway simulators.
+6. [x] Small polish: dark-mode More/Undo chips, pass-direction truncation and bottom-bar chip heights fixed 2026-10-26 (details below); [x] `%d rounds` isn't pluralized (stringsdict) (Done 2026-10-26: one key `%lld rounds` with CLDR plural forms in `Localizable.stringsdict` for all 75 locales, generated by `scripts/generate_plural_stringsdict.py`; old `%d rounds`/`%lld rounds`/`1 round` .strings keys removed; tests in `PluralRoundsTests`; forms are LLM-generated, native check pending); named throwaway simulator cleanup completed 2026-10-27.
 7. [ ] Deferred: localized App Store screenshots; Widget / Live Activity.
 
 ## Appearance picker didn't restyle the board (fixed 2026-10-26, uncommitted)
@@ -109,7 +121,7 @@ Completed since last pass: d9ce187 (round-entry totals centered, 10♦ chip repl
 ### Duo wide layout (2026-10-24, uncommitted)
 - [x] GameView: `horizontalSizeClass == .regular` -> `splitLayout` (scoreboard left, inline `RoundInputView` right, gap centered on the fold, max width 1200); Next Round button hidden; game over shows trophy + status in the right pane.
 - [ ] Unfolded Duo checked by the user in DeviceHub and captured in screenshots; partial-fold posture still unverified. (Was: simctl cannot fold/unfold (inner display stays black; powering the outer screen off crashes SpringBoard). Verified on iPad Pro 13" (regular/regular) instead. Verify on hardware / DeviceHub UI.
-- [ ] iPad landscape (1376pt wide, hits the 1200 cap) not screenshotted: simctl has no rotate command.
+- [x] iPad landscape light/dark screenshots reviewed 2026-10-27; see iPhone landscape scoreboard section. Live orientation regression follow-up remains tracked separately.
 
 ### Build gotcha (2026-10-24)
 - `xcodebuild` hung indefinitely with no output (blocked in `NSFileCoordinator` reading the .xcodeproj) while Xcode.app had the project open after `xcodegen generate` rewrote it. Quitting Xcode fixed it. If a CLI build hangs before any build output, check for an open Xcode first.
@@ -152,7 +164,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 
 ## Screenshot pipeline (2026-10-24, uncommitted)
 - Added `scripts/screenshots.sh`, `scripts/strip_alpha.swift`, `HeartsScoreboardUITests` + scheme `HeartsScoreboardScreenshots`, DEBUG-only `ScreenshotDemo`.
-- [x] (Done 2026-10-24: captured via DeviceHub; inner display needs SCREENSHOT_LARGEST_SCREEN.) `duo-open` never run: needs a human to unfold the Duo in DeviceHub; inner-display capture via XCUIScreen unverified.
+- [x] Initial `duo-open` set captured via DeviceHub 2026-10-24 (`SCREENSHOT_LARGEST_SCREEN` for inner display). Regeneration after the iPad redesign remains open below; DeviceHub requires a human to unfold the Duo.
 - [ ] Only the Duo device type exists on the iOS 27.1 runtime; other devices run on iOS 27.0 (dedicated "HS Screenshots ..." sims). Revisit when 27.1 supports iPhone/iPad.
 - [ ] Non-English locales untested: UI tests use identifiers, but demo player names / dates are English-only and Apple-locale rendering of the fixed dates is unchecked.
 - [x] (Done: deleted, README points at new folders.) Old `screenshots/iOS` (1284x2778) and `screenshots/iPadOS` (2048x2732) are stale sizes; decide whether to delete and update the README Screenshots section to the new folders.
@@ -171,7 +183,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 ### Follow-ups found during implementation
 - [x] (Done: gated on GameViewModel.localRoundToken; regression test in UndoTests.) Round-added haptic/announcement also fires when a single round arrives via iCloud sync (bulk restores are filtered by `new == old + 1`). Could gate on a local-submit token.
 - [x] (Done 2026-10-26.) Unused keys left in all locales: "Time", "No completed games yet."; "Winner" is still used.
-- [ ] `%d rounds` isn't pluralized (stringsdict); harmless today (finished games always have >1 round).
+- [x] Pluralization fixed 2026-10-26 via `%lld rounds` stringsdict in all 75 locales; see ranked item 6 and `PluralRoundsTests`.
 - [x] (Fixed 2026-10-26.) sr-Latn Localizable.strings was actually Cyrillic.
 - [x] (Done: extracted into private ViewModifiers in GameView.swift.) GameView `body` modifier chain is near the type-checker limit; adding modifiers there tripped "unable to type-check in reasonable time". Extract into ViewModifiers before adding more.
 - [x] (Done: header dropped.) Settings: "Ending Score" section header + "Ending Score: 100" row duplicate (pre-existing, Tier 3 regroup).
@@ -189,7 +201,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 - [x] (Done: ViewThatFits compact layout.) Game-over card in the split layout on a landscape unfolded Duo clips the 4th standings row (scrolls); consider a compact row height there.
 - [x] (Removed 2026-10-26.) Unused after header redesign: "Pass: Left ←"-style keys and the "Hearts Scoreboard" title in GameView (verify with grep before removing in the unused-keys cleanup).
 - [x] (Checked 2026-10-26; findings in "## RTL audit (2026-10-26)" below.) Header/scoreboard redesign not checked in RTL, and the dark-mode 26 tint / empty-state "No rounds yet" have no snapshot.
-- [ ] Check in the running app: edit-round sheet layout (snapshot harness squeezes sheets), shake-to-undo + toast, toast over the stacked bottom bar at accessibility sizes, VoiceOver flow. In edit mode the per-player total badges still include the round being edited.
+- [ ] Check in the running app: edit-round sheet layout (snapshot harness squeezes sheets), shake-to-undo + toast, toast over the stacked bottom bar at accessibility sizes, VoiceOver flow. Edit-mode totals were fixed separately (see next completed item); do not treat that historical observation as an open bug.
 - [x] (Removed 2026-10-26.) Unused keys now: "Undo last round" alert strings.
 
 - [x] (Done 2026-10-25: HeartsGame.totals(excluding:), snapshot cases added.) Edit mode totals included the edited round; empty board / dark 26 highlight / Increase Contrast snapshots.
@@ -211,7 +223,7 @@ Verified: no haptics anywhere; no `AccentColor` in asset catalog (only AppIcon);
 
 - [x] (Done 2026-10-26: `PassDirectionChip` is a ViewThatFits, full word else arrow-only, with the spoken title kept as the accessibility label.) Main-screen pass-direction pill truncates to "← L…" at XXXL Dynamic Type on iPhone Air (pre-existing; seen while verifying bottom-bar heights).
 - [x] Bottom-bar chip height uses `@ScaledMetric` 35pt tuned to match Next Round; at XXXL the chips run a few pt taller than Next Round. A layout-driven equal height (shared `maxHeight: .infinity` + `fixedSize(vertical:)`) would remove the magic number. (Done 2026-10-26: the scaled metric is gone; chips use `minHeight: 44, maxHeight: .infinity` and the bar HStack is `fixedSize(vertical:)`. Regression: `DuoLayoutSnapshotTests.testPolish*` measure chip vs Next Round pixels at default and XXXL.)
-- [ ] Throwaway simulators created during this work (chips-air, chips-ipad, chips-se, chips-16e, plus the bottom-bar agent's Air/iPad Pro 13") can be deleted with `xcrun simctl delete`.
+- [x] Named throwaway simulator cleanup completed 2026-10-27: removed remaining `chips-se` and `bar-ipad`; other named chips simulators were already absent. General-purpose and screenshot devices retained.
 - [x] 10♦ "−10" badge over the holder's score was clipped at the top on iPad Pro 11" (inline rows, 2pt row inset): it was offset −16pt above the score. Now it sits inside the score's 44pt tap frame. Regression: `HeartsScoreboardUITests/TenBadgeUITests` (DEBUG launch flag `-screenshotTenRule`). The row's accessibility frame grows to include overflow, so the test compares against the stepper's minus button. It fails on the old code (badge 5.5pt above the row).
 
 ## Round entry alignment + 10♦ chip (2026-10-26, build 8)
@@ -265,7 +277,7 @@ Plan, decisions, per-phase notes: `docs/plans/ipad-redesign.md`. All five phases
 
 - [x] Fixed: moving or clearing the 10♦ holder indicator changed the name line's available width and height, which shifted the row. `RoundInputView.identity` now gives every player an intrinsic-size badge slot with a hidden copy of the chip whenever the rule is enabled; only the holder's visible copy is accessible. `TenBadgeUITests.testMovingTenBadgeDoesNotChangePlayerRowLayout` compares name, total, row, stepper and quick-chip positions and sizes relative to the first row, with no holder, a long-name holder, a moved holder and a cleared holder. Verified on iPhone 17 Pro Max and iPad Pro 13-inch (M5), iOS 27.0: movement and containment regressions pass in light mode; containment passes in dark mode (6 successful test cases). Light/dark screenshots reviewed. Results and screenshots: `/private/tmp/hs-ten-*`. The first new-simulator attempt timed out waiting for accessibility before any tests; the retry passed. Optional screenshot/hold environment: `SHOT_DIR`, `HOLD_BADGE_SECONDS`, `CHIP_APPEARANCE`.
 
-- [ ] Follow-up observed during badge verification: the 4-player iPhone dark-mode containment-test screenshot shows the 10♦ picker’s wrapped Drew chip overlapping its help text. Reproduce after the layout settles and inspect `FlowLayout` sizing; this is outside the player-name badge slot change. Screenshot: `/private/tmp/hs-ten-iphone-dark-attachments/27D856BC-95C4-41BB-876B-B94BF9904A54.png`.
+- [x] Fixed in the orchestration pass below: `FlowLayout` returned a compressed width after measuring at the larger proposed width; placement could wrap Drew into unreserved space over the help text. Preserve the proposed width and expand the picker container. Original screenshot: `/private/tmp/hs-ten-iphone-dark-attachments/27D856BC-95C4-41BB-876B-B94BF9904A54.png`. Unit and live UI regressions added.
 
 ## History detail share export (2026-10-27)
 
@@ -273,4 +285,16 @@ Plan, decisions, per-phase notes: `docs/plans/ipad-redesign.md`. All five phases
 - [x] Shares export a PNG file named `Hearts-Scoreboard-YYYY-MM-dd-HHmm.png`; each export has a unique temporary folder so repeated shares on the same date do not replace an in-flight file.
 - [x] Regression coverage checks descriptive local-time filenames, PNG encoding, and rendering a six-player history with long names and 100 rounds within the pixel budget. `HistoryShareUITests` covers opening the history share sheet in light and dark appearance.
 - [x] Verification: simulator build and all 6 `ResultCardTests` pass, including named PNG encoding and six-player / 100-round export; screenshot identifier check passes. Actual four-player exported PNG and chart visually reviewed at `/private/tmp/hs-history-share-preview.png`; snapshots at `/private/tmp/hs-history-share-images`, unit result `/private/tmp/hs-history-share-unit3.xcresult`. Export width adapts to player count (528–708pt including padding), and renderer measures layout before applying a 32MP pixel budget.
-- [ ] UI verification incomplete: iPhone dark history/share preview visually inspected. Initial UI checks needed updates because iOS 27 exposes “View More” as a cell; updated `HistoryShareUITests` expands it and checks Save Image plus the suggested filename in Save to Files. Subsequent runs stalled connecting/navigating in simulator automation, including after restarting dedicated simulators. iPad light/dark and the final system filename-dialog assertion remain unverified. Logs/results: `/private/tmp/hs-history-share-iphone*`, `/private/tmp/hs-history-share-ipad*`, `/private/tmp/hs-history-share-final*`.
+- [ ] UI verification partly complete (orchestration pass): corrected iPhone dark flow passes through Save to Files and the suggested filename (`/private/tmp/hs-orch-share-iphone-dark.xcresult`). Save Image is absent on this simulator; do not require that optional action. Files truncates the accessible name, so UI checks its stable prefix and unit tests check the complete PNG filename. An intermediate iPad extension assertion failed and was corrected; final iPad light/dark reruns stalled before completion. Keep those checks open; old logs/results under `/private/tmp/hs-history-share-*`, current ones under `/private/tmp/hs-orch-share-*`.
+
+## Orchestration bug-fix pass (2026-10-27)
+
+- [x] Persist optional Q♠ ownership; legacy payloads remain decodable. Regression includes persisted sync payload with the 10♦ holder, edit transfer, undo/redo and legacy JSON.
+- [x] Fix 10♦ picker measurement/placement mismatch: `FlowLayout` preserves the proposed width so an extra wrapped chip cannot occupy unreserved height over the help text. Focused phone UI regression passed; deterministic layout-width regression added.
+- [x] Fix brittle history share test: the tested system sheet shows Save to Files but no Save Image. Check the exported filename using Save to Files; Files truncates its accessible suggestion, so the UI checks its prefix; `ResultCardTests` cover the full `.png` filename and encoding. The corrected iPhone dark end-to-end flow passed (`/private/tmp/hs-orch-share-iphone-dark.xcresult`).
+- [x] Split the iPad orientation matrix into independent tests, preserving layout assertions and removing the historical explicit termination loop that failed before the final case.
+- [x] Fixed duplicate hand IDs in game-over snapshot fixtures: repeated score rows now have distinct UUIDs, removing undefined SwiftUI ForEach identity. The earlier 50 Duo cases passed; rerun the changed fixture in the focused regression set.
+- [ ] Verification remains open: the recovered unit run passed 106 tests before cancellation in the 162-image iPad matrix (`/private/tmp/hs-orch-unit-dd/Logs/Test`, run 19-02-16). Current app/test targets compile, but the rebuilt focused queen-persistence/FlowLayout/game-over/export regression run stalled before producing results (`/private/tmp/hs-orch-focused.xcresult` incomplete). Do not count the new queen persistence or layout-width regression as passed. Phone dark and iPad dark picker regressions passed in earlier focused runs; final light/dark matrix, iPad share and isolated long/dark orientation still need completion. Simulator startup stalls persisted across retries; no new app assertion failure was established by those stalls.
+- [ ] User physical-device checklist pending; no native-language reviewer available in this pass. Keep hardware/native review, manual Duo screenshot refresh and release selection open. Deferred features remain deferred by user decision.
+
+- Final simulator handoff: resumed focused picker/iPad-share runs compiled but stalled before assertions and were interrupted; no additional passes claimed. Existing iPhone dark and iPad light/dark picker captures were visually reviewed; phone light final capture is missing (available candidate was Home Screen). New iPad share screenshots and isolated long/dark orientation remain open. Direct Device Hub UI fallback also timed out. Use one warmed simulator for the next verification attempt; avoid parallel cold starts.

@@ -408,5 +408,18 @@ final class IPadLayoutSnapshotTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(size.width, 342,
                                     "six 44pt cells, five 6pt gaps, and 24pt side insets must retain their full width")
     }
+
+    func testFlowLayoutKeepsProposedWidthWhenChildrenWrap() {
+        let host = UIHostingController(rootView: FlowLayout(spacing: 8) {
+            Text("A").frame(width: 80, height: 44)
+            Text("B").frame(width: 80, height: 44)
+            Text("C").frame(width: 80, height: 44)
+        })
+        let size = host.sizeThatFits(in: CGSize(width: 180, height: 300))
+        XCTAssertEqual(size.width, 180, accuracy: 0.5,
+                       "FlowLayout must preserve the parent's width so placement cannot wrap into unreserved rows")
+        XCTAssertGreaterThanOrEqual(size.height, 96,
+                                    "three 44pt children at 80pt each wrap to two rows with 8pt spacing")
+    }
 }
 #endif
